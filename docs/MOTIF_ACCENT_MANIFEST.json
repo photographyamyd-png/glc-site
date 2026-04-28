@@ -1,0 +1,100 @@
+{
+  "version": "2026-04-25",
+  "canonicalAssetBasePath": "/images/Accents-and-Motifs",
+  "additiveAssetBasePaths": ["/motifs"],
+  "transferSpecAliasAssetBasePath": "/images/motifs",
+  "componentLibrary": {
+    "path": "/components/motifs/GlcMotifs.tsx",
+    "barrelPath": "/components/motifs/index.ts",
+    "mode": "additive"
+  },
+  "uiGeometryLibrary": {
+    "path": "/components/motifs/TruckGeometryUiKit.tsx",
+    "mode": "additive",
+    "primitives": ["LogoMark", "AngleCorner", "AngleAccent"],
+    "composed": [
+      "TruckCard",
+      "TruckButton",
+      "TruckSection",
+      "TruckNavbar",
+      "TruckHero",
+      "TruckPricingCard",
+      "TruckGeometryDemo"
+    ]
+  },
+  "families": {
+    "hero": {
+      "classes": ["hero-v2__diag-stripe", "hero-v2__ghost-mark", "hero-v2__ghost-mark-img", "hero-v2__vert-label"],
+      "allowedTemplates": ["hero"],
+      "allowedContexts": ["homepage-hero", "flagship-service-hero"]
+    },
+    "featured": {
+      "assetFiles": [
+        "/images/Accents-and-Motifs/watermarks/glc-wm-03-horizontal-stack.svg",
+        "/images/Accents-and-Motifs/watermarks/glc-accent-shards-01.svg"
+      ],
+      "behaviors": ["motifOffset-pointer-drift"],
+      "allowedTemplates": ["featured"],
+      "allowedContexts": ["premium-showcase"]
+    },
+    "about": {
+      "classes": ["ab3__wm"],
+      "allowedTemplates": ["about"],
+      "allowedContexts": ["brand-story"]
+    },
+    "why": {
+      "classes": ["why3__ghost-num"],
+      "allowedTemplates": ["why"],
+      "allowedContexts": ["ordered-reasoning"]
+    },
+    "process": {
+      "classes": ["proc3__heading-accent", "proc3__count-mark", "proc3__thread"],
+      "allowedTemplates": ["process"],
+      "allowedContexts": ["timeline-sequence"]
+    },
+    "cta": {
+      "classes": ["cta3__diag", "cta3__eyebrow-line", "cta3__divider", "cta3__bottom-bar"],
+      "allowedTemplates": ["cta"],
+      "allowedContexts": ["conversion-endband"]
+    },
+    "stats": {
+      "classes": ["st3__side-label"],
+      "allowedTemplates": ["stats"],
+      "allowedContexts": ["metrics-data"]
+    },
+    "truckGeometry": {
+      "classes": ["truck-angle-corner", "truck-angle-accent", "truck-logo-watermark"],
+      "allowedTemplates": ["hero", "featured", "cta", "cards", "navigation"],
+      "allowedContexts": ["ui-geometry", "conversion", "brand-reinforcement"]
+    }
+  },
+  "antiOveruseRules": {
+    "maxAccentFamiliesPerPage": 3,
+    "maxGhostSystemsPerPage": 2,
+    "maxPointerReactiveMotifsPerPage": 1,
+    "minCleanSectionRatio": 0.5,
+    "maxDominantDiagonalSystemsPerPage": 1,
+    "maxVerticalSideLabelsPerPage": 2,
+    "maxTruckCornerDensityPerCluster": 0.6,
+    "maxTruckLogoWatermarkOpacity": 0.12,
+    "numericGhostContextsOnly": ["why", "process", "stats"],
+    "aboutGhostContextsOnly": ["about", "brand-story"],
+    "avoidAdjacentIdenticalOversizedGhostMotifs": true,
+    "coordinatesSpecAllowed": false
+  },
+  "requiredTemplates": ["hero", "featured", "about", "why", "process", "stats", "cta"],
+  "auditFields": [
+    "accentFamiliesUsed",
+    "accentFamilyCount",
+    "ghostSystemsUsed",
+    "ghostSystemCount",
+    "pointerReactiveSystemsUsed",
+    "pointerReactiveCount",
+    "cleanSectionCount",
+    "totalSectionCount",
+    "cleanSectionRatio",
+    "contextMisuseFindings",
+    "adjacentDuplicationRisk",
+    "missingAssets"
+  ]
+}

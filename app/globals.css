@@ -1,0 +1,837 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+/*
+ ---break---
+ */
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Stakeholder tokens + Prime Directive canvas (#FAFAFA).
+ * Display: Oswald (mapped to legacy font-serif utilities). Body: Barlow. Labels: Barlow Condensed.
+ */
+:root {
+  /* Accent: aligned with glc-site `glc-base.css` (--yellow-core #F2B705) */
+  --yellow-core: #f2b705;
+  --yellow-dark: #c99804;
+  --y: var(--yellow-core);
+  --yellow-tint: rgb(242 183 5 / 0.08);
+  --yellow-tint-md: rgb(242 183 5 / 0.14);
+  --yellow-tint-strong: rgb(242 183 5 / 0.15);
+  --color-accent-primary: var(--y);
+
+  --ink-deep: #1e1c1a;
+  --ink-mid: #2e2b28;
+  --ink-warm: #585653;
+  --w: #ffffff;
+
+  --g100: rgb(30 28 26 / 0.06);
+  --g200: rgb(30 28 26 / 0.12);
+  --t600: rgb(30 28 26 / 0.9);
+  --t500: rgb(30 28 26 / 0.8);
+  --t400: rgb(30 28 26 / 0.55);
+
+  --brand-white: var(--w);
+  --brand-canvas: #fafafa;
+  --gl-forest: #2c4a38;
+  --gl-soil: #6b5344;
+  --gl-ink: #1a1f1c;
+
+  --brand-yellow-bright: var(--yellow-core);
+  --brand-yellow-mid: #d9a304;
+  --brand-yellow-deep: #9a7205;
+  --brand-black: #0d0d0d;
+  --brand-charcoal: var(--ink-mid);
+  --brand-charcoal-deep: var(--ink-deep);
+  --brand-gray: var(--ink-warm);
+  --charcoal-deep: #111111;
+  --charcoal-mid: #1e1e1e;
+  --charcoal-surf: #2a2a2a;
+
+  --canvas: var(--brand-canvas);
+  --ink: var(--ink-deep);
+  --ink-muted: var(--t400);
+  --structural: var(--ink-mid);
+
+  --accent-from: #fde8a8;
+  --accent-to: #c49304;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --s1: 8px;
+  --s2: 16px;
+  --s3: 24px;
+  --s4: 32px;
+  --s5: 40px;
+  --s6: 48px;
+  --s7: 56px;
+  --s8: 64px;
+  --s9: 72px;
+  --s10: 80px;
+  --s12: 96px;
+  --s14: 112px;
+
+  --max: 1320px;
+  --max-bleed: 1440px;
+  --header: 80px;
+  --site-header-offset: 106px;
+
+  --dna-space-1: 4px;
+  --dna-space-2: 8px;
+  --dna-space-3: 12px;
+  --dna-space-4: 16px;
+  --dna-space-6: 24px;
+  --dna-space-8: 32px;
+  --dna-space-12: 48px;
+  --dna-space-16: 64px;
+
+  /* Anti-standard offsets — intentional misalignment / bleed; see GLC_GLOBAL_DESIGN_SYSTEM.md Part 3 (C4) and Part 4.4 (structure-only: design-references 04–05). */
+  --dna-stagger-sm: -2rem;
+  --dna-stagger-md: -4rem;
+  --dna-stagger-lg: -8rem;
+
+  /* Machined depth token — use with .bespoke-surface or compose in panel utilities. */
+  --machined-edge:
+    inset 0 1px 1px 0 rgb(255 255 255 / 0.1), 0 20px 50px -12px rgb(0 0 0 / 0.2);
+
+  /* Backdrop stack for glass surfaces (full backdrop-filter value). */
+  --glass-depth: blur(12px) saturate(180%);
+
+  /* shadcn semantic tokens — mapped to GLC baseline (GLC_MASTER_RULES.md Part 3.3) */
+  --background: var(--canvas);
+  --foreground: var(--ink);
+  --card: var(--w);
+  --card-foreground: var(--ink);
+  --popover: var(--w);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink-deep);
+  --primary-foreground: var(--brand-white);
+  --secondary: var(--g100);
+  --secondary-foreground: var(--ink);
+  --muted: var(--g100);
+  --muted-foreground: var(--ink-muted);
+  --accent: var(--yellow-tint);
+  --accent-foreground: var(--ink-deep);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: var(--g200);
+  --input: var(--g200);
+  --ring: var(--y);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0;
+  --sidebar: var(--canvas);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink-deep);
+  --sidebar-primary-foreground: var(--brand-white);
+  --sidebar-accent: var(--yellow-tint);
+  --sidebar-accent-foreground: var(--ink-deep);
+  --sidebar-border: var(--g200);
+  --sidebar-ring: var(--y);
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-structural: var(--structural);
+  --color-brand-white: var(--brand-white);
+  --color-brand-black: var(--brand-black);
+  --color-brand-charcoal: var(--brand-charcoal);
+  --color-brand-charcoal-deep: var(--brand-charcoal-deep);
+  --color-gl-forest: var(--gl-forest);
+  --color-gl-soil: var(--gl-soil);
+  --color-gl-ink: var(--gl-ink);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-barlow), system-ui, sans-serif;
+  /* Headings in codebase use font-serif — map to Oswald (stakeholder display). */
+  --font-serif: var(--font-oswald), system-ui, sans-serif;
+  --font-heading: var(--font-oswald), system-ui, sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-barlow), system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-oswald), system-ui, sans-serif;
+}
+
+.font-label {
+  font-family: var(--font-barlow-condensed), system-ui, sans-serif;
+}
+
+/* Vertical band rhythm: dark ↔ light fields (structural ink vs canvas). Adjacency: GLC_GLOBAL_DESIGN_SYSTEM.md Part 5 (D1–D2). */
+.section-major {
+  padding-top: var(--s9);
+  padding-bottom: var(--s12);
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.section-major.band-light {
+  background: var(--canvas);
+  border-top: 1px solid var(--g200);
+  color: var(--ink-deep);
+}
+
+.section-major.band-dark {
+  background: var(--ink-deep);
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+  color: rgb(250 249 247);
+}
+
+.band-dark-field {
+  background: var(--ink-deep);
+  color: rgb(250 249 247);
+}
+
+.band-light-field {
+  background: var(--canvas);
+  color: var(--ink-deep);
+}
+
+.label-overline-on-dark {
+  font-family: var(--font-barlow-condensed), system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgb(250 249 247);
+  opacity: 0.45;
+}
+
+/* GLC Three-Act Headline */
+.three-act-headline {
+  font-size: clamp(58px, 8vw, 118px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+.three-act-line1 {
+  font-weight: 200;
+  opacity: 0.22;
+  color: rgb(255 255 255);
+}
+
+.three-act-line2 {
+  font-weight: 600;
+  opacity: 0.92;
+  color: rgb(255 255 255);
+}
+
+.three-act-line3 {
+  font-weight: 700;
+  color: var(--y);
+}
+
+/* Hero: emphasize line 2 (Concept) per canonical copy */
+.hero-stage .three-act-line2.hero-act {
+  font-weight: 700;
+  color: var(--y);
+  opacity: 1;
+}
+
+.hero-stage .three-act-line3.hero-act {
+  font-weight: 600;
+  color: rgb(255 255 255);
+  opacity: 0.92;
+}
+
+@media (min-width: 640px) {
+  .section-major {
+    padding-left: 40px;
+    padding-right: 48px;
+  }
+
+  :root {
+    --site-header-offset: 114px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-major {
+    padding-top: var(--s12);
+    padding-bottom: var(--s14);
+    padding-left: var(--s10);
+    padding-right: var(--s10);
+  }
+
+  :root {
+    --site-header-offset: 124px;
+  }
+}
+
+/* §V — accent beacon */
+.accent-punctuation-l {
+  border-left: 4px solid var(--y);
+  padding-left: var(--s3);
+}
+
+.cluster-surface {
+  background: rgb(255 255 255 / 0.72);
+  border: 1px solid var(--g200);
+  box-shadow:
+    inset 0 1px 0 0 rgb(255 255 255 / 0.9),
+    0 8px 24px rgb(0 0 0 / 0.06);
+}
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+}
+
+.grain-overlay svg {
+  width: 100%;
+  height: 100%;
+}
+
+.panel-machined {
+  border-radius: 0;
+  border: none;
+  box-shadow:
+    inset 0 0 0 1px rgb(0 0 0 / 0.08),
+    inset 0 1px 0 0 rgb(255 255 255 / 0.85),
+    inset 0 -1px 0 0 rgb(0 0 0 / 0.04),
+    0 2px 4px rgb(0 0 0 / 0.05),
+    0 20px 56px rgb(0 0 0 / 0.08);
+}
+
+.panel-machined-dark {
+  border-radius: 0;
+  background: rgb(255 255 255 / 0.04);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.12),
+    inset 0 1px 0 0 rgb(255 255 255 / 0.08),
+    0 12px 40px rgb(0 0 0 / 0.25);
+}
+
+/**
+ * Bespoke surface — bundles two-method depth (GLC_GLOBAL_DESIGN_SYSTEM.md Part 3.2 / Rule C2) for light panels:
+ * machined shadow + backdrop + micro-grain (same feTurbulence recipe as GrainOverlay).
+ * For dark bands prefer panel-machined-dark + stagger vars.
+ */
+.bespoke-surface {
+  position: relative;
+  overflow: visible;
+  isolation: isolate;
+  background: var(--brand-canvas);
+  box-shadow: var(--machined-edge);
+  backdrop-filter: var(--glass-depth);
+}
+
+.bespoke-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  z-index: 0;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='bespokeGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23bespokeGrain)'/%3E%3C/svg%3E");
+}
+
+/* Primary CTA — canvas / light fields: ink slab, no full-bleed yellow (GLC_GLOBAL_DESIGN_SYSTEM.md Part 2.1 accent usage + Part 5). */
+.cta-primary {
+  background: var(--ink-deep);
+  color: var(--brand-white);
+  border-radius: 0;
+  box-shadow:
+    inset 0 1px 0 0 rgb(255 255 255 / 0.12),
+    0 3px 0 0 rgb(0 0 0 / 0.22),
+    0 14px 32px rgb(0 0 0 / 0.12);
+  font-weight: 600;
+  transition:
+    transform 0.2s var(--ease),
+    box-shadow 0.2s var(--ease),
+    background 0.2s var(--ease);
+}
+
+.cta-primary:hover {
+  background: var(--ink-mid);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 0 rgb(255 255 255 / 0.14),
+    0 4px 0 0 rgb(0 0 0 / 0.26),
+    0 18px 40px rgb(0 0 0 / 0.16);
+}
+
+.cta-primary:active {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 1px 0 0 rgb(255 255 255 / 0.1),
+    0 2px 0 0 rgb(0 0 0 / 0.2),
+    0 8px 20px rgb(0 0 0 / 0.12);
+}
+
+.cta-primary:focus-visible {
+  outline: 2px solid var(--y);
+  outline-offset: 3px;
+}
+
+/* Hero / dark-band primary: solid accent fill (~5% rule), not gradient wash. */
+.cta-hero-fill {
+  background: var(--y);
+  color: var(--brand-black);
+  border-radius: 0;
+  box-shadow:
+    inset 0 1px 0 0 rgb(255 255 255 / 0.35),
+    0 3px 0 0 rgb(0 0 0 / 0.2),
+    0 12px 28px rgb(0 0 0 / 0.18);
+  font-weight: 600;
+  transition:
+    transform 0.2s var(--ease),
+    box-shadow 0.2s var(--ease),
+    filter 0.2s var(--ease);
+}
+
+.cta-hero-fill:hover {
+  filter: brightness(1.04);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 0 rgb(255 255 255 / 0.45),
+    0 4px 0 0 rgb(0 0 0 / 0.24),
+    0 16px 36px rgb(0 0 0 / 0.22);
+}
+
+.cta-hero-fill:active {
+  transform: translateY(0);
+  filter: brightness(1);
+  box-shadow:
+    inset 0 1px 0 0 rgb(255 255 255 / 0.3),
+    0 2px 0 0 rgb(0 0 0 / 0.18),
+    0 8px 20px rgb(0 0 0 / 0.14);
+}
+
+.cta-hero-fill:focus-visible {
+  outline: 2px solid rgb(255 255 255 / 0.9);
+  outline-offset: 3px;
+}
+
+/* Back-compat / lab: same as cta-primary */
+.cta-pop {
+  background: var(--ink-deep);
+  color: var(--brand-white);
+  border-radius: 0;
+  box-shadow:
+    inset 0 1px 0 0 rgb(255 255 255 / 0.12),
+    0 3px 0 0 rgb(0 0 0 / 0.22),
+    0 14px 32px rgb(0 0 0 / 0.12);
+  font-weight: 600;
+  transition:
+    transform 0.2s var(--ease),
+    box-shadow 0.2s var(--ease),
+    background 0.2s var(--ease);
+}
+
+.cta-pop:hover {
+  background: var(--ink-mid);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 0 rgb(255 255 255 / 0.14),
+    0 4px 0 0 rgb(0 0 0 / 0.26),
+    0 18px 40px rgb(0 0 0 / 0.16);
+}
+
+.cta-pop:active {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 1px 0 0 rgb(255 255 255 / 0.1),
+    0 2px 0 0 rgb(0 0 0 / 0.2),
+    0 8px 20px rgb(0 0 0 / 0.12);
+}
+
+.cta-pop:focus-visible {
+  outline: 2px solid var(--y);
+  outline-offset: 3px;
+}
+
+.cta-outline-light {
+  border: 2px solid rgb(255 255 255 / 0.85);
+  color: var(--brand-white);
+  border-radius: 0;
+  font-weight: 600;
+  transition:
+    background 0.2s var(--ease),
+    border-color 0.2s var(--ease),
+    color 0.2s var(--ease);
+}
+
+.cta-outline-light:hover {
+  background: rgb(255 255 255 / 0.08);
+  border-color: rgb(255 255 255 / 0.95);
+}
+
+.cta-outline-light:focus-visible {
+  outline: 2px solid var(--y);
+  outline-offset: 3px;
+}
+
+.label-overline {
+  font-family: var(--font-barlow-condensed), system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.55;
+}
+
+/* Hero orchestrated entrance — yellow/CTA last; one section only */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-stage .hero-bg-image {
+    animation: hero-bg-scale 3s var(--ease) forwards;
+    transform: scale(1.06);
+    transform-origin: center center;
+  }
+
+  .hero-stage .hero-eyebrow {
+    opacity: 0;
+    animation: hero-fade 0.55s var(--ease) 0.4s forwards;
+  }
+
+  .hero-stage .three-act-line1.hero-act {
+    opacity: 0;
+    animation: hero-wipe-act1 0.65s var(--ease) 0.5s forwards;
+  }
+
+  .hero-stage .three-act-line2.hero-act {
+    opacity: 0;
+    animation: hero-wipe-act2 0.65s var(--ease) 0.72s forwards;
+  }
+
+  .hero-stage .three-act-line3.hero-act {
+    opacity: 0;
+    animation: hero-wipe-act3 0.7s var(--ease) 0.88s forwards;
+  }
+
+  .hero-stage .hero-caption {
+    opacity: 0;
+    animation: hero-fade 0.5s var(--ease) 1.15s forwards;
+  }
+
+  .hero-stage .hero-rule {
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: hero-rule-grow 0.45s var(--ease) 1.2s forwards;
+  }
+
+  .hero-stage .hero-phone {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: hero-slide-up 0.5s var(--ease) 1.4s forwards;
+  }
+
+  .hero-stage .hero-cta-row {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: hero-slide-up 0.55s var(--ease) 1.9s forwards;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-stage .hero-bg-image,
+  .hero-stage .hero-eyebrow,
+  .hero-stage .three-act-line1.hero-act,
+  .hero-stage .three-act-line2.hero-act,
+  .hero-stage .three-act-line3.hero-act,
+  .hero-stage .hero-caption,
+  .hero-stage .hero-rule,
+  .hero-stage .hero-phone,
+  .hero-stage .hero-cta-row {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .hero-stage .hero-eyebrow,
+  .hero-stage .hero-caption,
+  .hero-stage .hero-phone,
+  .hero-stage .hero-cta-row {
+    opacity: 1 !important;
+  }
+
+  .hero-stage .three-act-line1.hero-act {
+    opacity: 0.22 !important;
+  }
+
+  .hero-stage .three-act-line2.hero-act {
+    opacity: 1 !important;
+  }
+
+  .hero-stage .three-act-line3.hero-act {
+    opacity: 0.92 !important;
+  }
+
+  .hero-stage .hero-bg-image {
+    transform: scale(1);
+  }
+
+  .hero-stage .hero-rule {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes hero-bg-scale {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-fade {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-wipe-act1 {
+  from {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    opacity: 0.22;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes hero-wipe-act2 {
+  from {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes hero-wipe-act3 {
+  from {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    opacity: 0.92;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes hero-rule-grow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes hero-slide-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .view-reveal {
+      animation: view-reveal-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 28%;
+    }
+  }
+}
+
+@keyframes view-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.hero-marquee-track {
+  animation: marquee 45s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-marquee-track {
+    animation: none;
+  }
+}
+
+/* GLC DNA — trust ticker (marquee-band), uses var(--y) */
+.marquee-band {
+  background: var(--y);
+  overflow: hidden;
+  padding: 12px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.marquee-track {
+  display: flex;
+  animation: marquee-scroll-dna 32s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+
+@keyframes marquee-scroll-dna {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 40px;
+  font-family: var(--font-barlow), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--ink-deep);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.marquee-sep {
+  width: 4px;
+  height: 4px;
+  background: rgb(30 28 26 / 0.4);
+  display: inline-block;
+  margin: 0 10px;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+.snap-strip {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.snap-strip > * {
+  scroll-snap-align: start;
+}
+
+.services-cinematic-mask {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+/*
+ ---break---
+ */
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+/*
+ ---break---
+ */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}

@@ -1,0 +1,18 @@
+<svg width="800" height="300" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none">
+    <!-- Base dark -->
+    <polygon points="0,200 300,120 800,140 800,300 0,300" fill="#111111"/>
+
+    <!-- Mid gray shard -->
+    <polygon points="200,180 450,110 800,120 800,160 400,200" fill="#444444"/>
+
+    <!-- Yellow primary -->
+    <polygon points="100,220 350,140 800,160 800,190 300,260" fill="#FFC107"/>
+
+    <!-- Accent streak -->
+    <polygon points="250,210 600,150 800,155 800,165 500,230" fill="#E0A800"/>
+
+    <!-- Thin highlight -->
+    <polygon points="300,230 700,170 800,172 800,178 400,250" fill="#FFFFFF" opacity="0.15"/>
+  </g>
+</svg>

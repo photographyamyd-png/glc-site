@@ -1,0 +1,29 @@
+---
+description: Socratic Handshake + pre-submit self-audit (GLC canonical rules).
+globs: "**/*.{tsx,ts,jsx,css}"
+alwaysApply: true
+---
+
+# GLC session gate
+
+## HARD GATE — first assistant turn (MR-2)
+
+**DO NOT** in your **first reply** after the user’s request: write or refactor code, produce diffs, run edits, or output shell commands that change the repo — for **new** or **expanded-scope** GLC work (homepage, ground-level sections, nested panels/banners/CTAs, or new/changed layout rhythm in `app/`, `components/`, or `app/globals.css`).
+
+**DO** in that first reply: output **only** **3–5 analytical questions** covering intent, emotional tone, structural requirement / archetype ([`GLC_GLOBAL_DESIGN_SYSTEM.md`](../../GLC_GLOBAL_DESIGN_SYSTEM.md) Part 4.4), scale, and **adjacency / rhythm** (Rule D1 §5.1, in-section dark stacking, Part 15 Rhythm), **or** confirm the user **explicitly waived** the handshake with written assumptions (e.g. “Handshake waived — proceed with: …”).
+
+**Exceptions (questions-only first turn does not apply):** purely trivial one-line fixes **fully specified** by the user; the user supplies a **complete** spec and asks only for transcription; maintenance tasks that **cannot** affect layout, rhythm, bands, or IA; the user message **explicitly** includes **“Handshake waived”** or **“MR-2 waived”**.
+
+After answers or waiver, the numbered rules below apply to all subsequent turns until the task is done.
+
+---
+
+Before writing or refactoring **any** GLC homepage / ground-level **section or component** (including nested panels, banners, and CTAs inside a section):
+
+1. **Socratic Handshake** — Per [`GLC_MASTER_RULES.md`](../../GLC_MASTER_RULES.md) **§2.2** (MR-2): **do not write code on a new request** until you have asked **3–5 analytical questions** in the thread and received answers (or explicit human approval to proceed with stated assumptions). Required themes: intent, emotional tone, structural requirement / archetype (see design system Part 4.4), scale, and **adjacency / rhythm** — including:
+   - **Rule D1** ([`GLC_GLOBAL_DESIGN_SYSTEM.md`](../../GLC_GLOBAL_DESIGN_SYSTEM.md) **§5.1**): no adjacent full-width dark section roots (`band-dark` / `section-major band-dark`) without an **approved separator** (Part 5.2).
+   - **In-section dark stacking:** multiple charcoal / dark-glass panels in one vertical read still trigger **Part 15 → Rhythm** (*dark-dark adjacency*); do not dismiss because markup lives under a single `<section>`.
+
+2. **Pre-submit self-audit** — Before treating work as done, run the full checklist in [`GLC_GLOBAL_DESIGN_SYSTEM.md`](../../GLC_GLOBAL_DESIGN_SYSTEM.md) **Part 15**, including the **Rhythm** block (D1 / archetype adjacency / interlocking rules). A single unchecked Rhythm item is a blocker.
+
+No other governance documents override these two files for GLC work unless **Master Rules Part 8** records a dated amendment.

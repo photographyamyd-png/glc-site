@@ -1,0 +1,66 @@
+/* Lane B only — loaded via GlcDnaLaneStyles (client). Do not import from app/layout or globals. */
+@import "./glc-dna-extracted.scoped.css";
+
+.glc-dna-sandbox {
+  --charcoal: #202020;
+  --charcoal-deep: #1e1c1a;
+  --charcoal-mid: #3a3632;
+  --white: #ffffff;
+  --off-white: #f2f2f2;
+  --soft-smoke: #f2f2f2;
+  --yellow-core: var(--y, #f2b705);
+  --gold: #d9a004;
+  --yellow-tint: rgb(242 183 5 / 0.08);
+  --yellow-tint-md: rgb(242 183 5 / 0.14);
+  --yellow-tint-strong: rgb(242 183 5 / 0.15);
+  --yellow-tint-lg: rgb(242 183 5 / 0.22);
+  --yellow-glow: 0 0 0 3px rgb(242 183 5 / 0.28);
+  --text-900: #0e0d0c;
+  --text-700: #3a3632;
+  --text-500: #6b6560;
+  --text-600: #6b6560;
+  --text-400: #9c9690;
+  --gray-200: #e0deda;
+  --gray-100: #f7f6f4;
+
+  --font-display: var(--font-oswald), system-ui, sans-serif;
+  --font-body: var(--font-barlow), system-ui, sans-serif;
+  --font-accent: var(--font-barlow), system-ui, sans-serif;
+
+  --container-max: 1200px;
+  --section-v: 96px;
+  --section-v-sm: 64px;
+  --gap-grid: 2px;
+  --ease-expo: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --shadow-card: 0 4px 24px rgb(0 0 0 / 0.12);
+  --shadow-elevate: 0 8px 40px rgb(0 0 0 / 0.2);
+  --shadow-editorial: 0 1px 0 rgb(0 0 0 / 0.1);
+  --shadow-accent-glow: var(--yellow-glow);
+
+  --r: 0;
+  --gl-header-z: 900;
+  --gl-mega-z: 850;
+  --gl-backdrop-z: 800;
+  --gl-header-height: var(--header, 80px);
+
+  --color-surface-page: var(--white);
+  --color-ink-strong: var(--charcoal-deep);
+  --color-accent-primary: var(--yellow-core);
+  --color-accent-hover: var(--gold);
+  --color-accent-subtle: var(--yellow-tint);
+  --color-body: var(--text-500);
+  --color-body-muted: var(--text-400);
+  --surface-muted: var(--gray-100);
+  --border-subtle: var(--gray-200);
+  --font-heading: var(--font-display);
+  --font-ui: var(--font-body);
+  --about-accent-radial-soft: color-mix(in srgb, var(--color-accent-primary) 6%, transparent);
+  --about-section-texture-line: color-mix(in srgb, var(--color-ink-strong) 9%, transparent);
+  --ab3-photo-fallback-gradient: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--color-ink-strong) 85%, black) 0%,
+    var(--color-ink-strong) 45%,
+    color-mix(in srgb, var(--color-ink-strong) 55%, black) 100%
+  );
+}

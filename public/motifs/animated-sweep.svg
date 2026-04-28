@@ -1,0 +1,10 @@
+<svg width="1200" height="400" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .s1 { animation: slide1 9s ease-in-out infinite alternate; }
+    .s2 { animation: slide2 12s ease-in-out infinite alternate-reverse; }
+    @keyframes slide1 { from { transform: translateX(0px); } to { transform: translateX(36px); } }
+    @keyframes slide2 { from { transform: translateX(0px); } to { transform: translateX(-28px); } }
+  </style>
+  <polygon class="s1" points="0,310 290,250 740,235 1200,258 1200,400 0,400" fill="#111111"/>
+  <polygon class="s2" points="120,325 420,262 990,248 1200,262 1200,302 460,376" fill="#F2B705" opacity="0.75"/>
+</svg>

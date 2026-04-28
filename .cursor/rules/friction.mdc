@@ -1,0 +1,45 @@
+---
+description: "Use when writing, editing, or reviewing any component, CSS, or section file. Enforces token compliance, dark adjacency, three-layer depth, and pre-write checklist. Always active."
+alwaysApply: true
+---
+
+🐔GLC
+
+You MUST NOT write any code or create any files until you have
+output the checklist below in full. The checklist output MUST
+appear as your first content block. Code appearing before the
+checklist is a protocol violation.
+
+HARD GATE — BEFORE ANY FILE WRITE:
+
+Ground Level homepage work MUST NOT ship flat stacked grids. Use **`app/globals.css`** tokens: `--dna-stagger-sm|md|lg`, `.bespoke-surface`, `--machined-edge`, `--glass-depth`.
+
+Normative depth and anti-flat rules: [`GLC_GLOBAL_DESIGN_SYSTEM.md`](../../GLC_GLOBAL_DESIGN_SYSTEM.md) **Part 3** (Rules C1–C4), **Part 7**, and **Part 16** (H1–H4). Aesthetic self-audit: [`GLC_MASTER_RULES.md`](../../GLC_MASTER_RULES.md) **§2.3** (MR-3).
+
+**Rhythm gate:** Satisfying the 3-Axis Break does **not** satisfy **Part 5** on its own. Adding dark glass, shadows, or `.bespoke-surface` MUST still pass **Rule D1** (§5.1) and **approved separators** (§5.2) where the layout stacks dark section roots or creates **Part 15 → Rhythm** dark-dark adjacency (including multiple dark panels in one section).
+
+## RULE: Every section MUST satisfy the 3-Axis Break
+
+**X-Axis:** At least one primary element MUST use negative margin (`-ml-*`, `-mr-*`, `-mx-*`, or bleed utilities) so content **breaks the max-width rhythm** or **overlaps an adjacent band**.
+
+**Y-Axis:** Content blocks MUST be **unsynced** — use `translate-y`, `var(--dna-stagger-*)`, or asymmetric `pt-*` / `pb-*` so adjacent text and image blocks do **not** share one flat horizontal baseline across the section.
+
+**Z-Axis:** **Layered intersection** — at least one element (accent line, satellite card, image frame, watermark, rail) MUST read as passing **under** one sibling and **over** another (`z-index` + overlap).
+
+## Two-method depth shortcut
+
+For light raised panels overlapping a seam, apply **`bespoke-surface`** (machined shadow + backdrop + grain).
+
+## Negative margin mandate
+
+Do not default to everything centered in `max-w` with no bleed. Primary imagery SHOULD **bleed** relative to the text column when references call for asymmetric weight. If the layout is **fully symmetrical** in a single centered box, **refactor**.
+
+## Post-code critique
+
+Before accepting a section: *Where is the aesthetic friction?* If the code is only a grid of uniform divs, refactor with **absolute positioning**, **negative margins**, and **explicit z-index** until the 3-Axis Break is satisfied.
+
+## Compliance pointers
+
+- **Band rhythm, D1–D5:** [`GLC_GLOBAL_DESIGN_SYSTEM.md`](../../GLC_GLOBAL_DESIGN_SYSTEM.md) **Part 5** (especially **§5.1–5.2**).
+- Structure, archetypes, depth: **Parts 3–4**, **Part 4.4**.
+- `docs/design-references/*.md` are **structure-only**; they do not override the two GLC canonical docs.

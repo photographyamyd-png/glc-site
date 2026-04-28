@@ -1,0 +1,19 @@
+<!-- BEGIN:nextjs-agent-rules -->
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+<!-- END:nextjs-agent-rules -->
+
+**Socratic Handshake (MR-2):** On a **new** or ambiguous GLC design/build request, the **first assistant turn** must be **questions only**—no code, diffs, or repo-changing tool actions—until the user answers or **explicitly waives** in writing (e.g. “Handshake waived — …”). Ask **3–5** focused questions (intent, tone, archetype/structure, scale, adjacency/rhythm including D1 and in-section dark stacking). **Exceptions:** trivial fully specified one-line fixes; user supplies a complete spec and asks only for transcription; user includes “Handshake waived” / “MR-2 waived”. Normative: [`GLC_MASTER_RULES.md`](GLC_MASTER_RULES.md) §2.2. Project rule: [`.cursor/rules/handshake.mdc`](.cursor/rules/handshake.mdc).
+
+**Cursor User Rules (optional duplicate):** Paste the HARD GATE paragraph from [`.cursor/rules/handshake.mdc`](.cursor/rules/handshake.mdc) into **Cursor Settings → Rules → User Rules** so the gate applies even when project rules are not fully inlined.
+
+**GLC baseline lock:** Do not change homepage **colors** (`--y`, ink, `band-light`/`band-dark`, `--brand-canvas`), **typography** (Oswald / Barlow / Barlow Condensed), or **spacing** tokens (`--s*`, `--dna-space-*`) without explicit human sign-off. Read [`GLC_MASTER_RULES.md`](GLC_MASTER_RULES.md) first (authority, Part 8 amendments), then [`GLC_GLOBAL_DESIGN_SYSTEM.md`](GLC_GLOBAL_DESIGN_SYSTEM.md) for tokens, structure, band rhythm (Part 5), and typography roles (Part 6).
+
+Before changing `components/ground-level/*` (or hero/header overlap), read [`docs/design-references/README.md`](docs/design-references/README.md) and any sidecar `docs/design-references/*.md` that applies; those files define **structure-only** layout intent — not brand, colors, or subject matter. Cross-check layout physics against [`GLC_GLOBAL_DESIGN_SYSTEM.md`](GLC_GLOBAL_DESIGN_SYSTEM.md) Parts 3–5 and **Part 4.4** (archetypes).
+
+**Ground-level layout minimums (non-negotiable):** Do not ship new sections that are only flat body copy on a band. Each section must stack **at least three compositional layers** (e.g. band + panel + rail/watermark/media overlay). Use **multiple typographic registers** (eyebrow, accented headline, muted body, CTA or stats)—not one uniform text color for the whole block. When IA fits, use **imagery or established overlap/clipped media patterns** (`GLHero`, `GLWhoWeServe`, `GLDifference`, `GLServices`); avoid read-only stacks where references call for visual mass. Prefer **composing existing `GL*` shells** with injected copy (e.g. `home-copy-lab-content.ts`) instead of parallel “token-only” components.
+
+**Typography color-purpose minimum (non-negotiable):** Every section must show **at least three distinct typography color uses for three distinct purposes**. Minimum pattern: (1) label/eyebrow role, (2) display/headline role with accent fragment where pattern supports it, and (3) body/supporting role. Optional fourth role (stats/chips/CTA/meta) is encouraged. Fails include single-tone heading/body/meta stacks, repeated color with no semantic role shift, and missing accent fragment in sections that define an accent-key heading pattern.
+
+**Band rhythm (inter-section):** Do not place two adjacent full-width **`band-dark`** section roots without an approved separator (`marquee-band`, `band-light`, `band-light-field`, or a clearly separated light/canvas figure block). Full rules: [`GLC_GLOBAL_DESIGN_SYSTEM.md`](GLC_GLOBAL_DESIGN_SYSTEM.md) Part 5 (Rules D1–D5); lab exceptions in Master Rules Part 4.3.
