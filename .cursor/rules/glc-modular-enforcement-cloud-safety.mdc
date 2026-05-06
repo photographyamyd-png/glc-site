@@ -23,7 +23,7 @@ If `git push` fails, report the error and do not claim the remote is updated.
 
 Before writing or editing implementation or marketing copy, **read** the relevant modules under [`.cursor/rules/`](.cursor/rules/) (use the Read tool when they are not already in context):
 
-- **Layouts and visual system** → `design-system.mdc`
+- **Layouts, visual system, and service image folders** → `design-system.mdc` (includes `public/images/services/{service-line}/` — pick the folder that matches the page or service, not a generic or wrong line)
 - **Copy volume, pivots, limits** → `copy-writing.mdc`
 - **Page structure, metadata, SEO** → `seo-strategy.mdc`
 

@@ -69,6 +69,23 @@ Depth and surfaces:
 - Borders: 4px yellow rails; 1px seams (`var(--g200)`); 1px section dividers.
 - Shape: sharp industrial edges (`--radius: 0` baseline).
 
+## Service photography — `public/images/services/`
+
+Project photography is grouped **by service line**. When adding or referencing images, use the subfolder that matches the service (do not default to another line’s folder).
+
+Root: `public/images/services/`
+
+| Subfolder | Service line |
+|-----------|----------------|
+| `Drainage-and-Hardscaping` | Drainage & hardscaping |
+| `Excavation` | Excavation |
+| `Foundations` | Foundations |
+| `Grading` | Grading |
+| `Hauling` | Hauling |
+| `Snow Removal` | Snow removal (folder name includes a space — encode as `%20` in public URLs, e.g. `/images/services/Snow%20Removal/…`) |
+
+Prefer **`next/image`** with paths under `/images/services/…`. Filenames may include spaces or mixed case; encode path segments in URLs as needed.
+
 ## Globals checklist
 
 Ensure `app/globals.css` / Tailwind expose: `font-label` → Barlow Condensed; yellow core token; dark glass RGB above; `.hero-stage` when staggered hero reveals are required.
