@@ -8,6 +8,13 @@ import { GLCtaBand } from "@/components/ground-level/GLCtaBand";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { CardSurface } from "@/components/ui/CardSurface";
 
+/** Snow hub photography — `public/images/services/Snow Removal/` (encode spaces in URL). */
+const SNOW_REMOVAL_PLOW_IMAGE_SRC =
+  "/images/services/Snow%20Removal/Ground%20Level%20Contracting%20barrie%20snow%20removal23.JPG";
+
+const SNOW_PLOW_IMAGE_ALT =
+  "Ground Level Contracting RAM plow truck clearing a commercial parking lot during winter operations in Simcoe County";
+
 type ServicePageTemplateProps = {
   service: ServiceDef;
   related: ServiceDef[];
@@ -16,7 +23,9 @@ type ServicePageTemplateProps = {
 export function ServicePageTemplate({ service, related }: ServicePageTemplateProps) {
   const detail = service.category === "primary" ? SERVICE_DETAILS[service.slug as PrimaryServiceSlug] : null;
   const isSnowHub = service.slug === "snow-removal";
-  const imageSrc = isSnowHub ? "/images/services/Excavation/excavation-004.jpg" : "/images/services/Drainage-and-Hardscaping/drainage-hardscaping-008.jpg";
+  const imageSrc = isSnowHub
+    ? SNOW_REMOVAL_PLOW_IMAGE_SRC
+    : "/images/services/Drainage-and-Hardscaping/drainage-hardscaping-008.jpg";
   const faqItems = detail?.faq ?? [];
   const whyItems = detail?.trust.paragraphs ?? [
     "Experienced crews and commercial-first operations.",
@@ -44,7 +53,14 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
   return (
     <article className="relative">
       <section id="overview" className="hero-stage section-major band-dark-field relative min-h-[100dvh] scroll-mt-[var(--header)] overflow-hidden">
-        <Image src={imageSrc} alt={`${service.title} hero visual`} fill priority className="object-cover object-center" sizes="100vw" />
+        <Image
+          src={imageSrc}
+          alt={isSnowHub ? SNOW_PLOW_IMAGE_ALT : `${service.title} hero visual`}
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-[rgb(10_12_11/0.92)] via-[rgb(10_12_11/0.72)] to-[rgb(10_12_11/0.35)]" aria-hidden />
         <div className="absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.7)] via-transparent to-[rgb(10_12_11/0.3)]" aria-hidden />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_30%,rgb(255_255_255/0.06),transparent_55%)]" aria-hidden />
@@ -130,6 +146,68 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
           </div>
         </div>
       </section>
+
+      {isSnowHub && detail ? (
+        <section
+          id="snow-plow-cta"
+          className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden"
+          aria-labelledby="snow-plow-cta-heading"
+        >
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.04),transparent_45%)]" aria-hidden />
+          <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
+            <div className="grid overflow-hidden border border-white/15 bg-[rgb(10_12_11/0.55)] shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-sm lg:grid-cols-2">
+              <div className="relative min-h-[240px] sm:min-h-[320px] lg:min-h-[420px]">
+                <Image
+                  src={SNOW_REMOVAL_PLOW_IMAGE_SRC}
+                  alt={SNOW_PLOW_IMAGE_ALT}
+                  fill
+                  className="object-cover object-center"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                />
+                <div
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[rgb(10_12_11/0.85)] max-lg:hidden"
+                  aria-hidden
+                />
+                <div
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.75)] to-transparent lg:hidden"
+                  aria-hidden
+                />
+              </div>
+              <div className="flex flex-col justify-center border-l-0 border-t border-white/10 bg-[rgb(10_12_11/0.88)] p-6 sm:p-8 lg:border-l-4 lg:border-l-[color:var(--y)] lg:border-t-0 lg:pl-8 lg:pr-10 lg:py-12">
+                <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/70">Winter operations</p>
+                <h2
+                  id="snow-plow-cta-heading"
+                  className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl"
+                >
+                  {detail.ctaOverride.heading}
+                </h2>
+                <p className="mt-[var(--s7)] max-w-[36rem] text-[15px] leading-[1.72] text-white/90 sm:text-base">
+                  {detail.ctaOverride.supporting}
+                </p>
+                {detail.trust.paragraphs[0] ? (
+                  <p className="mt-4 max-w-[36rem] text-[15px] leading-[1.72] text-white/90 sm:text-base">
+                    {detail.trust.paragraphs[0]}
+                  </p>
+                ) : null}
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  <Link
+                    href="/contact/"
+                    className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
+                  >
+                    Book winter scope
+                  </Link>
+                  <Link
+                    href={PHONE_TEL}
+                    className="cta-outline-light inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
+                  >
+                    {detail.ctaOverride.buttonLabel}
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section id="field-capabilities" className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.03),transparent_40%)]" aria-hidden />
