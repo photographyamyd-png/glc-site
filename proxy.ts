@@ -6,9 +6,20 @@ const MAINTENANCE_PATH = "/maintenance/";
 const MINIMAL_SHELL_HEADER = "x-glc-minimal-shell";
 const BYPASS_COOKIE = "glc_maint_bypass";
 
+function stripQuotes(s: string): string {
+  const t = s.trim();
+  if (
+    (t.startsWith('"') && t.endsWith('"')) ||
+    (t.startsWith("'") && t.endsWith("'"))
+  ) {
+    return t.slice(1, -1).trim();
+  }
+  return t;
+}
+
 function isTruthyEnv(v: string | undefined): boolean {
   if (!v) return false;
-  const s = v.trim().toLowerCase();
+  const s = stripQuotes(v).toLowerCase();
   return s === "1" || s === "true" || s === "yes";
 }
 
@@ -32,18 +43,36 @@ function hasValidBypass(request: NextRequest): boolean {
 }
 
 /**
- * Comma-separated hostnames (no protocol) that should only receive the maintenance shell.
- * Example: `www.example.com,example.com`
+ * Hosts that receive /maintenance/ only:
+ *
+ * - **MAINTENANCE_HOSTS** — comma-separated, no protocol, e.g.
+ *   `groundlevelcontracting.ca,www.groundlevelcontracting.ca`
+ * - **MAINTENANCE_PRIMARY_DOMAIN** — apex only, e.g. `groundlevelcontracting.ca`;
+ *   we also add `www.<apex>` so one variable covers both.
  *
  * Ignored when MAINTENANCE_REDIRECT_ALL is enabled (unless bypass cookie is valid).
  */
 function getMaintenanceHosts(): string[] {
+  const hosts = new Set<string>();
+
   const raw = process.env.MAINTENANCE_HOSTS?.trim();
-  if (!raw) return [];
-  return raw
-    .split(",")
-    .map((h) => h.trim().toLowerCase())
-    .filter(Boolean);
+  if (raw) {
+    for (const h of raw.split(",")) {
+      const part = stripQuotes(h).toLowerCase();
+      if (part) hosts.add(part);
+    }
+  }
+
+  const primary = process.env.MAINTENANCE_PRIMARY_DOMAIN?.trim();
+  if (primary) {
+    const apex = stripQuotes(primary).toLowerCase().replace(/^www\./, "");
+    if (apex) {
+      hosts.add(apex);
+      hosts.add(`www.${apex}`);
+    }
+  }
+
+  return [...hosts];
 }
 
 function isAssetOrInternalPath(pathname: string): boolean {
@@ -97,5 +126,9 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  // Include `/` explicitly — some matcher patterns only match paths with an extra segment.
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico).*)",
+    "/",
+  ],
 };
