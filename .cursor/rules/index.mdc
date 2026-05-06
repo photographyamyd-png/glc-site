@@ -1,6 +1,14 @@
 ---
-description: Single-source bootstrap rule pointer.
+description: Governance router — active modular rules and non-authoritative history.
 alwaysApply: true
 ---
 
-Use `master/MASTER_RULES.md` as the only authoritative rules source for this workspace.
+Ignore all history files under `Only for History Use/` for normative decisions.
+
+The active rules are divided into:
+
+- **`design-system.mdc`** — V7 tokens, typography (**Oswald** headings; **Barlow** / **Barlow Condensed** body and `font-label`), motion, palette, hierarchy.
+- **`copy-writing.mdc`** — Copy volume, measure/split rules, component mapping, 40-word tabbed detail rule.
+- **`seo-strategy.mdc`** — Metadata patterns, sitemap/robots, JSON-LD, heading discipline, DOM-visible SEO copy.
+
+When editing files matched by those rules’ globs, apply the corresponding module. `master/MASTER_RULES.md` remains a consolidated human-readable V7 reference; keep it aligned when changing normative design or copy law.

@@ -1,0 +1,35 @@
+---
+description: SEO and discoverability — synthesized from app/, lib/site, and legacy Part 9 (history).
+globs:
+  - "**/app/**/*"
+  - "**/pages/**/*"
+  - "**/*.tsx"
+alwaysApply: false
+---
+
+# GLC SEO strategy (app + established standards)
+
+## Metadata (Next.js App Router)
+
+- **Central titles:** Use `SEO_TITLES` from `@/lib/site/registry` for static routes (home, services index, about, contact, privacy, terms). Keep naming pattern: primary keywords + geography where appropriate (e.g. home title includes Barrie / Simcoe / Orillia / Innisfil).
+- **Dynamic services:** `app/services/[slug]/page.tsx` uses `generateMetadata`: primary services prefer `SERVICE_DETAILS[slug].seoTitle` / `seoDescription`, else `SEO_TITLES.primary[slug]` and registry `description`; non-primary uses ``${service.title} | Ground Level Contracting`` and `service.description`.
+- **Locations:** Snow location pages use `SEO_TITLES.locations[slug]` from registry.
+- **Root layout:** `app/layout.tsx` sets default `metadata` (title, description, `openGraph`, `twitter` with `summary_large_image`). Child routes may override via `export const metadata` or `generateMetadata`.
+- **Descriptions:** Must be unique per route; align with visible hero/lede copy where the page exports copy from `HOME_COPY`, `CORE_COPY`, or service definitions.
+
+## Technical SEO
+
+- **`NEXT_PUBLIC_SITE_URL`:** Canonical site origin with **no trailing slash**. Used in `sitemap.ts`, `robots.ts`, and `SiteJsonLd`. Production must set this to the real domain (placeholder `https://groundlevel.example.com` is dev-only).
+- **Sitemap:** `app/sitemap.ts` emits core routes, primary services, snow sub-services, and location URLs under `siteUrl`.
+- **Robots:** `app/robots.ts` allows `/` and points `sitemap` to `${siteUrl}/sitemap.xml`.
+- **JSON-LD:** `components/seo/SiteJsonLd.tsx` — `LocalBusiness` + `Service` nodes in `@graph`; service URLs use trailing slash pattern `${siteUrl}/services/${slug}/`.
+
+## Heading and DOM integrity (legacy Part 9 + practice)
+
+- **Single H1 per page view** where the hero or primary page title is expressed; section titles use H2/H3 in logical order (no skipped levels for decoration).
+- **SEO integrity:** Ranking copy stays in the **DOM**. Do not remove or replace long copy with empty placeholders for visual convenience. If long copy is visually collapsed, full text must still be present (e.g. tabs, accordion, details/summary, read-more that keeps content in DOM).
+- **Long copy:** Beyond ~two-sentence density in UI, prefer approved stow patterns (tabs, accordion, expand) per product standards — **expanded state** must not break layout or hide content from crawlers.
+
+## Copy source
+
+- Prefer **approved site copy** (`lib/site/copy`, content data) over generic LLM placeholder. Titles and descriptions should match brand and registry conventions.

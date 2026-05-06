@@ -1,0 +1,74 @@
+---
+description: V7 design tokens, typography, motion, palette, and hierarchy (MASTER_RULES §6–8).
+globs:
+  - "**/*.{tsx,jsx,ts,css,scss}"
+alwaysApply: false
+---
+
+# GLC design system (V7 extract)
+
+## Typography lock (non-negotiable)
+
+- **Headings / display:** **Oswald** only (`--font-oswald` / `font-serif` per app setup). Section H2, 3-act headline, stat/card numerals follow the scales below.
+- **Body, UI, labels:** **Barlow Condensed** for `font-label` and condensed UI tracks; longform body uses **Barlow** as the primary sans (`font-sans` in root layout). Do not substitute other display or condensed families.
+
+## §6 — Typography architecture (readability-first)
+
+Display and headings (Oswald):
+
+- 3-Act Headline: `clamp(58px, 8vw, 118px)`; weights 200/600/700; tracking `-0.02em`.
+- Stat number: `clamp(52px, 5vw, 80px)`; weight 700; tracking `-0.04em`.
+- Card number: 64px; weight 700; tracking `-0.04em`.
+- Section H2: `text-3xl → sm:text-4xl` (`clamp(36px, 3.5vw, 52px)`); weight 600; uppercase; tight leading/tracking.
+- Card title / panel H3: 20px (`text-xl → sm:text-2xl`); weight 700; tracking `0.02em`; uppercase.
+
+Metadata and labels (`font-label` → Barlow Condensed):
+
+- Section labels / eyebrows: `font-label text-[11px] font-bold tracking-[0.14em] text-ink`.
+- Side label: 9px; weight 800; tracking `0.22em`; uppercase.
+- Tab labels: `font-label text-[11px] font-bold tracking-[0.14em] text-ink`.
+- CTA primary: 12px or 13px; weight 700/800; tracking `0.08em`–`0.14em`; uppercase.
+- Stat label: `font-label text-[11px] font-bold tracking-[0.14em] text-ink`.
+
+Longform and UI copy:
+
+- Intro/body: `text-[15px] leading-[1.72] text-ink sm:text-base` (15px floor).
+- Card description: same as body standards.
+
+## §7 — Interactive DNA and physics
+
+- Reveal staging at viewport threshold 0.5: BG → eyebrow (0.4s) → headline (0.5–0.8s) → caption (1.15s) → CTA (1.9s).
+- Section entrance: `view-reveal-up` (0.65s, `cubic-bezier(0.16,1,0.3,1)`, translateY 16→0); image parallax lag ~0.2s vs text when present.
+- `pivot-expand-reveal`: 0.85s; 50% slide; 1.02× X scale tension.
+- Accordion: 700ms width expansion; 220ms motif drift; `--ease-expo`.
+- Tabs: `role="tablist"`; selected inversion; `[hidden]` on panels.
+- Count-up: 1800ms cubic-out at 0.5 viewport threshold.
+- `.cta-primary`: 0.2s envelope; hover `translateY(-2px)`; arrow `translateX(4px)`; brightness +10%.
+
+## §8 — Visual hierarchy and palette
+
+Colors:
+
+- `--yellow-core` / `--y`: `#f2b705`
+- `--charcoal-deep` / `--ink`: `#1e1c1a`
+- `--white`: `#ffffff`
+- `--text-600`: `#6b6560` (sparingly; not default for labels/body)
+
+Tri-tonal logic (every section: three distinct typographic color treatments):
+
+- Primary (headings/stats): dark band — white or yellow core; light band — charcoal deep.
+- Secondary (body/ledes): dark — `text-white/90`; light — `--text-600`.
+- Tertiary (metadata/eyebrows): dark — `text-white/55`; light — `text-400` / muted slate.
+
+Hero metrics cluster: yellow on numerals; `text-white/90` on stat labels; `text-white/55` on coverage/overline.
+
+Depth and surfaces:
+
+- `.bespoke-surface` + `.panel-machined` for machined depth.
+- Glass panel: `bg-[rgb(10,12,11,0.45)]`, `backdrop-blur-md`, `border-white/10`.
+- Borders: 4px yellow rails; 1px seams (`var(--g200)`); 1px section dividers.
+- Shape: sharp industrial edges (`--radius: 0` baseline).
+
+## Globals checklist
+
+Ensure `app/globals.css` / Tailwind expose: `font-label` → Barlow Condensed; yellow core token; dark glass RGB above; `.hero-stage` when staggered hero reveals are required.

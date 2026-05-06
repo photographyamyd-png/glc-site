@@ -1,0 +1,39 @@
+---
+description: Copy volume, layout pivots, and component mapping (MASTER_RULES §1, §3).
+globs:
+  - "**/*.{tsx,jsx,mdx,md}"
+alwaysApply: false
+---
+
+# GLC copy-writing and content mapping (V7 extract)
+
+## §1 — Layout and volume pivots
+
+Copy length drives layout:
+
+- **≤ 2 sentences:** Standard header stack (`max-w-2xl`, centered or left with `pl-5` spine).
+- **> 2 sentences:** Mandatory split-column / asymmetric layout: `grid-cols-12` with text in a **6-column measure** (“measure safety”).
+
+Composition (reference):
+
+- Container: `mx-auto max-w-[min(100%,var(--max))]` (1440px / 1200px cap); gutters 28px → 40px → 80px.
+- Header cluster: `max-w-2xl` + `pl-5` yellow spine.
+- Raised panel: `bespoke-surface` + `panel-machined` + asymmetric offset at `lg` (`lg:ml-[var(--dna-stagger-sm)]`).
+- Featured sections: mobile `flex-col` → `md:flex-row` 50/50.
+
+Z-order for sections (for copy placement context): atmosphere (-1) → base canvas (0) → substrate (1) → structural accents (2) → interaction plane (10+).
+
+## §3 — Content mapping and governance
+
+| Copy volume | Component mapping | Structural requirement |
+|-------------|-------------------|------------------------|
+| Eyebrow + 1 sentence | GLFeaturedServices header | `max-w-2xl` center stack |
+| 2–3 sentences | GLFeaturedServices + intro block | `pl-5` accent spine + `mt-7` release |
+| Narrative / longform | GLSplitSection or GLNarrative | Mandatory 50/50 split or staggered multi-panel |
+| Tabbed details | GLServicePanel | If **over 40 words**, bullet or break into `<ExpandableCopy />` (or equivalent) |
+
+## Audit reminders
+
+- Any paragraph **> 2 sentences** forces a structural layout change (split vs stack).
+- Copy volume dictates stack vs split component choice.
+- Prefer high-legibility label/body execution (`text-ink`); avoid muted overline patterns for primary labels.
