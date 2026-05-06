@@ -153,55 +153,76 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
           className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden"
           aria-labelledby="snow-plow-cta-heading"
         >
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.04),transparent_45%)]" aria-hidden />
+          {/* Layer: base canvas + atmosphere treatment */}
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.05),transparent_42%)]" aria-hidden />
+          <ClaudeLogicWatermark placement="bottom-left" mode="on-dark" className="z-[1] opacity-[0.09]" />
           <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
-            <div className="grid overflow-hidden border border-white/15 bg-[rgb(10_12_11/0.55)] shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-sm lg:grid-cols-2">
-              <div className="relative min-h-[240px] sm:min-h-[320px] lg:min-h-[420px]">
-                <Image
-                  src={SNOW_REMOVAL_PLOW_IMAGE_SRC}
-                  alt={SNOW_PLOW_IMAGE_ALT}
-                  fill
-                  className="object-cover object-center"
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                />
-                <div
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[rgb(10_12_11/0.85)] max-lg:hidden"
-                  aria-hidden
-                />
-                <div
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.75)] to-transparent lg:hidden"
-                  aria-hidden
-                />
-              </div>
-              <div className="flex flex-col justify-center border-l-0 border-t border-white/10 bg-[rgb(10_12_11/0.88)] p-6 sm:p-8 lg:border-l-4 lg:border-l-[color:var(--y)] lg:border-t-0 lg:pl-8 lg:pr-10 lg:py-12">
-                <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/70">Winter operations</p>
-                <h2
-                  id="snow-plow-cta-heading"
-                  className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl"
-                >
-                  {detail.ctaOverride.heading}
-                </h2>
-                <p className="mt-[var(--s7)] max-w-[36rem] text-[15px] leading-[1.72] text-white/90 sm:text-base">
-                  {detail.ctaOverride.supporting}
-                </p>
-                {detail.trust.paragraphs[0] ? (
-                  <p className="mt-4 max-w-[36rem] text-[15px] leading-[1.72] text-white/90 sm:text-base">
-                    {detail.trust.paragraphs[0]}
-                  </p>
-                ) : null}
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                  <Link
-                    href="/contact/"
-                    className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
-                  >
-                    Book winter scope
-                  </Link>
-                  <Link
-                    href={PHONE_TEL}
-                    className="cta-outline-light inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
-                  >
-                    {detail.ctaOverride.buttonLabel}
-                  </Link>
+            {/* Layer: structural shell (glass) + yellow accent plane (palette) */}
+            <div className="relative overflow-hidden border border-white/15 bg-[rgb(10_12_11/0.5)] shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md">
+              <div
+                className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgb(242_183_5/0.12),transparent_38%)]"
+                aria-hidden
+              />
+              <div className="relative grid lg:grid-cols-2">
+                {/* Layer: substrate (photo) + scrim treatments */}
+                <div className="relative min-h-[240px] sm:min-h-[320px] lg:min-h-[420px]">
+                  <Image
+                    src={SNOW_REMOVAL_PLOW_IMAGE_SRC}
+                    alt={SNOW_PLOW_IMAGE_ALT}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                  />
+                  <div
+                    className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_30%_50%,transparent_20%,rgb(10_12_11/0.5)_88%)]"
+                    aria-hidden
+                  />
+                  <div
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[rgb(10_12_11/0.88)] max-lg:hidden"
+                    aria-hidden
+                  />
+                  <div
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.82)] via-[rgb(10_12_11/0.15)] to-transparent lg:hidden"
+                    aria-hidden
+                  />
+                </div>
+                {/* Layer: interaction panel — tri-tonal type + machined depth */}
+                <div className="relative flex flex-col justify-center border-t border-white/12 bg-[rgb(10_12_11/0.92)] p-6 sm:p-8 lg:border-l-4 lg:border-t-0 lg:border-l-[color:var(--y)] lg:pl-9 lg:pr-11 lg:py-12">
+                  <div className="bespoke-surface panel-machined relative border border-white/10 bg-[rgb(10_12_11/0.35)] p-5 sm:p-7">
+                    <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/55">Winter operations</p>
+                    <h2
+                      id="snow-plow-cta-heading"
+                      className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl"
+                    >
+                      {detail.ctaOverride.heading}
+                    </h2>
+                    <div className="mt-4 h-px max-w-md bg-[color:var(--y)]/55" aria-hidden />
+                    <p className="mt-[var(--s7)] max-w-[36rem] text-[15px] leading-[1.72] text-white/90 sm:text-base">
+                      {detail.ctaOverride.supporting}
+                    </p>
+                    {detail.trust.paragraphs[0] ? (
+                      <p className="mt-4 max-w-[36rem] text-[15px] leading-[1.72] text-white/90 sm:text-base">
+                        {detail.trust.paragraphs[0]}
+                      </p>
+                    ) : null}
+                    {/* Nested interaction strip: extra plane + yellow CTA (palette) */}
+                    <div className="mt-8 border border-white/14 bg-[rgb(0_0_0/0.28)] p-4">
+                      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                        <Link
+                          href="/contact/"
+                          className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
+                        >
+                          Book winter scope
+                        </Link>
+                        <Link
+                          href={PHONE_TEL}
+                          className="cta-outline-light inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
+                        >
+                          {detail.ctaOverride.buttonLabel}
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

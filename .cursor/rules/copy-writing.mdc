@@ -23,6 +23,8 @@ Composition (reference):
 
 Z-order for sections (for copy placement context): atmosphere (-1) → base canvas (0) → substrate (1) → structural accents (2) → interaction plane (10+).
 
+**Layer budget (required):** Each major section must **realize at least three contrasting stacked planes** (substrate + treatment + readable content shell, or equivalent). Do not ship flat single-layer sections. Full criteria: **`design-system.mdc` §8 — Section composition**.
+
 ## §3 — Content mapping and governance
 
 | Copy volume | Component mapping | Structural requirement |

@@ -29,6 +29,7 @@ alwaysApply: false
 - **Single H1 per page view** where the hero or primary page title is expressed; section titles use H2/H3 in logical order (no skipped levels for decoration).
 - **SEO integrity:** Ranking copy stays in the **DOM**. Do not remove or replace long copy with empty placeholders for visual convenience. If long copy is visually collapsed, full text must still be present (e.g. tabs, accordion, details/summary, read-more that keeps content in DOM).
 - **Long copy:** Beyond ~two-sentence density in UI, prefer approved stow patterns (tabs, accordion, expand) per product standards — **expanded state** must not break layout or hide content from crawlers.
+- **Visual depth vs. content:** Overlays, watermarks, and decorative layers (see **`design-system.mdc` §8**) must **not** replace or hide ranking copy; they add depth only. All headings and body meant for users/search stay in the DOM as real text.
 
 ## Copy source
 

@@ -10,3 +10,5 @@ The active rules are divided into **`design-system.mdc`**, **`copy-writing.mdc`*
 Mandatory enforcement (self-audit, Git sync on `main`): see **`glc-modular-enforcement-cloud-safety.mdc`**.
 
 **Service images:** All service photography lives under **`public/images/services/`** in subfolders that match each service line (`Drainage-and-Hardscaping`, `Excavation`, `Foundations`, `Grading`, `Hauling`, `Snow Removal`). Full conventions and URL encoding notes are in **`design-system.mdc`** (Service photography section).
+
+**Section depth & palette:** Every major section needs **≥3 contrasting visual layers**, **tri-tonal typography colors**, and **≥3 intentional GLC palette roles** in the UI — see **`design-system.mdc` §8 — Section composition**.

@@ -47,18 +47,47 @@ Longform and UI copy:
 
 ## §8 — Visual hierarchy and palette
 
+### Section composition (non-negotiable)
+
+These rules apply to **every major section** (e.g. full-width `section-major`, hero bands, split CTAs). They were required in the legacy monolithic master spec but must be carried explicitly in modular rules.
+
+**1. Minimum contrasting layers (≥3)**  
+Stack **at least three visually distinct planes** so type and CTAs read clearly. Align with the Z-order vocabulary in `copy-writing.mdc` §1. Typical stack (pick **≥3** that contrast):
+
+| Plane | Role | Examples |
+|-------|------|----------|
+| Base | Canvas | `band-light`, `band-dark`, `band-dark-field` |
+| Substrate | Image or broad fill | `next/image` hero, tonal wash, gradient field |
+| Treatment | Scrim / glass | Multi-stop gradient, `backdrop-blur-md`, `bg-[rgb(10,12,11,0.45)]` |
+| Structure | Rails / seams | 4px `var(--y)` spine, `border-white/10`, `var(--g200)` |
+| Interaction | Foreground UI | CTA cluster, `bespoke-surface` card, `z-10` content shell |
+
+Pure flat single-fill sections without substrate/treatment/structure separation **do not** meet the standard unless you add at least rails + machined panel + base.
+
+**2. Typography color (tri-tonal — required)**  
+Every section’s type must implement **three distinct typographic color treatments** (primary / secondary / tertiary) per band:
+
+- **Primary:** headings / key numerals — dark band: `text-white` or `text-[color:var(--y)]`; light band: `text-ink`.
+- **Secondary:** body / lede — dark band: `text-white/90`; light band: `text-ink` or `--text-600` sparingly for supporting lines.
+- **Tertiary:** eyebrows / metadata — dark band: `text-white/55`; light band: `text-ink-muted` / `text-400`.
+
+Do not collapse eyebrow, headline, and body into one opacity or one gray.
+
+**3. Minimum palette presence in section design (≥3 roles)**  
+Beyond photo pixels, the **designed** UI must show **at least three** intentional GLC palette roles in the same section — for example:
+
+- `--y` (rail, rule, stat numeral, gradient accent, or CTA fill), **and**
+- `--ink` / dark glass (`rgb(10,12,11)`, `text-ink`), **and**
+- White at a defined tier (`text-white`, `text-white/90`, `border-white/10`, or light panel `#fff`).
+
+On **light** bands, substitute: `text-ink` + `--text-600` or muted label + `--y` accent. A section that is only white+gray with no yellow where an accent is expected is non-compliant.
+
 Colors:
 
 - `--yellow-core` / `--y`: `#f2b705`
 - `--charcoal-deep` / `--ink`: `#1e1c1a`
 - `--white`: `#ffffff`
 - `--text-600`: `#6b6560` (sparingly; not default for labels/body)
-
-Tri-tonal logic (every section: three distinct typographic color treatments):
-
-- Primary (headings/stats): dark band — white or yellow core; light band — charcoal deep.
-- Secondary (body/ledes): dark — `text-white/90`; light — `--text-600`.
-- Tertiary (metadata/eyebrows): dark — `text-white/55`; light — `text-400` / muted slate.
 
 Hero metrics cluster: yellow on numerals; `text-white/90` on stat labels; `text-white/55` on coverage/overline.
 
