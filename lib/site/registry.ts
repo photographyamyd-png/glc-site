@@ -169,6 +169,7 @@ export const SNOW_LOCATIONS: LocationDef[] = [
 
 export const SEO_TITLES = {
   home: "Excavation & Site Preparation Barrie | Simcoe County | Orillia | Innisfil",
+  maintenance: "Coming Soon | Ground Level Contracting",
   services: "Services | Ground Level Contracting",
   about: "About | Ground Level Contracting",
   contact: "Contact | Ground Level Contracting",

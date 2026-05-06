@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Oswald, Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import "@/styles/footer-clone.css";
@@ -31,10 +32,16 @@ const barlowCondensed = Barlow_Condensed({
   weight: ["500", "600", "700"],
 });
 
+const googleSiteVerification =
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim() || undefined;
+
 export const metadata: Metadata = {
   title: SEO_TITLES.home,
   description:
     "Ground Level Contracting provides excavation, grading, civil infrastructure, hauling, and commercial snow operations.",
+  ...(googleSiteVerification
+    ? { verification: { google: googleSiteVerification } }
+    : {}),
   openGraph: {
     title: SEO_TITLES.home,
     description:
@@ -49,11 +56,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const minimalShell =
+    (await headers()).get("x-glc-minimal-shell") === "1";
+
   return (
     <html
       lang="en"
@@ -66,15 +76,22 @@ export default function RootLayout({
         "font-sans",
       )}
     >
-      <body className="min-h-full bg-canvas font-sans text-ink">
-        <SiteJsonLd />
-        <GrainOverlay />
-        <SiteHeader />
+      <body
+        className={cn(
+          "min-h-full font-sans",
+          minimalShell ? "bg-ink text-white" : "bg-canvas text-ink",
+        )}
+      >
+        {!minimalShell && <SiteJsonLd />}
+        {!minimalShell && <GrainOverlay />}
+        {!minimalShell && <SiteHeader />}
         <main className="relative z-10">{children}</main>
-        <SiteFooterNextClone
-          site={footerCloneSiteData}
-          navigation={footerCloneNavigationData}
-        />
+        {!minimalShell && (
+          <SiteFooterNextClone
+            site={footerCloneSiteData}
+            navigation={footerCloneNavigationData}
+          />
+        )}
       </body>
     </html>
   );
