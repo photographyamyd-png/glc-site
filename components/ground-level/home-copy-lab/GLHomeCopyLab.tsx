@@ -1,27 +1,29 @@
 /**
- * Home copy prototype — bottom-of-page stack after `GLCDnaSandbox`.
+ * Production homepage stack.
  * Strings: `lib/ground-level/home-copy-lab-content.ts` (verbatim from HOMEPAGE_COPY_ROLE_MAP.md).
- * Presentation: composes shared `GL*` section shells + layered `CopyLab*` blocks (featured, grid, stats).
+ * Presentation: sandbox-approved `GL*` shells only — `GLFeaturedServicesBento` (sticky shortcuts + bento) +
+ * `GLCapabilitiesRail` (vertical rail + panel). No duplicate static capability grids.
  *
- * ## IA (order, rationale, ids)
+ * ## IA (order, stable anchor ids)
  *
- * 1. `copy-lab-hero` — Full-bleed hero (`GLHero` + media) + role-map copy.
- * 2. Marquee — `GLMarqueeBand` with role-map phrases (yellow ticker, same as Lane A DNA).
- * 3. `copy-lab-featured` — Six Core intro + imagery column + service links.
- * 4. `copy-lab-about` — `GLWhoWeServe` shell + role-map about (stats strip off; separate metrics band).
- * 5. `copy-lab-stats` — Light-field metrics + imagery (rhythm break before grid).
- * 6. `copy-lab-services-grid` — Dark capabilities grid (aligned with `GLServices`).
- * 7. `copy-lab-why` — `GLDifference` + role-map why.
- * 8. `copy-lab-process` — `GLProcess` + role-map process intro + steps.
- * 9. `copy-lab-coverage` — `GLServiceAreas` (`surface="light"`) + role-map territory.
- * 10. `copy-lab-testimonials` — `GLTestimonialsBlock` (accent-rail cards).
- * 11. `copy-lab-closing` — `GLCtaBand` + role-map closing CTA.
- *
- * Flow: attention → offer → trust → proof → process → geography → peer proof → conversion.
- * All ids use prefix `copy-lab-` to avoid collisions with Lane A anchors.
+ * 1. `#hero` — `GLHero`
+ * 2. Marquee — `GLMarqueeBand`
+ * 3. `#services` — `GLFeaturedServices` (sandbox DNA)
+ * 4. `#about` — `GLWhoWeServe`
+ * 5. `#metrics` — `CopyLabStats`
+ * 6. `#capabilities` — `GLCapabilitiesRail` (interaction-led, not card grid)
+ * 7. `#why` — `GLDifference`
+ * 8. `#process` — `GLProcess`
+ * 9. `#coverage` — `GLServiceAreas` (`surface="light"`)
+ * 10. `#testimonials` — `GLTestimonialsBlock`
+ * 11. `#cta-band` — `GLCtaBand`
+ * 12. `#ghost-test` — `GLGhostTestSection` (active-chain-only verification section)
  */
 
 import { GLMarqueeBand } from "@/components/glc-sections/GLMarqueeBand";
+import { GLCapabilitiesRail } from "@/components/ground-level/GLCapabilitiesRail";
+import { GLGhostTestSection } from "@/components/ground-level/GLGhostTestSection";
+import { GLFeaturedServicesBento } from "@/components/ground-level/GLFeaturedServicesBento";
 import { GLHero, type GLHeroContent } from "@/components/ground-level/GLHero";
 import { GLCtaBand, type GLCtaBandContent } from "@/components/ground-level/GLCtaBand";
 import { GLServiceAreas, type GLServiceAreasContent } from "@/components/ground-level/GLServiceAreas";
@@ -31,17 +33,25 @@ import { GLProcess, type GLProcessContent } from "@/components/ground-level/GLPr
 import { GLTestimonialsBlock, type GLTestimonialsBlockContent } from "@/components/ground-level/GLTestimonials";
 import {
   COPY_LAB_ABOUT,
+  COPY_LAB_CAPABILITIES_INTRO,
   COPY_LAB_CLOSING_CTA,
   COPY_LAB_COVERAGE,
+  COPY_LAB_FEATURED_SERVICES,
   COPY_LAB_HERO,
   COPY_LAB_MARQUEE_ITEMS,
   COPY_LAB_PROCESS,
   COPY_LAB_TESTIMONIALS,
   COPY_LAB_WHY,
 } from "@/lib/ground-level/home-copy-lab-content";
-import { CopyLabFeatured } from "./CopyLabFeatured";
-import { CopyLabServicesGrid } from "./CopyLabServicesGrid";
+import { SERVICES_GRID } from "@/lib/ground-level/homepage-copy";
+import { groundLevelServicesWithCopyLabDescriptions } from "@/lib/ground-level/merge-copy-lab-services";
 import { CopyLabStats } from "./CopyLabStats";
+
+const copyLabMergedServices = groundLevelServicesWithCopyLabDescriptions();
+
+const capabilitiesHeadingParts = SERVICES_GRID.heading.trim().split(/\s+/);
+const capabilitiesTitleLine1 = capabilitiesHeadingParts[0] ?? SERVICES_GRID.heading;
+const capabilitiesTitleLine2 = capabilitiesHeadingParts.slice(1).join(" ");
 
 const copyLabHeroContent: GLHeroContent = {
   eyebrow: COPY_LAB_HERO.eyebrow,
@@ -56,6 +66,14 @@ const copyLabHeroContent: GLHeroContent = {
   secondaryCta: { ...COPY_LAB_HERO.secondaryCta },
   marqueePhrases: [...COPY_LAB_MARQUEE_ITEMS],
 };
+
+const copyLabFeaturedContent = {
+  eyebrow: COPY_LAB_FEATURED_SERVICES.eyebrow,
+  heading: `${COPY_LAB_FEATURED_SERVICES.h2Line1} / ${COPY_LAB_FEATURED_SERVICES.h2Line2}`,
+  intro: COPY_LAB_FEATURED_SERVICES.body,
+  cta: COPY_LAB_FEATURED_SERVICES.primaryCta.label,
+  ctaHref: COPY_LAB_FEATURED_SERVICES.primaryCta.href,
+} as const;
 
 const copyLabAboutContent: GLWhoWeServeContent = {
   eyebrow: COPY_LAB_ABOUT.eyebrow,
@@ -117,31 +135,43 @@ const copyLabClosingContent: GLCtaBandContent = {
 export function GLHomeCopyLab() {
   return (
     <div className="copy-lab-stack" data-prototype="home-copy-lab">
-      <GLHero sectionId="copy-lab-hero" headingId="copy-lab-hero-heading" content={copyLabHeroContent} />
+      <GLHero sectionId="hero" headingId="hero-heading" content={copyLabHeroContent} />
       <GLMarqueeBand items={COPY_LAB_MARQUEE_ITEMS} />
-      <CopyLabFeatured />
+      <GLFeaturedServicesBento
+        sectionId="services"
+        headingId="services-heading"
+        content={copyLabFeaturedContent}
+        services={copyLabMergedServices}
+      />
       <GLWhoWeServe
-        sectionId="copy-lab-about"
-        headingId="copy-lab-about-heading"
+        sectionId="about"
+        headingId="about-heading"
         content={copyLabAboutContent}
         showStatsStrip={false}
       />
       <CopyLabStats />
-      <CopyLabServicesGrid />
-      <GLDifference sectionId="copy-lab-why" headingId="copy-lab-why-heading" content={copyLabWhyContent} />
-      <GLProcess sectionId="copy-lab-process" headingId="copy-lab-process-heading" content={copyLabProcessContent} />
+      <GLCapabilitiesRail
+        eyebrow={SERVICES_GRID.eyebrow}
+        titleLine1={capabilitiesTitleLine1}
+        titleLine2={capabilitiesTitleLine2}
+        intro={COPY_LAB_CAPABILITIES_INTRO}
+        services={copyLabMergedServices}
+      />
+      <GLDifference sectionId="why" headingId="why-heading" content={copyLabWhyContent} />
+      <GLProcess sectionId="process" headingId="process-heading" content={copyLabProcessContent} />
       <GLServiceAreas
-        sectionId="copy-lab-coverage"
-        headingId="copy-lab-coverage-heading"
+        sectionId="coverage"
+        headingId="coverage-heading"
         content={copyLabCoverageContent}
         surface="light"
       />
       <GLTestimonialsBlock
-        sectionId="copy-lab-testimonials"
-        headingId="copy-lab-testimonials-heading"
+        sectionId="testimonials"
+        headingId="testimonials-heading"
         content={copyLabTestimonialsContent}
       />
-      <GLCtaBand sectionId="copy-lab-closing" headingId="copy-lab-closing-heading" content={copyLabClosingContent} />
+      <GLCtaBand sectionId="cta-band" headingId="cta-band-heading" content={copyLabClosingContent} />
+      <GLGhostTestSection sectionId="ghost-test" headingId="ghost-test-heading" />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
+import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { PHONE_TEL, WHY } from "@/lib/ground-level/homepage-copy";
 
 function headingTone(text: string) {
@@ -93,7 +94,7 @@ export function GLDifference({
               {headingTone(w.heading)}
             </h2>
             <div className="mt-6 border border-[color:var(--g200)] bg-white p-4 shadow-[0_10px_24px_rgb(0_0_0/0.08)]">
-              <p className="text-sm leading-relaxed text-ink sm:text-base">{w.body}</p>
+              <ExpandableCopy text={w.body} className="text-sm leading-relaxed text-ink sm:text-base" />
             </div>
             <ul className="mt-10 space-y-8">
               {w.reasons.map((r) =>

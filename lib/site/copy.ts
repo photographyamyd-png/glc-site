@@ -15,6 +15,7 @@ export type HomeCopy = {
   marquee: string[];
   statsBand: { eyebrow: string; heading: string; headingAccent: string; intro: string };
   accordion: { eyebrow: string; heading: string; intro: string; cta: { label: string; href: string } };
+  positioning: { eyebrow: string; heading: string; body: string; chips: string[] };
   about: {
     eyebrow: string;
     heading: string;
@@ -35,7 +36,7 @@ export type HomeCopy = {
     floatChip: string;
   };
   process: { eyebrow: string; heading: string; steps: Array<{ id: string; title: string; body: string }> };
-  coverage: { eyebrow: string; heading: string; body: string; areas: string[] };
+  coverage: { eyebrow: string; heading: string; body: string; areas: Array<{ label: string; href: string }> };
   testimonials: {
     eyebrow: string;
     heading: string;
@@ -148,7 +149,7 @@ export const HOME_COPY: HomeCopy = {
     eyebrow: "Commercial Excavation & Civil Infrastructure",
     titleLines: ["From", "Concept", "To Creation"],
     lede:
-      "Ground Level Contracting prepares land for development — delivering excavation, foundations, drainage, and civil infrastructure for project managers and site supervisors across Barrie, Midland, Orillia, and Simcoe County.",
+      "Ground Level Contracting prepares land for development — delivering excavation, foundations, drainage, and civil infrastructure exclusively for commercial project managers and site supervisors across Barrie, Midland, Orillia, and Simcoe County.",
     primaryCta: { label: "Request a Quote", href: "tel:+17056194902" },
     secondaryCta: { label: "View Services", href: "/#services" },
     stats: [
@@ -190,6 +191,13 @@ export const HOME_COPY: HomeCopy = {
     intro:
       "From initial site clearing through drainage, hauling, and winter operations, Ground Level Contracting delivers end-to-end excavation and civil infrastructure services for commercial builds across Barrie, Midland, Orillia, and Simcoe County.",
     cta: { label: "Request a Quote", href: "tel:+17056194902" },
+  },
+  positioning: {
+    eyebrow: "Commercial-Only Positioning",
+    heading: "Exclusively Built For Commercial Operators",
+    body:
+      "Ground Level Contracting serves commercial owners, developers, property managers, and general contractors only. Our crews, equipment planning, and communication model are built for active commercial sites and schedule-critical mobilizations.",
+    chips: ["Commercial Projects Only", "GC + PM Workflow", "Schedule-Critical Mobilization", "Simcoe County Coverage"],
   },
   about: {
     eyebrow: "Who We Are",
@@ -267,10 +275,10 @@ export const HOME_COPY: HomeCopy = {
     body:
       "Ground Level Contracting is based in Barrie and operates commercially throughout our defined service territory. We move quickly across Barrie, Midland, Orillia, and Simcoe County — no extended mobilization delays.",
     areas: [
-      "Barrie — Primary base & dispatch",
-      "Midland — Commercial & industrial sites",
-      "Orillia — Lake Country corridor",
-      "Simcoe County — County-wide coverage",
+      { label: "Barrie — Primary base & dispatch", href: "/locations/commercial-snow-removal-barrie-ontario/" },
+      { label: "Midland — Commercial & industrial sites", href: "/locations/commercial-snow-removal-simcoe-county/" },
+      { label: "Orillia — Lake Country corridor", href: "/locations/commercial-snow-removal-orillia-ontario/" },
+      { label: "Simcoe County — County-wide coverage", href: "/locations/commercial-snow-removal-simcoe-county/" },
     ],
   },
   testimonials: {
@@ -804,6 +812,16 @@ export const SERVICE_DETAILS: Record<PrimaryServiceSlug, ServiceDetailCopy> = {
       buttonLabel: "Call dispatch",
       supporting:
         "Share civil and landscape drawings — we will align grading, trenching, and base prep with your paving and wall scopes.",
+    },
+    extra: {
+      parallaxBand: {
+        eyebrow: "Field execution",
+        title: "Drainage & hardscape integration",
+        subtitle:
+          "Storm conveyance, wall drainage, and paver-ready subgrades sequenced for commercial sites across Barrie, Midland, Orillia, and Simcoe County.",
+        imageAlt:
+          "Commercial drainage and hardscape civil work catch basins trenching Simcoe County Ontario",
+      },
     },
   },
   "hauling-site-clearing-logistics": {

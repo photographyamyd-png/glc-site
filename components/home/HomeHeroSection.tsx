@@ -56,6 +56,9 @@ export function HomeHeroSection({ copy }: HomeHeroSectionProps) {
                 <span className="opacity-95"> {copy.titleLines[2]}.</span>
               </h1>
               <p className="hero-caption mt-5 max-w-[36rem] text-[15px] leading-relaxed text-white/84 sm:text-base">{copy.lede}</p>
+              <p className="mt-3 max-w-[36rem] text-xs uppercase tracking-[0.14em] text-white/72 sm:text-[11px]">
+                Built exclusively for commercial operators across Simcoe County.
+              </p>
               <div className="hero-rule mt-6 h-px w-full max-w-md bg-[color:var(--y)]/40" aria-hidden />
               <p className="mt-6 font-label text-[10px] uppercase tracking-[0.2em] text-white/55">{copy.coverageLabel}</p>
               <ul className="mt-3 flex flex-wrap gap-2" aria-label={copy.coverageLabel}>
@@ -69,14 +72,17 @@ export function HomeHeroSection({ copy }: HomeHeroSectionProps) {
                 ))}
               </ul>
 
-              <div className="hero-cta-row mt-6 grid gap-3 border border-white/14 bg-[rgb(0_0_0/0.24)] p-4 sm:grid-cols-[1fr_1fr] sm:items-center">
-                <p className="text-xs leading-relaxed text-white/76 sm:col-span-2">
+              <div className="hero-cta-row mt-6 grid gap-3 border border-white/14 bg-[rgb(0_0_0/0.24)] p-4 sm:grid-cols-1 sm:items-center">
+                <p className="text-xs leading-relaxed text-white/76">
                   Start with a scoped consultation, then move to pricing and mobilization.
                 </p>
                 <Link href={copy.primaryCta.href} className="cta-hero-fill px-5 py-3 text-xs tracking-wide text-center">
                   {copy.primaryCta.label}
                 </Link>
-                <Link href={copy.secondaryCta.href} className="cta-outline-light px-5 py-3 text-xs tracking-wide text-center">
+                <Link
+                  href={copy.secondaryCta.href}
+                  className="text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-white/78 underline decoration-white/45 underline-offset-4 transition hover:text-[color:var(--y)] hover:decoration-[color:var(--y)]"
+                >
                   {copy.secondaryCta.label}
                 </Link>
               </div>

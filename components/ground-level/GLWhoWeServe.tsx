@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
+import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { FragmentBullet } from "@/components/ui/StructuralFragments";
 import { ABOUT, STATS_LINES } from "@/lib/ground-level/homepage-copy";
 
@@ -58,8 +60,9 @@ export function GLWhoWeServe({
 }: GLWhoWeServeProps = {}) {
   const a = content ?? defaultAbout();
   const ctaLabel = typeof a.cta === "string" ? a.cta : a.cta.label;
-  const ctaHref = typeof a.cta === "string" ? "#contact" : a.cta.href;
+  const ctaHref = typeof a.cta === "string" ? "/contact" : a.cta.href;
   const imgSrc = a.imageSrc ?? "/ground-level/excavation-1.jpg";
+  const isInternalRoute = ctaHref.startsWith("/") || ctaHref.startsWith("#");
 
   return (
     <section
@@ -84,7 +87,7 @@ export function GLWhoWeServe({
               {headingTone(a.heading)}
             </h2>
             <div className="mt-6 max-w-2xl border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:var(--brand-canvas)] p-4 text-ink shadow-[0_16px_40px_rgb(0_0_0/0.18)] sm:p-5">
-              <p className="text-sm leading-relaxed text-ink-muted sm:text-base">{a.body}</p>
+              <ExpandableCopy text={a.body} className="text-sm leading-relaxed text-ink-muted sm:text-base" />
             </div>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2 sm:gap-4">
               {a.credentials.map((c) => {
@@ -107,9 +110,15 @@ export function GLWhoWeServe({
                 );
               })}
             </ul>
-            <a href={ctaHref} className="cta-hero-fill mt-8 inline-block px-8 py-4 text-sm font-semibold tracking-wide">
-              {ctaLabel}
-            </a>
+            {isInternalRoute ? (
+              <Link href={ctaHref} className="cta-hero-fill mt-8 inline-block px-8 py-4 text-sm font-semibold tracking-wide">
+                {ctaLabel}
+              </Link>
+            ) : (
+              <a href={ctaHref} className="cta-hero-fill mt-8 inline-block px-8 py-4 text-sm font-semibold tracking-wide">
+                {ctaLabel}
+              </a>
+            )}
           </div>
 
           <div className="order-1 lg:order-2 lg:pl-2" style={{ transform: "translateY(var(--dna-stagger-sm))" }}>

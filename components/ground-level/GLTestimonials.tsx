@@ -1,4 +1,9 @@
+ "use client";
+
+import { useCallback, useId, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
+import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { TESTIMONIALS } from "@/lib/ground-level/homepage-copy";
 
 export type TestimonialEntry = { quote: string; attribution: string };
@@ -16,19 +21,15 @@ function headingTone(text: string) {
   );
 }
 
-function introTone(text: string) {
-  const key = "commercial relationships";
-  if (!text.toLowerCase().includes(key)) return <>{text}</>;
-  const lower = text.toLowerCase();
-  const idx = lower.indexOf(key);
-  const before = text.slice(0, idx);
-  const match = text.slice(idx, idx + key.length);
-  const after = text.slice(idx + key.length);
+function headingToneLight(text: string) {
+  const key = "PMs";
+  if (!text.includes(key)) return <>{text}</>;
+  const [before, after] = text.split(key);
   return (
     <>
-      {before}
-      <span className="font-semibold text-[color:var(--ink-deep)]">{match}</span>
-      {after}
+      <span className="text-ink">{before}</span>
+      <span className="text-[color:var(--y)]">{key}</span>
+      <span className="text-ink">{after}</span>
     </>
   );
 }
@@ -146,7 +147,7 @@ export function TestimonialEntriesGrid({
                 <div className="px-6 py-5 sm:px-6 sm:py-6">
                   {entry.quote ? (
                     <blockquote className={`text-sm leading-relaxed ${variant.textClass}`}>
-                      <p>&ldquo;{entry.quote}&rdquo;</p>
+                      <ExpandableCopy text={`"${entry.quote}"`} className={`text-sm leading-relaxed ${variant.textClass}`} />
                     </blockquote>
                   ) : null}
                 </div>
@@ -171,7 +172,7 @@ export function TestimonialEntriesGrid({
             <div className={hasChip ? "px-6 py-5" : ""}>
               {entry.quote ? (
                 <blockquote className={`text-sm leading-relaxed ${variant.textClass}`}>
-                  <p>&ldquo;{entry.quote}&rdquo;</p>
+                  <ExpandableCopy text={`"${entry.quote}"`} className={`text-sm leading-relaxed ${variant.textClass}`} />
                 </blockquote>
               ) : null}
               {showFooterAttribution ? (
@@ -206,37 +207,239 @@ export function GLTestimonialsBlock({
   sectionId = "testimonials",
   headingId = "testimonials-heading",
   content,
-  variant = DEFAULT_BLOCK_VARIANT,
 }: {
   sectionId?: string;
   headingId?: string;
   content: GLTestimonialsBlockContent;
-  variant?: TestimonialPreviewVariant;
 }) {
+  const baseId = useId();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const reducedMotion = useReducedMotion();
+  const entries = content.entries;
+  const stage = reducedMotion
+    ? { bg: 0, eyebrow: 0, heading: 0, panel: 0, caption: 0, cta: 0 }
+    : { bg: 0, eyebrow: 0.4, heading: 0.55, panel: 0.75, caption: 1.15, cta: 1.9 };
+
+  const onTabKeyDown = useCallback(
+    (e: React.KeyboardEvent, index: number) => {
+      const len = entries.length;
+      if (!len) return;
+
+      let next = index;
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        next = (index + 1) % len;
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        next = (index - 1 + len) % len;
+      } else if (e.key === "Home") {
+        e.preventDefault();
+        next = 0;
+      } else if (e.key === "End") {
+        e.preventDefault();
+        next = len - 1;
+      } else {
+        return;
+      }
+
+      setActiveIndex(next);
+      queueMicrotask(() => {
+        document.getElementById(`${baseId}-tab-${next}`)?.focus();
+      });
+    },
+    [baseId, entries.length],
+  );
+
   return (
     <section
       id={sectionId}
-      className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden view-reveal"
+      className="section-major band-light relative scroll-mt-[var(--header)] overflow-hidden view-reveal"
       aria-labelledby={headingId}
     >
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--y)]/35 to-transparent"
-        aria-hidden
-      />
-      <ClaudeLogicWatermark placement="top-right" mode="on-dark" />
-      <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))]">
-        <p className="label-overline-on-dark mb-3">{content.eyebrow}</p>
-        <h2
-          id={headingId}
-          className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl"
-        >
-          {headingTone(content.headline)}
-        </h2>
-        <div className="mt-4 max-w-2xl border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:var(--brand-canvas)] p-4 text-ink shadow-[0_16px_40px_rgb(0_0_0/0.18)] sm:p-5">
-          <p className="text-sm leading-relaxed text-ink-muted sm:text-base">{introTone(content.intro)}</p>
-        </div>
-        <TestimonialEntriesGrid variant={variant} entries={content.entries} />
+      <div className="pointer-events-none absolute inset-0 -z-[1]" aria-hidden>
+        <motion.div
+          className="absolute inset-0 bg-[radial-gradient(90%_65%_at_8%_12%,rgb(242_183_5/0.14),transparent_62%),radial-gradient(80%_58%_at_88%_14%,rgb(30_28_26/0.1),transparent_70%)]"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: reducedMotion ? 0.08 : 0.3, delay: stage.bg }}
+        />
+        <motion.div
+          className="absolute -left-24 top-16 h-64 w-64 rotate-12 border border-[color:var(--y)]/18"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: reducedMotion ? 0.08 : 0.3, delay: stage.bg }}
+        />
+        <motion.div
+          className="absolute -right-24 bottom-10 h-56 w-56 -rotate-12 border border-[color:var(--g200)]"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: reducedMotion ? 0.08 : 0.3, delay: stage.bg + (reducedMotion ? 0 : 0.05) }}
+        />
       </div>
+      <div className="pointer-events-none absolute inset-0 z-[1]" aria-hidden>
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.96),rgb(247_243_238/0.94))]" />
+        <div className="testimonial-atmosphere-grain absolute inset-0 opacity-[0.03] mix-blend-multiply" />
+      </div>
+      <div className="pointer-events-none absolute inset-0 z-[2]" aria-hidden>
+        <div className="absolute inset-x-0 top-0 h-px bg-[color:var(--g200)]" />
+        <div className="absolute left-[28px] top-[var(--s9)] h-[calc(100%-var(--s9)-var(--s12))] w-1 bg-[color:var(--y)]/92 sm:left-[40px] lg:left-[var(--s12)]" />
+      </div>
+      <div className="pointer-events-none absolute inset-0 opacity-[0.18]" aria-hidden>
+        <ClaudeLogicWatermark placement="top-right" mode="on-light" />
+      </div>
+      <motion.div
+        className="relative z-10 mx-auto max-w-[min(100%,var(--max))]"
+        initial={{ opacity: 0, y: reducedMotion ? 0 : 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: reducedMotion ? 0.08 : 0.65,
+          ease: [0.16, 1, 0.3, 1],
+          delayChildren: reducedMotion ? 0 : 0.04,
+          staggerChildren: reducedMotion ? 0.01 : 0.2,
+        }}
+        viewport={{ once: true, amount: 0.5 }}
+      >
+        <div className="flex flex-col gap-10 md:flex-row md:gap-10 lg:gap-14">
+          <motion.div
+            initial={{ opacity: 0, y: reducedMotion ? 0 : 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: reducedMotion ? 0.1 : 0.5, delay: stage.eyebrow }}
+            viewport={{ once: true, amount: 0.5 }}
+            className="w-full md:w-1/2"
+          >
+            <motion.p
+              className="mb-3 font-label text-[10px] font-extrabold uppercase tracking-[0.15em] text-ink-muted"
+              initial={{ opacity: 0, y: reducedMotion ? 0 : 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: reducedMotion ? 0.08 : 0.24, delay: stage.eyebrow }}
+            >
+              {content.eyebrow}
+            </motion.p>
+            <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
+              <motion.h2
+                id={headingId}
+                className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+                initial={{ opacity: 0, y: reducedMotion ? 0 : 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: reducedMotion ? 0.1 : 0.4, delay: stage.heading }}
+              >
+                {headingToneLight(content.headline)}
+              </motion.h2>
+              <motion.div
+                initial={{ opacity: 0, y: reducedMotion ? 0 : 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: reducedMotion ? 0.08 : 0.35, delay: stage.caption }}
+              >
+                <ExpandableCopy text={content.intro} className="mt-5 text-base leading-[1.7] text-ink-muted" />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: reducedMotion ? 0 : 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: reducedMotion ? 0.08 : 0.32, delay: stage.cta }}
+              >
+                <a
+                  href="#cta-band"
+                  className="group cta-primary mt-8 inline-flex items-center gap-2 px-8 py-4 text-xs font-bold uppercase tracking-[0.14em]"
+                >
+                  Start Consultation
+                  <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+                </a>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: reducedMotion ? 0 : 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: reducedMotion ? 0.1 : 0.52, delay: stage.panel }}
+            viewport={{ once: true, amount: 0.5 }}
+            className="w-full md:w-1/2"
+          >
+            <div className="bespoke-surface panel-machined relative mt-10 p-7 sm:mt-12 sm:p-8 lg:ml-[var(--dna-stagger-sm)] lg:p-8">
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[color:var(--g200)]" aria-hidden />
+              <div
+                role="tablist"
+                aria-label="Select testimonial quote"
+                className="flex flex-wrap gap-2 border-b border-[color:var(--g200)] pb-5"
+              >
+                {entries.map((entry, i) => {
+                  const isSelected = activeIndex === i;
+                  return (
+                    <button
+                      key={entry.attribution}
+                      type="button"
+                      role="tab"
+                      id={`${baseId}-tab-${i}`}
+                      aria-selected={isSelected}
+                      aria-controls={`${baseId}-panel-${i}`}
+                      tabIndex={isSelected ? 0 : -1}
+                      onClick={() => setActiveIndex(i)}
+                      onKeyDown={(e) => onTabKeyDown(e, i)}
+                      className={`min-h-[44px] border px-3 py-2 text-left font-label text-[10px] font-semibold uppercase tracking-[0.14em] transition-[background-color,color,border-color] duration-200 sm:px-4 ${
+                        isSelected
+                          ? "border-[color:var(--y)] bg-[color:var(--ink-deep)] text-white"
+                          : "border-[color:var(--g200)] bg-white/80 text-ink-muted hover:border-[color:var(--y)]/45 hover:text-ink"
+                      }`}
+                    >
+                      <span className="block text-[10px] tracking-[0.18em]">Quote {String(i + 1).padStart(2, "0")}</span>
+                      <span className="mt-1 block line-clamp-2 text-[10px] tracking-[0.14em]">{entry.attribution}</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {entries.map((entry, i) => (
+                <article
+                  key={`${entry.attribution}-panel`}
+                  role="tabpanel"
+                  id={`${baseId}-panel-${i}`}
+                  aria-labelledby={`${baseId}-tab-${i}`}
+                  hidden={activeIndex !== i}
+                  className="pt-6"
+                >
+                  <div className="mb-3 flex items-center gap-3">
+                    <svg viewBox="0 0 40 40" className="h-10 w-10 text-[color:var(--y)]" aria-hidden>
+                      <path
+                        d="M11 24c0-5 2.4-8.8 7.2-11.3l2.3 3.4c-3 1.7-4.3 3.6-4.3 5.8h4.8v7H11v-5Zm13 0c0-5 2.4-8.8 7.2-11.3l2.3 3.4c-3 1.7-4.3 3.6-4.3 5.8H34v7H24v-5Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <p className="font-label text-[10px] font-extrabold uppercase tracking-[0.18em] text-ink-muted">
+                      Verified Field Testimonial
+                    </p>
+                  </div>
+                  <h3 className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink sm:text-2xl">
+                    {entry.attribution.split(",")[0] ?? entry.attribution}
+                  </h3>
+                  <blockquote className="mt-3 text-[13px] leading-relaxed text-ink-muted sm:text-[15px] sm:leading-[1.7]">
+                    <ExpandableCopy
+                      text={`"${entry.quote}"`}
+                      className="text-[13px] leading-relaxed text-ink-muted sm:text-[15px] sm:leading-[1.7]"
+                    />
+                  </blockquote>
+                  {(() => {
+                    const [name, ...rest] = entry.attribution.split(",");
+                    const detail = rest.join(",").trim();
+                    return (
+                      <p className="mt-6 border-t border-[color:var(--g200)] pt-4 font-label text-[11px] font-extrabold uppercase tracking-[0.11em] text-ink leading-[1.45]">
+                        <span className="block">{name?.trim() ?? entry.attribution}</span>
+                        {detail ? <span className="mt-1 block text-[10px] tracking-[0.1em] text-ink-muted">{detail}</span> : null}
+                      </p>
+                    );
+                  })()}
+                </article>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
     </section>
   );
 }
@@ -300,7 +503,7 @@ export function GLTestimonials() {
           {headingTone(TESTIMONIALS.heading)}
         </h2>
         <div className="mt-4 max-w-2xl border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:var(--brand-canvas)] p-4 text-ink shadow-[0_16px_40px_rgb(0_0_0/0.18)] sm:p-5">
-          <p className="text-sm leading-relaxed text-ink-muted sm:text-base">{introTone(TESTIMONIALS.sub)}</p>
+          <ExpandableCopy text={TESTIMONIALS.sub} className="text-sm leading-relaxed text-ink-muted sm:text-base" />
         </div>
         <TestimonialEntriesGrid variant={DEFAULT_BLOCK_VARIANT} />
       </div>

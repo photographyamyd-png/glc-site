@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { MarketingPageShell } from "@/components/templates/MarketingPageShell";
-import { ALL_SERVICES, SEO_TITLES } from "@/lib/site/registry";
+import { GLFeaturedServicesBento } from "@/components/ground-level/GLFeaturedServicesBento";
+import { SEO_TITLES } from "@/lib/site/registry";
 import { CORE_COPY } from "@/lib/site/copy";
+import { groundLevelServicesWithCopyLabDescriptions } from "@/lib/ground-level/merge-copy-lab-services";
 
 export const metadata: Metadata = {
   title: SEO_TITLES.services,
@@ -10,34 +10,48 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesIndexPage() {
+  const services = groundLevelServicesWithCopyLabDescriptions();
   return (
-    <MarketingPageShell
-      id="services-index"
-      eyebrow={CORE_COPY.servicesIndex.breadcrumb.join(" / ")}
-      title={
-        <>
-          {CORE_COPY.servicesIndex.title.split(" ").slice(0, 2).join(" ")}{" "}
-          <span className="text-[color:var(--y)]">{CORE_COPY.servicesIndex.title.split(" ").slice(2).join(" ")}</span>
-        </>
-      }
-      lede={CORE_COPY.servicesIndex.lede}
-    >
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {ALL_SERVICES.map((service) => (
-          <article key={service.slug} className="rounded-xl border border-[color:var(--g200)] bg-white/80 p-5 backdrop-blur-sm">
-            <p className="label-overline">{service.category === "primary" ? "Primary" : "Snow sub-service"}</p>
-            <h2 className="mt-2 font-serif text-xl font-semibold uppercase tracking-tight text-ink">{service.title}</h2>
-            <p className="mt-2 text-sm leading-relaxed text-ink-muted">{service.description}</p>
-            <p className="mt-2 text-xs text-ink-muted">{CORE_COPY.servicesIndex.cardDescription}</p>
-            <Link
-              href={`/services/${service.slug}/`}
-              className="mt-4 inline-block text-xs font-semibold uppercase tracking-[0.12em] text-ink hover:text-[color:var(--y)]"
-            >
-              {CORE_COPY.servicesIndex.cardCtaLabel} {"->"}
-            </Link>
-          </article>
-        ))}
-      </div>
-    </MarketingPageShell>
+    <>
+      <section
+        id="services-overview"
+        className="band-dark-field relative overflow-hidden border-b border-white/10"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(10_12_11/0.92),rgb(10_12_11/0.74))]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_76%_58%_at_75%_28%,rgb(255_255_255/0.08),transparent_58%)]"
+          aria-hidden
+        />
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 pb-12 pt-[calc(var(--header)+2.5rem)] sm:px-6 sm:pb-14 lg:px-10 lg:pt-[calc(var(--header)+3rem)]">
+          <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/75">
+            Home / Services
+          </p>
+          <h1 className="mt-3 max-w-4xl font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl lg:text-5xl">
+            Six <span className="text-[color:var(--y)]">Core</span> Service Lines
+          </h1>
+          <p className="mt-5 max-w-3xl text-[15px] leading-[1.72] text-white/90 sm:text-base">
+            {CORE_COPY.servicesIndex.lede}
+          </p>
+        </div>
+      </section>
+
+      <GLFeaturedServicesBento
+        sectionId="services-grid"
+        headingId="services-heading"
+        content={{
+          eyebrow: "Our Services",
+          heading: "Six Core Service Lines",
+          intro: CORE_COPY.servicesIndex.lede,
+          cta: "Request a quote",
+          ctaHref: "/contact/",
+        }}
+        services={services}
+        showProgressRail={false}
+        showStepNumbers={false}
+      />
+    </>
   );
 }

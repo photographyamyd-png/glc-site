@@ -22,7 +22,7 @@ export function SiteFooter() {
           <ul className="mt-3 space-y-2 text-sm">
             <li><Link href="/about" className="text-ink-muted hover:text-[color:var(--y)]">About</Link></li>
             <li><Link href="/contact" className="text-ink-muted hover:text-[color:var(--y)]">Contact</Link></li>
-            <li><Link href="/#why" className="text-ink-muted hover:text-[color:var(--y)]">Why Ground Level</Link></li>
+            <li><Link href="/#about" className="text-ink-muted hover:text-[color:var(--y)]">Commercial Positioning</Link></li>
             <li><Link href="/#process" className="text-ink-muted hover:text-[color:var(--y)]">Process</Link></li>
             <li><Link href="/#coverage" className="text-ink-muted hover:text-[color:var(--y)]">Coverage</Link></li>
             <li><Link href="/#testimonials" className="text-ink-muted hover:text-[color:var(--y)]">Projects</Link></li>

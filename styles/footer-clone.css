@@ -1,0 +1,227 @@
+/* Standalone token fallbacks needed by footer clone. */
+:root {
+  --container-max: 1200px;
+  --font-display: "Oswald", sans-serif;
+  --font-accent: "Source Serif 4", serif;
+  --charcoal-deep: #1e1c1a;
+  --yellow-core: #f2b705;
+  --off-white: #f2f2f2;
+  --gray-100: #f7f6f4;
+  --gray-200: #e0deda;
+  --text-600: #6b6560;
+  --text-400: #9c9690;
+  --ease-expo: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#footer {
+  background: var(--gray-100);
+  padding: 80px 0 0;
+  position: relative;
+  border-top: 4px solid var(--charcoal-deep);
+}
+
+.footer__main {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 40px 60px;
+  display: grid;
+  grid-template-columns: 280px 1fr 1fr 1fr;
+  gap: 60px;
+}
+
+.footer__logo-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.footer__logo-mark-wrap {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.footer__logo-mark-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.footer__wordmark-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--charcoal-deep);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer__wordmark-sub {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--yellow-core);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.footer__tagline {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-600);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.footer__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-600);
+  margin-bottom: 10px;
+  line-height: 1.45;
+}
+
+.footer__contact-item svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--yellow-core);
+}
+
+.footer__col-title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--charcoal-deep);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gray-200);
+  position: relative;
+}
+
+.footer__col-title::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: var(--yellow-core);
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footer__links a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-600);
+  padding: 7px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.footer__links a::before {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: var(--yellow-core);
+  transition: width 0.2s var(--ease-expo);
+  flex-shrink: 0;
+}
+
+.footer__links a:hover {
+  color: var(--charcoal-deep);
+}
+
+.footer__links a:hover::before {
+  width: 16px;
+}
+
+.footer__bar {
+  background: var(--off-white);
+  border-top: 1px solid var(--gray-200);
+}
+
+.footer__bar-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer__copy {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-400);
+  letter-spacing: 0.04em;
+}
+
+.footer__copy span {
+  color: var(--yellow-core);
+}
+
+.footer__legal {
+  display: flex;
+  gap: 24px;
+}
+
+.footer__legal a {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-400);
+  transition: color 0.2s;
+}
+
+.footer__legal a:hover {
+  color: var(--yellow-core);
+}
+
+.footer__phone-link {
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.footer__phone-link:hover {
+  color: var(--yellow-core);
+}
+
+@media (max-width: 1024px) {
+  .footer__main {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__main {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer__bar-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}

@@ -12,7 +12,7 @@ export type ClaudeWatermarkPlacement = keyof typeof variants;
 type Props = {
   placement?: ClaudeWatermarkPlacement;
   className?: string;
-  mode?: "default" | "on-dark";
+  mode?: "default" | "on-dark" | "on-light";
 };
 
 /**

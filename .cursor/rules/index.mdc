@@ -1,0 +1,6 @@
+---
+description: Single-source bootstrap rule pointer.
+alwaysApply: true
+---
+
+Use `master/MASTER_RULES.md` as the only authoritative rules source for this workspace.

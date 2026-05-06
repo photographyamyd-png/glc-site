@@ -1,4 +1,5 @@
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
+import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { PROCESS } from "@/lib/ground-level/homepage-copy";
 
 function headingToneCanvas(text: string) {
@@ -74,7 +75,9 @@ export function GLProcess({
             {headingToneCanvas(p.heading)}
           </h2>
           {p.intro ? (
-            <p className="mt-4 border-l-2 border-[color:var(--y)]/60 pl-4 text-sm leading-relaxed text-ink-muted sm:text-base">{p.intro}</p>
+            <div className="mt-4 border-l-2 border-[color:var(--y)]/60 pl-4">
+              <ExpandableCopy text={p.intro} className="text-sm leading-relaxed text-ink-muted sm:text-base" />
+            </div>
           ) : null}
         </div>
         <div className="relative mt-10">

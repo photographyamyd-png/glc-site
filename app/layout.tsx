@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import { Oswald, Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
+import "@/styles/footer-clone.css";
 import { GrainOverlay } from "@/components/ui/GrainOverlay";
 import { SiteJsonLd } from "@/components/seo/SiteJsonLd";
 import { SiteHeader } from "@/components/ui/SiteHeader";
-import { SiteFooter } from "@/components/ui/SiteFooter";
+import {
+  footerCloneNavigationData,
+  footerCloneSiteData,
+} from "@/content/footer-clone-data";
+import { SiteFooterNextClone } from "@/components/layout/site-footer-next-clone";
 import { SEO_TITLES } from "@/lib/site/registry";
 import { cn } from "@/lib/utils";
 
@@ -66,7 +71,10 @@ export default function RootLayout({
         <GrainOverlay />
         <SiteHeader />
         <main className="relative z-10">{children}</main>
-        <SiteFooter />
+        <SiteFooterNextClone
+          site={footerCloneSiteData}
+          navigation={footerCloneNavigationData}
+        />
       </body>
     </html>
   );

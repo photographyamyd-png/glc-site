@@ -2,7 +2,7 @@
 
 Images in this folder are **layout and composition references**. They are **not** approved for brand, palette, photography subjects, or literal UI chrome.
 
-**Before editing** [`components/ground-level/`](../../components/ground-level/) or the header/hero boundary, read the **sidecar `.md`** for any reference you are applying. Rules in [PROJECT_PRIME_DIRECTIVE_RULES.md](../PROJECT_PRIME_DIRECTIVE_RULES.md) always win. Alternating `band-dark` / light fields (production stacks): [BAND_RHYTHM_AND_CONTRAST.md](../BAND_RHYTHM_AND_CONTRAST.md).
+**Before editing** [`components/ground-level/`](../../components/ground-level/) or the header/hero boundary, read the **sidecar `.md`** for any reference you are applying. This directory contains **structure-only blueprints** and is subordinate to [`GLC_MASTER_RULES.md`](../../GLC_MASTER_RULES.md) and [`GLC_GLOBAL_DESIGN_SYSTEM.md`](../../GLC_GLOBAL_DESIGN_SYSTEM.md). If a structure suggestion here conflicts with canonical GLC rules, canonical rules win.
 
 | File | One-line intent | Primary target component(s) |
 |------|-----------------|----------------------------|

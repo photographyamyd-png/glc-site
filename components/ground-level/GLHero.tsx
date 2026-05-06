@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
+import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { ThreeActHeadline } from "@/components/ui/ThreeActHeadline";
 import { HERO, MARQUEE_PHRASES } from "@/lib/ground-level/homepage-copy";
+import type { PrimaryServiceSlug } from "@/lib/site/registry";
 
 export type GLHeroStat = string | { value: string; label: string };
 
@@ -15,7 +17,7 @@ export type GLHeroContent = {
   stats: readonly GLHeroStat[];
   serviceCoverageLabel: string;
   serviceBarLabels?: readonly string[];
-  serviceShortcuts?: readonly { label: string; slug: string }[];
+  serviceShortcuts?: readonly { label: string; slug: PrimaryServiceSlug }[];
   primaryCta: { label: string; href: string };
   secondaryCta: { label: string; href: string };
   marqueePhrases: readonly string[];
@@ -31,14 +33,18 @@ function defaultHeroContent(): GLHeroContent {
     stats: HERO.stats,
     serviceCoverageLabel: HERO.serviceCoverageLabel,
     serviceBarLabels: HERO.serviceBarLabels,
-    primaryCta: { label: HERO.primaryCta, href: "#contact" },
-    secondaryCta: { label: HERO.secondaryCta, href: "#services" },
+    primaryCta: { label: HERO.primaryCta, href: "/contact" },
+    secondaryCta: { label: HERO.secondaryCta, href: "/#services" },
     marqueePhrases: MARQUEE_PHRASES,
   };
 }
 
 function formatStat(s: GLHeroStat) {
   return typeof s === "string" ? s : `${s.value} ${s.label}`;
+}
+
+function isInternalRoute(href: string) {
+  return href.startsWith("/") || href.startsWith("#");
 }
 
 export type GLHeroProps = {
@@ -82,7 +88,7 @@ export function GLHero({
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_30%,color-mix(in_srgb,var(--y)_6%,transparent),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_30%,rgb(255_255_255/0.06),transparent_55%)]"
         aria-hidden
       />
       <ClaudeLogicWatermark placement="bottom-right" className="z-[1]" />
@@ -92,7 +98,9 @@ export function GLHero({
           <div className="mt-[var(--s7)]">
             <ThreeActHeadline id={headingId} line1={c.titleLine1} line2={c.titleLine2} line3={c.titleLine3} />
           </div>
-          <p className="hero-caption mt-[var(--s7)] max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">{c.lede}</p>
+          <div className="hero-caption mt-[var(--s7)] max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
+            <ExpandableCopy text={c.lede} className="text-base leading-relaxed text-white/85 sm:text-lg" />
+          </div>
           <div className="hero-rule mt-8 h-px w-full max-w-md bg-[color:var(--y)]/40" aria-hidden />
           <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-sm font-semibold text-white/90">
             {c.stats.map((s) => (
@@ -124,18 +132,36 @@ export function GLHero({
           </div>
         </div>
         <div className="hero-cta-row mt-8 flex min-h-[76px] flex-col gap-3 sm:flex-row sm:items-center sm:gap-4 lg:mt-6">
-          <a
-            href={c.primaryCta.href}
-            className="cta-hero-fill px-6 py-4 text-center text-sm font-semibold tracking-wide sm:min-w-[200px]"
-          >
-            {c.primaryCta.label}
-          </a>
-          <a
-            href={c.secondaryCta.href}
-            className="cta-outline-light px-6 py-3.5 text-center text-sm font-semibold tracking-wide transition-colors"
-          >
-            {c.secondaryCta.label}
-          </a>
+          {isInternalRoute(c.primaryCta.href) ? (
+            <Link
+              href={c.primaryCta.href}
+              className="cta-hero-fill px-6 py-4 text-center text-sm font-semibold tracking-wide sm:min-w-[200px]"
+            >
+              {c.primaryCta.label}
+            </Link>
+          ) : (
+            <a
+              href={c.primaryCta.href}
+              className="cta-hero-fill px-6 py-4 text-center text-sm font-semibold tracking-wide sm:min-w-[200px]"
+            >
+              {c.primaryCta.label}
+            </a>
+          )}
+          {isInternalRoute(c.secondaryCta.href) ? (
+            <Link
+              href={c.secondaryCta.href}
+              className="cta-outline-light px-6 py-3.5 text-center text-sm font-semibold tracking-wide transition-colors"
+            >
+              {c.secondaryCta.label}
+            </Link>
+          ) : (
+            <a
+              href={c.secondaryCta.href}
+              className="cta-outline-light px-6 py-3.5 text-center text-sm font-semibold tracking-wide transition-colors"
+            >
+              {c.secondaryCta.label}
+            </a>
+          )}
         </div>
         {showMarquee ? (
           <div

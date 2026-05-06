@@ -1,5 +1,7 @@
+import type { PrimaryServiceSlug } from "@/lib/site/registry";
+
 export type GroundLevelService = {
-  slug: string;
+  slug: PrimaryServiceSlug;
   title: string;
   short: string;
   megaBlurb: string;
@@ -7,31 +9,31 @@ export type GroundLevelService = {
 
 export const GROUND_LEVEL_SERVICES: GroundLevelService[] = [
   {
-    slug: "excavation",
+    slug: "excavation-site-preparation",
     title: "Excavation & Site Prep",
     short: "Rock, trenching, and production digs for industrial pads.",
     megaBlurb: "Trenching, rock handling, and bulk export for commercial sites.",
   },
   {
-    slug: "grading",
+    slug: "site-preparation-grading",
     title: "Site Prep & Grading",
     short: "Finished grades, compaction, and build-ready pads.",
     megaBlurb: "Pads, parking courts, and precision finish for civil handoff.",
   },
   {
-    slug: "drainage",
+    slug: "drainage-hardscaping",
     title: "Drainage & Hardscaping",
     short: "Catch basins, culverts, and site drainage that survives freeze–thaw.",
     megaBlurb: "Storm lines, curtain drains, and hardscape-adjacent water management.",
   },
   {
-    slug: "foundations",
+    slug: "foundations-civil-infrastructure",
     title: "Foundations & Civil",
     short: "Footings, frost walls, and coordinated structural excavation.",
     megaBlurb: "Footings, elevator pits, and crane mats with survey-backed tolerances.",
   },
   {
-    slug: "hardscaping",
+    slug: "hauling-site-clearing-logistics",
     title: "Hauling & Clearing",
     short: "Stone, machine-graded transitions, and clean edges for turnover.",
     megaBlurb: "Armor stone, access drives, and finish details around buildings.",

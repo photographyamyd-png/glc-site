@@ -1,4 +1,5 @@
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
+import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { CTA_BAND, EMAIL_MAILTO, PHONE_TEL } from "@/lib/ground-level/homepage-copy";
 
 function headingTone(heading: string, accentKey?: string) {
@@ -79,7 +80,7 @@ export function GLCtaBand({
       <ClaudeLogicWatermark placement="center-right" className="opacity-[0.06]" />
       <div className="relative z-10 mx-auto flex max-w-[min(100%,var(--max))] flex-col gap-[var(--s6)] px-[var(--s4)] py-[var(--s5)] sm:px-[var(--s6)] lg:flex-row lg:items-end lg:justify-between lg:px-[var(--s10)]">
         <div>
-          <p className="label-overline mb-3 flex items-center gap-2">
+          <p className="mb-3 flex items-center gap-2 font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">
             <span>{c.eyebrow}</span>
             <span
               className="inline-block h-[2px] w-10 bg-[color:var(--y)]/70"
@@ -94,7 +95,7 @@ export function GLCtaBand({
             {headingTone(c.heading, c.headingAccentKey)}
           </h2>
           <div className="mt-4 max-w-xl border border-[color:var(--g200)] bg-[color:var(--g100)] px-4 py-3 shadow-[inset_0_1px_0_0_rgb(255_255_255/0.85)] sm:px-5 sm:py-4">
-            <p className="text-sm leading-relaxed text-ink-muted sm:text-base">{c.sub}</p>
+            <ExpandableCopy text={c.sub} className="text-[15px] leading-[1.72] text-ink sm:text-base" />
           </div>
         </div>
         <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center">

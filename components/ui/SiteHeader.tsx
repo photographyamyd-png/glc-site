@@ -128,16 +128,21 @@ export function SiteHeader() {
               <Link href="/contact" className="cta-primary ml-2 px-4 py-2.5 text-[11px] tracking-wide">Site consultation</Link>
             </nav>
 
-            <button
-              type="button"
-              className="flex h-10 w-10 shrink-0 items-center justify-center border border-black/[0.12] bg-white/90 text-xl font-light text-ink xl:hidden"
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-nav-gl"
-              onClick={() => setMobileOpen((v) => !v)}
-            >
-              <span className="sr-only">Menu</span>
-              {mobileOpen ? "×" : "≡"}
-            </button>
+            <div className="flex items-center gap-2 xl:hidden">
+              <Link href="/contact" className="cta-primary px-3 py-2 text-[10px] tracking-wide sm:px-4 sm:text-[11px]">
+                Site consultation
+              </Link>
+              <button
+                type="button"
+                className="flex h-10 w-10 shrink-0 items-center justify-center border border-black/[0.12] bg-white/90 text-xl font-light text-ink"
+                aria-expanded={mobileOpen}
+                aria-controls="mobile-nav-gl"
+                onClick={() => setMobileOpen((v) => !v)}
+              >
+                <span className="sr-only">Menu</span>
+                {mobileOpen ? "×" : "≡"}
+              </button>
+            </div>
           </div>
 
           <div
@@ -229,7 +234,7 @@ export function SiteHeader() {
                 <p className="label-overline mb-3">Resources</p>
                 <ul className="space-y-2 text-sm">
                   <li><Link href="/services" className="text-ink-muted hover:text-[color:var(--y)]">All services</Link></li>
-                  <li><Link href="/#why" className="text-ink-muted hover:text-[color:var(--y)]">Why Ground Level</Link></li>
+                  <li><Link href="/#about" className="text-ink-muted hover:text-[color:var(--y)]">Commercial Positioning</Link></li>
                   <li><Link href="/#testimonials" className="text-ink-muted hover:text-[color:var(--y)]">Client Projects</Link></li>
                   <li><Link href="/#cta-band" className="text-ink-muted hover:text-[color:var(--y)]">Site consultation</Link></li>
                 </ul>
@@ -253,7 +258,7 @@ export function SiteHeader() {
           <div className="mx-auto flex max-w-[min(100%,1320px)] flex-col gap-2">
             <Link href="/about" className="border border-black/[0.1] bg-white/95 px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>About</Link>
             <Link href="/services" className="border border-black/[0.1] bg-white/95 px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>Services</Link>
-            <Link href="/#services" className="border border-black/[0.1] bg-white/95 px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>Capabilities</Link>
+            <Link href="/#capabilities" className="border border-black/[0.1] bg-white/95 px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>Capabilities</Link>
             <Link href="/#process" className="border border-black/[0.1] bg-white/95 px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>Process</Link>
             <Link href="/#coverage" className="border border-black/[0.1] bg-white/95 px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>Coverage</Link>
             <Link href="/#testimonials" className="border border-black/[0.1] bg-white/95 px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>Projects</Link>

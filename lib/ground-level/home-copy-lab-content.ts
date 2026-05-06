@@ -21,21 +21,20 @@ export const COPY_LAB_HERO = {
   lede:
     "Ground Level Contracting prepares land for development — delivering excavation, foundations, drainage, and civil infrastructure for project managers and site supervisors across Barrie, Midland, Orillia, and Simcoe County.",
   primaryCta: { label: "Request a Quote", href: "tel:+17056194902" },
-  /** In full site this targets `/#services`; in copy lab targets our grid section. */
-  secondaryCta: { label: "View Services", href: "#copy-lab-services-grid" },
+  secondaryCta: { label: "View Services", href: "#services" },
   stats: [
     { value: "15+", label: "Years of Field Experience" },
     { value: "500+", label: "Commercial Projects Completed" },
   ],
   coverageHeading: "Service Coverage",
   coverageTags: ["Barrie", "Midland", "Orillia", "Simcoe County"] as const,
-  /** Order matches role map; slugs align with service detail routes. */
+  /** Order matches role map; slugs align with canonical service detail routes. */
   serviceShortcuts: [
-    { label: "Excavation & Site Prep", slug: "excavation" },
-    { label: "Site Prep & Grading", slug: "grading" },
-    { label: "Foundations & Civil", slug: "foundations" },
-    { label: "Drainage & Hardscaping", slug: "drainage" },
-    { label: "Hauling & Clearing", slug: "hardscaping" },
+    { label: "Excavation & Site Prep", slug: "excavation-site-preparation" },
+    { label: "Site Prep & Grading", slug: "site-preparation-grading" },
+    { label: "Foundations & Civil", slug: "foundations-civil-infrastructure" },
+    { label: "Drainage & Hardscaping", slug: "drainage-hardscaping" },
+    { label: "Hauling & Clearing", slug: "hauling-site-clearing-logistics" },
     { label: "Snow Removal", slug: "snow-removal" },
   ] as const,
 } as const;
@@ -89,12 +88,16 @@ export const COPY_LAB_ABOUT = {
 } as const;
 
 /** Role-map order for grid cards → `services/[slug]`. */
+/** Verbatim capability band supporting lines from the former `CopyLabServicesGrid` intro. */
+export const COPY_LAB_CAPABILITIES_INTRO =
+  "Detailed capabilities by line. Each card links to its service page." as const;
+
 export const COPY_LAB_SERVICE_GRID_SLUGS = [
-  "excavation",
-  "grading",
-  "foundations",
-  "drainage",
-  "hardscaping",
+  "excavation-site-preparation",
+  "site-preparation-grading",
+  "foundations-civil-infrastructure",
+  "drainage-hardscaping",
+  "hauling-site-clearing-logistics",
   "snow-removal",
 ] as const;
 

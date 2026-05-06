@@ -1,4 +1,5 @@
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
+import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { COVERAGE } from "@/lib/ground-level/homepage-copy";
 
 function headingToneDark(text: string, accentKey: string) {
@@ -86,7 +87,7 @@ export function GLServiceAreas({
           {isLight ? headingToneLight(cov.heading, accent) : headingToneDark(cov.heading, accent)}
         </h2>
         <div className="mt-[var(--s7)] max-w-2xl border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:var(--brand-canvas)] p-4 text-ink shadow-[0_16px_40px_rgb(0_0_0/0.16)] sm:p-5">
-          <p className="text-sm leading-relaxed text-ink-muted sm:text-base">{cov.body}</p>
+          <ExpandableCopy text={cov.body} className="text-sm leading-relaxed text-ink-muted sm:text-base" />
         </div>
         <ul className="mt-10 grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {cov.areas.map((line, i) => (

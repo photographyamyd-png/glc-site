@@ -14,7 +14,7 @@ export function LogoMark({ className = "", priority }: LogoMarkProps) {
 
   return (
     <Link
-      href="#top"
+      href="/"
       className={`group relative inline-flex items-center ${className}`}
       onMouseEnter={() => setAccentPop(true)}
       onMouseLeave={() => setAccentPop(false)}
