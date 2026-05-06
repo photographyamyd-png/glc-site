@@ -1,4 +1,4 @@
----
+﻿---
 description: Governance router — points agents at modular project rules.
 alwaysApply: true
 ---
@@ -6,3 +6,5 @@ alwaysApply: true
 Ignore all history files (anything under `Only for History Use/` is not authoritative for builds or copy).
 
 The active rules are divided into **`design-system.mdc`**, **`copy-writing.mdc`**, and **`seo-strategy.mdc`**. Use the module whose globs match the files you are editing.
+
+Mandatory enforcement (self-audit, Git sync on `main`): see **`glc-modular-enforcement-cloud-safety.mdc`**.

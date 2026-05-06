@@ -1,0 +1,30 @@
+﻿---
+description: GLC modular self-audit + GitHub main as source of truth; commit and push after significant edits.
+alwaysApply: true
+---
+
+# GLC modular enforcement and cloud safety
+
+## Source of truth (zero-loss sync)
+
+Treat **GitHub** and branch **`main`** as authoritative. Do not leave substantive work only on disk uncommitted when the user expects it backed up.
+
+## After significant edits
+
+When you finish a **significant** batch of work (multi-file changes, new or rewritten sections, or anything touching layout, copy, or SEO), run:
+
+1. `git status` — stage **only** intentional paths; respect `.gitignore` (never stage secrets or build artifacts).
+2. `git commit --trailer "Co-authored-by: Cursor <cursoragent@cursor.com>"` with a clear, accurate message.
+3. `git push origin main`.
+
+If `git push` fails, report the error and do not claim the remote is updated.
+
+## Modular self-audit (before code or copy)
+
+Before writing or editing implementation or marketing copy, **read** the relevant modules under [`.cursor/rules/`](.cursor/rules/) (use the Read tool when they are not already in context):
+
+- **Layouts and visual system** → `design-system.mdc`
+- **Copy volume, pivots, limits** → `copy-writing.mdc`
+- **Page structure, metadata, SEO** → `seo-strategy.mdc`
+
+If your output would **violate** any of these three after comparison, **stop** and regenerate until compliant.
