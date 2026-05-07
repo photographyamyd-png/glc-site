@@ -195,7 +195,9 @@ Apply **three colors** strictly:
 
 ## Portable blueprint (hero metrics block — reference pattern)
 
-Legacy master included a full **TSX** appendix; do not duplicate code here. When building stats + coverage clusters on dark glass:
+Legacy master included a full **TSX** appendix. **Archived source:** [`docs/v7-blueprint/GLHeroMetricsCoverageBlock.reference.tsx`](docs/v7-blueprint/GLHeroMetricsCoverageBlock.reference.tsx) (not imported by the app — pattern reference only). See also [`docs/v7-blueprint/README.md`](docs/v7-blueprint/README.md).
+
+When building stats + coverage clusters on dark glass:
 
 - Shell: `border-white/10`, `bg-[rgb(10,12,11,0.45)]`, `backdrop-blur-md`, `shadow-2xl`, padding `p-6 sm:p-8`.
 - **Yellow rule** divider above stats (`bg-[#f2b705]/80` or `var(--y)`).
