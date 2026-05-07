@@ -23,7 +23,7 @@ If `git push` fails, report the error and do not claim the remote is updated.
 
 Before writing or editing implementation or marketing copy, **read** the relevant modules under [`.cursor/rules/`](.cursor/rules/) (use the Read tool when they are not already in context):
 
-- **Layouts, visual system, service image folders, section layers & palette minimums** → `design-system.mdc` (includes §8 **Section composition**: ≥3 contrasting layers, tri-tonal type colors, ≥3 GLC palette roles per major section; `public/images/services/{service-line}/` for photography)
+- **Full V7 design DNA** → `design-system.mdc` (§1 Z-order & layout, §2 tonal rhythm / no Visual Flatline, §4 mandatory assets, §5 spacing tokens, §6–7 typography & motion, §8 palette + section composition + hero metrics tri-color, §9 a11y; service images under `public/images/services/{service-line}/`)
 - **Copy volume, pivots, limits** → `copy-writing.mdc`
 - **Page structure, metadata, SEO** → `seo-strategy.mdc`
 

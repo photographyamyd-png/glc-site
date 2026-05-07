@@ -5,10 +5,10 @@ alwaysApply: true
 
 Ignore all history files (anything under `Only for History Use/` is not authoritative for builds or copy).
 
-The active rules are divided into **`design-system.mdc`**, **`copy-writing.mdc`**, and **`seo-strategy.mdc`**. Use the module whose globs match the files you are editing.
+The active rules are divided into **`design-system.mdc`** (full **V7** layout, Z-order, tonal rhythm, mandatory assets, spacing tokens, typography, motion, palette, §8 composition, accessibility, hero-metrics pattern), **`copy-writing.mdc`** (volume pivots, content mapping, copy-facing audit), and **`seo-strategy.mdc`** (metadata, technical SEO, DOM/heading integrity). Use the module whose globs match the files you are editing.
 
 Mandatory enforcement (self-audit, Git sync on `main`): see **`glc-modular-enforcement-cloud-safety.mdc`**.
 
-**Service images:** All service photography lives under **`public/images/services/`** in subfolders that match each service line (`Drainage-and-Hardscaping`, `Excavation`, `Foundations`, `Grading`, `Hauling`, `Snow Removal`). Full conventions and URL encoding notes are in **`design-system.mdc`** (Service photography section).
+**Service images:** All service photography lives under **`public/images/services/`** in subfolders that match each service line (`Drainage-and-Hardscaping`, `Excavation`, `Foundations`, `Grading`, `Hauling`, `Snow Removal`). Full conventions and URL encoding: **`design-system.mdc`** (Service photography).
 
-**Section depth & palette:** Every major section needs **≥3 contrasting visual layers**, **tri-tonal typography colors**, and **≥3 intentional GLC palette roles** in the UI — see **`design-system.mdc` §8 — Section composition**.
+**Section depth, palette, and assets:** **≥3 contrasting layers**, **tri-tonal type**, **≥3 GLC palette roles**, **mandatory visuals per section** unless `disableAssets`, tonal alternation — **`design-system.mdc` §1–2, §4, §8**.

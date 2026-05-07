@@ -1,106 +1,213 @@
 ---
-description: V7 design tokens, typography, motion, palette, and hierarchy (MASTER_RULES §6–8).
+description: Full V7 design system — layout, Z-order, tonal rhythm, assets, spacing, typography, motion, palette, accessibility (legacy MASTER_RULES §1–2, §4–9 + §8).
 globs:
   - "**/*.{tsx,jsx,ts,css,scss}"
 alwaysApply: false
 ---
 
-# GLC design system (V7 extract)
+# GLC design system (V7 — full modular parity)
+
+This file carries **exhaustive** content from the legacy monolithic `master/MASTER_RULES.md` (V7 architectural truth, e.g. git ref `2784ba8`), merged with **§8 Section composition** (layers + palette minimums). **Copy mapping** remains in **`copy-writing.mdc`**; **route metadata / DOM SEO** in **`seo-strategy.mdc`**.
 
 ## Typography lock (non-negotiable)
 
-- **Headings / display:** **Oswald** only (`--font-oswald` / `font-serif` per app setup). Section H2, 3-act headline, stat/card numerals follow the scales below.
-- **Body, UI, labels:** **Barlow Condensed** for `font-label` and condensed UI tracks; longform body uses **Barlow** as the primary sans (`font-sans` in root layout). Do not substitute other display or condensed families.
+- **Headings / display:** **Oswald** only (`--font-oswald` / `font-serif`). Section H2, 3-act headline, stat/card numerals follow scales below.
+- **Body, UI, labels:** **Barlow Condensed** for `font-label` and condensed UI tracks; longform body uses **Barlow** (`font-sans`). Do not substitute other display or condensed families.
+
+## §1 — Layout and grid logic (structural pivots and DOM)
+
+Layout is reactive to **copy volume** and uses a **layered Z-order** for interaction clarity and atmospheric depth.
+
+### Layer stack (Z-order)
+
+| Level | Name | Examples |
+|-------|------|----------|
+| -1 | Atmosphere | `ClaudeLogicWatermark` (low opacity), ambient motifs (~0.18 opacity, rotated), absolute tonal gradient planes |
+| 0 | Base canvas | `section-major` root, `band-light` tonal drift, dark blueprint field with linear gridlines |
+| 1 | Substrate | Absolute gradient wash (`inset-0`), image scrims, dark image veils |
+| 2 | Structural accents | Top/side rails, **4px yellow** accent borders, 1px section dividers, grid seams |
+| 10+ | Interaction plane | `relative z-10` foreground, `bespoke-surface`, `panel-machined`, content shells |
+
+### Two-sentence pivot (volume)
+
+- **≤ 2 sentences:** Standard header stack (`max-w-2xl`, centered or left with `pl-5` spine).
+- **> 2 sentences:** Mandatory split-column / asymmetric structure: `grid-cols-12` with text in a **6-column measure** (“measure safety”).
+
+### Compositional strategies
+
+- **Container:** `mx-auto max-w-[min(100%,var(--max))]` (1440px / 1200px cap). Gutters: **28px → 40px → 80px**.
+- **Header cluster:** `max-w-2xl` + `pl-5` yellow spine.
+- **Raised panel:** `bespoke-surface` + `panel-machined` + asymmetric offset at `lg` (`lg:ml-[var(--dna-stagger-sm)]`).
+- **Responsive splits:** Mobile `flex-col` → `md:flex-row` **50/50** for featured sections.
+- **Stateful rails:** Horizontal strips with stateful widths (Active **400px** / Inactive **60px**).
+
+## §2 — Tonal rhythm and contrast (chromatic transition)
+
+Sections follow the **Chromatic Transition Rule** — they must not read as isolated slabs.
+
+- **Alternation:** Alternate **`band-dark-field`** and **`band-light`** / light drift. **Two consecutive sections of the same tone = “Visual Flatline”** (avoid unless a deliberate exception is documented).
+- **Dark/light thresholds:** **Dark** bands carry high-authority / technical clusters (`text-white/90`, `backdrop-blur-md` glass). **Light** bands carry editorial / longform (`--text-600` sparingly; `text-ink` for labels/body per §6). Each band must meet contrast intent before the next shift.
+- **Dark sections (`--ink` field):** Hero, authority, technical data; require readable glass panels where copy sits on imagery.
+- **Light sections (`--white`):** Editorial, narrative, case studies; sharp contrast with `--text-600` where appropriate; **high-fidelity raster anchors** where imagery leads.
+- **Seam:** At tonal transitions use a **1px section divider** or **4px yellow rail** to mark the break.
+
+## §4 — Mandatory asset logic (always visual)
+
+- **Default:** Every **major section** MUST include a visual asset — **raster**, **vector motif**, or **video scrim** — unless explicitly flagged (e.g. `disableAssets: true` in component contract).
+- **Presence:** A section with **no** image/motif/scrim is **“Incomplete DNA.”**
+- **Treatment:**
+  - **Primary:** High-fidelity raster, `object-cover`; optional `mix-blend-overlay` when background-integrated.
+  - **Secondary:** `ClaudeLogicWatermark` ~**0.18** opacity as texture in atmosphere (-1) layer.
+  - **Tertiary:** **40×40px** inline SVG icons, `currentColor`, for micro-interactions.
+- **Anchor rule:** If copy **exceeds 2 sentences**, the asset must act as a **compositional anchor** (side-car image, split layout, or floating `panel-machined` asset) — not decoration-only background.
+
+## §5 — Spacing system (master token map)
+
+| Category | Token / value | Usage |
+|----------|-----------------|--------|
+| Macro rhythm | `--s14` / `--section-v` / **96px** | Primary vertical section block padding |
+| Macro rhythm | `--s12` / **80px** | Global inset (LG) / max frame scaling |
+| Macro rhythm | `--s9` | Responsive vertical section padding |
+| Section flow | **60px** | Heading→asset / heading→panel / header→grid breathing |
+| Section flow | `--s7` / **56px** | Deliberate copy release (heading → intro) |
+| Splits | `gap-12` (**48px**) | Editorial column separation |
+| Global inset | **40px / 28px** | Gutter hierarchy MD/SM; card padding progression |
+| Panel/card | **32px** | Stats cell desktop padding / card inset |
+| Breakpoints | `px-4 sm:px-6` | Inner wrapper / second-tier gutter |
+| Gap system | `mt-10` / `sm:mt-12` | Header → panel lift |
+| Gap / tension | `mt-8` (**32px**) | Paragraph breaks in longform; component block gap; section-exit CTA offset |
+| Gap system | **24px** | CTA margin / link top margin |
+| Micro rhythm | **20px** | Icon bottom; number right; rail padding |
+| Micro rhythm | **12px** | Title bottom; stat label top margin |
+| Micro rhythm | **8px / 4px** | Inline gap; icon/link micro-spacing |
+| Surfaces | `p-5 / sm:p-8 / lg:p-10` | Interactive surface density scaling |
 
 ## §6 — Typography architecture (readability-first)
 
-Display and headings (Oswald):
+Shift away from muted overlines toward explicit sizing, tracking, and `text-ink` contrast.
 
-- 3-Act Headline: `clamp(58px, 8vw, 118px)`; weights 200/600/700; tracking `-0.02em`.
+### Display and headings (Oswald)
+
+- 3-Act headline: `clamp(58px, 8vw, 118px)`; weights 200/600/700; tracking `-0.02em`.
 - Stat number: `clamp(52px, 5vw, 80px)`; weight 700; tracking `-0.04em`.
 - Card number: 64px; weight 700; tracking `-0.04em`.
 - Section H2: `text-3xl → sm:text-4xl` (`clamp(36px, 3.5vw, 52px)`); weight 600; uppercase; tight leading/tracking.
 - Card title / panel H3: 20px (`text-xl → sm:text-2xl`); weight 700; tracking `0.02em`; uppercase.
 
-Metadata and labels (`font-label` → Barlow Condensed):
+### Metadata and labels (`font-label`)
 
-- Section labels / eyebrows: `font-label text-[11px] font-bold tracking-[0.14em] text-ink`.
+- Section labels / eyebrows: `font-label text-[11px] font-bold tracking-[0.14em] text-ink` (on **light** bands; on **dark** bands use **`text-white/55`** per §8 tri-tonal).
 - Side label: 9px; weight 800; tracking `0.22em`; uppercase.
-- Tab labels: `font-label text-[11px] font-bold tracking-[0.14em] text-ink`.
-- CTA primary: 12px or 13px; weight 700/800; tracking `0.08em`–`0.14em`; uppercase.
-- Stat label: `font-label text-[11px] font-bold tracking-[0.14em] text-ink`.
+- Tab labels: `font-label text-[11px] font-bold tracking-[0.14em] text-ink` (light) / appropriate contrast on dark.
+- CTA primary: 12–13px; weight 700/800; tracking `0.08em`–`0.14em`; uppercase.
+- Stat label: `font-label text-[11px] font-bold tracking-[0.14em] text-ink` (light band).
 
-Longform and UI copy:
+### Longform and UI copy
 
-- Intro/body: `text-[15px] leading-[1.72] text-ink sm:text-base` (15px floor).
-- Card description: same as body standards.
+- Intro/body: `text-[15px] leading-[1.72] text-ink sm:text-base` (**15px floor** on light).
+- Card description: same as body.
 
 ## §7 — Interactive DNA and physics
 
-- Reveal staging at viewport threshold 0.5: BG → eyebrow (0.4s) → headline (0.5–0.8s) → caption (1.15s) → CTA (1.9s).
-- Section entrance: `view-reveal-up` (0.65s, `cubic-bezier(0.16,1,0.3,1)`, translateY 16→0); image parallax lag ~0.2s vs text when present.
-- `pivot-expand-reveal`: 0.85s; 50% slide; 1.02× X scale tension.
-- Accordion: 700ms width expansion; 220ms motif drift; `--ease-expo`.
-- Tabs: `role="tablist"`; selected inversion; `[hidden]` on panels.
-- Count-up: 1800ms cubic-out at 0.5 viewport threshold.
-- `.cta-primary`: 0.2s envelope; hover `translateY(-2px)`; arrow `translateX(4px)`; brightness +10%.
+- **Reveal staging** (viewport threshold **0.5**): BG **0s** → eyebrow **0.4s** → headline **0.5–0.8s** → caption **1.15s** → CTA **1.9s**.
+- **Section entrance:** `view-reveal-up` (0.65s, `cubic-bezier(0.16,1,0.3,1)`, translateY 16→0). Image **~0.2s** parallax lag vs text when paired.
+- **`pivot-expand-reveal`:** 0.85s; 50% slide; **1.02×** X-axis scale tension.
+- **Accordion:** 700ms width expansion; 220ms motif drift; `--ease-expo`.
+- **Tabs:** `role="tablist"`; selected inversion; `[hidden]` on panels (see §9 for ARIA).
+- **Count-up:** 1800ms cubic-out at 0.5 viewport threshold.
+- **`.cta-primary`:** 0.2s envelope; hover `translateY(-2px)`; arrow `translateX(4px)`; brightness +10%.
 
-## §8 — Visual hierarchy and palette
+## §8 — Visual hierarchy, palette, and section composition
 
 ### Section composition (non-negotiable)
 
-These rules apply to **every major section** (e.g. full-width `section-major`, hero bands, split CTAs). They were required in the legacy monolithic master spec but must be carried explicitly in modular rules.
+Applies to **every major section** (`section-major`, hero bands, split CTAs).
 
 **1. Minimum contrasting layers (≥3)**  
-Stack **at least three visually distinct planes** so type and CTAs read clearly. Align with the Z-order vocabulary in `copy-writing.mdc` §1. Typical stack (pick **≥3** that contrast):
+Stack **≥3 visually distinct planes** (maps to §1 Z-order). Typical choices:
 
 | Plane | Role | Examples |
 |-------|------|----------|
 | Base | Canvas | `band-light`, `band-dark`, `band-dark-field` |
-| Substrate | Image or broad fill | `next/image` hero, tonal wash, gradient field |
-| Treatment | Scrim / glass | Multi-stop gradient, `backdrop-blur-md`, `bg-[rgb(10,12,11,0.45)]` |
-| Structure | Rails / seams | 4px `var(--y)` spine, `border-white/10`, `var(--g200)` |
-| Interaction | Foreground UI | CTA cluster, `bespoke-surface` card, `z-10` content shell |
+| Substrate | Image or fill | `next/image`, tonal wash |
+| Treatment | Scrim / glass | Gradients, `backdrop-blur-md`, `bg-[rgb(10,12,11,0.45)]` |
+| Structure | Rails / seams | 4px `var(--y)`, `border-white/10`, `var(--g200)` |
+| Interaction | Foreground | CTA row, `bespoke-surface`, `z-10` shell |
 
-Pure flat single-fill sections without substrate/treatment/structure separation **do not** meet the standard unless you add at least rails + machined panel + base.
+**2. Tri-tonal typography (required)**  
+Three distinct **type** color roles per area:
 
-**2. Typography color (tri-tonal — required)**  
-Every section’s type must implement **three distinct typographic color treatments** (primary / secondary / tertiary) per band:
+- **Primary:** headings/stats — dark: `text-white` or `text-[color:var(--y)]`; light: `text-ink`.
+- **Secondary:** body/ledes — dark: `text-white/90`; light: `text-ink` or `--text-600` sparingly.
+- **Tertiary:** metadata/eyebrows — dark: `text-white/55`; light: `text-ink-muted` / `text-400`.
 
-- **Primary:** headings / key numerals — dark band: `text-white` or `text-[color:var(--y)]`; light band: `text-ink`.
-- **Secondary:** body / lede — dark band: `text-white/90`; light band: `text-ink` or `--text-600` sparingly for supporting lines.
-- **Tertiary:** eyebrows / metadata — dark band: `text-white/55`; light band: `text-ink-muted` / `text-400`.
+**3. Rule of three (legacy V7)**  
+Every section must use **≥3 distinct typographic color tokens**: **Anchor** (yellow or deep charcoal for values/titles), **Narrative** (mid body contrast), **Texture** (low contrast for metadata — e.g. `text-white/55` on dark, muted slate on light).
 
-Do not collapse eyebrow, headline, and body into one opacity or one gray.
+**4. Minimum palette presence in UI (≥3 roles)**  
+Beyond photo pixels, design must show **≥3** intentional GLC roles — e.g. **`--y`**, **`--ink` / dark glass**, **white tier** (`text-white`, `text-white/90`, `border-white/10`, or `#fff` panel). On light bands: `text-ink` + `--text-600` or muted label + **`--y`** accent.
 
-**3. Minimum palette presence in section design (≥3 roles)**  
-Beyond photo pixels, the **designed** UI must show **at least three** intentional GLC palette roles in the same section — for example:
+### Hero metrics cluster (authority row)
 
-- `--y` (rail, rule, stat numeral, gradient accent, or CTA fill), **and**
-- `--ink` / dark glass (`rgb(10,12,11)`, `text-ink`), **and**
-- White at a defined tier (`text-white`, `text-white/90`, `border-white/10`, or light panel `#fff`).
+Apply **three colors** strictly:
 
-On **light** bands, substitute: `text-ink` + `--text-600` or muted label + `--y` accent. A section that is only white+gray with no yellow where an accent is expected is non-compliant.
+1. **Primary accent:** Yellow core on the **numeric** (e.g. `15+`).
+2. **Secondary:** `text-white/90` on **stat labels** (context).
+3. **Tertiary:** `text-white/55` on **coverage / overline** (technical texture, non-competing).
 
-Colors:
+### Rhythm directive (dark vs light)
+
+- **Dark (“authority”):** Yellow → `text-white/90` → `text-white/55` (machined, industrial).
+- **Light (“editorial”):** Charcoal deep → `--text-600` → muted slate (longform readability).
+
+### Core tokens
 
 - `--yellow-core` / `--y`: `#f2b705`
 - `--charcoal-deep` / `--ink`: `#1e1c1a`
 - `--white`: `#ffffff`
 - `--text-600`: `#6b6560` (sparingly; not default for labels/body)
 
-Hero metrics cluster: yellow on numerals; `text-white/90` on stat labels; `text-white/55` on coverage/overline.
+### Depth and surfaces
 
-Depth and surfaces:
+- `.bespoke-surface` + `.panel-machined`: machined inset shadow, backdrop depth, micro-grain where defined in CSS.
+- Glass: `bg-[rgb(10,12,11,0.45)]`, `backdrop-blur-md`, `border-white/10`.
+- Borders: **4px** yellow rails; **1px** seams `var(--g200)`; **1px** section dividers.
+- Shape: sharp industrial baseline (`--radius: 0` unless token exception).
 
-- `.bespoke-surface` + `.panel-machined` for machined depth.
-- Glass panel: `bg-[rgb(10,12,11,0.45)]`, `backdrop-blur-md`, `border-white/10`.
-- Borders: 4px yellow rails; 1px seams (`var(--g200)`); 1px section dividers.
-- Shape: sharp industrial edges (`--radius: 0` baseline).
+## §9 — Accessibility and asset constraints
+
+- **Alt text:** Mandatory for all **primary** images; meaningful, not stuffed with keywords.
+- **ARIA for tabs:** `role="tablist"` / `tab` / `tabpanel`; `aria-selected`, `aria-controls`, `aria-labelledby`; roving tabindex where applicable.
+- **Tap targets:** **44px minimum** height/width for interactive controls (tabs, links in dense UI).
+- **SVG:** Inline icons `currentColor`, **40×40** target footprint where interactive.
+- **Raster:** `object-cover` with explicit `width`/`height` or `fill` + `sizes` as appropriate.
+- **Line clamp:** Tab titles `line-clamp-2` on small viewports when needed.
+- **Measure:** Longform body **≤ ~75 characters per line** (use `max-w-*` / column width — aligns with **`seo-strategy.mdc`** readability).
+- **Decorative only:** Motifs and watermarks **`aria-hidden="true"`**.
+- **`prefers-reduced-motion`:** Disable count-ups, marquee motion, and parallax transforms for users who request reduced motion.
+
+## V7 audit summary (design-facing)
+
+- **Refactor trigger:** Paragraph **> 2 sentences** → structural layout change (see **`copy-writing.mdc`**).
+- **Assets default:** **Assets = true**; see §4.
+- **Tonal alternation:** Enforce dark/light rhythm; **no Visual Flatline**; seams per §2.
+- **Typography:** Readability-first `text-ink` on light bands; deprecate weak muted overlines for primary labels.
+
+## Portable blueprint (hero metrics block — reference pattern)
+
+Legacy master included a full **TSX** appendix; do not duplicate code here. When building stats + coverage clusters on dark glass:
+
+- Shell: `border-white/10`, `bg-[rgb(10,12,11,0.45)]`, `backdrop-blur-md`, `shadow-2xl`, padding `p-6 sm:p-8`.
+- **Yellow rule** divider above stats (`bg-[#f2b705]/80` or `var(--y)`).
+- Stats: **yellow** value, **`text-white/90`** labels.
+- Coverage label: `font-label`, **`text-white/55`**, wide tracking.
+- Optional chips: `border-white/20`, subtle `bg-white/5`, hover state.
+
+Implementations may follow **`ServicePageTemplate`** hero metrics or a dedicated block component — match §8 hero metrics tri-color logic.
 
 ## Service photography — `public/images/services/`
 
-Project photography is grouped **by service line**. When adding or referencing images, use the subfolder that matches the service (do not default to another line’s folder).
+Photography is grouped **by service line**; use the folder matching the page/service.
 
 Root: `public/images/services/`
 
@@ -111,10 +218,15 @@ Root: `public/images/services/`
 | `Foundations` | Foundations |
 | `Grading` | Grading |
 | `Hauling` | Hauling |
-| `Snow Removal` | Snow removal (folder name includes a space — encode as `%20` in public URLs, e.g. `/images/services/Snow%20Removal/…`) |
+| `Snow Removal` | Snow removal (encode space as `%20` in URLs) |
 
-Prefer **`next/image`** with paths under `/images/services/…`. Filenames may include spaces or mixed case; encode path segments in URLs as needed.
+Prefer **`next/image`**; encode path segments with spaces.
 
-## Globals checklist
+## Globals checklist (integration verification)
 
-Ensure `app/globals.css` / Tailwind expose: `font-label` → Barlow Condensed; yellow core token; dark glass RGB above; `.hero-stage` when staggered hero reveals are required.
+Before shipping UI that depends on V7 DNA, confirm in **`app/globals.css`** / Tailwind:
+
+- `font-label` → **Barlow Condensed** (or project equivalent).
+- Dark glass RGB **`rgb(10,12,11,0.45)`** (or token) for charcoal atmospheric panels.
+- **`text-[color:var(--y)]`** / `#f2b705` available for yellow core.
+- **`.hero-stage`** on ancestors when staggered `view-reveal` / hero choreography is required.

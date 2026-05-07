@@ -1,11 +1,13 @@
 ---
-description: Copy volume, layout pivots, and component mapping (MASTER_RULES §1, §3).
+description: Copy volume, layout pivots, content mapping, V7 audit (legacy MASTER_RULES §1, §3).
 globs:
   - "**/*.{tsx,jsx,mdx,md}"
 alwaysApply: false
 ---
 
-# GLC copy-writing and content mapping (V7 extract)
+# GLC copy-writing and content mapping (V7 — full modular parity)
+
+Ensures **mapping** of copy to the DOM matches structural rules. **Full Z-order, tonal rhythm, assets, spacing, typography, motion, and palette** live in **`design-system.mdc`**.
 
 ## §1 — Layout and volume pivots
 
@@ -14,18 +16,21 @@ Copy length drives layout:
 - **≤ 2 sentences:** Standard header stack (`max-w-2xl`, centered or left with `pl-5` spine).
 - **> 2 sentences:** Mandatory split-column / asymmetric layout: `grid-cols-12` with text in a **6-column measure** (“measure safety”).
 
-Composition (reference):
+### Composition (reference)
 
 - Container: `mx-auto max-w-[min(100%,var(--max))]` (1440px / 1200px cap); gutters 28px → 40px → 80px.
 - Header cluster: `max-w-2xl` + `pl-5` yellow spine.
 - Raised panel: `bespoke-surface` + `panel-machined` + asymmetric offset at `lg` (`lg:ml-[var(--dna-stagger-sm)]`).
 - Featured sections: mobile `flex-col` → `md:flex-row` 50/50.
+- Stateful rails: horizontal strips (Active 400px / Inactive 60px) when using rail pattern.
 
-Z-order for sections (for copy placement context): atmosphere (-1) → base canvas (0) → substrate (1) → structural accents (2) → interaction plane (10+).
+**Z-order stack (summary):** atmosphere (-1) → base (0) → substrate (1) → structural accents (2) → interaction (10+). **Full table:** **`design-system.mdc` §1**.
 
-**Layer budget (required):** Each major section must **realize at least three contrasting stacked planes** (substrate + treatment + readable content shell, or equivalent). Do not ship flat single-layer sections. Full criteria: **`design-system.mdc` §8 — Section composition**.
+**Layer budget:** Each major section must realize **≥3 contrasting stacked planes**. Criteria: **`design-system.mdc` §8 — Section composition**.
 
 ## §3 — Content mapping and governance
+
+Mapping must be contextually appropriate to copy shape.
 
 | Copy volume | Component mapping | Structural requirement |
 |-------------|-------------------|------------------------|
@@ -34,8 +39,11 @@ Z-order for sections (for copy placement context): atmosphere (-1) → base canv
 | Narrative / longform | GLSplitSection or GLNarrative | Mandatory 50/50 split or staggered multi-panel |
 | Tabbed details | GLServicePanel | If **over 40 words**, bullet or break into `<ExpandableCopy />` (or equivalent) |
 
-## Audit reminders
+## V7 audit reminders (copy and structure)
 
-- Any paragraph **> 2 sentences** forces a structural layout change (split vs stack).
-- Copy volume dictates stack vs split component choice.
-- Prefer high-legibility label/body execution (`text-ink`); avoid muted overline patterns for primary labels.
+- Any paragraph **> 2 sentences** forces a **structural** layout change (split vs stack) — not just smaller type.
+- Copy volume dictates **stack vs split** component choice.
+- Prefer high-legibility label/body execution (`text-ink` on light bands); avoid muted overlines for **primary** labels.
+- **Asset anchor:** If copy exceeds 2 sentences in a section, imagery must be a **compositional anchor**, not decoration-only — **`design-system.mdc` §4**.
+- **Tonal alternation:** Avoid consecutive same-tone sections (“Visual Flatline”) — **`design-system.mdc` §2**.
+- **Mapping:** Stack vs split follows the §3 table above.
