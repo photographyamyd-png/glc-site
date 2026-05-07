@@ -2,6 +2,8 @@
 description: Copy volume, layout pivots, content mapping, V7 audit (legacy MASTER_RULES §1, §3).
 globs:
   - "**/*.{tsx,jsx,mdx,md}"
+  - "**/lib/site/**/*.{ts,tsx}"
+  - "**/lib/ground-level/**/*.{ts,tsx}"
 alwaysApply: false
 ---
 

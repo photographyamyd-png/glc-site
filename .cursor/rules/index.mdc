@@ -1,14 +1,20 @@
 ﻿---
-description: Governance router — points agents at modular project rules.
+description: Governance router — points agents at modular project rules and repo-wide index.
 alwaysApply: true
 ---
 
 Ignore all history files (anything under `Only for History Use/` is not authoritative for builds or copy).
 
-The active rules are divided into **`design-system.mdc`** (full **V7** layout, Z-order, tonal rhythm, mandatory assets, spacing tokens, typography, motion, palette, §8 composition, accessibility, hero-metrics pattern), **`copy-writing.mdc`** (volume pivots, content mapping, copy-facing audit), and **`seo-strategy.mdc`** (metadata, technical SEO, DOM/heading integrity). Use the module whose globs match the files you are editing.
+**Repository index:** Root **[`AGENTS.md`](../../AGENTS.md)** maps rule categories, key directories (`app/`, `components/`, `lib/site/`, `public/images/services/`, …), hooks, and workspace settings.
+
+The active rules are divided into **`design-system.mdc`** (full **V7** layout, Z-order, tonal rhythm, mandatory assets, spacing tokens, typography, motion, palette, §8 composition, accessibility, hero-metrics pattern), **`copy-writing.mdc`** (volume pivots, content mapping, copy-facing audit), and **`seo-strategy.mdc`** (metadata, technical SEO, DOM/heading integrity). **Globs** attach these modules across **`app/`**, **`components/`**, **`lib/`**, **`public/`**, and matching extensions — see each file’s YAML frontmatter.
 
 Mandatory enforcement (self-audit, Git sync on `main`): see **`glc-modular-enforcement-cloud-safety.mdc`**.
+
+**Project hooks:** **[`.cursor/hooks.json`](../../.cursor/hooks.json)** and **[`.cursor/hooks/`](../../.cursor/hooks/)** (optional `sessionStart` drain script).
 
 **Service images:** All service photography lives under **`public/images/services/`** in subfolders that match each service line (`Drainage-and-Hardscaping`, `Excavation`, `Foundations`, `Grading`, `Hauling`, `Snow Removal`). Full conventions and URL encoding: **`design-system.mdc`** (Service photography).
 
 **Section depth, palette, and assets:** **≥3 contrasting layers**, **tri-tonal type**, **≥3 GLC palette roles**, **mandatory visuals per section** unless `disableAssets`, tonal alternation — **`design-system.mdc` §1–2, §4, §8**.
+
+**Rule files in this folder:** `index.mdc`, `glc-modular-enforcement-cloud-safety.mdc`, `design-system.mdc`, `copy-writing.mdc`, `seo-strategy.mdc`.

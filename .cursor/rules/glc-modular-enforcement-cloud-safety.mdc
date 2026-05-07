@@ -5,6 +5,8 @@ alwaysApply: true
 
 # GLC modular enforcement and cloud safety
 
+**Repo index:** [`AGENTS.md`](../../AGENTS.md) — file/directory map and hook locations.
+
 ## Source of truth (zero-loss sync)
 
 Treat **GitHub** and branch **`main`** as authoritative. Do not leave substantive work only on disk uncommitted when the user expects it backed up.

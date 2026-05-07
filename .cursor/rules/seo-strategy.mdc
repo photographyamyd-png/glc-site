@@ -3,7 +3,9 @@ description: SEO and discoverability — synthesized from app/, lib/site, and le
 globs:
   - "**/app/**/*"
   - "**/pages/**/*"
-  - "**/*.tsx"
+  - "**/*.{tsx,ts}"
+  - "**/lib/site/**/*.{ts,tsx}"
+  - "**/components/seo/**/*"
 alwaysApply: false
 ---
 

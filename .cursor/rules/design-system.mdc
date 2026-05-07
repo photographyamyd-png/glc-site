@@ -1,7 +1,11 @@
 ---
 description: Full V7 design system — layout, Z-order, tonal rhythm, assets, spacing, typography, motion, palette, accessibility (legacy MASTER_RULES §1–2, §4–9 + §8).
 globs:
-  - "**/*.{tsx,jsx,ts,css,scss}"
+  - "**/*.{tsx,jsx,ts,css,scss,mdx}"
+  - "**/app/**"
+  - "**/components/**"
+  - "**/lib/**"
+  - "**/public/**"
 alwaysApply: false
 ---
 
