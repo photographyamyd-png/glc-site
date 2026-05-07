@@ -35,3 +35,46 @@ Project hooks (if present): [`.cursor/hooks.json`](.cursor/hooks.json) and [`.cu
 ## Workspace settings
 
 Editor defaults for this repo: [`.vscode/settings.json`](.vscode/settings.json).
+
+---
+
+## Cursor workflow (2026) — rule precedence and drift control
+
+### Precedence (when instructions conflict)
+
+| Priority | Source | Notes |
+|:--:|---|---|
+| 1 | **`.cursor/rules/*.mdc`** | Project truth for GLC design, copy, SEO, enforcement. |
+| 2 | **Legacy `.cursorrules`** (repo root) | **Not present** in this repo; do not reintroduce — it fights modular rules. |
+| 3 | **Global** Cursor Settings → Rules for AI | General persona; **must not override** project `.mdc` on tokens, fonts, or SEO structure. |
+
+**Conflict rule:** If global settings and an `.mdc` disagree on stack or brand rules, **the `.mdc` wins.**
+
+### Why `design-system.mdc` is not `alwaysApply: true`
+
+`index.mdc` and `glc-modular-enforcement-cloud-safety.mdc` are **always** loaded. `design-system.mdc` uses **broad globs** (`app/`, `components/`, `lib/`, `public/`, plus common extensions) so it attaches during real code work without injecting the full V7 document into unrelated sessions.
+
+### Global “Rules for AI” (paste in Cursor Settings → General → Rules for AI)
+
+Use this as a **quality gate** alongside project rules:
+
+```text
+Before finalizing any file edit or new section build, run an internal Rule Sync Check against `.cursor/rules/`. If the change conflicts with `design-system.mdc`, `copy-writing.mdc`, or `seo-strategy.mdc`, fix the implementation to match project rules before finishing.
+
+### GLC MODULAR ENFORCEMENT & CLOUD SAFETY
+- Zero-Loss Sync: Treat GitHub and branch `main` as source of truth. After significant edits, commit and `git push origin main` (stage only intentional paths).
+- Modular compliance: Before code or copy, read the relevant `.cursor/rules/` modules. Layouts → `design-system.mdc` (Oswald headings; Barlow / Barlow Condensed per file). Copy volume → `copy-writing.mdc`. Page structure / metadata → `seo-strategy.mdc`. If output violates those modules, halt and regenerate.
+```
+
+### Index ghosting / stale context
+
+After large rule refactors: **Cursor Settings → Features → Codebase indexing → Resync** (or rebuild) so the IDE re-reads `.cursor/rules/` and this repo only.
+
+### Legacy instruction files (audit)
+
+| Item | Status |
+|------|--------|
+| Root `.cursorrules` | **Absent** — keep absent |
+| `master/MASTER_RULES.md` | **Stub** — points at `.cursor/rules/`; full V7 is in `design-system.mdc` |
+| `Only for History Use/` | Listed in **`.cursorignore`** (folder may be absent locally; pattern reserved) |
+| Conflicting `GLC_MASTER_RULES.md` | **Not found** in workspace |

@@ -5,7 +5,7 @@ alwaysApply: true
 
 Ignore all history files (anything under `Only for History Use/` is not authoritative for builds or copy).
 
-**Repository index:** Root **[`AGENTS.md`](../../AGENTS.md)** maps rule categories, key directories (`app/`, `components/`, `lib/site/`, `public/images/services/`, …), hooks, and workspace settings.
+**Repository index:** Root **[`AGENTS.md`](../../AGENTS.md)** maps rule categories, key directories, hooks, workspace settings, **Cursor rule precedence**, global Rules-for-AI snippet, and **index resync** after refactors.
 
 The active rules are divided into **`design-system.mdc`** (full **V7** layout, Z-order, tonal rhythm, mandatory assets, spacing tokens, typography, motion, palette, §8 composition, accessibility, hero-metrics pattern), **`copy-writing.mdc`** (volume pivots, content mapping, copy-facing audit), and **`seo-strategy.mdc`** (metadata, technical SEO, DOM/heading integrity). **Globs** attach these modules across **`app/`**, **`components/`**, **`lib/`**, **`public/`**, and matching extensions — see each file’s YAML frontmatter.
 
