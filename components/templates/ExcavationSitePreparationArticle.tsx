@@ -23,7 +23,11 @@ const RELATED_CARD_IMAGES = [
   "/images/services/Excavation/excavation-012.jpg",
 ] as const;
 
-const bodyLight = "text-[15px] leading-[1.72] text-[color:var(--text-600)] sm:text-base";
+/** §6 light longform: ink primary; muted tertiary only where needed */
+const bodyLightPrimary =
+  "text-[15px] leading-[1.72] text-ink sm:text-base";
+const bodyLightMuted =
+  "text-[15px] leading-[1.72] text-[color:var(--text-600)] sm:text-base";
 const bodyOnDark = "text-[15px] leading-[1.72] text-white/90 sm:text-base";
 
 function stripOuterQuotes(s: string): string {
@@ -86,28 +90,36 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
               />
             </div>
             <div className="order-1 lg:order-2">
-              <h2 id="excavation-metrics-heading" className="eyebrow text-ink">
+              <p className="eyebrow text-ink">Operations snapshot</p>
+              <h2
+                id="excavation-metrics-heading"
+                className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+              >
                 Field metrics
               </h2>
-              <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div
+                className="hero-rule mt-6 h-px w-full max-w-md bg-[color:var(--y)]/40"
+                aria-hidden
+              />
+              <ul className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2">
                 {detail.hubStats.map((m, i) => (
                   <li
                     key={m.label}
-                    className={`rounded-none border px-5 py-6 text-center shadow-[0_12px_32px_rgb(0_0_0/0.06)] transition-[border-color,box-shadow] hover:border-[color:var(--y)]/35 ${
+                    className={`bespoke-surface panel-machined rounded-none border px-8 py-8 text-center transition-[border-color,box-shadow] hover:border-[color:var(--y)]/35 ${
                       i === 0
                         ? "border-[color:var(--g200)] border-l-[4px] border-l-[color:var(--y)] bg-white"
                         : "border-[color:var(--g200)] bg-[color:var(--brand-canvas)]"
                     }`}
                   >
                     <p
-                      className={`font-serif text-3xl font-bold tabular-nums tracking-[-0.04em] sm:text-4xl ${
+                      className={`font-serif font-bold tabular-nums tracking-[-0.04em] text-[clamp(3.25rem,5vw,5rem)] leading-none ${
                         i === 0 ? "text-[color:var(--y)]" : "text-ink"
                       }`}
                     >
                       {m.value}
                     </p>
-                    <p className="mt-2 eyebrow text-ink">{m.label}</p>
-                    <p className={`mt-2 ${bodyLight}`}>{m.sub}</p>
+                    <p className="mt-3 eyebrow text-ink">{m.label}</p>
+                    <p className={`mt-2 ${bodyLightMuted}`}>{m.sub}</p>
                   </li>
                 ))}
               </ul>
@@ -131,7 +143,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-12 lg:items-center">
             <div className="lg:col-span-6">
-              <div className="rounded-none border border-white/10 bg-[rgb(10_12_11/0.42)] p-6 shadow-[0_20px_60px_rgb(0_0_0/0.28)] backdrop-blur-sm sm:p-8">
+              <div className="rounded-none border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_20px_60px_rgb(0_0_0/0.28)] backdrop-blur-md sm:p-8">
                 <p className="label-overline-on-dark mb-0">{detail.scopeStripLabels[0] ?? "Overview"}</p>
                 <h2
                   id="excavation-scope-heading"
@@ -199,11 +211,13 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
               What we deliver on site
             </h2>
           </div>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
             {detail.deliverables.map((cap, i) => (
               <article
                 key={cap}
-                className="flex flex-col overflow-hidden rounded-none border border-[color:var(--g200)] bg-[color:var(--brand-canvas)] shadow-[0_16px_40px_rgb(0_0_0/0.1)]"
+                className={`flex flex-col overflow-hidden rounded-none border border-[color:var(--g200)] bespoke-surface panel-machined bg-[color:var(--brand-canvas)] ${
+                  i === 0 ? "lg:ml-[var(--dna-stagger-sm)] motion-reduce:lg:ml-0" : ""
+                }`}
               >
                 <div className="relative aspect-[16/10] w-full shrink-0">
                   <Image
@@ -230,16 +244,21 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
         </div>
       </section>
 
-      {/* —— Trust: editorial split —— */}
+      {/* —— Trust: editorial split (dark band — tonal seam vs deliverables light) —— */}
       <section
         id="excavation-offerings"
-        className="section-major band-light scroll-mt-[var(--header)] view-reveal"
+        className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden view-reveal"
         aria-labelledby="excavation-trust-heading"
       >
-        <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--y)]/35 to-transparent"
+          aria-hidden
+        />
+        <ClaudeLogicWatermark placement="top-left" mode="on-dark" />
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-12">
             <div className="order-2 lg:order-1 lg:col-span-6">
-              <div className="relative min-h-[280px] overflow-hidden border border-[color:var(--g200)] lg:min-h-[360px]">
+              <div className="relative min-h-[280px] overflow-hidden border border-white/15 lg:min-h-[360px]">
                 <Image
                   src="/images/services/Excavation/excavation-004.jpg"
                   alt="Commercial earthworks and excavation site preparation"
@@ -251,17 +270,17 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
             </div>
             <div className="order-1 lg:order-2 lg:col-span-6">
               <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5 lg:max-w-none">
-                <p className="eyebrow text-ink">{detail.scopeStripLabels[2] ?? "Capabilities"}</p>
+                <p className="eyebrow text-white">{detail.scopeStripLabels[2] ?? "Capabilities"}</p>
                 <h2
                   id="excavation-trust-heading"
-                  className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+                  className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl"
                 >
-                  <span className="text-ink">Trust & </span>
+                  <span className="text-white/90">Trust & </span>
                   <span className="text-[color:var(--y)]">authority</span>
                 </h2>
-                <div className="mt-[var(--s7)] space-y-8">
+                <div className="mt-[var(--s7)] max-w-prose space-y-8">
                   {detail.trust.paragraphs.map((p) => (
-                    <p key={p.slice(0, 32)} className={bodyLight}>
+                    <p key={p.slice(0, 32)} className={bodyOnDark}>
                       {p}
                     </p>
                   ))}
@@ -272,9 +291,9 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
         </div>
       </section>
 
-      {/* —— Editorial band: full-bleed image + glass panel (hero-like stack, abbreviated) —— */}
+      {/* —— Editorial band: full-bleed image + glass panel (multiply substrate = intentional plane-0 art) —— */}
       <section
-        className="relative isolate min-h-[320px] overflow-hidden scroll-mt-[var(--header)]"
+        className="section-major band-dark-field relative isolate min-h-[280px] overflow-hidden scroll-mt-[var(--header)] border-t border-white/10"
         aria-labelledby="excavation-editorial-heading"
       >
         <div className="absolute inset-0">
@@ -300,8 +319,8 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
           aria-hidden
         />
         <ClaudeLogicWatermark placement="center-right" className="opacity-[0.14]" />
-        <div className="relative z-10 mx-auto flex min-h-[320px] max-w-[min(100%,var(--max))] items-center px-4 py-14 sm:px-6 lg:px-10">
-          <div className="max-w-xl rounded-none border border-white/10 bg-[rgb(10_12_11/0.48)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8">
+        <div className="relative z-10 mx-auto flex min-h-[260px] max-w-[min(100%,var(--max))] items-center px-4 sm:px-6 lg:px-10">
+          <div className="max-w-xl rounded-none border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8">
             <p className="eyebrow text-white">Field standard</p>
             <h2
               id="excavation-editorial-heading"
@@ -320,6 +339,10 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
         className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden view-reveal"
         aria-labelledby="excavation-process-heading"
       >
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--y)]/45 to-transparent"
+          aria-hidden
+        />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.03),transparent_45%)]" aria-hidden />
         <ClaudeLogicWatermark placement="bottom-right" mode="on-dark" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
@@ -355,7 +378,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                 {detail.process.steps.map((step) => (
                   <li
                     key={step.id}
-                    className="rounded-none border border-white/20 bg-[rgb(255_255_255/0.06)] p-5 backdrop-blur-sm"
+                    className="rounded-none border border-white/20 bg-[rgb(255_255_255/0.06)] p-5 backdrop-blur-md"
                   >
                     <p className="eyebrow text-[color:var(--y)]">{step.id}</p>
                     <p className="mt-2 font-serif text-xl font-bold uppercase tracking-[0.02em] text-white sm:text-2xl">{step.title}</p>
@@ -386,7 +409,9 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                   Serving Barrie, Midland, Orillia &{" "}
                   <span className="text-[color:var(--y)]">Simcoe County</span>
                 </h2>
-                <p className={`mt-[var(--s7)] ${bodyLight}`}>{detail.hero.body[2]}</p>
+                <p className={`mt-[var(--s7)] max-w-prose ${bodyLightPrimary}`}>
+                  {detail.hero.body[2]}
+                </p>
               </div>
             </div>
             <div className="lg:col-span-5">
@@ -429,10 +454,10 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
             {quoteEntries.map((entry) => (
               <li
                 key={entry.by}
-                className="rounded-none border border-white/18 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_18px_44px_rgb(0_0_0/0.35)] backdrop-blur-sm"
+                className="rounded-none border border-white/18 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_18px_44px_rgb(0_0_0/0.35)] backdrop-blur-md"
               >
                 <p className="text-sm leading-relaxed text-white/88 sm:text-[15px]">&ldquo;{entry.quote}&rdquo;</p>
-                <p className="mt-6 eyebrow text-white/80">{entry.by}</p>
+                <p className="mt-6 eyebrow text-white">{entry.by}</p>
               </li>
             ))}
           </ul>
@@ -447,9 +472,26 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
         </div>
       </section>
 
-      {/* —— FAQ: light band, drainage-style rows —— */}
-      <section id="faq" className="section-major band-light scroll-mt-[var(--header)]" aria-labelledby="excavation-faq-heading">
-        <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
+      {/* —— FAQ: light band + §4 atmosphere —— */}
+      <section
+        id="faq"
+        className="section-major band-light relative scroll-mt-[var(--header)] overflow-hidden view-reveal"
+        aria-labelledby="excavation-faq-heading"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgb(0_0_0/0.02),transparent_55%)]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.1]"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 60% at 12% 30%, rgb(242 183 5 / 0.18) 0%, transparent 58%)",
+          }}
+          aria-hidden
+        />
+        <ClaudeLogicWatermark placement="bottom-right" className="opacity-[0.1]" />
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
             <p className="eyebrow text-ink">FAQ</p>
             <h2
@@ -459,69 +501,83 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
               Common questions
             </h2>
           </div>
-          <div className="mt-10 space-y-3">
+          <div className="mt-10 space-y-3 sm:mt-12">
             {detail.faq.map((item) => (
               <details
                 key={item.q}
                 name="excavation-site-prep-faq"
-                className="group border border-[color:var(--g200)] bg-white p-4 sm:min-h-[44px] sm:p-5"
+                className="group border border-[color:var(--g200)] bg-[color:var(--brand-canvas)] p-4 sm:min-h-[44px] sm:p-5"
               >
-                <summary className="cursor-pointer list-none font-semibold text-ink marker:content-none [&::-webkit-details-marker]:hidden">
+                <summary className="cursor-pointer list-none font-sans text-[15px] font-semibold leading-snug text-ink marker:content-none [&::-webkit-details-marker]:hidden">
                   <span className="flex min-h-[44px] items-center justify-between gap-4">
                     {item.q}
                     <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
                     <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
                   </span>
                 </summary>
-                <p className={`mt-2 max-w-3xl pb-1 ${bodyLight}`}>{item.a}</p>
+                <p className={`mt-2 max-w-prose pb-1 ${bodyLightPrimary}`}>{item.a}</p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      {/* —— Related services —— */}
+      {/* —— Related services (dark end-cap before CTA field) —— */}
       <section
         id="related-services"
-        className="section-major band-light scroll-mt-[var(--header)]"
+        className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden view-reveal"
         aria-labelledby="excavation-related-heading"
       >
-        <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--y)]/35 to-transparent"
+          aria-hidden
+        />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.03),transparent_42%)]" aria-hidden />
+        <ClaudeLogicWatermark placement="top-right" mode="on-dark" />
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
-            <p className="eyebrow text-ink">Related</p>
+            <p className="eyebrow text-white">Related</p>
             <h2
               id="excavation-related-heading"
-              className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+              className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl"
             >
-              Other service lines
+              <span className="text-white/90">Other </span>
+              <span className="text-[color:var(--y)]">service lines</span>
             </h2>
-            <p className={`mt-5 max-w-2xl ${bodyLight}`}>{detail.hero.body[0]}</p>
+            <p className={`mt-5 max-w-prose ${bodyOnDark}`}>{detail.hero.body[0]}</p>
           </div>
-          <ul className="mt-10 grid gap-4 lg:grid-cols-3">
+          <ul className="mt-10 grid gap-4 sm:mt-12 lg:grid-cols-3">
             {related.slice(0, 3).map((r, i) => (
-              <CardSurface key={r.slug} as="li" className="overflow-hidden p-0">
+              <CardSurface
+                key={r.slug}
+                as="li"
+                className="overflow-hidden rounded-none border-[color:var(--g200)] p-0 shadow-[0_16px_40px_rgb(0_0_0/0.22)]"
+              >
                 <Link href={`/services/${r.slug}/`} className="group flex flex-col sm:flex-row sm:items-stretch">
                   <div className="relative aspect-[16/10] w-full shrink-0 sm:w-[min(42%,260px)]">
                     <Image
                       src={RELATED_CARD_IMAGES[i % RELATED_CARD_IMAGES.length]}
                       alt={`${r.title} — related commercial service`}
                       fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                      className="object-cover transition-transform duration-300 motion-reduce:transition-none group-hover:scale-[1.02] motion-reduce:group-hover:scale-100"
                       sizes="(min-width: 640px) 220px, 100vw"
                     />
                   </div>
-                  <div className="flex flex-1 flex-col justify-center p-4 sm:p-5">
-                    <span className="font-serif text-lg font-semibold uppercase tracking-tight text-ink group-hover:text-[color:var(--y)]">
+                  <div className="flex flex-1 flex-col justify-center border-l border-[color:var(--g200)] bg-[color:var(--brand-canvas)] p-4 sm:p-5">
+                    <span className="line-clamp-2 font-serif text-lg font-semibold uppercase tracking-tight text-ink group-hover:text-[color:var(--y)]">
                       {r.title}
                     </span>
-                    <span className="mt-2 text-[15px] leading-[1.72] text-[color:var(--text-600)]">{r.description}</span>
+                    <span className={`mt-2 ${bodyLightPrimary}`}>{r.description}</span>
                   </div>
                 </Link>
               </CardSurface>
             ))}
           </ul>
           <div className="mt-8">
-            <Link href="/services/" className="cta-primary inline-flex min-h-[44px] items-center px-8 py-4 text-sm font-semibold tracking-wide">
+            <Link
+              href="/services/"
+              className="cta-hero-fill inline-flex min-h-[44px] items-center px-8 py-4 text-sm font-semibold tracking-wide"
+            >
               All services
             </Link>
           </div>
