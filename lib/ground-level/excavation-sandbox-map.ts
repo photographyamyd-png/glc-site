@@ -14,6 +14,13 @@ import { HOME_COPY, SERVICE_DETAILS } from "@/lib/site/copy";
 
 const detail = SERVICE_DETAILS["excavation-site-preparation"];
 
+/**
+ * Excavation route section DNA (band rhythm + intent). Keep in sync with
+ * [ExcavationSitePreparationPage]: hero `marketing` → marquee interrupt → metrics light →
+ * who dark → rail dark → difference light → process dark → areas light → testimonials dark →
+ * featured light → FAQ dark → CTA light-field.
+ */
+
 /** Same ticker phrases as copy-lab / sandbox-approved marquee pool. */
 export const excavationMarqueeItems: readonly string[] = COPY_LAB_MARQUEE_ITEMS;
 
@@ -31,8 +38,10 @@ export function excavationHeroContent(): GLHeroContent {
     titleLine2: "& Site Preparation — Barrie, Orillia, Wasaga Beach &",
     titleLine3: h.titleEmphasis,
     lede: h.lede,
-    stats: detail.hubStats.map((s) => `${s.value} ${s.label}`),
-    serviceCoverageLabel: `${HOME_COPY.hero.coverageLabel} — ${HOME_COPY.hero.coverageTags.join(", ")}`,
+    /** Structured for marketing hero metrics (yellow value + white eyebrow label). */
+    stats: detail.hubStats.map((s) => ({ value: s.value, label: s.label })),
+    /** Matches HomeHero: eyebrow line only; chips come from `serviceShortcuts`. */
+    serviceCoverageLabel: HOME_COPY.hero.coverageLabel,
     serviceShortcuts: COPY_LAB_HERO.serviceShortcuts.map((x) => ({ label: x.label, slug: x.slug })),
     primaryCta: { label: "Call now", href: PHONE_TEL },
     secondaryCta: { label: "Get free quote", href: "/contact/" },

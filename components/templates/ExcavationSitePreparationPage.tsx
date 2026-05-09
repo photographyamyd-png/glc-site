@@ -54,10 +54,14 @@ export function ExcavationSitePreparationPage(props: Props) {
         headingId="excavation-hero-heading"
         content={excavationHeroContent()}
         imageSrc="/images/services/Excavation/excavation-016.jpg"
+        imageAlt="Commercial excavation equipment on an active Simcoe County construction site"
         showMarquee={false}
+        variant="marketing"
       />
 
       <GLMarqueeBand items={excavationMarqueeItems} />
+
+      <CopyLabStats content={excavationCopyLabStatsContent()} />
 
       <GLWhoWeServe
         sectionId="about"
@@ -65,8 +69,6 @@ export function ExcavationSitePreparationPage(props: Props) {
         content={excavationWhoWeServeContent()}
         showStatsStrip={false}
       />
-
-      <CopyLabStats content={excavationCopyLabStatsContent()} />
 
       <GLCapabilitiesRail
         sectionId="capabilities-crosslines"
@@ -93,6 +95,7 @@ export function ExcavationSitePreparationPage(props: Props) {
         sectionId="testimonials"
         headingId="excavation-testimonials-heading"
         content={excavationTestimonialsContent()}
+        surface="dark"
       />
 
       <GLFeaturedServices
