@@ -131,7 +131,7 @@ export function GLHero({
                 <ThreeActHeadline id={headingId} line1={c.titleLine1} line2={c.titleLine2} line3={c.titleLine3} />
               </div>
               <div className="hero-caption mt-5 max-w-[36rem]">
-                <ExpandableCopy text={c.lede} className="text-[15px] leading-relaxed text-white/84 sm:text-base" />
+                <ExpandableCopy text={c.lede} className="text-[15px] leading-relaxed text-white/90 sm:text-base" />
               </div>
               <div className="hero-rule mt-6 h-px w-full max-w-md bg-[color:var(--y)]/40" aria-hidden />
 

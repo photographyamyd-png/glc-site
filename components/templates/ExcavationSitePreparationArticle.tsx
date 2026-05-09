@@ -23,6 +23,9 @@ const RELATED_CARD_IMAGES = [
   "/images/services/Excavation/excavation-012.jpg",
 ] as const;
 
+/** §8 tertiary line — deliverables are title-only strings; shared muted caption satisfies tri-tone per card */
+const DELIVERABLE_CARD_CAPTION = "Commercial site work · Simcoe County";
+
 /** §6 + §8 tri-tone: primary ink body; tertiary ink-muted (not washed eyebrows as sole texture on dark). */
 const bodyLightPrimary =
   "text-[15px] leading-[1.72] text-ink sm:text-base";
@@ -91,7 +94,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
               />
             </div>
             <div className="order-1 lg:order-2">
-              <p className="eyebrow text-ink">Operations snapshot</p>
+              <p className="eyebrow text-ink-muted">Operations snapshot</p>
               <h2
                 id="excavation-metrics-heading"
                 className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
@@ -119,7 +122,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                     >
                       {m.value}
                     </p>
-                    <p className="mt-3 eyebrow text-ink">{m.label}</p>
+                    <p className="mt-3 eyebrow text-ink-muted">{m.label}</p>
                     <p className={`mt-2 ${bodyLightMuted}`}>{m.sub}</p>
                   </li>
                 ))}
@@ -150,7 +153,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                   id="excavation-scope-heading"
                   className="mt-6 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl"
                 >
-                  <span className="text-white/90">{detail.scopeStripLabels[1] ?? "Scope"} — </span>
+                  <span className="text-white">{detail.scopeStripLabels[1] ?? "Scope"} — </span>
                   <span className="text-[color:var(--y)]">{detail.deliverablesHeading}</span>
                 </h2>
                 <div className="hero-rule mt-6 h-px w-full max-w-md bg-[color:var(--y)]/40" aria-hidden />
@@ -204,7 +207,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
         <ClaudeLogicWatermark placement="top-left" className="opacity-[0.07]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
-            <p className="eyebrow text-ink">Capabilities</p>
+            <p className="eyebrow text-ink-muted">Capabilities</p>
             <h2
               id="excavation-deliverables-heading"
               className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
@@ -232,6 +235,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                 </div>
                 <div className="flex flex-1 flex-col p-5 sm:p-7">
                   <h3 className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink sm:text-2xl">{cap}</h3>
+                  <p className="mt-2 text-xs leading-snug text-ink-muted sm:text-sm">{DELIVERABLE_CARD_CAPTION}</p>
                   <Link
                     href="/contact/"
                     className="cta-primary mt-6 inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-bold uppercase tracking-[0.12em]"
@@ -276,7 +280,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                   id="excavation-trust-heading"
                   className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl"
                 >
-                  <span className="text-white/90">Trust & </span>
+                  <span className="text-white">Trust & </span>
                   <span className="text-[color:var(--y)]">authority</span>
                 </h2>
                 <div className="mt-[var(--s7)] max-w-prose space-y-8">
@@ -368,7 +372,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
               >
                 {processAccentMatch ? (
                   <>
-                    <span className="text-white/90">{processAccentMatch[1]} </span>
+                    <span className="text-white">{processAccentMatch[1]} </span>
                     <span className="text-[color:var(--y)]">{processAccentMatch[2]}</span>
                   </>
                 ) : (
@@ -402,7 +406,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-7">
               <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5 lg:max-w-none">
-                <p className="eyebrow text-ink">{HOME_COPY.coverage.eyebrow}</p>
+                <p className="eyebrow text-ink-muted">{HOME_COPY.coverage.eyebrow}</p>
                 <h2
                   id="excavation-coverage-heading"
                   className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
@@ -446,7 +450,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
               id="excavation-testimonials-heading"
               className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl"
             >
-              <span className="text-white/90">Trusted by site supervisors </span>
+              <span className="text-white">Trusted by site supervisors </span>
               <span className="text-[color:var(--y)]">& PMs</span>
             </h2>
             <p className={`mt-5 max-w-2xl ${bodyOnDark}`}>{testimonials.sub}</p>
@@ -494,7 +498,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
         <ClaudeLogicWatermark placement="bottom-right" className="opacity-[0.1]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
-            <p className="eyebrow text-ink">FAQ</p>
+            <p className="eyebrow text-ink-muted">FAQ</p>
             <h2
               id="excavation-faq-heading"
               className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
@@ -542,7 +546,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
               id="excavation-related-heading"
               className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl"
             >
-              <span className="text-white/90">Other </span>
+              <span className="text-white">Other </span>
               <span className="text-[color:var(--y)]">service lines</span>
             </h2>
             <p className={`mt-5 max-w-prose ${bodyOnDark}`}>{detail.hero.body[0]}</p>

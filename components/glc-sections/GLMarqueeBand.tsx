@@ -7,6 +7,7 @@ type GLMarqueeBandProps = {
 /**
  * GLC DNA — trust ticker (`marquee-band` in globals.css). Uses `var(--y)` for fill.
  * §2 thin chromatic interrupt between hero and article (not a full tonal section).
+ * §8 tri-tone on strip: yellow field (anchor) + ink ticker copy + sep dots (texture).
  * Animation pauses under `prefers-reduced-motion` (see `.marquee-track` in globals.css).
  */
 export function GLMarqueeBand({ items }: GLMarqueeBandProps = {}) {
