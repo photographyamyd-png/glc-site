@@ -15,10 +15,9 @@ import { HOME_COPY, SERVICE_DETAILS } from "@/lib/site/copy";
 const detail = SERVICE_DETAILS["excavation-site-preparation"];
 
 /**
- * Excavation route section DNA (band rhythm + intent). Keep in sync with
- * [ExcavationSitePreparationPage]: hero `marketing` → marquee interrupt → metrics light →
- * who dark → rail dark → difference light → process dark → areas light → testimonials dark →
- * featured light → FAQ dark → CTA light-field.
+ * Excavation route — copy helpers for hero/marquee/CTA. Main narrative lives in
+ * [ExcavationSitePreparationArticle]: hero → marquee → metrics → scope → deliverables grid →
+ * trust split → editorial band → process → coverage → testimonials → FAQ → related → GLCtaBand.
  */
 
 /** Same ticker phrases as copy-lab / sandbox-approved marquee pool. */
