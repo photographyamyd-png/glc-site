@@ -23,11 +23,12 @@ const RELATED_CARD_IMAGES = [
   "/images/services/Excavation/excavation-012.jpg",
 ] as const;
 
-/** §6 light longform: ink primary; muted tertiary only where needed */
+/** §6 + §8 tri-tone: primary ink body; tertiary ink-muted (not washed eyebrows as sole texture on dark). */
 const bodyLightPrimary =
   "text-[15px] leading-[1.72] text-ink sm:text-base";
+/** §8 tertiary on light bands — `text-ink-muted` / token slate (distinct from narrative `text-ink`). */
 const bodyLightMuted =
-  "text-[15px] leading-[1.72] text-[color:var(--text-600)] sm:text-base";
+  "text-[15px] leading-[1.72] text-ink-muted sm:text-base";
 const bodyOnDark = "text-[15px] leading-[1.72] text-white/90 sm:text-base";
 
 function stripOuterQuotes(s: string): string {
@@ -456,7 +457,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                 key={entry.by}
                 className="rounded-none border border-white/18 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_18px_44px_rgb(0_0_0/0.35)] backdrop-blur-md"
               >
-                <p className="text-sm leading-relaxed text-white/88 sm:text-[15px]">&ldquo;{entry.quote}&rdquo;</p>
+                <p className="text-sm leading-relaxed text-white/90 sm:text-[15px]">&ldquo;{entry.quote}&rdquo;</p>
                 <p className="mt-6 eyebrow text-white">{entry.by}</p>
               </li>
             ))}
