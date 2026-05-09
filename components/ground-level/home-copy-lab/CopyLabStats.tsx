@@ -2,9 +2,30 @@ import Image from "next/image";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { COPY_LAB_STATS } from "@/lib/ground-level/home-copy-lab-content";
 
+export type CopyLabStatsMetric = {
+  value: string;
+  label: string;
+  sub: string;
+};
+
+export type CopyLabStatsContent = {
+  sideLabel: string;
+  metrics: readonly CopyLabStatsMetric[];
+  imageSrc: string;
+  imageAlt: string;
+};
+
+const DEFAULT_STATS_CONTENT: CopyLabStatsContent = {
+  sideLabel: COPY_LAB_STATS.sideLabel,
+  metrics: [...COPY_LAB_STATS.metrics],
+  imageSrc: "/ground-level/equipment-wide.jpg",
+  imageAlt: "Heavy equipment on a graded commercial site",
+};
+
 /** Light-field metrics band — breaks dark runs after about / before services grid. */
-export function CopyLabStats() {
-  const s = COPY_LAB_STATS;
+export function CopyLabStats(props: { content?: CopyLabStatsContent } = {}) {
+  const { content } = props;
+  const s = content ?? DEFAULT_STATS_CONTENT;
   return (
     <section
       id="metrics"
@@ -24,8 +45,8 @@ export function CopyLabStats() {
         <div className="grid gap-10 lg:grid-cols-[minmax(240px,0.9fr)_minmax(0,1.2fr)] lg:items-center lg:gap-14">
           <div className="relative z-[1] order-2 min-h-[200px] -translate-x-2 overflow-hidden border border-[color:var(--g200)] shadow-[0_16px_40px_rgb(0_0_0/0.08)] translate-y-[var(--dna-stagger-sm)] lg:order-1 lg:min-h-[280px] lg:-translate-x-4 [clip-path:polygon(0_0,92%_0,100%_10%,100%_100%,0_100%)]">
             <Image
-              src="/ground-level/equipment-wide.jpg"
-              alt="Heavy equipment on a graded commercial site"
+              src={s.imageSrc}
+              alt={s.imageAlt}
               fill
               className="object-cover"
               sizes="(min-width: 1024px) 36vw, 100vw"
@@ -39,7 +60,7 @@ export function CopyLabStats() {
             <ul className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
               {s.metrics.map((m, i) => (
                 <li
-                  key={m.label}
+                  key={`${m.label}-${m.value}`}
                   className={`group px-5 py-6 text-center transition-[transform,box-shadow,border-color,background-color] duration-[220ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 motion-reduce:transform-none motion-reduce:transition-none ${
                     i === 0
                       ? "bespoke-surface panel-machined border border-[color:var(--g200)] border-l-[4px] border-l-[color:var(--y)] shadow-[0_12px_32px_rgb(0_0_0/0.08)] hover:shadow-[0_22px_48px_rgb(0_0_0/0.12)]"
