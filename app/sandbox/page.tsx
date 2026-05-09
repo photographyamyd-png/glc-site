@@ -4,6 +4,7 @@ import { GLDifference } from "@/components/ground-level/GLDifference";
 import { GLFeaturedServices } from "@/components/ground-level/GLFeaturedServices";
 import { GLHero } from "@/components/ground-level/GLHero";
 import { GLHomeCopyLab } from "@/components/ground-level/home-copy-lab/GLHomeCopyLab";
+import { ProcessVerticalFlow } from "@/components/process/ProcessVerticalFlow";
 import { ServiceLayoutLabC } from "@/components/ground-level/service-layout-lab/ServiceLayoutLabC";
 import { SERVICE_LAYOUT_LAB_ITEMS } from "@/lib/ground-level/service-layout-lab-data";
 import { notFound } from "next/navigation";
@@ -31,6 +32,9 @@ export default function SandboxPage() {
       {/* Approved reference stacks (Lane B + copy-lab clicked set) */}
       <GLCDnaSandbox />
       <GLHomeCopyLab />
+
+      {/* V7 vertical process flow design lab — sandbox-only, homepage untouched */}
+      <ProcessVerticalFlow />
     </>
   );
 }
