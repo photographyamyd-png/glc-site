@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DrainageHardscapingPage } from "@/components/templates/DrainageHardscapingPage";
+import { ExcavationSitePreparationPage } from "@/components/templates/ExcavationSitePreparationPage";
 import { ServicePageTemplate } from "@/components/templates/ServicePageTemplate";
 import { SERVICE_DETAILS } from "@/lib/site/copy";
 import { ALL_SERVICES, PRIMARY_SERVICES, SEO_TITLES, type PrimaryServiceSlug } from "@/lib/site/registry";
@@ -41,7 +42,11 @@ export default async function ServicePage({
   const service = ALL_SERVICES.find((entry) => entry.slug === slug);
   if (!service) notFound();
 
-  const related = PRIMARY_SERVICES.filter((entry) => entry.slug !== service.slug).slice(0, 4);
+  const related = PRIMARY_SERVICES.filter((entry) => entry.slug !== service.slug).slice(0, 5);
+
+  if (service.slug === "excavation-site-preparation") {
+    return <ExcavationSitePreparationPage service={service} related={related} />;
+  }
 
   if (service.slug === "drainage-hardscaping") {
     return <DrainageHardscapingPage service={service} related={related} />;
