@@ -9,3 +9,5 @@ All project rules have been **modularized**. **Repository-wide index:** [`AGENTS
 - [.cursor/rules/seo-strategy.mdc](../.cursor/rules/seo-strategy.mdc)
 
 For agent self-audit and Git workflow: [.cursor/rules/glc-modular-enforcement-cloud-safety.mdc](../.cursor/rules/glc-modular-enforcement-cloud-safety.mdc).
+
+**Eyebrow typography:** Section eyebrows and kickers use the **`.eyebrow`** utility and updated **`.label-overline` / `.label-overline-on-dark`** (13px Barlow, solid **`text-white`** on dark). Spec: [.cursor/rules/design-system.mdc](../.cursor/rules/design-system.mdc) (Typography lock and §6).

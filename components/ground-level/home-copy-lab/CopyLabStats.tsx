@@ -33,7 +33,7 @@ export function CopyLabStats() {
             <div className="absolute inset-0 bg-gradient-to-r from-[rgb(0_0_0/0.35)] to-transparent" aria-hidden />
           </div>
           <div className="relative z-[2] order-1 translate-y-1 lg:order-2">
-            <h2 id="metrics-heading" className="mb-2 font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">
+            <h2 id="metrics-heading" className="mb-2 eyebrow text-ink">
               {s.sideLabel}
             </h2>
             <ul className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
@@ -53,7 +53,7 @@ export function CopyLabStats() {
                   >
                     {m.value}
                   </p>
-                  <p className="mt-3 font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">
+                  <p className="mt-3 eyebrow text-ink">
                     {m.label}
                   </p>
                   <p className="mt-2 text-[15px] leading-[1.72] text-[color:var(--text-600)]">

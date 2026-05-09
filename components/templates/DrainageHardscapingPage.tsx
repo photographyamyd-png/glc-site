@@ -78,7 +78,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
 
         <div className="relative z-10 mx-auto flex min-h-[min(100dvh,920px)] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-4 pb-10 pt-28 sm:px-6 sm:pb-12 lg:justify-between lg:px-10 lg:pb-10 lg:pt-[calc(var(--header)+3rem)]">
           <div className="max-w-[min(100%,var(--max))] space-y-0 rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:max-w-3xl">
-            <nav aria-label="Breadcrumb" className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/80">
+            <nav aria-label="Breadcrumb" className="eyebrow text-white">
               <Link href="/services/" className="text-white/80 underline-offset-4 hover:text-[color:var(--y)] hover:underline">
                 {detail.hero.breadcrumbParent}
               </Link>
@@ -88,7 +88,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
               <span className="text-white/90">{service.title}</span>
             </nav>
 
-            <p className="mt-6 font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white">
+            <p className="mt-6 eyebrow text-white">
               Drainage &amp; hardscape civil
             </p>
 
@@ -122,11 +122,11 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                     {s.value}{" "}
                     <span className="text-sm font-semibold tracking-normal text-white/90">{s.label}</span>
                   </p>
-                  <p className="mt-1 font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/75">{s.sub}</p>
+                  <p className="mt-1 eyebrow text-white">{s.sub}</p>
                 </div>
               ))}
             </div>
-            <p className="mt-6 font-label text-[10px] uppercase tracking-[0.2em] text-white/55">Service Coverage</p>
+            <p className="mt-6 eyebrow text-white">Service Coverage</p>
             <ul className="mt-3 flex flex-wrap gap-2" aria-label="Service Coverage">
               {["Barrie", "Midland", "Orillia", "Simcoe County"].map((tag) => (
                 <li
@@ -159,7 +159,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-6">
               <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5 lg:max-w-none">
-                <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">Scope</p>
+                <p className="eyebrow text-ink">Scope</p>
                 <h2
                   id="drainage-scope-heading"
                   className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
@@ -199,7 +199,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         <ClaudeLogicWatermark placement="top-left" className="opacity-[0.07]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
-            <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">Capabilities</p>
+            <p className="eyebrow text-ink">Capabilities</p>
             <h2 id="drainage-deliverables-heading" className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl">
               {detail.deliverablesHeading}
             </h2>
@@ -271,7 +271,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
           <ClaudeLogicWatermark placement="center-right" className="opacity-[0.12]" />
           <div className="relative z-10 mx-auto flex min-h-[340px] max-w-[min(100%,var(--max))] items-center px-4 py-16 sm:px-6 lg:px-10">
             <div className="max-w-xl rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-2xl backdrop-blur-md sm:p-8">
-              <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white">{parallax.eyebrow}</p>
+              <p className="eyebrow text-white">{parallax.eyebrow}</p>
               <h2 id="drainage-parallax-heading" className="mt-4 font-serif text-2xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-3xl">
                 {parallax.title}
               </h2>
@@ -298,7 +298,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
             </div>
             <div className="order-1 lg:order-2 lg:col-span-6">
               <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5 lg:max-w-none">
-                <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">Why it matters</p>
+                <p className="eyebrow text-ink">Why it matters</p>
                 <h2
                   id="drainage-trust-heading"
                   className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
@@ -337,7 +337,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
               </div>
             </div>
             <div className="lg:col-span-7">
-              <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white">{detail.process.eyebrow}</p>
+              <p className="eyebrow text-white">{detail.process.eyebrow}</p>
               <h2
                 id="drainage-process-heading"
                 className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl"
@@ -350,7 +350,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                     key={step.id}
                     className="border border-white/20 bg-[rgb(255_255_255/0.06)] p-5 backdrop-blur-sm"
                   >
-                    <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--y)]">{step.id}</p>
+                    <p className="eyebrow text-[color:var(--y)]">{step.id}</p>
                     <p className="mt-2 font-serif text-xl font-bold uppercase tracking-[0.02em] text-white sm:text-2xl">{step.title}</p>
                     <p className={`mt-4 ${bodyOnDark}`}>{step.body}</p>
                   </li>
@@ -375,7 +375,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
       <section id="faq" className="section-major band-light scroll-mt-[var(--header)]" aria-labelledby="drainage-faq-heading">
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
-            <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">FAQ</p>
+            <p className="eyebrow text-ink">FAQ</p>
             <h2 id="drainage-faq-heading" className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl">
               Common questions
             </h2>
@@ -390,10 +390,10 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                 <summary className="cursor-pointer list-none font-semibold text-ink marker:content-none [&::-webkit-details-marker]:hidden">
                   <span className="flex min-h-[44px] items-center justify-between gap-4">
                     {item.q}
-                    <span className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--y)] group-open:hidden">
+                    <span className="eyebrow text-[color:var(--y)] group-open:hidden">
                       +
                     </span>
-                    <span className="hidden font-label text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--y)] group-open:inline">
+                    <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">
                       −
                     </span>
                   </span>
@@ -410,7 +410,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-7">
               <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5 lg:max-w-none">
-                <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">Service area</p>
+                <p className="eyebrow text-ink">Service area</p>
                 <h2 id="drainage-service-area-heading" className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl">
                   Barrie and Simcoe County drainage coverage
                 </h2>
@@ -438,7 +438,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
       <section id="related-services" className="section-major band-light scroll-mt-[var(--header)]" aria-labelledby="drainage-related-heading">
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
-            <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">Related</p>
+            <p className="eyebrow text-ink">Related</p>
             <h2 id="drainage-related-heading" className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl">
               Related services
             </h2>
@@ -473,7 +473,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="relative overflow-hidden border border-white/20 border-l-[4px] border-l-[color:var(--y)] bg-[rgb(10_12_11/0.72)] p-6 backdrop-blur-md sm:p-8">
             <ClaudeLogicWatermark placement="center-right" mode="on-dark" className="opacity-[0.12]" />
-            <p className="relative z-10 font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/70">Request site visit</p>
+            <p className="relative z-10 eyebrow text-white">Request site visit</p>
             <h2 id="drainage-cta-heading" className="relative z-10 mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl">
               {detail.ctaOverride.heading}
             </h2>

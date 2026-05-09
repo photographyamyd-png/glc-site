@@ -72,7 +72,7 @@ function ProductionMetricsBoard({ tone }: { tone: Tone }) {
     <NewComponentShell id={`review-new-metrics-board-${tone}`} title={`Production metrics board (${tone})`} tone={tone}>
       <div className="mt-8 grid gap-4 lg:grid-cols-[260px_minmax(0,1fr)]">
         <aside className={`border border-[color:var(--g200)] p-5 ${isLight ? "bg-white text-ink" : "bg-[rgb(25_28_26/0.84)] text-white"}`}>
-          <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Performance rail</p>
+          <p className="eyebrow text-[color:var(--y)]">Performance rail</p>
           <p className="mt-2 font-serif text-2xl font-semibold uppercase">
             <span className={isLight ? "text-ink" : "text-white"}>Weekly </span>
             <span className="text-[color:var(--y)]">snapshot</span>
@@ -86,7 +86,7 @@ function ProductionMetricsBoard({ tone }: { tone: Tone }) {
               isLight ? "bg-[color:var(--brand-canvas)] text-ink" : "bg-[rgb(22_24_23/0.84)] text-white"
             } ${i === 1 ? "lg:-translate-y-3" : ""}`}
           >
-            <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">{metric}</p>
+            <p className="eyebrow text-[color:var(--y)]">{metric}</p>
             <p className={`mt-3 font-serif text-3xl font-semibold ${isLight ? "text-ink" : "text-white"}`}>9{7 + i}%</p>
           </article>
         ))}
@@ -115,7 +115,7 @@ function BidPackageStrip({ tone }: { tone: Tone }) {
         <div className="relative min-h-[280px] overflow-hidden border border-[color:var(--g200)]">
           <Image src="/ground-level/equipment-wide.jpg" alt="" fill className="object-cover" sizes="(min-width: 1024px) 60vw, 100vw" />
           <div className={`absolute inset-0 ${isLight ? "bg-[rgb(0_0_0/0.45)]" : "bg-[rgb(0_0_0/0.65)]"}`} />
-          <p className="absolute bottom-4 left-4 font-label text-[11px] uppercase tracking-[0.16em] text-white">Bid package preview</p>
+          <p className="absolute bottom-4 left-4 eyebrow text-white">Bid package preview</p>
           <div className="absolute right-4 top-4 h-14 w-14 border border-[color:var(--y)]/70" />
         </div>
       </div>
@@ -131,12 +131,12 @@ function MobilizationStrip({ tone }: { tone: Tone }) {
         <div className="grid gap-3 sm:grid-cols-3">
           {["Dispatch", "Equipment", "Field lead"].map((item, i) => (
             <div key={item} className={`border border-[color:var(--g200)] p-4 ${isLight ? "bg-[color:var(--brand-canvas)] text-ink" : "bg-[rgb(22_24_23/0.84)] text-white"} ${i === 1 ? "sm:-translate-y-2" : ""}`}>
-              <p className="font-label text-[11px] uppercase tracking-[0.14em] text-[color:var(--y)]">{item}</p>
+              <p className="eyebrow text-[color:var(--y)]">{item}</p>
             </div>
           ))}
         </div>
         <div className={`border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] p-5 ${isLight ? "bg-white text-ink" : "bg-[rgb(22_24_23/0.84)] text-white"}`}>
-          <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Mobilization window</p>
+          <p className="eyebrow text-[color:var(--y)]">Mobilization window</p>
           <p className="mt-2 font-serif text-2xl font-semibold uppercase">
             <span className={isLight ? "text-ink" : "text-white"}>4</span>
             <span className="text-[color:var(--y)]">8</span>
@@ -180,7 +180,7 @@ function ProcurementFaq({ tone }: { tone: Tone }) {
     <NewComponentShell id={`review-new-procurement-faq-${tone}`} title={`Procurement FAQ (${tone})`} tone={tone}>
       <div className="mt-8 grid gap-4 lg:grid-cols-[320px_minmax(0,1fr)]">
         <aside className={`border border-[color:var(--g200)] p-5 ${isLight ? "bg-[color:var(--brand-canvas)] text-ink" : "bg-[rgb(24_27_25/0.84)] text-white"}`}>
-          <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Procurement support</p>
+          <p className="eyebrow text-[color:var(--y)]">Procurement support</p>
           <p className="mt-2 font-serif text-2xl font-semibold uppercase">
             <span className={isLight ? "text-ink" : "text-white"}>FAQ </span>
             <span className="text-[color:var(--y)]">stack</span>

@@ -41,14 +41,14 @@ export const GLHeroMetricsCoverageBlock: FC<GLHeroMetricsCoverageBlockProps> = (
         ))}
       </div>
 
-      <div className="mt-6 font-label text-[10px] uppercase tracking-[0.2em] text-white/55">{serviceCoverageLabel}</div>
+      <div className="mt-6 eyebrow text-white">{serviceCoverageLabel}</div>
 
       {serviceChips.length > 0 ? (
         <div className="mt-3 flex flex-wrap gap-2">
           {serviceChips.map((chip) => (
             <span
               key={chip}
-              className="rounded border border-white/20 bg-white/5 px-2 py-1 font-label text-[10px] uppercase tracking-[0.15em] text-white/80 transition-colors hover:bg-white/10"
+              className="eyebrow rounded border border-white/20 bg-white/5 px-2 py-1 text-white transition-colors hover:bg-white/10"
             >
               {chip}
             </span>

@@ -22,7 +22,7 @@ export function HomeStatsBand({ band, stats }: HomeStatsBandProps) {
         aria-hidden
       />
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6">
-        <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">{band.eyebrow}</p>
+        <p className="eyebrow text-ink">{band.eyebrow}</p>
         <h2 id="metrics-heading" className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl">
           {band.heading}{" "}
           <span className="text-[color:var(--y)]">{band.headingAccent}</span>
@@ -39,9 +39,9 @@ export function HomeStatsBand({ band, stats }: HomeStatsBandProps) {
               }`}
             >
               <p className="font-serif text-3xl font-bold leading-tight tracking-[-0.04em] tabular-nums text-ink sm:text-4xl">{stat.value}</p>
-              <p className="mt-3 font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">{stat.label}</p>
+              <p className="mt-3 eyebrow text-ink">{stat.label}</p>
               <p className="mt-2 text-[15px] leading-[1.72] text-[color:var(--text-600)]">{stat.sub}</p>
-              <p className="mt-4 font-label text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--y)] transition-[transform,opacity] duration-[220ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1 motion-reduce:transform-none">
+              <p className="mt-4 eyebrow text-[color:var(--y)] transition-[transform,opacity] duration-[220ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1 motion-reduce:transform-none">
                 Why this matters {"->"}
               </p>
             </Link>

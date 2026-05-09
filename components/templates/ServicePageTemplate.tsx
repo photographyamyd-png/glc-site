@@ -67,7 +67,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <ClaudeLogicWatermark placement="bottom-right" mode="on-dark" className="z-[1] opacity-[0.16]" />
         <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-7 pb-8 pt-28 sm:px-10 sm:pb-10 lg:justify-between lg:px-20 lg:pt-[calc(var(--header)+3rem)]">
           <div className="max-w-[min(100%,var(--max))] rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:max-w-4xl lg:pt-10">
-          <p className="hero-eyebrow label-overline-on-dark mb-0 opacity-90">Service overview</p>
+          <p className="hero-eyebrow label-overline-on-dark mb-0">Service overview</p>
           <h1 className="mt-[var(--s7)] max-w-4xl font-serif text-[clamp(2.3rem,6.2vw,5.1rem)] font-semibold uppercase leading-[0.9] tracking-tight text-white">
             {detail ? (
               <>
@@ -76,7 +76,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
             ) : service.title}
           </h1>
           <p className="hero-caption mt-[var(--s7)] max-w-[36rem] text-[15px] leading-[1.72] text-white/84 sm:text-base">{detail?.hero.lede ?? service.description}</p>
-          <p className="mt-3 max-w-[36rem] text-[11px] uppercase tracking-[0.14em] text-white/72">
+          <p className="eyebrow mt-3 max-w-[36rem] text-white">
             Built exclusively for commercial operators across Simcoe County.
           </p>
           <div className="hero-rule mt-6 h-px w-full max-w-md bg-[color:var(--y)]/40" aria-hidden />
@@ -94,12 +94,12 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
               </span>
             ))}
           </div>
-          <p className="mt-6 font-label text-[10px] uppercase tracking-[0.2em] text-white/55">Service Coverage</p>
+          <p className="mt-6 eyebrow text-white">Service Coverage</p>
           <ul className="mt-3 flex flex-wrap gap-2" aria-label="Service Coverage">
             {["Barrie", "Midland", "Orillia", "Simcoe County"].map((tag) => (
               <li
                 key={tag}
-                className="border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/85"
+                className="eyebrow border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-white"
               >
                 {tag}
               </li>
@@ -123,7 +123,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
       <section id="scope" className="section-major band-light scroll-mt-[var(--header)]">
         <div className="mx-auto grid max-w-[min(100%,var(--max))] gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
-            <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">Service overview</p>
+            <p className="eyebrow text-ink">Service overview</p>
             <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">Scope and delivery</h2>
             <div className="mt-[var(--s7)] space-y-6">
               {(detail?.intro ?? ["Mobilization, staging, and production execution are configured per site constraints and handoff schedule."]).slice(0, 3).map((p) => (
@@ -134,7 +134,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
             </div>
           </div>
           <div className="bespoke-surface panel-machined border border-[color:var(--g200)] bg-white p-5 sm:p-8">
-            <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink-muted">Benefits</p>
+            <p className="eyebrow text-ink-muted">Benefits</p>
             <ul className="mt-4 space-y-3">
               {(detail?.deliverables ?? ["Site analysis", "Field execution", "Quality controls"]).slice(0, 6).map((cap) => (
                 <li key={cap} className="flex gap-3">
@@ -189,7 +189,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
                 {/* Layer: interaction panel — tri-tonal type + machined depth */}
                 <div className="relative flex flex-col justify-center border-t border-white/12 bg-[rgb(10_12_11/0.92)] p-6 sm:p-8 lg:border-l-4 lg:border-t-0 lg:border-l-[color:var(--y)] lg:pl-9 lg:pr-11 lg:py-12">
                   <div className="bespoke-surface panel-machined relative border border-white/10 bg-[rgb(10_12_11/0.35)] p-5 sm:p-7">
-                    <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/55">Winter operations</p>
+                    <p className="eyebrow text-white">Winter operations</p>
                     <h2
                       id="snow-plow-cta-heading"
                       className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl"
@@ -235,7 +235,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <ClaudeLogicWatermark placement="top-left" mode="on-dark" className="opacity-[0.1]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
-            <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/70">Service breakdown</p>
+            <p className="eyebrow text-white">Service breakdown</p>
             <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">{detail?.deliverablesHeading ?? "Capabilities"}</h2>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -276,13 +276,13 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <ClaudeLogicWatermark placement="center-right" mode="on-dark" className="opacity-[0.12]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
-            <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/70">Why GLC</p>
+            <p className="eyebrow text-white">Why GLC</p>
             <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">Differentiators</h2>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {whyItems.slice(0, 4).map((item, idx) => (
               <article key={item} className="border border-white/15 bg-[rgb(255_255_255/0.06)] p-5 backdrop-blur-sm">
-                <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--y)]">0{idx + 1}</p>
+                <p className="eyebrow text-[color:var(--y)]">0{idx + 1}</p>
                 <p className="mt-2 font-serif text-xl font-bold uppercase tracking-[0.02em] text-white">Field advantage</p>
                 <p className="mt-3 text-[15px] leading-[1.72] text-white/88 sm:text-base">{item}</p>
               </article>
@@ -294,13 +294,13 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
       <section id="process" className="section-major band-light scroll-mt-[var(--header)]">
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
-            <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">{detail?.process.eyebrow ?? "How it works"}</p>
+            <p className="eyebrow text-ink">{detail?.process.eyebrow ?? "How it works"}</p>
             <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">{detail?.process.heading ?? "Delivery process"}</h2>
           </div>
           <ol className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step) => (
               <li key={step.id} className="bespoke-surface panel-machined border border-[color:var(--g200)] bg-white p-5 sm:min-h-[44px]">
-                <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--y)]">{step.id}</p>
+                <p className="eyebrow text-[color:var(--y)]">{step.id}</p>
                 <p className="mt-2 font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink">{step.title}</p>
                 <p className="mt-3 text-[15px] leading-[1.72] text-ink-muted sm:text-base">{step.body}</p>
               </li>
@@ -313,7 +313,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.03),transparent_38%)]" aria-hidden />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
-            <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/70">FAQ</p>
+            <p className="eyebrow text-white">FAQ</p>
             <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">Common questions</h2>
           </div>
           <div className="mt-10 space-y-3">
@@ -321,8 +321,8 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
               <details key={item.q} name={`${service.slug}-faq`} className="group border border-white/20 bg-[rgb(255_255_255/0.06)] p-4 backdrop-blur-sm">
                 <summary className="flex min-h-[44px] cursor-pointer items-center justify-between gap-4 list-none font-serif text-lg font-semibold uppercase tracking-tight text-white marker:content-none [&::-webkit-details-marker]:hidden">
                   <span>{item.q}</span>
-                  <span className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--y)] group-open:hidden">+</span>
-                  <span className="hidden font-label text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--y)] group-open:inline">−</span>
+                  <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
+                  <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
                 </summary>
                 <p className="mt-3 text-[15px] leading-[1.72] text-white/88 sm:text-base">{item.a}</p>
               </details>
@@ -345,14 +345,14 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="grid gap-8 lg:grid-cols-2">
             <div className="border-l-4 border-[color:var(--y)] pl-5">
-              <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">Service area</p>
+              <p className="eyebrow text-ink">Service area</p>
               <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">Barrie and Simcoe County coverage</h2>
               <p className="mt-[var(--s7)] text-[15px] leading-[1.72] text-ink sm:text-base">
                 Ground Level Contracting serves Barrie, Midland, Orillia, and surrounding Simcoe County municipalities with commercial-focused dispatch and reliable field coordination.
               </p>
             </div>
             <div className="bespoke-surface panel-machined border border-[color:var(--g200)] bg-white p-5 sm:p-8">
-              <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink-muted">Coverage list</p>
+              <p className="eyebrow text-ink-muted">Coverage list</p>
               <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                 {["Barrie", "Midland", "Orillia", "Innisfil", "Wasaga Beach", "Simcoe County"].map((place) => (
                   <li key={place} className="text-[15px] leading-[1.72] text-ink sm:text-base">
@@ -364,7 +364,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
           </div>
           {isSnowHub ? (
             <div className="mt-10 border border-[color:var(--g200)] bg-white p-5 sm:p-8">
-              <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">Snow service modules</p>
+              <p className="eyebrow text-ink">Snow service modules</p>
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 {(detail?.extra?.snowHub?.lineBlockHeadings ?? []).map((label, idx) => (
                   <CardSurface id={snowModuleIds[idx]} key={label} className="p-4">
@@ -384,7 +384,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.03),transparent_40%)]" aria-hidden />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
-            <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/70">Related services</p>
+            <p className="eyebrow text-white">Related services</p>
             <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">Related service lines</h2>
           </div>
           <ul className="mt-10 grid gap-4 lg:grid-cols-3">
@@ -409,7 +409,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div id="cta-band" className="relative overflow-hidden border border-[color:var(--g200)] border-l-[4px] border-l-[color:var(--y)] bg-[rgb(12_14_13)] p-6 text-white sm:p-8">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgb(242_183_5/0.12),transparent_38%)]" aria-hidden />
-            <p className="relative z-10 font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/70">Request site visit</p>
+            <p className="relative z-10 eyebrow text-white">Request site visit</p>
             <p className="relative z-10 mt-3 font-serif text-2xl font-semibold uppercase tracking-tight text-white sm:text-3xl">
               {detail?.ctaOverride.heading ?? "Ready to scope your site?"}
             </p>

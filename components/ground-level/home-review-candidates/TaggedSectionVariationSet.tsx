@@ -230,7 +230,7 @@ function HeroLikeVariant({
           <div className="mt-8 w-full overflow-hidden border-y border-white/10 bg-[rgb(0_0_0/0.35)] py-3 backdrop-blur-sm">
             <div className="flex w-max gap-10 pr-10">
               {["Commercial earthworks", "Civil prep", "Permit-aligned timelines", "Field-led quality"].map((phrase) => (
-                <span key={`${id}-${phrase}`} className="font-label text-[10px] uppercase tracking-[0.22em] text-white/65">
+                <span key={`${id}-${phrase}`} className="eyebrow text-white">
                   {phrase}
                 </span>
               ))}
@@ -275,7 +275,7 @@ function ServicesVariant({ concept, variant, toneMode }: { concept: Concept; var
                 toneMode === "light" ? "bg-[color:var(--brand-canvas)] text-ink" : "bg-[rgb(22_24_23/0.84)] text-white"
               } ${variant === "b" && i % 2 === 0 ? "lg:-translate-y-3" : ""} ${variant === "c" && i === 1 ? "lg:translate-y-5" : ""}`}
             >
-              <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Service</p>
+              <p className="eyebrow text-[color:var(--y)]">Service</p>
               <p className="mt-2 font-serif text-xl font-semibold uppercase">{item}</p>
               <p className={`mt-2 text-xs uppercase tracking-[0.12em] ${toneMode === "light" ? "text-ink-muted" : "text-white/72"}`}>
                 field verified
@@ -298,7 +298,7 @@ function WhyVariant({ concept, variant, toneMode }: { concept: Concept; variant:
         <div className="relative min-h-[340px] overflow-hidden border border-[color:var(--g200)]">
           <Image src={concept.image} alt="" fill className="object-cover" sizes="(min-width: 1024px) 42vw, 100vw" />
           <div className="absolute inset-0 bg-gradient-to-t from-[rgb(8_10_9/0.74)] to-transparent" />
-          <p className="absolute bottom-4 left-4 font-label text-[11px] uppercase tracking-[0.16em] text-white/84">Field credibility</p>
+          <p className="absolute bottom-4 left-4 eyebrow text-white">Field credibility</p>
         </div>
         <div className={`grid gap-3 border border-[color:var(--g200)] p-6 ${c.shell}`}>
           <p className={c.label}>{concept.eyebrow}</p>
@@ -341,7 +341,7 @@ function ProcessLeftVariant({ concept, variant, toneMode }: { concept: Concept; 
         <div className="grid gap-3">
           {["Pre-construction call", "Site walk + constraints", "Execution schedule", "Handover"].map((step, i) => (
             <div key={`${id}-${step}`} className={`border border-[color:var(--g200)] p-4 ${toneMode === "light" ? "bg-[color:var(--brand-canvas)] text-ink" : "bg-[rgb(22_25_23/0.84)] text-white"} ${variant === "b" && i % 2 === 1 ? "lg:ml-8" : ""}`}>
-              <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Step {i + 1}</p>
+              <p className="eyebrow text-[color:var(--y)]">Step {i + 1}</p>
               <p className="mt-2 font-serif text-lg font-semibold uppercase">{step}</p>
               <p className={`mt-2 text-xs uppercase tracking-[0.12em] ${toneMode === "light" ? "text-ink-muted" : "text-white/72"}`}>
                 milestone
@@ -430,7 +430,7 @@ function CtaBandVariant({ concept, variant, toneMode }: { concept: Concept; vari
           <p className={`mt-3 text-sm leading-relaxed ${c.body}`}>{concept.body}</p>
         </div>
         <div className={`border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] p-6 ${toneMode === "light" ? "bg-white text-ink" : "bg-[rgb(26_29_27/0.9)] text-white"} ${variant === "c" ? "lg:-translate-y-5" : ""}`}>
-          <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Immediate action</p>
+          <p className="eyebrow text-[color:var(--y)]">Immediate action</p>
           <p className={`mt-2 text-xs uppercase tracking-[0.12em] ${toneMode === "light" ? "text-ink-muted" : "text-white/72"}`}>
             conversion lane
           </p>

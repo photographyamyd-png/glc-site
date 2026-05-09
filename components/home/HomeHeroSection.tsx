@@ -46,7 +46,7 @@ export function HomeHeroSection({ copy }: HomeHeroSectionProps) {
         <div className="mx-auto grid min-h-[calc(100svh-var(--site-header-offset)-2rem)] max-w-[var(--max)] content-center gap-6 lg:grid-cols-[minmax(0,42rem)_minmax(260px,320px)] lg:gap-8">
           <div className="border border-white/10 bg-[rgb(10_12_11/0.4)] p-6 shadow-[0_20px_60px_rgb(0_0_0/0.28)] backdrop-blur-sm sm:p-7">
             <div>
-              <p className="hero-eyebrow label-overline-on-dark mb-0 opacity-90">{copy.eyebrow}</p>
+              <p className="hero-eyebrow label-overline-on-dark mb-0">{copy.eyebrow}</p>
               <h1
                 id="hero-heading"
                 className="mt-6 font-serif text-[clamp(2.3rem,6.2vw,5.1rem)] font-semibold uppercase leading-[0.9] tracking-tight text-white"
@@ -56,16 +56,16 @@ export function HomeHeroSection({ copy }: HomeHeroSectionProps) {
                 <span className="opacity-95"> {copy.titleLines[2]}.</span>
               </h1>
               <p className="hero-caption mt-5 max-w-[36rem] text-[15px] leading-relaxed text-white/84 sm:text-base">{copy.lede}</p>
-              <p className="mt-3 max-w-[36rem] text-xs uppercase tracking-[0.14em] text-white/72 sm:text-[11px]">
+              <p className="eyebrow mt-3 max-w-[36rem] text-white">
                 Built exclusively for commercial operators across Simcoe County.
               </p>
               <div className="hero-rule mt-6 h-px w-full max-w-md bg-[color:var(--y)]/40" aria-hidden />
-              <p className="mt-6 font-label text-[10px] uppercase tracking-[0.2em] text-white/55">{copy.coverageLabel}</p>
+              <p className="mt-6 eyebrow text-white">{copy.coverageLabel}</p>
               <ul className="mt-3 flex flex-wrap gap-2" aria-label={copy.coverageLabel}>
                 {copy.coverageTags.map((tag) => (
                   <li
                     key={tag}
-                    className="border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/85"
+                    className="eyebrow border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-white"
                   >
                     {tag}
                   </li>
@@ -90,7 +90,7 @@ export function HomeHeroSection({ copy }: HomeHeroSectionProps) {
           </div>
 
           <aside className="self-end border border-white/18 bg-[rgb(10_12_11/0.34)] p-4 backdrop-blur-sm">
-            <p className="font-label text-[10px] uppercase tracking-[0.18em] text-[color:var(--y)]">Request Quote</p>
+            <p className="eyebrow text-[color:var(--y)]">Request Quote</p>
             <p className="mt-2 font-serif text-[clamp(1.1rem,1.4vw,1.35rem)] uppercase leading-tight text-white">Fast Site Review</p>
             <p className="mt-2 text-xs leading-relaxed text-white/72">
               Commercial excavation, grading, foundations, drainage, and mobilization planning.

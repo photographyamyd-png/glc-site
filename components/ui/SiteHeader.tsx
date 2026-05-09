@@ -71,8 +71,8 @@ export function SiteHeader() {
       <div ref={wrapRef} className="pointer-events-auto">
         <div className="border-b border-black/[0.1] bg-[rgb(17_17_17/0.96)] px-3 py-2 text-white sm:px-6">
           <div className="mx-auto flex max-w-[min(100%,1320px)] items-center justify-between gap-3">
-            <p className="text-[11px] uppercase tracking-[0.12em] text-white/75">{NAV_LINKS.utility.location}</p>
-            <div className="flex items-center gap-4 text-[11px] uppercase tracking-[0.12em]">
+            <p className="eyebrow text-white">{NAV_LINKS.utility.location}</p>
+            <div className="flex items-center gap-4 eyebrow text-white">
               <a href={NAV_LINKS.utility.phoneHref} className="text-white hover:text-[color:var(--y)]">
                 {NAV_LINKS.utility.phoneDisplay}
               </a>

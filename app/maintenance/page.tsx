@@ -89,14 +89,14 @@ export default function MaintenancePage() {
               <p className="font-serif text-xl font-semibold uppercase leading-tight tracking-[-0.02em] text-white sm:text-2xl">
                 {name}
               </p>
-              <p className="mt-1.5 font-label text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--y)]">
+              <p className="mt-1.5 eyebrow text-[color:var(--y)]">
                 {slogan}
               </p>
             </div>
           </div>
 
           <div className="border border-white/10 border-l-4 border-l-[var(--y)] bg-[rgb(10_12_11/0.5)] px-8 py-10 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md panel-machined-dark sm:px-10">
-            <p className="font-label text-[11px] font-bold tracking-[0.14em] text-white/55">
+            <p className="eyebrow text-white">
               Website refresh
             </p>
             <h1
@@ -117,13 +117,13 @@ export default function MaintenancePage() {
               >
                 Call {phoneDisplay}
               </a>
-              <p className="font-label text-[11px] font-bold tracking-[0.14em] text-white/55">
+              <p className="eyebrow text-white">
                 Barrie • Simcoe County • Orillia
               </p>
             </div>
           </div>
 
-          <p className="mt-10 max-w-xl text-center font-label text-[10px] font-bold uppercase tracking-[0.18em] text-white/45 lg:text-left">
+          <p className="mt-10 max-w-xl text-center eyebrow text-white lg:text-left">
             Excavation, grading, civil support &amp; commercial snow
           </p>
         </div>

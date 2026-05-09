@@ -42,7 +42,7 @@ export function ServiceLayoutLabC({ items }: Props) {
               className="absolute inset-0 h-full w-full object-cover opacity-90 transition-opacity duration-300 group-hover:opacity-100"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[rgb(0_0_0/0.88)] via-[rgb(0_0_0/0.4)] to-transparent" aria-hidden />
-            <span className="relative font-label text-[10px] font-semibold uppercase tracking-[0.2em] text-[color:var(--y)]">
+            <span className="relative eyebrow text-[color:var(--y)]">
               01 — Featured line
             </span>
             <h3 className="relative mt-2 font-serif text-xl font-semibold uppercase leading-tight tracking-tight sm:text-2xl">

@@ -110,7 +110,7 @@ export function GLDifference({
                     key={r.index + r.title}
                     className="border-l-2 border-[color:var(--y)]/50 bg-[color-mix(in_srgb,var(--y)_4%,transparent)] pl-5 pr-3 py-3"
                   >
-                    <span className="font-label text-[10px] uppercase tracking-[0.18em] text-[color:var(--y)]">
+                    <span className="eyebrow text-[color:var(--y)]">
                       {r.index}
                     </span>
                     <p className="mt-1 font-serif text-sm font-semibold uppercase tracking-[0.06em] text-ink">{r.title}</p>

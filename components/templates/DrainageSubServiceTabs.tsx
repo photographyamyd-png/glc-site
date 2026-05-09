@@ -74,7 +74,7 @@ export function DrainageSubServiceTabs({
       />
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
         <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
-          <p className="mb-3 font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">{eyebrow}</p>
+          <p className="mb-3 eyebrow text-ink">{eyebrow}</p>
           <h2
             id={headingId}
             className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
@@ -102,7 +102,7 @@ export function DrainageSubServiceTabs({
                   tabIndex={isSel ? 0 : -1}
                   onClick={() => setSelected(i)}
                   onKeyDown={(e) => onTabKeyDown(e, i)}
-                  className={`min-h-[44px] max-w-[220px] px-3 py-2 text-left font-label text-[11px] font-bold uppercase tracking-[0.14em] transition-[background,color,box-shadow] sm:max-w-none sm:px-4 ${
+                  className={`min-h-[44px] max-w-[220px] px-3 py-2 text-left eyebrow transition-[background,color,box-shadow] sm:max-w-none sm:px-4 ${
                     isSel
                       ? "bg-[color:var(--ink-deep)] text-white shadow-[inset_0_0_0_1px_rgb(0_0_0/0.08)]"
                       : "border border-[color:var(--g200)] bg-white/80 text-ink hover:border-[color:var(--y)]/35"
@@ -151,7 +151,7 @@ export function DrainageSubServiceTabs({
                         <ExpandableCopy key={`${item.id}-p${pi}`} text={para} className={bodyClass} />
                       ))}
                     </div>
-                    <p className="mt-8 font-label text-[11px] font-bold uppercase tracking-[0.14em] text-[color:var(--y)]">
+                    <p className="mt-8 eyebrow text-[color:var(--y)]">
                       {item.closing}
                     </p>
                   </div>

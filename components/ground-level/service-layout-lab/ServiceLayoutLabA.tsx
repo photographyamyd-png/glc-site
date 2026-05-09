@@ -40,7 +40,7 @@ export function ServiceLayoutLabA({ items }: Props) {
                   </div>
                 </div>
                 <div className="lg:w-1/2 lg:px-2">
-                  <p className="font-label text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">
+                  <p className="eyebrow text-ink-muted">
                     {String(i + 1).padStart(2, "0")}
                   </p>
                   <h3 className="mt-2 font-serif text-xl font-semibold uppercase tracking-tight text-ink sm:text-2xl lg:text-3xl">
@@ -48,7 +48,7 @@ export function ServiceLayoutLabA({ items }: Props) {
                   </h3>
                   <p className="mt-4 text-sm leading-relaxed text-ink-muted sm:text-base">{item.short}</p>
                   <p className="mt-3 text-xs leading-relaxed text-ink-muted/85 sm:text-sm">{item.megaBlurb}</p>
-                  <p className="mt-3 inline-block border border-[color:var(--g200)] bg-[color:var(--brand-canvas)] px-3 py-1 font-label text-[10px] uppercase tracking-[0.14em] text-[color:var(--y)]">
+                  <p className="mt-3 inline-block border border-[color:var(--g200)] bg-[color:var(--brand-canvas)] px-3 py-1 eyebrow text-[color:var(--y)]">
                     Alternating row {String(i + 1).padStart(2, "0")}
                   </p>
                   <Link

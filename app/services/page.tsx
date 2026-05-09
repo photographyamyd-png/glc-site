@@ -26,7 +26,7 @@ export default function ServicesIndexPage() {
           aria-hidden
         />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 pb-12 pt-[calc(var(--header)+2.5rem)] sm:px-6 sm:pb-14 lg:px-10 lg:pt-[calc(var(--header)+3rem)]">
-          <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/75">
+          <p className="eyebrow text-white">
             Home / Services
           </p>
           <h1 className="mt-3 max-w-4xl font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl lg:text-5xl">

@@ -90,7 +90,7 @@ function KineticSpine({ tone }: { tone: Tone }) {
           </p>
           {/* Kinetic translucency: floating slab picks up image tonality */}
           <div className={`mt-8 max-w-md border ${c.shellBorder} border-l-[5px] border-l-[color:var(--y)] bg-[rgb(255_255_255/0.16)] p-5 backdrop-blur-lg ${tone === "light" ? "text-ink" : "text-white"}`}>
-            <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Kinetic translucency</p>
+            <p className="eyebrow text-[color:var(--y)]">Kinetic translucency</p>
             <p className={`mt-2 text-sm leading-relaxed ${c.meta}`}>Floating panel samples underlying color while preserving readability.</p>
           </div>
         </div>
@@ -117,7 +117,7 @@ function AtmosphericLoop({ tone }: { tone: Tone }) {
           <ClaudeLogicWatermark placement="top-right" mode="on-dark" />
           <div className="absolute inset-y-0 right-0 flex w-full max-w-[560px] items-center pr-6">
             <div className="w-full border border-white/18 bg-[rgb(255_255_255/0.14)] p-6 text-white backdrop-blur-lg">
-              <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Mood entry</p>
+              <p className="eyebrow text-[color:var(--y)]">Mood entry</p>
               <p className="mt-2 font-serif text-4xl font-semibold uppercase leading-tight">
                 <span className="text-white">Atmosphere </span>
                 <span className="text-[color:var(--y)]">first</span>
@@ -145,7 +145,7 @@ function SplitShiftHero({ tone }: { tone: Tone }) {
           <Image src="/ground-level/excavation-1.jpg" alt="" fill className="object-cover" sizes="(min-width:1024px) 64vw,100vw" />
           <div className="absolute inset-0 bg-gradient-to-r from-[rgb(0_0_0/0.46)] to-[rgb(0_0_0/0.15)]" aria-hidden />
           <div className="absolute left-8 top-1/2 -translate-y-1/2 w-[min(90%,480px)] border border-white/20 bg-[rgb(255_255_255/0.14)] p-6 text-white backdrop-blur-lg shadow-[0_20px_52px_rgb(0_0_0/0.34)]">
-            <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Split overlay</p>
+            <p className="eyebrow text-[color:var(--y)]">Split overlay</p>
             <h3 className="mt-2 font-serif text-4xl font-semibold uppercase leading-tight">
               <span className="text-white">Shift the </span>
               <span className="text-[color:var(--y)]">grid</span>
@@ -180,11 +180,11 @@ function CoordinatesEntry({ tone }: { tone: Tone }) {
           <Image src="/ground-level/hero-primary.jpg" alt="" fill className="object-cover" sizes="(min-width:1024px) 54vw,100vw" />
           <div className="absolute inset-0 bg-[rgb(0_0_0/0.48)]" aria-hidden />
           <div className="absolute left-6 top-6 border border-white/20 bg-[rgb(255_255_255/0.12)] px-4 py-3 text-white backdrop-blur-md">
-            <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">N44.3894 W79.6903</p>
+            <p className="eyebrow text-[color:var(--y)]">N44.3894 W79.6903</p>
             <p className="mt-1 text-xs text-white/78">Barrie dispatch point</p>
           </div>
           <div className="absolute left-6 bottom-6 border border-white/20 bg-[rgb(255_255_255/0.12)] px-4 py-3 text-white backdrop-blur-md">
-            <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">ETA 00:48</p>
+            <p className="eyebrow text-[color:var(--y)]">ETA 00:48</p>
             <p className="mt-1 text-xs text-white/78">Mobilization projection</p>
           </div>
         </div>

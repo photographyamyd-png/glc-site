@@ -185,7 +185,7 @@ export function ProcessVerticalFlow() {
         {/* Interaction plane (10+): glass shell with copy + stats + CTAs */}
         <div className="relative z-10 mx-auto flex min-h-[min(100dvh,860px)] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-6 pb-12 pt-28 sm:px-10 sm:pb-16 lg:justify-between lg:px-20 lg:pt-[calc(var(--header)+3rem)]">
           <div className="max-w-3xl border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:p-10">
-            <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/55">
+            <p className="eyebrow text-white">
               {HERO.eyebrow}
             </p>
             <h2
@@ -218,7 +218,7 @@ export function ProcessVerticalFlow() {
                     <p className="mt-3 text-[13px] font-semibold uppercase tracking-[0.08em] text-white/90">
                       {stat.label}
                     </p>
-                    <p className="mt-1 font-label text-[10px] uppercase tracking-[0.2em] text-white/55">
+                    <p className="mt-1 eyebrow text-white">
                       {stat.sub}
                     </p>
                   </div>
@@ -266,7 +266,7 @@ export function ProcessVerticalFlow() {
             {/* Copy column: 6/12 (measure safety) */}
             <div className="lg:col-span-6">
               <div className="border-l-4 border-[color:var(--y)] pl-5">
-                <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">
+                <p className="eyebrow text-ink">
                   {PROCESS.eyebrow}
                 </p>
                 <h2
@@ -320,7 +320,7 @@ export function ProcessVerticalFlow() {
                   aria-hidden
                 />
                 <div className="absolute bottom-5 left-5 max-w-[80%] border border-white/30 bg-[rgb(10_12_11/0.62)] p-4 backdrop-blur-sm">
-                  <p className="font-label text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
+                  <p className="eyebrow text-white">
                     {WHY.eyebrow}
                   </p>
                   <p className="mt-1 font-serif text-lg font-semibold uppercase leading-tight tracking-tight text-white sm:text-xl">
@@ -354,7 +354,7 @@ export function ProcessVerticalFlow() {
 
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
-            <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/55">
+            <p className="eyebrow text-white">
               Industries
             </p>
             <h2
@@ -391,7 +391,7 @@ export function ProcessVerticalFlow() {
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-5 sm:p-6">
-                    <span className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/55">
+                    <span className="eyebrow text-white">
                       Sector
                     </span>
                     <span className="mt-2 font-serif text-xl font-bold uppercase tracking-[0.02em] text-white group-hover:text-[color:var(--y)] sm:text-2xl">
@@ -423,7 +423,7 @@ export function ProcessVerticalFlow() {
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="border-l-4 border-[color:var(--y)] pl-5">
-              <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">
+              <p className="eyebrow text-ink">
                 {PROCESS.eyebrow}
               </p>
               <h2
@@ -496,7 +496,7 @@ export function ProcessVerticalFlow() {
 
         <div className="relative z-10 mx-auto flex min-h-[560px] max-w-[min(100%,var(--max))] flex-col justify-center px-4 py-20 sm:px-6 sm:py-24 lg:px-10">
           <div className="max-w-3xl border border-white/12 bg-[rgb(10_12_11/0.5)] p-6 backdrop-blur-md sm:p-8 lg:p-10">
-            <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/55">
+            <p className="eyebrow text-white">
               {HOME_COPY.testimonialsFeature.eyebrow}
             </p>
             <h2
@@ -516,7 +516,7 @@ export function ProcessVerticalFlow() {
               <p className="font-serif text-lg italic leading-snug text-white/90 sm:text-xl">
                 {HOME_COPY.testimonialsFeature.featuredQuote.quote}
               </p>
-              <footer className="mt-3 font-label text-[11px] font-bold uppercase tracking-[0.14em] text-white/55">
+              <footer className="mt-3 eyebrow text-white">
                 {HOME_COPY.testimonialsFeature.featuredQuote.by}
               </footer>
             </blockquote>
@@ -573,7 +573,7 @@ export function ProcessVerticalFlow() {
             {/* Copy column: 7/12 with measure-safe inner cap */}
             <div className="lg:col-span-7">
               <div className="border-l-4 border-[color:var(--y)] pl-5">
-                <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">
+                <p className="eyebrow text-ink">
                   {CTA_BAND.eyebrow}
                 </p>
                 <h2
@@ -609,7 +609,7 @@ export function ProcessVerticalFlow() {
               </div>
 
               <div className="mt-8 border-t border-[color:var(--g200)] pt-6">
-                <p className="font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink-muted">
+                <p className="eyebrow text-ink-muted">
                   Sandbox lab
                 </p>
                 <p className="mt-2 text-[13px] leading-[1.65] text-ink-muted">

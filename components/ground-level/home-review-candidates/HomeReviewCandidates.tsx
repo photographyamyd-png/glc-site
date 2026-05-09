@@ -87,7 +87,7 @@ function ServiceLandingHeroCandidate({ tone }: { tone: Tone }) {
             aria-hidden
           />
           <div className="absolute bottom-0 left-0 right-0 p-6">
-            <p className="font-label text-[11px] uppercase tracking-[0.18em] text-white/85">Commercial service page</p>
+            <p className="eyebrow text-white">Commercial service page</p>
             <p className="mt-2 font-serif text-2xl font-semibold uppercase text-white sm:text-3xl">Excavation and Site Prep</p>
             <p className="mt-3 max-w-lg text-sm leading-relaxed text-white/80">
               Directly inspired by the approved hero: image-led authority, layered atmospherics, and one decisive conversion route.
@@ -100,7 +100,7 @@ function ServiceLandingHeroCandidate({ tone }: { tone: Tone }) {
             isLight ? "bg-[color:var(--brand-canvas)] text-ink" : "bg-[rgb(24_26_25/0.9)] text-white"
           }`}
         >
-          <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Landing conversion stack</p>
+          <p className="eyebrow text-[color:var(--y)]">Landing conversion stack</p>
           <p className={`mt-2 font-serif text-xl font-semibold uppercase ${isLight ? "text-ink" : "text-white"}`}>Built for PM-ready intake</p>
           <p className={`text-sm leading-relaxed ${isLight ? "text-ink-muted" : "text-white/78"}`}>
             Built for service landers with region-first context, credential cues, and immediate quote/consult action.
@@ -138,10 +138,10 @@ function AboutMeCandidate({ tone }: { tone: Tone }) {
           <Image src="/ground-level/excavation-1.jpg" alt="" fill className="object-cover" sizes="280px" />
           <div className={`absolute inset-0 ${isLight ? "bg-gradient-to-t from-[rgb(0_0_0/0.36)] to-transparent" : "bg-gradient-to-t from-[rgb(0_0_0/0.62)] to-transparent"}`} aria-hidden />
           <div className="absolute left-0 top-0 h-20 w-20 border-r border-b border-[color:var(--y)]/70" aria-hidden />
-          <p className="absolute bottom-4 left-4 font-label text-[11px] uppercase tracking-[0.14em] text-white/90">Founder profile</p>
+          <p className="absolute bottom-4 left-4 eyebrow text-white">Founder profile</p>
         </div>
         <div className={`relative border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:var(--brand-canvas)] p-6 shadow-[0_14px_34px_rgb(0_0_0/0.12)]`}>
-          <p className="font-label text-[11px] uppercase tracking-[0.18em] text-[color:var(--y)]">Founder story</p>
+          <p className="eyebrow text-[color:var(--y)]">Founder story</p>
           <p className="mt-3 font-serif text-2xl font-semibold uppercase text-ink">From field operator to project lead</p>
           <p className="mt-4 text-sm leading-relaxed text-ink-muted">
             A profile-style section for trust pages with chronology, credentials, and why the leadership approach matters for delivery.
@@ -170,7 +170,7 @@ function FooterCandidate({ tone }: { tone: Tone }) {
             </p>
           </div>
           <div>
-            <p className="font-label text-[11px] uppercase tracking-[0.14em] text-[color:var(--y)]">Services</p>
+            <p className="eyebrow text-[color:var(--y)]">Services</p>
             <ul className={`mt-3 space-y-2 text-sm ${tone === "light" ? "text-ink-muted" : "text-white/78"}`}>
               <li>Excavation</li>
               <li>Grading</li>
@@ -178,7 +178,7 @@ function FooterCandidate({ tone }: { tone: Tone }) {
             </ul>
           </div>
           <div>
-            <p className="font-label text-[11px] uppercase tracking-[0.14em] text-[color:var(--y)]">Company</p>
+            <p className="eyebrow text-[color:var(--y)]">Company</p>
             <ul className={`mt-3 space-y-2 text-sm ${tone === "light" ? "text-ink-muted" : "text-white/78"}`}>
               <li>About</li>
               <li>Safety</li>
@@ -186,7 +186,7 @@ function FooterCandidate({ tone }: { tone: Tone }) {
             </ul>
           </div>
           <div className="border-l border-[color:var(--g200)] pl-5">
-            <p className="font-label text-[11px] uppercase tracking-[0.14em] text-[color:var(--y)]">Contact</p>
+            <p className="eyebrow text-[color:var(--y)]">Contact</p>
             <p className="mt-3 text-sm">705-619-4902</p>
             <p className={`mt-2 text-sm ${tone === "light" ? "text-ink-muted" : "text-white/78"}`}>bids@groundlevel.example</p>
           </div>
@@ -205,7 +205,7 @@ function PortfolioGalleryCandidate({ tone }: { tone: Tone }) {
           <Image src="/ground-level/equipment-wide.jpg" alt="" fill className="object-cover" sizes="(min-width: 1024px) 58vw, 100vw" />
           <div className={`absolute inset-0 ${isLight ? "bg-gradient-to-t from-[rgb(0_0_0/0.35)] to-transparent" : "bg-gradient-to-t from-[rgb(0_0_0/0.72)] to-transparent"}`} />
           <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-            <p className="font-label text-[11px] uppercase tracking-[0.16em]">Featured project</p>
+            <p className="eyebrow text-ink">Featured project</p>
             <p className="mt-2 font-serif text-xl font-semibold uppercase">Industrial pad expansion</p>
           </div>
         </div>
@@ -216,7 +216,7 @@ function PortfolioGalleryCandidate({ tone }: { tone: Tone }) {
             </div>
           ))}
           <div className="border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:var(--brand-canvas)] p-4 text-ink shadow-[0_10px_24px_rgb(0_0_0/0.1)]">
-            <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Project tags</p>
+            <p className="eyebrow text-[color:var(--y)]">Project tags</p>
             <p className="mt-2 text-sm leading-relaxed text-ink-muted">Mass grading · Utility prep · Drainage tie-ins</p>
           </div>
         </div>
@@ -232,7 +232,7 @@ function WhyChooseUsCandidate({ tone }: { tone: Tone }) {
       <div className="mt-8 grid gap-5 lg:grid-cols-3">
         {[1, 2, 3].map((n) => (
           <article key={n} className={`relative border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] p-5 shadow-[0_12px_30px_rgb(0_0_0/0.14)] ${itemTone} ${n === 2 ? "lg:-translate-y-3" : ""}`}>
-            <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">0{n}</p>
+            <p className="eyebrow text-[color:var(--y)]">0{n}</p>
             <p className="mt-2 font-serif text-lg font-semibold uppercase">Reason headline</p>
             <p className={`mt-3 text-sm leading-relaxed ${tone === "light" ? "text-ink-muted" : "text-white/76"}`}>
               Benefit-oriented reason card with asymmetrical offset rhythm and clear scan hierarchy.
@@ -266,7 +266,7 @@ function ParallaxHeroCandidate({ tone }: { tone: Tone }) {
 
         <div className="absolute bottom-8 left-8 right-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-end">
           <div className="max-w-2xl rounded-sm border border-white/12 bg-[rgb(10_12_11/0.48)] p-6 text-white shadow-[0_24px_70px_rgb(0_0_0/0.38)] backdrop-blur-md">
-            <p className="font-label text-[11px] uppercase tracking-[0.18em] text-white/82">Parallax concept</p>
+            <p className="eyebrow text-white">Parallax concept</p>
             <p className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">
               Full-width momentum section
             </p>
@@ -280,7 +280,7 @@ function ParallaxHeroCandidate({ tone }: { tone: Tone }) {
               isLight ? "bg-[color:var(--brand-canvas)] text-ink" : "bg-[rgb(24_26_25/0.9)] text-white"
             }`}
           >
-            <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Deployment CTA</p>
+            <p className="eyebrow text-[color:var(--y)]">Deployment CTA</p>
             <p className={`mt-2 font-serif text-xl font-semibold uppercase ${isLight ? "text-ink" : "text-white"}`}>Book site review call</p>
             <a href="#contact" className="cta-primary mt-5 inline-block px-6 py-3 text-xs font-semibold tracking-wide">
               Start consultation
@@ -300,7 +300,7 @@ function CinematicVideoCtaCandidate({ tone }: { tone: Tone }) {
         <div className="relative min-h-[300px] overflow-hidden border border-[color:var(--g200)]">
           <Image src="/ground-level/equipment-wide.jpg" alt="" fill className="object-cover" sizes="(min-width: 1024px) 64vw, 100vw" />
           <div className={`absolute inset-0 ${isLight ? "bg-[rgb(0_0_0/0.28)]" : "bg-[rgb(0_0_0/0.64)]"}`} />
-          <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[color:var(--y)] bg-[rgb(0_0_0/0.55)] px-6 py-5 font-label text-[11px] uppercase tracking-[0.16em] text-white">
+          <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[color:var(--y)] bg-[rgb(0_0_0/0.55)] px-6 py-5 eyebrow text-white">
             Play reel
           </button>
         </div>
@@ -324,7 +324,7 @@ function CoverageMapCandidate({ tone }: { tone: Tone }) {
     <CandidateShell id={`review-coverage-map-${tone}`} title={`Coverage map (${tone})`} tone={tone}>
       <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(300px,0.9fr)_minmax(0,1.1fr)] lg:items-center">
         <div className={`border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] p-6 ${panelTone}`}>
-          <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Service territory</p>
+          <p className="eyebrow text-[color:var(--y)]">Service territory</p>
           <p className="mt-2 font-serif text-xl font-semibold uppercase">Barrie, Midland, Orillia, Simcoe County</p>
           <ul className={`mt-4 space-y-2 text-sm ${tone === "light" ? "text-ink-muted" : "text-white/78"}`}>
             <li>Rapid dispatch lanes</li>
@@ -356,7 +356,7 @@ function BadgesOfTrustCandidate({ tone }: { tone: Tone }) {
             <div className="mx-auto flex h-12 w-12 items-center justify-center border border-[color:var(--g200)] bg-[color:var(--g100)] text-[color:var(--y)]">
               ✓
             </div>
-            <p className="mt-3 font-label text-[11px] uppercase tracking-[0.14em]">{badge}</p>
+            <p className="mt-3 eyebrow text-ink">{badge}</p>
           </div>
         ))}
       </div>
@@ -369,7 +369,7 @@ function EstimatorBandCandidate() {
     <CandidateShell id="review-estimator-band" title="Rapid estimator band" tone="light">
       <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)] lg:items-center">
         <div className="relative border border-[color:var(--g200)] bg-[color:var(--brand-canvas)] p-6 shadow-[0_16px_40px_rgb(0_0_0/0.14)]">
-          <div className="absolute -top-3 right-6 border border-[color:var(--y)]/50 bg-[color:var(--brand-canvas)] px-3 py-1 font-label text-[11px] uppercase tracking-[0.14em] text-[color:var(--y)]">
+          <div className="absolute -top-3 right-6 border border-[color:var(--y)]/50 bg-[color:var(--brand-canvas)] px-3 py-1 eyebrow text-[color:var(--y)]">
             24-hour turnaround
           </div>
           <p className="font-serif text-2xl font-semibold uppercase text-ink">Project estimator intake</p>
@@ -399,13 +399,13 @@ function BeforeAfterSliderCandidate() {
         <div className="relative min-h-[320px] overflow-hidden border border-[color:var(--g200)]">
           <Image src="/ground-level/excavation-1.jpg" alt="" fill className="object-cover" sizes="(min-width: 1024px) 60vw, 100vw" />
           <div className="absolute inset-y-0 left-1/2 w-[2px] bg-[color:var(--y)]" aria-hidden />
-          <div className="absolute left-[calc(50%-20px)] top-1/2 -translate-y-1/2 rounded-full border border-[color:var(--y)] bg-[rgb(0_0_0/0.65)] px-3 py-2 font-label text-[11px] uppercase tracking-[0.14em] text-white">
+          <div className="absolute left-[calc(50%-20px)] top-1/2 -translate-y-1/2 rounded-full border border-[color:var(--y)] bg-[rgb(0_0_0/0.65)] px-3 py-2 eyebrow text-white">
             Drag
           </div>
-          <div className="absolute left-4 top-4 border border-white/30 bg-[rgb(0_0_0/0.45)] px-3 py-1.5 font-label text-[11px] uppercase tracking-[0.14em] text-white/90">
+          <div className="absolute left-4 top-4 border border-white/30 bg-[rgb(0_0_0/0.45)] px-3 py-1.5 eyebrow text-white">
             Before
           </div>
-          <div className="absolute right-4 top-4 border border-white/30 bg-[rgb(0_0_0/0.45)] px-3 py-1.5 font-label text-[11px] uppercase tracking-[0.14em] text-white/90">
+          <div className="absolute right-4 top-4 border border-white/30 bg-[rgb(0_0_0/0.45)] px-3 py-1.5 eyebrow text-white">
             After
           </div>
         </div>
@@ -425,7 +425,7 @@ function EquipmentFleetCandidate() {
     <CandidateShell id="review-equipment-fleet" title="Equipment fleet showcase" tone="light">
       <div className="mt-8 grid gap-5 lg:grid-cols-12">
         <div className="border border-[color:var(--g200)] bg-[color:var(--brand-canvas)] p-6 lg:col-span-5">
-          <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Fleet readiness</p>
+          <p className="eyebrow text-[color:var(--y)]">Fleet readiness</p>
           <p className="mt-2 font-serif text-2xl font-semibold uppercase text-ink">Iron matched to scope</p>
           <p className="mt-3 text-sm leading-relaxed text-ink-muted">
             Useful for capability pages where procurement teams want machine class confidence and uptime positioning.
@@ -436,7 +436,7 @@ function EquipmentFleetCandidate() {
             <div key={item} className={`relative min-h-[150px] overflow-hidden border border-[color:var(--g200)] ${i === 1 ? "sm:-translate-y-2" : ""}`}>
               <Image src="/ground-level/equipment-wide.jpg" alt="" fill className="object-cover" sizes="(min-width: 640px) 40vw, 100vw" />
               <div className="absolute inset-0 bg-gradient-to-t from-[rgb(0_0_0/0.65)] to-transparent" />
-              <p className="absolute bottom-3 left-3 font-label text-[11px] uppercase tracking-[0.14em] text-white">{item}</p>
+              <p className="absolute bottom-3 left-3 eyebrow text-white">{item}</p>
             </div>
           ))}
         </div>
@@ -453,7 +453,7 @@ function SafetyTimelineCandidate() {
         <ol className="space-y-4">
           {["Pre-task hazard review", "Daily site walk", "Compaction and grade checks", "Closeout and handoff"].map((step, i) => (
             <li key={step} className="relative pl-12 sm:pl-16">
-              <span className="absolute left-0 top-1.5 flex h-8 w-8 items-center justify-center rounded-full border border-[color:var(--y)] bg-[rgb(0_0_0/0.45)] font-label text-[11px] uppercase tracking-[0.1em] text-white sm:left-2">
+              <span className="absolute left-0 top-1.5 flex h-8 w-8 items-center justify-center rounded-full border border-[color:var(--y)] bg-[rgb(0_0_0/0.45)] eyebrow text-white sm:left-2">
                 {i + 1}
               </span>
               <div className="border border-[color:var(--g200)] bg-[rgb(22_24_23/0.82)] p-4 text-white shadow-[0_10px_28px_rgb(0_0_0/0.2)]">
@@ -496,11 +496,11 @@ function TestimonialWallCandidate() {
           <p className="text-sm leading-relaxed text-white/85">
             “Their crew coordinated utilities, earthworks, and schedule pressure without losing quality. Site readiness happened ahead of our critical path.”
           </p>
-          <p className="mt-4 font-label text-[11px] uppercase tracking-[0.14em] text-[color:var(--y)]">Project manager, Barrie</p>
+          <p className="mt-4 eyebrow text-[color:var(--y)]">Project manager, Barrie</p>
         </article>
         <article className="border border-[color:var(--g200)] bg-[rgb(22_24_23/0.86)] p-5 text-white shadow-[0_10px_26px_rgb(0_0_0/0.22)] lg:col-span-2 lg:-translate-y-3">
           <p className="text-sm leading-relaxed text-white/85">“Documentation and closeout were as strong as execution.”</p>
-          <p className="mt-4 font-label text-[11px] uppercase tracking-[0.14em] text-[color:var(--y)]">Site supervisor</p>
+          <p className="mt-4 eyebrow text-[color:var(--y)]">Site supervisor</p>
         </article>
       </div>
     </CandidateShell>
@@ -521,7 +521,7 @@ function SpecDownloadCandidate() {
           {["Insurance certificate", "Safety program summary", "Method statement template"].map((doc) => (
             <button key={doc} type="button" className="flex items-center justify-between border border-[color:var(--g200)] bg-white px-4 py-3 text-left text-sm text-ink">
               <span>{doc}</span>
-              <span className="font-label text-[11px] uppercase tracking-[0.12em] text-[color:var(--y)]">PDF</span>
+              <span className="eyebrow text-[color:var(--y)]">PDF</span>
             </button>
           ))}
         </div>
@@ -534,7 +534,7 @@ function PartnerStripCandidate() {
   return (
     <CandidateShell id="review-partner-strip" title="Partner and supplier strip" tone="dark">
       <div className="mt-8 border border-[color:var(--g200)] bg-[rgb(20_22_21/0.82)] p-6">
-        <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Supplier ecosystem</p>
+        <p className="eyebrow text-[color:var(--y)]">Supplier ecosystem</p>
         <div className="mt-5 grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {["Aggregate", "Concrete", "Trucking", "Utilities", "Survey", "Traffic"].map((name, i) => (
             <div key={name} className={`border border-white/14 px-3 py-4 text-center text-sm text-white/84 ${i % 2 === 1 ? "sm:-translate-y-1" : ""}`}>

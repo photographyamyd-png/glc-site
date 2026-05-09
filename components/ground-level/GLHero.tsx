@@ -94,7 +94,7 @@ export function GLHero({
       <ClaudeLogicWatermark placement="bottom-right" className="z-[1]" />
       <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-7 pb-8 pt-28 sm:px-10 sm:pb-10 lg:justify-between lg:px-20 lg:pb-8 lg:pt-[calc(var(--header)+3rem)]">
         <div className="max-w-[min(100%,var(--max))] space-y-0 rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:max-w-4xl lg:pt-10">
-          <p className="hero-eyebrow label-overline-on-dark mb-0 opacity-90">{c.eyebrow}</p>
+          <p className="hero-eyebrow label-overline-on-dark mb-0">{c.eyebrow}</p>
           <div className="mt-[var(--s7)]">
             <ThreeActHeadline id={headingId} line1={c.titleLine1} line2={c.titleLine2} line3={c.titleLine3} />
           </div>
@@ -107,14 +107,14 @@ export function GLHero({
               <span key={formatStat(s)}>{formatStat(s)}</span>
             ))}
           </div>
-          <p className="mt-6 font-label text-[10px] uppercase tracking-[0.2em] text-white/55">{c.serviceCoverageLabel}</p>
+          <p className="mt-6 eyebrow text-white">{c.serviceCoverageLabel}</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {shortcuts
               ? shortcuts.map((item) => (
                   <Link
                     key={item.slug}
                     href={`/services/${item.slug}`}
-                    className="border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/85 transition-colors hover:border-[color:var(--y)]/45"
+                    className="eyebrow border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-white transition-colors hover:border-[color:var(--y)]/45"
                   >
                     {item.label}
                   </Link>
@@ -123,7 +123,7 @@ export function GLHero({
                 ? barLabels.map((label) => (
                     <span
                       key={label}
-                      className="border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/85"
+                      className="eyebrow border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-white"
                     >
                       {label}
                     </span>
@@ -172,7 +172,7 @@ export function GLHero({
               {marqueeDup.map((phrase, i) => (
                 <span
                   key={`${phrase}-${i}`}
-                  className="shrink-0 font-label text-[10px] uppercase tracking-[0.22em] text-white/65"
+                  className="shrink-0 eyebrow text-white"
                 >
                   {phrase}
                 </span>

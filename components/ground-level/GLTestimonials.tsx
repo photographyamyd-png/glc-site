@@ -51,7 +51,7 @@ export const TESTIMONIAL_PREVIEW_VARIANTS = [
     textClass: "text-white/88",
     attrClass: "text-white/85",
     chipClass:
-      "border-b border-white/18 bg-[rgb(255_255_255/0.12)] px-6 py-3 font-label text-[10px] uppercase tracking-[0.16em] text-white/90",
+      "border-b border-white/18 bg-[rgb(255_255_255/0.12)] px-6 py-3 eyebrow text-white",
   },
   {
     id: "accent-rail",
@@ -85,7 +85,7 @@ export const TESTIMONIAL_PREVIEW_VARIANTS = [
     textClass: "text-ink",
     attrClass: "text-ink/75",
     chipClass:
-      "border-b border-[color:var(--y)]/35 bg-[color:var(--ink-deep)] px-6 py-3 font-label text-[10px] uppercase tracking-[0.16em] text-white",
+      "border-b border-[color:var(--y)]/35 bg-[color:var(--ink-deep)] px-6 py-3 eyebrow text-white",
   },
   {
     id: "hybrid-floating-chip",
@@ -131,7 +131,7 @@ export function TestimonialEntriesGrid({
           const chipTone = isCharcoalFloating
             ? "border border-white/15 bg-[color:var(--ink-mid)] text-white shadow-[0_12px_28px_rgb(0_0_0/0.35)]"
             : "border border-[color:var(--brand-black)]/15 bg-[color:var(--y)] text-[color:var(--brand-black)] shadow-[0_10px_24px_rgb(0_0_0/0.25)]";
-          const chipClasses = `absolute left-0 top-0 z-30 max-w-[min(calc(100%-0.5rem),18rem)] -translate-x-3 -translate-y-2 px-4 py-2.5 font-label text-[10px] font-semibold uppercase leading-snug tracking-[0.14em] ${chipTone}`;
+          const chipClasses = `absolute left-0 top-0 z-30 max-w-[min(calc(100%-0.5rem),18rem)] -translate-x-3 -translate-y-2 px-4 py-2.5 eyebrow leading-snug ${chipTone}`;
 
           return (
             <li
@@ -311,7 +311,7 @@ export function GLTestimonialsBlock({
             className="w-full md:w-1/2"
           >
             <motion.p
-              className="mb-3 font-label text-[10px] font-extrabold uppercase tracking-[0.15em] text-ink-muted"
+              className="mb-3 eyebrow font-extrabold tracking-[0.15em] text-ink-muted"
               initial={{ opacity: 0, y: reducedMotion ? 0 : 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
@@ -382,7 +382,7 @@ export function GLTestimonialsBlock({
                       tabIndex={isSelected ? 0 : -1}
                       onClick={() => setActiveIndex(i)}
                       onKeyDown={(e) => onTabKeyDown(e, i)}
-                      className={`min-h-[44px] border px-3 py-2 text-left font-label text-[10px] font-semibold uppercase tracking-[0.14em] transition-[background-color,color,border-color] duration-200 sm:px-4 ${
+                      className={`min-h-[44px] border px-3 py-2 text-left eyebrow transition-[background-color,color,border-color] duration-200 sm:px-4 ${
                         isSelected
                           ? "border-[color:var(--y)] bg-[color:var(--ink-deep)] text-white"
                           : "border-[color:var(--g200)] bg-white/80 text-ink-muted hover:border-[color:var(--y)]/45 hover:text-ink"
@@ -411,7 +411,7 @@ export function GLTestimonialsBlock({
                         fill="currentColor"
                       />
                     </svg>
-                    <p className="font-label text-[10px] font-extrabold uppercase tracking-[0.18em] text-ink-muted">
+                    <p className="eyebrow font-extrabold tracking-[0.18em] text-ink-muted">
                       Verified Field Testimonial
                     </p>
                   </div>
@@ -428,7 +428,7 @@ export function GLTestimonialsBlock({
                     const [name, ...rest] = entry.attribution.split(",");
                     const detail = rest.join(",").trim();
                     return (
-                      <p className="mt-6 border-t border-[color:var(--g200)] pt-4 font-label text-[11px] font-extrabold uppercase tracking-[0.11em] text-ink leading-[1.45]">
+                      <p className="mt-6 border-t border-[color:var(--g200)] pt-4 eyebrow font-extrabold tracking-[0.11em] text-ink leading-[1.45]">
                         <span className="block">{name?.trim() ?? entry.attribution}</span>
                         {detail ? <span className="mt-1 block text-[10px] tracking-[0.1em] text-ink-muted">{detail}</span> : null}
                       </p>
@@ -461,7 +461,7 @@ export function GLTestimonialsVariantLab({ variantId }: { variantId: Testimonial
       />
       <ClaudeLogicWatermark placement="top-right" mode="on-dark" />
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))]">
-        <p className="font-label text-[10px] uppercase tracking-[0.2em] text-white/55">Testimonials · DNA lab</p>
+        <p className="eyebrow text-white">Testimonials · DNA lab</p>
         <h2 className="mt-2 font-serif text-xl font-semibold uppercase tracking-tight text-white sm:text-2xl">
           <span className="text-white/85">{variant.label.split(" — ")[0]}</span>
           {variant.label.includes(" — ") ? (

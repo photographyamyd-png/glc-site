@@ -141,7 +141,7 @@ export function GLFeaturedServices({
                   tabIndex={isSel ? 0 : -1}
                   onClick={() => setSelected(i)}
                   onKeyDown={(e) => onTabKeyDown(e, i)}
-                  className={`min-h-[44px] px-3 py-2 text-left font-label text-[10px] font-semibold uppercase tracking-[0.14em] transition-[background,color,box-shadow] sm:px-4 ${
+                  className={`min-h-[44px] px-3 py-2 text-left eyebrow transition-[background,color,box-shadow] sm:px-4 ${
                     isSel
                       ? "bg-[color:var(--ink-deep)] text-white shadow-[inset_0_0_0_1px_rgb(0_0_0/0.08)]"
                       : "border border-[color:var(--g200)] bg-white/80 text-ink-muted hover:border-[color:var(--y)]/35 hover:text-ink"

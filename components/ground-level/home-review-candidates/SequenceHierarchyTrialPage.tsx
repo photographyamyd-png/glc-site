@@ -86,7 +86,7 @@ function KineticSpineHero({ tone }: { tone: Tone }) {
             <span className="text-[color:var(--y)]">speed</span>
           </h3>
           <div className={`max-w-lg border ${c.border} border-l-[5px] border-l-[color:var(--y)] bg-[rgb(255_255_255/0.14)] p-5 backdrop-blur-lg`}>
-            <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Kinetic translucency</p>
+            <p className="eyebrow text-[color:var(--y)]">Kinetic translucency</p>
             <p className={`mt-2 text-sm leading-relaxed ${c.body}`}>Floating slab samples image color while preserving contrast and text hierarchy.</p>
           </div>
         </div>
@@ -113,7 +113,7 @@ function PedigreeLedger({ tone }: { tone: Tone }) {
           ))}
         </div>
         <div className={`border ${c.border} border-l-[5px] border-l-[color:var(--y)] p-5 ${c.panel}`}>
-          <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Performance ledger</p>
+          <p className="eyebrow text-[color:var(--y)]">Performance ledger</p>
           <div className="mt-4 grid grid-cols-3 gap-3">
             {[
               { value: "500+", label: "Scopes delivered" },
@@ -160,13 +160,13 @@ function ServiceMatrix({ tone }: { tone: Tone }) {
                 idx % 3 === 1 ? "sm:translate-y-5" : idx % 3 === 2 ? "sm:-translate-y-3" : ""
               } ${active === service ? "border-[color:var(--y)] bg-[color:var(--y)]/10" : c.panelSoft}`}
             >
-              <p className="font-label text-[10px] uppercase tracking-[0.14em] text-[color:var(--y)]">Sub-service</p>
+              <p className="eyebrow text-[color:var(--y)]">Sub-service</p>
               <p className={`mt-2 font-serif text-lg font-semibold uppercase ${c.heading}`}>{service}</p>
             </button>
           ))}
         </div>
         <aside className={`border ${c.border} border-l-[5px] border-l-[color:var(--y)] p-5 ${c.panel}`}>
-          <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Selected scope</p>
+          <p className="eyebrow text-[color:var(--y)]">Selected scope</p>
           <p className={`mt-2 font-serif text-3xl font-semibold uppercase ${c.heading}`}>{active}</p>
           <p className={`mt-3 text-sm leading-relaxed ${c.body}`}>Clustered cards intentionally offset optical mass while preserving scan clarity.</p>
         </aside>
@@ -188,7 +188,7 @@ function StowContentBlock({ tone }: { tone: Tone }) {
       <div className={`relative mt-8 overflow-hidden border ${c.border} ${c.panel}`}>
         <div className="grid gap-6 p-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
-            <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">About cadence</p>
+            <p className="eyebrow text-[color:var(--y)]">About cadence</p>
             <p className={`mt-3 text-base leading-relaxed ${c.body}`}>Ground Level Commercial handles excavation, grading, and municipal-ready mobilization across Simcoe and adjacent regions.</p>
             <button type="button" onClick={() => setOpen((v) => !v)} className="mt-5 border border-[color:var(--g200)] bg-[color:var(--y)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-ink">
               {open ? "Close details" : "Open details"}
@@ -245,7 +245,7 @@ function InkMotifQuote({ tone }: { tone: Tone }) {
       subtitle="Single-sentence value proposition with oversized obsidian typography over white-canvas treatment."
     >
       <div className="mt-8 border border-[color:var(--g200)] bg-white p-8 sm:p-12">
-        <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Value motif</p>
+        <p className="eyebrow text-[color:var(--y)]">Value motif</p>
         <p className="mt-4 font-serif text-4xl font-semibold uppercase leading-[1.02] tracking-tight text-[color:var(--ink-deep)] sm:text-6xl">
           We engineer grade, drainage, and schedule integrity into every site before concrete ever lands.
         </p>
@@ -316,7 +316,7 @@ function RegionalImpactMap({ tone }: { tone: Tone }) {
           </svg>
         </div>
         <aside className={`border ${c.border} border-l-[5px] border-l-[color:var(--y)] p-5 ${c.panel}`}>
-          <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Coordinate entry</p>
+          <p className="eyebrow text-[color:var(--y)]">Coordinate entry</p>
           <p className={`mt-2 font-serif text-3xl font-semibold uppercase ${c.heading}`}>{active.label}</p>
           <p className={`mt-2 text-sm leading-relaxed ${c.body}`}>{active.note}</p>
         </aside>
@@ -345,7 +345,7 @@ function SocialProofSpine({ tone }: { tone: Tone }) {
         <div className="absolute inset-0 bg-[rgb(0_0_0/0.56)]" />
         <div className="absolute inset-0 flex items-center justify-center p-6">
           <article className={`max-w-xl border ${c.border} bg-[rgb(255_255_255/0.16)] p-6 text-white backdrop-blur-lg`}>
-            <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Client signal</p>
+            <p className="eyebrow text-[color:var(--y)]">Client signal</p>
             <p className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight">
               <span className="text-white">Proof in </span>
               <span className="text-[color:var(--y)]">motion</span>
@@ -374,7 +374,7 @@ function TerminalCta({ tone }: { tone: Tone }) {
     >
       <div className="mt-8 grid gap-6 lg:grid-cols-[1.4fr_0.6fr]">
         <div className={`border ${c.border} border-l-[5px] border-l-[color:var(--y)] p-6 ${c.panel}`}>
-          <p className="font-label text-[11px] uppercase tracking-[0.16em] text-[color:var(--y)]">Contact command</p>
+          <p className="eyebrow text-[color:var(--y)]">Contact command</p>
           <p className={`mt-2 font-serif text-3xl font-semibold uppercase ${c.heading}`}>
             <span className={c.heading}>Book your </span>
             <span className="text-[color:var(--y)]">pre-con</span>

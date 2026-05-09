@@ -37,7 +37,7 @@ export function ServiceLayoutLabE({ items }: Props) {
               />
             </div>
             <div className="flex flex-col justify-center border-t border-[color:var(--g200)] p-6 sm:p-8 lg:border-l lg:border-t-0">
-              <span className="font-label text-[10px] font-semibold uppercase tracking-[0.2em] text-[color:var(--y)]">
+              <span className="eyebrow text-[color:var(--y)]">
                 Lead service line
               </span>
               <h3 className="mt-3 font-serif text-2xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-3xl">

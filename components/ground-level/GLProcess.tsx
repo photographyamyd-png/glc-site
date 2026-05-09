@@ -95,7 +95,7 @@ export function GLProcess({
                   i === 1 ? "lg:-translate-y-4" : i === 2 ? "lg:translate-y-4" : ""
                 }`}
               >
-                <span className="font-label text-[10px] uppercase tracking-[0.18em] text-[color:var(--y)]">
+                <span className="eyebrow text-[color:var(--y)]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="mt-2 font-serif text-sm font-semibold uppercase tracking-[0.06em] text-ink">
@@ -108,7 +108,7 @@ export function GLProcess({
                 key={step.index}
                 className={`${stepIsland} ${i === 1 ? "lg:-translate-y-4" : i === 2 ? "lg:translate-y-4" : ""}`}
               >
-                <span className="font-label text-[10px] uppercase tracking-[0.18em] text-[color:var(--y)]">{step.index}</span>
+                <span className="eyebrow text-[color:var(--y)]">{step.index}</span>
                 <p className="mt-2 font-serif text-sm font-semibold uppercase tracking-[0.06em] text-ink">{step.title}</p>
                 <p className="mt-2 text-sm leading-relaxed text-ink-muted">{step.body}</p>
               </li>

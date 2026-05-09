@@ -33,7 +33,7 @@ export function ServiceLayoutLabD({ items }: Props) {
             >
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
                 <div className="flex shrink-0 items-start gap-4 sm:items-center">
-                  <span className="font-label text-[10px] font-semibold tabular-nums uppercase tracking-[0.16em] text-[color:var(--y)]">
+                  <span className="eyebrow tabular-nums text-[color:var(--y)]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="relative h-20 w-20 shrink-0 overflow-hidden border border-[color:var(--g200)] sm:h-24 sm:w-24">

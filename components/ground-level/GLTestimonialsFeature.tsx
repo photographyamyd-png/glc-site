@@ -58,7 +58,7 @@ export function GLTestimonialsFeature({ content }: GLTestimonialsFeatureProps) {
           </article>
 
           <aside className="bespoke-surface relative z-40 border border-[color:var(--g200)] bg-[color:var(--brand-canvas)] p-5 text-ink lg:-ml-6 lg:translate-y-[var(--dna-stagger-md)]">
-            <p className="font-label text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/65">{content.proofPanel.eyebrow}</p>
+            <p className="eyebrow text-ink/65">{content.proofPanel.eyebrow}</p>
             <h3 className="mt-2 font-serif text-2xl font-semibold uppercase tracking-tight text-ink">{content.proofPanel.heading}</h3>
             <ul className="mt-4 space-y-2">
               {content.proofPanel.items.map((item) => (

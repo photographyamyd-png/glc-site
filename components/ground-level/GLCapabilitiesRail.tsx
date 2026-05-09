@@ -123,7 +123,7 @@ export function GLCapabilitiesRail({
                   tabIndex={isSel ? 0 : -1}
                   onClick={() => setSelected(i)}
                   onKeyDown={(e) => onKeyDown(e, i)}
-                  className={`min-h-[48px] w-full px-4 py-3 text-left font-label text-[10px] font-semibold uppercase tracking-[0.14em] transition-[background,border-color,box-shadow] ${
+                  className={`min-h-[48px] w-full px-4 py-3 text-left eyebrow transition-[background,border-color,box-shadow] ${
                     isSel
                       ? "border border-[color:var(--y)]/55 bg-[rgb(255_255_255/0.1)] text-white shadow-[0_12px_32px_rgb(0_0_0/0.35)]"
                       : "border border-white/10 bg-[rgb(255_255_255/0.04)] text-white/70 hover:border-[color:var(--y)]/35 hover:text-white"
@@ -161,7 +161,7 @@ export function GLCapabilitiesRail({
                     sizes="(min-width: 1024px) 50vw, 100vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[rgb(0_0_0/0.45)] to-transparent" aria-hidden />
-                  <p className="absolute bottom-3 left-4 font-label text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90">
+                  <p className="absolute bottom-3 left-4 eyebrow text-white">
                     {String(i + 1).padStart(2, "0")} — {s.slug.replace(/-/g, " ")}
                   </p>
                 </div>

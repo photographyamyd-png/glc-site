@@ -26,7 +26,7 @@ This file is the **repository-wide** map for AI agents and humans. Authoritative
 | [`lib/ground-level/`](lib/ground-level/) | Homepage / shared marketing copy modules |
 | [`components/seo/`](components/seo/) | JSON-LD and SEO components |
 | [`public/images/services/`](public/images/services/) | Service-line photo folders (`Snow Removal`, `Excavation`, …) |
-| [`app/globals.css`](app/globals.css) | Global tokens, `font-label`, bands, utilities |
+| [`app/globals.css`](app/globals.css) | Global tokens, `eyebrow`, `font-label`, bands, utilities |
 
 ## Hooks
 

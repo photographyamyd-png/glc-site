@@ -129,8 +129,8 @@ export function GLWhoWeServe({
                 <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[rgb(0_0_0/0.36)] via-[rgb(0_0_0/0.08)] to-transparent" aria-hidden />
                 <Image src={imgSrc} alt={a.imageAlt} fill className="object-cover" sizes="(min-width: 1024px) 38vw, 100vw" />
                 <div className="absolute inset-x-0 bottom-0 z-[2] flex items-center justify-between gap-3 border-t border-white/15 bg-[rgb(0_0_0/0.74)] px-4 py-3">
-                  <p className="font-label text-xs font-semibold uppercase tracking-[0.14em] text-white/90">{a.mediaStat}</p>
-                  <span className="shrink-0 border border-[color:var(--y)]/50 bg-[color-mix(in_srgb,var(--y)_12%,transparent)] px-2 py-1 font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-[color:var(--y)]">
+                  <p className="eyebrow text-white">{a.mediaStat}</p>
+                  <span className="shrink-0 border border-[color:var(--y)]/50 bg-[color-mix(in_srgb,var(--y)_12%,transparent)] px-2 py-1 eyebrow text-[color:var(--y)]">
                     {a.badge}
                   </span>
                 </div>

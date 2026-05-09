@@ -51,7 +51,7 @@ export function GLContact() {
                 </dd>
               </div>
               <div>
-                <dt className="font-label text-xs font-semibold uppercase tracking-[0.14em] text-ink/55">
+                <dt className="eyebrow text-ink/55">
                   {CTA_BAND.emailCta}
                 </dt>
                 <dd className="mt-1">
@@ -64,7 +64,7 @@ export function GLContact() {
                 </dd>
               </div>
               <div>
-                <dt className="font-label text-xs font-semibold uppercase tracking-[0.14em] text-ink/55">
+                <dt className="eyebrow text-ink/55">
                   {COVERAGE.eyebrow}
                 </dt>
                 <dd className="mt-1 text-sm leading-relaxed text-ink-muted">
@@ -85,7 +85,7 @@ export function GLContact() {
               <div className="absolute inset-0 bg-gradient-to-t from-[rgb(0_0_0/0.35)] to-transparent" aria-hidden />
             </div>
             <div className="bespoke-surface panel-machined border border-[color:var(--g200)] bg-white p-5">
-              <p className="font-label text-xs font-semibold uppercase tracking-[0.14em] text-ink/55">
+              <p className="eyebrow text-ink/55">
                 {COVERAGE.heading}
               </p>
               <p className="mt-2 text-sm leading-relaxed text-ink-muted">{COVERAGE.body}</p>

@@ -33,10 +33,10 @@ export function ExpandableCopy({
     <details className="group">
       <summary className="list-none">
         <p className={className}>{preview}</p>
-        <span className="mt-2 inline-block cursor-pointer font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-[color:var(--y)] underline decoration-[color:var(--y)]/40 underline-offset-4 group-open:hidden">
+        <span className="mt-2 inline-block cursor-pointer eyebrow text-[color:var(--y)] underline decoration-[color:var(--y)]/40 underline-offset-4 group-open:hidden">
           {moreLabel}
         </span>
-        <span className="mt-2 hidden cursor-pointer font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-[color:var(--y)] underline decoration-[color:var(--y)]/40 underline-offset-4 group-open:inline-block">
+        <span className="mt-2 hidden cursor-pointer eyebrow text-[color:var(--y)] underline decoration-[color:var(--y)]/40 underline-offset-4 group-open:inline-block">
           {lessLabel}
         </span>
       </summary>

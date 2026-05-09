@@ -66,7 +66,7 @@ export function GLServices() {
                 href={`/services/${s.slug}`}
                 className="group relative flex h-full min-h-[260px] flex-col border border-white/12 bg-[rgb(255_255_255/0.98)] p-[var(--s5)] text-ink shadow-[0_12px_40px_rgb(0_0_0/0.2)] transition-[transform,box-shadow,border-color] duration-300 before:pointer-events-none before:absolute before:inset-0 before:opacity-0 before:shadow-[inset_0_0_0_1px_color-mix(in_srgb,var(--y)_50%,transparent)] before:transition-opacity hover:-translate-y-1 hover:border-[color:var(--y)]/40 hover:shadow-[0_24px_56px_rgb(0_0_0/0.25)] hover:before:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--y)]"
               >
-                <span className="font-label text-[10px] uppercase tracking-[0.2em] text-ink-muted">
+                <span className="eyebrow text-ink-muted">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="relative z-[1] mt-3 font-serif text-xl font-semibold uppercase tracking-tight text-ink transition-colors group-hover:text-[color:var(--ink-deep)]">

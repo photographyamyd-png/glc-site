@@ -94,7 +94,7 @@ function PedigreeLedger({ tone }: { tone: Tone }) {
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
           {logos.map((logo) => (
             <article key={logo} className={`border p-4 ${c.panel} grayscale`}>
-              <p className="font-label text-[11px] uppercase tracking-[0.14em] text-[color:var(--y)]">{logo}</p>
+              <p className="eyebrow text-[color:var(--y)]">{logo}</p>
               <p className={`mt-2 text-xs ${c.body}`}>Regional partner lane</p>
             </article>
           ))}
@@ -119,7 +119,7 @@ function ServiceMatrix({ tone }: { tone: Tone }) {
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {services.map((service, i) => (
           <article key={service} className={`border p-4 ${c.panel} ${i % 3 === 0 ? "lg:-translate-y-4" : i % 3 === 1 ? "lg:translate-y-3" : ""}`}>
-            <p className="font-label text-[11px] uppercase tracking-[0.14em] text-[color:var(--y)]">{`0${i + 1}`}</p>
+            <p className="eyebrow text-[color:var(--y)]">{`0${i + 1}`}</p>
             <h3 className={`mt-2 font-serif text-xl font-semibold uppercase ${c.heading}`}>{service}</h3>
             <p className={`mt-2 text-sm ${c.body}`}>Non-standard cluster position balances optical weight across the field.</p>
           </article>
@@ -149,7 +149,7 @@ function StowContentBlock({ tone }: { tone: Tone }) {
                   <span className={c.heading}>{block.title.split(" ")[0]} </span>
                   <span className="text-[color:var(--y)]">{block.title.split(" ").slice(1).join(" ")}</span>
                 </span>
-                <span className="font-label text-[10px] uppercase tracking-[0.13em] text-[color:var(--y)]">{isOpen ? "Close" : "Open"}</span>
+                <span className="eyebrow text-[color:var(--y)]">{isOpen ? "Close" : "Open"}</span>
               </button>
               {isOpen ? <p className={`px-5 pb-5 text-sm leading-relaxed ${c.body}`}>{block.body}</p> : null}
             </article>
@@ -210,9 +210,9 @@ function TechnicalCapabilities({ tone }: { tone: Tone }) {
         <table className="w-full border-collapse text-sm">
           <thead>
             <tr className="border-b border-[color:var(--g200)]">
-              <th className="px-4 py-3 text-left font-label text-[10px] uppercase tracking-[0.13em] text-[color:var(--y)]">Capability</th>
-              <th className="px-4 py-3 text-left font-label text-[10px] uppercase tracking-[0.13em] text-[color:var(--y)]">Value</th>
-              <th className="px-4 py-3 text-left font-label text-[10px] uppercase tracking-[0.13em] text-[color:var(--y)]">Verification</th>
+              <th className="px-4 py-3 text-left eyebrow text-[color:var(--y)]">Capability</th>
+              <th className="px-4 py-3 text-left eyebrow text-[color:var(--y)]">Value</th>
+              <th className="px-4 py-3 text-left eyebrow text-[color:var(--y)]">Verification</th>
             </tr>
           </thead>
           <tbody>
@@ -295,7 +295,7 @@ function SocialProofSpine({ tone }: { tone: Tone }) {
         <div className="relative z-10 grid gap-4 p-5 sm:grid-cols-2 lg:grid-cols-3">
           {quotes.map((quote, i) => (
             <article key={quote} className={`border p-4 backdrop-blur-lg ${c.panel} ${i === 1 ? "lg:translate-y-8" : i === 2 ? "lg:-translate-y-6" : ""}`}>
-              <p className="font-label text-[10px] uppercase tracking-[0.13em] text-[color:var(--y)]">{`Field note 0${i + 1}`}</p>
+              <p className="eyebrow text-[color:var(--y)]">{`Field note 0${i + 1}`}</p>
               <p className={`mt-2 text-sm leading-relaxed ${c.body}`}>{quote}</p>
             </article>
           ))}

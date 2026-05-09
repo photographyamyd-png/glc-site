@@ -7,7 +7,7 @@
 
 /*
  * Stakeholder tokens + Prime Directive canvas (#FAFAFA).
- * Display: Oswald (mapped to legacy font-serif utilities). Body: Barlow. Labels: Barlow Condensed.
+ * Display: Oswald (mapped to legacy font-serif utilities). Body: Barlow. Condensed UI: Barlow Condensed (`font-label`). Section eyebrows: Barlow `.eyebrow` (13px, solid white on dark).
  */
 :root {
   /* Accent: aligned with glc-site `glc-base.css` (--yellow-core #F2B705) */
@@ -198,6 +198,16 @@ body {
   font-family: var(--font-barlow-condensed), system-ui, sans-serif;
 }
 
+/* Section eyebrows / kickers — Barlow for legibility; pair with text-ink, text-white, etc. */
+.eyebrow {
+  font-family: var(--font-barlow), system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
 /* Vertical band rhythm: dark ↔ light fields (structural ink vs canvas). Adjacency: GLC_GLOBAL_DESIGN_SYSTEM.md Part 5 (D1–D2). */
 .section-major {
   padding-top: var(--s9);
@@ -229,12 +239,13 @@ body {
 }
 
 .label-overline-on-dark {
-  font-family: var(--font-barlow-condensed), system-ui, sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.28em;
+  font-family: var(--font-barlow), system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: rgb(250 249 247);
-  opacity: 0.45;
+  color: #fff;
 }
 
 /* GLC Three-Act Headline */
@@ -533,12 +544,13 @@ body {
 }
 
 .label-overline {
-  font-family: var(--font-barlow-condensed), system-ui, sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.28em;
+  font-family: var(--font-barlow), system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: var(--ink);
-  opacity: 0.55;
+  color: var(--ink-deep);
 }
 
 /* Hero orchestrated entrance — yellow/CTA last; one section only */

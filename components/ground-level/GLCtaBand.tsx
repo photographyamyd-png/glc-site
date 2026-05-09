@@ -80,7 +80,7 @@ export function GLCtaBand({
       <ClaudeLogicWatermark placement="center-right" className="opacity-[0.06]" />
       <div className="relative z-10 mx-auto flex max-w-[min(100%,var(--max))] flex-col gap-[var(--s6)] px-[var(--s4)] py-[var(--s5)] sm:px-[var(--s6)] lg:flex-row lg:items-end lg:justify-between lg:px-[var(--s10)]">
         <div>
-          <p className="mb-3 flex items-center gap-2 font-label text-[11px] font-bold uppercase tracking-[0.14em] text-ink">
+          <p className="mb-3 flex items-center gap-2 eyebrow text-ink">
             <span>{c.eyebrow}</span>
             <span
               className="inline-block h-[2px] w-10 bg-[color:var(--y)]/70"
