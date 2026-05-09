@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GLC eyebrow typography preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1917;
+      --ink-muted: #6b6560;
+      --canvas: #f7f6f4;
+      --ink-deep: #0f1110;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Barlow, system-ui, sans-serif;
+      background: #e8e6e3;
+      color: var(--ink);
+      padding: 24px;
+    }
+    h1 {
+      font: 600 1.25rem/1.3 Barlow, sans-serif;
+      margin: 0 0 8px;
+    }
+    p.lede {
+      margin: 0 0 24px;
+      max-width: 52rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--ink-muted);
+    }
+    .grid {
+      display: grid;
+      gap: 20px;
+      max-width: 1200px;
+    }
+    @media (min-width: 900px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+    .card {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #00000014;
+    }
+    .card header {
+      padding: 10px 16px;
+      font: 700 11px Barlow Condensed, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: #ddd9d4;
+      color: #3d3a36;
+    }
+    .band {
+      padding: 28px 20px 32px;
+    }
+    .band.light {
+      background: var(--canvas);
+      color: var(--ink-deep);
+    }
+    .band.dark {
+      background: linear-gradient(160deg, #121816 0%, #0a0c0b 100%);
+      color: #faf9f7;
+    }
+    .sample-title {
+      font: 600 1.125rem/1.25 Barlow, sans-serif;
+      margin: 0 0 16px;
+      letter-spacing: 0.01em;
+    }
+    .row {
+      margin-bottom: 18px;
+    }
+    .row:last-child { margin-bottom: 0; }
+    .tag {
+      display: inline-block;
+      font: 700 10px/1 Barlow, sans-serif;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+    .tag.current { background: #f2b70533; color: #6b5300; }
+    .tag.proposed { background: #2d7a4a33; color: #1e5a36; }
+    /* Current (approximate production recipe) */
+    .eyebrow-current {
+      font-family: "Barlow Condensed", system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .eyebrow-current.on-light { color: var(--ink-muted); }
+    .eyebrow-current.on-dark { color: rgb(255 255 255 / 0.55); }
+    /* Proposed legibility pass */
+    .eyebrow-proposed {
+      font-family: Barlow, system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+    .eyebrow-proposed.on-light { color: var(--ink-deep); }
+    .eyebrow-proposed.on-dark { color: rgb(255 255 255 / 0.78); }
+    .long {
+      max-width: 22rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Eyebrow / label preview (not shipped)</h1>
+  <p class="lede">
+    Compare <strong>current</strong> (11px Barlow Condensed, 0.14em tracking, low contrast on dark)
+    vs <strong>proposed</strong> (12px Barlow, 0.07em tracking, stronger contrast). Long strings show where condensed + tracking hurts most.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <header>Light band</header>
+      <div class="band light">
+        <h2 class="sample-title">Section headline placeholder</h2>
+        <div class="row">
+          <span class="tag current">Current</span>
+          <p class="eyebrow-current on-light long">SANDBOX LAB</p>
+        </div>
+        <div class="row">
+          <span class="tag proposed">Proposed</span>
+          <p class="eyebrow-proposed on-light long">SANDBOX LAB</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <header>Dark band (glass panel context)</header>
+      <div class="band dark">
+        <div style="border:1px solid rgb(255 255 255 / 0.12); background: rgb(10 12 11 / 0.5); padding: 20px; backdrop-filter: blur(12px); border-radius: 6px;">
+          <h2 class="sample-title" style="color: #faf9f7;">Quote block area</h2>
+          <div class="row">
+            <span class="tag current">Current</span>
+            <p class="eyebrow-current on-dark long">FIELD-PROVEN PARTNERSHIPS</p>
+          </div>
+          <div class="row">
+            <span class="tag proposed">Proposed</span>
+            <p class="eyebrow-proposed on-dark long">FIELD-PROVEN PARTNERSHIPS</p>
+          </div>
+          <div class="row" style="margin-top: 20px;">
+            <span class="tag current">Current</span>
+            <p class="eyebrow-current on-dark long">COMMERCIAL EXCAVATION &amp; CIVIL INFRASTRUCTURE</p>
+          </div>
+          <div class="row">
+            <span class="tag proposed">Proposed</span>
+            <p class="eyebrow-proposed on-dark long">COMMERCIAL EXCAVATION &amp; CIVIL INFRASTRUCTURE</p>
+          </div>
+          <div class="row" style="margin-top: 20px;">
+            <span class="tag current">Current · attribution</span>
+            <p class="eyebrow-current on-dark long">SENIOR PM - COMMERCIAL BUILD PROGRAM, SIMCOE COUNTY</p>
+          </div>
+          <div class="row">
+            <span class="tag proposed">Proposed · attribution</span>
+            <p class="eyebrow-proposed on-dark long">SENIOR PM - COMMERCIAL BUILD PROGRAM, SIMCOE COUNTY</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
