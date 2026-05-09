@@ -388,8 +388,8 @@ export function GLTestimonialsBlock({
                           : "border-[color:var(--g200)] bg-white/80 text-ink-muted hover:border-[color:var(--y)]/45 hover:text-ink"
                       }`}
                     >
-                      <span className="block text-[10px] tracking-[0.18em]">Quote {String(i + 1).padStart(2, "0")}</span>
-                      <span className="mt-1 block line-clamp-2 text-[10px] tracking-[0.14em]">{entry.attribution}</span>
+                      <span className="block tracking-[0.18em] opacity-90">Quote {String(i + 1).padStart(2, "0")}</span>
+                      <span className="mt-1 block line-clamp-2 tracking-[0.14em]">{entry.attribution}</span>
                     </button>
                   );
                 })}
@@ -430,7 +430,9 @@ export function GLTestimonialsBlock({
                     return (
                       <p className="mt-6 border-t border-[color:var(--g200)] pt-4 eyebrow font-extrabold tracking-[0.11em] text-ink leading-[1.45]">
                         <span className="block">{name?.trim() ?? entry.attribution}</span>
-                        {detail ? <span className="mt-1 block text-[10px] tracking-[0.1em] text-ink-muted">{detail}</span> : null}
+                        {detail ? (
+                          <span className="mt-1 block eyebrow tracking-[0.1em] text-ink-muted">{detail}</span>
+                        ) : null}
                       </p>
                     );
                   })()}

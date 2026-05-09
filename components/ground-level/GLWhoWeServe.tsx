@@ -138,7 +138,7 @@ export function GLWhoWeServe({
 
               <div className="panel-machined-dark absolute -right-2 top-6 z-[3] hidden max-w-[11.5rem] border border-white/18 bg-[color:var(--ink-mid)] p-4 shadow-[0_20px_48px_rgb(0_0_0/0.4)] sm:block lg:-right-4 lg:top-10">
                 <p className="font-serif text-lg font-semibold leading-tight text-white">{a.mediaStat}</p>
-                <p className="mt-2 text-[11px] leading-snug text-white/70">{a.badge}</p>
+                <p className="mt-2 eyebrow leading-snug text-white">{a.badge}</p>
               </div>
             </div>
           </div>

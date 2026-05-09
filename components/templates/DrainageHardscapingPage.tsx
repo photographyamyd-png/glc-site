@@ -101,7 +101,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
               <ExpandableCopy text={detail.hero.lede} className={bodyOnDark} />
             </div>
 
-            <p className="mt-3 max-w-[36rem] text-[11px] uppercase tracking-[0.14em] text-white/72">
+            <p className="eyebrow mt-3 max-w-[36rem] text-white">
               Built exclusively for commercial operators across Simcoe County.
             </p>
 
@@ -131,7 +131,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
               {["Barrie", "Midland", "Orillia", "Simcoe County"].map((tag) => (
                 <li
                   key={tag}
-                  className="border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/85"
+                  className="eyebrow border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-white"
                 >
                   {tag}
                 </li>

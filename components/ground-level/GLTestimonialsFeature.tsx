@@ -46,7 +46,7 @@ export function GLTestimonialsFeature({ content }: GLTestimonialsFeatureProps) {
                   height={520}
                   className="h-64 w-full object-cover sm:h-72 lg:h-80"
                 />
-                <figcaption className="border-t border-white/16 bg-[rgb(0_0_0/0.35)] px-3 py-2 text-[10px] uppercase tracking-[0.14em] text-white/78">
+                <figcaption className="eyebrow border-t border-white/16 bg-[rgb(0_0_0/0.35)] px-3 py-2 text-white">
                   Active commercial mobilization
                 </figcaption>
               </figure>

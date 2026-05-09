@@ -81,7 +81,7 @@ export function HomeHeroSection({ copy }: HomeHeroSectionProps) {
                 </Link>
                 <Link
                   href={copy.secondaryCta.href}
-                  className="text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-white/78 underline decoration-white/45 underline-offset-4 transition hover:text-[color:var(--y)] hover:decoration-[color:var(--y)]"
+                  className="eyebrow text-center text-white underline decoration-white/45 underline-offset-4 transition hover:text-[color:var(--y)] hover:decoration-[color:var(--y)]"
                 >
                   {copy.secondaryCta.label}
                 </Link>
@@ -105,7 +105,7 @@ export function HomeHeroSection({ copy }: HomeHeroSectionProps) {
                 className="border border-white/16 bg-[rgb(10_12_11/0.5)] p-3 text-white backdrop-blur-sm transition hover:border-[color:var(--y)]/80 hover:bg-[rgb(10_12_11/0.68)]"
               >
                 <p className="font-serif text-xl sm:text-2xl">{stat.value}</p>
-                <p className="mt-1 text-[11px] uppercase tracking-[0.12em] text-white/78">{stat.label}</p>
+                <p className="mt-1 eyebrow text-white">{stat.label}</p>
               </Link>
             ))}
           </div>
