@@ -26,6 +26,9 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
   const imageSrc = isSnowHub
     ? SNOW_REMOVAL_PLOW_IMAGE_SRC
     : "/images/services/Drainage-and-Hardscaping/drainage-hardscaping-008.jpg";
+  const scopeAnchorAlt = isSnowHub
+    ? SNOW_PLOW_IMAGE_ALT
+    : `${service.title} — scope and delivery reference`;
   const faqItems = detail?.faq ?? [];
   const whyItems = detail?.trust.paragraphs ?? [
     "Experienced crews and commercial-first operations.",
@@ -120,12 +123,27 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         </div>
       </section>
 
-      <section id="scope" className="section-major band-light scroll-mt-[var(--header)]">
-        <div className="mx-auto grid max-w-[min(100%,var(--max))] gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-10">
-          <div className="border-l-4 border-[color:var(--y)] pl-5">
+      <section
+        id="scope"
+        className="section-major band-light relative scroll-mt-[var(--header)] overflow-hidden view-reveal"
+        aria-labelledby={`${service.slug}-scope-heading`}
+      >
+        {/* planes: atmosphere (-1) + tonal wash (substrate) */}
+        <div
+          className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(135deg,rgb(242_183_5/0.06),transparent_52%)]"
+          aria-hidden
+        />
+        <ClaudeLogicWatermark placement="bottom-right" mode="default" className="z-[1] opacity-[0.08] sm:opacity-[0.11]" />
+        <div className="relative z-10 mx-auto grid max-w-[min(100%,var(--max))] gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-10">
+          <div className="border-l-4 border-[color:var(--y)] pl-5 lg:col-span-6">
             <p className="eyebrow text-ink">Service overview</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">Scope and delivery</h2>
-            <div className="mt-[var(--s7)] space-y-6">
+            <h2
+              id={`${service.slug}-scope-heading`}
+              className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl"
+            >
+              Scope and delivery
+            </h2>
+            <div className="mt-[var(--s7)] max-w-[min(100%,42rem)] space-y-6">
               {(detail?.intro ?? ["Mobilization, staging, and production execution are configured per site constraints and handoff schedule."]).slice(0, 3).map((p) => (
                 <p key={p} className="text-[15px] leading-[1.72] text-ink sm:text-base">
                   {p}
@@ -133,16 +151,28 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
               ))}
             </div>
           </div>
-          <div className="bespoke-surface panel-machined border border-[color:var(--g200)] bg-white p-5 sm:p-8">
-            <p className="eyebrow text-ink-muted">Benefits</p>
-            <ul className="mt-4 space-y-3">
-              {(detail?.deliverables ?? ["Site analysis", "Field execution", "Quality controls"]).slice(0, 6).map((cap) => (
-                <li key={cap} className="flex gap-3">
-                  <span className="mt-1 inline-block h-2 w-2 shrink-0 bg-[color:var(--y)]" aria-hidden />
-                  <span className="text-[15px] leading-[1.72] text-ink sm:text-base">{cap}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="flex flex-col gap-6 lg:col-span-6">
+            {/* compositional raster anchor (§4) + machined panel = ≥3 planes with band-light base */}
+            <div className="relative aspect-[16/10] overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)]">
+              <Image
+                src={imageSrc}
+                alt={scopeAnchorAlt}
+                fill
+                className="object-cover object-[center_42%] sm:object-[center_38%]"
+                sizes="(min-width: 1024px) 42vw, 100vw"
+              />
+            </div>
+            <div className="bespoke-surface panel-machined relative border border-[color:var(--g200)] bg-white p-5 sm:p-8">
+              <p className="eyebrow text-ink-muted">Benefits</p>
+              <ul className="mt-4 space-y-3">
+                {(detail?.deliverables ?? ["Site analysis", "Field execution", "Quality controls"]).slice(0, 6).map((cap) => (
+                  <li key={cap} className="flex gap-3">
+                    <span className="mt-1 inline-block h-2 w-2 shrink-0 bg-[color:var(--y)]" aria-hidden />
+                    <span className="text-[15px] leading-[1.72] text-ink sm:text-base">{cap}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
