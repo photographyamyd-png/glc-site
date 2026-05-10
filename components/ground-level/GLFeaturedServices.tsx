@@ -122,7 +122,7 @@ export function GLFeaturedServices({
           </div>
         </div>
 
-        <div className="bespoke-surface panel-machined mt-10 -mx-2 p-5 sm:mt-12 sm:-mx-4 sm:p-8 lg:mx-0 lg:ml-[var(--dna-stagger-sm)] lg:p-10">
+        <div className="bespoke-surface panel-machined mt-10 -mx-2 bg-[color:var(--brand-canvas)] p-5 sm:mt-12 sm:-mx-4 sm:p-8 lg:mx-0 lg:ml-[var(--dna-stagger-sm)] lg:p-10">
           <div
             role="tablist"
             aria-label="Choose a service line to read details"

@@ -214,7 +214,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
                     aria-hidden
                   />
                 </div>
-                {/* Layer: interaction panel — dark bg + machined depth. Avoid bespoke-surface on dark panels: .bespoke-surface sets background: var(--brand-canvas) (#fafafa), which wins over Tailwind bg-* and causes white-on-white type. */}
+                {/* Layer: interaction panel — dark bg + machined depth (no bespoke-surface: use panel-machined + explicit bg; see globals.css .bespoke-surface). */}
                 <div className="relative flex flex-col justify-center border-t border-white/12 bg-[rgb(10_12_11/0.92)] p-6 sm:p-8 lg:border-l-4 lg:border-t-0 lg:border-l-[color:var(--y)] lg:pl-9 lg:pr-11 lg:py-12 panel-machined">
                   <p className="eyebrow text-white">Winter operations</p>
                   <h2
@@ -292,7 +292,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
                 className={
                   isSnowHub
                     ? "bespoke-surface panel-machined border border-[color:var(--g200)] bg-white p-5 sm:p-8"
-                    : "bespoke-surface panel-machined border border-white/15 bg-[rgb(255_255_255/0.06)] p-5 backdrop-blur-sm sm:p-8"
+                    : "relative panel-machined border border-white/15 bg-[rgb(255_255_255/0.06)] p-5 backdrop-blur-sm sm:p-8"
                 }
               >
                 <div

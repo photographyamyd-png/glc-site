@@ -385,7 +385,7 @@ export function GLTestimonialsBlock({
               className={`relative mt-10 p-7 sm:mt-12 sm:p-8 lg:ml-[var(--dna-stagger-sm)] lg:p-8 ${
                 isDark
                   ? "rounded-none border border-white/15 bg-[rgb(10_12_11/0.45)] shadow-[0_18px_44px_rgb(0_0_0/0.35)] backdrop-blur-sm"
-                  : "bespoke-surface panel-machined"
+                  : "bespoke-surface panel-machined bg-[color:var(--brand-canvas)]"
               }`}
             >
               <div

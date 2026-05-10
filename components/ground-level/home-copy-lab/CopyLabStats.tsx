@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { COPY_LAB_STATS } from "@/lib/ground-level/home-copy-lab-content";
+import { getServiceImage } from "@/lib/site/service-images";
 
 export type CopyLabStatsMetric = {
   value: string;
@@ -20,8 +21,8 @@ const DEFAULT_STATS_CONTENT: CopyLabStatsContent = {
   eyebrow: COPY_LAB_STATS.eyebrow,
   heading: COPY_LAB_STATS.heading,
   metrics: [...COPY_LAB_STATS.metrics],
-  imageSrc: "/ground-level/equipment-wide.jpg",
-  imageAlt: "Heavy equipment on a graded commercial site",
+  imageSrc: getServiceImage("site-preparation-grading").src,
+  imageAlt: getServiceImage("site-preparation-grading").alt,
 };
 
 /** Light-field metrics band — breaks dark runs after about / before services grid. */
@@ -71,7 +72,7 @@ export function CopyLabStats(props: { content?: CopyLabStatsContent } = {}) {
                   key={`${m.label}-${m.value}`}
                   className={`group px-5 py-6 text-center transition-[transform,box-shadow,border-color,background-color] duration-[220ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 motion-reduce:transform-none motion-reduce:transition-none ${
                     i === 0
-                      ? "bespoke-surface panel-machined border border-[color:var(--g200)] border-l-[4px] border-l-[color:var(--y)] shadow-[0_12px_32px_rgb(0_0_0/0.08)] hover:shadow-[0_22px_48px_rgb(0_0_0/0.12)]"
+                      ? "bespoke-surface panel-machined border border-[color:var(--g200)] border-l-[4px] border-l-[color:var(--y)] bg-white shadow-[0_12px_32px_rgb(0_0_0/0.08)] hover:shadow-[0_22px_48px_rgb(0_0_0/0.12)]"
                       : "bespoke-surface panel-machined border border-[color:var(--g200)] bg-white shadow-[0_8px_24px_rgb(0_0_0/0.05)] hover:border-[color:var(--y)]/40 hover:shadow-[0_18px_40px_rgb(0_0_0/0.1)]"
                   }`}
                 >

@@ -383,15 +383,16 @@ body {
 }
 
 /**
- * Bespoke surface — bundles two-method depth (GLC_GLOBAL_DESIGN_SYSTEM.md Part 3.2 / Rule C2) for light panels:
- * machined shadow + backdrop + micro-grain (same feTurbulence recipe as GrainOverlay).
- * For dark bands prefer panel-machined-dark + stagger vars.
+ * Bespoke surface — machined shadow + backdrop + micro-grain for light panels (GrainOverlay recipe).
+ * Do NOT set background here: any `background` on this class overrides Tailwind `bg-*` at equal specificity
+ * (stylesheet order), which broke dark glass panels that paired bespoke-surface with `bg-[rgb(10_12_11/…)]`.
+ * Compose with explicit utilities: `bg-white`, `bg-[color:var(--brand-canvas)]`, etc.
+ * On dark bands use `panel-machined` / `panel-machined-dark` + Tailwind bg — not bespoke-surface.
  */
 .bespoke-surface {
   position: relative;
   overflow: visible;
   isolation: isolate;
-  background: var(--brand-canvas);
   box-shadow: var(--machined-edge);
   backdrop-filter: var(--glass-depth);
 }

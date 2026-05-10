@@ -83,7 +83,7 @@ export function DrainageSubServiceTabs({
           </h2>
         </div>
 
-        <div className="bespoke-surface panel-machined mt-10 p-5 sm:mt-12 sm:p-8 lg:ml-[var(--dna-stagger-sm)] lg:p-10">
+        <div className="bespoke-surface panel-machined mt-10 bg-[color:var(--brand-canvas)] p-5 sm:mt-12 sm:p-8 lg:ml-[var(--dna-stagger-sm)] lg:p-10">
           <div
             role="tablist"
             aria-label="Drainage and hardscaping capabilities"

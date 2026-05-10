@@ -34,7 +34,7 @@ export function HomeStatsBand({ band, stats }: HomeStatsBandProps) {
             <Link
               key={stat.label}
               href="/about/"
-              className={`bespoke-surface panel-machined group min-h-[44px] border border-[color:var(--g200)] p-5 transition-[box-shadow,transform,border-color] duration-[220ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-[color:var(--y)]/45 hover:shadow-[0_20px_44px_rgb(0_0_0/0.12)] motion-reduce:transform-none ${
+              className={`bespoke-surface panel-machined group min-h-[44px] border border-[color:var(--g200)] bg-[color:var(--brand-canvas)] p-5 transition-[box-shadow,transform,border-color] duration-[220ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-[color:var(--y)]/45 hover:shadow-[0_20px_44px_rgb(0_0_0/0.12)] motion-reduce:transform-none ${
                 i === 1 ? "lg:relative lg:z-[1] lg:translate-y-[var(--dna-stagger-sm)] motion-reduce:lg:translate-y-0" : ""
               }`}
             >
