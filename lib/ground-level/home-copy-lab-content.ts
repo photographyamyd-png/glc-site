@@ -20,8 +20,16 @@ export const COPY_LAB_HERO = {
   h1Line3: "To Creation",
   lede:
     "Ground Level Contracting prepares land for development — delivering excavation, foundations, drainage, and civil infrastructure for project managers and site supervisors across Barrie, Midland, Orillia, and Simcoe County.",
-  primaryCta: { label: "Request a Quote", href: "tel:+17056194902" },
-  secondaryCta: { label: "View Services", href: "#services" },
+  primaryCta: {
+    label: "Request a Quote",
+    href: "tel:+17056194902",
+    sub: "CALL NOW — FREE ESTIMATE",
+  },
+  secondaryCta: {
+    label: "View Services",
+    href: "#services",
+    sub: "SCROLL TO SERVICE LINES",
+  },
   stats: [
     { value: "15+", label: "Years of Field Experience" },
     { value: "500+", label: "Commercial Projects Completed" },
@@ -30,12 +38,32 @@ export const COPY_LAB_HERO = {
   coverageTags: ["Barrie", "Midland", "Orillia", "Simcoe County"] as const,
   /** Order matches role map; slugs align with canonical service detail routes. */
   serviceShortcuts: [
-    { label: "Excavation & Site Prep", slug: "excavation-site-preparation" },
-    { label: "Site Prep & Grading", slug: "site-preparation-grading" },
-    { label: "Foundations & Civil", slug: "foundations-civil-infrastructure" },
-    { label: "Drainage & Hardscaping", slug: "drainage-hardscaping" },
-    { label: "Hauling & Clearing", slug: "hauling-site-clearing-logistics" },
-    { label: "Snow Removal", slug: "snow-removal" },
+    {
+      label: "Excavation & Site Prep",
+      slug: "excavation-site-preparation",
+      sub: "DIGS · CLEARING · MOBILIZATION",
+    },
+    {
+      label: "Site Prep & Grading",
+      slug: "site-preparation-grading",
+      sub: "PADS · ROADS · FINISH GRADE",
+    },
+    {
+      label: "Foundations & Civil",
+      slug: "foundations-civil-infrastructure",
+      sub: "FOOTINGS · UTILITIES · CIVIL",
+    },
+    {
+      label: "Drainage & Hardscaping",
+      slug: "drainage-hardscaping",
+      sub: "WATER · WALLS · HARDSCAPE",
+    },
+    {
+      label: "Hauling & Clearing",
+      slug: "hauling-site-clearing-logistics",
+      sub: "AGGREGATE · SPOILS · LOGISTICS",
+    },
+    { label: "Snow Removal", slug: "snow-removal", sub: "COMMERCIAL WINTER OPS" },
   ] as const,
 } as const;
 

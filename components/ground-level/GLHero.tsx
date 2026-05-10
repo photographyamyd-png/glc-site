@@ -5,6 +5,7 @@ import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { ThreeActHeadline } from "@/components/ui/ThreeActHeadline";
 import { HERO, MARQUEE_PHRASES } from "@/lib/ground-level/homepage-copy";
 import type { PrimaryServiceSlug } from "@/lib/site/registry";
+import { cn } from "@/lib/utils";
 
 export type GLHeroStat = string | { value: string; label: string };
 
@@ -17,11 +18,19 @@ export type GLHeroContent = {
   stats: readonly GLHeroStat[];
   serviceCoverageLabel: string;
   serviceBarLabels?: readonly string[];
-  serviceShortcuts?: readonly { label: string; slug: PrimaryServiceSlug }[];
-  primaryCta: { label: string; href: string };
-  secondaryCta: { label: string; href: string };
+  serviceShortcuts?: readonly { label: string; slug: PrimaryServiceSlug; sub?: string }[];
+  primaryCta: { label: string; href: string; sub?: string };
+  secondaryCta: { label: string; href: string; sub?: string };
   marqueePhrases: readonly string[];
 };
+
+function heroTrustSublineForCta(href: string, fallback?: string) {
+  if (fallback) return fallback;
+  if (href.startsWith("tel:")) return "CALL NOW — FREE ESTIMATE";
+  if (href.startsWith("#")) return "SCROLL TO SECTION";
+  if (href.includes("contact")) return "BOOK A CONSULTATION";
+  return "CONTINUE";
+}
 
 function defaultHeroContent(): GLHeroContent {
   return {
@@ -278,60 +287,108 @@ export function GLHero({
             ))}
           </div>
           <p className="mt-6 eyebrow text-white">{c.serviceCoverageLabel}</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {shortcuts
-              ? shortcuts.map((item) => (
-                  <Link
-                    key={item.slug}
-                    href={`/services/${item.slug}`}
-                    className="eyebrow border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-white transition-colors hover:border-[color:var(--y)]/45"
-                  >
-                    {item.label}
-                  </Link>
-                ))
-              : barLabels
-                ? barLabels.map((label) => (
-                    <span
-                      key={label}
-                      className="eyebrow border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-white"
+          {shortcuts?.length ? (
+            <div className="mt-3 border-t-4 border-[color:var(--y)] bg-[var(--ink-deep)]">
+              <div className="border-t border-white/10">
+                <div className="grid grid-cols-2 gap-px bg-white/10 md:grid-cols-3">
+                  {shortcuts.map((item) => (
+                    <Link
+                      key={item.slug}
+                      href={`/services/${item.slug}`}
+                      className={cn(
+                        "group block min-h-[44px] bg-[var(--ink-deep)] px-4 py-6 outline-none transition-colors sm:px-6 sm:py-8",
+                        "focus-visible:ring-2 focus-visible:ring-[color:var(--y)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ink-deep)]",
+                        "hover:bg-[rgb(255_255_255/0.05)]",
+                      )}
                     >
-                      {label}
-                    </span>
-                  ))
-                : null}
+                      <p className="font-serif text-xl font-bold leading-snug text-[color:var(--y)] line-clamp-2 sm:text-2xl">
+                        {item.label}
+                      </p>
+                      <p className="mt-3 eyebrow text-white">{item.sub ?? "VIEW SERVICE →"}</p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : barLabels?.length ? (
+            <div className="mt-3 border-t-4 border-[color:var(--y)] bg-[var(--ink-deep)]">
+              <div className="border-t border-white/10">
+                <div className="grid grid-cols-2 gap-px bg-white/10 md:grid-cols-3">
+                  {barLabels.map((label) => (
+                    <div key={label} className="bg-[var(--ink-deep)] px-4 py-6 sm:px-6 sm:py-8">
+                      <p className="font-serif text-xl font-bold leading-snug text-[color:var(--y)] line-clamp-2 sm:text-2xl">
+                        {label}
+                      </p>
+                      <p className="mt-3 eyebrow text-white/70">SERVICE LINE</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : null}
+
+          <div className="mt-8 border-t-4 border-[color:var(--y)] bg-[var(--ink-deep)]">
+            <div className="grid grid-cols-1 gap-px border-t border-white/10 bg-white/10 sm:grid-cols-2">
+              {isInternalRoute(c.primaryCta.href) ? (
+                <Link
+                  href={c.primaryCta.href}
+                  className={cn(
+                    "group block min-h-[44px] bg-[var(--ink-deep)] px-4 py-8 outline-none transition-colors sm:px-6 sm:py-10",
+                    "focus-visible:ring-2 focus-visible:ring-[color:var(--y)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ink-deep)]",
+                    "hover:bg-[rgb(255_255_255/0.05)]",
+                  )}
+                >
+                  <p className="font-serif text-2xl font-bold text-[color:var(--y)]">{c.primaryCta.label}</p>
+                  <p className="mt-3 eyebrow text-white">
+                    {heroTrustSublineForCta(c.primaryCta.href, c.primaryCta.sub)}
+                  </p>
+                </Link>
+              ) : (
+                <a
+                  href={c.primaryCta.href}
+                  className={cn(
+                    "group block min-h-[44px] bg-[var(--ink-deep)] px-4 py-8 outline-none transition-colors sm:px-6 sm:py-10",
+                    "focus-visible:ring-2 focus-visible:ring-[color:var(--y)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ink-deep)]",
+                    "hover:bg-[rgb(255_255_255/0.05)]",
+                  )}
+                >
+                  <p className="font-serif text-2xl font-bold text-[color:var(--y)]">{c.primaryCta.label}</p>
+                  <p className="mt-3 eyebrow text-white">
+                    {heroTrustSublineForCta(c.primaryCta.href, c.primaryCta.sub)}
+                  </p>
+                </a>
+              )}
+              {isInternalRoute(c.secondaryCta.href) ? (
+                <Link
+                  href={c.secondaryCta.href}
+                  className={cn(
+                    "group block min-h-[44px] bg-[var(--ink-deep)] px-4 py-8 outline-none transition-colors sm:px-6 sm:py-10",
+                    "focus-visible:ring-2 focus-visible:ring-[color:var(--y)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ink-deep)]",
+                    "hover:bg-[rgb(255_255_255/0.05)]",
+                  )}
+                >
+                  <p className="font-serif text-2xl font-bold text-[color:var(--y)]">{c.secondaryCta.label}</p>
+                  <p className="mt-3 eyebrow text-white">
+                    {heroTrustSublineForCta(c.secondaryCta.href, c.secondaryCta.sub)}
+                  </p>
+                </Link>
+              ) : (
+                <a
+                  href={c.secondaryCta.href}
+                  className={cn(
+                    "group block min-h-[44px] bg-[var(--ink-deep)] px-4 py-8 outline-none transition-colors sm:px-6 sm:py-10",
+                    "focus-visible:ring-2 focus-visible:ring-[color:var(--y)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ink-deep)]",
+                    "hover:bg-[rgb(255_255_255/0.05)]",
+                  )}
+                >
+                  <p className="font-serif text-2xl font-bold text-[color:var(--y)]">{c.secondaryCta.label}</p>
+                  <p className="mt-3 eyebrow text-white">
+                    {heroTrustSublineForCta(c.secondaryCta.href, c.secondaryCta.sub)}
+                  </p>
+                </a>
+              )}
+            </div>
           </div>
-        </div>
-        <div className="hero-cta-row mt-8 flex min-h-[76px] flex-col gap-3 sm:flex-row sm:items-center sm:gap-4 lg:mt-6">
-          {isInternalRoute(c.primaryCta.href) ? (
-            <Link
-              href={c.primaryCta.href}
-              className="cta-hero-fill px-6 py-4 text-center text-sm font-semibold tracking-wide sm:min-w-[200px]"
-            >
-              {c.primaryCta.label}
-            </Link>
-          ) : (
-            <a
-              href={c.primaryCta.href}
-              className="cta-hero-fill px-6 py-4 text-center text-sm font-semibold tracking-wide sm:min-w-[200px]"
-            >
-              {c.primaryCta.label}
-            </a>
-          )}
-          {isInternalRoute(c.secondaryCta.href) ? (
-            <Link
-              href={c.secondaryCta.href}
-              className="cta-outline-light px-6 py-3.5 text-center text-sm font-semibold tracking-wide transition-colors"
-            >
-              {c.secondaryCta.label}
-            </Link>
-          ) : (
-            <a
-              href={c.secondaryCta.href}
-              className="cta-outline-light px-6 py-3.5 text-center text-sm font-semibold tracking-wide transition-colors"
-            >
-              {c.secondaryCta.label}
-            </a>
-          )}
         </div>
         {showMarquee ? (
           <div

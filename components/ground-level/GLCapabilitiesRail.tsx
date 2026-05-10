@@ -7,17 +7,7 @@ import type { GroundLevelService } from "@/lib/ground-level/services";
 import { getServiceImage } from "@/lib/site/service-images";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
-
-function serviceTitleToneOnDark(title: string) {
-  const [left, right] = title.split("&");
-  if (!right) return <>{title}</>;
-  return (
-    <>
-      <span className="text-white">{left.trim()} &</span>{" "}
-      <span className="text-[color:var(--y)]">{right.trim()}</span>
-    </>
-  );
-}
+import { cn } from "@/lib/utils";
 
 function serviceTitleToneOnCanvas(title: string) {
   const [left, right] = title.split("&");
@@ -106,34 +96,49 @@ export function GLCapabilitiesRail({
         </div>
 
         <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,260px)_minmax(0,1fr)] lg:gap-12 lg:items-start">
-          <div
-            className="flex flex-col gap-2 border-white/12 lg:border-r lg:pr-8"
-            role="tablist"
-            aria-label="Choose a capability line"
-          >
-            {services.map((s, i) => {
-              const isSel = selected === i;
-              return (
-                <button
-                  key={s.slug}
-                  type="button"
-                  role="tab"
-                  id={`${baseId}-rail-${i}`}
-                  aria-selected={isSel}
-                  aria-controls={`${baseId}-rail-panel-${i}`}
-                  tabIndex={isSel ? 0 : -1}
-                  onClick={() => setSelected(i)}
-                  onKeyDown={(e) => onKeyDown(e, i)}
-                  className={`min-h-[48px] w-full px-4 py-3 text-left eyebrow transition-[background,border-color,box-shadow] ${
-                    isSel
-                      ? "border border-[color:var(--y)]/55 bg-[rgb(255_255_255/0.1)] text-white shadow-[0_12px_32px_rgb(0_0_0/0.35)]"
-                      : "border border-white/10 bg-[rgb(255_255_255/0.04)] text-white/70 hover:border-[color:var(--y)]/35 hover:text-white"
-                  }`}
-                >
-                  <span className="line-clamp-3">{serviceTitleToneOnDark(s.title)}</span>
-                </button>
-              );
-            })}
+          <div className="overflow-hidden border-t-4 border-[color:var(--y)] bg-[var(--ink-deep)] lg:border-r lg:border-white/12 lg:pr-8">
+            <div className="flex flex-col gap-px bg-white/10" role="tablist" aria-label="Choose a capability line">
+              {services.map((s, i) => {
+                const isSel = selected === i;
+                return (
+                  <button
+                    key={s.slug}
+                    type="button"
+                    role="tab"
+                    id={`${baseId}-rail-${i}`}
+                    aria-selected={isSel}
+                    aria-controls={`${baseId}-rail-panel-${i}`}
+                    tabIndex={isSel ? 0 : -1}
+                    onClick={() => setSelected(i)}
+                    onKeyDown={(e) => onKeyDown(e, i)}
+                    className={cn(
+                      "min-h-[52px] w-full px-4 py-3 text-left outline-none transition-[background,border-color,box-shadow]",
+                      "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[color:var(--y)]",
+                      isSel
+                        ? "border border-[color:var(--y)]/55 bg-[rgb(255_255_255/0.1)] shadow-[0_12px_32px_rgb(0_0_0/0.35)]"
+                        : "border border-transparent bg-[var(--ink-deep)] hover:border-[color:var(--y)]/35 hover:bg-[rgb(255_255_255/0.06)]",
+                    )}
+                  >
+                    <p
+                      className={cn(
+                        "font-serif text-lg font-bold uppercase leading-snug tracking-tight line-clamp-3 sm:text-xl",
+                        isSel ? "text-[color:var(--y)]" : "text-[color:var(--y)]/80",
+                      )}
+                    >
+                      {s.title}
+                    </p>
+                    <p
+                      className={cn(
+                        "mt-2 eyebrow",
+                        isSel ? "text-white" : "text-white/60",
+                      )}
+                    >
+                      SERVICE DETAIL
+                    </p>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           <div className="relative min-h-[280px] lg:min-h-[360px]">
