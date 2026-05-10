@@ -4,8 +4,13 @@ import { DrainageHardscapingPage } from "@/components/templates/DrainageHardscap
 import { ExcavationSitePreparationPage } from "@/components/templates/ExcavationSitePreparationPage";
 import { ServicePageTemplate } from "@/components/templates/ServicePageTemplate";
 import { SERVICE_DETAILS } from "@/lib/site/copy";
+import {
+  DRAINAGE_LANDING_SEO,
+  drainageCanonicalUrl,
+  drainagePagePath,
+} from "@/lib/site/drainage-hardscaping-landing-content";
 import { ALL_SERVICES, PRIMARY_SERVICES, SEO_TITLES, type PrimaryServiceSlug } from "@/lib/site/registry";
-import { buildPageMetadata } from "@/lib/site/metadata";
+import { buildPageMetadata, getSiteUrl } from "@/lib/site/metadata";
 
 export function generateStaticParams() {
   return ALL_SERVICES.map((service) => ({ slug: service.slug }));
@@ -23,6 +28,35 @@ export async function generateMetadata({
       title: "Service | Ground Level Contracting",
       description: "Ground Level Contracting service information for commercial site operations.",
       path: "/services/",
+    });
+  }
+
+  if (service.slug === "drainage-hardscaping") {
+    const siteUrl = getSiteUrl().replace(/\/$/, "");
+    const ogImageUrl = `${siteUrl}${DRAINAGE_LANDING_SEO.ogImagePath}`;
+    const canonical = drainageCanonicalUrl();
+    return buildPageMetadata({
+      title: DRAINAGE_LANDING_SEO.title,
+      description: DRAINAGE_LANDING_SEO.description,
+      path: drainagePagePath,
+      canonicalUrl: canonical,
+      alternatesLanguages: {
+        "en-CA": canonical,
+        "x-default": canonical,
+      },
+      openGraphExtra: {
+        title: DRAINAGE_LANDING_SEO.ogTitle,
+        description: DRAINAGE_LANDING_SEO.ogDescription,
+        url: canonical,
+        images: [{ url: ogImageUrl, width: 1200, height: 630 }],
+        locale: "en_CA",
+        siteName: "Ground Level Contracting",
+      },
+      twitterExtra: {
+        title: DRAINAGE_LANDING_SEO.twitterTitle,
+        description: DRAINAGE_LANDING_SEO.twitterDescription,
+        images: [ogImageUrl],
+      },
     });
   }
 

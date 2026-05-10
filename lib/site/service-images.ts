@@ -19,8 +19,9 @@ const SERVICE_IMAGES: Record<PrimaryServiceSlug, ServiceImage> = {
     alt: "Foundation excavation and civil infrastructure preparation on a commercial site",
   },
   "drainage-hardscaping": {
-    src: "/images/services/Drainage-and-Hardscaping/drainage-hardscaping-008.jpg",
-    alt: "Commercial drainage and hardscaping base preparation with compacted aggregate",
+    src: "/images/services/Drainage-and-Hardscaping/drainage-hardscaping-001.jpg",
+    alt:
+      "Drainage hardscaping and landscaping contractor Barrie Ontario armour stone retaining wall interlock patio",
   },
   "hauling-site-clearing-logistics": {
     src: "/images/services/Hauling/hauling-001.jpg",
