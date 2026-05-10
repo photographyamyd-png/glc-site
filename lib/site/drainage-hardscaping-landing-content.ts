@@ -294,7 +294,7 @@ We design and install french drains, swales, catch basins, channel drains, and c
 
 export const DRAINAGE_RETAINING_WALLS = {
   id: "retaining-walls",
-  eyebrow: "ARMOUR · BLOCK · CONCRETE · ENGINEERED",
+  eyebrow: "BARRIE & SIMCOE COUNTY",
   h2: "Retaining Walls in Barrie & Simcoe County — Armour Stone, Block, Concrete & Engineered Solutions",
   intro: `A retaining wall does two jobs simultaneously: it holds back earth and it makes a statement. At Ground Level Contracting, we design and build retaining walls that accomplish both — from natural armour stone walls that integrate seamlessly into rural and lakeside landscapes, to precision-engineered block systems suited to residential grade changes and commercial applications, to structural concrete walls for high-load and high-height requirements.`,
   intro2: `Every retaining wall we build includes proper drainage behind the wall — because without it, even the most well-built wall will eventually fail. Hydrostatic pressure from water trapped in saturated backfill is responsible for the majority of premature retaining wall failures in Ontario. We size our walls correctly for the load they carry, prepare our base to the depth the site requires, and install crushed stone drainage backfill, weep holes, and perforated pipe as standard practice on every wall — regardless of height or material. Where a wall is part of a broader hardscaping and landscaping project, we integrate the drainage system across the full site from day one.`,
@@ -303,7 +303,7 @@ export const DRAINAGE_RETAINING_WALLS = {
       label: "Armour Stone",
       summary: `Armour stone retaining walls are among the most durable and visually compelling options available in Central Ontario. Each large natural limestone or granite stone — typically weighing hundreds to thousands of kilograms — is set precisely to lock the wall together without mortar, distributing load evenly and allowing natural drainage through the structure.`,
       expandTrigger: "Read the full armour stone detail →",
-      expand: `Armour stone retaining walls are among the most durable and visually compelling options available in Central Ontario. Each large natural limestone or granite stone — typically weighing hundreds to thousands of kilograms — is set precisely to lock the wall together without mortar, distributing load evenly and allowing natural drainage through the structure. The result is a wall that will not shift, will not sag, and looks better with every passing year as it weathers into the landscape.
+      expand: `The result is a wall that will not shift, will not sag, and looks better with every passing year as it weathers into the landscape.
 
 Armour stone is ideally suited for lakeside properties, rural estates, sloped driveways, and high-end residential landscaping projects where a natural, substantial, permanently stable wall is the priority. The scale and weight of the material makes it inherently resistant to frost heave and lateral soil pressure — the two forces that destroy smaller-scale wall systems over time. When combined with terraced planting zones or natural stone steps, armour stone walls become defining features of a landscape rather than functional afterthoughts.
 
@@ -314,7 +314,7 @@ We source armour stone from regional quarries where possible, and our equipment 
       label: "Block & Concrete",
       summary: `Segmental concrete block retaining walls — manufactured by brands including Unilock, Risi, and Allan Block — offer engineered performance, clean modern lines, and structural load ratings for walls up to and beyond 1.2 metres.`,
       expandTrigger: "See block, concrete & engineered wall details →",
-      expand: `Segmental concrete block retaining walls — manufactured by brands including Unilock, Risi, and Allan Block — offer engineered performance, clean modern lines, and structural load ratings for walls up to and beyond 1.2 metres. Ideal for residential grade separations, garden terracing, pool surrounds, and commercial applications where a uniform, refined appearance integrates well with surrounding hardscaping and landscaping, block walls can be curved, stepped, or built in tiers to suit complex site geometries.
+      expand: `Ideal for residential grade separations, garden terracing, pool surrounds, and commercial applications where a uniform, refined appearance integrates well with surrounding hardscaping and landscaping, block walls can be curved, stepped, or built in tiers to suit complex site geometries.
 
 Block wall systems are engineered products with published installation specifications. We follow manufacturer guidelines for base preparation, geogrid reinforcement schedules, and drainage requirements — ensuring the warranty and structural performance the product is rated for.
 
@@ -325,7 +325,7 @@ For applications requiring maximum structural strength — steep slopes carrying
       label: "Engineered",
       summary: `Walls exceeding standard height thresholds, walls supporting structures, roads, or driveways, or sites with complex loading conditions require engineer-stamped design drawings under the Ontario Building Code.`,
       expandTrigger: "See engineered wall requirements & our process →",
-      expand: `Walls exceeding standard height thresholds, walls supporting structures, roads, or driveways, or sites with complex loading conditions require engineer-stamped design drawings under the Ontario Building Code. Ground Level Contracting coordinates with structural engineers to design and build retaining walls that meet code requirements — including geogrid-reinforced earth systems, sheet pile solutions, and modular gravity wall systems — and obtains the required permits and inspections as part of the project scope.
+      expand: `Ground Level Contracting coordinates with structural engineers to design and build retaining walls that meet code requirements — including geogrid-reinforced earth systems, sheet pile solutions, and modular gravity wall systems — and obtains the required permits and inspections as part of the project scope.
 
 If your project requires a building permit for a retaining wall, we manage that process on your behalf.`,
       subHref: "/services/retaining-walls-barrie",
@@ -334,7 +334,7 @@ If your project requires a building permit for a retaining wall, we manage that 
       label: "Lakeside & Waterfront",
       summary: `Shoreline and waterfront retaining walls on Lake Simcoe, Kempenfelt Bay, and throughout Simcoe County serve a dual purpose: they protect the land from erosion while defining the boundary between improved property and the water.`,
       expandTrigger: "Read the full lakeside wall detail →",
-      expand: `Shoreline and waterfront retaining walls on Lake Simcoe, Kempenfelt Bay, and throughout Simcoe County serve a dual purpose: they protect the land from erosion while defining the boundary between improved property and the water. Armour stone is the preferred material for most shoreline applications — its mass, permeability, and natural appearance make it structurally suited to wave and ice pressure and aesthetically appropriate for waterfront landscaping settings.
+      expand: `Armour stone is the preferred material for most shoreline applications — its mass, permeability, and natural appearance make it structurally suited to wave and ice pressure and aesthetically appropriate for waterfront landscaping settings.
 
 We regularly build and rebuild shoreline retaining walls for lakefront homeowners across the Simcoe County region. These projects often require site-specific engineering, environmental consideration for materials near the water, and coordination with applicable regulatory requirements. We have experience navigating these requirements and can advise on the permitting process as part of the project planning phase.`,
       subHref: "/services/retaining-walls-barrie",

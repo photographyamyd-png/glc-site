@@ -40,11 +40,11 @@ export function StickyTabBox({ tabs, ariaLabel }: { tabs: StickyTabItem[]; ariaL
   );
 
   return (
-    <div className="relative border border-[color:var(--g200)] bg-white">
+    <div className="relative isolate overflow-hidden border border-[color:var(--g200)] bg-white">
       <div
         role="tablist"
         aria-label={ariaLabel ?? "Section tabs"}
-        className="band-dark-field sticky top-[var(--header)] z-20 flex gap-2 overflow-x-auto border-b border-white/10 px-4 py-0 sm:px-6 lg:px-8"
+        className="band-dark-field sticky top-[var(--header)] z-10 flex gap-2 overflow-x-auto border-b border-white/10 px-4 py-2 sm:px-6 sm:py-3 lg:px-8"
       >
         {tabs.map((tab, i) => {
           const isSel = selected === i;
@@ -63,7 +63,7 @@ export function StickyTabBox({ tabs, ariaLabel }: { tabs: StickyTabItem[]; ariaL
                 "min-h-[44px] shrink-0 whitespace-nowrap border-b-[4px] px-3 py-2 eyebrow transition-colors sm:px-4",
                 isSel
                   ? "border-[color:var(--y)] text-[color:var(--y)]"
-                  : "border-transparent text-white/55 hover:text-white",
+                  : "border-transparent text-white/80 hover:text-white",
               )}
             >
               {tab.label}
@@ -80,7 +80,7 @@ export function StickyTabBox({ tabs, ariaLabel }: { tabs: StickyTabItem[]; ariaL
             id={`${baseId}-panel-${i}`}
             aria-labelledby={`${baseId}-tab-${i}`}
             hidden={!isSel}
-            className="band-light border-t border-[color:var(--g200)] p-8 motion-safe:transition-opacity motion-safe:duration-150 motion-safe:ease-out lg:p-10"
+            className="band-light border-t border-[color:var(--g200)] px-4 py-10 motion-safe:transition-opacity motion-safe:duration-150 motion-safe:ease-out sm:px-6 sm:py-12 lg:px-10 lg:py-[var(--s12)]"
           >
             {tab.content}
           </div>

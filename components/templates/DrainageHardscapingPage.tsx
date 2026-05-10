@@ -114,6 +114,51 @@ function renderBoldLines(text: string) {
   });
 }
 
+/** Compositional anchor column for retaining wall tab panels (design-system §4). */
+function RetainingWallTabSidecar({ tabIndex }: { tabIndex: number }) {
+  if (tabIndex === 3) {
+    return (
+      <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)]">
+        <Image src={DRAINAGE_IMAGES.wallLake1.src} alt={DRAINAGE_IMAGES.wallLake1.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw,100vw" />
+      </div>
+    );
+  }
+  if (tabIndex === 2) {
+    return (
+      <div className="grid gap-4">
+        <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)]">
+          <Image src={DRAINAGE_IMAGES.wallBlock1.src} alt={DRAINAGE_IMAGES.wallBlock1.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw,100vw" />
+        </div>
+        <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)]">
+          <Image src={DRAINAGE_IMAGES.wallBlock2.src} alt={DRAINAGE_IMAGES.wallBlock2.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw,100vw" />
+        </div>
+      </div>
+    );
+  }
+  if (tabIndex === 1) {
+    return (
+      <div className="grid gap-4 sm:grid-cols-1">
+        <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)]">
+          <Image src={DRAINAGE_IMAGES.wallBlock1.src} alt={DRAINAGE_IMAGES.wallBlock1.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw,100vw" />
+        </div>
+        <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)]">
+          <Image src={DRAINAGE_IMAGES.wallBlock2.src} alt={DRAINAGE_IMAGES.wallBlock2.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw,100vw" />
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="grid gap-4 sm:grid-cols-1">
+      <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)]">
+        <Image src={DRAINAGE_IMAGES.wallArmour1.src} alt={DRAINAGE_IMAGES.wallArmour1.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw,100vw" />
+      </div>
+      <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)]">
+        <Image src={DRAINAGE_IMAGES.wallArmour2.src} alt={DRAINAGE_IMAGES.wallArmour2.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw,100vw" />
+      </div>
+    </div>
+  );
+}
+
 export function DrainageHardscapingPage({ service, related }: Props) {
   void service;
   void related;
@@ -367,79 +412,64 @@ export function DrainageHardscapingPage({ service, related }: Props) {
 
       <SiteDrainageDesignClient sectionId={DRAINAGE_SITE_DRAINAGE.id} />
 
-      {/* Retaining walls — intro2 is longform; split + sidecar anchor (copy-writing §46–49, design-system §4). */}
-      <section className="section-major band-light scroll-mt-[var(--header)] pb-0" id={DRAINAGE_RETAINING_WALLS.id} aria-labelledby="walls-h2">
-        <div className="mx-auto max-w-[min(100%,var(--max))] px-4 pb-10 sm:px-6 lg:px-10">
+      {/* Retaining walls — intro split from md; tabs use 12-col narrative + sidecar; section-major bottom padding preserved (no pb-0). */}
+      <section
+        className="section-major band-light scroll-mt-[var(--header)] border-t border-[color:var(--g200)]"
+        id={DRAINAGE_RETAINING_WALLS.id}
+        aria-labelledby="walls-h2"
+      >
+        <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <YellowRule className="mb-8" />
           <SectionEyebrow text={DRAINAGE_RETAINING_WALLS.eyebrow} band="light" />
-          <h2 id="walls-h2" className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase text-ink sm:text-[clamp(36px,3.5vw,52px)]">
+          <h2
+            id="walls-h2"
+            className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-[clamp(36px,3.5vw,52px)]"
+          >
             {DRAINAGE_RETAINING_WALLS.h2}
           </h2>
-          <div className="mt-6 grid gap-12 lg:grid-cols-12 lg:gap-12">
-            <div className={`space-y-4 lg:col-span-7 ${bodyLight}`}>
+          <div className="mt-6 grid gap-10 md:grid-cols-12 md:gap-12">
+            <div className={`min-w-0 space-y-4 md:col-span-7 ${bodyLight}`}>
               <p>{DRAINAGE_RETAINING_WALLS.intro}</p>
               <p>{DRAINAGE_RETAINING_WALLS.intro2}</p>
             </div>
-            <div className="relative min-h-[200px] lg:col-span-5">
-              <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)] lg:sticky lg:top-[calc(var(--header)+24px)] lg:aspect-auto lg:min-h-[320px]">
+            <div className="relative min-h-[200px] md:col-span-5">
+              <div className="relative isolate z-0 aspect-[4/3] max-h-[min(70vh,400px)] overflow-hidden border border-[color:var(--g200)] md:sticky md:top-[calc(var(--header)+24px)] md:max-h-none md:aspect-auto md:min-h-[300px] lg:min-h-[320px]">
                 <Image
                   src={DRAINAGE_IMAGES.wallArmour1.src}
                   alt={DRAINAGE_IMAGES.wallArmour1.alt}
                   fill
                   className="object-cover"
-                  sizes="(min-width:1024px) 40vw,100vw"
+                  sizes="(min-width:768px) 40vw,100vw"
                 />
               </div>
             </div>
           </div>
         </div>
-        <div className="mx-auto max-w-[min(100%,var(--max))] px-0 sm:px-0 lg:px-10">
+        <div className="mx-auto mt-12 max-w-[min(100%,var(--max))] px-4 sm:mt-14 sm:px-6 lg:mt-16 lg:px-10">
           <StickyTabBox
             ariaLabel="Retaining wall types"
             tabs={DRAINAGE_RETAINING_WALLS.tabs.map((tab, ti) => ({
               label: tab.label,
               content: (
-                <div className="space-y-8">
-                  <p className={bodyLight}>{tab.summary}</p>
-                  {ti !== 2 && (
-                    <div className={cn("grid gap-4", ti === 3 ? "sm:grid-cols-1" : "sm:grid-cols-2")}>
-                      {ti === 0 && (
-                        <>
-                          <div className="relative aspect-[4/3] border border-[color:var(--g200)]">
-                            <Image src={DRAINAGE_IMAGES.wallArmour1.src} alt={DRAINAGE_IMAGES.wallArmour1.alt} fill className="object-cover" sizes="50vw" />
-                          </div>
-                          <div className="relative aspect-[4/3] border border-[color:var(--g200)]">
-                            <Image src={DRAINAGE_IMAGES.wallArmour2.src} alt={DRAINAGE_IMAGES.wallArmour2.alt} fill className="object-cover" sizes="50vw" />
-                          </div>
-                        </>
-                      )}
-                      {ti === 1 && (
-                        <>
-                          <div className="relative aspect-[4/3] border border-[color:var(--g200)]">
-                            <Image src={DRAINAGE_IMAGES.wallBlock1.src} alt={DRAINAGE_IMAGES.wallBlock1.alt} fill className="object-cover" sizes="50vw" />
-                          </div>
-                          <div className="relative aspect-[4/3] border border-[color:var(--g200)]">
-                            <Image src={DRAINAGE_IMAGES.wallBlock2.src} alt={DRAINAGE_IMAGES.wallBlock2.alt} fill className="object-cover" sizes="50vw" />
-                          </div>
-                        </>
-                      )}
-                      {ti === 3 && (
-                        <div className="relative aspect-[4/3] border border-[color:var(--g200)]">
-                          <Image src={DRAINAGE_IMAGES.wallLake1.src} alt={DRAINAGE_IMAGES.wallLake1.alt} fill className="object-cover" sizes="100vw" />
-                        </div>
-                      )}
+                <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+                  <div className="min-w-0 space-y-8 lg:col-span-7">
+                    <p className={bodyLight}>{tab.summary}</p>
+                    <ExpandSection band="light" summary={null} triggerLabel={tab.expandTrigger} className="border-t border-[color:var(--g200)]">
+                      <div className={`space-y-4 ${bodyLight}`}>
+                        {tab.expand.split("\n\n").map((p) => (
+                          <p key={p.slice(0, 50)}>{p}</p>
+                        ))}
+                      </div>
+                    </ExpandSection>
+                    <Link href={tab.subHref} className="eyebrow inline-block text-[color:var(--y)]">
+                      Learn more about our Retaining Wall service page →
+                    </Link>
+                  </div>
+                  <div className="lg:col-span-5">
+                    <div className="space-y-4 lg:sticky lg:top-[calc(var(--header)+4.25rem)]">
+                      <RetainingWallTabSidecar tabIndex={ti} />
                     </div>
-                  )}
-                  <ExpandSection band="light" summary={null} triggerLabel={tab.expandTrigger} className="border-t">
-                    <div className={`space-y-4 ${bodyLight}`}>
-                      {tab.expand.split("\n\n").map((p) => (
-                        <p key={p.slice(0, 50)}>{p}</p>
-                      ))}
-                    </div>
-                  </ExpandSection>
-                  <Link href={tab.subHref} className="eyebrow text-[color:var(--y)]">
-                    Learn more about our Retaining Wall service page →
-                  </Link>
+                  </div>
                 </div>
               ),
             }))}
@@ -449,7 +479,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
 
       {/* Mid CTA */}
       <section
-        className="band-dark-field relative border-y-4 border-[color:var(--y)] py-14"
+        className="band-dark-field relative scroll-mt-[var(--header)] border-y-4 border-[color:var(--y)] py-[var(--s14)]"
         aria-labelledby="mid-cta-heading"
       >
         <div
@@ -459,12 +489,15 @@ export function DrainageHardscapingPage({ service, related }: Props) {
             backgroundImage: `repeating-linear-gradient(135deg, var(--y) 0, var(--y) 1px, transparent 1px, transparent 12px)`,
           }}
         />
-        <div className="relative z-10 mx-auto grid max-w-[min(100%,var(--max))] gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:px-10">
+        <div className="relative z-10 mx-auto grid max-w-[min(100%,var(--max))] gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-10">
           <div className="lg:col-span-7">
-            <h2 id="mid-cta-heading" className="font-serif text-3xl font-semibold uppercase text-white sm:text-[32px]">
+            <h2
+              id="mid-cta-heading"
+              className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-[clamp(36px,3.5vw,52px)]"
+            >
               {DRAINAGE_MID_CTA.headline}
             </h2>
-            <p className={`mt-4 max-w-xl ${bodyDark}`}>{DRAINAGE_MID_CTA.sub}</p>
+            <p className={`mt-[var(--s7)] max-w-xl ${bodyDark}`}>{DRAINAGE_MID_CTA.sub}</p>
           </div>
           <div className="flex flex-col items-start gap-4 lg:col-span-5 lg:items-end lg:justify-center">
             <CTAButton variant="primary" href="/contact/">
