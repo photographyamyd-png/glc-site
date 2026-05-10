@@ -294,7 +294,7 @@ We design and install french drains, swales, catch basins, channel drains, and c
 
 export const DRAINAGE_RETAINING_WALLS = {
   id: "retaining-walls",
-  eyebrow: "RETAINING WALLS",
+  eyebrow: "ARMOUR · BLOCK · CONCRETE · ENGINEERED",
   h2: "Retaining Walls in Barrie & Simcoe County — Armour Stone, Block, Concrete & Engineered Solutions",
   intro: `A retaining wall does two jobs simultaneously: it holds back earth and it makes a statement. At Ground Level Contracting, we design and build retaining walls that accomplish both — from natural armour stone walls that integrate seamlessly into rural and lakeside landscapes, to precision-engineered block systems suited to residential grade changes and commercial applications, to structural concrete walls for high-load and high-height requirements.`,
   intro2: `Every retaining wall we build includes proper drainage behind the wall — because without it, even the most well-built wall will eventually fail. Hydrostatic pressure from water trapped in saturated backfill is responsible for the majority of premature retaining wall failures in Ontario. We size our walls correctly for the load they carry, prepare our base to the depth the site requires, and install crushed stone drainage backfill, weep holes, and perforated pipe as standard practice on every wall — regardless of height or material. Where a wall is part of a broader hardscaping and landscaping project, we integrate the drainage system across the full site from day one.`,
