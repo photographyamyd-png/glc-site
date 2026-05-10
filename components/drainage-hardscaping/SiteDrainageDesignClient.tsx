@@ -106,7 +106,7 @@ export function SiteDrainageDesignClient({ sectionId }: { sectionId: string }) {
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--ink-deep)] to-transparent" aria-hidden />
         </div>
       </div>
-      <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))]">
+      <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
         <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5 lg:max-w-none">
           <YellowRule className="mb-8" />
           <SectionEyebrow text={DRAINAGE_SITE_DRAINAGE.eyebrow} band="dark" />
@@ -132,7 +132,7 @@ export function SiteDrainageDesignClient({ sectionId }: { sectionId: string }) {
           ))}
         </div>
 
-        <div className="mt-10 max-w-3xl">
+        <div className="mt-10 w-full max-w-[75ch]">
           <ExpandSection
             band="dark"
             hashId={DRAINAGE_SITE_DRAINAGE.id}
