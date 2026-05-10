@@ -20,7 +20,8 @@ import {
   DRAINAGE_INTRO_INLINE_CTA,
   DRAINAGE_INTRO_PANEL_EYEBROW,
   DRAINAGE_INTRO_PANEL_LIST,
-  DRAINAGE_INTRO_VISIBLE,
+  DRAINAGE_INTRO_VISIBLE_P1,
+  DRAINAGE_INTRO_VISIBLE_P2,
   DRAINAGE_MID_CTA,
   DRAINAGE_PATIOS,
   DRAINAGE_PROCESS,
@@ -42,6 +43,17 @@ import { substituteGoogleReviewPlaceholders } from "@/lib/site/google-business-e
 import type { ServiceDef } from "@/lib/site/registry";
 import { cn } from "@/lib/utils";
 
+/**
+ * Drainage article layout contract (design-system Part II — do not double gutters):
+ * - **Gutter (Option A):** Every `<section className="section-major">` uses **`px-0`** so horizontal inset
+ *   comes only from the inner shell: `mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10`.
+ * - **Z-index:** atmosphere ≤0 (watermarks, motifs); section content `z-10`; sticky tablists `z-10`
+ *   inside `StickyTabBox`; sticky sidecars use `z-0` within their column. Avoid `overflow-hidden` on
+ *   ancestors of `position:sticky` unless clipping is intentional (tab box root is `overflow` visible).
+ * - **Tonal sequence:** dark hero+trust → light intro → dark service cards → light drain tile → dark
+ *   site drainage → light retaining → dark mid CTA → light patios → dark/light integration → dark why
+ *   choose → light process → dark service areas → light FAQ → dark trust → light related → dark final CTA.
+ */
 const bodyLight = "text-[15px] leading-[1.72] text-ink sm:text-base";
 const bodyDark = "text-[15px] leading-[1.72] text-white/90 sm:text-base";
 
@@ -159,6 +171,51 @@ function RetainingWallTabSidecar({ tabIndex }: { tabIndex: number }) {
   );
 }
 
+/** Compositional anchor column for patio tab panels (parity with RetainingWallTabSidecar). */
+function PatioTabSidecar({ tabIndex }: { tabIndex: number }) {
+  if (tabIndex === 0) {
+    return (
+      <div className="grid gap-4 sm:grid-cols-1">
+        <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)]">
+          <Image src={DRAINAGE_IMAGES.patioInterlock1.src} alt={DRAINAGE_IMAGES.patioInterlock1.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw,100vw" />
+        </div>
+        <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)]">
+          <Image src={DRAINAGE_IMAGES.patioInterlock2.src} alt={DRAINAGE_IMAGES.patioInterlock2.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw,100vw" />
+        </div>
+      </div>
+    );
+  }
+  if (tabIndex === 1) {
+    return (
+      <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)]">
+        <Image src={DRAINAGE_IMAGES.patioFlagstone.src} alt={DRAINAGE_IMAGES.patioFlagstone.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw,100vw" />
+      </div>
+    );
+  }
+  if (tabIndex === 2) {
+    return (
+      <div className="grid gap-4 sm:grid-cols-1">
+        <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)]">
+          <Image src={DRAINAGE_IMAGES.patioConcrete1.src} alt={DRAINAGE_IMAGES.patioConcrete1.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw,100vw" />
+        </div>
+        <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)]">
+          <Image src={DRAINAGE_IMAGES.patioConcrete2.src} alt={DRAINAGE_IMAGES.patioConcrete2.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw,100vw" />
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="grid gap-4 sm:grid-cols-1">
+      <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)]">
+        <Image src={DRAINAGE_IMAGES.steps1.src} alt={DRAINAGE_IMAGES.steps1.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw,100vw" />
+      </div>
+      <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)]">
+        <Image src={DRAINAGE_IMAGES.steps2.src} alt={DRAINAGE_IMAGES.steps2.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw,100vw" />
+      </div>
+    </div>
+  );
+}
+
 export function DrainageHardscapingPage({ service, related }: Props) {
   void service;
   void related;
@@ -187,7 +244,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
           <ClaudeLogicWatermark placement="bottom-right" className="z-[1] opacity-[0.18]" />
 
           <div className="relative z-10 mx-auto flex min-h-[min(100dvh,920px)] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-4 pb-10 pt-28 sm:px-6 sm:pb-12 lg:justify-between lg:px-10 lg:pb-16 lg:pt-[calc(var(--header)+3rem)]">
-            <div className="max-w-2xl pl-5">
+            <div className="max-w-[min(100%,var(--max))] rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:max-w-4xl lg:pt-10">
               <nav aria-label="Breadcrumb" className="hero-eyebrow eyebrow text-white/55">
                 <Link href="/" className="hover:text-[color:var(--y)]">
                   {DRAINAGE_HERO.breadcrumbHome}
@@ -244,14 +301,15 @@ export function DrainageHardscapingPage({ service, related }: Props) {
       </section>
 
       {/* 03 Intro */}
-      <section className="section-major band-light scroll-mt-[var(--header)] view-reveal" id="intro-value">
-        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))]">
+      <section className="section-major band-light scroll-mt-[var(--header)] view-reveal px-0" id="intro-value">
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-12">
             <div className="grid gap-10 lg:col-span-8 lg:grid-cols-12 lg:gap-8">
               <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5 lg:col-span-7">
                 <SectionEyebrow text={DRAINAGE_INTRO_EYEBROW} band="light" />
                 <div className={`mt-[var(--s7)] ${bodyLight}`}>
-                  <p>{DRAINAGE_INTRO_VISIBLE}</p>
+                  <p>{DRAINAGE_INTRO_VISIBLE_P1}</p>
+                  <p className="mt-4">{DRAINAGE_INTRO_VISIBLE_P2}</p>
                   <ExpandSection
                     band="light"
                     triggerLabel={DRAINAGE_INTRO_EXPAND_TRIGGER}
@@ -292,7 +350,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
       </section>
 
       {/* 04 Service cards */}
-      <section className="section-major band-dark-field relative overflow-hidden scroll-mt-[var(--header)]">
+      <section className="section-major band-dark-field relative overflow-hidden scroll-mt-[var(--header)] px-0">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.14] motion-reduce:opacity-[0.08]"
           aria-hidden
@@ -320,12 +378,12 @@ export function DrainageHardscapingPage({ service, related }: Props) {
       {/* 05 Drain tile */}
       <section
         id={DRAINAGE_DRAIN_TILE.id}
-        className="section-major band-light scroll-mt-[var(--header)]"
+        className="section-major band-light scroll-mt-[var(--header)] px-0"
         aria-labelledby="drain-tile-h2"
       >
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-12">
-            <div className="lg:col-span-7">
+          <div className="grid gap-12 md:grid-cols-12 md:gap-12">
+            <div className="md:col-span-7">
               <YellowRule className="mb-8" />
               <SectionEyebrow text={DRAINAGE_DRAIN_TILE.eyebrow} band="light" />
               <h2
@@ -401,9 +459,9 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                 {DRAINAGE_DRAIN_TILE.ghostCta}
               </Link>
             </div>
-            <div className="relative min-h-[280px] lg:col-span-5">
-              <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)] lg:sticky lg:top-[calc(var(--header)+24px)] lg:aspect-auto lg:min-h-[400px]">
-                <Image src={DRAINAGE_IMAGES.drainTileMain.src} alt={DRAINAGE_IMAGES.drainTileMain.alt} fill className="object-cover" sizes="(min-width:1024px) 40vw,100vw" />
+            <div className="relative min-h-[280px] md:col-span-5">
+              <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)] md:sticky md:top-[calc(var(--header)+24px)] md:aspect-auto md:min-h-[400px]">
+                <Image src={DRAINAGE_IMAGES.drainTileMain.src} alt={DRAINAGE_IMAGES.drainTileMain.alt} fill className="object-cover" sizes="(min-width:768px) 40vw,100vw" />
               </div>
             </div>
           </div>
@@ -414,7 +472,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
 
       {/* Retaining walls — intro split from md; tabs use 12-col narrative + sidecar; section-major bottom padding preserved (no pb-0). */}
       <section
-        className="section-major band-light scroll-mt-[var(--header)] border-t border-[color:var(--g200)]"
+        className="section-major band-light scroll-mt-[var(--header)] border-t border-[color:var(--g200)] px-0"
         id={DRAINAGE_RETAINING_WALLS.id}
         aria-labelledby="walls-h2"
       >
@@ -479,7 +537,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
 
       {/* Mid CTA */}
       <section
-        className="band-dark-field relative scroll-mt-[var(--header)] border-y-4 border-[color:var(--y)] py-[var(--s14)]"
+        className="band-dark-field relative scroll-mt-[var(--header)] border-y-4 border-[color:var(--y)] px-0 py-[var(--s14)]"
         aria-labelledby="mid-cta-heading"
       >
         <div
@@ -490,7 +548,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
           }}
         />
         <div className="relative z-10 mx-auto grid max-w-[min(100%,var(--max))] gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-10">
-          <div className="lg:col-span-7">
+          <div className="rounded-sm border border-white/10 bg-[rgb(10_12_11/0.35)] p-6 backdrop-blur-md sm:p-8 lg:col-span-7">
             <h2
               id="mid-cta-heading"
               className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-[clamp(36px,3.5vw,52px)]"
@@ -511,74 +569,84 @@ export function DrainageHardscapingPage({ service, related }: Props) {
       </section>
 
       {/* Patios */}
-      <section className="section-major band-light scroll-mt-[var(--header)] pb-0" id={DRAINAGE_PATIOS.id} aria-labelledby="patios-h2">
+      <section className="section-major band-light scroll-mt-[var(--header)] px-0" id={DRAINAGE_PATIOS.id} aria-labelledby="patios-h2">
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 pb-10 sm:px-6 lg:px-10">
           <YellowRule className="mb-8" />
           <SectionEyebrow text={DRAINAGE_PATIOS.eyebrow} band="light" />
           <h2 id="patios-h2" className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase text-ink sm:text-[clamp(36px,3.5vw,52px)]">
             {DRAINAGE_PATIOS.h2}
           </h2>
-          <div className={`mt-6 max-w-3xl space-y-4 ${bodyLight}`}>
-            <p>{DRAINAGE_PATIOS.intro}</p>
-            <p>{DRAINAGE_PATIOS.intro2}</p>
+          <div className="mt-6 grid gap-10 md:grid-cols-12 md:gap-12">
+            <div className={`min-w-0 space-y-4 md:col-span-7 ${bodyLight}`}>
+              <p>{DRAINAGE_PATIOS.intro}</p>
+              <p>{DRAINAGE_PATIOS.intro2}</p>
+            </div>
+            <div className="relative min-h-[200px] md:col-span-5">
+              <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)] md:sticky md:top-[calc(var(--header)+24px)] md:aspect-auto md:min-h-[280px]">
+                <Image
+                  src={DRAINAGE_IMAGES.patioInterlock1.src}
+                  alt={DRAINAGE_IMAGES.patioInterlock1.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width:768px) 40vw,100vw"
+                />
+              </div>
+            </div>
           </div>
         </div>
-        <div className="mx-auto max-w-[min(100%,var(--max))] lg:px-10">
+        <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <StickyTabBox
             ariaLabel="Patio and driveway types"
             tabs={DRAINAGE_PATIOS.tabs.map((tab, ti) => ({
               label: tab.label,
               content: (
-                <div className="space-y-8">
-                  <p className={bodyLight}>{tab.summary}</p>
-                  {"typeLabels" in tab && tab.typeLabels ? (
-                    <ul className="list-inside list-disc text-[15px] text-ink">
-                      {tab.typeLabels.map((t) => (
-                        <li key={t}>{t}</li>
-                      ))}
-                    </ul>
-                  ) : null}
-                  {ti === 0 && (
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <div className="relative aspect-[4/3] border border-[color:var(--g200)]">
-                        <Image src={DRAINAGE_IMAGES.patioInterlock1.src} alt={DRAINAGE_IMAGES.patioInterlock1.alt} fill className="object-cover" sizes="50vw" />
-                      </div>
-                      <div className="relative aspect-[4/3] border border-[color:var(--g200)]">
-                        <Image src={DRAINAGE_IMAGES.patioInterlock2.src} alt={DRAINAGE_IMAGES.patioInterlock2.alt} fill className="object-cover" sizes="50vw" />
-                      </div>
+                <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+                  <div className="min-w-0 space-y-8 lg:col-span-7">
+                    <p className={bodyLight}>{tab.summary}</p>
+                    {"typeLabels" in tab && tab.typeLabels ? (
+                      <ul className="list-inside list-disc text-[15px] text-ink">
+                        {tab.typeLabels.map((t) => (
+                          <li key={t}>{t}</li>
+                        ))}
+                      </ul>
+                    ) : null}
+                    <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)] lg:hidden">
+                      <Image
+                        src={
+                          ti === 0
+                            ? DRAINAGE_IMAGES.patioInterlock1.src
+                            : ti === 1
+                              ? DRAINAGE_IMAGES.patioFlagstone.src
+                              : ti === 2
+                                ? DRAINAGE_IMAGES.patioConcrete1.src
+                                : DRAINAGE_IMAGES.steps1.src
+                        }
+                        alt={
+                          ti === 0
+                            ? DRAINAGE_IMAGES.patioInterlock1.alt
+                            : ti === 1
+                              ? DRAINAGE_IMAGES.patioFlagstone.alt
+                              : ti === 2
+                                ? DRAINAGE_IMAGES.patioConcrete1.alt
+                                : DRAINAGE_IMAGES.steps1.alt
+                        }
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                      />
                     </div>
-                  )}
-                  {ti === 1 && (
-                    <div className="relative aspect-[4/3] max-w-xl border border-[color:var(--g200)]">
-                      <Image src={DRAINAGE_IMAGES.patioFlagstone.src} alt={DRAINAGE_IMAGES.patioFlagstone.alt} fill className="object-cover" sizes="100vw" />
+                    <ExpandSection band="light" summary={null} triggerLabel={tab.expandTrigger} className="border-t border-[color:var(--g200)]">
+                      <div className={`${bodyLight}`}>{renderBoldLines(tab.expand)}</div>
+                    </ExpandSection>
+                    <Link href={tab.subHref} className="eyebrow inline-block text-[color:var(--y)]">
+                      Learn more about our Patios & Walkways service page →
+                    </Link>
+                  </div>
+                  <div className="lg:col-span-5">
+                    <div className="hidden space-y-4 lg:block lg:sticky lg:top-[calc(var(--header)+4.25rem)]">
+                      <PatioTabSidecar tabIndex={ti} />
                     </div>
-                  )}
-                  {ti === 2 && (
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <div className="relative aspect-[4/3] border border-[color:var(--g200)]">
-                        <Image src={DRAINAGE_IMAGES.patioConcrete1.src} alt={DRAINAGE_IMAGES.patioConcrete1.alt} fill className="object-cover" sizes="50vw" />
-                      </div>
-                      <div className="relative aspect-[4/3] border border-[color:var(--g200)]">
-                        <Image src={DRAINAGE_IMAGES.patioConcrete2.src} alt={DRAINAGE_IMAGES.patioConcrete2.alt} fill className="object-cover" sizes="50vw" />
-                      </div>
-                    </div>
-                  )}
-                  {ti === 3 && (
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <div className="relative aspect-[4/3] border border-[color:var(--g200)]">
-                        <Image src={DRAINAGE_IMAGES.steps1.src} alt={DRAINAGE_IMAGES.steps1.alt} fill className="object-cover" sizes="50vw" />
-                      </div>
-                      <div className="relative aspect-[4/3] border border-[color:var(--g200)]">
-                        <Image src={DRAINAGE_IMAGES.steps2.src} alt={DRAINAGE_IMAGES.steps2.alt} fill className="object-cover" sizes="50vw" />
-                      </div>
-                    </div>
-                  )}
-                  <ExpandSection band="light" summary={null} triggerLabel={tab.expandTrigger} className="border-t">
-                    <div className={`${bodyLight}`}>{renderBoldLines(tab.expand)}</div>
-                  </ExpandSection>
-                  <Link href={tab.subHref} className="eyebrow text-[color:var(--y)]">
-                    Learn more about our Patios & Walkways service page →
-                  </Link>
+                  </div>
                 </div>
               ),
             }))}
@@ -663,7 +731,20 @@ export function DrainageHardscapingPage({ service, related }: Props) {
               triggerLabel={DRAINAGE_INTEGRATION.expandTrigger}
               className="mt-10 border-t"
             >
-              <div className={`space-y-4 whitespace-pre-line ${bodyLight}`}>{DRAINAGE_INTEGRATION.expandBody}</div>
+              <div className={`grid gap-8 lg:grid-cols-2 lg:gap-10 ${bodyLight}`}>
+                <div className="max-w-[75ch] space-y-4 whitespace-pre-line lg:max-w-none">
+                  {DRAINAGE_INTEGRATION.expandBodyLead.split("\n\n").map((p) => (
+                    <p key={p.slice(0, 40)}>{p}</p>
+                  ))}
+                </div>
+                <div className="max-w-[75ch] space-y-4 whitespace-pre-line lg:max-w-none">
+                  {DRAINAGE_INTEGRATION.expandBodyRest.split("\n\n").map((p) => (
+                    <p key={p.slice(0, 40)} className="whitespace-pre-line">
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              </div>
               <div className="mt-10 grid gap-4 sm:grid-cols-3">
                 <div className="relative aspect-[4/3] border border-[color:var(--g200)]">
                   <Image src={DRAINAGE_IMAGES.integrationExpand1.src} alt={DRAINAGE_IMAGES.integrationExpand1.alt} fill className="object-cover" />
@@ -682,7 +763,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
 
       {/* Why choose — authority cluster; 4px rail above */}
       <div className="h-1 w-full bg-[color:var(--y)]" aria-hidden />
-      <section className="section-major band-dark-field scroll-mt-[var(--header)]" aria-labelledby="why-h2">
+      <section className="section-major band-dark-field scroll-mt-[var(--header)] px-0" aria-labelledby="why-h2">
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <YellowRule className="mb-8" />
           <SectionEyebrow text={DRAINAGE_WHY_CHOOSE.eyebrow} band="dark" />
@@ -691,12 +772,15 @@ export function DrainageHardscapingPage({ service, related }: Props) {
           </h2>
           <div className="mt-12 grid gap-10 md:grid-cols-2">
             {DRAINAGE_WHY_CHOOSE.points.map((pt) => (
-              <div key={pt.title}>
+              <div
+                key={pt.title}
+                className="border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 backdrop-blur-md sm:p-8"
+              >
                 <YellowRule width="2px" className="mb-4" />
                 <h3 className="font-serif text-lg font-bold uppercase tracking-[0.02em] text-white">{pt.title}</h3>
                 <p className={`mt-2 text-sm text-white/90 sm:text-[15px]`}>{pt.summary}</p>
                 <ExpandSection band="dark" summary={null} triggerLabel={pt.expandTrigger} className="mt-4 border-white/10">
-                  <p className={bodyDark}>{pt.body}</p>
+                  <p className={`max-w-[75ch] ${bodyDark}`}>{pt.body}</p>
                 </ExpandSection>
               </div>
             ))}
@@ -708,7 +792,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
       </section>
 
       {/* Process — step bodies are longform; vertical list + sticky raster anchor (design-system §4). */}
-      <section className="section-major band-light relative overflow-hidden scroll-mt-[var(--header)]" aria-labelledby="process-h2">
+      <section className="section-major band-light relative overflow-hidden scroll-mt-[var(--header)] px-0" aria-labelledby="process-h2">
         <div className="pointer-events-none absolute inset-0 opacity-[0.12]" aria-hidden>
           <div className="absolute -right-20 top-1/2 h-[120%] w-32 -translate-y-1/2 rotate-[15deg] bg-[linear-gradient(180deg,var(--y)_1px,transparent_1px)] bg-[length:100%_24px]" />
         </div>
@@ -719,7 +803,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
             {DRAINAGE_PROCESS.h2}
           </h2>
           <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-12">
-            <ol className="relative list-none space-y-10 lg:col-span-7">
+            <ol className="relative max-w-[75ch] list-none space-y-10 lg:col-span-7 lg:max-w-none">
               {DRAINAGE_PROCESS.steps.map((step, i) => (
                 <li key={step.title} className="relative flex gap-4 pl-1 sm:pl-0">
                   {i < DRAINAGE_PROCESS.steps.length - 1 ? (
@@ -752,9 +836,9 @@ export function DrainageHardscapingPage({ service, related }: Props) {
       </section>
 
       {/* Service areas */}
-      <section className="section-major band-dark-field scroll-mt-[var(--header)]" aria-labelledby="areas-h2">
+      <section className="section-major band-dark-field scroll-mt-[var(--header)] px-0" aria-labelledby="areas-h2">
         <div className="mx-auto grid max-w-[min(100%,var(--max))] gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-10">
-          <div>
+          <div className="rounded-sm border border-white/10 bg-[rgb(10_12_11/0.35)] p-6 backdrop-blur-md sm:p-8">
             <YellowRule className="mb-8" />
             <SectionEyebrow text={DRAINAGE_SERVICE_AREAS.eyebrow} band="dark" />
             <h2 id="areas-h2" className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase text-white sm:text-[clamp(36px,3.5vw,52px)]">
@@ -787,7 +871,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
       </section>
 
       {/* FAQ */}
-      <section className="section-major band-light scroll-mt-[var(--header)] py-[var(--s14)]" aria-labelledby="faq-h2">
+      <section className="section-major band-light scroll-mt-[var(--header)] px-0 py-[var(--s14)]" aria-labelledby="faq-h2">
         <DrainageFaqAccordion
           items={DRAINAGE_FAQ.items}
           headingId="faq-h2"
@@ -797,7 +881,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
       </section>
 
       {/* Trust */}
-      <section className="section-major band-dark-field scroll-mt-[var(--header)]" aria-labelledby="trust-h2">
+      <section className="section-major band-dark-field scroll-mt-[var(--header)] px-0" aria-labelledby="trust-h2">
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <YellowRule className="mb-8" />
           <SectionEyebrow text={DRAINAGE_TRUST_SIGNALS.eyebrow} band="dark" />
@@ -806,7 +890,10 @@ export function DrainageHardscapingPage({ service, related }: Props) {
           </h2>
           <ul className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {DRAINAGE_TRUST_SIGNALS.items.map((item) => (
-              <li key={item.label} className="flex gap-3">
+              <li
+                key={item.label}
+                className="flex gap-3 border border-white/10 bg-[rgb(10_12_11/0.45)] p-5 backdrop-blur-md sm:p-6"
+              >
                 <svg className="mt-0.5 h-6 w-6 shrink-0 text-[color:var(--y)]" viewBox="0 0 24 24" fill="none" aria-hidden>
                   <path d="M5 12l4 4L19 6" stroke="currentColor" strokeWidth="2" />
                 </svg>
@@ -822,9 +909,13 @@ export function DrainageHardscapingPage({ service, related }: Props) {
       </section>
 
       {/* Related */}
-      <section className="section-major band-light scroll-mt-[var(--header)]" aria-labelledby="related-h2">
+      <section className="section-major band-light scroll-mt-[var(--header)] px-0" aria-labelledby="related-h2">
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
-          <p className="eyebrow text-ink">RELATED SERVICES</p>
+          <YellowRule className="mb-8" />
+          <SectionEyebrow text="RELATED SERVICES" band="light" />
+          <h2 id="related-h2" className="sr-only">
+            Related GLC services
+          </h2>
           <ul className="mt-10 grid gap-6 lg:grid-cols-3">
             {DRAINAGE_RELATED_CARDS.map((card) => (
               <li key={card.href}>

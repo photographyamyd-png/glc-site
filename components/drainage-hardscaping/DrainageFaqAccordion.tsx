@@ -30,7 +30,7 @@ export function DrainageFaqAccordion({
           {h2}
         </h2>
       </div>
-      <ul className="mt-10 max-w-[75ch] list-none space-y-0 border-t border-[color:var(--g200)]">
+      <ul className="mt-10 max-w-[75ch] list-none space-y-0 rounded-sm border border-[color:var(--g200)] bg-white/60 px-2 py-1 shadow-sm sm:px-4">
         {items.map((item, i) => {
           const isOpen = openIndex === i;
           const panelId = `${baseId}-faq-${i}`;

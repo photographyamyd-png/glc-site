@@ -40,7 +40,7 @@ export function StickyTabBox({ tabs, ariaLabel }: { tabs: StickyTabItem[]; ariaL
   );
 
   return (
-    <div className="relative isolate overflow-hidden border border-[color:var(--g200)] bg-white">
+    <div className="relative isolate border border-[color:var(--g200)] bg-white">
       <div
         role="tablist"
         aria-label={ariaLabel ?? "Section tabs"}

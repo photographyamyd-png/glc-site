@@ -134,8 +134,10 @@ export const DRAINAGE_TRUST_BAR = [
   },
 ] as const;
 
-/** First 3 sentences visible; remainder in expand. */
-export const DRAINAGE_INTRO_VISIBLE = `Ground Level Contracting is Simcoe County's trusted specialist for complete drainage, hardscaping, and landscaping solutions — from foundation drain tile installation and custom site drainage design, to armour stone retaining walls, interlock patios, natural stone walkways, and fully integrated outdoor environments. We solve the water problems other contractors ignore, and we build the hardscapes and landscapes that turn challenging grades into stunning, functional spaces. Our competitive advantage is the combination most contractors in this region cannot offer: deep drainage expertise paired with professional hardscaping capability and landscaping integration — all under a single contractor.`;
+/** Intro lede — two short paragraphs (copy-writing G-CW-1); remainder in expand. */
+export const DRAINAGE_INTRO_VISIBLE_P1 = `Ground Level Contracting is Simcoe County's trusted specialist for complete drainage, hardscaping, and landscaping solutions — from foundation drain tile installation and custom site drainage design, to armour stone retaining walls, interlock patios, natural stone walkways, and fully integrated outdoor environments. We solve the water problems other contractors ignore, and we build the hardscapes and landscapes that turn challenging grades into stunning, functional spaces.`;
+
+export const DRAINAGE_INTRO_VISIBLE_P2 = `Our competitive advantage is the combination most contractors in this region cannot offer: deep drainage expertise paired with professional hardscaping capability and landscaping integration — all under a single contractor.`;
 
 export const DRAINAGE_INTRO_EXPAND = `The 3/4" clear stone going into your french drain, the armour stone wall holding back your slope, the interlock patio at its base, and the planting zones that complete the space — designed together, installed by the same crew, and built to perform for decades.
 
@@ -247,7 +249,7 @@ At Ground Level Contracting, we install and replace both interior and exterior f
 
 export const DRAINAGE_SITE_DRAINAGE = {
   id: "site-drainage-design",
-  eyebrow: "CUSTOM SITE DRAINAGE DESIGN",
+  eyebrow: "SURFACE · SUBSURFACE · GRADING",
   h2: "Custom Site Drainage Design — Surface, Subsurface & Grading Solutions for Simcoe County Properties",
   summary: `Water always finds its way — the goal is to control where it goes. Poor drainage is rarely a single-point problem.`,
   summaryCont: `It is a systemic failure: the wrong grade directing surface runoff toward the foundation, subsurface water with no clear path to a proper outlet, compacted soil preventing infiltration, and a yard that holds water in low spots after every rain event.`,
@@ -294,7 +296,7 @@ We design and install french drains, swales, catch basins, channel drains, and c
 
 export const DRAINAGE_RETAINING_WALLS = {
   id: "retaining-walls",
-  eyebrow: "BARRIE & SIMCOE COUNTY",
+  eyebrow: "ARMOUR · BLOCK · ENGINEERED",
   h2: "Retaining Walls in Barrie & Simcoe County — Armour Stone, Block, Concrete & Engineered Solutions",
   intro: `A retaining wall does two jobs simultaneously: it holds back earth and it makes a statement. At Ground Level Contracting, we design and build retaining walls that accomplish both — from natural armour stone walls that integrate seamlessly into rural and lakeside landscapes, to precision-engineered block systems suited to residential grade changes and commercial applications, to structural concrete walls for high-load and high-height requirements.`,
   intro2: `Every retaining wall we build includes proper drainage behind the wall — because without it, even the most well-built wall will eventually fail. Hydrostatic pressure from water trapped in saturated backfill is responsible for the majority of premature retaining wall failures in Ontario. We size our walls correctly for the load they carry, prepare our base to the depth the site requires, and install crushed stone drainage backfill, weep holes, and perforated pipe as standard practice on every wall — regardless of height or material. Where a wall is part of a broader hardscaping and landscaping project, we integrate the drainage system across the full site from day one.`,
@@ -360,7 +362,7 @@ export const DRAINAGE_PATIOS = {
       label: "Interlock",
       summary: `Interlocking concrete paving stone is the most versatile and widely specified hardscape surface in the Barrie and Simcoe County market. Available in hundreds of sizes, profiles, colours, and textures from manufacturers including Unilock, Permacon, and Cambridge, interlock allows virtually unlimited design flexibility.`,
       expandTrigger: "Read the full interlock detail →",
-      expand: `Interlocking concrete paving stone is the most versatile and widely specified hardscape surface in the Barrie and Simcoe County market. Available in hundreds of sizes, profiles, colours, and textures from manufacturers including Unilock, Permacon, and Cambridge, interlock allows virtually unlimited design flexibility — from traditional herringbone driveways to contemporary large-format patio systems that integrate seamlessly with surrounding landscaping and planting zones.
+      expand: `From traditional herringbone driveways to contemporary large-format patio systems that integrate seamlessly with surrounding landscaping and planting zones, interlock allows virtually unlimited design flexibility.
 
 The structural performance of an interlock installation is entirely dependent on base preparation. We excavate to the correct depth for the soil conditions and frost exposure on your specific site, compact Granular A base in mechanically compacted lifts, and install a calibrated bedding sand layer before setting paving units. This base system is what separates an interlock installation that lasts 20 years from one that settles and shifts within a season.
 
@@ -371,7 +373,7 @@ Drainage integration — whether that means a positive cross-slope, a perforated
       label: "Natural Stone",
       summary: `Natural flagstone — limestone, granite, slate, and sandstone — creates a hardscape surface that is genuinely irreplaceable in its visual character.`,
       expandTrigger: "See natural stone and flagstone detail →",
-      expand: `Natural flagstone — limestone, granite, slate, and sandstone — creates a hardscape surface that is genuinely irreplaceable in its visual character. No manufactured product fully replicates the variation, texture, and warmth of real stone. At Ground Level Contracting, we source and install natural flagstone patios, walkways, and feature areas throughout Simcoe County, cutting and fitting stone for consistent joint spacing and a finished surface that rewards closer inspection.
+      expand: `No manufactured product fully replicates the variation, texture, and warmth of real stone. At Ground Level Contracting, we source and install natural flagstone patios, walkways, and feature areas throughout Simcoe County, cutting and fitting stone for consistent joint spacing and a finished surface that rewards closer inspection.
 
 Natural stone installations require more skilled labour than interlock and command a premium, but they deliver an aesthetic outcome and a permanence that elevates a property distinctly — particularly when paired with a well-designed retaining wall, planting beds, or a broader landscaping program.`,
       subHref: "/services/interlock-patios-barrie",
@@ -380,7 +382,7 @@ Natural stone installations require more skilled labour than interlock and comma
       label: "Concrete",
       summary: `Concrete offers strength, longevity, and design versatility in a single material.`,
       expandTrigger: "Read the full concrete finishes detail →",
-      expand: `Concrete offers strength, longevity, and design versatility in a single material. Exposed aggregate concrete — where the surface paste is washed away to reveal the stone aggregate beneath — provides a slip-resistant, textured finish suited to driveways, pool surrounds, and walkways. Stamped concrete applies embossed pattern and colour to create the appearance of natural stone, brick, or wood plank at a lower material cost than the real thing.
+      expand: `Exposed aggregate concrete — where the surface paste is washed away to reveal the stone aggregate beneath — provides a slip-resistant, textured finish suited to driveways, pool surrounds, and walkways. Stamped concrete applies embossed pattern and colour to create the appearance of natural stone, brick, or wood plank at a lower material cost than the real thing.
 
 Both finishes require skilled formwork, proper mix design, and controlled curing. We manage the full process: subgrade preparation, form installation, reinforcing, pour, finish, and sealing — delivering a concrete installation that performs structurally and integrates cleanly with adjacent landscaping and hardscape elements.`,
       subHref: "/services/interlock-patios-barrie",
@@ -395,7 +397,7 @@ Both finishes require skilled formwork, proper mix design, and controlled curing
         "Flagstone Path",
       ] as const,
       expandTrigger: "See all step and walkway options →",
-      expand: `Steps, stairways, and walkways are the connective tissue of an outdoor living space — and when built in natural stone or armour stone, they become features in their own right that define the character of the entire landscape. We design and build:
+      expand: `We design and build:
 
 - **Natural stone and armour stone steps** — Set into grade for a permanent, natural appearance that integrates directly with retaining walls and landscaping. No mortar required.
 - **Interlock paving stone steps** — Engineered step units in block or paving stone for a clean, contemporary aesthetic suited to modern residential landscaping projects.
@@ -441,11 +443,10 @@ export const DRAINAGE_INTEGRATION = {
   ],
   ctaEyebrow: "Talk to us about your challenging property →",
   expandTrigger: "See our full approach to complex properties →",
-  expandBody: `Many homeowners search for a landscaping contractor in Barrie and discover mid-project that the landscaping can't happen until the drainage is resolved, or that the retaining wall needs to be in before the grade is set. Ground Level Contracting understands this sequence because we do all of it. We arrive with the full picture already in mind.
+  expandBodyLead: `Many homeowners search for a landscaping contractor in Barrie and discover mid-project that the landscaping can't happen until the drainage is resolved, or that the retaining wall needs to be in before the grade is set. Ground Level Contracting understands this sequence because we do all of it. We arrive with the full picture already in mind.
 
-A retaining wall that is not drained correctly will fail. A patio that is not graded correctly will flood. A landscaping program built on top of a drainage problem will look good for one season and deteriorate from there. We resolve the drainage, establish the grade, build the hardscaping, and integrate the landscape — in the correct order, by the same team, under one project scope.
-
-**Terraced hardscaping and landscaping on sloped lots** — Converting unusable slope into a series of functional, beautifully hardscaped and landscaped outdoor levels connected by stone steps and retaining walls. Planting zones integrated at each terrace to soften the walls and complete the landscape.
+A retaining wall that is not drained correctly will fail. A patio that is not graded correctly will flood. A landscaping program built on top of a drainage problem will look good for one season and deteriorate from there. We resolve the drainage, establish the grade, build the hardscaping, and integrate the landscape — in the correct order, by the same team, under one project scope.`,
+  expandBodyRest: `**Terraced hardscaping and landscaping on sloped lots** — Converting unusable slope into a series of functional, beautifully hardscaped and landscaped outdoor levels connected by stone steps and retaining walls. Planting zones integrated at each terrace to soften the walls and complete the landscape.
 
 **Lakeside and waterfront integration** — Armour stone shoreline walls, natural stone patio terraces stepping down to the water, drainage systems protecting against both upland runoff and shoreline erosion, and landscaping designed to stabilize and beautify the transition zone.
 
@@ -459,7 +460,7 @@ When a project requires drainage to be the foundation on which exceptional hards
 } as const;
 
 export const DRAINAGE_WHY_CHOOSE = {
-  eyebrow: "WHY GROUND LEVEL CONTRACTING",
+  eyebrow: "SIMCOE COUNTY · ONE CONTRACTOR",
   h2: "Why Choose Ground Level Contracting for Drainage, Hardscaping & Landscaping in Simcoe County?",
   points: [
     {

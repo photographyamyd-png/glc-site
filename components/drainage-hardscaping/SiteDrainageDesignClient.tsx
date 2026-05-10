@@ -98,7 +98,7 @@ export function SiteDrainageDesignClient({ sectionId }: { sectionId: string }) {
   return (
     <section
       id={sectionId}
-      className="section-major band-dark-field relative isolate scroll-mt-[var(--header)] overflow-hidden border-t border-white/10"
+      className="section-major band-dark-field relative isolate scroll-mt-[var(--header)] overflow-hidden border-t border-white/10 px-0"
       aria-labelledby={headingId}
     >
       <ClaudeLogicWatermark placement="bottom-right" mode="on-dark" className="pointer-events-none z-0 opacity-[0.18]" />
