@@ -42,8 +42,15 @@ import {
   drainageHeroPhoneCta,
 } from "@/lib/site/drainage-hardscaping-landing-content";
 import { substituteGoogleReviewPlaceholders } from "@/lib/site/google-business-env";
+import { getServiceImage } from "@/lib/site/service-images";
 import type { ServiceDef } from "@/lib/site/registry";
 import { cn } from "@/lib/utils";
+
+/** Related-services raster strip — aligns §4 asset + §1 atmosphere with hauling & snow lines. */
+const RELATED_STRIP_IMAGES = {
+  hauling: getServiceImage("hauling-site-clearing-logistics"),
+  snow: getServiceImage("snow-removal"),
+} as const;
 
 /**
  * Drainage article layout contract (design-system Part II — do not double gutters):
@@ -944,9 +951,21 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         />
       </section>
 
-      {/* Trust */}
-      <section className="section-major band-dark-field scroll-mt-[var(--header)] px-0" aria-labelledby="trust-h2">
-        <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
+      {/* Trust — atmosphere + wash (parity with FAQ / intro §1 stack) */}
+      <section
+        className="section-major band-dark-field relative isolate scroll-mt-[var(--header)] overflow-hidden px-0"
+        aria-labelledby="trust-h2"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_78%_58%_at_18%_8%,rgb(242_183_5/0.10),transparent_55%)]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.04),transparent_45%)]"
+          aria-hidden
+        />
+        <ClaudeLogicWatermark placement="bottom-left" mode="on-dark" className="pointer-events-none z-0 opacity-[0.11]" />
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <YellowRule className="mb-8" />
           <SectionEyebrow text={DRAINAGE_TRUST_SIGNALS.eyebrow} band="dark" />
           <h2 id="trust-h2" className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase text-white sm:text-[clamp(36px,3.5vw,52px)]">
@@ -972,7 +991,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         </div>
       </section>
 
-      {/* Related */}
+      {/* Related — watermark + raster strip (§4 / §1 atmosphere parity) */}
       <section
         className="section-major band-light relative isolate scroll-mt-[var(--header)] overflow-hidden px-0"
         aria-labelledby="related-h2"
@@ -981,12 +1000,45 @@ export function DrainageHardscapingPage({ service, related }: Props) {
           className="pointer-events-none absolute inset-0 bg-[linear-gradient(200deg,transparent_40%,rgb(242_183_5/0.06)_100%)]"
           aria-hidden
         />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_72%_48%_at_8%_92%,rgb(10_12_11/0.05),transparent_58%)]"
+          aria-hidden
+        />
+        <ClaudeLogicWatermark placement="top-right" className="pointer-events-none z-0 opacity-[0.07]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <YellowRule className="mb-8" />
           <SectionEyebrow text="RELATED SERVICES" band="light" />
           <h2 id="related-h2" className="sr-only">
             Related GLC services
           </h2>
+          <div className="mt-8 grid max-w-2xl grid-cols-2 gap-3 sm:gap-4">
+            <div className="relative aspect-[16/10] overflow-hidden border border-[color:var(--g200)]">
+              <Image
+                src={RELATED_STRIP_IMAGES.hauling.src}
+                alt={RELATED_STRIP_IMAGES.hauling.alt}
+                fill
+                className="object-cover"
+                sizes="(min-width:1024px) 320px,45vw"
+              />
+              <div
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--canvas)]/50 via-transparent to-transparent"
+                aria-hidden
+              />
+            </div>
+            <div className="relative aspect-[16/10] overflow-hidden border border-[color:var(--g200)]">
+              <Image
+                src={RELATED_STRIP_IMAGES.snow.src}
+                alt={RELATED_STRIP_IMAGES.snow.alt}
+                fill
+                className="object-cover"
+                sizes="(min-width:1024px) 320px,45vw"
+              />
+              <div
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--canvas)]/50 via-transparent to-transparent"
+                aria-hidden
+              />
+            </div>
+          </div>
           <ul className="mt-10 grid gap-6 lg:grid-cols-3">
             {DRAINAGE_RELATED_CARDS.map((card) => (
               <li key={card.href}>
