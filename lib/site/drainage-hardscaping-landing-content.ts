@@ -113,10 +113,6 @@ export const DRAINAGE_HERO = {
   sub: "We solve the water problems other contractors ignore. We build hardscapes and landscapes that turn tough grades into outdoor spaces that last.",
   ctaPrimary: "Get Your Free Drainage Assessment",
   ctaSecondary: "Book a Free Site Visit",
-  /** Eyebrow lines under yellow headline in hero trust-band CTAs (tel + contact links). */
-  ctaPrimarySub: "BOOK ONLINE — NO OBLIGATION",
-  ctaSecondarySub: "SCHEDULE A SITE VISIT",
-  phoneCtaSub: "CALL NOW — SIMCOE COUNTY",
   breadcrumbHome: "Home",
   breadcrumbServices: "Services",
   breadcrumbCurrent: "Drainage & Hardscaping",
@@ -175,7 +171,6 @@ export const DRAINAGE_SERVICE_CARDS_EYEBROW = "WHAT WE BUILD";
 export const DRAINAGE_SERVICE_CARDS = [
   {
     title: "Foundation Drain Tile (Sub Drain)",
-    trustEyebrow: "SUB DRAIN · INTERIOR / EXTERIOR",
     paras: [
       "Protect your foundation with weeping tile done right: perforated pipe, sock wrap, gravel bedding, and a correctly sized outlet built to last 25–50+ years.",
       "We install interior and exterior systems for new builds, older homes, and full remediation.",
@@ -185,7 +180,6 @@ export const DRAINAGE_SERVICE_CARDS = [
   },
   {
     title: "Custom Site Drainage Design",
-    trustEyebrow: "SWALES · BASINS · GRADING",
     paras: [
       "We engineer surface and subsurface drainage for your soil, slope, and seasons — french drains, swales, basins, grading, and interceptor trenches.",
       "Every plan targets where water enters, how it moves, and where it must exit.",
@@ -195,7 +189,6 @@ export const DRAINAGE_SERVICE_CARDS = [
   },
   {
     title: "Retaining Walls",
-    trustEyebrow: "ARMOUR · BLOCK · ENGINEERED",
     paras: [
       "Armour stone, segmental block, concrete, and engineered walls — each with drainage backfill, weeps, and stone zones as standard.",
       "Walls must hold the load, shed water, and still look intentional twenty years out.",
@@ -205,7 +198,6 @@ export const DRAINAGE_SERVICE_CARDS = [
   },
   {
     title: "Patios, Walkways, Driveways & Steps",
-    trustEyebrow: "INTERLOCK · STONE · CONCRETE",
     paras: [
       "Interlock, flagstone, exposed aggregate, and armour stone steps on compacted bases with drainage tied into the wider site.",
       "Surfaces are detailed for Simcoe County frost, load, and finish — not just day-one appearance.",
@@ -215,7 +207,6 @@ export const DRAINAGE_SERVICE_CARDS = [
   },
   {
     title: "Hardscape & Landscape Integration",
-    trustEyebrow: "LAKEFRONT · HIGH GRADE · ONE CREW",
     paras: [
       "Lakefront, hillside, and high-grade lots need drainage, walls, and finish landscape as one system.",
       "One crew sequence means fewer gaps between engineering, execution, and long-term performance.",
@@ -225,7 +216,6 @@ export const DRAINAGE_SERVICE_CARDS = [
   },
   {
     title: "Free Site Assessment",
-    trustEyebrow: "WRITTEN SCOPE · LINE ITEMS",
     paras: [
       "Every project starts with a no-obligation visit: we document drainage, grade, and your goals.",
       "You get a written scope with line-item pricing — no surprises at invoice.",

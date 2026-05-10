@@ -44,7 +44,6 @@ import {
 import { substituteGoogleReviewPlaceholders } from "@/lib/site/google-business-env";
 import { getServiceImage } from "@/lib/site/service-images";
 import type { ServiceDef } from "@/lib/site/registry";
-import { cn } from "@/lib/utils";
 
 /** Related-services raster strip — aligns §4 asset + §1 atmosphere with hauling & snow lines. */
 const RELATED_STRIP_IMAGES = {
@@ -299,71 +298,15 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                   );
                 })}
               </div>
-            </div>
-
-            <div className="mt-6 w-full max-w-[min(100%,var(--max))] border-t-4 border-[color:var(--y)] bg-[var(--ink-deep)] shadow-[0_16px_56px_rgb(0_0_0/0.45)] ring-1 ring-white/15">
-              <div className="border-t border-white/20">
-                <div className="grid grid-cols-2 gap-px bg-white/20 md:grid-cols-3">
-                  {DRAINAGE_SERVICE_CARDS.map((card) => (
-                    <Link
-                      key={card.href}
-                      href={card.href}
-                      className={cn(
-                        "group block min-h-[44px] bg-[var(--ink-deep)] px-4 py-6 outline-none transition-colors sm:px-6 sm:py-8",
-                        "focus-visible:ring-2 focus-visible:ring-[color:var(--y)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ink-deep)]",
-                        "hover:bg-[rgb(255_255_255/0.06)]",
-                      )}
-                    >
-                      <p className="font-serif text-xl font-bold leading-snug text-[color:var(--y)] line-clamp-3 sm:text-2xl">
-                        {card.title}
-                      </p>
-                      <p className="mt-3 eyebrow text-white">{card.trustEyebrow}</p>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-4 w-full max-w-[min(100%,var(--max))] border-t-4 border-[color:var(--y)] bg-[var(--ink-deep)] shadow-[0_16px_56px_rgb(0_0_0/0.45)] ring-1 ring-white/15">
-              <div className="grid grid-cols-1 gap-px border-t border-white/20 bg-white/20 sm:grid-cols-3">
-                <Link
-                  href="/contact/"
-                  className={cn(
-                    "group block min-h-[44px] bg-[var(--ink-deep)] px-4 py-8 outline-none transition-colors sm:px-6 sm:py-10",
-                    "focus-visible:ring-2 focus-visible:ring-[color:var(--y)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ink-deep)]",
-                    "hover:bg-[rgb(255_255_255/0.06)]",
-                  )}
-                >
-                  <p className="font-serif text-xl font-bold leading-snug text-[color:var(--y)] sm:text-2xl">
-                    {DRAINAGE_HERO.ctaPrimary}
-                  </p>
-                  <p className="mt-3 eyebrow text-white">{DRAINAGE_HERO.ctaPrimarySub}</p>
+              <div className="hero-cta-row mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <Link href="/contact/" className="cta-hero-fill px-5 py-3 text-center text-xs tracking-wide">
+                  {DRAINAGE_HERO.ctaPrimary}
                 </Link>
-                <Link
-                  href="/contact/"
-                  className={cn(
-                    "group block min-h-[44px] bg-[var(--ink-deep)] px-4 py-8 outline-none transition-colors sm:px-6 sm:py-10",
-                    "focus-visible:ring-2 focus-visible:ring-[color:var(--y)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ink-deep)]",
-                    "hover:bg-[rgb(255_255_255/0.06)]",
-                  )}
-                >
-                  <p className="font-serif text-xl font-bold leading-snug text-[color:var(--y)] sm:text-2xl">
-                    {DRAINAGE_HERO.ctaSecondary}
-                  </p>
-                  <p className="mt-3 eyebrow text-white">{DRAINAGE_HERO.ctaSecondarySub}</p>
+                <Link href="/contact/" className="cta-outline-light px-5 py-3 text-center text-xs tracking-wide">
+                  {DRAINAGE_HERO.ctaSecondary}
                 </Link>
-                <a
-                  href={PHONE_TEL}
-                  className={cn(
-                    "group block min-h-[44px] bg-[var(--ink-deep)] px-4 py-8 outline-none transition-colors sm:px-6 sm:py-10",
-                    "focus-visible:ring-2 focus-visible:ring-[color:var(--y)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ink-deep)]",
-                    "hover:bg-[rgb(255_255_255/0.06)]",
-                  )}
-                >
-                  <p className="font-serif text-xl font-bold leading-snug text-[color:var(--y)] sm:text-2xl">
-                    {drainageHeroPhoneCta()}
-                  </p>
-                  <p className="mt-3 eyebrow text-white">{DRAINAGE_HERO.phoneCtaSub}</p>
+                <a href={PHONE_TEL} className="cta-outline-light px-5 py-3 text-center text-xs tracking-wide">
+                  {drainageHeroPhoneCta()}
                 </a>
               </div>
             </div>
@@ -371,14 +314,11 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         </div>
 
         <div className="relative z-10 border-t-4 border-[color:var(--y)] bg-[var(--ink-deep)]">
-          <div className="mx-auto grid max-w-[min(100%,var(--max))] grid-cols-2 border-t border-white/10 md:grid-cols-4">
-            {DRAINAGE_TRUST_BAR.map((item, i) => (
+          <div className="mx-auto grid max-w-[min(100%,var(--max))] grid-cols-1 gap-3 px-4 py-6 sm:grid-cols-2 sm:px-6 md:grid-cols-4 lg:gap-4 lg:px-10">
+            {DRAINAGE_TRUST_BAR.map((item) => (
               <div
                 key={item.value}
-                className={cn(
-                  "border-b border-white/10 px-4 py-8 sm:px-6 md:border-b-0 md:py-10",
-                  i > 0 && "md:border-l md:border-white/10",
-                )}
+                className="rounded-sm border border-white/15 bg-[rgb(255_255_255/0.06)] px-4 py-5 transition-colors hover:border-[color:var(--y)]/45 sm:px-5 sm:py-6"
               >
                 <p className="font-serif text-2xl font-bold text-[color:var(--y)]">{item.value}</p>
                 <p className="mt-3 eyebrow text-white">{item.sub}</p>
