@@ -6,12 +6,14 @@ export function ServiceCard({
   icon,
   title,
   body,
+  paras,
   href,
   anchorLabel,
 }: {
   icon: ReactNode;
   title: string;
-  body: string;
+  body?: string;
+  paras?: readonly string[];
   href: string;
   anchorLabel: string;
 }) {
@@ -26,7 +28,17 @@ export function ServiceCard({
     >
       <div className="text-[color:var(--y)] [&_svg]:h-10 [&_svg]:w-10">{icon}</div>
       <h3 className="mt-3 font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink sm:text-2xl">{title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-ink-muted sm:text-[15px] sm:leading-[1.72]">{body}</p>
+      {paras?.length ? (
+        <div className="mt-3 space-y-3">
+          {paras.map((p) => (
+            <p key={p.slice(0, 48)} className="text-sm leading-relaxed text-ink-muted sm:text-[15px] sm:leading-[1.72]">
+              {p}
+            </p>
+          ))}
+        </div>
+      ) : (
+        <p className="mt-3 text-sm leading-relaxed text-ink-muted sm:text-[15px] sm:leading-[1.72]">{body}</p>
+      )}
       <Link href={href} className="eyebrow mt-auto pt-6 text-[color:var(--y)]">
         {anchorLabel}
       </Link>

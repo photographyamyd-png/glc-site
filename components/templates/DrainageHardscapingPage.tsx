@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
+import { ThreeActHeadline } from "@/components/ui/ThreeActHeadline";
 import { DrainageFaqAccordion } from "@/components/drainage-hardscaping/DrainageFaqAccordion";
 import { DrainageHardscapingJsonLd } from "@/components/seo/DrainageHardscapingJsonLd";
 import { ExpandSection } from "@/components/drainage-hardscaping/ExpandSection";
 import { CTAButton, SectionEyebrow, YellowRule } from "@/components/drainage-hardscaping/primitives";
+import { DrainageProcessSection } from "@/components/drainage-hardscaping/DrainageProcessSection";
 import { ServiceCard } from "@/components/drainage-hardscaping/ServiceCard";
 import { SiteDrainageDesignClient } from "@/components/drainage-hardscaping/SiteDrainageDesignClient";
 import { GoogleReviewsPanel } from "@/components/drainage-hardscaping/GoogleReviewsPanel";
@@ -22,9 +24,9 @@ import {
   DRAINAGE_INTRO_PANEL_LIST,
   DRAINAGE_INTRO_VISIBLE_P1,
   DRAINAGE_INTRO_VISIBLE_P2,
+  DRAINAGE_INTRO_VISIBLE_P3,
   DRAINAGE_MID_CTA,
   DRAINAGE_PATIOS,
-  DRAINAGE_PROCESS,
   DRAINAGE_RELATED_CARDS,
   DRAINAGE_RETAINING_WALLS,
   DRAINAGE_SERVICE_AREAS,
@@ -240,11 +242,22 @@ export function DrainageHardscapingPage({ service, related }: Props) {
               sizes="100vw"
             />
           </div>
-          <div className="absolute inset-0 bg-[rgb(10_12_11/0.45)]" aria-hidden />
-          <ClaudeLogicWatermark placement="bottom-right" className="z-[1] opacity-[0.18]" />
+          <div
+            className="absolute inset-0 bg-gradient-to-r from-[rgb(10_12_11/0.92)] via-[rgb(10_12_11/0.72)] to-[rgb(10_12_11/0.32)] lg:via-[rgb(10_12_11/0.62)]"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.72)] via-transparent to-[rgb(10_12_11/0.22)]"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 bg-[radial-gradient(ellipse_78%_58%_at_72%_30%,rgb(242_183_5/0.14),transparent_58%)]"
+            aria-hidden
+          />
+          <ClaudeLogicWatermark placement="bottom-right" className="z-[1] opacity-[0.16]" />
 
           <div className="relative z-10 mx-auto flex min-h-[min(100dvh,920px)] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-4 pb-10 pt-28 sm:px-6 sm:pb-12 lg:justify-between lg:px-10 lg:pb-16 lg:pt-[calc(var(--header)+3rem)]">
-            <div className="max-w-[min(100%,var(--max))] rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:max-w-4xl lg:pt-10">
+            <div className="max-w-[min(100%,var(--max))] rounded-sm border border-white/10 bg-[rgb(10_12_11/0.42)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:max-w-4xl lg:pt-10">
               <nav aria-label="Breadcrumb" className="hero-eyebrow eyebrow text-white/55">
                 <Link href="/" className="hover:text-[color:var(--y)]">
                   {DRAINAGE_HERO.breadcrumbHome}
@@ -260,13 +273,25 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                 </span>
                 <span className="text-white">{DRAINAGE_HERO.breadcrumbCurrent}</span>
               </nav>
-              <h1
+              <p className="hero-eyebrow label-overline-on-dark mt-[var(--s7)] mb-0">Service overview</p>
+              <ThreeActHeadline
                 id="drainage-hero-h1"
-                className="hero-caption mt-[var(--s7)] font-serif text-[clamp(58px,8vw,118px)] font-semibold uppercase leading-[0.95] tracking-tight text-white"
-              >
-                {DRAINAGE_HERO.h1}
-              </h1>
-              <p className={`hero-caption mt-[56px] max-w-2xl text-xl text-white/90`}>{DRAINAGE_HERO.sub}</p>
+                line1={DRAINAGE_HERO.titleLine1}
+                line2={DRAINAGE_HERO.titleLine2}
+                line3={DRAINAGE_HERO.titleLine3}
+              />
+              <div className="mt-6 max-w-xl space-y-3 border-l-4 border-[color:var(--y)]/50 pl-5">
+                {DRAINAGE_HERO.sub.split(". ").map((bit) => {
+                  const t = bit.trim();
+                  if (!t) return null;
+                  const withPeriod = t.endsWith(".") ? t : `${t}.`;
+                  return (
+                    <p key={withPeriod} className="text-[15px] leading-[1.72] text-white/88 sm:text-base">
+                      {withPeriod}
+                    </p>
+                  );
+                })}
+              </div>
               <div className="hero-cta-row mt-10 flex flex-col gap-3 sm:mt-12 sm:flex-row sm:flex-wrap sm:items-center">
                 <CTAButton variant="primary" href="/contact/">
                   {DRAINAGE_HERO.ctaPrimary}
@@ -310,6 +335,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                 <div className={`mt-[var(--s7)] ${bodyLight}`}>
                   <p>{DRAINAGE_INTRO_VISIBLE_P1}</p>
                   <p className="mt-4">{DRAINAGE_INTRO_VISIBLE_P2}</p>
+                  <p className="mt-4">{DRAINAGE_INTRO_VISIBLE_P3}</p>
                   <ExpandSection
                     band="light"
                     triggerLabel={DRAINAGE_INTRO_EXPAND_TRIGGER}
@@ -349,7 +375,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         </div>
       </section>
 
-      {/* 04 Service cards */}
+      {/* 04 Service cards — tri-plane: motif + glass header strip + card grid */}
       <section className="section-major band-dark-field relative overflow-hidden scroll-mt-[var(--header)] px-0">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.14] motion-reduce:opacity-[0.08]"
@@ -357,16 +383,23 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         >
           <div className="absolute left-1/2 top-1/2 h-[140%] w-[140%] -translate-x-1/2 -translate-y-1/2 rotate-12 bg-[linear-gradient(90deg,var(--y)_1px,transparent_1px)] bg-[length:48px_100%]" />
         </div>
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.04),transparent_40%)]" aria-hidden />
         <ClaudeLogicWatermark placement="top-left" mode="on-dark" className="opacity-[0.12]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
-          <p className="eyebrow text-white">{DRAINAGE_SERVICE_CARDS_EYEBROW}</p>
+          <div className="max-w-3xl rounded-sm border border-white/10 bg-[rgb(10_12_11/0.35)] p-5 backdrop-blur-md sm:p-6">
+            <YellowRule className="mb-6" width="2px" />
+            <p className="eyebrow text-white">{DRAINAGE_SERVICE_CARDS_EYEBROW}</p>
+            <p className="mt-3 max-w-2xl text-sm text-white/80 sm:text-[15px]">
+              Six delivery lanes on one contract — drainage, walls, hardscape, integration, and how we start every job.
+            </p>
+          </div>
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {DRAINAGE_SERVICE_CARDS.map((card, i) => (
               <ServiceCard
                 key={card.title}
                 icon={SERVICE_ICONS[i]()}
                 title={card.title}
-                body={card.body}
+                paras={card.paras}
                 href={card.href}
                 anchorLabel={card.anchorLabel}
               />
@@ -793,49 +826,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         </div>
       </section>
 
-      {/* Process — step bodies are longform; vertical list + sticky raster anchor (design-system §4). */}
-      <section className="section-major band-light relative overflow-hidden scroll-mt-[var(--header)] px-0" aria-labelledby="process-h2">
-        <div className="pointer-events-none absolute inset-0 opacity-[0.12]" aria-hidden>
-          <div className="absolute -right-20 top-1/2 h-[120%] w-32 -translate-y-1/2 rotate-[15deg] bg-[linear-gradient(180deg,var(--y)_1px,transparent_1px)] bg-[length:100%_24px]" />
-        </div>
-        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
-          <YellowRule className="mb-8" />
-          <SectionEyebrow text={DRAINAGE_PROCESS.eyebrow} band="light" />
-          <h2 id="process-h2" className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase text-ink sm:text-[clamp(36px,3.5vw,52px)]">
-            {DRAINAGE_PROCESS.h2}
-          </h2>
-          <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-12">
-            <ol className="relative max-w-[75ch] list-none space-y-10 lg:col-span-7 lg:max-w-none">
-              {DRAINAGE_PROCESS.steps.map((step, i) => (
-                <li key={step.title} className="relative flex gap-4 pl-1 sm:pl-0">
-                  {i < DRAINAGE_PROCESS.steps.length - 1 ? (
-                    <span
-                      className="absolute left-[26px] top-[3.25rem] hidden h-[calc(100%-0.5rem)] w-px border-l border-dashed border-[color:var(--y)] sm:block"
-                      aria-hidden
-                    />
-                  ) : null}
-                  <span className="font-serif text-5xl font-bold leading-none text-[color:var(--y)]">{i + 1}</span>
-                  <div className="min-w-0 flex-1 pb-2">
-                    <p className="font-serif text-base font-bold uppercase tracking-[0.02em] text-ink">{step.title}</p>
-                    <p className={`mt-3 text-sm leading-[1.72] text-ink sm:text-[15px]`}>{step.body}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            <div className="relative min-h-[280px] lg:col-span-5">
-              <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)] lg:sticky lg:top-[calc(var(--header)+24px)] lg:aspect-auto lg:min-h-[min(100%,560px)]">
-                <Image
-                  src={DRAINAGE_IMAGES.drainTileMain.src}
-                  alt={DRAINAGE_IMAGES.drainTileMain.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(min-width:1024px) 40vw,100vw"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <DrainageProcessSection headingId="process-h2" />
 
       {/* Service areas */}
       <section className="section-major band-dark-field scroll-mt-[var(--header)] px-0" aria-labelledby="areas-h2">
@@ -858,7 +849,11 @@ export function DrainageHardscapingPage({ service, related }: Props) {
             </ul>
             <p className="eyebrow mt-8 text-white">{DRAINAGE_SERVICE_AREAS.extendedHeading}</p>
             <p className="mt-2 text-sm text-white/55">{DRAINAGE_SERVICE_AREAS.extendedInline}</p>
-            <p className={`mt-6 text-sm text-white/90 sm:text-[15px]`}>{DRAINAGE_SERVICE_AREAS.lakesideNote}</p>
+            <div className={`mt-6 space-y-3 text-sm text-white/90 sm:text-[15px]`}>
+              {DRAINAGE_SERVICE_AREAS.lakesideParas.map((p) => (
+                <p key={p.slice(0, 40)}>{p}</p>
+              ))}
+            </div>
           </div>
           <div className="relative min-h-[280px] border border-white/10">
             <Image
@@ -946,23 +941,29 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         </div>
         <div className="absolute inset-0 bg-[rgb(10_12_11/0.45)]" aria-hidden />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 text-center sm:px-6 lg:px-10">
-          <h2 id="final-cta-h2" className="font-serif text-4xl font-semibold uppercase text-white sm:text-[48px]">
-            {DRAINAGE_FINAL_CTA.line1}
-          </h2>
-          <p className="mt-2 font-serif text-4xl font-semibold uppercase text-[color:var(--y)] sm:text-[48px]">{DRAINAGE_FINAL_CTA.line2}</p>
-          <p className={`mx-auto mt-8 max-w-2xl text-base text-white/90`}>{DRAINAGE_FINAL_CTA.sub}</p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <CTAButton variant="primary" href="/contact/">
-              {DRAINAGE_FINAL_CTA.ctaPrimary}
-            </CTAButton>
-            <CTAButton variant="secondary" href="/contact/">
-              {DRAINAGE_FINAL_CTA.ctaSecondary}
-            </CTAButton>
-            <CTAButton variant="ghost" href={PHONE_TEL}>
-              {DRAINAGE_FINAL_CTA.ctaPhone}
-            </CTAButton>
+          <div className="mx-auto max-w-4xl rounded-sm border border-white/10 bg-[rgb(10_12_11/0.5)] px-6 py-10 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:px-10 sm:py-12">
+            <h2 id="final-cta-h2" className="font-serif text-4xl font-semibold uppercase text-white sm:text-[48px]">
+              {DRAINAGE_FINAL_CTA.line1}
+            </h2>
+            <p className="mt-2 font-serif text-4xl font-semibold uppercase text-[color:var(--y)] sm:text-[48px]">{DRAINAGE_FINAL_CTA.line2}</p>
+            <div className={`mx-auto mt-8 max-w-2xl space-y-3 text-left text-base text-white/90 sm:text-center`}>
+              {DRAINAGE_FINAL_CTA.subParas.map((p) => (
+                <p key={p.slice(0, 40)}>{p}</p>
+              ))}
+            </div>
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <CTAButton variant="primary" href="/contact/">
+                {DRAINAGE_FINAL_CTA.ctaPrimary}
+              </CTAButton>
+              <CTAButton variant="secondary" href="/contact/">
+                {DRAINAGE_FINAL_CTA.ctaSecondary}
+              </CTAButton>
+              <CTAButton variant="ghost" href={PHONE_TEL}>
+                {DRAINAGE_FINAL_CTA.ctaPhone}
+              </CTAButton>
+            </div>
+            <p className="mt-6 text-xs text-white/55">{DRAINAGE_FINAL_CTA.finePrint}</p>
           </div>
-          <p className="mt-6 text-xs text-white/55">{DRAINAGE_FINAL_CTA.finePrint}</p>
         </div>
       </section>
     </article>

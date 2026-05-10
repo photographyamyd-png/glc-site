@@ -105,9 +105,12 @@ export const DRAINAGE_IMAGES = {
 } as const;
 
 export const DRAINAGE_HERO = {
+  /** Full phrase for audits / JSON-LD-adjacent reference; visible hero uses `ThreeActHeadline` lines. */
   h1: "Drainage, Hardscaping & Landscaping Contractors Serving Barrie, Simcoe County & Surrounding Areas",
-  sub:
-    "We solve the water problems other contractors ignore — and build the hardscapes and landscapes that turn challenging grades into exceptional outdoor spaces.",
+  titleLine1: "Drainage &",
+  titleLine2: "Hardscaping",
+  titleLine3: "Landscaping · Simcoe County",
+  sub: "We solve the water problems other contractors ignore. We build hardscapes and landscapes that turn tough grades into outdoor spaces that last.",
   ctaPrimary: "Get Your Free Drainage Assessment",
   ctaSecondary: "Book a Free Site Visit",
   breadcrumbHome: "Home",
@@ -134,10 +137,12 @@ export const DRAINAGE_TRUST_BAR = [
   },
 ] as const;
 
-/** Intro lede — two short paragraphs (copy-writing G-CW-1); remainder in expand. */
-export const DRAINAGE_INTRO_VISIBLE_P1 = `Ground Level Contracting is Simcoe County's trusted specialist for complete drainage, hardscaping, and landscaping solutions — from foundation drain tile installation and custom site drainage design, to armour stone retaining walls, interlock patios, natural stone walkways, and fully integrated outdoor environments. We solve the water problems other contractors ignore, and we build the hardscapes and landscapes that turn challenging grades into stunning, functional spaces.`;
+/** Intro lede — one or two sentences per paragraph (copy-writing G-CW-1); remainder in expand. */
+export const DRAINAGE_INTRO_VISIBLE_P1 = `Ground Level Contracting is Simcoe County's trusted specialist for complete drainage, hardscaping, and landscaping — from foundation drain tile and site drainage design to armour stone walls, interlock, natural stone, and integrated outdoor environments.`;
 
-export const DRAINAGE_INTRO_VISIBLE_P2 = `Our competitive advantage is the combination most contractors in this region cannot offer: deep drainage expertise paired with professional hardscaping capability and landscaping integration — all under a single contractor.`;
+export const DRAINAGE_INTRO_VISIBLE_P2 = `We solve the water problems other contractors ignore, and we build hardscapes and landscapes that turn challenging grades into functional, lasting spaces.`;
+
+export const DRAINAGE_INTRO_VISIBLE_P3 = `Our edge is simple: deep drainage skill, full hardscaping capability, and landscaping integration — one contractor, one schedule.`;
 
 export const DRAINAGE_INTRO_EXPAND = `The 3/4" clear stone going into your french drain, the armour stone wall holding back your slope, the interlock patio at its base, and the planting zones that complete the space — designed together, installed by the same crew, and built to perform for decades.
 
@@ -166,37 +171,55 @@ export const DRAINAGE_SERVICE_CARDS_EYEBROW = "WHAT WE BUILD";
 export const DRAINAGE_SERVICE_CARDS = [
   {
     title: "Foundation Drain Tile (Sub Drain)",
-    body: "Protect your foundation with properly installed weeping tile — perforated pipe, sock wrap, gravel bedding, and a correctly sized outlet connection built to last 25–50+ years. Interior and exterior systems for new builds, older homes, and full foundation remediation.",
+    paras: [
+      "Protect your foundation with weeping tile done right: perforated pipe, sock wrap, gravel bedding, and a correctly sized outlet built to last 25–50+ years.",
+      "We install interior and exterior systems for new builds, older homes, and full remediation.",
+    ],
     href: "#foundation-drain-tile",
     anchorLabel: "View Foundation Drain Tile Details →",
   },
   {
     title: "Custom Site Drainage Design",
-    body: "Surface and subsurface drainage systems — french drains, swales, catch basins, corrective grading, and subsurface interceptor trenches — engineered for your property's specific soil conditions, topography, and seasonal performance requirements.",
+    paras: [
+      "We engineer surface and subsurface drainage for your soil, slope, and seasons — french drains, swales, basins, grading, and interceptor trenches.",
+      "Every plan targets where water enters, how it moves, and where it must exit.",
+    ],
     href: "#site-drainage-design",
     anchorLabel: "View Site Drainage Details →",
   },
   {
     title: "Retaining Walls",
-    body: "Armour stone, segmental block, concrete, and engineered retaining walls built with proper drainage backfill as standard — walls that hold the grade, drain correctly, and make a visual statement that lasts.",
+    paras: [
+      "Armour stone, segmental block, concrete, and engineered walls — each with drainage backfill, weeps, and stone zones as standard.",
+      "Walls must hold the load, shed water, and still look intentional twenty years out.",
+    ],
     href: "#retaining-walls",
     anchorLabel: "View Retaining Wall Details →",
   },
   {
     title: "Patios, Walkways, Driveways & Steps",
-    body: "Interlock paving stone, natural flagstone, exposed aggregate concrete, and armour stone steps — all built on properly prepared aggregate bases with integrated drainage, designed to perform through Simcoe County's full frost cycle.",
+    paras: [
+      "Interlock, flagstone, exposed aggregate, and armour stone steps on compacted bases with drainage tied into the wider site.",
+      "Surfaces are detailed for Simcoe County frost, load, and finish — not just day-one appearance.",
+    ],
     href: "#patios-driveways-steps",
     anchorLabel: "View Patios & Driveways Details →",
   },
   {
     title: "Hardscape & Landscape Integration",
-    body: "Lakefront, hillside, and high-grade properties require drainage, hardscaping, and landscaping designed as a single cohesive system. We do all three — which is why property owners with the most challenging sites call us first.",
+    paras: [
+      "Lakefront, hillside, and high-grade lots need drainage, walls, and finish landscape as one system.",
+      "One crew sequence means fewer gaps between engineering, execution, and long-term performance.",
+    ],
     href: "#hardscape-integration",
     anchorLabel: "View Integration Details →",
   },
   {
     title: "Free Site Assessment",
-    body: "Every project starts with a no-obligation site visit. We assess drainage challenges, grade conditions, and hardscaping and landscaping goals — and deliver a written proposal with clear scope and line-item pricing.",
+    paras: [
+      "Every project starts with a no-obligation visit: we document drainage, grade, and your goals.",
+      "You get a written scope with line-item pricing — no surprises at invoice.",
+    ],
     href: "#cta-assessment",
     anchorLabel: "Book a Free Assessment →",
   },
@@ -512,31 +535,53 @@ export const DRAINAGE_PROCESS = {
   steps: [
     {
       title: "Free Site Assessment",
-      body: `We visit your property at no charge. Our goal is to understand what you're experiencing — whether that's water in the basement, a drainage problem in the yard, a slope you want to retain, a hardscaping project you want to design, or a landscaping vision you want to realize. We assess existing conditions, identify drainage challenges, and listen to your goals before we say anything about solutions. A good assessment is the difference between a proposal that fixes the problem and one that addresses the symptom.`,
+      paras: [
+        "We visit your property at no charge.",
+        "We document what you are seeing — basement water, yard drainage, slopes to hold, hardscape goals, or landscape vision.",
+        "We assess before we prescribe. That discipline separates fixes from symptom patches.",
+      ],
     },
     {
       title: "Written Proposal",
-      body: `Within a few business days of your site visit, you receive a written proposal with a clearly defined scope of work, line-item pricing, and a project timeline. We walk through every element with you — materials, scope boundaries, sequence of work, and what to expect during the project. No surprises.`,
+      paras: [
+        "Within a few business days you receive scope, line-item pricing, and a timeline.",
+        "We review materials, boundaries, sequence, and site expectations together — no surprises.",
+      ],
     },
     {
       title: "Scheduling & Pre-Project Planning",
-      body: `Once you accept the proposal, we schedule your project and confirm all material orders, equipment bookings, and utility locates. On projects requiring permits — retaining walls above code height thresholds, drainage alterations near property lines — we manage the permit application as part of our pre-project process.`,
+      paras: [
+        "After acceptance we lock the schedule and confirm materials, equipment, and locates.",
+        "When permits apply — tall walls or drainage near limits — we run the application as part of prep.",
+      ],
     },
     {
       title: "Site Preparation & Excavation",
-      body: `Excavation is performed to the depth required for your specific project — whether that's footing-level for drain tile, subgrade depth for base preparation, or full excavation for grade correction. Spoils are managed through our integrated hauling capability — removed from site, stockpiled, or redistributed as the project requires.`,
+      paras: [
+        "Excavation reaches footing depth for drain tile, subgrade for bases, or full cuts for grade fixes.",
+        "Spoils move by our hauling: off-site, stockpiled, or redistributed to match the plan.",
+      ],
     },
     {
       title: "Drainage Infrastructure First",
-      body: `Drainage systems — perforated pipe, gravel bedding, catch basins, outlet connections — are installed before any hardscaping surfaces go down. Drainage infrastructure is always buried. Once it is covered, it must work correctly for decades without access. This is where craftsmanship in concealed work matters most.`,
+      paras: [
+        "Pipe, gravel beds, basins, and outlets go in before any hardscape surface.",
+        "Once buried, this work has to perform for decades with no access — detail matters here.",
+      ],
     },
     {
       title: "Hardscaping Installation",
-      body: `Retaining walls are built on properly prepared and compacted bases with drainage backfill installed as the wall rises. Hard surfaces — interlock, natural stone, concrete — are laid on mechanically compacted aggregate bases to the depth required for the load and frost exposure on your site.`,
+      paras: [
+        "Walls rise on compacted bases with drainage zones installed as we build.",
+        "Interlock, stone, and concrete land on aggregate lifts sized for frost and load at your site.",
+      ],
     },
     {
       title: "Final Grade, Cleanup & Restoration",
-      body: `Final grade is established to direct surface water correctly away from structures and toward drainage outlets. Site cleanup, topsoil restoration, and any seed, sod, or landscaping reinstatement are completed. The project is not done until the site looks as though we were never there — except for the permanent solution that remains.`,
+      paras: [
+        "Finish grade moves surface water away from structures toward the right outlets.",
+        "We restore soil and turf, clean the site, and leave only the permanent work behind.",
+      ],
     },
   ],
 } as const;
@@ -544,7 +589,7 @@ export const DRAINAGE_PROCESS = {
 export const DRAINAGE_SERVICE_AREAS = {
   eyebrow: "WHERE WE WORK",
   h2: "Areas We Serve Across Central Ontario",
-  intro: `Ground Level Contracting provides drainage, hardscaping, and landscaping services throughout a broad territory centred on Barrie, Ontario, covering the full geographic range of Simcoe County and its surrounding communities.`,
+  intro: `Ground Level Contracting serves drainage, hardscaping, and landscaping from a Barrie base across Simcoe County and nearby communities.`,
   primaryHeading: "Primary Service Areas",
   primary: [
     { city: "Barrie, Ontario", note: "Full service. All drainage, hardscaping, and landscaping services." },
@@ -558,7 +603,10 @@ export const DRAINAGE_SERVICE_AREAS = {
   extendedHeading: "Extended Service Areas",
   extendedInline:
     "New Tecumseth / Alliston, Midland & Penetanguishene, Bradford West Gwillimbury, Collingwood & The Blue Mountains, Ramara & surrounding Simcoe County townships",
-  lakesideNote: `We regularly work on waterfront properties around Lake Simcoe, Kempenfelt Bay, and throughout the Simcoe County cottage belt. Armour stone shoreline walls, drainage integration for seasonal properties, and hardscaping and landscaping on challenging lakefront grades are all within our scope.`,
+  lakesideParas: [
+    "We work lakefront and seasonal properties across Lake Simcoe, Kempenfelt Bay, and the cottage belt.",
+    "Shoreline armour stone, seasonal drainage, and hardscape plus landscape on steep lake grades stay in our wheelhouse.",
+  ],
 } as const;
 
 export const DRAINAGE_FAQ = {
@@ -639,7 +687,10 @@ export const DRAINAGE_FINAL_CTA = {
   id: "cta-assessment",
   line1: "Stop the Water. Fix the Grade.",
   line2: "Build Something Exceptional.",
-  sub: `Ground Level Contracting provides complete drainage, hardscaping, and landscaping solutions across Barrie, Orillia, Simcoe County, Wasaga Beach & Innisfil. Every project starts with a free site assessment and a written quote.`,
+  subParas: [
+    "Complete drainage, hardscaping, and landscaping for Barrie, Orillia, Simcoe County, Wasaga Beach, and Innisfil.",
+    "Every project starts with a free site assessment and a written quote.",
+  ],
   ctaPrimary: "Get Your Free Drainage Assessment",
   ctaSecondary: "Book a Free Site Visit",
   ctaPhone: `Call: ${PHONE_DISPLAY}`,
