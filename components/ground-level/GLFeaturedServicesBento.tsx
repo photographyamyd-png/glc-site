@@ -12,6 +12,7 @@ import { SERVICE_LAYOUT_LAB_ITEMS } from "@/lib/ground-level/service-layout-lab-
 import { ServiceLabImg } from "@/components/ground-level/service-layout-lab/ServiceLabImg";
 import { serviceTitleTone } from "@/components/ground-level/service-layout-lab/serviceLayoutLabShared";
 import { GROUND_LEVEL_SERVICES, type GroundLevelService } from "@/lib/ground-level/services";
+import { getServiceImageAlt } from "@/lib/site/service-images";
 
 const MotionLink = motion.create(Link);
 const REVEAL_EASE = [0.22, 1, 0.36, 1] as const;
@@ -52,6 +53,7 @@ function isInternalRoute(href: string) {
 type ServiceWithImages = GroundLevelService & {
   imageUrl: string;
   fallbackImageUrl: string;
+  imageAlt: string;
 };
 
 function mergeLabImages(services: readonly GroundLevelService[]): ServiceWithImages[] {
@@ -63,6 +65,7 @@ function mergeLabImages(services: readonly GroundLevelService[]): ServiceWithIma
       ...s,
       imageUrl: lab?.imageUrl ?? fallback.imageUrl,
       fallbackImageUrl: lab?.fallbackImageUrl ?? fallback.fallbackImageUrl,
+      imageAlt: getServiceImageAlt(s.slug),
     };
   });
 }
@@ -131,7 +134,7 @@ function GlcServiceCard({
         <ServiceLabImg
           src={item.imageUrl}
           fallbackSrc={item.fallbackImageUrl}
-          alt=""
+          alt={item.imageAlt}
           className="h-full w-full object-cover opacity-95 transition-[transform] duration-500 ease-[var(--ease)] group-hover:scale-[1.03] group-focus-visible:scale-[1.03] motion-reduce:group-hover:scale-100 motion-reduce:group-focus-visible:scale-100"
         />
       </div>

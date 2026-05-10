@@ -381,11 +381,11 @@ export const CORE_COPY: CorePageCopy = {
   },
   privacy: {
     title: "Privacy Policy",
-    body: "Placeholder page for Ground Level Contracting. Final privacy policy will be added when legal content is ready.",
+    body: "Ground Level Contracting collects only the contact and project details needed to respond to service inquiries, coordinate dispatch, and maintain operational records.",
   },
   terms: {
     title: "Terms of Use",
-    body: "Placeholder page for Ground Level Contracting. Final terms will be added when legal content is ready.",
+    body: "Use of this website is limited to service information and inquiry pathways; project commitments begin only after scope, schedule, and contract terms are confirmed.",
   },
 };
 

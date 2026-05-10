@@ -4,6 +4,7 @@ import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { FragmentBullet } from "@/components/ui/StructuralFragments";
 import { ABOUT, STATS_LINES } from "@/lib/ground-level/homepage-copy";
+import { getServiceImage } from "@/lib/site/service-images";
 
 function headingTone(text: string) {
   const [left, right] = text.split("—");
@@ -39,8 +40,8 @@ function defaultAbout(): GLWhoWeServeContent {
     cta: ABOUT.cta,
     mediaStat: ABOUT.mediaStat,
     badge: ABOUT.badge,
-    imageAlt: "Excavator on a commercial excavation site",
-    imageSrc: "/ground-level/excavation-1.jpg",
+    imageAlt: getServiceImage("excavation-site-preparation").alt,
+    imageSrc: getServiceImage("excavation-site-preparation").src,
   };
 }
 
@@ -61,7 +62,7 @@ export function GLWhoWeServe({
   const a = content ?? defaultAbout();
   const ctaLabel = typeof a.cta === "string" ? a.cta : a.cta.label;
   const ctaHref = typeof a.cta === "string" ? "/contact" : a.cta.href;
-  const imgSrc = a.imageSrc ?? "/ground-level/excavation-1.jpg";
+  const imgSrc = a.imageSrc ?? getServiceImage("excavation-site-preparation").src;
   const isInternalRoute = ctaHref.startsWith("/") || ctaHref.startsWith("#");
 
   return (

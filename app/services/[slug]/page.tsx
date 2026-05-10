@@ -5,6 +5,7 @@ import { ExcavationSitePreparationPage } from "@/components/templates/Excavation
 import { ServicePageTemplate } from "@/components/templates/ServicePageTemplate";
 import { SERVICE_DETAILS } from "@/lib/site/copy";
 import { ALL_SERVICES, PRIMARY_SERVICES, SEO_TITLES, type PrimaryServiceSlug } from "@/lib/site/registry";
+import { buildPageMetadata } from "@/lib/site/metadata";
 
 export function generateStaticParams() {
   return ALL_SERVICES.map((service) => ({ slug: service.slug }));
@@ -17,20 +18,28 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const service = ALL_SERVICES.find((entry) => entry.slug === slug);
-  if (!service) return { title: "Service | Ground Level Contracting" };
+  if (!service) {
+    return buildPageMetadata({
+      title: "Service | Ground Level Contracting",
+      description: "Ground Level Contracting service information for commercial site operations.",
+      path: "/services/",
+    });
+  }
 
   const primaryTitle =
     service.category === "primary"
       ? (SERVICE_DETAILS[service.slug as PrimaryServiceSlug]?.seoTitle ?? SEO_TITLES.primary[service.slug as PrimaryServiceSlug])
       : `${service.title} | Ground Level Contracting`;
+  const description =
+    service.category === "primary"
+      ? (SERVICE_DETAILS[service.slug as PrimaryServiceSlug]?.seoDescription ?? service.description)
+      : service.description;
 
-  return {
+  return buildPageMetadata({
     title: primaryTitle,
-    description:
-      service.category === "primary"
-        ? (SERVICE_DETAILS[service.slug as PrimaryServiceSlug]?.seoDescription ?? service.description)
-        : service.description,
-  };
+    description,
+    path: `/services/${service.slug}/`,
+  });
 }
 
 export default async function ServicePage({

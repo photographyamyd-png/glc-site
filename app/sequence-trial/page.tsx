@@ -1,5 +1,14 @@
 import { SequenceHierarchyTrialSet } from "@/components/ground-level/home-review-candidates/SequenceHierarchyTrialSet";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/site/metadata";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Sequence Trial | Ground Level Contracting",
+  description: "Experimental Ground Level Contracting section sequence trial for internal review.",
+  path: "/sequence-trial/",
+  noIndex: true,
+});
 
 export default function SequenceTrialPage() {
   if (process.env.NODE_ENV === "production" && process.env.ENABLE_EXPERIMENTAL_ROUTES !== "true") {
@@ -7,7 +16,7 @@ export default function SequenceTrialPage() {
   }
 
   return (
-    <main className="relative z-10">
+    <div className="relative z-10">
       <section
         id="sequence-trial-divider"
         className="border-y-2 border-[color:var(--y)]/45 bg-[linear-gradient(180deg,rgb(255_255_255),rgb(248_248_246))]"
@@ -25,6 +34,6 @@ export default function SequenceTrialPage() {
         </div>
       </section>
       <SequenceHierarchyTrialSet />
-    </main>
+    </div>
   );
 }

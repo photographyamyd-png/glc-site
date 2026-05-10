@@ -3,11 +3,13 @@ import Link from "next/link";
 import { MarketingPageShell } from "@/components/templates/MarketingPageShell";
 import { SEO_TITLES } from "@/lib/site/registry";
 import { CORE_COPY } from "@/lib/site/copy";
+import { buildPageMetadata } from "@/lib/site/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: SEO_TITLES.about,
   description: CORE_COPY.about.body,
-};
+  path: "/about/",
+});
 
 export default function AboutPage() {
   return (
@@ -25,7 +27,7 @@ export default function AboutPage() {
         <article className="rounded-xl border border-[color:var(--g200)] bg-white/80 p-5 backdrop-blur-sm">
           <h2 className="font-serif text-xl font-semibold uppercase tracking-tight text-ink">Operating principle</h2>
           <p className="mt-2 text-sm leading-relaxed text-ink-muted">{CORE_COPY.about.body}</p>
-          <Link href={CORE_COPY.about.primaryCta.href} className="cta-primary mt-4 inline-block px-4 py-2 text-xs tracking-wide">
+          <Link href={CORE_COPY.about.primaryCta.href} className="cta-primary mt-4 inline-flex min-h-[44px] items-center px-4 py-2 text-xs tracking-wide">
             {CORE_COPY.about.primaryCta.label}
           </Link>
         </article>
@@ -40,7 +42,7 @@ export default function AboutPage() {
           </ul>
           <div className="mt-4 flex flex-wrap gap-2">
             {CORE_COPY.about.supportLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-md border border-[color:var(--g200)] px-3 py-2 text-xs text-ink">
+              <Link key={link.href} href={link.href} className="inline-flex min-h-[44px] items-center rounded-md border border-[color:var(--g200)] px-3 py-2 text-xs text-ink">
                 {link.label}
               </Link>
             ))}

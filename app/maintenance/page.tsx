@@ -2,21 +2,19 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { footerCloneSiteData } from "@/content/footer-clone-data";
 import { NAV_LINKS, SEO_TITLES } from "@/lib/site/registry";
+import { buildPageMetadata } from "@/lib/site/metadata";
 
 const HERO_IMAGE_SRC = "/images/services/Excavation/excavation-016.jpg";
 const LOGO_MARK_SRC = "/images/Logos/ground-level-mark.png";
 
 export const metadata: Metadata = {
-  title: SEO_TITLES.maintenance,
-  description:
-    "Ground Level Contracting is preparing a new web experience. Commercial excavation, grading, and site operations across Barrie and Simcoe County.",
-  robots: { index: false, follow: false },
-  openGraph: {
+  ...buildPageMetadata({
     title: SEO_TITLES.maintenance,
     description:
-      "New website coming soon. Ground Level Contracting — Barrie, Simcoe County, Orillia.",
-    type: "website",
-  },
+      "Ground Level Contracting is preparing a new web experience. Commercial excavation, grading, and site operations across Barrie and Simcoe County.",
+    path: "/maintenance/",
+    noIndex: true,
+  }),
 };
 
 export default function MaintenancePage() {
@@ -31,7 +29,7 @@ export default function MaintenancePage() {
       <div className="pointer-events-none absolute inset-0">
         <Image
           src={HERO_IMAGE_SRC}
-          alt=""
+          alt="Commercial excavation equipment on a Ground Level Contracting job site"
           fill
           priority
           sizes="100vw"

@@ -44,7 +44,7 @@ export function LocationPageTemplate({ location }: { location: LocationDef }) {
         </div>
         <ClaudeLogicWatermark placement="bottom-right" mode="on-dark" className="z-[1] opacity-[0.14] sm:opacity-[0.17]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-12 sm:px-6 sm:py-14 lg:px-10">
-          <p className="label-overline-on-dark">Service Area</p>
+          <p className="eyebrow text-white">Service Area</p>
           <h1 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl lg:text-5xl">
             {title}
           </h1>
@@ -74,13 +74,16 @@ export function LocationPageTemplate({ location }: { location: LocationDef }) {
               />
             </div>
             <div className="bespoke-surface panel-machined flex flex-col justify-center border border-[color:var(--g200)] bg-white p-6 lg:col-span-7 lg:p-8">
-              <p className="label-overline">Local Coverage</p>
+              <p className="eyebrow text-ink">Local Coverage</p>
+              <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">
+                Dispatch coverage for {place}
+              </h2>
               <p className="mt-3 text-[15px] leading-[1.72] text-ink-muted sm:text-base">
                 {LOCATION_COPY_MODEL.supportLine}
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 {LOCATION_COPY_MODEL.ctas.map((cta) => (
-                  <Link key={cta.href} href={cta.href} className="cta-primary inline-block px-5 py-3 text-xs tracking-wide">
+                  <Link key={cta.href} href={cta.href} className="cta-primary inline-flex min-h-[44px] items-center px-5 py-3 text-xs tracking-wide">
                     {cta.label}
                   </Link>
                 ))}

@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { SEO_TITLES } from "@/lib/site/registry";
-import { HOME_COPY } from "@/lib/site/copy";
+import { COPY_LAB_HERO } from "@/lib/ground-level/home-copy-lab-content";
+import { buildPageMetadata } from "@/lib/site/metadata";
 import { GLHomeCopyLab } from "@/components/ground-level/home-copy-lab/GLHomeCopyLab";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: SEO_TITLES.home,
-  description: HOME_COPY.hero.lede,
-};
+  description: COPY_LAB_HERO.lede,
+  path: "/",
+});
 
 export default function Home() {
   return <GLHomeCopyLab />;

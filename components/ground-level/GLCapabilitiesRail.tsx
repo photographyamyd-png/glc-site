@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useId, useState } from "react";
 import type { GroundLevelService } from "@/lib/ground-level/services";
+import { getServiceImage } from "@/lib/site/service-images";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 
@@ -140,22 +141,24 @@ export function GLCapabilitiesRail({
               className="pointer-events-none absolute -right-4 top-10 hidden h-[55%] w-px bg-gradient-to-b from-[color:var(--y)]/50 via-white/20 to-transparent lg:block"
               aria-hidden
             />
-            {services.map((s, i) => (
-              <div
-                key={s.slug}
-                role="tabpanel"
-                id={`${baseId}-rail-panel-${i}`}
-                aria-labelledby={`${baseId}-rail-${i}`}
-                hidden={selected !== i}
-                className="relative border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:var(--brand-canvas)] p-5 text-ink shadow-[0_20px_50px_rgb(0_0_0/0.22)] sm:p-7"
-              >
+            {services.map((s, i) => {
+              const serviceImage = getServiceImage(s.slug);
+              return (
+                <div
+                  key={s.slug}
+                  role="tabpanel"
+                  id={`${baseId}-rail-panel-${i}`}
+                  aria-labelledby={`${baseId}-rail-${i}`}
+                  hidden={selected !== i}
+                  className="relative border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:var(--brand-canvas)] p-5 text-ink shadow-[0_20px_50px_rgb(0_0_0/0.22)] sm:p-7"
+                >
                 <div
                   className="relative -mx-5 -mt-5 mb-6 h-36 overflow-hidden border-b border-[color:var(--g200)] sm:-mx-7 sm:-mt-7 sm:h-44"
                   style={{ clipPath: "polygon(0 0, 100% 0, 100% 88%, 0 100%)" }}
                 >
                   <Image
-                    src="/ground-level/equipment-wide.jpg"
-                    alt=""
+                    src={serviceImage.src}
+                    alt={serviceImage.alt}
                     fill
                     className="object-cover object-center opacity-90"
                     sizes="(min-width: 1024px) 50vw, 100vw"
@@ -177,8 +180,9 @@ export function GLCapabilitiesRail({
                 >
                   View full service →
                 </Link>
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

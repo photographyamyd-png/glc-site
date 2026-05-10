@@ -3,11 +3,13 @@ import Link from "next/link";
 import { MarketingPageShell } from "@/components/templates/MarketingPageShell";
 import { SEO_TITLES } from "@/lib/site/registry";
 import { CORE_COPY } from "@/lib/site/copy";
+import { buildPageMetadata } from "@/lib/site/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: SEO_TITLES.contact,
   description: CORE_COPY.contact.lead,
-};
+  path: "/contact/",
+});
 
 export default function ContactPage() {
   return (
@@ -38,7 +40,7 @@ export default function ContactPage() {
           <p className="mt-2 text-sm text-ink-muted">{CORE_COPY.contact.address}</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {CORE_COPY.contact.supportLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="rounded-md border border-[color:var(--g200)] px-3 py-2 text-xs text-ink">
+              <Link key={link.href} href={link.href} className="inline-flex min-h-[44px] items-center rounded-md border border-[color:var(--g200)] px-3 py-2 text-xs text-ink">
                 {link.label}
               </Link>
             ))}

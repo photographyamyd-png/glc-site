@@ -12,6 +12,7 @@ import {
 } from "@/content/footer-clone-data";
 import { SiteFooterNextClone } from "@/components/layout/site-footer-next-clone";
 import { SEO_TITLES } from "@/lib/site/registry";
+import { buildPageMetadata } from "@/lib/site/metadata";
 import { cn } from "@/lib/utils";
 
 const oswald = Oswald({
@@ -36,24 +37,15 @@ const googleSiteVerification =
   process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim() || undefined;
 
 export const metadata: Metadata = {
-  title: SEO_TITLES.home,
-  description:
-    "Ground Level Contracting provides excavation, grading, civil infrastructure, hauling, and commercial snow operations.",
+  ...buildPageMetadata({
+    title: SEO_TITLES.home,
+    description:
+      "Ground Level Contracting provides excavation, grading, civil infrastructure, hauling, and commercial snow operations.",
+    path: "/",
+  }),
   ...(googleSiteVerification
     ? { verification: { google: googleSiteVerification } }
     : {}),
-  openGraph: {
-    title: SEO_TITLES.home,
-    description:
-      "Commercial excavation and site operations across Barrie, Orillia, and Simcoe County.",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: SEO_TITLES.home,
-    description:
-      "Commercial excavation and site operations across Barrie, Orillia, and Simcoe County.",
-  },
 };
 
 export default async function RootLayout({

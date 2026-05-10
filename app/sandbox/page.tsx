@@ -2,7 +2,6 @@ import { GLMarqueeBand } from "@/components/glc-sections/GLMarqueeBand";
 import { GLCDnaSandbox } from "@/components/glc-dna/GLCDnaSandbox";
 import { GLDifference } from "@/components/ground-level/GLDifference";
 import { GLFeaturedServices } from "@/components/ground-level/GLFeaturedServices";
-import { GLHero } from "@/components/ground-level/GLHero";
 import { GLServiceFaq } from "@/components/ground-level/GLServiceFaq";
 import { GLHomeCopyLab } from "@/components/ground-level/home-copy-lab/GLHomeCopyLab";
 import { ProcessVerticalFlow } from "@/components/process/ProcessVerticalFlow";
@@ -10,6 +9,15 @@ import { ServiceLayoutLabC } from "@/components/ground-level/service-layout-lab/
 import { excavationFaqItems } from "@/lib/ground-level/excavation-sandbox-map";
 import { SERVICE_LAYOUT_LAB_ITEMS } from "@/lib/ground-level/service-layout-lab-data";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/site/metadata";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Sandbox | Ground Level Contracting",
+  description: "Experimental Ground Level Contracting layout sandbox for internal review.",
+  path: "/sandbox/",
+  noIndex: true,
+});
 
 /**
  * Temporary approved staging route.
@@ -23,7 +31,6 @@ export default function SandboxPage() {
   return (
     <>
       {/* Approved core sections */}
-      <GLHero />
       <GLMarqueeBand />
       <GLFeaturedServices />
       <GLDifference />

@@ -193,14 +193,15 @@ export function DrainageHardscapingPage({ service, related }: Props) {
       {/* —— Deliverables: every card carries a raster anchor —— */}
       <section
         id="field-capabilities"
-        className="section-major band-light scroll-mt-[var(--header)] view-reveal"
+        className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden view-reveal"
         aria-labelledby="drainage-deliverables-heading"
       >
-        <ClaudeLogicWatermark placement="top-left" className="opacity-[0.07]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.03),transparent_42%)]" aria-hidden />
+        <ClaudeLogicWatermark placement="top-left" mode="on-dark" className="opacity-[0.12]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
-            <p className="eyebrow text-ink">Capabilities</p>
-            <h2 id="drainage-deliverables-heading" className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl">
+            <p className="eyebrow text-white">Capabilities</p>
+            <h2 id="drainage-deliverables-heading" className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl">
               {detail.deliverablesHeading}
             </h2>
           </div>
@@ -405,22 +406,24 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         </div>
       </section>
 
-      <section id="service-area" className="section-major band-light scroll-mt-[var(--header)]" aria-labelledby="drainage-service-area-heading">
-        <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
+      <section id="service-area" className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden" aria-labelledby="drainage-service-area-heading">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.03),transparent_42%)]" aria-hidden />
+        <ClaudeLogicWatermark placement="bottom-left" mode="on-dark" className="opacity-[0.1]" />
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-7">
               <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5 lg:max-w-none">
-                <p className="eyebrow text-ink">Service area</p>
-                <h2 id="drainage-service-area-heading" className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl">
+                <p className="eyebrow text-white">Service area</p>
+                <h2 id="drainage-service-area-heading" className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl">
                   Barrie and Simcoe County drainage coverage
                 </h2>
-                <p className={`mt-[var(--s7)] ${bodyLight}`}>
+                <p className={`mt-[var(--s7)] ${bodyOnDark}`}>
                   Ground Level Contracting provides drainage and hardscaping civil support across Barrie, Midland, Orillia, and surrounding Simcoe County municipalities for commercial and industrial properties.
                 </p>
               </div>
             </div>
             <div className="lg:col-span-5">
-              <div className="relative min-h-[260px] overflow-hidden border border-[color:var(--g200)]">
+              <div className="relative min-h-[260px] overflow-hidden border border-white/15">
                 <Image
                   src={DRAINAGE_IMAGES[6]}
                   alt="Drainage and hardscaping service coverage visual in Simcoe County"

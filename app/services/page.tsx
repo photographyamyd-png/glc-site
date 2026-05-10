@@ -3,11 +3,13 @@ import { GLFeaturedServicesBento } from "@/components/ground-level/GLFeaturedSer
 import { SEO_TITLES } from "@/lib/site/registry";
 import { CORE_COPY } from "@/lib/site/copy";
 import { groundLevelServicesWithCopyLabDescriptions } from "@/lib/ground-level/merge-copy-lab-services";
+import { buildPageMetadata } from "@/lib/site/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: SEO_TITLES.services,
   description: CORE_COPY.servicesIndex.lede,
-};
+  path: "/services/",
+});
 
 export default function ServicesIndexPage() {
   const services = groundLevelServicesWithCopyLabDescriptions();

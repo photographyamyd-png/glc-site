@@ -135,7 +135,12 @@ const copyLabClosingContent: GLCtaBandContent = {
 export function GLHomeCopyLab() {
   return (
     <div className="copy-lab-stack" data-prototype="home-copy-lab">
-      <GLHero sectionId="hero" headingId="hero-heading" content={copyLabHeroContent} />
+      <GLHero
+        sectionId="hero"
+        headingId="hero-heading"
+        content={copyLabHeroContent}
+        imageAlt="Ground Level Contracting equipment preparing a commercial site in Simcoe County"
+      />
       <GLMarqueeBand items={COPY_LAB_MARQUEE_ITEMS} />
       <GLFeaturedServicesBento
         sectionId="services"

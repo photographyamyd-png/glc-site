@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { PHONE_TEL, WHY } from "@/lib/ground-level/homepage-copy";
+import { getServiceImage } from "@/lib/site/service-images";
 
 function headingTone(text: string) {
   const key = "Complex Ground Conditions";
@@ -41,8 +42,8 @@ function defaultWhy(): GLDifferenceContent {
     ctaHref: PHONE_TEL,
     chipLine1: WHY.floatChipLine1,
     chipLine2: WHY.floatChipLine2,
-    imageSrc: "/ground-level/equipment-wide.jpg",
-    imageAlt: "Heavy equipment on a graded industrial site",
+    imageSrc: getServiceImage("foundations-civil-infrastructure").src,
+    imageAlt: getServiceImage("foundations-civil-infrastructure").alt,
   };
 }
 
@@ -58,8 +59,8 @@ export function GLDifference({
   content,
 }: GLDifferenceProps = {}) {
   const w = content ?? defaultWhy();
-  const imgSrc = w.imageSrc ?? "/ground-level/equipment-wide.jpg";
-  const imgAlt = w.imageAlt ?? "Heavy equipment on a graded industrial site";
+  const imgSrc = w.imageSrc ?? getServiceImage("foundations-civil-infrastructure").src;
+  const imgAlt = w.imageAlt ?? getServiceImage("foundations-civil-infrastructure").alt;
 
   return (
     <section
