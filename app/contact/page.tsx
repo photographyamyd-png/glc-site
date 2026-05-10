@@ -20,6 +20,7 @@ export default function ContactPage() {
         </>
       }
       lede={CORE_COPY.contact.heading}
+      ledeSplit={{ primary: CORE_COPY.contact.leadIntro, secondary: CORE_COPY.contact.leadClosing }}
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <article className="rounded-xl border border-[color:var(--g200)] bg-white/80 p-5 backdrop-blur-sm">
@@ -35,7 +36,6 @@ export default function ContactPage() {
         <article className="rounded-xl border border-[color:var(--g200)] bg-white/80 p-5 backdrop-blur-sm">
           <p className="label-overline">{CORE_COPY.contact.addressHeading}</p>
           <p className="mt-2 text-sm text-ink-muted">{CORE_COPY.contact.address}</p>
-          <p className="mt-4 text-sm leading-relaxed text-ink-muted">{CORE_COPY.contact.lead}</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {CORE_COPY.contact.supportLinks.map((link) => (
               <Link key={link.href} href={link.href} className="rounded-md border border-[color:var(--g200)] px-3 py-2 text-xs text-ink">

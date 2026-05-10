@@ -74,7 +74,12 @@ export type CorePageCopy = {
   contact: {
     eyebrow: string;
     heading: string;
+    /** Full lead for metadata / SEO; same text as `leadIntro` + `leadClosing`. */
     lead: string;
+    /** First sentence(s) — left measure when split under shell header. */
+    leadIntro: string;
+    /** Closing sentence — right measure when split. */
+    leadClosing: string;
     phoneHeading: string;
     emailHeading: string;
     phone: { label: string; href: string };
@@ -346,6 +351,8 @@ export const CORE_COPY: CorePageCopy = {
   contact: {
     eyebrow: "Ready to Build?",
     heading: "Start With a Site Consultation",
+    leadIntro: "Commercial projects across Barrie, Midland, Orillia, and Simcoe County.",
+    leadClosing: "Affordable, reliable, satisfaction guaranteed.",
     lead:
       "Commercial projects across Barrie, Midland, Orillia, and Simcoe County. Affordable, reliable, satisfaction guaranteed.",
     phoneHeading: "Call direct",

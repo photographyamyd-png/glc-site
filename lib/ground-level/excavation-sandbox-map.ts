@@ -66,7 +66,8 @@ export function excavationWhoWeServeContent(): GLWhoWeServeContent {
 
 export function excavationCopyLabStatsContent(): CopyLabStatsContent {
   return {
-    sideLabel: "Field metrics",
+    eyebrow: "Operations snapshot",
+    heading: "Field metrics",
     metrics: detail.hubStats.map((m) => ({
       value: m.value,
       label: m.label,

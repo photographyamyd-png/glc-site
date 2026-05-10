@@ -9,14 +9,16 @@ export type CopyLabStatsMetric = {
 };
 
 export type CopyLabStatsContent = {
-  sideLabel: string;
+  eyebrow: string;
+  heading: string;
   metrics: readonly CopyLabStatsMetric[];
   imageSrc: string;
   imageAlt: string;
 };
 
 const DEFAULT_STATS_CONTENT: CopyLabStatsContent = {
-  sideLabel: COPY_LAB_STATS.sideLabel,
+  eyebrow: COPY_LAB_STATS.eyebrow,
+  heading: COPY_LAB_STATS.heading,
   metrics: [...COPY_LAB_STATS.metrics],
   imageSrc: "/ground-level/equipment-wide.jpg",
   imageAlt: "Heavy equipment on a graded commercial site",
@@ -54,10 +56,16 @@ export function CopyLabStats(props: { content?: CopyLabStatsContent } = {}) {
             <div className="absolute inset-0 bg-gradient-to-r from-[rgb(0_0_0/0.35)] to-transparent" aria-hidden />
           </div>
           <div className="relative z-[2] order-1 translate-y-1 lg:order-2">
-            <h2 id="metrics-heading" className="mb-2 eyebrow text-ink">
-              {s.sideLabel}
-            </h2>
-            <ul className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+            <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
+              <p className="eyebrow text-ink">{s.eyebrow}</p>
+              <h2
+                id="metrics-heading"
+                className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+              >
+                {s.heading}
+              </h2>
+            </div>
+            <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-2 sm:mt-12">
               {s.metrics.map((m, i) => (
                 <li
                   key={`${m.label}-${m.value}`}
