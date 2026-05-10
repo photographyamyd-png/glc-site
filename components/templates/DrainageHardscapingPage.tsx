@@ -7,6 +7,7 @@ import { ExpandSection } from "@/components/drainage-hardscaping/ExpandSection";
 import { CTAButton, SectionEyebrow, YellowRule } from "@/components/drainage-hardscaping/primitives";
 import { ServiceCard } from "@/components/drainage-hardscaping/ServiceCard";
 import { SiteDrainageDesignClient } from "@/components/drainage-hardscaping/SiteDrainageDesignClient";
+import { GoogleReviewsPanel } from "@/components/drainage-hardscaping/GoogleReviewsPanel";
 import { StickyTabBox } from "@/components/drainage-hardscaping/StickyTabBox";
 import { PHONE_TEL } from "@/lib/ground-level/homepage-copy";
 import {
@@ -37,6 +38,7 @@ import {
   DRAINAGE_SITE_DRAINAGE,
   drainageHeroPhoneCta,
 } from "@/lib/site/drainage-hardscaping-landing-content";
+import { substituteGoogleReviewPlaceholders } from "@/lib/site/google-business-env";
 import type { ServiceDef } from "@/lib/site/registry";
 import { cn } from "@/lib/utils";
 
@@ -732,16 +734,12 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                 </svg>
                 <div>
                   <p className="font-serif text-base font-bold uppercase text-white">{item.label}</p>
-                  <p className="mt-1 text-sm text-white/90">{item.sub}</p>
+                  <p className="mt-1 text-sm text-white/90">{substituteGoogleReviewPlaceholders(item.sub)}</p>
                 </div>
               </li>
             ))}
           </ul>
-          <div className="mt-[60px] border border-white/10 bg-[rgb(10_12_11/0.45)] p-8 backdrop-blur-md">
-            <p className="eyebrow text-[color:var(--y)]">Google Reviews</p>
-            <p className="mt-2 font-serif text-2xl text-white">★★★★★</p>
-            <p className="mt-2 text-sm text-white/80">Placeholder — embed widget when available</p>
-          </div>
+          <GoogleReviewsPanel />
         </div>
       </section>
 
