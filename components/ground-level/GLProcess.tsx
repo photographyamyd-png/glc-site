@@ -65,20 +65,32 @@ export function GLProcess({
         {String(p.steps.length).padStart(2, "0")}
       </div>
       <ClaudeLogicWatermark placement="bottom-right" mode="on-dark" />
-      <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))]">
-        <div className="max-w-3xl border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:var(--brand-canvas)] p-5 text-ink shadow-[0_16px_40px_rgb(0_0_0/0.18)] sm:p-6">
-          <p className="label-overline mb-3">{p.eyebrow}</p>
-          <h2
-            id={headingId}
-            className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+      <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
+        <div className="border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:var(--brand-canvas)] p-5 text-ink shadow-[0_16px_40px_rgb(0_0_0/0.18)] sm:p-6">
+          <div
+            className={
+              p.intro
+                ? "grid gap-6 lg:grid-cols-12 lg:gap-10 lg:gap-y-6"
+                : "grid gap-6"
+            }
           >
-            {headingToneCanvas(p.heading)}
-          </h2>
-          {p.intro ? (
-            <div className="mt-4 border-l-2 border-[color:var(--y)]/60 pl-4">
-              <ExpandableCopy text={p.intro} className="text-sm leading-relaxed text-ink-muted sm:text-base" />
+            <div className={p.intro ? "lg:col-span-6 lg:pr-2" : "max-w-3xl"}>
+              <p className="label-overline mb-3">{p.eyebrow}</p>
+              <h2
+                id={headingId}
+                className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+              >
+                {headingToneCanvas(p.heading)}
+              </h2>
             </div>
-          ) : null}
+            {p.intro ? (
+              <div className="max-w-[min(100%,42rem)] lg:col-span-6 lg:flex lg:flex-col lg:justify-center">
+                <div className="border-l-2 border-[color:var(--y)]/60 pl-4">
+                  <ExpandableCopy text={p.intro} className="text-[15px] leading-[1.72] text-ink-muted sm:text-base" />
+                </div>
+              </div>
+            ) : null}
+          </div>
         </div>
         <div className="relative mt-10">
           <div
