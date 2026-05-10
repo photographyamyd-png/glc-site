@@ -299,7 +299,8 @@ export const DRAINAGE_RETAINING_WALLS = {
   eyebrow: "ARMOUR · BLOCK · ENGINEERED",
   h2: "Retaining Walls in Barrie & Simcoe County — Armour Stone, Block, Concrete & Engineered Solutions",
   intro: `A retaining wall does two jobs simultaneously: it holds back earth and it makes a statement. At Ground Level Contracting, we design and build retaining walls that accomplish both — from natural armour stone walls that integrate seamlessly into rural and lakeside landscapes, to precision-engineered block systems suited to residential grade changes and commercial applications, to structural concrete walls for high-load and high-height requirements.`,
-  intro2: `Every retaining wall we build includes proper drainage behind the wall — because without it, even the most well-built wall will eventually fail. Hydrostatic pressure from water trapped in saturated backfill is responsible for the majority of premature retaining wall failures in Ontario. We size our walls correctly for the load they carry, prepare our base to the depth the site requires, and install crushed stone drainage backfill, weep holes, and perforated pipe as standard practice on every wall — regardless of height or material. Where a wall is part of a broader hardscaping and landscaping project, we integrate the drainage system across the full site from day one.`,
+  intro2: `Every retaining wall we build includes proper drainage behind the wall — because without it, even the most well-built wall will eventually fail. Hydrostatic pressure from water trapped in saturated backfill is responsible for the majority of premature retaining wall failures in Ontario.`,
+  intro3: `We size our walls correctly for the load they carry, prepare our base to the depth the site requires, and install crushed stone drainage backfill, weep holes, and perforated pipe as standard practice on every wall — regardless of height or material. Where a wall is part of a broader hardscaping and landscaping project, we integrate the drainage system across the full site from day one.`,
   tabs: [
     {
       label: "Armour Stone",
@@ -355,8 +356,9 @@ export const DRAINAGE_PATIOS = {
   id: "patios-driveways-steps",
   eyebrow: "PATIOS · DRIVEWAYS · STEPS",
   h2: "Patios, Walkways, Driveways & Steps — Stone, Interlock & Concrete in Barrie & Simcoe County",
-  intro: `The hardscape surfaces on your property are where function meets lifestyle. A well-designed interlock patio, natural stone walkway, or exposed aggregate driveway doesn't just add curb appeal and outdoor living space — it solves drainage and grade challenges at the same time, and it creates the framework within which landscaping comes to life.`,
-  intro2: `Every hardscape project we build starts with proper base preparation: the right excavation depth, the right compacted aggregate layers, and the right drainage integration so your surfaces perform as beautifully in year fifteen as they do on installation day.`,
+  intro: `The hardscape surfaces on your property are where function meets lifestyle.`,
+  intro2: `A well-designed interlock patio, natural stone walkway, or exposed aggregate driveway doesn't just add curb appeal and outdoor living space — it solves drainage and grade challenges at the same time, and it creates the framework within which landscaping comes to life.`,
+  intro3: `Every hardscape project we build starts with proper base preparation: the right excavation depth, the right compacted aggregate layers, and the right drainage integration so your surfaces perform as beautifully in year fifteen as they do on installation day.`,
   tabs: [
     {
       label: "Interlock",
@@ -415,7 +417,8 @@ export const DRAINAGE_INTEGRATION = {
   eyebrow: "HARDSCAPE & LANDSCAPE INTEGRATION",
   h2: "Hardscape & Landscape Integration — Drainage-First Design for Lakeside, High-Grade & High-End Properties",
   visibleParas: [
-    `Not every property is a flat, easy build. Some of the most striking properties in Simcoe County — lakefront homes on Lake Simcoe, hillside properties in Oro-Medonte, sloped rural lots near Wasaga Beach and Innisfil — present real engineering and design challenges. These are the projects we approach with the most enthusiasm.`,
+    `Not every property is a flat, easy build.`,
+    `Some of the most striking properties in Simcoe County — lakefront homes on Lake Simcoe, hillside properties in Oro-Medonte, sloped rural lots near Wasaga Beach and Innisfil — present real engineering and design challenges. These are the projects we approach with the most enthusiasm.`,
     `When a site has significant grade changes, drainage complexity, or waterfront conditions, the integration of drainage systems, retaining walls, terraced hardscaping, and planting zones must be designed as a single cohesive system — not assembled from separate contractor scopes that don't communicate with each other.`,
   ],
   listLeadIn: "What We Deliver on Challenging Properties:",

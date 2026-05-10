@@ -489,6 +489,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
             <div className={`min-w-0 space-y-4 md:col-span-7 ${bodyLight}`}>
               <p>{DRAINAGE_RETAINING_WALLS.intro}</p>
               <p>{DRAINAGE_RETAINING_WALLS.intro2}</p>
+              <p>{DRAINAGE_RETAINING_WALLS.intro3}</p>
             </div>
             <div className="relative min-h-[200px] md:col-span-5">
               <div className="relative isolate z-0 aspect-[4/3] max-h-[min(70vh,400px)] overflow-hidden border border-[color:var(--g200)] md:sticky md:top-[calc(var(--header)+24px)] md:max-h-none md:aspect-auto md:min-h-[300px] lg:min-h-[320px]">
@@ -580,6 +581,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
             <div className={`min-w-0 space-y-4 md:col-span-7 ${bodyLight}`}>
               <p>{DRAINAGE_PATIOS.intro}</p>
               <p>{DRAINAGE_PATIOS.intro2}</p>
+              <p>{DRAINAGE_PATIOS.intro3}</p>
             </div>
             <div className="relative min-h-[200px] md:col-span-5">
               <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)] md:sticky md:top-[calc(var(--header)+24px)] md:aspect-auto md:min-h-[280px]">

@@ -74,12 +74,23 @@ export function ExpandSection({
   }, [hashId, reducedMotion, controlled, onOpenChange]);
 
   useEffect(() => {
-    if (!contentRef.current) return;
-    if (open) {
-      setMaxHeight(contentRef.current.scrollHeight);
-    } else {
+    const el = contentRef.current;
+    if (!el) return;
+
+    if (!open) {
       setMaxHeight(0);
+      return;
     }
+
+    const measure = () => setMaxHeight(el.scrollHeight);
+    measure();
+    const raf = requestAnimationFrame(() => measure());
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+    };
   }, [open, children]);
 
   const bodyClass =
@@ -113,13 +124,17 @@ export function ExpandSection({
         id={panelId}
         role="region"
         aria-hidden={!open}
-        className={cn(!reducedMotion && "transition-[max-height] duration-[250ms] ease-[cubic-bezier(0.16,1,0.3,1)]")}
+        className={cn(
+          /* max-height without overflow clips nothing — collapsed panels must not paint over following UI */
+          "overflow-hidden",
+          !reducedMotion && "transition-[max-height] duration-[250ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+        )}
         style={{
           maxHeight: reducedMotion ? (open ? "9999px" : 0) : maxHeight,
           transition: reducedMotion ? "none" : undefined,
         }}
       >
-        <div ref={contentRef} className={cn("overflow-hidden pt-6", bodyClass, !open && "pointer-events-none")}>
+        <div ref={contentRef} className={cn("pt-6", bodyClass, !open && "pointer-events-none")}>
           {children}
         </div>
       </div>
