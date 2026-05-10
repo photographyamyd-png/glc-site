@@ -169,6 +169,7 @@ export function GLHomeCopyLab() {
         sectionId="testimonials"
         headingId="testimonials-heading"
         content={copyLabTestimonialsContent}
+        surface="dark"
       />
       <GLCtaBand sectionId="cta-band" headingId="cta-band-heading" content={copyLabClosingContent} />
       <GLGhostTestSection sectionId="ghost-test" headingId="ghost-test-heading" />

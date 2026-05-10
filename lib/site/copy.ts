@@ -91,6 +91,8 @@ export type CorePageCopy = {
   servicesIndex: {
     breadcrumb: [string, string];
     title: string;
+    /** Short hero line (services index dark band); full narrative lives in `lede`. */
+    heroLede: string;
     lede: string;
     cardCtaLabel: string;
     cardDescription: string;
@@ -369,6 +371,8 @@ export const CORE_COPY: CorePageCopy = {
   servicesIndex: {
     breadcrumb: ["Home", "Services"],
     title: "Six core service lines",
+    heroLede:
+      "Commercial excavation, grading, civil infrastructure, drainage, hauling, and snow operations for schedule-critical sites across Simcoe County.",
     lede:
       "Commercial excavation, site grading, civil infrastructure, drainage, hauling, and winter snow operations — across Barrie, Midland, Orillia, and Simcoe County.",
     cardCtaLabel: "Open",

@@ -33,7 +33,7 @@ export default function ServicesIndexPage() {
             Six <span className="text-[color:var(--y)]">Core</span> Service Lines
           </h1>
           <p className="mt-5 max-w-3xl text-[15px] leading-[1.72] text-white/90 sm:text-base">
-            {CORE_COPY.servicesIndex.lede}
+            {CORE_COPY.servicesIndex.heroLede}
           </p>
         </div>
       </section>
