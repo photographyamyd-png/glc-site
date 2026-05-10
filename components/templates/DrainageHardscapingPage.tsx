@@ -299,16 +299,72 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                   );
                 })}
               </div>
-              <div className="hero-cta-row mt-10 flex flex-col gap-3 sm:mt-12 sm:flex-row sm:flex-wrap sm:items-center">
-                <CTAButton variant="primary" href="/contact/">
-                  {DRAINAGE_HERO.ctaPrimary}
-                </CTAButton>
-                <CTAButton variant="secondary" href="/contact/">
-                  {DRAINAGE_HERO.ctaSecondary}
-                </CTAButton>
-                <CTAButton variant="ghost" href={PHONE_TEL}>
-                  {drainageHeroPhoneCta()}
-                </CTAButton>
+            </div>
+
+            <div className="mt-6 w-full max-w-[min(100%,var(--max))] border-t-4 border-[color:var(--y)] bg-[var(--ink-deep)] shadow-[0_16px_56px_rgb(0_0_0/0.45)] ring-1 ring-white/15">
+              <div className="border-t border-white/20">
+                <div className="grid grid-cols-2 gap-px bg-white/20 md:grid-cols-3">
+                  {DRAINAGE_SERVICE_CARDS.map((card) => (
+                    <Link
+                      key={card.href}
+                      href={card.href}
+                      className={cn(
+                        "group block min-h-[44px] bg-[var(--ink-deep)] px-4 py-6 outline-none transition-colors sm:px-6 sm:py-8",
+                        "focus-visible:ring-2 focus-visible:ring-[color:var(--y)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ink-deep)]",
+                        "hover:bg-[rgb(255_255_255/0.06)]",
+                      )}
+                    >
+                      <p className="font-serif text-xl font-bold leading-snug text-[color:var(--y)] line-clamp-3 sm:text-2xl">
+                        {card.title}
+                      </p>
+                      <p className="mt-3 eyebrow text-white">{card.trustEyebrow}</p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 w-full max-w-[min(100%,var(--max))] border-t-4 border-[color:var(--y)] bg-[var(--ink-deep)] shadow-[0_16px_56px_rgb(0_0_0/0.45)] ring-1 ring-white/15">
+              <div className="grid grid-cols-1 gap-px border-t border-white/20 bg-white/20 sm:grid-cols-3">
+                <Link
+                  href="/contact/"
+                  className={cn(
+                    "group block min-h-[44px] bg-[var(--ink-deep)] px-4 py-8 outline-none transition-colors sm:px-6 sm:py-10",
+                    "focus-visible:ring-2 focus-visible:ring-[color:var(--y)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ink-deep)]",
+                    "hover:bg-[rgb(255_255_255/0.06)]",
+                  )}
+                >
+                  <p className="font-serif text-xl font-bold leading-snug text-[color:var(--y)] sm:text-2xl">
+                    {DRAINAGE_HERO.ctaPrimary}
+                  </p>
+                  <p className="mt-3 eyebrow text-white">{DRAINAGE_HERO.ctaPrimarySub}</p>
+                </Link>
+                <Link
+                  href="/contact/"
+                  className={cn(
+                    "group block min-h-[44px] bg-[var(--ink-deep)] px-4 py-8 outline-none transition-colors sm:px-6 sm:py-10",
+                    "focus-visible:ring-2 focus-visible:ring-[color:var(--y)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ink-deep)]",
+                    "hover:bg-[rgb(255_255_255/0.06)]",
+                  )}
+                >
+                  <p className="font-serif text-xl font-bold leading-snug text-[color:var(--y)] sm:text-2xl">
+                    {DRAINAGE_HERO.ctaSecondary}
+                  </p>
+                  <p className="mt-3 eyebrow text-white">{DRAINAGE_HERO.ctaSecondarySub}</p>
+                </Link>
+                <a
+                  href={PHONE_TEL}
+                  className={cn(
+                    "group block min-h-[44px] bg-[var(--ink-deep)] px-4 py-8 outline-none transition-colors sm:px-6 sm:py-10",
+                    "focus-visible:ring-2 focus-visible:ring-[color:var(--y)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ink-deep)]",
+                    "hover:bg-[rgb(255_255_255/0.06)]",
+                  )}
+                >
+                  <p className="font-serif text-xl font-bold leading-snug text-[color:var(--y)] sm:text-2xl">
+                    {drainageHeroPhoneCta()}
+                  </p>
+                  <p className="mt-3 eyebrow text-white">{DRAINAGE_HERO.phoneCtaSub}</p>
+                </a>
               </div>
             </div>
           </div>
