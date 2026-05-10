@@ -229,17 +229,22 @@ export const DRAINAGE_DRAIN_TILE = {
   id: "foundation-drain-tile",
   eyebrow: "FOUNDATION DRAIN TILE & SUB DRAIN",
   h2: "Foundation Drain Tile Installation & Replacement (Sub Drain) — Protecting Barrie & Simcoe County Homes",
-  summary: `Your foundation's first line of defence is a properly functioning drain tile system. Also called weeping tile or a sub drain, this perforated piping runs around your foundation footings to intercept groundwater and redirect it away from your basement before it can cause structural damage, mould, or flooding.`,
+  summaryParas: [
+    "Your foundation's first line of defence is a properly functioning drain tile system.",
+    "Also called weeping tile or sub drain, perforated pipe around footings intercepts groundwater and moves it away from the basement before damage or flooding occurs.",
+  ] as const,
   expandTrigger: "See the full drain tile detail — symptoms, process & options →",
   ghostCta: "Get a Free Assessment →",
   subPageHref: "/services/foundation-drain-tile-barrie",
   subPageLabel: "Learn more about our Foundation Drain Tile service page",
   h3WhatIs: "What Is Foundation Drain Tile (Weeping Tile / Sub Drain)?",
-  whatIsBody: `Your foundation's first line of defence is a properly functioning drain tile system. Also called weeping tile or a sub drain, this perforated piping runs around your foundation footings to intercept groundwater and redirect it away from your basement before it can cause structural damage, mould, or flooding.
-
-Hydrostatic pressure — the force that builds when saturated soil pushes water against your foundation walls — is one of the primary causes of basement water infiltration throughout Central Ontario. A properly installed drain tile system relieves this pressure continuously, 24 hours a day, protecting your foundation from the outside in.
-
-At Ground Level Contracting, we install and replace both interior and exterior foundation drain tile systems throughout Barrie, Orillia, and Simcoe County. Whether you're dealing with a failed clay tile system in an older home, a clogged perforated pipe, or a property that was never properly drained at the foundation, our team designs and installs a durable, engineered solution: sock-wrapped perforated PVC pipe, proper washed gravel bedding, and a correctly sized connection to a sump pit or daylight outlet — built to protect your home for decades. Where drain tile work connects to wider yard drainage or a landscaping project, we coordinate the full scope as a single system.`,
+  whatIsParas: [
+    "Your foundation's first line of defence is a properly functioning drain tile system. Also called weeping tile or sub drain, perforated pipe runs around footings to intercept groundwater and redirect it before structural damage, mould, or flooding.",
+    "Hydrostatic pressure — saturated soil pushing water against foundation walls — drives much of the basement infiltration we see across Central Ontario. A properly installed drain tile system relieves that pressure continuously and protects the foundation from the outside in.",
+    "At Ground Level Contracting, we install and replace interior and exterior foundation drain tile throughout Barrie, Orillia, and Simcoe County.",
+    "Whether you have failed clay tile, a clogged perforated run, or a foundation that was never drained correctly, we specify sock-wrapped perforated PVC, washed gravel bedding, and a correctly sized sump or daylight outlet — built to last decades.",
+    "Where drain tile ties into yard drainage or landscaping, we coordinate the full scope as one system.",
+  ] as const,
   h3Signs: "Signs Your Drain Tile Needs Replacement in Barrie",
   signsIntro: `If your home is showing any of the following, a drain tile inspection should be your first call:`,
   signsBullets: [
@@ -251,13 +256,19 @@ At Ground Level Contracting, we install and replace both interior and exterior f
     "Visible cracks in foundation walls or basement floor slab",
     "Standing water in window wells",
   ],
-  signsClosing: `Homes in Barrie and Simcoe County built before the 1980s frequently still have original clay tile systems. These systems have a finite service life — clay tiles crack, collapse, and clog with root intrusion over decades. If your home is in this age range and you have not had your drain tile inspected, proactive replacement before failure occurs is significantly less expensive than reactive repair after foundation damage has begun.`,
+  signsClosingParas: [
+    "Homes in Barrie and Simcoe County built before the 1980s often still run original clay tile.",
+    "Those systems have a finite life: tiles crack, collapse, and clog with roots.",
+    "If you are in that age bracket and have not been inspected, proactive replacement usually costs far less than repair after water has damaged the foundation.",
+  ] as const,
   h3InteriorExterior: "Interior vs. Exterior Drain Tile — Which Is Right For You?",
   interiorExteriorParas: [
-    `Exterior drain tile is installed around the perimeter of your foundation footings from the outside. It is the most comprehensive solution — intercepting groundwater before it ever contacts your foundation wall — and is the preferred method for new construction and full foundation remediation projects. Exterior installation also creates the opportunity to repair any landscaping, grading, or surface drainage issues in the same scope of work.`,
-    `Interior drain tile systems are installed inside your basement at the perimeter, channelling water that has infiltrated the wall to a sump pit for removal. Interior systems are a practical solution where full exterior excavation is not feasible due to cost, site access, or existing landscaping investment. They do not stop water from entering the wall but manage it effectively before it damages your living space.`,
-    `The right choice depends on your foundation type, the source of the water infiltration, your site's access constraints, and your project budget. We assess each situation individually and recommend the approach that provides the most effective long-term protection for your specific property.`,
-  ],
+    "Exterior drain tile sits at the footing perimeter from the outside. It is the most comprehensive fix — groundwater is intercepted before it reaches the wall — and it is the go-to for new builds and full remediation.",
+    "Exterior work also lets us correct landscaping, grading, and surface drainage in the same mobilization.",
+    "Interior systems run along the basement perimeter inside, feeding a sump. They fit when exterior dig is not practical because of access, cost, or mature landscape you want to preserve.",
+    "Interior runs manage water after it reaches the wall; they do not stop infiltration at the face, but they protect finished space reliably.",
+    "The right path depends on foundation type, water source, access, and budget. We assess each site and recommend the approach that delivers the strongest long-term protection.",
+  ] as const,
   h3Process: "Drain Tile Installation Process",
   processSteps: [
     "Site assessment — Identify source and pattern of water infiltration, assess existing system condition",
@@ -277,9 +288,12 @@ export const DRAINAGE_SITE_DRAINAGE = {
   summary: `Water always finds its way — the goal is to control where it goes. Poor drainage is rarely a single-point problem.`,
   summaryCont: `It is a systemic failure: the wrong grade directing surface runoff toward the foundation, subsurface water with no clear path to a proper outlet, compacted soil preventing infiltration, and a yard that holds water in low spots after every rain event.`,
   expandTrigger: "See what's included in a custom drainage design →",
-  expandNarrative: `Ground Level Contracting designs drainage systems that address the complete picture — surface flow, subsurface movement, and outlet strategy — in a permanent, engineered solution.
-
-We design and install french drains, swales, catch basins, channel drains, and corrective grading systems that prevent water from pooling around foundations, flooding yards, eroding slopes, or migrating onto neighbouring properties. When drainage design is paired with hardscaping or landscaping work, it is incorporated from the start — not retrofitted afterward. Serving properties across Barrie, Wasaga Beach, Innisfil, and rural Simcoe County, our team understands the local soil conditions, frost depth requirements, clay content in native soils, and municipal drainage standards that determine what will work on your specific site — not just in theory, but through a Simcoe County winter and spring thaw cycle.`,
+  expandNarrativeParas: [
+    "Ground Level Contracting designs drainage for surface flow, subsurface movement, and outlet strategy in one engineered plan.",
+    "We install french drains, swales, catch basins, channel drains, and grading that stop pooling, erosion, and uncontrolled runoff.",
+    "When drainage pairs with hardscape or landscape, we design it in from the start — not bolted on later.",
+    "Across Barrie, Wasaga Beach, Innisfil, and rural Simcoe County we match soil, frost, clay, and municipal standards to what survives a full winter cycle.",
+  ] as const,
   whatsIncludedHeader: "What's Included in a Custom Drainage Design:",
   whatsIncluded: [
     "Site grading assessment and slope analysis",
@@ -294,23 +308,38 @@ We design and install french drains, swales, catch basins, channel drains, and c
   solutions: [
     {
       label: "French Drain",
-      text: "A trench filled with gravel and perforated pipe that intercepts subsurface water moving through the soil and redirects it to a proper outlet. Used for yard drainage, foundation perimeter relief, slope drainage management, and as part of landscaped planting zones where soil saturation is a concern.",
+      textParas: [
+        "A gravel trench with perforated pipe intercepts subsurface flow and routes it to a legal outlet.",
+        "We use it for yards, foundation relief, slopes, and saturated planting zones.",
+      ] as const,
     },
     {
       label: "Swale",
-      text: "Engineered shallow channels — either open or planted — that intercept and redirect surface water flow. A properly designed swale is invisible when dry and highly effective when wet. Planted swales can double as a landscaping feature while doing meaningful drainage work.",
+      textParas: [
+        "Shallow channels — open or planted — catch and steer surface runoff before it accelerates.",
+        "A good swale reads as landscape when dry and works hard when it rains.",
+      ] as const,
     },
     {
       label: "Catch Basin",
-      text: "Point-collection drainage structures installed at low spots, at the base of slopes, or at hard surface edges to capture surface water before it pools or infiltrates uncontrolled areas. Essential at transitions between hardscaping and landscaped zones.",
+      textParas: [
+        "Basins sit at lows, slope toes, and hardscape edges to collect water before it ponds or spreads.",
+        "They are critical where paving meets planting or turf.",
+      ] as const,
     },
     {
       label: "Corrective Grading",
-      text: "Re-sloping the ground surface around your home or property to redirect water away from foundations, toward drainage outlets, and away from neighbouring properties. Often the most cost-effective single intervention for surface drainage problems and the essential first step in any serious landscaping project on a challenging grade.",
+      textParas: [
+        "Re-grading moves surface water away from foundations and toward the right outlets.",
+        "It is often the fastest win for wet yards and the right first move on tough grades.",
+      ] as const,
     },
     {
       label: "Interceptor Trench",
-      text: "For properties where water moves laterally through the soil toward a structure or low point, interceptor trenches with perforated pipe capture this flow upslope and redirect it before it reaches the problem area.",
+      textParas: [
+        "When subsurface flow tracks toward a structure or low spot, an upslope trench with pipe cuts that path off.",
+        "Water is redirected before it reaches the problem zone.",
+      ] as const,
     },
   ],
   solutionStripLabels: ["French Drain", "Swale", "Catch Basin", "Corrective Grading", "Interceptor Trench"] as const,
@@ -370,7 +399,7 @@ We regularly build and rebuild shoreline retaining walls for lakefront homeowner
 
 export const DRAINAGE_MID_CTA = {
   headline: "Have a retaining wall, drainage, or landscaping project in mind?",
-  sub: "Get a free written quote — no obligation, no pressure.",
+  subParas: ["Get a free written quote — no obligation, no pressure."] as const,
   primary: "Book a Free Site Assessment",
   secondary: `Call: ${PHONE_DISPLAY}`,
 } as const;
@@ -494,37 +523,56 @@ export const DRAINAGE_WHY_CHOOSE = {
       summary:
         "Drainage, hardscaping, and landscaping together — one contractor instead of three schedules.",
       expandTrigger: "Read more →",
-      body: `No single contractor in the Barrie and Simcoe County market currently combines deep, documented drainage expertise — weeping tile, foundation drain tile, french drains, custom site drainage design — with full-service hardscaping capability in armour stone walls, interlock, natural stone, and concrete, and the integrated landscaping perspective to bring the full project together. Most drainage contractors don't build patios. Most hardscapers don't install weeping tile. Most landscaping companies in Barrie aren't equipped to resolve the drainage problem before they plant. Ground Level Contracting does all three at a high level, which means your project doesn't require multiple contractors, multiple scopes of work, and multiple sets of scheduling headaches.`,
+      bodyParas: [
+        "Few Barrie-area contractors combine documented drainage — weeping tile, foundation drain, french drains, site design — with full hardscaping in armour stone, interlock, natural stone, and concrete.",
+        "Most drainage crews do not build patios. Most hardscapers do not install weeping tile. Many landscapers plant before the water story is solved.",
+        "We run all three disciplines, so you are not juggling separate scopes, crews, and schedules.",
+      ] as const,
     },
     {
       title: "Local Knowledge That Changes Outcomes",
       summary: "Simcoe County soils and topography — experience that changes what we specify.",
       expandTrigger: "Read more →",
-      body: `Simcoe County soil — heavy clay near Barrie, sandy loam near Wasaga Beach, rocky till in Oro-Medonte — behaves differently under a foundation and responds differently to drainage intervention. Our team has worked across this region's full soil and topographic range, from lakefront properties to rural hillside estates. That experience changes the designs we specify and the outcomes our clients receive.`,
+      bodyParas: [
+        "Clay near Barrie, sandier profiles toward Wasaga, rocky till in Oro-Medonte — each responds differently under footings and to drainage fixes.",
+        "We have worked lakefront to hillside across that range, and that history changes what we specify and how we phase work.",
+      ] as const,
     },
     {
       title: "Drainage-First Design Philosophy",
       summary: "We find the water before we put stone in the ground.",
       expandTrigger: "Read more →",
-      body: `Every project we build — whether it starts as a drainage call, a hardscaping inquiry, or a request for landscaping — begins with a drainage assessment. We find the water before we put stone in the ground. This approach prevents the most common and expensive failure mode in outdoor construction: beautiful work that creates a drainage problem or fails because it was built on top of one.`,
+      bodyParas: [
+        "Every engagement — drainage, hardscape, or landscape — starts with where water is coming from and where it must go.",
+        "That sequence avoids the expensive pattern of beautiful work that fails because it ignored drainage or was built on top of a problem.",
+      ] as const,
     },
     {
       title: "Honest Scoping, Written Proposals",
       summary: "Clear scope, line-item pricing, and frank conversation — no unnecessary upsells.",
       expandTrigger: "Read more →",
-      body: `Every project begins with a free site assessment, a written proposal with clear scope and line-item pricing, and a frank conversation about what is and isn't necessary. We do not upsell drainage systems that aren't needed or propose hardscaping and landscaping that doesn't serve a functional purpose. What's in the proposal is what gets built.`,
+      bodyParas: [
+        "You get a free site visit, written scope with line items, and straight talk about what is essential versus optional.",
+        "We do not upsell systems you do not need. What you approve is what we build.",
+      ] as const,
     },
     {
       title: "Fully Licensed, Insured & WSIB Compliant",
       summary: "Certificates of insurance and WSIB clearance available on request.",
       expandTrigger: "Read more →",
-      body: `We carry comprehensive commercial liability insurance, maintain current WSIB compliance, and are fully licensed for the work we perform in Ontario. Certificates of insurance and WSIB clearance are available on request.`,
+      bodyParas: [
+        "We carry commercial liability coverage, maintain WSIB compliance, and hold the licences required for our Ontario work.",
+        "Certificates and clearance letters are available on request.",
+      ] as const,
     },
     {
       title: "Warranty-Backed Work",
       summary: "Ask us for current warranty terms on your specific project type at the time of quoting.",
       expandTrigger: "Read more →",
-      body: `Our hardscaping and drainage installations are backed by a workmanship warranty. Ask us for current warranty terms on your specific project type at the time of quoting.`,
+      bodyParas: [
+        "Drainage and hardscape installs ship with workmanship warranty coverage.",
+        "Ask for the current terms for your project type when we quote.",
+      ] as const,
     },
   ],
 } as const;
@@ -615,35 +663,67 @@ export const DRAINAGE_FAQ = {
   items: [
     {
       q: "What is foundation drain tile and how does it work?",
-      a: `Foundation drain tile — also called weeping tile or a sub drain — is a perforated pipe installed around the base of your foundation footings. It collects groundwater that moves through the surrounding soil and directs it away from your home to a sump pit or a daylight outlet, preventing hydrostatic pressure from building against your foundation walls and causing leaks, cracks, or basement flooding. Modern systems use sock-wrapped perforated PVC pipe bedded in washed clear stone for maximum longevity and drainage performance.`,
+      aParas: [
+        "Foundation drain tile — weeping tile or sub drain — is perforated pipe at the footing perimeter that collects groundwater and routes it to a sump or daylight outlet.",
+        "That lowers hydrostatic pressure against the wall and reduces leaks, cracks, and basement flooding.",
+        "Modern installs use sock-wrapped perforated PVC in washed clear stone for long service life.",
+      ],
     },
     {
       q: "How do I know if my weeping tile needs to be replaced in Barrie?",
-      a: `Common signs include a chronically wet basement, water stains or white powder — called efflorescence — on your foundation walls, a sump pump that runs constantly or cycles more than it should, soggy saturated ground along your foundation perimeter, or a persistent musty smell in the basement or crawlspace. Homes in Barrie and Simcoe County built before the 1980s may still have original clay tile systems. These systems have a finite service life — they crack, collapse, and clog with root intrusion over time — and should be inspected and replaced before failure causes costly foundation damage. If your home is in this age range, proactive replacement is almost always less expensive than reactive repair after water infiltration has begun.`,
+      aParas: [
+        "Watch for wet basements, efflorescence, constant sump cycling, soggy perimeter soil, musty air, or cracks that track with storms.",
+        "Pre-1980s homes often still run clay tile that cracks, collapses, and roots into.",
+        "Inspect before failure — proactive replacement is usually cheaper than foundation repair after chronic infiltration.",
+      ],
     },
     {
       q: "What type of retaining wall is best for my property in Simcoe County?",
-      a: `The right retaining wall depends on your site conditions, height requirements, aesthetic goals, and budget. Armour stone is the ideal choice for natural, rural, lakeside, and high-load applications — it is durable, requires no mortar, drains naturally, and integrates beautifully into most Simcoe County landscaping settings. Segmental concrete block suits residential grade changes, garden terracing, and projects where a clean, contemporary aesthetic is the priority. Poured concrete or engineered wall systems are required for walls exceeding standard height thresholds, walls supporting structures or driveways, or sites with complex load conditions that require stamped engineer drawings. We assess every site individually and recommend the approach that best suits your property and budget.`,
+      aParas: [
+        "Material follows height, load, look, and budget — there is no one-size label for every lot.",
+        "Armour stone fits natural, rural, lakeside, and heavy-load cases: mass, drainage, and longevity without mortar.",
+        "Segmental block suits residential grade changes and clean contemporary lines. Poured or engineered systems cover tall walls, surcharges, and stamped-design sites.",
+        "We recommend after a site walk — not from a brochure photo alone.",
+      ],
     },
     {
       q: "Does a retaining wall need drainage behind it?",
-      a: `Absolutely — and this is one of the most commonly skipped steps by less experienced contractors. Without proper drainage, water from the backfill zone has nowhere to go. It accumulates, saturates the soil, and creates hydrostatic pressure against the back of the wall — one of the leading causes of retaining wall failure in Ontario. Every wall we build includes appropriate drainage as standard practice: a minimum backfill zone of washed crushed stone, weep holes at the base of the wall face, and perforated pipe where conditions require. This is not an upgrade. It is a baseline requirement for a wall that will perform over its intended service life.`,
+      aParas: [
+        "Yes — skipping drainage is how walls die early in Ontario.",
+        "Saturated backfill drives hydrostatic load into the stem until something gives.",
+        "We install crushed stone drainage zones, weeps, and pipe where the section demands it — baseline practice, not an upsell.",
+      ],
     },
     {
       q: "Can you fix drainage problems on a sloped property near Barrie?",
-      a: `Yes — and sloped, challenging properties are a project type we actively specialize in. Sloped lots create concentrated runoff at the base of the grade, erosion on exposed surfaces, and often direct water toward foundation walls or neighbouring properties. We design and install custom surface and subsurface drainage systems — french drains, swales, catch basins, and corrective grading — combined where appropriate with retaining walls, terraced hardscaping, and landscaping to manage water permanently and create a usable, beautiful outdoor environment. The goal is not just to address the visible symptom but to engineer a solution that works through every season, including Simcoe County's heavy spring thaw.`,
+      aParas: [
+        "Sloped lots are a core specialty: concentrated runoff, erosion, and water aimed at foundations or neighbours.",
+        "We combine grading, french drains, swales, basins, and walls or terraces when the grade needs structure.",
+        "The target is a system that survives spring thaw — not a one-season patch.",
+      ],
     },
     {
       q: "Do you build retaining walls on waterfront and lakeside properties in Simcoe County?",
-      a: `Yes. We regularly work on lakeside and waterfront properties around Lake Simcoe, Kempenfelt Bay, and throughout Simcoe County. Armour stone walls are particularly well-suited to shoreline applications — the mass and permeability of the material provides erosion and wave protection while blending naturally into the waterfront landscape. Shoreline wall projects near the water's edge may require coordination with municipal or conservation authority permitting, and we have experience navigating those requirements as part of the project planning process.`,
+      aParas: [
+        "Yes — Lake Simcoe, Kempenfelt Bay, and the wider county shoreline are regular project ground for us.",
+        "Armour stone’s mass and permeability usually fit wave, ice, and erosion loads while reading as landscape.",
+        "Water’s-edge work may need municipal or conservation permits — we fold that guidance into planning.",
+      ],
     },
     {
       q: "What areas do you serve for drainage, hardscaping and landscaping?",
-      a: `We serve Barrie, Orillia, Wasaga Beach, Innisfil, Angus, Springwater, Oro-Medonte, New Tecumseth (Alliston), Midland, Penetanguishene, Bradford West Gwillimbury, and surrounding communities throughout Simcoe County and Central Ontario. If your property is within the Simcoe County region and you're not sure whether we serve your specific area, call or submit a quote request and we'll confirm.`,
+      aParas: [
+        "We cover Barrie, Orillia, Wasaga Beach, Innisfil, Angus, Springwater, Oro-Medonte, New Tecumseth, Midland, Penetanguishene, Bradford West Gwillimbury, and nearby Central Ontario townships.",
+        "Unsure on your address? Call or request a quote and we will confirm coverage.",
+      ],
     },
     {
       q: "How long does a drain tile system last?",
-      a: `A properly installed modern system — sock-wrapped perforated PVC pipe, washed 3/4" clear stone bedding, correctly sloped to a properly sized outlet — can last 25 to 50 or more years with minimal maintenance. The longevity of a drain tile system is directly tied to the quality of the installation: pipe sizing, gravel depth, slope, and outlet capacity all affect long-term performance. Older clay tile systems common in pre-1980s Barrie homes are past their engineered service life. Clay tiles collapse under soil pressure, crack along joint lines, and are highly susceptible to root intrusion. If your home has an original clay system and you have not had it inspected, it should be evaluated before it fails — proactive replacement is a fraction of the cost of reactive foundation repair.`,
+      aParas: [
+        "A correctly built PVC run in clear stone, with proper slope and outlet sizing, often lasts 25–50+ years with little maintenance.",
+        "Life tracks installation quality: pipe size, stone depth, grade, and outlet capacity.",
+        "Original clay systems in older Barrie stock are past typical design life — collapse, joint cracking, and roots are common. Evaluate before catastrophic failure; replacement beats emergency foundation work on price and stress.",
+      ],
     },
   ],
 } as const;
@@ -668,17 +748,26 @@ export const DRAINAGE_TRUST_SIGNALS = {
 export const DRAINAGE_RELATED_CARDS = [
   {
     title: "Hauling & Material Delivery",
-    body: "Stone, aggregate & spoils hauling integrated with every drainage and hardscaping project.",
+    paras: [
+      "Stone, aggregate, and spoils move with our drainage and hardscape crews — fewer handoffs, cleaner sites.",
+      "Ask how hauling slots into your excavation or import schedule.",
+    ] as const,
     href: "/services/hauling-site-clearing-logistics/",
   },
   {
     title: "Commercial Snow Removal",
-    body: "Year-round property maintenance for commercial clients.",
+    paras: [
+      "Commercial clients pair winter clearing with the same team that knows their grades and drains.",
+      "One relationship from hardscape season to plow season.",
+    ] as const,
     href: "/services/snow-removal/",
   },
   {
     title: "Free Site Assessment",
-    body: "Book a no-obligation site visit and written quote for your drainage, hardscaping, or landscaping project.",
+    paras: [
+      "Book a no-obligation walkthrough for drainage, hardscape, or landscape scope.",
+      "You leave with a written quote and clear next steps.",
+    ] as const,
     href: "/contact/",
   },
 ] as const;
@@ -700,5 +789,5 @@ export const DRAINAGE_FINAL_CTA = {
 export const DRAINAGE_JSONLD_FAQ = DRAINAGE_FAQ.items.map((item) => ({
   "@type": "Question" as const,
   name: item.q,
-  acceptedAnswer: { "@type": "Answer" as const, text: item.a },
+  acceptedAnswer: { "@type": "Answer" as const, text: item.aParas.join(" ") },
 }));

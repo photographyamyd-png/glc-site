@@ -325,8 +325,16 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         </div>
       </section>
 
-      {/* 03 Intro */}
-      <section className="section-major band-light scroll-mt-[var(--header)] view-reveal px-0" id="intro-value">
+      {/* 03 Intro — tri-plane: wash + watermark + content */}
+      <section
+        className="section-major band-light relative isolate scroll-mt-[var(--header)] view-reveal overflow-hidden px-0"
+        id="intro-value"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgb(242_183_5/0.06),transparent_42%,rgb(10_12_11/0.03))]"
+          aria-hidden
+        />
+        <ClaudeLogicWatermark placement="bottom-left" className="z-0 opacity-[0.07]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-12">
             <div className="grid gap-10 lg:col-span-8 lg:grid-cols-12 lg:gap-8">
@@ -411,24 +419,36 @@ export function DrainageHardscapingPage({ service, related }: Props) {
       {/* 05 Drain tile */}
       <section
         id={DRAINAGE_DRAIN_TILE.id}
-        className="section-major band-light scroll-mt-[var(--header)] px-0"
+        className="section-major band-light relative isolate scroll-mt-[var(--header)] overflow-hidden px-0"
         aria-labelledby="drain-tile-h2"
       >
-        <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_10%_0%,rgb(242_183_5/0.07),transparent_55%)]"
+          aria-hidden
+        />
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="grid gap-12 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-7">
-              <YellowRule className="mb-8" />
-              <SectionEyebrow text={DRAINAGE_DRAIN_TILE.eyebrow} band="light" />
-              <h2
-                id="drain-tile-h2"
-                className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-[clamp(36px,3.5vw,52px)]"
-              >
-                {DRAINAGE_DRAIN_TILE.h2}
-              </h2>
+              <div className="max-w-3xl rounded-sm border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:rgb(255_255_255/0.92)] p-5 shadow-[0_12px_40px_rgb(0_0_0/0.06)] backdrop-blur-sm sm:p-8">
+                <YellowRule className="mb-6" width="2px" />
+                <SectionEyebrow text={DRAINAGE_DRAIN_TILE.eyebrow} band="light" />
+                <h2
+                  id="drain-tile-h2"
+                  className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-[clamp(36px,3.5vw,52px)]"
+                >
+                  {DRAINAGE_DRAIN_TILE.h2}
+                </h2>
+              </div>
               <ExpandSection
                 band="light"
                 hashId={DRAINAGE_DRAIN_TILE.id}
-                summary={<p>{DRAINAGE_DRAIN_TILE.summary}</p>}
+                summary={
+                  <div className={`space-y-3 ${bodyLight}`}>
+                    {DRAINAGE_DRAIN_TILE.summaryParas.map((p, i) => (
+                      <p key={i}>{p}</p>
+                    ))}
+                  </div>
+                }
                 triggerLabel={DRAINAGE_DRAIN_TILE.expandTrigger}
                 className="mt-8 border-t-0"
               >
@@ -438,8 +458,8 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                       {DRAINAGE_DRAIN_TILE.h3WhatIs}
                     </h3>
                     <div className={`mt-4 space-y-4 ${bodyLight}`}>
-                      {DRAINAGE_DRAIN_TILE.whatIsBody.split("\n\n").map((p) => (
-                        <p key={p.slice(0, 40)}>{p}</p>
+                      {DRAINAGE_DRAIN_TILE.whatIsParas.map((p, i) => (
+                        <p key={i}>{p}</p>
                       ))}
                     </div>
                   </div>
@@ -453,7 +473,11 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                         <li key={b}>{b}</li>
                       ))}
                     </ul>
-                    <p className={`mt-6 ${bodyLight}`}>{DRAINAGE_DRAIN_TILE.signsClosing}</p>
+                    <div className={`mt-6 space-y-3 ${bodyLight}`}>
+                      {DRAINAGE_DRAIN_TILE.signsClosingParas.map((p, i) => (
+                        <p key={i}>{p}</p>
+                      ))}
+                    </div>
                   </div>
                   <div>
                     <h3 className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink sm:text-2xl">
@@ -505,19 +529,25 @@ export function DrainageHardscapingPage({ service, related }: Props) {
 
       {/* Retaining walls — intro split from md; tabs use 12-col narrative + sidecar; section-major bottom padding preserved (no pb-0). */}
       <section
-        className="section-major band-light scroll-mt-[var(--header)] border-t border-[color:var(--g200)] px-0"
+        className="section-major band-light relative isolate scroll-mt-[var(--header)] overflow-hidden border-t border-[color:var(--g200)] px-0"
         id={DRAINAGE_RETAINING_WALLS.id}
         aria-labelledby="walls-h2"
       >
-        <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
-          <YellowRule className="mb-8" />
-          <SectionEyebrow text={DRAINAGE_RETAINING_WALLS.eyebrow} band="light" />
-          <h2
-            id="walls-h2"
-            className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-[clamp(36px,3.5vw,52px)]"
-          >
-            {DRAINAGE_RETAINING_WALLS.h2}
-          </h2>
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgb(242_183_5/0.05),transparent_45%)]"
+          aria-hidden
+        />
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
+          <div className="max-w-4xl rounded-sm border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:rgb(255_255_255/0.9)] p-5 shadow-[0_12px_40px_rgb(0_0_0/0.05)] backdrop-blur-sm sm:p-8">
+            <YellowRule className="mb-6" width="2px" />
+            <SectionEyebrow text={DRAINAGE_RETAINING_WALLS.eyebrow} band="light" />
+            <h2
+              id="walls-h2"
+              className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-[clamp(36px,3.5vw,52px)]"
+            >
+              {DRAINAGE_RETAINING_WALLS.h2}
+            </h2>
+          </div>
           <div className="mt-6 grid gap-10 md:grid-cols-12 md:gap-12">
             <div className={`min-w-0 space-y-4 md:col-span-7 ${bodyLight}`}>
               <p>{DRAINAGE_RETAINING_WALLS.intro}</p>
@@ -537,7 +567,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
             </div>
           </div>
         </div>
-        <div className="mx-auto mt-12 max-w-[min(100%,var(--max))] px-4 sm:mt-14 sm:px-6 lg:mt-16 lg:px-10">
+        <div className="relative z-10 mx-auto mt-12 max-w-[min(100%,var(--max))] px-4 sm:mt-14 sm:px-6 lg:mt-16 lg:px-10">
           <StickyTabBox
             ariaLabel="Retaining wall types"
             tabs={DRAINAGE_RETAINING_WALLS.tabs.map((tab, ti) => ({
@@ -571,7 +601,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
 
       {/* Mid CTA */}
       <section
-        className="band-dark-field relative scroll-mt-[var(--header)] border-y-4 border-[color:var(--y)] px-0 py-[var(--s14)]"
+        className="band-dark-field relative isolate scroll-mt-[var(--header)] overflow-hidden border-y-4 border-[color:var(--y)] px-0 py-[var(--s14)]"
         aria-labelledby="mid-cta-heading"
       >
         <div
@@ -581,15 +611,24 @@ export function DrainageHardscapingPage({ service, related }: Props) {
             backgroundImage: `repeating-linear-gradient(135deg, var(--y) 0, var(--y) 1px, transparent 1px, transparent 12px)`,
           }}
         />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_70%_at_85%_50%,rgb(242_183_5/0.12),transparent_60%)]"
+          aria-hidden
+        />
+        <ClaudeLogicWatermark placement="top-right" mode="on-dark" className="z-0 opacity-[0.11]" />
         <div className="relative z-10 mx-auto grid max-w-[min(100%,var(--max))] gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-10">
-          <div className="rounded-sm border border-white/10 bg-[rgb(10_12_11/0.35)] p-6 backdrop-blur-md sm:p-8 lg:col-span-7">
+          <div className="rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_20px_60px_rgb(0_0_0/0.25)] backdrop-blur-md sm:p-8 lg:col-span-7">
             <h2
               id="mid-cta-heading"
               className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-[clamp(36px,3.5vw,52px)]"
             >
               {DRAINAGE_MID_CTA.headline}
             </h2>
-            <p className={`mt-[var(--s7)] max-w-xl ${bodyDark}`}>{DRAINAGE_MID_CTA.sub}</p>
+            <div className={`mt-[var(--s7)] max-w-xl space-y-3 ${bodyDark}`}>
+              {DRAINAGE_MID_CTA.subParas.map((line, i) => (
+                <p key={i}>{line}</p>
+              ))}
+            </div>
           </div>
           <div className="flex flex-col items-start gap-4 lg:col-span-5 lg:items-end lg:justify-center">
             <CTAButton variant="primary" href="/contact/">
@@ -603,13 +642,23 @@ export function DrainageHardscapingPage({ service, related }: Props) {
       </section>
 
       {/* Patios */}
-      <section className="section-major band-light scroll-mt-[var(--header)] px-0" id={DRAINAGE_PATIOS.id} aria-labelledby="patios-h2">
-        <div className="mx-auto max-w-[min(100%,var(--max))] px-4 pb-10 sm:px-6 lg:px-10">
-          <YellowRule className="mb-8" />
-          <SectionEyebrow text={DRAINAGE_PATIOS.eyebrow} band="light" />
-          <h2 id="patios-h2" className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase text-ink sm:text-[clamp(36px,3.5vw,52px)]">
-            {DRAINAGE_PATIOS.h2}
-          </h2>
+      <section
+        className="section-major band-light relative isolate scroll-mt-[var(--header)] overflow-hidden px-0"
+        id={DRAINAGE_PATIOS.id}
+        aria-labelledby="patios-h2"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_65%_45%_at_0%_0%,rgb(10_12_11/0.04),transparent_55%)]"
+          aria-hidden
+        />
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 pb-10 sm:px-6 lg:px-10">
+          <div className="max-w-4xl rounded-sm border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:rgb(255_255_255/0.9)] p-5 shadow-[0_12px_40px_rgb(0_0_0/0.05)] backdrop-blur-sm sm:p-8">
+            <YellowRule className="mb-6" width="2px" />
+            <SectionEyebrow text={DRAINAGE_PATIOS.eyebrow} band="light" />
+            <h2 id="patios-h2" className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase text-ink sm:text-[clamp(36px,3.5vw,52px)]">
+              {DRAINAGE_PATIOS.h2}
+            </h2>
+          </div>
           <div className="mt-6 grid gap-10 md:grid-cols-12 md:gap-12">
             <div className={`min-w-0 space-y-4 md:col-span-7 ${bodyLight}`}>
               <p>{DRAINAGE_PATIOS.intro}</p>
@@ -629,7 +678,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
             </div>
           </div>
         </div>
-        <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <StickyTabBox
             ariaLabel="Patio and driveway types"
             tabs={DRAINAGE_PATIOS.tabs.map((tab, ti) => ({
@@ -706,16 +755,22 @@ export function DrainageHardscapingPage({ service, related }: Props) {
           <div className="absolute inset-0 bg-[rgb(10_12_11/0.45)]" aria-hidden />
           <ClaudeLogicWatermark placement="center-right" className="opacity-[0.18]" />
           <div className="absolute inset-x-0 bottom-0 z-10 max-w-[min(100%,var(--max))] px-4 pb-8 pl-5 sm:px-6 lg:px-10 lg:pl-[calc(28px+1.25rem)]">
-            <h2
-              id="integration-h2"
-              className="max-w-4xl border-l-4 border-[color:var(--y)] pl-5 font-serif text-3xl font-semibold uppercase text-white sm:text-[clamp(36px,3.5vw,52px)]"
-            >
-              {DRAINAGE_INTEGRATION.h2}
-            </h2>
+            <div className="max-w-4xl rounded-sm border border-white/15 bg-[rgb(10_12_11/0.55)] p-5 shadow-[0_16px_48px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-7">
+              <h2
+                id="integration-h2"
+                className="border-l-4 border-[color:var(--y)] pl-5 font-serif text-3xl font-semibold uppercase text-white sm:text-[clamp(36px,3.5vw,52px)]"
+              >
+                {DRAINAGE_INTEGRATION.h2}
+              </h2>
+            </div>
           </div>
         </div>
-        <div className="border-t-4 border-[color:var(--y)] bg-[var(--canvas)]">
-          <div className="mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--s14)] sm:px-6 lg:px-10">
+        <div className="relative isolate overflow-hidden border-t-4 border-[color:var(--y)] bg-[var(--canvas)]">
+          <div
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(242_183_5/0.04),transparent_38%)]"
+            aria-hidden
+          />
+          <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--s14)] sm:px-6 lg:px-10">
             <div className="grid gap-12 lg:grid-cols-12 lg:gap-12">
               <div className="lg:col-span-7">
                 <SectionEyebrow text={DRAINAGE_INTEGRATION.eyebrow} band="light" />
@@ -815,7 +870,11 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                 <h3 className="font-serif text-lg font-bold uppercase tracking-[0.02em] text-white">{pt.title}</h3>
                 <p className={`mt-2 text-sm text-white/90 sm:text-[15px]`}>{pt.summary}</p>
                 <ExpandSection band="dark" summary={null} triggerLabel={pt.expandTrigger} className="mt-4 border-white/10">
-                  <p className={`max-w-[75ch] ${bodyDark}`}>{pt.body}</p>
+                  <div className={`max-w-[75ch] space-y-3 ${bodyDark}`}>
+                    {pt.bodyParas.map((para, i) => (
+                      <p key={i}>{para}</p>
+                    ))}
+                  </div>
                 </ExpandSection>
               </div>
             ))}
@@ -868,7 +927,15 @@ export function DrainageHardscapingPage({ service, related }: Props) {
       </section>
 
       {/* FAQ */}
-      <section className="section-major band-light scroll-mt-[var(--header)] px-0 py-[var(--s14)]" aria-labelledby="faq-h2">
+      <section
+        className="section-major band-light relative isolate scroll-mt-[var(--header)] overflow-hidden px-0 py-[var(--s14)]"
+        aria-labelledby="faq-h2"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_100%_0%,rgb(242_183_5/0.08),transparent_50%)]"
+          aria-hidden
+        />
+        <ClaudeLogicWatermark placement="bottom-right" className="z-0 opacity-[0.06]" />
         <DrainageFaqAccordion
           items={DRAINAGE_FAQ.items}
           headingId="faq-h2"
@@ -906,8 +973,15 @@ export function DrainageHardscapingPage({ service, related }: Props) {
       </section>
 
       {/* Related */}
-      <section className="section-major band-light scroll-mt-[var(--header)] px-0" aria-labelledby="related-h2">
-        <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
+      <section
+        className="section-major band-light relative isolate scroll-mt-[var(--header)] overflow-hidden px-0"
+        aria-labelledby="related-h2"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(200deg,transparent_40%,rgb(242_183_5/0.06)_100%)]"
+          aria-hidden
+        />
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <YellowRule className="mb-8" />
           <SectionEyebrow text="RELATED SERVICES" band="light" />
           <h2 id="related-h2" className="sr-only">
@@ -921,7 +995,11 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                   className="group flex h-full flex-col border border-[color:var(--g200)] border-t-[4px] border-t-[color:var(--y)] bg-white p-8 transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-md"
                 >
                   <span className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink">{card.title}</span>
-                  <p className="mt-3 text-sm text-ink-muted sm:text-[15px]">{card.body}</p>
+                  <div className="mt-3 space-y-2 text-sm text-ink-muted sm:text-[15px]">
+                    {card.paras.map((para, i) => (
+                      <p key={i}>{para}</p>
+                    ))}
+                  </div>
                   <span className="eyebrow mt-auto pt-6 text-[color:var(--y)]">View Service →</span>
                 </Link>
               </li>

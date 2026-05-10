@@ -1,9 +1,10 @@
 "use client";
 
 import { useId, useState } from "react";
+import { YellowRule } from "@/components/drainage-hardscaping/primitives";
 import { cn } from "@/lib/utils";
 
-type Item = { readonly q: string; readonly a: string };
+export type DrainageFaqItem = { readonly q: string; readonly aParas: readonly string[] };
 
 export function DrainageFaqAccordion({
   items,
@@ -11,7 +12,7 @@ export function DrainageFaqAccordion({
   eyebrow,
   h2,
 }: {
-  items: readonly Item[];
+  items: readonly DrainageFaqItem[];
   headingId: string;
   eyebrow: string;
   h2: string;
@@ -20,17 +21,18 @@ export function DrainageFaqAccordion({
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
-      <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
+    <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
+      <div className="max-w-3xl rounded-sm border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:rgb(255_255_255/0.88)] p-5 shadow-[0_12px_40px_rgb(0_0_0/0.08)] backdrop-blur-sm sm:p-8">
+        <YellowRule className="mb-6" width="2px" />
         <p className="eyebrow text-ink">{eyebrow}</p>
         <h2
           id={headingId}
-          className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-[clamp(36px,3.5vw,52px)]"
+          className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-[clamp(36px,3.5vw,52px)]"
         >
           {h2}
         </h2>
       </div>
-      <ul className="mt-10 max-w-[75ch] list-none space-y-0 rounded-sm border border-[color:var(--g200)] bg-white/60 px-2 py-1 shadow-sm sm:px-4">
+      <ul className="mt-10 max-w-[75ch] list-none space-y-0 rounded-sm border border-[color:var(--g200)] bg-white/80 px-2 py-1 shadow-md backdrop-blur-sm sm:px-4">
         {items.map((item, i) => {
           const isOpen = openIndex === i;
           const panelId = `${baseId}-faq-${i}`;
@@ -59,7 +61,11 @@ export function DrainageFaqAccordion({
                   isOpen ? "max-h-[2000px] pb-6 pt-1" : "max-h-0",
                 )}
               >
-                <p className="text-[15px] leading-[1.72] text-ink sm:text-base">{item.a}</p>
+                <div className="space-y-3 text-[15px] leading-[1.72] text-ink sm:text-base">
+                  {item.aParas.map((para, pi) => (
+                    <p key={pi}>{para}</p>
+                  ))}
+                </div>
               </div>
             </li>
           );

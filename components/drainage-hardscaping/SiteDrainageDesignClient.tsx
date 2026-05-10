@@ -50,8 +50,8 @@ export function SiteDrainageDesignClient({ sectionId }: { sectionId: string }) {
 
   const expanded = (
     <div className="space-y-8">
-      {DRAINAGE_SITE_DRAINAGE.expandNarrative.split("\n\n").map((para) => (
-        <p key={para.slice(0, 40)} className={bodyDark}>
+      {DRAINAGE_SITE_DRAINAGE.expandNarrativeParas.map((para, i) => (
+        <p key={i} className={bodyDark}>
           {para}
         </p>
       ))}
@@ -73,7 +73,11 @@ export function SiteDrainageDesignClient({ sectionId }: { sectionId: string }) {
           {DRAINAGE_SITE_DRAINAGE.solutions.map((sol, i) => (
             <div key={sol.label} id={`drain-solution-${i}`} className="scroll-mt-[calc(var(--header)+24px)]">
               <p className="font-serif text-lg font-bold uppercase tracking-[0.02em] text-[color:var(--y)]">{sol.label}</p>
-              <p className={`mt-2 ${bodyDark}`}>{sol.text}</p>
+              <div className={`mt-2 space-y-2 ${bodyDark}`}>
+                {sol.textParas.map((t, ti) => (
+                  <p key={ti}>{t}</p>
+                ))}
+              </div>
             </div>
           ))}
         </div>
