@@ -7,6 +7,7 @@ import { CTA_BAND, EMAIL_MAILTO, PHONE_TEL } from "@/lib/ground-level/homepage-c
 import { GLCtaBand } from "@/components/ground-level/GLCtaBand";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { CardSurface } from "@/components/ui/CardSurface";
+import { getServiceImage } from "@/lib/site/service-images";
 
 /** Snow hub photography — `public/images/services/Snow Removal/` (encode spaces in URL). */
 const SNOW_REMOVAL_PLOW_IMAGE_SRC =
@@ -23,12 +24,9 @@ type ServicePageTemplateProps = {
 export function ServicePageTemplate({ service, related }: ServicePageTemplateProps) {
   const detail = service.category === "primary" ? SERVICE_DETAILS[service.slug as PrimaryServiceSlug] : null;
   const isSnowHub = service.slug === "snow-removal";
-  const imageSrc = isSnowHub
-    ? SNOW_REMOVAL_PLOW_IMAGE_SRC
-    : "/images/services/Drainage-and-Hardscaping/drainage-hardscaping-008.jpg";
-  const scopeAnchorAlt = isSnowHub
-    ? SNOW_PLOW_IMAGE_ALT
-    : `${service.title} — scope and delivery reference`;
+  const serviceImage = getServiceImage(service.slug);
+  const imageSrc = serviceImage.src;
+  const scopeAnchorAlt = `${serviceImage.alt} — ${service.title} scope reference`;
   const faqItems = detail?.faq ?? [];
   const whyItems = detail?.trust.paragraphs ?? [
     "Experienced crews and commercial-first operations.",
@@ -58,7 +56,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
       <section id="overview" className="hero-stage section-major band-dark-field relative min-h-[100dvh] scroll-mt-[var(--header)] overflow-hidden">
         <Image
           src={imageSrc}
-          alt={isSnowHub ? SNOW_PLOW_IMAGE_ALT : `${service.title} hero visual`}
+          alt={serviceImage.alt}
           fill
           priority
           className="object-cover object-center"
@@ -216,41 +214,41 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
                     aria-hidden
                   />
                 </div>
-                {/* Layer: interaction panel — tri-tonal type + machined depth */}
-                <div className="relative flex flex-col justify-center border-t border-white/12 bg-[rgb(10_12_11/0.92)] p-6 sm:p-8 lg:border-l-4 lg:border-t-0 lg:border-l-[color:var(--y)] lg:pl-9 lg:pr-11 lg:py-12">
-                  <div className="bespoke-surface panel-machined relative border border-white/10 bg-[rgb(10_12_11/0.35)] p-5 sm:p-7">
-                    <p className="eyebrow text-white">Winter operations</p>
-                    <h2
-                      id="snow-plow-cta-heading"
-                      className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl"
-                    >
-                      {detail.ctaOverride.heading}
-                    </h2>
-                    <div className="mt-4 h-px max-w-md bg-[color:var(--y)]/55" aria-hidden />
-                    <p className="mt-[var(--s7)] max-w-[36rem] text-[15px] leading-[1.72] text-white/90 sm:text-base">
+                {/* Layer: interaction panel — single machined surface (tri-tonal type + yellow rail) */}
+                <div className="bespoke-surface panel-machined relative flex flex-col justify-center border-t border-white/12 bg-[rgb(10_12_11/0.92)] p-6 sm:p-8 lg:border-l-4 lg:border-t-0 lg:border-l-[color:var(--y)] lg:pl-9 lg:pr-11 lg:py-12">
+                  <p className="eyebrow text-white">Winter operations</p>
+                  <h2
+                    id="snow-plow-cta-heading"
+                    className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl"
+                  >
+                    {detail.ctaOverride.heading}
+                  </h2>
+                  <div className="mt-4 h-px max-w-md bg-[color:var(--y)]/55" aria-hidden />
+                  <div className="mt-[var(--s7)] grid grid-cols-1 gap-y-8 gap-x-12 lg:grid-cols-12">
+                    <p className="text-[15px] leading-[1.72] text-white/90 sm:text-base lg:col-span-6">
                       {detail.ctaOverride.supporting}
                     </p>
                     {detail.trust.paragraphs[0] ? (
-                      <p className="mt-4 max-w-[36rem] text-[15px] leading-[1.72] text-white/90 sm:text-base">
+                      <p className="text-[15px] leading-[1.72] text-white/90 sm:text-base lg:col-span-6">
                         {detail.trust.paragraphs[0]}
                       </p>
                     ) : null}
-                    {/* Nested interaction strip: extra plane + yellow CTA (palette) */}
-                    <div className="mt-8 border border-white/14 bg-[rgb(0_0_0/0.28)] p-4">
-                      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                        <Link
-                          href="/contact/"
-                          className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
-                        >
-                          Book winter scope
-                        </Link>
-                        <Link
-                          href={PHONE_TEL}
-                          className="cta-outline-light inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
-                        >
-                          {detail.ctaOverride.buttonLabel}
-                        </Link>
-                      </div>
+                  </div>
+                  {/* Interaction strip: CTA plane + yellow primary (palette) */}
+                  <div className="mt-8 border border-white/14 bg-[rgb(0_0_0/0.28)] p-4">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                      <Link
+                        href="/contact/"
+                        className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
+                      >
+                        Book winter scope
+                      </Link>
+                      <Link
+                        href={PHONE_TEL}
+                        className="cta-outline-light inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
+                      >
+                        {detail.ctaOverride.buttonLabel}
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -260,22 +258,64 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         </section>
       ) : null}
 
-      <section id="field-capabilities" className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.03),transparent_40%)]" aria-hidden />
-        <ClaudeLogicWatermark placement="top-left" mode="on-dark" className="opacity-[0.1]" />
+      <section
+        id="field-capabilities"
+        className={`section-major relative scroll-mt-[var(--header)] overflow-hidden ${isSnowHub ? "band-light" : "band-dark"}`}
+      >
+        {isSnowHub ? (
+          <>
+            <div
+              className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(135deg,rgb(242_183_5/0.06),transparent_52%)]"
+              aria-hidden
+            />
+            <ClaudeLogicWatermark placement="bottom-right" mode="default" className="z-[1] opacity-[0.08] sm:opacity-[0.11]" />
+          </>
+        ) : (
+          <>
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.03),transparent_40%)]" aria-hidden />
+            <ClaudeLogicWatermark placement="top-left" mode="on-dark" className="opacity-[0.1]" />
+          </>
+        )}
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
-            <p className="eyebrow text-white">Service breakdown</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">{detail?.deliverablesHeading ?? "Capabilities"}</h2>
+            <p className={`eyebrow ${isSnowHub ? "text-ink" : "text-white"}`}>Service breakdown</p>
+            <h2
+              className={`mt-3 font-serif text-3xl font-semibold uppercase tracking-tight sm:text-4xl ${isSnowHub ? "text-ink" : "text-white"}`}
+            >
+              {detail?.deliverablesHeading ?? "Capabilities"}
+            </h2>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {(detail?.subServices ?? []).slice(0, 6).map((item, idx) => (
-              <article key={item.id} className="bespoke-surface panel-machined border border-white/15 bg-[rgb(255_255_255/0.06)] p-5 backdrop-blur-sm sm:p-8">
-                <div className="relative mb-4 aspect-[16/10] overflow-hidden border border-white/20">
+              <article
+                key={item.id}
+                className={
+                  isSnowHub
+                    ? "bespoke-surface panel-machined border border-[color:var(--g200)] bg-white p-5 sm:p-8"
+                    : "bespoke-surface panel-machined border border-white/15 bg-[rgb(255_255_255/0.06)] p-5 backdrop-blur-sm sm:p-8"
+                }
+              >
+                <div
+                  className={`relative mb-4 aspect-[16/10] overflow-hidden border ${
+                    isSnowHub ? "border-[color:var(--g200)]" : "border-white/20"
+                  }`}
+                >
                   <Image src={imageSrc} alt={`${item.heading} visual ${idx + 1}`} fill className="object-cover" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
                 </div>
-                <h3 className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-white sm:text-2xl">{item.heading}</h3>
-                <p className="mt-3 text-[15px] leading-[1.72] text-white/90 sm:text-base">{item.paragraphs[0]}</p>
+                <h3
+                  className={`font-serif text-xl font-bold uppercase tracking-[0.02em] sm:text-2xl ${
+                    isSnowHub ? "text-ink" : "text-white"
+                  }`}
+                >
+                  {item.heading}
+                </h3>
+                <p
+                  className={`mt-3 text-[15px] leading-[1.72] sm:text-base ${
+                    isSnowHub ? "text-ink-muted" : "text-white/90"
+                  }`}
+                >
+                  {item.paragraphs[0]}
+                </p>
               </article>
             ))}
           </div>
@@ -418,19 +458,22 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
             <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">Related service lines</h2>
           </div>
           <ul className="mt-10 grid gap-4 lg:grid-cols-3">
-            {related.slice(0, 3).map((r, idx) => (
-              <CardSurface key={r.slug} as="li" className="overflow-hidden border-white/20 bg-[rgb(255_255_255/0.08)] p-0 text-white backdrop-blur-sm">
-                <Link href={`/services/${r.slug}/`} className="group flex h-full flex-col">
-                  <div className="relative aspect-[16/10] w-full overflow-hidden">
-                    <Image src={imageSrc} alt={`${r.title} related service visual ${idx + 1}`} fill className="object-cover transition-transform duration-300 group-hover:scale-[1.02]" sizes="(min-width: 1024px) 33vw, 100vw" />
-                  </div>
-                  <div className="flex flex-1 flex-col p-5">
-                    <span className="font-serif text-xl font-semibold uppercase tracking-tight text-white group-hover:text-[color:var(--y)]">{r.title}</span>
-                    <span className="mt-3 text-[15px] leading-[1.72] text-white/85">{r.description}</span>
-                  </div>
-                </Link>
-              </CardSurface>
-            ))}
+            {related.slice(0, 3).map((r) => {
+              const relatedImage = getServiceImage(r.slug);
+              return (
+                <CardSurface key={r.slug} as="li" className="overflow-hidden border-white/20 bg-[rgb(255_255_255/0.08)] p-0 text-white backdrop-blur-sm">
+                  <Link href={`/services/${r.slug}/`} className="group flex h-full flex-col">
+                    <div className="relative aspect-[16/10] w-full overflow-hidden">
+                      <Image src={relatedImage.src} alt={relatedImage.alt} fill className="object-cover transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100" sizes="(min-width: 1024px) 33vw, 100vw" />
+                    </div>
+                    <div className="flex flex-1 flex-col p-5">
+                      <span className="font-serif text-xl font-semibold uppercase tracking-tight text-white group-hover:text-[color:var(--y)]">{r.title}</span>
+                      <span className="mt-3 text-[15px] leading-[1.72] text-white/85">{r.description}</span>
+                    </div>
+                  </Link>
+                </CardSurface>
+              );
+            })}
           </ul>
         </div>
       </section>
