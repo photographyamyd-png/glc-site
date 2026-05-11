@@ -1,0 +1,68 @@
+/**
+ * Scoped overrides for /sandbox/eyebrow-weight-preview only.
+ * Simulates proposed 600-weight condensed chrome without changing app/globals.css.
+ */
+.grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sectionLabel {
+  margin-bottom: 0.5rem;
+  font-family: var(--font-source-sans), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.darkBand {
+  border: 1px solid rgb(255 255 255 / 0.1);
+  background: rgb(17 17 17 / 0.96);
+  padding: 1rem 1.25rem;
+  color: #fff;
+}
+
+.lightBand {
+  border: 1px solid rgb(30 28 26 / 0.12);
+  background: var(--canvas);
+  padding: 1rem 1.25rem;
+  color: var(--ink-deep);
+}
+
+.tabPanel {
+  border: 1px solid rgb(255 255 255 / 0.15);
+  background: rgb(10 12 11 / 0.45);
+  padding: 1rem;
+}
+
+.chipStrip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgb(30 28 26 / 0.15);
+  background: rgb(242 183 5 / 0.18);
+  padding: 0.5rem 0.75rem;
+}
+
+.proposed :global(.eyebrow),
+.proposed :global(.label-overline),
+.proposed :global(.label-overline-on-dark) {
+  font-weight: 600;
+}
+
+.proposed :global(a.previewLink) {
+  font-weight: 600 !important;
+}
+
+.proposed :global(span.previewChip) {
+  font-weight: 600 !important;
+}
