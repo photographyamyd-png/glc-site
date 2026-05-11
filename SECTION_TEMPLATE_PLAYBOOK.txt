@@ -58,14 +58,18 @@ WHEN NOT TO USE:
   - Light editorial-only sections.
   - GLTestimonialsFeature-style split grid + proof panel (different IA).
 
-REFERENCE IMPLEMENTATION TODAY (until the primitive ships):
+REFERENCE IMPLEMENTATION (original dual-scrim pair):
   components/process/ProcessVerticalFlow.tsx
   Block comment "5. FINISHED AUTHORITY SHOWCASE" — section-major band-dark,
   min-h floor, Image, two gradient divs, ShardWatermark optional, inner flex,
   glass panel, blockquote + cta-primary.
 
-PLANNED IMPORT (after implementation):
+SHIPPED COMPONENT (import this):
   import { GLDarkRasterFeatureSection } from "@/components/glc-sections/GLDarkRasterFeatureSection";
+
+FIRST PRODUCTION USE (example refactor):
+  components/ground-level/GLProcess.tsx — homepage / copy-lab `#process` band wraps
+  existing timeline + light cards in `children`; preset processShowcase + Claude watermark.
 
 
 --------------------------------------------------------------------------------

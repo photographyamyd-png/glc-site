@@ -1,6 +1,12 @@
-import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
+import { GLDarkRasterFeatureSection } from "@/components/glc-sections/GLDarkRasterFeatureSection";
 import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { PROCESS } from "@/lib/ground-level/homepage-copy";
+
+/** Grading raster — matches ProcessVerticalFlow process-split reference (Template 1 shell). */
+const PROCESS_BAND_RASTER =
+  "/images/services/Grading/Ground%20Level%20Contracting%20grading.jpg";
+const PROCESS_BAND_RASTER_ALT =
+  "Crew running GPS-guided fine grading on a commercial pad, monochrome reference";
 
 function headingToneCanvas(text: string) {
   const key = "Final Grade";
@@ -49,22 +55,25 @@ export function GLProcess({
   const p = content ?? defaultProcess();
 
   return (
-    <section
+    <GLDarkRasterFeatureSection
       id={sectionId}
-      className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden view-reveal"
+      className="scroll-mt-[var(--header)]"
       data-accent-family="process"
       data-accent-zone="timeline-sequence"
       aria-labelledby={headingId}
+      imageSrc={PROCESS_BAND_RASTER}
+      imageAlt={PROCESS_BAND_RASTER_ALT}
+      scrimPreset="processShowcase"
+      watermark="claude"
+      sizes="(min-width: 1024px) 70vw, 100vw"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.03),transparent_45%)]" aria-hidden />
       <div
-        className="pointer-events-none absolute right-2 top-12 font-serif text-[100px] font-semibold leading-none text-white/[0.06] sm:right-6 sm:text-[140px]"
+        className="pointer-events-none absolute right-2 top-12 z-[1] font-serif text-[100px] font-semibold leading-none text-white/[0.06] sm:right-6 sm:text-[140px]"
         data-motif-id="proc3__count-mark"
         aria-hidden
       >
         {String(p.steps.length).padStart(2, "0")}
       </div>
-      <ClaudeLogicWatermark placement="bottom-right" mode="on-dark" />
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
         <div className="border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:var(--brand-canvas)] p-5 text-ink shadow-[0_16px_40px_rgb(0_0_0/0.18)] sm:p-6">
           <div
@@ -129,6 +138,6 @@ export function GLProcess({
           </ol>
         </div>
       </div>
-    </section>
+    </GLDarkRasterFeatureSection>
   );
 }
