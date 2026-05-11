@@ -95,7 +95,7 @@ export const FOUNDATIONS_HUB_HERO = {
 export const FOUNDATIONS_TRUST_BENTO = [
   {
     title: "Fully Licensed & Insured in Ontario",
-    body: "We are the civil infrastructure contractor Simcoe County teams call when foundations and civil infrastructure Barrie projects need bonded, insured field leadership. Liability coverage supports Barrie, Orillia, and regional municipal work.",
+    body: "We are the civil infrastructure contractor Simcoe County teams call for bonded, insured field leadership on foundations and civil infrastructure. Barrie, Orillia, and regional municipal work stay on one accountable roster.",
   },
   {
     title: "WSIB Registered & In Good Standing",
