@@ -33,7 +33,7 @@ export function FoundationsCivilInfrastructureSubPage({ content, imageSrc, image
             {content.heroMore.length ? (
               <div className="mt-6 max-w-prose space-y-3 border-l-4 border-[color:var(--y)] pl-5">
                 {content.heroMore.map((p) => (
-                  <p key={p.slice(0, 48)} className="text-[15px] leading-[1.72] text-white/88 sm:text-base">
+                  <p key={p.slice(0, 48)} className="text-[15px] leading-[1.72] text-white/90 sm:text-base">
                     {p}
                   </p>
                 ))}
@@ -41,12 +41,15 @@ export function FoundationsCivilInfrastructureSubPage({ content, imageSrc, image
             ) : null}
             <div className="hero-rule mt-6 h-px w-full max-w-md bg-[color:var(--y)]/40" aria-hidden />
             <div className="hero-cta-row mt-6 grid max-w-prose gap-3 border border-white/14 bg-[rgb(0_0_0/0.24)] p-4 sm:grid-cols-2 sm:items-stretch">
-              <Link href="/contact/" className="cta-hero-fill flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs tracking-wide">
+              <Link
+                href="/contact/"
+                className="cta-hero-fill flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
+              >
                 {FOUNDATIONS_HUB_HERO.ctaPrimaryLabel}
               </Link>
               <Link
                 href={PHONE_TEL}
-                className="cta-outline-light flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs tracking-wide"
+                className="cta-outline-light flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
               >
                 {FOUNDATIONS_HUB_HERO.ctaPhoneLabel}
               </Link>
