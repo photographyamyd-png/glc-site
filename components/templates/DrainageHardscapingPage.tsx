@@ -314,14 +314,21 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         </div>
 
         <div className="relative z-10 border-t-4 border-[color:var(--y)] bg-[var(--ink-deep)]">
-          <div className="mx-auto grid max-w-[min(100%,var(--max))] grid-cols-1 gap-3 px-4 py-6 sm:grid-cols-2 sm:px-6 md:grid-cols-4 lg:gap-4 lg:px-10">
-            {DRAINAGE_TRUST_BAR.map((item) => (
+          <div className="mx-auto grid max-w-[min(100%,var(--max))] grid-cols-1 gap-2 px-4 py-4 sm:grid-cols-2 sm:gap-2.5 sm:px-5 md:grid-cols-4 md:gap-3 lg:px-10">
+            {DRAINAGE_TRUST_BAR.map((item, i) => (
               <div
                 key={item.value}
-                className="rounded-sm border border-white/15 bg-[rgb(255_255_255/0.06)] px-4 py-5 transition-colors hover:border-[color:var(--y)]/45 sm:px-5 sm:py-6"
+                className="rounded-sm border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-3 transition-colors hover:border-[color:var(--y)]/45 sm:px-3.5 sm:py-3"
               >
-                <p className="font-serif text-2xl font-bold text-[color:var(--y)]">{item.value}</p>
-                <p className="mt-3 eyebrow text-white">{item.sub}</p>
+                <p className="font-label text-[9px] font-semibold uppercase tracking-[0.16em] text-white/55">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <p className="mt-1 font-serif text-[13px] font-bold uppercase leading-snug tracking-[0.04em] text-[color:var(--y)] sm:text-sm">
+                  {item.value}
+                </p>
+                <p className="mt-1.5 font-sans text-[11px] font-medium leading-snug text-white/90 sm:text-xs sm:leading-relaxed">
+                  {item.sub}
+                </p>
               </div>
             ))}
           </div>
