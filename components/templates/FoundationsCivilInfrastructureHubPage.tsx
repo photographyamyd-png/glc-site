@@ -19,21 +19,6 @@ import {
 } from "@/lib/site/foundations-civil-infrastructure-content";
 import { PHONE_TEL } from "@/lib/ground-level/homepage-copy";
 import { getServiceImage } from "@/lib/site/service-images";
-import { cn } from "@/lib/utils";
-
-function CheckIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} width={40} height={40} viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M20 6L9 17l-5-5"
-        stroke="currentColor"
-        strokeWidth={2}
-        strokeLinecap="square"
-        className="text-[color:var(--y)]"
-      />
-    </svg>
-  );
-}
 
 export function FoundationsCivilInfrastructureHubPage() {
   const heroImage = getServiceImage("foundations-civil-infrastructure");
@@ -41,62 +26,64 @@ export function FoundationsCivilInfrastructureHubPage() {
   const overviewPanel = (
     <div className="relative">
       <div
-        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(135deg,rgb(242_183_5/0.05),transparent_48%)]"
+        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(180deg,rgb(242_183_5/0.07),transparent_42%)]"
         aria-hidden
       />
-      <ClaudeLogicWatermark placement="bottom-right" mode="default" className="z-[1] opacity-[0.09]" />
-      <div className="relative z-10 mx-auto grid max-w-[min(100%,var(--max))] gap-y-12 gap-x-0 lg:grid-cols-12 lg:items-start lg:gap-x-12 lg:gap-y-12">
-        <div className="min-h-0 lg:col-span-6">
-          <div className="bespoke-surface panel-machined border border-[color:var(--g200)] bg-white p-6 sm:p-8">
-            <div className="border-l-4 border-[color:var(--y)] pl-5">
-              <p className="eyebrow text-ink">Overview & trust</p>
-              <p className="mt-2 eyebrow text-ink-muted">Field-led crews · WSIB · Liability coverage</p>
-              <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">
-                Why teams spec us on{" "}
-                <span className="text-[color:var(--y)]">civil packages</span>
-              </h2>
-              <div className="mt-[var(--s7)] max-w-[min(100%,42rem)] space-y-6">
-                <p className="text-[15px] leading-[1.72] text-ink sm:text-base">{FOUNDATIONS_HUB_HERO.introC}</p>
-                <p className="text-[15px] leading-[1.72] text-ink sm:text-base">{FOUNDATIONS_HUB_HERO.introD}</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <ClaudeLogicWatermark placement="bottom-right" mode="default" className="z-[1] opacity-[0.08]" />
 
-        <div className="min-h-0 w-full lg:col-span-6">
-          <div className="relative aspect-[16/10] w-full overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)]">
-            <Image
-              src={heroImage.src}
-              alt={heroImage.alt}
-              fill
-              className="object-cover object-[center_42%] sm:object-[center_38%]"
-              sizes="(min-width: 1024px) 42vw, 100vw"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.4)] to-transparent" aria-hidden />
+      <div className="relative z-10 flex flex-col gap-12 sm:gap-14 lg:gap-[var(--s12)]">
+        {/* Chapter A — centered editorial (symmetric measure) */}
+        <header className="mx-auto w-full max-w-[36rem] px-0 text-center lg:max-w-[42rem]">
+          <div className="mx-auto h-1 w-14 bg-[color:var(--y)]" aria-hidden />
+          <p className="mt-6 eyebrow text-ink">Overview & trust</p>
+          <p className="mt-2 eyebrow text-ink-muted">Field-led crews · WSIB · Liability coverage</p>
+          <h2 className="mt-6 font-serif text-3xl font-semibold uppercase leading-[1.05] tracking-tight text-ink sm:text-4xl">
+            Why teams spec us on{" "}
+            <span className="text-[color:var(--y)]">civil packages</span>
+          </h2>
+          <div className="mt-10 space-y-6 border-t border-[color:var(--g200)] pt-10 text-left">
+            <p className="text-[15px] leading-[1.72] text-ink sm:text-base">{FOUNDATIONS_HUB_HERO.introC}</p>
+            <p className="text-[15px] leading-[1.72] text-ink sm:text-base">{FOUNDATIONS_HUB_HERO.introD}</p>
           </div>
-        </div>
+        </header>
 
-        <div className="border-t border-[color:var(--g200)] pt-10 lg:col-span-12">
-          <p className="eyebrow text-ink-muted">Trust signals</p>
-          <div className="mt-4 grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-6 lg:gap-6">
-            {FOUNDATIONS_TRUST_BENTO.map((item, i) => (
-              <article
-                key={item.title}
-                className={cn(
-                  "bespoke-surface panel-machined flex h-full min-h-0 gap-3 border border-[color:var(--g200)] bg-white p-4 sm:p-5 lg:col-span-2",
-                  i === 3 && "lg:col-start-2",
-                  i === 4 && "lg:col-start-4",
-                )}
-              >
-                <CheckIcon className="mt-0.5 shrink-0" />
-                <div className="flex min-h-0 min-w-0 flex-1 flex-col">
-                  <h3 className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink sm:text-2xl">{item.title}</h3>
-                  <p className="mt-2 flex-1 text-[15px] leading-[1.72] text-ink sm:text-base">{item.body}</p>
-                </div>
-              </article>
-            ))}
+        {/* Chapter B — panorama strip (breaks out of tab gutters; substrate + scrim) */}
+        <figure className="relative -mx-4 aspect-[16/9] min-h-[12.5rem] w-[calc(100%+2rem)] max-w-none sm:-mx-6 sm:min-h-[14rem] sm:w-[calc(100%+3rem)] lg:-mx-10 lg:aspect-[21/9] lg:min-h-[17.5rem] lg:w-[calc(100%+5rem)]">
+          <Image
+            src={heroImage.src}
+            alt={heroImage.alt}
+            fill
+            className="object-cover object-[center_40%]"
+            sizes="100vw"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.55)] via-[rgb(10_12_11/0.12)] to-transparent" aria-hidden />
+          <figcaption className="sr-only">{heroImage.alt}</figcaption>
+        </figure>
+
+        {/* Chapter C — authority registry: single dark band, five equal lanes (tonal break + tri-color on dark) */}
+        <section
+          aria-labelledby="foundations-trust-registry-heading"
+          className="relative -mx-4 border-y border-white/10 bg-[color:var(--ink)] px-4 py-12 text-white sm:-mx-6 sm:px-6 lg:-mx-10 lg:px-10 lg:py-16"
+        >
+          <ClaudeLogicWatermark placement="top-left" mode="on-dark" className="pointer-events-none absolute left-0 top-0 z-0 opacity-[0.11]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgb(242_183_5/0.08),transparent_45%)]" aria-hidden />
+          <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))]">
+            <h3 id="foundations-trust-registry-heading" className="eyebrow text-white">
+              What GCs verify first
+            </h3>
+            <ol className="mt-8 grid list-none grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:mt-10 lg:grid-cols-5 lg:gap-x-6 lg:gap-y-0">
+              {FOUNDATIONS_TRUST_BENTO.map((item, idx) => (
+                <li key={item.title} className="border-l-2 border-[color:var(--y)] pl-4">
+                  <span className="font-serif text-3xl font-bold leading-none tracking-tight text-[color:var(--y)] tabular-nums">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <p className="mt-3 font-serif text-sm font-bold uppercase tracking-[0.08em] text-white">{item.title}</p>
+                  <p className="mt-2 text-[14px] leading-[1.65] text-white/90 sm:text-[15px] sm:leading-[1.72]">{item.body}</p>
+                </li>
+              ))}
+            </ol>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );
