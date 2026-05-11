@@ -16,14 +16,27 @@ function siteUrl(): string {
 export function CommercialSnowJsonLd({
   faq,
   processHeading,
+  processDescription,
   steps,
 }: {
   faq: CommercialSnowFaq[];
   processHeading: string;
+  /** Summary for HowTo `description` (distinct from step titles). */
+  processDescription: string;
   steps: ProcessStep[];
 }) {
   const url = siteUrl();
   const pageUrl = `${url}/services/snow-removal/`;
+
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: url },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${url}/services/` },
+      { "@type": "ListItem", position: 3, name: "Commercial Snow Removal", item: pageUrl },
+    ],
+  };
 
   const faqPage = {
     "@type": "FAQPage",
@@ -43,7 +56,7 @@ export function CommercialSnowJsonLd({
     "@type": "HowTo",
     "@id": `${pageUrl}#process`,
     name: processHeading,
-    description: processHeading,
+    description: processDescription,
     step: steps.map((step, i) => ({
       "@type": "HowToStep",
       position: i + 1,
@@ -54,7 +67,7 @@ export function CommercialSnowJsonLd({
 
   const graph = {
     "@context": "https://schema.org",
-    "@graph": [faqPage, howTo],
+    "@graph": [breadcrumb, faqPage, howTo],
   };
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }} />;

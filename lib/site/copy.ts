@@ -409,7 +409,7 @@ export const LOCATION_COPY_MODEL: LocationCopyModel = {
     "Ground Level Contracting provides commercial snow removal and ice management for businesses and institutional sites across {PlaceName}, with SLAs and GPS-tracked service options.",
   supportLine: "Coverage details, highways, and industrial corridors are summarized on the main commercial snow hub.",
   ctas: [
-    { label: "Service area on hub", href: "/services/snow-removal/#service-area" },
+    { label: "Service area on hub", href: "/services/snow-removal/#chapter-coverage" },
     { label: "Contact", href: "/contact/" },
   ],
 };

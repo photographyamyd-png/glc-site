@@ -8,6 +8,8 @@ import { GLCtaBand } from "@/components/ground-level/GLCtaBand";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { CardSurface } from "@/components/ui/CardSurface";
 import { getServiceImage } from "@/lib/site/service-images";
+import { getSnowSubserviceCapabilityItems } from "@/lib/site/snow-subservice-capabilities";
+import { SnowSubServiceJsonLd } from "@/components/seo/SnowSubServiceJsonLd";
 
 type ServicePageTemplateProps = {
   service: ServiceDef;
@@ -19,6 +21,14 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
   const serviceImage = getServiceImage(service.slug);
   const imageSrc = serviceImage.src;
   const scopeAnchorAlt = `${serviceImage.alt} — ${service.title} scope reference`;
+  const subServicesForField =
+    detail?.subServices?.length ? detail.subServices : getSnowSubserviceCapabilityItems(service);
+  const hubStatsForHero =
+    detail?.hubStats?.length
+      ? detail.hubStats
+      : service.category === "snow-subservice"
+        ? SERVICE_DETAILS["snow-removal"].hubStats
+        : [];
   const faqItems = detail?.faq ?? [];
   const whyItems = detail?.trust.paragraphs ?? [
     "Experienced crews and commercial-first operations.",
@@ -34,6 +44,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
   ];
   return (
     <article className="relative">
+      {service.category === "snow-subservice" ? <SnowSubServiceJsonLd service={service} /> : null}
       <section id="overview" className="hero-stage section-major band-dark-field relative min-h-[100dvh] scroll-mt-[var(--header)] overflow-hidden">
         <Image
           src={imageSrc}
@@ -70,7 +81,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
             ))}
           </div>
           <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-sm font-semibold text-white/90">
-            {(detail?.hubStats ?? []).slice(0, 3).map((s) => (
+            {hubStatsForHero.slice(0, 3).map((s) => (
               <span key={s.label}>
                 <span className="text-[color:var(--y)]">{s.value}</span> {s.label}
               </span>
@@ -172,7 +183,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
             </h2>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {(detail?.subServices ?? []).slice(0, 6).map((item, idx) => (
+            {subServicesForField.slice(0, 6).map((item, idx) => (
               <article
                 key={item.id}
                 className="relative panel-machined border border-white/15 bg-[rgb(255_255_255/0.06)] p-5 backdrop-blur-sm sm:p-8"

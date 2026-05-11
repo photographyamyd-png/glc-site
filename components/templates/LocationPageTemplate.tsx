@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { LocationDef } from "@/lib/site/registry";
 import { LOCATION_COPY_MODEL, LOCATION_NAMES } from "@/lib/site/copy";
+import { SnowLocationJsonLd } from "@/components/seo/SnowLocationJsonLd";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 
 /** Snow location pages — `public/images/services/Snow Removal/` (spaces encoded). */
@@ -18,7 +19,8 @@ export function LocationPageTemplate({ location }: { location: LocationDef }) {
 
   return (
     <article className="relative">
-      <section className="section-major band-dark relative min-h-[260px] scroll-mt-[var(--header)] overflow-hidden sm:min-h-[300px]">
+      <SnowLocationJsonLd location={location} />
+      <section className="section-major band-dark relative min-h-[260px] scroll-mt-[var(--header)] overflow-hidden sm:min-h-[300px] view-reveal">
         {/* Substrate + scrims */}
         <div className="pointer-events-none absolute inset-0">
           <Image
@@ -52,7 +54,7 @@ export function LocationPageTemplate({ location }: { location: LocationDef }) {
         </div>
       </section>
 
-      <section id="service-area" className="section-major band-light relative scroll-mt-[var(--header)] overflow-hidden">
+      <section id="service-area" className="section-major band-light relative scroll-mt-[var(--header)] overflow-hidden view-reveal">
         <div
           className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgb(242_183_5/0.06),transparent_52%)]"
           aria-hidden

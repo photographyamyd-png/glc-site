@@ -5,6 +5,14 @@
 import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/ground-level/homepage-copy";
 import { COMMERCIAL_SNOW_FAQS } from "@/lib/site/commercial-snow-faqs";
 
+/** Canonical snow service photography (encoded path); used when per-section assets are not available. */
+export const COMMERCIAL_SNOW_PRIMARY_RASTER_SRC =
+  "/images/services/Snow%20Removal/Ground%20Level%20Contracting%20barrie%20snow%20removal23.JPG" as const;
+
+/** Factual alt for `COMMERCIAL_SNOW_PRIMARY_RASTER_SRC` — keep in sync with visible scene. */
+export const COMMERCIAL_SNOW_PRIMARY_RASTER_ALT =
+  "Commercial snow removal contractor clearing large business parking lot with industrial equipment in Barrie Ontario" as const;
+
 export const COMMERCIAL_SNOW_SEO = {
   title: "Commercial Snow Removal Contractors | Barrie, Simcoe County",
   description:
@@ -40,8 +48,7 @@ export const COMMERCIAL_SNOW_HERO = {
     { value: "24/7", label: "Emergency Response" },
     { value: "$5M+", label: "Liability Coverage" },
   ] as const,
-  heroImageAriaLabel:
-    "Commercial snow removal contractor clearing large business parking lot with industrial equipment in Barrie Ontario",
+  heroImageAriaLabel: COMMERCIAL_SNOW_PRIMARY_RASTER_ALT,
   ctas: {
     primary: { label: "Request Commercial Quote", href: "/contact/" },
     secondary: { label: `Call 24/7: ${PHONE_DISPLAY}`, href: PHONE_TEL },
@@ -163,19 +170,21 @@ export const COMMERCIAL_SNOW_SERVICES_CHAPTER = {
 export type SnowServiceDeepDive = {
   anchor: string;
   summary: string;
-  imageAlt: string;
   paragraphs: string[];
   propertyTypes?: string;
   learnMoreHref: string;
   learnMoreLabel: string;
+  /** Optional override when a distinct raster exists; otherwise hub primary src is used. */
+  imageSrc?: string;
+  /** Vary focal plane when sharing one raster across programs. */
+  imageObjectClass?: string;
 };
 
 export const COMMERCIAL_SNOW_SERVICE_DEEP_DIVES: SnowServiceDeepDive[] = [
   {
     anchor: "svc-parking-lot",
     summary: "Commercial Parking Lot Snow Plowing — Barrie & Simcoe County",
-    imageAlt:
-      "Commercial parking lot snow plowing service for retail plaza in Barrie Ontario with heavy plow equipment",
+    imageObjectClass: "object-[center_40%]",
     paragraphs: [
       "Parking lot accessibility is the first operational checkpoint of every business day. We clear retail plazas, shopping centres, and office building lots to an operationally accessible standard before your first staff and customers arrive.",
       "Blade patterns, island clearance, and refreeze treatment are sequenced to reduce residual hazards and keep fire routes and priority aisles open under contract definitions.",
@@ -188,8 +197,7 @@ export const COMMERCIAL_SNOW_SERVICE_DEEP_DIVES: SnowServiceDeepDive[] = [
   {
     anchor: "svc-industrial",
     summary: "Industrial Snow Removal — 24/7 Operational Access for Simcoe County Facilities",
-    imageAlt:
-      "Industrial warehouse snow removal with heavy loader clearing distribution centre loading docks in Simcoe County Ontario",
+    imageObjectClass: "object-[center_52%]",
     paragraphs: [
       "Industrial facilities operate on schedules that do not accommodate winter delays. Our service deploys loaders and heavy-duty plow trucks for 24/7 operational access, shift-change coordination, and loading dock priority at warehouses and distribution centres.",
       "We align clearing order to inbound freight, outbound lanes, and yard circulation so equipment and personnel are not trapped by drifts or unsafe gradients.",
@@ -203,8 +211,7 @@ export const COMMERCIAL_SNOW_SERVICE_DEEP_DIVES: SnowServiceDeepDive[] = [
   {
     anchor: "svc-ice",
     summary: "Commercial Ice Management & De-Icing — Barrie, Orillia & Simcoe County",
-    imageAlt:
-      "Commercial ice management and de-icing service applying salt to business parking lot in Barrie Ontario",
+    imageObjectClass: "object-[center_35%]",
     paragraphs: [
       "Snow removal clears what you can see. Ice management protects against what you cannot—our program addresses pre-storm anti-icing and reactive de-icing across the full freeze-thaw cycle.",
       "Application methods match surface type, environmental constraints, and your risk tolerance — from bulk salt to liquid systems where precision drives efficiency.",
@@ -216,8 +223,7 @@ export const COMMERCIAL_SNOW_SERVICE_DEEP_DIVES: SnowServiceDeepDive[] = [
   {
     anchor: "svc-emergency",
     summary: "24/7 Emergency Snow Removal — Commercial Response Across Barrie & Simcoe County",
-    imageAlt:
-      "24/7 emergency commercial snow removal crew working night shift at business property in Barrie Ontario",
+    imageObjectClass: "object-[center_48%]",
     paragraphs: [
       "Weather does not operate on a business schedule, nor do we. Automatic dispatch at your trigger depth—no call required. Priority clients receive on-site response within the windows defined in their SLA.",
       "Storm monitoring and supervisor updates keep route priority honest during widespread regional events.",
@@ -228,8 +234,7 @@ export const COMMERCIAL_SNOW_SERVICE_DEEP_DIVES: SnowServiceDeepDive[] = [
   {
     anchor: "svc-hauling",
     summary: "Commercial Snow Hauling & Off-Site Removal — Simcoe County",
-    imageAlt:
-      "Commercial snow hauling service using loader to remove snow piles from retail property in Orillia Ontario",
+    imageObjectClass: "object-[center_58%]",
     paragraphs: [
       "Urban commercial properties frequently run out of on-site storage by mid-season. Loader and dump truck operations reclaim parking capacity and eliminate ice hazard concentrations.",
       "Hauling is coordinated with municipal expectations and site logistics so piles do not return as melt-refreeze problems at pedestrian zones.",
@@ -240,8 +245,7 @@ export const COMMERCIAL_SNOW_SERVICE_DEEP_DIVES: SnowServiceDeepDive[] = [
   {
     anchor: "svc-retail",
     summary: "Retail Plaza & Shopping Centre Snow Removal — Customer Access, All Season",
-    imageAlt:
-      "Retail plaza snow removal service clearing shopping centre parking lot for customer access in Simcoe County",
+    imageObjectClass: "object-[center_44%]",
     paragraphs: [
       "Customer accessibility is the single most critical operational metric for retail businesses during a winter storm. Your property is accessible, professional, and safe before the first customer arrives.",
       "We coordinate corrals, cart returns, and high-foot-traffic paths with store operations where required.",
@@ -252,8 +256,7 @@ export const COMMERCIAL_SNOW_SERVICE_DEEP_DIVES: SnowServiceDeepDive[] = [
   {
     anchor: "svc-property-management",
     summary: "Multi-Site Property Management Snow Removal — Barrie & Simcoe County",
-    imageAlt:
-      "Property management snow removal service for multi-residential condo complex in Innisfil Ontario",
+    imageObjectClass: "object-[center_50%]",
     paragraphs: [
       "Standardized SLAs across your entire portfolio. Centralized billing, consolidated service reporting, and one dedicated account contact for all winter maintenance logistics.",
       "Escalation paths are consistent site-to-site so regional storms do not fragment communication.",
@@ -264,8 +267,7 @@ export const COMMERCIAL_SNOW_SERVICE_DEEP_DIVES: SnowServiceDeepDive[] = [
   {
     anchor: "svc-office-campus",
     summary: "Office Building & Corporate Campus Snow Removal — Professional Standards, Guaranteed",
-    imageAlt:
-      "Office building commercial snow removal service clearing corporate parking lot in Barrie Ontario",
+    imageObjectClass: "object-[center_46%]",
     paragraphs: [
       "Your corporate property's first impression is formed before a client steps inside. Professional clearing standards for executive and visitor areas with GPS-verified documentation.",
       "Sidewalk and entrance priorities align with tenant safety expectations and contractual opening times.",

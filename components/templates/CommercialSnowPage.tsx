@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ServiceDef } from "@/lib/site/registry";
+import { cn } from "@/lib/utils";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { CardSurface } from "@/components/ui/CardSurface";
 import { CommercialSnowJsonLd } from "@/components/seo/CommercialSnowJsonLd";
@@ -19,6 +20,8 @@ import {
   COMMERCIAL_SNOW_HERO,
   COMMERCIAL_SNOW_MID_LOWER_CTA,
   COMMERCIAL_SNOW_MID_SERVICE_CTA,
+  COMMERCIAL_SNOW_PRIMARY_RASTER_ALT,
+  COMMERCIAL_SNOW_PRIMARY_RASTER_SRC,
   COMMERCIAL_SNOW_PROCESS,
   COMMERCIAL_SNOW_PROPERTY_TYPES,
   COMMERCIAL_SNOW_RELATED,
@@ -36,9 +39,6 @@ import {
 } from "@/lib/site/commercial-snow-page-data";
 import { getServiceImage } from "@/lib/site/service-images";
 
-const SNOW_PLOW_EXTRA =
-  "/images/services/Snow%20Removal/Ground%20Level%20Contracting%20barrie%20snow%20removal23.JPG";
-
 type Props = { service: ServiceDef; related: ServiceDef[] };
 
 export function CommercialSnowPage({ service, related }: Props) {
@@ -47,7 +47,12 @@ export function CommercialSnowPage({ service, related }: Props) {
 
   return (
     <article className="relative">
-      <CommercialSnowJsonLd faq={COMMERCIAL_SNOW_FAQS} processHeading={COMMERCIAL_SNOW_PROCESS.h2} steps={processStepsJson} />
+      <CommercialSnowJsonLd
+        faq={COMMERCIAL_SNOW_FAQS}
+        processHeading={COMMERCIAL_SNOW_PROCESS.h2}
+        processDescription={COMMERCIAL_SNOW_PROCESS.visibleLede}
+        steps={processStepsJson}
+      />
 
       <CommercialSnowStickyNav chapters={COMMERCIAL_SNOW_CHAPTERS} />
 
@@ -127,6 +132,18 @@ export function CommercialSnowPage({ service, related }: Props) {
                 ))}
               </div>
 
+              <p className="mt-6 eyebrow text-white">Service coverage</p>
+              <ul className="mt-3 flex flex-wrap gap-2" aria-label="Service coverage">
+                {["Barrie", "Orillia", "Innisfil", "Wasaga Beach", "Simcoe County"].map((tag) => (
+                  <li
+                    key={tag}
+                    className="eyebrow border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-white"
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Link href={COMMERCIAL_SNOW_HERO.ctas.primary.href} className="cta-hero-fill inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]">
                   {COMMERCIAL_SNOW_HERO.ctas.primary.label}
@@ -149,8 +166,8 @@ export function CommercialSnowPage({ service, related }: Props) {
         </div>
 
         {/* Trust + value — light band */}
-        <div className="section-major band-light relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgb(242_183_5/0.06),transparent_52%)]" aria-hidden />
+        <div className="section-major band-light relative overflow-hidden view-reveal">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(142deg,rgb(242_183_5/0.065),transparent_50%)]" aria-hidden />
           <ClaudeLogicWatermark placement="bottom-right" mode="default" className="z-[1] opacity-[0.09]" />
           <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
             <div
@@ -174,7 +191,7 @@ export function CommercialSnowPage({ service, related }: Props) {
                 <p className="mt-6 eyebrow text-[color:var(--y)]" aria-hidden>
                   —
                 </p>
-                <p className="mt-2 max-w-prose font-serif text-xl font-bold uppercase tracking-tight text-ink/90" aria-hidden="true">
+                <p className="mt-2 max-w-prose font-serif text-xl font-bold uppercase tracking-tight text-ink/90">
                   {COMMERCIAL_SNOW_VALUE_PROP.pullQuote}
                 </p>
                 <details className="mt-8 group border border-[color:var(--g200)] bg-white p-4">
@@ -196,7 +213,13 @@ export function CommercialSnowPage({ service, related }: Props) {
                 </details>
               </div>
               <div className="relative aspect-[16/11] overflow-hidden border border-[color:var(--g200)] lg:col-span-6">
-                <Image src={SNOW_PLOW_EXTRA} alt="" fill className="object-cover object-center" sizes="(min-width: 1024px) 42vw, 100vw" />
+                <Image
+                  src={COMMERCIAL_SNOW_PRIMARY_RASTER_SRC}
+                  alt={COMMERCIAL_SNOW_PRIMARY_RASTER_ALT}
+                  fill
+                  className="object-cover object-[center_45%]"
+                  sizes="(min-width: 1024px) 42vw, 100vw"
+                />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[rgb(10_12_11/0.25)] to-transparent" aria-hidden />
               </div>
             </div>
@@ -207,9 +230,9 @@ export function CommercialSnowPage({ service, related }: Props) {
       {/* —— Services —— */}
       <section
         id="chapter-services"
-        className="section-major band-dark-field relative scroll-mt-[var(--header)] overflow-hidden"
+        className="section-major band-dark-field relative scroll-mt-[var(--header)] overflow-hidden view-reveal"
       >
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.04),transparent_45%)]" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(195deg,rgb(255_255_255/0.035),transparent_48%)]" aria-hidden />
         <ClaudeLogicWatermark placement="top-left" mode="on-dark" className="z-[1] opacity-[0.1]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
@@ -253,7 +276,13 @@ export function CommercialSnowPage({ service, related }: Props) {
                 </summary>
                 <div className="mt-4 grid gap-6 lg:grid-cols-2">
                   <div className="relative aspect-[16/10] overflow-hidden border border-white/15">
-                    <Image src={image.src} alt={d.imageAlt} fill className="object-cover" sizes="(min-width: 1024px) 40vw, 100vw" />
+                    <Image
+                      src={d.imageSrc ?? COMMERCIAL_SNOW_PRIMARY_RASTER_SRC}
+                      alt={COMMERCIAL_SNOW_PRIMARY_RASTER_ALT}
+                      fill
+                      className={cn("object-cover", d.imageObjectClass ?? "object-center")}
+                      sizes="(min-width: 1024px) 40vw, 100vw"
+                    />
                   </div>
                   <div className="space-y-4">
                     {d.paragraphs.map((p) => (
@@ -304,8 +333,11 @@ export function CommercialSnowPage({ service, related }: Props) {
       </section>
 
       {/* —— Proof —— */}
-      <section id="chapter-proof" className="section-major band-light relative scroll-mt-[var(--header)] overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgb(242_183_5/0.07),transparent_50%)]" aria-hidden />
+      <section
+        id="chapter-proof"
+        className="section-major band-light relative scroll-mt-[var(--header)] overflow-hidden border-t border-[color:var(--g200)] view-reveal"
+      >
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(128deg,rgb(242_183_5/0.06),transparent_55%)]" aria-hidden />
         <ClaudeLogicWatermark placement="bottom-left" mode="default" className="z-[1] opacity-[0.08]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
           <div className="overflow-hidden border border-[color:var(--g200)] bg-[rgb(12_14_13)] text-white shadow-2xl">
@@ -342,7 +374,8 @@ export function CommercialSnowPage({ service, related }: Props) {
       </section>
 
       {/* —— Operations —— */}
-      <section id="chapter-operations" className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden">
+      <section id="chapter-operations" className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden view-reveal">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(200deg,rgb(255_255_255/0.035),transparent_42%)]" aria-hidden />
         <ClaudeLogicWatermark placement="center-right" mode="on-dark" className="opacity-[0.1]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
@@ -364,7 +397,13 @@ export function CommercialSnowPage({ service, related }: Props) {
               </summary>
               <div className="mt-6 grid gap-6 lg:grid-cols-2">
                 <div className="relative aspect-[16/11] overflow-hidden border border-white/15">
-                  <Image src={SNOW_PLOW_EXTRA} alt={COMMERCIAL_SNOW_EQUIPMENT.figureAriaLabel} fill className="object-cover" sizes="(min-width: 1024px) 38vw, 100vw" />
+                  <Image
+                    src={COMMERCIAL_SNOW_PRIMARY_RASTER_SRC}
+                    alt={COMMERCIAL_SNOW_PRIMARY_RASTER_ALT}
+                    fill
+                    className="object-cover object-[center_48%]"
+                    sizes="(min-width: 1024px) 38vw, 100vw"
+                  />
                 </div>
                 <div>
                   <p className="text-[15px] leading-[1.72] text-white/90">{COMMERCIAL_SNOW_EQUIPMENT.intro}</p>
@@ -389,7 +428,13 @@ export function CommercialSnowPage({ service, related }: Props) {
               </summary>
               <div className="mt-6 grid gap-6 lg:grid-cols-2">
                 <div className="relative aspect-video overflow-hidden border border-white/15">
-                  <Image src={image.src} alt={COMMERCIAL_SNOW_SLA.figureAriaLabel} fill className="object-cover" sizes="(min-width: 1024px) 38vw, 100vw" />
+                  <Image
+                    src={image.src}
+                    alt={COMMERCIAL_SNOW_PRIMARY_RASTER_ALT}
+                    fill
+                    className="object-cover object-[center_42%]"
+                    sizes="(min-width: 1024px) 38vw, 100vw"
+                  />
                 </div>
                 <div>
                   <p className="text-[15px] leading-[1.72] text-white/90">{COMMERCIAL_SNOW_SLA.intro}</p>
@@ -459,8 +504,11 @@ export function CommercialSnowPage({ service, related }: Props) {
       </section>
 
       {/* —— Coverage —— */}
-      <section id="chapter-coverage" className="section-major relative band-light scroll-mt-[var(--header)] overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgb(242_183_5/0.05),transparent_48%)]" aria-hidden />
+      <section
+        id="chapter-coverage"
+        className="section-major relative band-light scroll-mt-[var(--header)] overflow-hidden border-t border-[color:var(--g200)] view-reveal"
+      >
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(118deg,rgb(242_183_5/0.055),transparent_46%)]" aria-hidden />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
             <div className="border-l-4 border-[color:var(--y)] pl-5 lg:col-span-5">
@@ -495,7 +543,13 @@ export function CommercialSnowPage({ service, related }: Props) {
             </div>
             <div className="lg:col-span-7">
               <div className="relative aspect-[16/11] overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)]">
-                <Image src={image.src} alt={COMMERCIAL_SNOW_SERVICE_AREA.figureAriaLabel} fill className="object-cover" sizes="(min-width: 1024px) 45vw, 100vw" />
+                <Image
+                  src={image.src}
+                  alt={COMMERCIAL_SNOW_PRIMARY_RASTER_ALT}
+                  fill
+                  className="object-cover object-[center_40%]"
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                />
               </div>
             </div>
           </div>
@@ -515,7 +569,11 @@ export function CommercialSnowPage({ service, related }: Props) {
       </section>
 
       {/* —— Assurance & FAQ —— */}
-      <section id="chapter-assurance" className="section-major band-dark-field relative scroll-mt-[var(--header)] overflow-hidden">
+      <section
+        id="chapter-assurance"
+        className="section-major band-dark-field relative scroll-mt-[var(--header)] overflow-hidden border-t border-white/10 view-reveal"
+      >
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,rgb(255_255_255/0.04),transparent_50%)]" aria-hidden />
         <ClaudeLogicWatermark placement="bottom-right" mode="on-dark" className="z-[1] opacity-[0.1]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
@@ -540,7 +598,13 @@ export function CommercialSnowPage({ service, related }: Props) {
                 ))}
               </div>
               <div className="relative aspect-[16/11] overflow-hidden border border-white/15">
-                <Image src={SNOW_PLOW_EXTRA} alt={COMMERCIAL_SNOW_WHY_INTRO.figureAriaLabel} fill className="object-cover" sizes="(min-width: 1024px) 40vw, 100vw" />
+                <Image
+                  src={COMMERCIAL_SNOW_PRIMARY_RASTER_SRC}
+                  alt={COMMERCIAL_SNOW_PRIMARY_RASTER_ALT}
+                  fill
+                  className="object-cover object-[center_50%]"
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                />
               </div>
             </div>
           </details>
@@ -563,7 +627,13 @@ export function CommercialSnowPage({ service, related }: Props) {
                 <div className="mt-4 grid gap-4 lg:grid-cols-2">
                   <p className="text-[15px] leading-[1.72] text-white/88">{item.body}</p>
                   <div className="relative aspect-video overflow-hidden border border-white/15">
-                    <Image src={image.src} alt={item.imageAlt} fill className="object-cover" sizes="(min-width: 1024px) 35vw, 100vw" />
+                    <Image
+                      src={image.src}
+                      alt={COMMERCIAL_SNOW_PRIMARY_RASTER_ALT}
+                      fill
+                      className="object-cover object-[center_45%]"
+                      sizes="(min-width: 1024px) 35vw, 100vw"
+                    />
                   </div>
                 </div>
               </details>
@@ -590,7 +660,7 @@ export function CommercialSnowPage({ service, related }: Props) {
       </section>
 
       {/* —— Contact —— */}
-      <section id="chapter-contact" className="section-major band-light scroll-mt-[var(--header)]">
+      <section id="chapter-contact" className="section-major band-light scroll-mt-[var(--header)] view-reveal border-t border-[color:var(--g200)]">
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
           <div
             className={`relative overflow-hidden border border-[color:var(--g200)] border-l-[4px] border-l-[color:var(--y)] bg-[rgb(12_14_13)] p-6 text-white sm:p-8 ${COMMERCIAL_SNOW_MID_LOWER_CTA.className}`}
