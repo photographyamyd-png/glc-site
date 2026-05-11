@@ -17,8 +17,9 @@ This file carries **exhaustive** content from the legacy monolithic `master/MAST
 
 - **Headings / display:** **Oswald** only (`--font-oswald` / `font-serif`). Section H2, 3-act headline, stat/card numerals follow scales below.
 - **Body:** Longform and general UI use **Source Sans 3** (`--font-source-sans` / `font-sans`).
+- **Paragraph (`<p>`) vs Oswald (`font-serif`) — drift lock:** Do **not** put **`font-serif`** on `<p>` elements that carry **prose body copy** (sentences, paragraphs, quotes meant to read as running text). Use **`font-sans`** for those. **`font-serif` on `<p>` is allowed** only for **display-role** lines that still use a `<p>` tag: **stat numerals**, **hero/metric values**, **short marketing callouts** (headline-like), **chip/label lines**, and **non-sentence UI labels**. For quoted testimonials or italic pull quotes in body voice, use **`font-sans`** (italic optional). When in doubt, use a heading level or `<span>` for display lines instead of forcing Oswald onto prose `<p>` tags.
 - **Condensed UI:** **Barlow Condensed** via `font-label` for dense chrome (badges on yellow, some CTAs, ~9px index marks). Do not use `font-label` for full-width section eyebrows — use **`.eyebrow`** instead (same typeface, different utility).
-- **Section eyebrows / kickers:** Use the **`.eyebrow`** utility in **`app/globals.css`** (**Barlow Condensed**, **13px**, **700**, uppercase, **0.07em** tracking). On **dark** bands pair with **`text-white`** (solid). On **light** bands use **`text-ink`** or **`text-ink-muted`** for secondary. Avoid low-opacity white for primary eyebrow copy.
+- **Section eyebrows / kickers:** Use the **`.eyebrow`** utility in **`app/globals.css`** (**Barlow Condensed**, **13px**, **700**, uppercase, **0.07em** tracking). On **dark** bands pair with **`text-white`** (solid). On **light** bands use **`text-ink`** or **`text-ink-muted`** for secondary. Avoid low-opacity white for primary eyebrow copy. Do **not** override eyebrow font size with `text-xs`–`text-8xl` or arbitrary `text-[…]` **font-size** tokens — color arbitrary values like `text-[color:var(--y)]` are fine.
 
 ## §1 — Layout and grid logic (structural pivots and DOM)
 
@@ -98,7 +99,7 @@ Shift away from muted overlines toward explicit sizing, tracking, and `text-ink`
 - Stat number: `clamp(52px, 5vw, 80px)`; weight 700; tracking `-0.04em`.
 - Card number: 64px; weight 700; tracking `-0.04em`.
 - Section H2: `text-3xl → sm:text-4xl` (`clamp(36px, 3.5vw, 52px)`); weight 600; uppercase; tight leading/tracking.
-- Card title / panel H3: 20px (`text-xl → sm:text-2xl`); weight 700; tracking `0.02em`; uppercase.
+- Card title / panel H3: 20px (`text-xl → sm:text-2xl`); weight 700; tracking **`0.04em`** (`tracking-[0.04em]` in Tailwind); uppercase.
 
 ### Section eyebrows and overlines
 
