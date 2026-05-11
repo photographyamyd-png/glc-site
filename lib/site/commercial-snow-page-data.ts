@@ -11,17 +11,6 @@ export const COMMERCIAL_SNOW_SEO = {
     "24/7 commercial snow removal for businesses in Barrie & Simcoe County. Industrial, retail & warehouse. Licensed, insured, guaranteed SLA response.",
 } as const;
 
-/**
- * HTTPS `src` for an embeddable player only (e.g. from CTV “Share” / Brightcove if offered).
- * Do not set this to the article URL — article pages are typically `X-Frame-Options` blocked.
- * When `null`, CommercialSnowPage shows quote + link only (no iframe).
- */
-export const COMMERCIAL_SNOW_CTV_EMBED_SRC: string | null = null;
-
-/** Canonical article: Terry King / Ground Level Contracting on Simcoe salt costs (Jan 8, 2026). */
-export const COMMERCIAL_SNOW_CTV_ARTICLE_URL =
-  "https://www.ctvnews.ca/barrie/article/snow-removal-contractors-face-doubling-costs-amid-salt-shortage/";
-
 export const COMMERCIAL_SNOW_CHAPTERS = [
   { id: "chapter-overview", label: "Overview", shortLabel: "Overview" },
   { id: "chapter-services", label: "Services", shortLabel: "Services" },
@@ -84,24 +73,6 @@ export const COMMERCIAL_SNOW_VALUE_PROP = {
     label: "Don't let winter slow your business. Request a free commercial property assessment today.",
     href: "/contact/",
   },
-} as const;
-
-export const COMMERCIAL_SNOW_CTV = {
-  eyebrow: "Social proof",
-  h2Id: "ctv-heading",
-  h2: "Featured coverage — CTV News Barrie",
-  h3: "Municipalities relying on the same resource to manage winter weather",
-  paragraphs: [
-    "Road salt is becoming an expensive commodity for private contractors in Simcoe County.",
-    "Published: January 08, 2026 at 6:56PM EST",
-  ],
-  quote: "To have two salt shortages in one fiscal year, it's a lot.",
-  attribution: "Terry King, Co-owner — Ground Level Contracting",
-  sourceLine: "CTV News Barrie, January 2026",
-  iframeTitle:
-    "Municipalities relying on the same resource to manage winter weather — Road salt is becoming an expensive commodity for private contractors in Simcoe County.",
-  sourceNotePrefix: "Source — CTV News Barrie:",
-  sourceLinkLabel: "full segment and article",
 } as const;
 
 export const COMMERCIAL_SNOW_WHY_INTRO = {

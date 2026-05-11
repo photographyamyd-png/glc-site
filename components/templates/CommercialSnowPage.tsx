@@ -4,6 +4,7 @@ import type { ServiceDef } from "@/lib/site/registry";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { CardSurface } from "@/components/ui/CardSurface";
 import { CommercialSnowJsonLd } from "@/components/seo/CommercialSnowJsonLd";
+import { CtvSnowFeature } from "@/components/templates/commercial-snow/CtvSnowFeature";
 import { CommercialSnowPropertyTabs } from "@/components/templates/commercial-snow/CommercialSnowPropertyTabs";
 import { CommercialSnowProofTabs } from "@/components/templates/commercial-snow/CommercialSnowProofTabs";
 import { CommercialSnowStickyNav } from "@/components/templates/commercial-snow/CommercialSnowStickyNav";
@@ -13,9 +14,6 @@ import {
   COMMERCIAL_SNOW_CLOSING,
   COMMERCIAL_SNOW_CONTRACTS,
   COMMERCIAL_SNOW_CREDENTIALS,
-  COMMERCIAL_SNOW_CTV,
-  COMMERCIAL_SNOW_CTV_ARTICLE_URL,
-  COMMERCIAL_SNOW_CTV_EMBED_SRC,
   COMMERCIAL_SNOW_EQUIPMENT,
   COMMERCIAL_SNOW_FAQ_SECTION,
   COMMERCIAL_SNOW_HERO,
@@ -317,39 +315,7 @@ export function CommercialSnowPage({ service, related }: Props) {
                 <CommercialSnowProofTabs
                   mediaLabel="Media"
                   credentialsLabel="Credentials"
-                  mediaPanel={
-                    <div>
-                      <p className="eyebrow text-[color:var(--y)]">{COMMERCIAL_SNOW_CTV.eyebrow}</p>
-                      <h2 id={COMMERCIAL_SNOW_CTV.h2Id} className="mt-3 font-serif text-2xl font-semibold uppercase tracking-tight text-white sm:text-3xl">
-                        {COMMERCIAL_SNOW_CTV.h2}
-                      </h2>
-                      <h3 className="mt-4 font-serif text-lg font-bold uppercase tracking-tight text-white/95">{COMMERCIAL_SNOW_CTV.h3}</h3>
-                      <p className="mt-3 text-[15px] leading-[1.72] text-white/90">{COMMERCIAL_SNOW_CTV.paragraphs[0]}</p>
-                      <p className="mt-2 text-sm text-white/60">{COMMERCIAL_SNOW_CTV.paragraphs[1]}</p>
-                      <blockquote className="mt-6 border-l-4 border-[color:var(--y)] pl-5">
-                        <p className="text-lg font-medium text-white/95">&ldquo;{COMMERCIAL_SNOW_CTV.quote}&rdquo;</p>
-                        <footer className="mt-3 text-sm text-white/75">{COMMERCIAL_SNOW_CTV.attribution}</footer>
-                        <p className="mt-1 text-xs text-white/55">{COMMERCIAL_SNOW_CTV.sourceLine}</p>
-                      </blockquote>
-                      {COMMERCIAL_SNOW_CTV_EMBED_SRC ? (
-                        <div className="relative mt-6 aspect-video w-full overflow-hidden border border-white/15">
-                          <iframe
-                            title={COMMERCIAL_SNOW_CTV.iframeTitle}
-                            src={COMMERCIAL_SNOW_CTV_EMBED_SRC}
-                            className="h-full w-full"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                          />
-                        </div>
-                      ) : null}
-                      <p className="mt-4 text-sm text-white/80">
-                        {COMMERCIAL_SNOW_CTV.sourceNotePrefix}{" "}
-                        <a href={COMMERCIAL_SNOW_CTV_ARTICLE_URL} className="font-semibold text-[color:var(--y)] underline-offset-2 hover:underline" rel="noopener noreferrer" target="_blank">
-                          {COMMERCIAL_SNOW_CTV.sourceLinkLabel}
-                        </a>
-                      </p>
-                    </div>
-                  }
+                  mediaPanel={<CtvSnowFeature />}
                   credentialsPanel={
                     <div>
                       <p className="eyebrow text-[color:var(--y)]">Commercial proof</p>
