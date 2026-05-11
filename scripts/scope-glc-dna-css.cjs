@@ -2,6 +2,9 @@
  * Regenerates components/glc-dna/glc-dna-extracted.scoped.css from app/glc-dna-extracted.css
  * so Lane B rules only apply under .glc-dna-sandbox (Lane A anchor IDs stay untouched).
  *
+ * Also writes app/glc-dna-intro-value.css from the SITE_EXPORT_INTRO_VALUE region (unscoped,
+ * safe: selectors are #intro-value only).
+ *
  * Run: npm run scope:glc-dna
  */
 const fs = require("fs");
@@ -17,11 +20,48 @@ const outputPath = path.join(
   "glc-dna",
   "glc-dna-extracted.scoped.css",
 );
+const introValuePath = path.join(root, "app", "glc-dna-intro-value.css");
+
+const SITE_EXPORT_START = "/* SITE_EXPORT_INTRO_VALUE_START */";
+const SITE_EXPORT_END = "/* SITE_EXPORT_INTRO_VALUE_END */";
 
 const input = fs.readFileSync(inputPath, "utf8");
 
+const startIdx = input.indexOf(SITE_EXPORT_START);
+const endIdx = input.indexOf(SITE_EXPORT_END);
+
+let forSandbox = input;
+let siteIntroCss = "";
+
+if (startIdx !== -1 && endIdx !== -1 && endIdx > startIdx) {
+  siteIntroCss = input
+    .slice(startIdx + SITE_EXPORT_START.length, endIdx)
+    .replace(/^\r?\n+/, "")
+    .trimEnd();
+  forSandbox =
+    input.slice(0, startIdx).trimEnd() +
+    "\n\n" +
+    input.slice(endIdx + SITE_EXPORT_END.length).replace(/^\r?\n+/, "");
+} else if (startIdx !== -1 || endIdx !== -1) {
+  console.error(
+    "Malformed SITE_EXPORT_INTRO_VALUE markers in glc-dna-extracted.css (need both START and END).",
+  );
+  process.exit(1);
+}
+
+const introHeader = `/* Generated from app/glc-dna-extracted.css (SITE_EXPORT_INTRO_VALUE). Run: npm run scope:glc-dna — do not edit by hand */
+
+`;
+
+fs.writeFileSync(
+  introValuePath,
+  siteIntroCss ? `${introHeader}${siteIntroCss}\n` : `${introHeader}/* (empty export block) */\n`,
+  "utf8",
+);
+console.log("Wrote", introValuePath);
+
 postcss([prefixwrap(".glc-dna-sandbox")])
-  .process(input, { from: inputPath })
+  .process(forSandbox, { from: inputPath })
   .then((result) => {
     fs.writeFileSync(
       outputPath,

@@ -89,14 +89,14 @@
 }
 
 
-.glc-dna-sandbox #glc-dna-about {
+.glc-dna-sandbox #about {
   background: var(--color-surface-page);
   position: relative;
   overflow: hidden;
   padding: 0 0 calc(var(--section-v) + 16px);
 }
 
-.glc-dna-sandbox #glc-dna-about::before {
+.glc-dna-sandbox #about::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -418,13 +418,13 @@
 /* ═══════════════════════════════════════════
    SERVICES GRID
 ═══════════════════════════════════════════ */
-.glc-dna-sandbox #glc-dna-services {
+.glc-dna-sandbox #services {
   background: var(--off-white);
   padding: var(--section-v) 0;
   position: relative; overflow: hidden;
 }
 /* GROUND structure marks */
-.glc-dna-sandbox #glc-dna-services::before {
+.glc-dna-sandbox #services::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; height: 4px;
@@ -930,7 +930,7 @@
    Left: charcoal editorial panel
    Right: white steps on vertical yellow thread
 ═══════════════════════════════════════════ */
-.glc-dna-sandbox #glc-dna-process {
+.glc-dna-sandbox #process {
   background: var(--charcoal-deep);
   position: relative;
   overflow: hidden;
@@ -1162,9 +1162,12 @@
    COVERAGE — dark band (charcoal GROUND + rail STRUCTURE + READ)
    Aligned with .cursorrules: --charcoal, --gap-grid, gl-prose--light body
 ═══════════════════════════════════════════ */
-/* Coverage surface: `section-major band-dark` on the element (Lane A token path). */
-.glc-dna-sandbox section#glc-dna-coverage {
+.glc-dna-sandbox section#coverage {
+  background: var(--charcoal);
+  color: var(--white);
+  padding: var(--section-v) 0;
   position: relative;
+  overflow: hidden;
 }
 /* Used by React CoverageSection + static index (replaces ::before/::after for predictable stacking) */
 .glc-dna-sandbox .coverage__fx-radial {
@@ -1287,14 +1290,14 @@
    TESTIMONIALS — v3 Editorial Pull Quote
    White BG · featured spread + 2-col grid
 ═══════════════════════════════════════════ */
-.glc-dna-sandbox #glc-dna-testimonials {
+.glc-dna-sandbox #testimonials {
   background: var(--white);
   position: relative;
   overflow: hidden;
 }
 
 /* Charcoal top seam */
-.glc-dna-sandbox #glc-dna-testimonials::before {
+.glc-dna-sandbox #testimonials::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;

@@ -1,0 +1,184 @@
+/* Generated from app/glc-dna-extracted.css (SITE_EXPORT_INTRO_VALUE). Run: npm run scope:glc-dna — do not edit by hand */
+
+/* Intro value — service narrative (site: #intro-value only). Tokens: app/globals.css :root */
+#intro-value .iv1__wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--yellow-core, var(--y)) 6%, transparent) 0%,
+    transparent 42%,
+    color-mix(in srgb, var(--charcoal-deep, var(--ink-deep)) 3%, transparent) 100%
+  );
+}
+
+#intro-value .iv1__inner {
+  position: relative;
+  z-index: 10;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: min(100%, var(--max, 1320px));
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 640px) {
+  #intro-value .iv1__inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #intro-value .iv1__inner {
+    padding-left: var(--s10, 40px);
+    padding-right: var(--s10, 40px);
+  }
+}
+
+#intro-value .iv1__grid {
+  display: grid;
+  gap: 48px;
+}
+
+@media (min-width: 1024px) {
+  #intro-value .iv1__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 48px;
+  }
+}
+
+#intro-value .iv1__main {
+  display: grid;
+  gap: 40px;
+}
+
+@media (min-width: 1024px) {
+  #intro-value .iv1__main {
+    grid-column: span 8 / span 8;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+
+#intro-value .iv1__copy-rail {
+  max-width: 42rem;
+  border-left: 4px solid var(--yellow-core, var(--y));
+  padding-left: var(--s3, 24px);
+}
+
+@media (min-width: 1024px) {
+  #intro-value .iv1__copy-rail {
+    grid-column: span 7 / span 7;
+  }
+}
+
+/* Body stack — aligns with ab3__body rhythm; light-band ink */
+#intro-value .iv1__body {
+  margin-top: var(--s7, 56px);
+  font-size: 15px;
+  line-height: 1.72;
+  color: var(--ink);
+}
+
+@media (min-width: 640px) {
+  #intro-value .iv1__body {
+    font-size: 1rem;
+  }
+}
+
+#intro-value .iv1__body > p + p {
+  margin-top: 1rem;
+}
+
+#intro-value .iv1__expand {
+  margin-top: 24px;
+}
+
+#intro-value .iv1__inline-cta {
+  margin-top: var(--s8, 64px);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+#intro-value .iv1__media-wrap {
+  position: relative;
+  min-height: 220px;
+}
+
+@media (min-width: 1024px) {
+  #intro-value .iv1__media-wrap {
+    grid-column: span 5 / span 5;
+  }
+}
+
+#intro-value .iv1__media-frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--g200, rgb(30 28 26 / 0.12));
+}
+
+@media (min-width: 1024px) {
+  #intro-value .iv1__media-frame {
+    position: sticky;
+    top: calc(var(--header, 80px) + 24px);
+    aspect-ratio: auto;
+    min-height: 320px;
+  }
+}
+
+#intro-value .iv1__aside {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  #intro-value .iv1__aside {
+    grid-column: span 4 / span 4;
+  }
+}
+
+#intro-value .iv1__panel {
+  border: 1px solid rgb(255 255 255 / 0.1);
+  background: rgb(10 12 11 / 0.45);
+  padding: 24px;
+  backdrop-filter: blur(12px) saturate(180%);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+@media (min-width: 640px) {
+  #intro-value .iv1__panel {
+    padding: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #intro-value .iv1__panel {
+    position: sticky;
+    top: calc(var(--header, 80px) + 24px);
+  }
+}
+
+#intro-value .iv1__panel-list {
+  margin-top: 24px;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgb(255 255 255 / 0.9);
+}
+
+@media (min-width: 640px) {
+  #intro-value .iv1__panel-list {
+    font-size: 15px;
+  }
+}
+
+#intro-value .iv1__panel-cta {
+  margin-top: var(--s4, 32px);
+}

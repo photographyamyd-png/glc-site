@@ -1,3 +1,4 @@
+import "@/app/glc-dna-intro-value.css";
 import Image from "next/image";
 import Link from "next/link";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
@@ -346,32 +347,29 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         className="section-major band-light relative isolate scroll-mt-[var(--header)] view-reveal overflow-hidden px-0"
         id="intro-value"
       >
-        <div
-          className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgb(242_183_5/0.06),transparent_42%,rgb(10_12_11/0.03))]"
-          aria-hidden
-        />
+        <div className="iv1__wash" aria-hidden />
         <ClaudeLogicWatermark placement="bottom-left" className="z-0 opacity-[0.07]" />
-        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-12">
-            <div className="grid gap-10 lg:col-span-8 lg:grid-cols-12 lg:gap-8">
-              <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5 lg:col-span-7">
+        <div className="iv1__inner">
+          <div className="iv1__grid">
+            <div className="iv1__main">
+              <div className="iv1__copy-rail">
                 <SectionEyebrow text={DRAINAGE_INTRO_EYEBROW} band="light" />
-                <div className={`mt-[var(--s7)] ${bodyLight}`}>
+                <div className="iv1__body">
                   <p>{DRAINAGE_INTRO_VISIBLE_P1}</p>
-                  <p className="mt-4">{DRAINAGE_INTRO_VISIBLE_P2}</p>
-                  <p className="mt-4">{DRAINAGE_INTRO_VISIBLE_P3}</p>
+                  <p>{DRAINAGE_INTRO_VISIBLE_P2}</p>
+                  <p>{DRAINAGE_INTRO_VISIBLE_P3}</p>
                   <ExpandSection
                     band="light"
                     triggerLabel={DRAINAGE_INTRO_EXPAND_TRIGGER}
-                    className="mt-6 border-t-0"
+                    className="iv1__expand border-t-0"
                   >
                     <div className="space-y-6 whitespace-pre-line">{DRAINAGE_INTRO_EXPAND}</div>
                   </ExpandSection>
-                  <p className="mt-8 font-semibold text-ink">{DRAINAGE_INTRO_INLINE_CTA}</p>
+                  <p className="iv1__inline-cta">{DRAINAGE_INTRO_INLINE_CTA}</p>
                 </div>
               </div>
-              <div className="relative min-h-[220px] lg:col-span-5">
-                <div className="relative aspect-[4/3] overflow-hidden border border-[color:var(--g200)] lg:sticky lg:top-[calc(var(--header)+24px)] lg:aspect-auto lg:min-h-[320px]">
+              <div className="iv1__media-wrap">
+                <div className="iv1__media-frame">
                   <Image
                     src={DRAINAGE_IMAGES.introSidecar.src}
                     alt={DRAINAGE_IMAGES.introSidecar.alt}
@@ -382,15 +380,15 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                 </div>
               </div>
             </div>
-            <div className="lg:col-span-4">
-              <div className="bespoke-surface panel-machined border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 backdrop-blur-md shadow-2xl sm:p-8 lg:sticky lg:top-[calc(var(--header)+24px)]">
+            <div className="iv1__aside">
+              <div className="bespoke-surface panel-machined iv1__panel">
                 <p className="eyebrow text-[color:var(--y)]">{DRAINAGE_INTRO_PANEL_EYEBROW}</p>
-                <ul className="mt-6 space-y-3 text-sm text-white/90 sm:text-[15px]">
+                <ul className="iv1__panel-list">
                   {DRAINAGE_INTRO_PANEL_LIST.map((line) => (
                     <li key={line}>{line}</li>
                   ))}
                 </ul>
-                <CTAButton variant="primary" href="/contact/" className="mt-8 w-full sm:w-auto">
+                <CTAButton variant="primary" href="/contact/" className="iv1__panel-cta w-full sm:w-auto">
                   {DRAINAGE_HERO.ctaPrimary}
                 </CTAButton>
               </div>
