@@ -232,6 +232,13 @@ body {
   color: var(--ink-deep);
 }
 
+/** Alternate light field — use between `band-light` majors so consecutive editorial bands read as distinct (V7 tonal rhythm). */
+.section-major.band-light-drift {
+  background: linear-gradient(180deg, rgb(252 251 249) 0%, rgb(245 243 240) 48%, rgb(248 247 245) 100%);
+  border-top: 1px solid var(--g200);
+  color: var(--ink-deep);
+}
+
 .section-major.band-dark {
   background: var(--ink-deep);
   border-top: 1px solid rgb(255 255 255 / 0.1);

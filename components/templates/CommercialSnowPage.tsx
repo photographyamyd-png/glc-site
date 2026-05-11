@@ -59,7 +59,7 @@ export function CommercialSnowPage({ service, related }: Props) {
       {/* —— Hero —— */}
       <section
         id="chapter-hero"
-        className="scroll-mt-[var(--header)]"
+        className="scroll-mt-[var(--header)] bg-[var(--ink-deep)]"
         aria-labelledby={COMMERCIAL_SNOW_HERO.h1Id}
       >
         <div className="hero-stage section-major band-dark-field relative min-h-[min(100dvh,920px)] overflow-hidden">
@@ -171,7 +171,9 @@ export function CommercialSnowPage({ service, related }: Props) {
       <section id="chapter-overview" className="scroll-mt-[var(--header)]">
         <div className="section-major band-light relative overflow-hidden view-reveal">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(142deg,rgb(242_183_5/0.065),transparent_50%)]" aria-hidden />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_65%_50%_at_90%_10%,rgb(30_28_26/0.04),transparent_55%)]" aria-hidden />
           <ClaudeLogicWatermark placement="bottom-right" mode="default" className="z-[1] opacity-[0.09]" />
+          <ClaudeLogicWatermark placement="top-left" mode="default" className="z-[1] opacity-[0.06]" />
           <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
             <div
               className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
@@ -233,9 +235,10 @@ export function CommercialSnowPage({ service, related }: Props) {
       {/* —— Services —— */}
       <section
         id="chapter-services"
-        className="section-major band-dark-field relative scroll-mt-[var(--header)] overflow-hidden view-reveal"
+        className="section-major band-dark-field relative scroll-mt-[var(--header)] overflow-hidden border-t border-white/10 view-reveal"
       >
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(195deg,rgb(255_255_255/0.035),transparent_48%)]" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_20%_0%,rgb(242_183_5/0.06),transparent_50%)]" aria-hidden />
         <ClaudeLogicWatermark placement="top-left" mode="on-dark" className="z-[1] opacity-[0.1]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
@@ -338,14 +341,17 @@ export function CommercialSnowPage({ service, related }: Props) {
       {/* —— Proof —— */}
       <section
         id="chapter-proof"
-        className="section-major band-light relative scroll-mt-[var(--header)] overflow-hidden border-t border-[color:var(--g200)] view-reveal"
+        className="section-major band-light-drift relative scroll-mt-[var(--header)] overflow-hidden border-t border-[color:var(--g200)] view-reveal"
       >
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(128deg,rgb(242_183_5/0.06),transparent_55%)]" aria-hidden />
-        <ClaudeLogicWatermark placement="bottom-left" mode="default" className="z-[1] opacity-[0.08]" />
-        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
-          <div className="overflow-hidden border border-[color:var(--g200)] bg-[rgb(12_14_13)] text-white shadow-2xl">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(128deg,rgb(242_183_5/0.07),transparent_55%)]" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_40%,rgb(30_28_26/0.04)_100%)]" aria-hidden />
+        <ClaudeLogicWatermark placement="bottom-left" mode="default" className="z-[1] opacity-[0.1]" />
+        <ClaudeLogicWatermark placement="top-right" mode="default" className="z-[1] opacity-[0.06]" />
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 pt-[var(--section-v)] pb-[calc(var(--section-v)+var(--s8))] sm:px-6 lg:px-10">
+          <div className="overflow-hidden border border-[color:var(--g200)] bg-[rgb(12_14_13)] text-white shadow-2xl ring-1 ring-black/20">
             <div className="relative bg-[rgb(10_12_11/0.92)] p-6 sm:p-8">
               <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgb(242_183_5/0.1),transparent_40%)]" aria-hidden />
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgb(0_0_0/0.35),transparent_45%)]" aria-hidden />
               <div className="relative z-10">
                 <CommercialSnowProofTabs
                   mediaLabel="Media"
@@ -373,13 +379,18 @@ export function CommercialSnowPage({ service, related }: Props) {
               </div>
             </div>
           </div>
+          <div className="mt-10 border-t border-[color:var(--g200)] pt-8" aria-hidden />
         </div>
       </section>
 
       {/* —— Operations —— */}
-      <section id="chapter-operations" className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden view-reveal">
+      <section
+        id="chapter-operations"
+        className="section-major band-dark-field relative scroll-mt-[var(--header)] overflow-hidden border-t border-white/10 view-reveal"
+      >
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(200deg,rgb(255_255_255/0.035),transparent_42%)]" aria-hidden />
-        <ClaudeLogicWatermark placement="center-right" mode="on-dark" className="opacity-[0.1]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_85%_20%,rgb(242_183_5/0.05),transparent_55%)]" aria-hidden />
+        <ClaudeLogicWatermark placement="center-right" mode="on-dark" className="z-[1] opacity-[0.1]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
             <p className="eyebrow text-white">Operations</p>
@@ -524,7 +535,9 @@ export function CommercialSnowPage({ service, related }: Props) {
         className="section-major relative band-light scroll-mt-[var(--header)] overflow-hidden border-t border-[color:var(--g200)] view-reveal"
       >
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(118deg,rgb(242_183_5/0.055),transparent_46%)]" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_100%,rgb(30_28_26/0.035),transparent_55%)]" aria-hidden />
         <ClaudeLogicWatermark placement="bottom-left" mode="default" className="z-[1] opacity-[0.1]" />
+        <ClaudeLogicWatermark placement="top-right" mode="default" className="z-[1] opacity-[0.07]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
             <div className="border-l-4 border-[color:var(--y)] pl-5 lg:col-span-5">
@@ -570,15 +583,19 @@ export function CommercialSnowPage({ service, related }: Props) {
             </div>
           </div>
 
-          <div className="mt-14 border-t border-[color:var(--g200)] pt-12">
-            <h2 className="font-serif text-2xl font-semibold uppercase tracking-tight text-ink sm:text-3xl">{COMMERCIAL_SNOW_PROPERTY_TYPES.h2}</h2>
-            <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-ink">{COMMERCIAL_SNOW_PROPERTY_TYPES.visibleLede}</p>
-            <div className="mt-8">
-              <CommercialSnowPropertyTabs
-                tablistAria={COMMERCIAL_SNOW_PROPERTY_TYPES.tablistAria}
-                types={COMMERCIAL_SNOW_PROPERTY_TYPES.types}
-                service={service}
-              />
+          <div className="relative mt-14 overflow-hidden border-t border-[color:var(--g200)] pt-12">
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(200deg,rgb(242_183_5/0.05),transparent_42%)]" aria-hidden />
+            <ClaudeLogicWatermark placement="top-right" mode="default" className="pointer-events-none absolute right-0 top-8 z-[1] opacity-[0.07]" />
+            <div className="relative z-10 rounded-sm border border-[color:var(--g200)] bg-white/90 p-6 shadow-[inset_0_1px_0_rgb(242_183_5/0.25)] sm:p-8">
+              <h2 className="font-serif text-2xl font-semibold uppercase tracking-tight text-ink sm:text-3xl">{COMMERCIAL_SNOW_PROPERTY_TYPES.h2}</h2>
+              <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-ink">{COMMERCIAL_SNOW_PROPERTY_TYPES.visibleLede}</p>
+              <div className="mt-8">
+                <CommercialSnowPropertyTabs
+                  tablistAria={COMMERCIAL_SNOW_PROPERTY_TYPES.tablistAria}
+                  types={COMMERCIAL_SNOW_PROPERTY_TYPES.types}
+                  service={service}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -590,7 +607,9 @@ export function CommercialSnowPage({ service, related }: Props) {
         className="section-major band-dark-field relative scroll-mt-[var(--header)] overflow-hidden border-t border-white/10 view-reveal"
       >
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,rgb(255_255_255/0.04),transparent_50%)]" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_10%_100%,rgb(242_183_5/0.05),transparent_55%)]" aria-hidden />
         <ClaudeLogicWatermark placement="bottom-right" mode="on-dark" className="z-[1] opacity-[0.1]" />
+        <ClaudeLogicWatermark placement="top-left" mode="on-dark" className="z-[1] opacity-[0.08]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
             <p className="eyebrow text-white">Assurance</p>
@@ -678,10 +697,12 @@ export function CommercialSnowPage({ service, related }: Props) {
       {/* —— Contact —— */}
       <section
         id="chapter-contact"
-        className="section-major relative band-light scroll-mt-[var(--header)] overflow-hidden view-reveal border-t border-[color:var(--g200)]"
+        className="section-major band-light-drift relative scroll-mt-[var(--header)] overflow-hidden view-reveal border-t border-[color:var(--g200)]"
       >
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(132deg,rgb(242_183_5/0.06),transparent_52%)]" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(225deg,transparent_55%,rgb(30_28_26/0.035)_100%)]" aria-hidden />
         <ClaudeLogicWatermark placement="top-right" mode="default" className="z-[1] opacity-[0.09]" />
+        <ClaudeLogicWatermark placement="bottom-left" mode="default" className="z-[1] opacity-[0.08]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
           <div
             className={`relative overflow-hidden border border-[color:var(--g200)] border-l-[4px] border-l-[color:var(--y)] bg-[rgb(12_14_13)] p-6 text-white sm:p-8 ${COMMERCIAL_SNOW_MID_LOWER_CTA.className}`}
@@ -704,8 +725,9 @@ export function CommercialSnowPage({ service, related }: Props) {
             </div>
           </div>
 
-          <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            <div className="border-l-4 border-[color:var(--y)] pl-5">
+          <div className="relative mt-12 grid gap-8 border-t border-[color:var(--g200)] pt-12 lg:grid-cols-2">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-[linear-gradient(180deg,rgb(30_28_26/0.04),transparent)]" aria-hidden />
+            <div className="relative border-l-4 border-[color:var(--y)] pl-5">
               <h2 className="font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">{COMMERCIAL_SNOW_CLOSING.h2}</h2>
               <p className="mt-4 text-[15px] leading-[1.72] text-ink sm:text-base">{COMMERCIAL_SNOW_CLOSING.visibleLede}</p>
               <details className="mt-6 border border-[color:var(--g200)] bg-white p-4">
@@ -723,7 +745,7 @@ export function CommercialSnowPage({ service, related }: Props) {
               </details>
               <p className="mt-6 font-semibold text-ink">{COMMERCIAL_SNOW_CLOSING.urgency}</p>
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="relative flex flex-col gap-3">
               {COMMERCIAL_SNOW_CLOSING.ctas.map((c) => (
                 <Link
                   key={c.href}
