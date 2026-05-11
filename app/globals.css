@@ -852,58 +852,9 @@ details.foundations-hub-details[open] {
   margin: 0 auto;
   padding: 0 40px;
 }
-.glc-snow-ctv__eyebrow {
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin: 0 0 12px;
-}
-.glc-snow-ctv__title {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--charcoal-deep);
-  margin: 0 0 8px;
-  letter-spacing: 0.02em;
-}
-.glc-snow-ctv__segment-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  color: var(--charcoal-deep);
-  margin: 0 0 12px;
-  max-width: 40ch;
-  line-height: 1.2;
-}
-.glc-snow-ctv__subtitle {
-  font-family: var(--font-accent);
-  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
-  font-weight: 500;
-  font-style: italic;
-  color: var(--charcoal);
-  margin: 0 0 10px;
-  max-width: 48ch;
-  line-height: 1.45;
-  padding-left: 16px;
-  border-left: 3px solid var(--yellow-core);
-}
 .glc-snow-ctv__body {
   margin: 0 0 28px;
   max-width: 62ch;
-}
-.glc-snow-ctv__published {
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: var(--text-600);
-  margin: 0;
 }
 .glc-snow-ctv__frame {
   position: relative;
@@ -926,10 +877,6 @@ details.foundations-hub-details[open] {
   font-size: 13px;
   color: var(--text-600);
   margin: 16px 0 0;
-}
-.glc-snow-ctv__note-label {
-  font-weight: 600;
-  color: var(--charcoal-deep);
 }
 .glc-snow-ctv__note a {
   color: var(--charcoal-deep);

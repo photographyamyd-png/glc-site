@@ -49,7 +49,7 @@ export function CommercialSnowPropertyTabs({
               aria-controls={panelId}
               tabIndex={selectedNow ? 0 : -1}
               className={cn(
-                "min-h-[44px] px-3 py-2 text-left text-xs font-bold uppercase tracking-[0.08em] transition-colors sm:px-4",
+                "eyebrow min-h-[44px] px-3 py-2 text-left transition-colors sm:px-4",
                 selectedNow
                   ? "bg-[color:var(--y)] text-[color:var(--ink)]"
                   : "bg-[color:var(--g200)] text-ink hover:bg-[color:var(--g200)]/80",

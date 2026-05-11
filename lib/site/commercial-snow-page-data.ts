@@ -20,7 +20,8 @@ export const COMMERCIAL_SNOW_SEO = {
 } as const;
 
 export const COMMERCIAL_SNOW_CHAPTERS = [
-  { id: "chapter-overview", label: "Overview", shortLabel: "Overview" },
+  { id: "chapter-hero", label: "Hero", shortLabel: "Hero" },
+  { id: "chapter-overview", label: "Trust & value", shortLabel: "Trust" },
   { id: "chapter-services", label: "Services", shortLabel: "Services" },
   { id: "chapter-proof", label: "Proof", shortLabel: "Proof" },
   { id: "chapter-operations", label: "Operations", shortLabel: "Ops" },

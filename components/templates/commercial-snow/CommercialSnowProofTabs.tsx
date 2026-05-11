@@ -33,7 +33,7 @@ export function CommercialSnowProofTabs({
           aria-controls={mediaPanelId}
           tabIndex={tab === "media" ? 0 : -1}
           className={cn(
-            "min-h-[44px] px-4 py-2 text-xs font-bold uppercase tracking-[0.1em]",
+            "eyebrow flex min-h-[44px] items-center px-4 py-2",
             tab === "media" ? "bg-[color:var(--y)] text-[color:var(--ink)]" : "border border-white/20 text-white/90",
           )}
           onClick={() => setTab("media")}
@@ -48,7 +48,7 @@ export function CommercialSnowProofTabs({
           aria-controls={credPanelId}
           tabIndex={tab === "credentials" ? 0 : -1}
           className={cn(
-            "min-h-[44px] px-4 py-2 text-xs font-bold uppercase tracking-[0.1em]",
+            "eyebrow flex min-h-[44px] items-center px-4 py-2",
             tab === "credentials" ? "bg-[color:var(--y)] text-[color:var(--ink)]" : "border border-white/20 text-white/90",
           )}
           onClick={() => setTab("credentials")}
