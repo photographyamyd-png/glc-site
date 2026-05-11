@@ -2,7 +2,7 @@
 
 **Date:** 2026-05-11  
 **Scope:** `app/**/*.tsx`, `components/**/*.tsx`, plus token definitions in `app/globals.css` (and related extracted CSS where `.eyebrow` is referenced). Build artifacts (`.next/`) excluded.  
-**Decision:** The optional markdown inventory from the “Eyebrow / condensed label intent” plan is **implemented here** as the canonical reference for when and how Barlow condensed surfaces appear.
+**Document type:** Read-only inventory and intent map only. It does **not** prescribe or record shipped UI changes; use it to decide whether a follow-up typography pass is warranted.
 
 ## Intent recap
 
@@ -61,14 +61,13 @@ Use this list as the **label / affordance** audit set:
 | **Outline CTA** | `cta-outline-light` in `ProcessVerticalFlow` | `text-xs` + `font-bold` + `tracking-[0.14em]` |
 | **Primary CTA** | `cta-primary`, `cta-hero-fill` | `text-xs` + `font-semibold` + `uppercase` + `tracking-[0.12em]` |
 
-## Outliers and readability
+## Outliers and readability (observations only)
 
-1. **[`GLTestimonials.tsx`](../../components/ground-level/GLTestimonials.tsx) tab panel** — Long **attribution** strings inside `.eyebrow` buttons inherit **uppercase + Barlow 13px + bold**; inner `tracking-[0.14em]` **widens** glyphs. **Hardest to read** in this bucket. **Mitigation (implemented):** second line uses **`font-sans`**, **`normal-case`**, **`font-medium`**, relaxed **`tracking-normal`**, slightly larger **`text-[12px]`** while the first line keeps the index treatment.
+1. **[`GLTestimonials.tsx`](../../components/ground-level/GLTestimonials.tsx) tab panel** — Long **attribution** strings sit inside `.eyebrow` tab buttons, so they inherit **uppercase + Barlow Condensed 13px + bold**; the inner span adds **`tracking-[0.14em]`**, which reads wider than the utility rail’s base **0.07em**. That stack trades **scan density** for **sentence readability** on long names. **Possible follow-ups (if you approve a later change):** render attribution in **`font-sans`** with **`normal-case`** on a second line while keeping the “Quote 01” line in eyebrow; or slightly larger tab label size; or shorten copy at source.
 
 2. **Labs / review candidates** — High count of `eyebrow` usage; acceptable for sandbox routes; not production-nav critical unless linked.
 
 ## Related docs
 
 - [Design system drift workflow](./design-system-drift-workflow.md)
-- [Condensed label usage audit](./condensed-label-usage-audit.md) (this document)
 - [Design system rules](../../.cursor/rules/design-system.mdc)
