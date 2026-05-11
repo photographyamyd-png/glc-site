@@ -419,7 +419,9 @@ export function GLTestimonialsBlock({
                       }`}
                     >
                       <span className="block tracking-[0.18em] opacity-90">Quote {String(i + 1).padStart(2, "0")}</span>
-                      <span className="mt-1 block line-clamp-2 tracking-[0.14em]">{entry.attribution}</span>
+                      <span className="mt-1 block line-clamp-2 font-sans text-[12px] font-medium normal-case leading-snug tracking-normal text-inherit">
+                        {entry.attribution}
+                      </span>
                     </button>
                   );
                 })}

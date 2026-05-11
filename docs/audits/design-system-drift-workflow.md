@@ -58,3 +58,7 @@ When a rule stabilizes, add it to **`.cursor/rules/design-system.mdc`** (or the 
 ## Example artifact
 
 After a typography pass, capture a key route for a quick visual regression check. Example (maintenance / coming-soon page): [`maintenance-page-screenshot.png`](./maintenance-page-screenshot.png).
+
+## Condensed label inventory
+
+Barlow `.eyebrow`, `font-label`, and tracking bands (`0.12em` / `0.14em` / `0.18em`): see [`condensed-label-usage-audit.md`](./condensed-label-usage-audit.md).
