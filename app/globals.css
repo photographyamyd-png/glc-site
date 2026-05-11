@@ -7,7 +7,7 @@
 
 /*
  * Stakeholder tokens + Prime Directive canvas (#FAFAFA).
- * Display: Oswald (mapped to legacy font-serif utilities). Body: Source Sans 3. Condensed UI: Barlow Condensed (`font-label`). Section eyebrows: Source Sans 3 `.eyebrow` (13px, solid white on dark).
+ * Display: Oswald (mapped to legacy font-serif utilities). Body: Source Sans 3. Condensed UI: Barlow Condensed (`font-label`). Section eyebrows / overlines: Barlow Condensed `.eyebrow` (13px, solid white on dark).
  */
 :root {
   /* Accent: aligned with glc-site `glc-base.css` (--yellow-core #F2B705) */
@@ -208,9 +208,9 @@ body {
   font-family: var(--font-barlow-condensed), system-ui, sans-serif;
 }
 
-/* Section eyebrows / kickers — Source Sans 3 for legibility; pair with text-ink, text-white, etc. */
+/* Section eyebrows / kickers — Barlow Condensed (approved stack); pair with text-ink, text-white, etc. */
 .eyebrow {
-  font-family: var(--font-source-sans), system-ui, sans-serif;
+  font-family: var(--font-barlow-condensed), system-ui, sans-serif;
   font-size: 13px;
   font-weight: 700;
   line-height: 1.35;
@@ -256,7 +256,7 @@ body {
 }
 
 .label-overline-on-dark {
-  font-family: var(--font-source-sans), system-ui, sans-serif;
+  font-family: var(--font-barlow-condensed), system-ui, sans-serif;
   font-size: 13px;
   font-weight: 700;
   line-height: 1.35;
@@ -562,7 +562,7 @@ body {
 }
 
 .label-overline {
-  font-family: var(--font-source-sans), system-ui, sans-serif;
+  font-family: var(--font-barlow-condensed), system-ui, sans-serif;
   font-size: 13px;
   font-weight: 700;
   line-height: 1.35;

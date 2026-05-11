@@ -175,7 +175,7 @@ export const COPY_LAB_SERVICE_CARDS = [
 ] as const;
 
 export const COPY_LAB_STATS = {
-  /** Section kicker (Barlow `.eyebrow`), not the H2. */
+  /** Section kicker (Barlow Condensed `.eyebrow`), not the H2. */
   eyebrow: "Performance",
   /** Oswald section title — matches “field metrics” bands elsewhere. */
   heading: "Field metrics",

@@ -1,7 +1,7 @@
 /* Standalone token fallbacks needed by footer clone. */
 :root {
   --container-max: 1200px;
-  --font-display: "Oswald", sans-serif;
+  --font-display: var(--font-oswald), system-ui, sans-serif;
   --font-accent: var(--font-source-sans), system-ui, sans-serif;
   --charcoal-deep: #1e1c1a;
   --yellow-core: #f2b705;
