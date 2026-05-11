@@ -44,29 +44,43 @@ export function FoundationsCivilInfrastructureHubPage() {
         aria-hidden
       />
       <ClaudeLogicWatermark placement="bottom-right" mode="default" className="z-[1] opacity-[0.09]" />
-      <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))]">
-        <div className="border-l-4 border-[color:var(--y)] pl-5">
-          <p className="eyebrow text-ink">Overview & trust</p>
-          <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">
-            Why teams spec us on civil packages
-          </h2>
-        </div>
-        <p className="mt-[var(--s7)] max-w-prose text-[15px] leading-[1.72] text-ink sm:text-base">{FOUNDATIONS_HUB_HERO.introC}</p>
-        <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-ink sm:text-base">{FOUNDATIONS_HUB_HERO.introD}</p>
-
-        <div className="mt-10 grid gap-4 lg:grid-cols-12 lg:gap-6">
-          <div className="relative aspect-[16/11] overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)] lg:col-span-5">
-            <Image src={heroImage.src} alt={heroImage.alt} fill className="object-cover object-center" sizes="(min-width:1024px) 38vw, 100vw" />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.45)] to-transparent" aria-hidden />
+      <div className="relative z-10 mx-auto grid max-w-[min(100%,var(--max))] gap-10 lg:grid-cols-12 lg:gap-12">
+        <div className="min-h-0 lg:col-span-6">
+          <div className="bespoke-surface panel-machined border border-[color:var(--g200)] bg-white p-6 sm:p-8">
+            <div className="border-l-4 border-[color:var(--y)] pl-5">
+              <p className="eyebrow text-ink">Overview & trust</p>
+              <p className="mt-2 eyebrow text-ink-muted">Field-led crews · WSIB · Liability coverage</p>
+              <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">
+                Why teams spec us on{" "}
+                <span className="text-[color:var(--y)]">civil packages</span>
+              </h2>
+              <div className="mt-[var(--s7)] max-w-[min(100%,42rem)] space-y-6">
+                <p className="text-[15px] leading-[1.72] text-ink sm:text-base">{FOUNDATIONS_HUB_HERO.introC}</p>
+                <p className="text-[15px] leading-[1.72] text-ink sm:text-base">{FOUNDATIONS_HUB_HERO.introD}</p>
+              </div>
+            </div>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:col-span-7">
+        </div>
+
+        <div className="flex min-h-0 flex-col gap-6 lg:col-span-6">
+          <div className="relative aspect-[16/10] w-full min-h-0 overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)]">
+            <Image
+              src={heroImage.src}
+              alt={heroImage.alt}
+              fill
+              className="object-cover object-[center_42%] sm:object-[center_38%]"
+              sizes="(min-width: 1024px) 42vw, 100vw"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.4)] to-transparent" aria-hidden />
+          </div>
+          <div className="grid min-h-0 gap-3 sm:grid-cols-2">
             {FOUNDATIONS_TRUST_BENTO.map((item) => (
               <article
                 key={item.title}
                 className="bespoke-surface panel-machined flex gap-3 border border-[color:var(--g200)] bg-white p-4 sm:p-5"
               >
                 <CheckIcon className="mt-0.5 shrink-0" />
-                <div>
+                <div className="min-w-0">
                   <h3 className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink sm:text-2xl">{item.title}</h3>
                   <p className="mt-2 text-[15px] leading-[1.72] text-ink sm:text-base">{item.body}</p>
                 </div>
