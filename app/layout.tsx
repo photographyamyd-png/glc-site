@@ -14,6 +14,7 @@ import { SiteFooterNextClone } from "@/components/layout/site-footer-next-clone"
 import { SEO_TITLES } from "@/lib/site/registry";
 import { buildPageMetadata } from "@/lib/site/metadata";
 import { cn } from "@/lib/utils";
+import { Analytics } from "@vercel/analytics/next";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -84,6 +85,7 @@ export default async function RootLayout({
             navigation={footerCloneNavigationData}
           />
         )}
+        <Analytics />
       </body>
     </html>
   );
