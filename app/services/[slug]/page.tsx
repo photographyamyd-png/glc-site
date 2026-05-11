@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DrainageHardscapingPage } from "@/components/templates/DrainageHardscapingPage";
 import { ExcavationSitePreparationPage } from "@/components/templates/ExcavationSitePreparationPage";
+import { CommercialSnowPage } from "@/components/templates/CommercialSnowPage";
 import { ServicePageTemplate } from "@/components/templates/ServicePageTemplate";
 import { SERVICE_DETAILS } from "@/lib/site/copy";
 import {
@@ -95,6 +96,10 @@ export default async function ServicePage({
 
   if (service.slug === "drainage-hardscaping") {
     return <DrainageHardscapingPage service={service} related={related} />;
+  }
+
+  if (service.slug === "snow-removal") {
+    return <CommercialSnowPage service={service} related={related} />;
   }
 
   return (
