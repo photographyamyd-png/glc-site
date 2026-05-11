@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { FoundationsSubPageJsonLd } from "@/components/seo/FoundationsSubPageJsonLd";
 import { FoundationsCivilInfrastructureSubPage } from "@/components/templates/FoundationsCivilInfrastructureSubPage";
 import {
   FOUNDATIONS_SUBPAGE_COPY,
@@ -44,5 +45,10 @@ export default async function FoundationsSubRoutePage({ params }: { params: Prom
   const imageSrc = getFoundationsSubImageSrc(subSlug);
   const imageAlt = getFoundationsSubImageAlt(subSlug);
 
-  return <FoundationsCivilInfrastructureSubPage content={content} imageSrc={imageSrc} imageAlt={imageAlt} />;
+  return (
+    <>
+      <FoundationsSubPageJsonLd subSlug={subSlug} />
+      <FoundationsCivilInfrastructureSubPage content={content} imageSrc={imageSrc} imageAlt={imageAlt} />
+    </>
+  );
 }

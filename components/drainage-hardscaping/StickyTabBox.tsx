@@ -8,7 +8,16 @@ export type StickyTabItem = {
   content: React.ReactNode;
 };
 
-export function StickyTabBox({ tabs, ariaLabel }: { tabs: StickyTabItem[]; ariaLabel?: string }) {
+export function StickyTabBox({
+  tabs,
+  ariaLabel,
+  panelReveal,
+}: {
+  tabs: StickyTabItem[];
+  ariaLabel?: string;
+  /** When true, panel inner content uses scroll-driven `view-reveal` (see `app/globals.css`). */
+  panelReveal?: boolean;
+}) {
   const baseId = useId();
   const [selected, setSelected] = useState(0);
 
@@ -82,7 +91,7 @@ export function StickyTabBox({ tabs, ariaLabel }: { tabs: StickyTabItem[]; ariaL
             hidden={!isSel}
             className="band-light border-t border-[color:var(--g200)] px-4 py-10 motion-safe:transition-opacity motion-safe:duration-150 motion-safe:ease-out sm:px-6 sm:py-12 lg:px-10 lg:py-[var(--s12)]"
           >
-            {tab.content}
+            {panelReveal ? <div className="view-reveal max-w-full">{tab.content}</div> : tab.content}
           </div>
         );
       })}

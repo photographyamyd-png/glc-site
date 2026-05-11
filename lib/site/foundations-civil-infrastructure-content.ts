@@ -255,13 +255,18 @@ export const FOUNDATIONS_FINAL_CTA = {
 export type FoundationsSubPageContent = {
   seoTitle: string;
   seoDescription: string;
-  h1: string;
+  /** Primary H1 clause (white); pair with `h1Accent` for yellow §8 anchor. */
+  h1Lead: string;
+  /** Yellow accent fragment completing the H1 (geography or outcome). */
+  h1Accent: string;
   h2: string;
   heroLead: string;
   heroMore: string[];
   servicesHeading: string;
   bullets: string[];
   ctaParagraph: string;
+  /** Second paragraph when CTA copy exceeds two sentences (measure / copy-writing). */
+  ctaParagraphB?: string;
   ctaButtonLabel: string;
 };
 
@@ -270,7 +275,8 @@ export const FOUNDATIONS_SUBPAGE_COPY: Record<FoundationsSubSlug, FoundationsSub
     seoTitle: "Foundation Excavation & Backfilling | Barrie ON",
     seoDescription:
       "Professional foundation excavation and backfilling for residential & commercial projects in Barrie, Orillia & Simcoe County. Compliant, precise, on schedule.",
-    h1: "Foundation Excavation & Backfilling — Barrie, Simcoe County & Surrounding Areas",
+    h1Lead: "Foundation Excavation & Backfilling — ",
+    h1Accent: "Barrie, Simcoe County & Surrounding Areas",
     h2: "Precise Digs. Clean Grades. Backfill Done to Spec. Every Time.",
     heroLead:
       "A precise foundation excavation is the most important first step in any build. Ground Level Contracting provides professional foundation excavation and backfilling for residential, commercial, industrial, and multi-unit developments throughout Barrie, Orillia, Innisfil, Wasaga Beach, and Simcoe County.",
@@ -297,7 +303,8 @@ export const FOUNDATIONS_SUBPAGE_COPY: Record<FoundationsSubSlug, FoundationsSub
     seoTitle: "Concrete Forming: Footings, Walls & Grade Beams | Barrie",
     seoDescription:
       "Expert concrete forming in Barrie & Simcoe County. Footings, poured walls, grade beams, steps, pads & flatwork for residential and commercial builds.",
-    h1: "Concrete Forming — Footings, Foundation Walls, Grade Beams & Flatwork in Barrie & Simcoe County",
+    h1Lead: "Concrete Forming — Footings, Foundation Walls, Grade Beams & Flatwork in ",
+    h1Accent: "Barrie & Simcoe County",
     h2: "Residential Footings to Commercial Grade Beams — We Form It, Pour It, and Get It Right",
     heroLead:
       "From concrete footings and poured foundation walls to grade beams, equipment pads, exterior steps, and commercial flatwork — Ground Level Contracting handles the full range of concrete forming across Barrie, Orillia, and Simcoe County.",
@@ -324,7 +331,8 @@ export const FOUNDATIONS_SUBPAGE_COPY: Record<FoundationsSubSlug, FoundationsSub
     seoTitle: "High-Rise & Multi-Storey Foundations | Simcoe County ON",
     seoDescription:
       "Full-scope foundation packages for multi-storey and high-rise buildings in Barrie & Central Ontario. Engineered, single-source, scalable. Contact us today.",
-    h1: "Multi-Storey & High-Rise Foundation Contractor — Barrie & Central Ontario",
+    h1Lead: "Multi-Storey & High-Rise Foundation Contractor — ",
+    h1Accent: "Barrie & Central Ontario",
     h2: "When the Scale Exceeds What a Residential Crew Can Deliver — Call Us",
     heroLead:
       "Large-scale building starts at the ground. Ground Level Contracting has the equipment depth, crew experience, and project management capability to execute complete foundation packages for multi-storey residential, mixed-use, and commercial high-rise developments.",
@@ -343,14 +351,16 @@ export const FOUNDATIONS_SUBPAGE_COPY: Record<FoundationsSubSlug, FoundationsSub
       "Single-source contract from excavation through final backfill",
     ],
     ctaParagraph:
-      "Developing a multi-storey or high-rise project in Barrie, Orillia, or Simcoe County? Ground Level Contracting offers free project consultations and has the capacity to execute full foundation packages at any scale. Contact us early in your planning process — we work best when we're involved from the start.",
+      "Developing a multi-storey or high-rise project in Barrie, Orillia, or Simcoe County? Ground Level Contracting offers free project consultations and has the capacity to execute full foundation packages at any scale.",
+    ctaParagraphB: "Contact us early in your planning process — we work best when we're involved from the start.",
     ctaButtonLabel: "Request a Project Consultation",
   },
   "subdivision-site-servicing": {
     seoTitle: "Subdivision Site Servicing | Barrie & Simcoe County",
     seoDescription:
       "Roads, utilities, storm & sanitary sewer systems for subdivision development in Simcoe County. Civil infrastructure built to municipal standards.",
-    h1: "Subdivision Site Servicing — Roads, Utilities & Drainage Infrastructure in Simcoe County",
+    h1Lead: "Subdivision Site Servicing — Roads, Utilities & Drainage Infrastructure in ",
+    h1Accent: "Simcoe County",
     h2: "From Raw Land to a Fully Serviced Subdivision — We Handle Every Underground Phase",
     heroLead:
       "Turning raw land into a serviced subdivision takes a civil contractor with the capacity, equipment, and technical knowledge to deliver every component of underground infrastructure — on time, on budget, and to municipal standards.",
@@ -370,14 +380,16 @@ export const FOUNDATIONS_SUBPAGE_COPY: Record<FoundationsSubSlug, FoundationsSub
       "As-built survey coordination",
     ],
     ctaParagraph:
-      "Developing a residential or mixed-use subdivision in Barrie, Innisfil, Orillia, or anywhere in Simcoe County? Ground Level Contracting provides free project consultations and competitive pricing for full subdivision site servicing packages. Get in touch early — site servicing planning starts well before ground break.",
+      "Developing a residential or mixed-use subdivision in Barrie, Innisfil, Orillia, or anywhere in Simcoe County? Ground Level Contracting provides free project consultations and competitive pricing for full subdivision site servicing packages.",
+    ctaParagraphB: "Get in touch early — site servicing planning starts well before ground break.",
     ctaButtonLabel: "Get a Site Servicing Quote",
   },
   "earthworks-mass-excavation": {
     seoTitle: "Mass Excavation & Earthworks Contractor | Barrie ON",
     seoDescription:
       "Large-scale earthworks and mass excavation for commercial, subdivision and municipal projects in Barrie, Orillia & Simcoe County. Free project quote.",
-    h1: "Mass Excavation & Commercial Earthworks Contractor — Barrie, Orillia & Simcoe County",
+    h1Lead: "Mass Excavation & Commercial Earthworks Contractor — ",
+    h1Accent: "Barrie, Orillia & Simcoe County",
     h2: "Large-Scale Earth Movement Done Efficiently, Accurately, and On Schedule",
     heroLead:
       "When a project calls for moving a lot of earth fast and precisely, Ground Level Contracting brings the equipment fleet and experienced operators to get it done. We serve commercial developers, subdivision builders, industrial clients, and municipalities requiring bulk earthworks across Barrie, Orillia, Wasaga Beach, Innisfil, and all of Simcoe County.",
@@ -403,7 +415,8 @@ export const FOUNDATIONS_SUBPAGE_COPY: Record<FoundationsSubSlug, FoundationsSub
     seoTitle: "Commercial & Municipal Foundation Work | Barrie ON",
     seoDescription:
       "Foundation contractor for commercial and city contracts in Barrie & Simcoe County. Bonded, insured, prequalified for municipal and public sector projects.",
-    h1: "Commercial & Municipal Foundation Contractor — Barrie & Simcoe County",
+    h1Lead: "Commercial & Municipal Foundation Contractor — ",
+    h1Accent: "Barrie & Simcoe County",
     h2: "Bonded, Insured & Prequalified for Commercial and Public Sector Foundation Contracts",
     heroLead:
       "Commercial and municipal foundation work demands a different level of accountability than a residential project. Tighter schedules, engineering oversight, documentation requirements, bonding, and multi-trade coordination are table stakes.",
@@ -422,14 +435,16 @@ export const FOUNDATIONS_SUBPAGE_COPY: Record<FoundationsSubSlug, FoundationsSub
       "Prequalified contractor for bid submissions — bonding and insurance documentation available",
     ],
     ctaParagraph:
-      "Working on a commercial or municipal project in Barrie, Orillia, Wasaga Beach, or Simcoe County? Ground Level Contracting is available for tender packages, prequalification submissions, and direct sub-contract discussions. Contact our commercial project team to discuss scope, capacity, and scheduling.",
+      "Working on a commercial or municipal project in Barrie, Orillia, Wasaga Beach, or Simcoe County? Ground Level Contracting is available for tender packages, prequalification submissions, and direct sub-contract discussions.",
+    ctaParagraphB: "Contact our commercial project team to discuss scope, capacity, and scheduling.",
     ctaButtonLabel: "Contact Our Commercial Team",
   },
   "foundation-repair-underpinning": {
     seoTitle: "Foundation Repair & Underpinning | Barrie, Simcoe County",
     seoDescription:
       "Foundation repair and underpinning for all building types in Barrie & Simcoe County. Structural solutions engineered and contractor-installed. Call today.",
-    h1: "Foundation Repair & Underpinning — All Building Types in Barrie & Simcoe County",
+    h1Lead: "Foundation Repair & Underpinning — ",
+    h1Accent: "All Building Types in Barrie & Simcoe County",
     h2: "Foundation Moving, Cracking, or Settling? We Fix It Right — Engineered, Documented, Done.",
     heroLead:
       "Foundation movement, settlement, cracking, or inadequate bearing capacity isn't something you patch and hope for the best. It needs to be assessed properly and fixed correctly.",
@@ -449,14 +464,16 @@ export const FOUNDATIONS_SUBPAGE_COPY: Record<FoundationsSubSlug, FoundationsSub
       "Heritage and legacy building foundation support",
     ],
     ctaParagraph:
-      "Noticing cracks, settlement, or movement in your foundation in Barrie, Orillia, or anywhere across Simcoe County? Don't wait — foundation issues don't fix themselves. Contact Ground Level Contracting for a free consultation. We'll review your situation and recommend the right solution.",
+      "Noticing cracks, settlement, or movement in your foundation in Barrie, Orillia, or anywhere across Simcoe County? Don't wait — foundation issues don't fix themselves.",
+    ctaParagraphB: "Contact Ground Level Contracting for a free consultation. We'll review your situation and recommend the right solution.",
     ctaButtonLabel: "Book a Free Foundation Consultation",
   },
   "structural-engineering-foundation-solutions": {
     seoTitle: "Structural Foundation Solutions | Barrie Ontario",
     seoDescription:
       "Engineering-based foundation solutions for complex soil and structural challenges in Barrie, Orillia & Simcoe County. Helical piles, shoring, deep foundations.",
-    h1: "Structural & Engineering-Based Foundation Solutions — Barrie & Simcoe County",
+    h1Lead: "Structural & Engineering-Based Foundation Solutions — ",
+    h1Accent: "Barrie & Simcoe County",
     h2: "Complex Soil Conditions. Unusual Structures. Engineered Solutions That Last.",
     heroLead:
       "Not every foundation situation fits a standard approach. Unstable soils, high groundwater, adjacency to existing structures, tight site constraints, or unusual load requirements all call for engineering-based solutions that go beyond what a standard forming crew is equipped to handle.",
@@ -476,7 +493,8 @@ export const FOUNDATIONS_SUBPAGE_COPY: Record<FoundationsSubSlug, FoundationsSub
       "Foundation load transfer and underpinning for structural modifications",
     ],
     ctaParagraph:
-      "Have a foundation challenge in Barrie, Simcoe County, or Central Ontario that doesn't fit the standard playbook? Ground Level Contracting works alongside your structural engineer to find the right solution and execute it precisely. Contact us for a free consultation on complex scope.",
+      "Have a foundation challenge in Barrie, Simcoe County, or Central Ontario that doesn't fit the standard playbook? Ground Level Contracting works alongside your structural engineer to find the right solution and execute it precisely.",
+    ctaParagraphB: "Contact us for a free consultation on complex scope.",
     ctaButtonLabel: "Discuss Your Project",
   },
 };
@@ -485,9 +503,14 @@ export function isFoundationsSubSlug(s: string): s is FoundationsSubSlug {
   return (FOUNDATIONS_SUB_SLUGS as readonly string[]).includes(s);
 }
 
+/** Full H1 text for JSON-LD and accessibility (lead + accent, no extra space). */
+export function foundationsSubFullTitle(c: FoundationsSubPageContent): string {
+  return `${c.h1Lead}${c.h1Accent}`;
+}
+
 /*
- * STEP 29 — Heading outline (all 9 pages, single H1 each; H2 follows H1 on subs):
+ * Heading outline (all 9 pages, single H1 each; H2 follows H1 on subs):
  * Hub: H1 hero; H2 hero subhead; tab panels use H2 for panel titles where needed; FAQ H2; service area H2.
- * Subs: H1 page title; H2 subhead; H2 services list; no H3 required.
- * STEP 30 — Pre-publish: hub has trust bento, 8 service links, why accordion, areas text, FAQ visible, CTAs + tel, JSON-LD; subs have bullets, CTA, back link, unique meta.
+ * Subs: H1 (h1Lead + h1Accent); H2 subhead; H2 services list; no H3 required.
+ * Hub: trust bento, 8 service links, why accordion, areas, FAQ, CTAs + tel, JSON-LD @graph; subs: bullets, CTA, back link, unique meta + FoundationsSubPageJsonLd.
  */

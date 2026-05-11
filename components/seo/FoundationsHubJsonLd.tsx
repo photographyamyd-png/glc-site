@@ -1,68 +1,74 @@
-import { FOUNDATIONS_FAQ, FOUNDATIONS_HUB_PATH, FOUNDATIONS_COMPANY } from "@/lib/site/foundations-civil-infrastructure-content";
+import {
+  FOUNDATIONS_FAQ,
+  FOUNDATIONS_HUB_PATH,
+  FOUNDATIONS_HUB_SEO,
+  FOUNDATIONS_SERVICE_CARDS,
+} from "@/lib/site/foundations-civil-infrastructure-content";
 import { getSiteUrl } from "@/lib/site/metadata";
 
-function telToSchema(phoneHref: string): string {
-  const digits = phoneHref.replace(/\D/g, "");
-  if (digits.length === 11 && digits.startsWith("1")) return `+${digits}`;
-  if (digits.length === 10) return `+1${digits}`;
-  return phoneHref;
-}
-
-const OFFER_NAMES = [
-  "Foundation Excavation & Backfilling",
-  "Concrete Footings, Walls, Pads & Grade Beams",
-  "Multi-Storey & High-Rise Foundations",
-  "Subdivision Site Servicing",
-  "Earthworks & Mass Excavation",
-  "Commercial & Municipal Foundation Work",
-  "Foundation Repair & Underpinning",
-  "Structural & Engineering-Based Foundation Solutions",
-] as const;
-
+/**
+ * Page-scoped JSON-LD: Service (hub URL) + BreadcrumbList + FAQPage + OfferCatalog with per-scope URLs.
+ * LocalBusiness is emitted site-wide via layout `SiteJsonLd` — provider references `#business`.
+ */
 export function FoundationsHubJsonLd() {
-  const site = getSiteUrl().replace(/\/$/, "");
-  const pageUrl = `${site}${FOUNDATIONS_HUB_PATH}`;
-  const telephone = telToSchema("tel:+17056194902");
+  const siteUrl = getSiteUrl();
+  const pageUrl = `${siteUrl}${FOUNDATIONS_HUB_PATH}`;
 
-  const contractor = {
-    "@context": "https://schema.org",
-    "@type": "GeneralContractor",
-    name: FOUNDATIONS_COMPANY,
-    description:
-      "Foundations and civil infrastructure contractor serving Barrie, Orillia, Innisfil, Wasaga Beach and Simcoe County Ontario. Foundation excavation, concrete forming, grade beams, subdivision site servicing, mass earthworks, underpinning and structural solutions.",
-    telephone,
+  const service = {
+    "@type": "Service",
+    "@id": `${pageUrl}#service`,
+    name: "Foundations & Civil Infrastructure",
+    serviceType: "Foundation and civil infrastructure contracting",
+    description: FOUNDATIONS_HUB_SEO.description,
     url: pageUrl,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Barrie",
-      addressRegion: "ON",
-      addressCountry: "CA",
-    },
+    provider: { "@id": `${siteUrl}/#business` },
     areaServed: [
-      "Barrie",
-      "Orillia",
-      "Wasaga Beach",
-      "Innisfil",
-      "Simcoe County",
-      "Springwater",
-      "Collingwood",
-      "Bradford",
-      "Midland",
-      "Angus",
+      { "@type": "City", name: "Barrie" },
+      { "@type": "City", name: "Orillia" },
+      { "@type": "City", name: "Wasaga Beach" },
+      { "@type": "City", name: "Innisfil" },
+      { "@type": "AdministrativeArea", name: "Simcoe County" },
+      { "@type": "City", name: "Springwater" },
+      { "@type": "City", name: "Collingwood" },
+      { "@type": "City", name: "Bradford" },
+      { "@type": "City", name: "Midland" },
+      { "@type": "City", name: "Angus" },
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Foundations & Civil Infrastructure Services",
-      itemListElement: OFFER_NAMES.map((name) => ({
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name },
-      })),
+      itemListElement: FOUNDATIONS_SERVICE_CARDS.map((card) => {
+        const scopeUrl = `${siteUrl}/services/foundations-civil-infrastructure/${card.slug}/`;
+        return {
+          "@type": "Offer",
+          url: scopeUrl,
+          itemOffered: {
+            "@type": "Service",
+            name: card.title,
+            url: scopeUrl,
+          },
+        };
+      }),
     },
   };
 
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services/` },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Foundations & Civil Infrastructure",
+        item: pageUrl,
+      },
+    ],
+  };
+
   const faqPage = {
-    "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
     mainEntity: FOUNDATIONS_FAQ.map((item) => ({
       "@type": "Question",
       name: item.q,
@@ -70,10 +76,10 @@ export function FoundationsHubJsonLd() {
     })),
   };
 
-  return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contractor) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPage) }} />
-    </>
-  );
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [service, breadcrumb, faqPage],
+  };
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }} />;
 }
