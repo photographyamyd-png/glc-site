@@ -24,8 +24,8 @@
   --gray-100: #f7f6f4;
 
   --font-display: var(--font-oswald), system-ui, sans-serif;
-  --font-body: var(--font-barlow), system-ui, sans-serif;
-  --font-accent: var(--font-barlow), system-ui, sans-serif;
+  --font-body: var(--font-source-sans), system-ui, sans-serif;
+  --font-accent: var(--font-source-sans), system-ui, sans-serif;
 
   --container-max: 1200px;
   --section-v: 96px;

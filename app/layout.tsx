@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { Oswald, Barlow, Barlow_Condensed } from "next/font/google";
+import {
+  Oswald,
+  Barlow,
+  Barlow_Condensed,
+  Source_Sans_3,
+} from "next/font/google";
 import "./globals.css";
 import "@/styles/footer-clone.css";
 import { GrainOverlay } from "@/components/ui/GrainOverlay";
@@ -32,6 +37,13 @@ const barlowCondensed = Barlow_Condensed({
   variable: "--font-barlow-condensed",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
+});
+
+const sourceSans3 = Source_Sans_3({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-source-sans",
+  display: "swap",
 });
 
 const googleSiteVerification =
@@ -66,6 +78,7 @@ export default async function RootLayout({
         oswald.variable,
         barlow.variable,
         barlowCondensed.variable,
+        sourceSans3.variable,
         "font-sans",
       )}
     >

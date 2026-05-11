@@ -7,7 +7,7 @@
 
 /*
  * Stakeholder tokens + Prime Directive canvas (#FAFAFA).
- * Display: Oswald (mapped to legacy font-serif utilities). Body: Barlow. Condensed UI: Barlow Condensed (`font-label`). Section eyebrows: Barlow `.eyebrow` (13px, solid white on dark).
+ * Display: Oswald (mapped to legacy font-serif utilities). Body: Source Sans 3. Condensed UI: Barlow Condensed (`font-label`). Section eyebrows: Source Sans 3 `.eyebrow` (13px, solid white on dark).
  */
 :root {
   /* Accent: aligned with glc-site `glc-base.css` (--yellow-core #F2B705) */
@@ -72,13 +72,13 @@
   --header: 80px;
   --site-header-offset: 106px;
 
-  /* CTV snow feature (port bundle) — mapped to GLC tokens; Oswald/Barlow via layout font variables */
+  /* CTV snow feature (port bundle) — mapped to GLC tokens; Oswald / Source Sans 3 via layout font variables */
   --gold: var(--brand-yellow-mid);
   --charcoal: var(--ink-mid);
   --text-600: #6b6560;
   --font-display: var(--font-oswald), system-ui, sans-serif;
-  --font-body: var(--font-barlow), system-ui, sans-serif;
-  --font-accent: var(--font-barlow), system-ui, sans-serif;
+  --font-body: var(--font-source-sans), system-ui, sans-serif;
+  --font-accent: var(--font-source-sans), system-ui, sans-serif;
   --container-max: min(100%, var(--max));
   --section-v: var(--s12);
 
@@ -152,7 +152,7 @@
   --color-gl-ink: var(--gl-ink);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-barlow), system-ui, sans-serif;
+  --font-sans: var(--font-source-sans), system-ui, sans-serif;
   /* Headings in codebase use font-serif — map to Oswald (stakeholder display). */
   --font-serif: var(--font-oswald), system-ui, sans-serif;
   --font-heading: var(--font-oswald), system-ui, sans-serif;
@@ -197,7 +197,7 @@
 body {
   background: var(--canvas);
   color: var(--ink);
-  font-family: var(--font-barlow), system-ui, sans-serif;
+  font-family: var(--font-source-sans), system-ui, sans-serif;
 }
 
 .font-display {
@@ -208,9 +208,9 @@ body {
   font-family: var(--font-barlow-condensed), system-ui, sans-serif;
 }
 
-/* Section eyebrows / kickers — Barlow for legibility; pair with text-ink, text-white, etc. */
+/* Section eyebrows / kickers — Source Sans 3 for legibility; pair with text-ink, text-white, etc. */
 .eyebrow {
-  font-family: var(--font-barlow), system-ui, sans-serif;
+  font-family: var(--font-source-sans), system-ui, sans-serif;
   font-size: 13px;
   font-weight: 700;
   line-height: 1.35;
@@ -256,7 +256,7 @@ body {
 }
 
 .label-overline-on-dark {
-  font-family: var(--font-barlow), system-ui, sans-serif;
+  font-family: var(--font-source-sans), system-ui, sans-serif;
   font-size: 13px;
   font-weight: 700;
   line-height: 1.35;
@@ -562,7 +562,7 @@ body {
 }
 
 .label-overline {
-  font-family: var(--font-barlow), system-ui, sans-serif;
+  font-family: var(--font-source-sans), system-ui, sans-serif;
   font-size: 13px;
   font-weight: 700;
   line-height: 1.35;
@@ -810,7 +810,7 @@ details.foundations-hub-details[open] {
   align-items: center;
   gap: 10px;
   padding: 0 40px;
-  font-family: var(--font-barlow), system-ui, sans-serif;
+  font-family: var(--font-source-sans), system-ui, sans-serif;
   font-size: 12px;
   font-weight: 800;
   color: var(--ink-deep);

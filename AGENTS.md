@@ -63,7 +63,7 @@ Before finalizing any file edit or new section build, run an internal Rule Sync 
 
 ### GLC MODULAR ENFORCEMENT & CLOUD SAFETY
 - Zero-Loss Sync: Treat GitHub and branch `main` as source of truth. After significant edits, commit and `git push origin main` (stage only intentional paths).
-- Modular compliance: Before code or copy, read the relevant `.cursor/rules/` modules. Layouts → `design-system.mdc` (Oswald headings; Barlow / Barlow Condensed per file). Copy volume → `copy-writing.mdc`. Page structure / metadata → `seo-strategy.mdc`. If output violates those modules, halt and regenerate.
+- Modular compliance: Before code or copy, read the relevant `.cursor/rules/` modules. Layouts → `design-system.mdc` (Oswald headings; Source Sans 3 / Barlow Condensed per file). Copy volume → `copy-writing.mdc`. Page structure / metadata → `seo-strategy.mdc`. If output violates those modules, halt and regenerate.
 ```
 
 ### Index ghosting / stale context

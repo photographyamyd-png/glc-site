@@ -2,7 +2,7 @@
 :root {
   --container-max: 1200px;
   --font-display: "Oswald", sans-serif;
-  --font-accent: "Source Serif 4", serif;
+  --font-accent: var(--font-source-sans), system-ui, sans-serif;
   --charcoal-deep: #1e1c1a;
   --yellow-core: #f2b705;
   --off-white: #f2f2f2;

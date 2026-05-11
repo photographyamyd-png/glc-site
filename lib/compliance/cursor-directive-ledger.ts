@@ -69,7 +69,7 @@ export const CURSOR_DIRECTIVE_LEDGER = [
     text: "Editorial chunking, no walls; 1:3 headings to body; Geometric Sans + Premium Serif; NO script/rugged fonts.",
     ok: true,
     evidence:
-      "Plus Jakarta Sans + Instrument Serif in `layout.tsx`; short snippets in editorial + hero; ratio called out in optical section copy + DNA tokens.",
+      "Source Sans 3 + Oswald in `layout.tsx`; short snippets in editorial + hero; ratio called out in optical section copy + DNA tokens.",
   },
   {
     id: "L25-33",
