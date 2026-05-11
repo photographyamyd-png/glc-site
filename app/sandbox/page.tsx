@@ -22,9 +22,20 @@ export const metadata: Metadata = buildPageMetadata({
 /**
  * Temporary approved staging route.
  * Contains sections currently approved in full during the reject-pass.
+ *
+ * Visibility: always in dev. On Vercel, Preview shows this page for design review; Production
+ * stays 404 unless ENABLE_EXPERIMENTAL_ROUTES=true. For local `next start`, set that env in
+ * `.env.local` if you need the sandbox in a production build.
  */
 export default function SandboxPage() {
-  if (process.env.NODE_ENV === "production" && process.env.ENABLE_EXPERIMENTAL_ROUTES !== "true") {
+  const isVercelPreview =
+    process.env.VERCEL === "1" && process.env.VERCEL_ENV === "preview";
+  const hideSandbox =
+    process.env.NODE_ENV === "production" &&
+    process.env.ENABLE_EXPERIMENTAL_ROUTES !== "true" &&
+    !isVercelPreview;
+
+  if (hideSandbox) {
     notFound();
   }
 
