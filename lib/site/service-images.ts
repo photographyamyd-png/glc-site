@@ -15,8 +15,12 @@ const SERVICE_IMAGES: Record<PrimaryServiceSlug, ServiceImage> = {
     alt: "Grading equipment shaping a commercial site pad for construction turnover",
   },
   "foundations-civil-infrastructure": {
-    src: "/images/services/Foundations/foundations-001.jpg",
-    alt: "Foundation excavation and civil infrastructure preparation on a commercial site",
+    src:
+      "/images/services/Foundations/" +
+      encodeURIComponent(
+        "Ground Level Contracting - Excavation, Foundations, Industrial Construction - Barrie, Orilla, Simcoe County - Muskoka Bedrock- Drainage,  (2 of 34).jpg",
+      ),
+    alt: "Foundations and civil infrastructure contractor crew on commercial jobsite in Simcoe County Ontario",
   },
   "drainage-hardscaping": {
     src: "/images/services/Drainage-and-Hardscaping/drainage-hardscaping-001.jpg",

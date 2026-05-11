@@ -13,7 +13,9 @@ import { ALL_SERVICES, PRIMARY_SERVICES, SEO_TITLES, type PrimaryServiceSlug } f
 import { buildPageMetadata, getSiteUrl } from "@/lib/site/metadata";
 
 export function generateStaticParams() {
-  return ALL_SERVICES.map((service) => ({ slug: service.slug }));
+  return ALL_SERVICES.filter((service) => service.slug !== "foundations-civil-infrastructure").map((service) => ({
+    slug: service.slug,
+  }));
 }
 
 export async function generateMetadata({

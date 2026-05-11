@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { FOUNDATIONS_SUB_SLUGS } from "@/lib/site/foundations-civil-infrastructure-content";
 import { CORE_ROUTES, PRIMARY_SERVICES, getAllSnowLocationDefs, getAllSnowSubServiceDefs } from "@/lib/site/registry";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -25,5 +26,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
   }));
 
-  return [...core, ...primaryServices, ...snowSubServices, ...locations];
+  const foundationsSubRoutes = FOUNDATIONS_SUB_SLUGS.map((subSlug) => ({
+    url: `${siteUrl}/services/foundations-civil-infrastructure/${subSlug}/`,
+    lastModified: now,
+  }));
+
+  return [...core, ...primaryServices, ...foundationsSubRoutes, ...snowSubServices, ...locations];
 }

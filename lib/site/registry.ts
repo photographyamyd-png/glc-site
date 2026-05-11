@@ -180,8 +180,7 @@ export const SEO_TITLES = {
     "excavation-site-preparation":
       "Excavation & Site Preparation Barrie | Simcoe County Contractor",
     "site-preparation-grading": "Site Preparation & Grading | Ground Level Contracting",
-    "foundations-civil-infrastructure":
-      "Commercial Foundation Excavation Barrie | Civil Infrastructure | Ground Level",
+    "foundations-civil-infrastructure": "Foundations & Civil Infrastructure | Barrie, Simcoe County",
     "drainage-hardscaping": "Drainage & Hardscaping | Ground Level Contracting",
     "hauling-site-clearing-logistics":
       "Hauling, Site Clearing & Logistics | Ground Level Contracting",
