@@ -19,6 +19,7 @@ import {
 } from "@/lib/site/foundations-civil-infrastructure-content";
 import { PHONE_TEL } from "@/lib/ground-level/homepage-copy";
 import { getServiceImage } from "@/lib/site/service-images";
+import { cn } from "@/lib/utils";
 
 function CheckIcon({ className }: { className?: string }) {
   return (
@@ -44,7 +45,7 @@ export function FoundationsCivilInfrastructureHubPage() {
         aria-hidden
       />
       <ClaudeLogicWatermark placement="bottom-right" mode="default" className="z-[1] opacity-[0.09]" />
-      <div className="relative z-10 mx-auto grid max-w-[min(100%,var(--max))] gap-10 lg:grid-cols-12 lg:gap-12">
+      <div className="relative z-10 mx-auto grid max-w-[min(100%,var(--max))] gap-y-12 gap-x-0 lg:grid-cols-12 lg:items-start lg:gap-x-12 lg:gap-y-12">
         <div className="min-h-0 lg:col-span-6">
           <div className="bespoke-surface panel-machined border border-[color:var(--g200)] bg-white p-6 sm:p-8">
             <div className="border-l-4 border-[color:var(--y)] pl-5">
@@ -62,8 +63,8 @@ export function FoundationsCivilInfrastructureHubPage() {
           </div>
         </div>
 
-        <div className="flex min-h-0 flex-col gap-6 lg:col-span-6">
-          <div className="relative aspect-[16/10] w-full min-h-0 overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)]">
+        <div className="min-h-0 w-full lg:col-span-6">
+          <div className="relative aspect-[16/10] w-full overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)]">
             <Image
               src={heroImage.src}
               alt={heroImage.alt}
@@ -73,16 +74,24 @@ export function FoundationsCivilInfrastructureHubPage() {
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.4)] to-transparent" aria-hidden />
           </div>
-          <div className="grid min-h-0 gap-3 sm:grid-cols-2">
-            {FOUNDATIONS_TRUST_BENTO.map((item) => (
+        </div>
+
+        <div className="border-t border-[color:var(--g200)] pt-10 lg:col-span-12">
+          <p className="eyebrow text-ink-muted">Trust signals</p>
+          <div className="mt-4 grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-6 lg:gap-6">
+            {FOUNDATIONS_TRUST_BENTO.map((item, i) => (
               <article
                 key={item.title}
-                className="bespoke-surface panel-machined flex gap-3 border border-[color:var(--g200)] bg-white p-4 sm:p-5"
+                className={cn(
+                  "bespoke-surface panel-machined flex h-full min-h-0 gap-3 border border-[color:var(--g200)] bg-white p-4 sm:p-5 lg:col-span-2",
+                  i === 3 && "lg:col-start-2",
+                  i === 4 && "lg:col-start-4",
+                )}
               >
                 <CheckIcon className="mt-0.5 shrink-0" />
-                <div className="min-w-0">
+                <div className="flex min-h-0 min-w-0 flex-1 flex-col">
                   <h3 className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink sm:text-2xl">{item.title}</h3>
-                  <p className="mt-2 text-[15px] leading-[1.72] text-ink sm:text-base">{item.body}</p>
+                  <p className="mt-2 flex-1 text-[15px] leading-[1.72] text-ink sm:text-base">{item.body}</p>
                 </div>
               </article>
             ))}
