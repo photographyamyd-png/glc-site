@@ -2,25 +2,27 @@ import { GLDarkRasterFeatureSection } from "@/components/glc-sections/GLDarkRast
 import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { PROCESS } from "@/lib/ground-level/homepage-copy";
 
-/** Grading raster — matches ProcessVerticalFlow process-split reference (Template 1 shell). */
+/** Grading raster — same asset family as ProcessVerticalFlow process-split / showcase lab. */
 const PROCESS_BAND_RASTER =
   "/images/services/Grading/Ground%20Level%20Contracting%20grading.jpg";
 const PROCESS_BAND_RASTER_ALT =
   "Crew running GPS-guided fine grading on a commercial pad, monochrome reference";
 
-function headingToneCanvas(text: string) {
+/** H2 on dark glass (Template 1 authority panel — ProcessVerticalFlow showcase). */
+function headingToneOnGlass(text: string) {
   const key = "Final Grade";
-  if (!text.includes(key)) return <span className="text-ink">{text}</span>;
+  if (!text.includes(key)) return <span className="text-white">{text}</span>;
   const [before, after] = text.split(key);
   return (
     <>
-      <span className="text-ink">{before}</span>
+      <span className="text-white">{before}</span>
       <span className="text-[color:var(--y)]">{key}</span>
-      <span className="text-ink">{after}</span>
+      <span className="text-white">{after}</span>
     </>
   );
 }
 
+/** Light nested surfaces on dark glass (measure + steps). */
 const stepIsland =
   "relative border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:var(--brand-canvas)] p-5 text-ink shadow-[0_12px_32px_rgb(0_0_0/0.12)]";
 
@@ -63,8 +65,9 @@ export function GLProcess({
       aria-labelledby={headingId}
       imageSrc={PROCESS_BAND_RASTER}
       imageAlt={PROCESS_BAND_RASTER_ALT}
+      imageClassName="object-cover object-center grayscale"
       scrimPreset="processShowcase"
-      watermark="claude"
+      watermark="shard"
       sizes="(min-width: 1024px) 70vw, 100vw"
     >
       <div
@@ -74,8 +77,8 @@ export function GLProcess({
       >
         {String(p.steps.length).padStart(2, "0")}
       </div>
-      <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
-        <div className="border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:var(--brand-canvas)] p-5 text-ink shadow-[0_16px_40px_rgb(0_0_0/0.18)] sm:p-6">
+      <div className="relative z-10 mx-auto flex w-full max-w-[min(100%,var(--max))] flex-col justify-center px-4 py-16 sm:px-6 sm:py-20 lg:px-10">
+        <div className="w-full max-w-6xl border border-white/12 bg-[rgb(10_12_11/0.5)] p-6 shadow-2xl backdrop-blur-md sm:p-8 lg:p-10">
           <div
             className={
               p.intro
@@ -84,58 +87,65 @@ export function GLProcess({
             }
           >
             <div className={p.intro ? "lg:col-span-6 lg:pr-2" : "max-w-3xl"}>
-              <p className="label-overline mb-3">{p.eyebrow}</p>
+              <p className="eyebrow mb-3 text-white">{p.eyebrow}</p>
               <h2
                 id={headingId}
-                className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+                className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl"
               >
-                {headingToneCanvas(p.heading)}
+                {headingToneOnGlass(p.heading)}
               </h2>
+              <div className="mt-6 h-px max-w-md bg-[color:var(--y)]/55" aria-hidden />
             </div>
             {p.intro ? (
               <div className="max-w-[min(100%,42rem)] lg:col-span-6 lg:flex lg:flex-col lg:justify-center">
-                <div className="border-l-2 border-[color:var(--y)]/60 pl-4">
-                  <ExpandableCopy text={p.intro} className="text-[15px] leading-[1.72] text-ink-muted sm:text-base" />
+                <div className="border-l-4 border-[color:var(--y)] pl-5">
+                  <ExpandableCopy
+                    text={p.intro}
+                    className="text-[15px] leading-[1.72] text-white/90 sm:text-base"
+                  />
                 </div>
               </div>
             ) : null}
           </div>
-        </div>
-        <div className="relative mt-10">
-          <div
-            className="pointer-events-none absolute bottom-0 left-[10px] top-0 w-[2px] bg-[linear-gradient(180deg,transparent,color-mix(in_srgb,var(--y)_60%,transparent)_14%,color-mix(in_srgb,var(--y)_70%,transparent)_86%,transparent)] sm:left-[14px] lg:hidden"
-            data-motif-id="proc3__thread"
-            aria-hidden
-          />
-          <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {p.steps.map((step, i) =>
-            typeof step === "string" ? (
-              <li
-                key={step}
-                className={`${stepIsland} ${
-                  i === 1 ? "lg:-translate-y-4" : i === 2 ? "lg:translate-y-4" : ""
-                }`}
-              >
-                <span className="eyebrow text-[color:var(--y)]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="mt-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-ink">
-                  Step {String(i + 1).padStart(2, "0")}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-ink-muted">{step}</p>
-              </li>
-            ) : (
-              <li
-                key={step.index}
-                className={`${stepIsland} ${i === 1 ? "lg:-translate-y-4" : i === 2 ? "lg:translate-y-4" : ""}`}
-              >
-                <span className="eyebrow text-[color:var(--y)]">{step.index}</span>
-                <p className="mt-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-ink">{step.title}</p>
-                <p className="mt-2 text-sm leading-relaxed text-ink-muted">{step.body}</p>
-              </li>
-            ),
-          )}
-          </ol>
+
+          <div className="relative mt-10">
+            <div
+              className="pointer-events-none absolute bottom-0 left-[10px] top-0 w-[2px] bg-[linear-gradient(180deg,transparent,color-mix(in_srgb,var(--y)_60%,transparent)_14%,color-mix(in_srgb,var(--y)_70%,transparent)_86%,transparent)] sm:left-[14px] lg:hidden"
+              data-motif-id="proc3__thread"
+              aria-hidden
+            />
+            <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {p.steps.map((step, i) =>
+                typeof step === "string" ? (
+                  <li
+                    key={step}
+                    className={`${stepIsland} ${
+                      i === 1 ? "lg:-translate-y-4" : i === 2 ? "lg:translate-y-4" : ""
+                    }`}
+                  >
+                    <span className="eyebrow text-[color:var(--y)]">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <p className="mt-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-ink">
+                      Step {String(i + 1).padStart(2, "0")}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-muted">{step}</p>
+                  </li>
+                ) : (
+                  <li
+                    key={step.index}
+                    className={`${stepIsland} ${i === 1 ? "lg:-translate-y-4" : i === 2 ? "lg:translate-y-4" : ""}`}
+                  >
+                    <span className="eyebrow text-[color:var(--y)]">{step.index}</span>
+                    <p className="mt-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-ink">
+                      {step.title}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-muted">{step.body}</p>
+                  </li>
+                ),
+              )}
+            </ol>
+          </div>
         </div>
       </div>
     </GLDarkRasterFeatureSection>
