@@ -11,6 +11,7 @@ import { ServiceCard } from "@/components/drainage-hardscaping/ServiceCard";
 import { SiteDrainageDesignClient } from "@/components/drainage-hardscaping/SiteDrainageDesignClient";
 import { GoogleReviewsPanel } from "@/components/drainage-hardscaping/GoogleReviewsPanel";
 import { StickyTabBox } from "@/components/drainage-hardscaping/StickyTabBox";
+import { MotifSharpSlice } from "@/components/motifs";
 import { PHONE_TEL } from "@/lib/ground-level/homepage-copy";
 import {
   DRAINAGE_FINAL_CTA,
@@ -320,9 +321,11 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                 key={item.value}
                 className="flex min-h-0 gap-2 rounded-sm border border-white/[0.07] bg-[rgb(255_255_255/0.035)] px-2 py-2 transition-colors hover:border-[color:var(--y)]/35 sm:gap-2.5 sm:px-2.5 sm:py-2"
               >
-                <div className="relative flex shrink-0 justify-center pt-0.5" aria-hidden>
-                  <span className="block h-[2.25rem] w-px bg-[color:var(--y)]/75 sm:h-[2.5rem]" />
-                  <span className="absolute left-1/2 top-0 h-px w-3 -translate-x-1/2 bg-[color:var(--y)]/60" />
+                <div
+                  className="relative h-9 w-[0.85rem] shrink-0 overflow-hidden sm:h-10 sm:w-4"
+                  aria-hidden
+                >
+                  <MotifSharpSlice className="pointer-events-none absolute left-1/2 top-1/2 h-[240%] w-auto min-w-[2.75rem] -translate-x-1/2 -translate-y-1/2 opacity-[0.88]" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="font-serif text-[11px] font-bold uppercase leading-snug tracking-[0.05em] text-[color:var(--y)] sm:text-xs">
