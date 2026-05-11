@@ -526,7 +526,7 @@ a.service-card:focus-visible .service-card__icon {
   font-size: 20px; font-weight: 700;
   color: var(--white);
   text-transform: uppercase;
-  letter-spacing: 0.02em; line-height: 1.15;
+  letter-spacing: 0.04em; line-height: 1.15;
   margin-bottom: 12px;
   transition: color 0.3s;
 }

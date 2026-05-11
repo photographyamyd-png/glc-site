@@ -81,7 +81,7 @@ function KineticSpine({ tone }: { tone: Tone }) {
         </div>
         <div className="pl-0 lg:pl-10">
           <p className={c.label}>Optical counterweight</p>
-          <h3 className={`mt-2 font-serif text-5xl font-bold uppercase leading-[0.95] tracking-tight sm:text-6xl ${c.heading}`}>
+          <h3 className={`mt-2 font-serif text-5xl font-bold uppercase leading-[0.95] tracking-[0.04em] sm:text-6xl ${c.heading}`}>
             <span className={c.heading}>Mass on the </span>
             <span className="text-[color:var(--y)]">left</span>
           </h3>
@@ -146,7 +146,7 @@ function SplitShiftHero({ tone }: { tone: Tone }) {
           <div className="absolute inset-0 bg-gradient-to-r from-[rgb(0_0_0/0.46)] to-[rgb(0_0_0/0.15)]" aria-hidden />
           <div className="absolute left-8 top-1/2 -translate-y-1/2 w-[min(90%,480px)] border border-white/20 bg-[rgb(255_255_255/0.14)] p-6 text-white backdrop-blur-lg shadow-[0_20px_52px_rgb(0_0_0/0.34)]">
             <p className="eyebrow text-[color:var(--y)]">Split overlay</p>
-            <h3 className="mt-2 font-serif text-4xl font-bold uppercase leading-tight">
+            <h3 className="mt-2 font-serif text-4xl font-bold uppercase leading-tight tracking-[0.04em]">
               <span className="text-white">Shift the </span>
               <span className="text-[color:var(--y)]">grid</span>
             </h3>
@@ -190,7 +190,7 @@ function CoordinatesEntry({ tone }: { tone: Tone }) {
         </div>
         <div className="pt-4 lg:pt-10">
           <p className={c.label}>Technical authority</p>
-          <h3 className={`mt-2 font-serif text-5xl font-bold uppercase leading-[0.95] tracking-tight sm:text-6xl ${c.heading}`}>
+          <h3 className={`mt-2 font-serif text-5xl font-bold uppercase leading-[0.95] tracking-[0.04em] sm:text-6xl ${c.heading}`}>
             <span className={c.heading}>Coordinates as </span>
             <span className="text-[color:var(--y)]">entry</span>
           </h3>

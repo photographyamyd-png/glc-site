@@ -12,7 +12,7 @@ export function CtvSnowFeature() {
           {ctvSnowFeature.heading}
         </h2>
 
-        <h3 className="mt-2 max-w-[40ch] font-serif text-xl font-bold uppercase leading-snug tracking-tight text-ink sm:text-2xl">
+        <h3 className="mt-2 max-w-[40ch] font-serif text-xl font-bold uppercase leading-snug tracking-[0.04em] text-ink sm:text-2xl">
           {ctvSnowFeature.segmentTitle}
         </h3>
 

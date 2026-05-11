@@ -81,7 +81,7 @@ function KineticSpineHero({ tone }: { tone: Tone }) {
           <div className="absolute inset-0 bg-[rgb(0_0_0/0.4)]" aria-hidden />
         </div>
         <div className="grid gap-6 lg:items-end">
-          <h3 className={`sticky top-[calc(var(--header)+20px)] font-serif text-5xl font-bold uppercase leading-[0.85] tracking-tight sm:text-7xl ${c.heading}`}>
+          <h3 className={`sticky top-[calc(var(--header)+20px)] font-serif text-5xl font-bold uppercase leading-[0.85] tracking-[0.04em] sm:text-7xl ${c.heading}`}>
             <span className={c.heading}>Ground moves at </span>
             <span className="text-[color:var(--y)]">speed</span>
           </h3>

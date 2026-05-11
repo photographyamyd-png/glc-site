@@ -77,7 +77,7 @@ function KineticSpineHero({ tone }: { tone: Tone }) {
         </div>
         <div>
           <p className={c.label}>5:1 type ratio</p>
-          <h3 className={`mt-2 font-serif text-5xl font-bold uppercase leading-[0.92] tracking-tight sm:text-7xl ${c.heading}`}>Ground command in <span className="text-[color:var(--y)]">motion</span></h3>
+          <h3 className={`mt-2 font-serif text-5xl font-bold uppercase leading-[0.92] tracking-[0.04em] sm:text-7xl ${c.heading}`}>Ground command in <span className="text-[color:var(--y)]">motion</span></h3>
           <p className={`mt-4 max-w-2xl text-base leading-relaxed ${c.body}`}>A fixed visual spine anchors heavy equipment imagery while the command headline reads as a scrolling narrative plane.</p>
         </div>
       </div>
@@ -312,7 +312,7 @@ function TerminalCta({ tone }: { tone: Tone }) {
       <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,0.65fr)]">
         <div className={`border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] p-6 ${c.panel}`}>
           <p className={c.label}>70/30 balance</p>
-          <h3 className={`mt-2 font-serif text-3xl font-bold uppercase sm:text-4xl ${c.heading}`}>
+          <h3 className={`mt-2 font-serif text-3xl font-bold uppercase tracking-[0.04em] sm:text-4xl ${c.heading}`}>
             <span className={c.heading}>Book the field </span>
             <span className="text-[color:var(--y)]">walkthrough</span>
           </h3>

@@ -513,7 +513,7 @@ export function ProcessVerticalFlow() {
               {HOME_COPY.testimonialsFeature.intro}
             </p>
             <blockquote className="mt-8 border-l-4 border-[color:var(--y)] pl-5">
-              <p className="font-serif text-lg italic leading-snug text-white/90 sm:text-xl">
+              <p className="font-sans text-lg italic leading-snug text-white/90 sm:text-xl">
                 {HOME_COPY.testimonialsFeature.featuredQuote.quote}
               </p>
               <footer className="mt-3 eyebrow text-white">

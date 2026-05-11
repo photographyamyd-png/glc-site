@@ -27,7 +27,7 @@ export function GoogleReviewsPanel({ className }: { className?: string }) {
         )}
       >
         <p className="eyebrow text-[color:var(--y)]">Google Reviews</p>
-        {starLine ? <p className="mt-2 font-serif text-lg text-white">{starLine}</p> : null}
+        {starLine ? <p className="mt-2 font-sans text-lg text-white">{starLine}</p> : null}
         <div className="relative mt-6 min-h-[420px] w-full overflow-hidden">
           <iframe
             title="Google reviews"
@@ -62,7 +62,7 @@ export function GoogleReviewsPanel({ className }: { className?: string }) {
         )}
       >
         <p className="eyebrow text-[color:var(--y)]">Google Reviews</p>
-        {starLine ? <p className="mt-3 font-serif text-xl text-white">{starLine}</p> : null}
+        {starLine ? <p className="mt-3 font-sans text-xl text-white">{starLine}</p> : null}
         <p className="mt-4 text-sm text-white/90">
           Read verified reviews and see recent project feedback on our Google Business Profile.
         </p>
@@ -83,7 +83,7 @@ export function GoogleReviewsPanel({ className }: { className?: string }) {
       )}
     >
       <p className="eyebrow text-[color:var(--y)]">Google Reviews</p>
-      <p className="mt-2 font-serif text-2xl text-white">★★★★★</p>
+      <p className="mt-2 font-sans text-2xl text-white">★★★★★</p>
       <p className="mt-2 text-sm text-white/80">
         Placeholder — set <code className="text-white/90">NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL</code> or{" "}
         <code className="text-white/90">NEXT_PUBLIC_GOOGLE_REVIEWS_EMBED_SRC</code> for production.

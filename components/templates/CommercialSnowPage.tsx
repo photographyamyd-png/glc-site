@@ -476,17 +476,17 @@ export function CommercialSnowPage({ service, related }: Props) {
                   <p>{COMMERCIAL_SNOW_CONTRACTS.intro}</p>
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="border border-white/15 bg-[rgb(0_0_0/0.2)] p-4">
-                      <h3 className="font-serif text-lg font-bold uppercase tracking-tight text-white">{COMMERCIAL_SNOW_CONTRACTS.seasonal.h3}</h3>
+                      <h3 className="font-serif text-lg font-bold uppercase tracking-[0.04em] text-white">{COMMERCIAL_SNOW_CONTRACTS.seasonal.h3}</h3>
                       <p className="mt-3">{COMMERCIAL_SNOW_CONTRACTS.seasonal.body}</p>
                       <p className="mt-3 text-sm text-white/75">{COMMERCIAL_SNOW_CONTRACTS.seasonal.recommended}</p>
                     </div>
                     <div className="border border-white/15 bg-[rgb(0_0_0/0.2)] p-4">
-                      <h3 className="font-serif text-lg font-bold uppercase tracking-tight text-white">{COMMERCIAL_SNOW_CONTRACTS.perEvent.h3}</h3>
+                      <h3 className="font-serif text-lg font-bold uppercase tracking-[0.04em] text-white">{COMMERCIAL_SNOW_CONTRACTS.perEvent.h3}</h3>
                       <p className="mt-3">{COMMERCIAL_SNOW_CONTRACTS.perEvent.body}</p>
                       <p className="mt-3 text-sm text-white/75">{COMMERCIAL_SNOW_CONTRACTS.perEvent.recommended}</p>
                     </div>
                     <div className="border border-white/15 bg-[rgb(0_0_0/0.2)] p-4 sm:col-span-2">
-                      <h3 className="font-serif text-lg font-bold uppercase tracking-tight text-white">{COMMERCIAL_SNOW_CONTRACTS.hybrid.h3}</h3>
+                      <h3 className="font-serif text-lg font-bold uppercase tracking-[0.04em] text-white">{COMMERCIAL_SNOW_CONTRACTS.hybrid.h3}</h3>
                       <p className="mt-3">{COMMERCIAL_SNOW_CONTRACTS.hybrid.body}</p>
                       <p className="mt-3 text-sm text-white/75">{COMMERCIAL_SNOW_CONTRACTS.hybrid.recommended}</p>
                     </div>
@@ -518,7 +518,7 @@ export function CommercialSnowPage({ service, related }: Props) {
                   {COMMERCIAL_SNOW_PROCESS.steps.map((s) => (
                     <li key={s.id} className="border border-white/15 bg-[rgb(0_0_0/0.2)] p-4">
                       <p className="eyebrow text-[color:var(--y)]">{s.id}</p>
-                      <h3 className="mt-2 font-serif text-lg font-bold uppercase tracking-tight text-white">{s.title}</h3>
+                      <h3 className="mt-2 font-serif text-lg font-bold uppercase tracking-[0.04em] text-white">{s.title}</h3>
                       <p className="mt-3 text-[15px] leading-[1.72] text-white/85">{s.body}</p>
                     </li>
                   ))}
