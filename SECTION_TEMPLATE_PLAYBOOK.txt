@@ -1,0 +1,189 @@
+================================================================================
+GLC SITE — SECTION TEMPLATE PLAYBOOK (for you + Cursor / agents)
+================================================================================
+Plain-text reference. Design authority: .cursor/rules/ (especially
+design-system.mdc, copy-writing.mdc, seo-strategy.mdc). Do not add root
+.cursorrules; AGENTS.md explains rule precedence.
+
+WHAT A "SECTION TEMPLATE" IS HERE
+---------------------------------
+A reusable React component (usually under components/glc-sections/ or
+components/ground-level/) that owns STRUCTURE and VISUAL SHELL for a recurring
+band: e.g. full-bleed image, scrims, z-order, max-width container, optional
+min-height floor. COPY, heading levels, CTAs, and split layouts live in
+children or typed props you pass from a page or components/templates/* file.
+
+It is NOT a separate file format. You refactor by replacing an inline
+<section> block with an import + props/children while preserving semantics,
+tonal neighbors, and SEO.
+
+
+ASCII — TYPICAL "DARK RASTER AUTHORITY" LAYER STACK (side view)
+---------------------------------------------------------------
+  [ lighter section above — band-light or similar ]
+
+  +----------------------------------------------------------+
+  | section-major band-dark (overflow hidden)                 |
+  |                                                           |
+  |  z-1  [ full-bleed Image — object-cover ]                 |
+  |  z-1  [ horizontal scrim — left-heavy charcoal ]          |
+  |  z-1  [ vertical scrim — bottom-heavy, top open ]         |
+  |  z-0  [ optional watermark / motif ]                     |
+  |                                                           |
+  |  z-10 [ inner: max-w var(--max), flex, py-* ]             |
+  |        +----------------------------------------+         |
+  |        | glass panel (border, blur, tint)       |         |
+  |        | eyebrow, H2, body, quote?, CTA row     |         |
+  |        +----------------------------------------+         |
+  +----------------------------------------------------------+
+
+  [ next section — alternate tone to avoid "Visual Flatline" ]
+
+
+================================================================================
+TEMPLATE 1 — Dark raster authority band (full-bleed + scrims + glass)
+================================================================================
+NAME (planned component):
+  GLDarkRasterFeatureSection
+  Optional helper: GLDarkRasterGlassPanel
+
+WHAT IT IS FOR:
+  Mid-page or closing AUTHORITY bands: photography-led dark field, dual
+  scrims for readability, foreground glass card or custom children. Good for
+  testimonials showcase, strong CTA band over site photography, similar.
+
+WHEN NOT TO USE:
+  - Full 100dvh service hub hero with H1 story (use existing ServicePageTemplate
+    / GLHero patterns unless you deliberately want a shorter band).
+  - Light editorial-only sections.
+  - GLTestimonialsFeature-style split grid + proof panel (different IA).
+
+REFERENCE IMPLEMENTATION TODAY (until the primitive ships):
+  components/process/ProcessVerticalFlow.tsx
+  Block comment "5. FINISHED AUTHORITY SHOWCASE" — section-major band-dark,
+  min-h floor, Image, two gradient divs, ShardWatermark optional, inner flex,
+  glass panel, blockquote + cta-primary.
+
+PLANNED IMPORT (after implementation):
+  import { GLDarkRasterFeatureSection } from "@/components/glc-sections/GLDarkRasterFeatureSection";
+
+
+--------------------------------------------------------------------------------
+STEPS — REFACTOR AN EXISTING SECTION TO THIS TEMPLATE (flexible, safe)
+--------------------------------------------------------------------------------
+1) LOCATE
+   - File path + approximate line range, or unique string in the section.
+   - Note current: band class (band-dark / band-dark-field), image src/alt,
+     scrim classNames, inner max-width, padding, heading id, section id.
+
+2) PRESERVE SEMANTICS
+   - Keep the same heading LEVEL (h1/h2/h3) unless the page IA is intentionally
+     changing. One H1 per page view where applicable (seo-strategy.mdc).
+   - Keep stable id= and aria-labelledby= (or add if missing).
+
+3) SPLIT SHELL VS CONTENT
+   - Shell = section wrapper, Image fill, scrims, z-10 outer flex, optional
+     min-h-* on OUTER section only as a FLOOR (e.g. min-h-[560px]); inner uses
+     flex so content grows — no fixed pixel heights for the text block.
+   - Content = eyebrow, titles, paragraphs, quotes, buttons — passed as
+     children (or small typed slots). If body grows past ~2 sentences, apply
+     copy-writing.mdc: split column / asymmetric layout INSIDE children, not
+     by shrinking type alone.
+
+4) SPACING RHYTHM (modular, not arbitrary)
+   - Keep ratios consistent: e.g. heading-to-body gap vs card padding should
+     follow existing tokens (--s7, mt-6, mt-8, py-20, etc.) already used in
+     siblings or design-system.mdc spacing guidance.
+   - Heavy text (> ~4 lines): increase line-height / measure (max-w-prose,
+     leading-[1.72]) and add vertical whitespace — do not cram.
+
+5) DESIGN RULES
+   - No new random colors or one-off RGB unless matching an existing approved
+     scrim from the same pattern elsewhere in the repo.
+   - Tonal alternation: do not place two same-tone major sections back-to-back
+     without a seam or intentional exception (design-system.mdc).
+   - Tri-tone type roles on dark: white / white-90 / yellow accent; eyebrows
+     per .eyebrow rules.
+
+6) VERIFY
+   - Visual parity OR intentional delta (state which).
+   - Keyboard / focus on CTAs; min tap 44px where interactive.
+   - Reduced motion: respect prefers-reduced-motion on motion-heavy bits.
+
+
+--------------------------------------------------------------------------------
+COPY-PASTE — PROMPT YOU CAN GIVE THE AGENT WHEN READY
+--------------------------------------------------------------------------------
+Refactor the section in [FILE] at [lines or heading id] to use
+GLDarkRasterFeatureSection (Template 1 in SECTION_TEMPLATE_PLAYBOOK.txt).
+
+- Preserve: heading levels, all visible copy, section id / aria-labelledby,
+  image alt text intent, CTA targets and labels.
+- Shell: use preset [processShowcase | custom: paste classNames from current
+  scrims] and optional watermark [none|shard|claude] as appropriate.
+- Inner: pass current markup as children; keep glass panel styling unless
+  copy volume forces a split layout per copy-writing.mdc.
+- Do not introduce a second H1. Check tonal alternation vs the section above
+  and below.
+- No root .cursorrules; follow .cursor/rules modules.
+
+
+================================================================================
+TEMPLATE 2 — (reserved — add when you define the next pattern)
+================================================================================
+Name / component path:
+  [ TBD ]
+
+What it is for:
+  [ TBD ]
+
+Reference implementation (file + section name):
+  [ TBD ]
+
+When not to use:
+  [ TBD ]
+
+Steps to refactor (same 1–6 framework as Template 1; adjust for this shell):
+  [ TBD ]
+
+Copy-paste prompt block:
+  [ TBD ]
+
+
+================================================================================
+TEMPLATE 3 — (reserved)
+================================================================================
+[ Same headings as Template 2 — fill when ready ]
+
+
+================================================================================
+GLOBAL CHECKLIST — ANY NEW TEMPLATE YOU ADD TO THIS DOC
+================================================================================
+For each new template entry, record:
+  A) Short name + exact component import path.
+  B) "What / when / when not" (3 bullets minimum).
+  C) One reference implementation in the repo (file + comment or line range).
+  D) ASCII or bullet diagram of layer stack if non-obvious.
+  E) Copy-paste agent prompt with [FILE], preset, and compliance bullets.
+  F) Note if the component is "client" ("use client") — affects where it can be
+     imported from Server Components.
+
+When you ask the agent to add a NEW template to this playbook:
+  "Add Template N to SECTION_TEMPLATE_PLAYBOOK.txt following the GLOBAL
+   CHECKLIST; component lives at [path]; reference section at [path]."
+
+
+================================================================================
+WORKFLOW — YOU WILL CHOOSE MORE SECTIONS OVER TIME
+================================================================================
+1. Pick a DOM / component slice that keeps breaking or is duplicated.
+2. Ask for extraction: new component + JSDoc + entry in this playbook
+   (Template N).
+3. Later, ask for refactors per the copy-paste prompt for a specific page.
+
+This file is the single place you reread before pasting instructions so
+wording stays consistent with GLC rules and this repo's layout.
+
+================================================================================
+END
+================================================================================
