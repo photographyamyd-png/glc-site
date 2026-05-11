@@ -25,14 +25,14 @@ export default function AboutPage() {
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <article className="rounded-xl border border-[color:var(--g200)] bg-white/80 p-5 backdrop-blur-sm">
-          <h2 className="font-serif text-xl font-semibold uppercase tracking-tight text-ink">Operating principle</h2>
+          <h2 className="font-serif text-xl font-bold uppercase tracking-tight text-ink">Operating principle</h2>
           <p className="mt-2 text-sm leading-relaxed text-ink-muted">{CORE_COPY.about.body}</p>
-          <Link href={CORE_COPY.about.primaryCta.href} className="cta-primary mt-4 inline-flex min-h-[44px] items-center px-4 py-2 text-xs tracking-wide">
+          <Link href={CORE_COPY.about.primaryCta.href} className="cta-primary mt-4 inline-flex min-h-[44px] items-center px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em]">
             {CORE_COPY.about.primaryCta.label}
           </Link>
         </article>
         <article className="rounded-xl border border-[color:var(--g200)] bg-white/80 p-5 backdrop-blur-sm">
-          <h2 className="font-serif text-xl font-semibold uppercase tracking-tight text-ink">Credentials</h2>
+          <h2 className="font-serif text-xl font-bold uppercase tracking-tight text-ink">Credentials</h2>
           <ul className="mt-2 space-y-2">
             {CORE_COPY.about.credentials.map((item) => (
               <li key={item} className="text-sm leading-relaxed text-ink-muted">

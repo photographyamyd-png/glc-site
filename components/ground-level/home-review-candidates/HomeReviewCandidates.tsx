@@ -57,7 +57,7 @@ function CandidateShell({
           }`}
         >
           <p className={`${isLight ? "label-overline text-ink-muted" : "label-overline-on-dark"} mb-3`}>Review candidate</p>
-          <h2 id={`${id}-heading`} className={`font-serif text-2xl font-semibold uppercase tracking-tight sm:text-3xl`}>
+          <h2 id={`${id}-heading`} className={`font-serif text-2xl font-bold uppercase tracking-tight sm:text-3xl`}>
             {title}
           </h2>
         </div>
@@ -88,7 +88,7 @@ function ServiceLandingHeroCandidate({ tone }: { tone: Tone }) {
           />
           <div className="absolute bottom-0 left-0 right-0 p-6">
             <p className="eyebrow text-white">Commercial service page</p>
-            <p className="mt-2 font-serif text-2xl font-semibold uppercase text-white sm:text-3xl">Excavation and Site Prep</p>
+            <p className="mt-2 font-sans text-2xl font-semibold uppercase text-white sm:text-3xl">Excavation and Site Prep</p>
             <p className="mt-3 max-w-lg text-sm leading-relaxed text-white/80">
               Directly inspired by the approved hero: image-led authority, layered atmospherics, and one decisive conversion route.
             </p>
@@ -101,7 +101,7 @@ function ServiceLandingHeroCandidate({ tone }: { tone: Tone }) {
           }`}
         >
           <p className="eyebrow text-[color:var(--y)]">Landing conversion stack</p>
-          <p className={`mt-2 font-serif text-xl font-semibold uppercase ${isLight ? "text-ink" : "text-white"}`}>Built for PM-ready intake</p>
+          <p className={`mt-2 font-sans text-xl font-semibold uppercase ${isLight ? "text-ink" : "text-white"}`}>Built for PM-ready intake</p>
           <p className={`text-sm leading-relaxed ${isLight ? "text-ink-muted" : "text-white/78"}`}>
             Built for service landers with region-first context, credential cues, and immediate quote/consult action.
           </p>
@@ -111,7 +111,7 @@ function ServiceLandingHeroCandidate({ tone }: { tone: Tone }) {
             <p className={`text-xs font-semibold uppercase tracking-[0.12em] ${isLight ? "text-ink" : "text-white/86"}`}>500+ Commercial projects</p>
           </div>
           <div className="mt-5 flex flex-wrap gap-3">
-            <a href="#contact" className="cta-primary px-5 py-3 text-xs font-semibold tracking-wide">
+            <a href="#contact" className="cta-primary px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em]">
               Request estimate
             </a>
             <a
@@ -142,7 +142,7 @@ function AboutMeCandidate({ tone }: { tone: Tone }) {
         </div>
         <div className={`relative border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:var(--brand-canvas)] p-6 shadow-[0_14px_34px_rgb(0_0_0/0.12)]`}>
           <p className="eyebrow text-[color:var(--y)]">Founder story</p>
-          <p className="mt-3 font-serif text-2xl font-semibold uppercase text-ink">From field operator to project lead</p>
+          <p className="mt-3 font-sans text-2xl font-semibold uppercase text-ink">From field operator to project lead</p>
           <p className="mt-4 text-sm leading-relaxed text-ink-muted">
             A profile-style section for trust pages with chronology, credentials, and why the leadership approach matters for delivery.
           </p>
@@ -164,7 +164,7 @@ function FooterCandidate({ tone }: { tone: Tone }) {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[3px] bg-[color:var(--y)]/45" aria-hidden />
         <div className="grid gap-8 px-6 py-8 lg:grid-cols-[1.1fr_1fr_1fr_1fr]">
           <div className="relative">
-            <p className="font-serif text-xl font-semibold uppercase">Ground Level Contracting</p>
+            <p className="font-sans text-xl font-semibold uppercase">Ground Level Contracting</p>
             <p className={`mt-3 text-sm ${tone === "light" ? "text-ink-muted" : "text-white/70"}`}>
               Footer candidate with uneven column masses, map/contact emphasis, and a legal rail.
             </p>
@@ -206,7 +206,7 @@ function PortfolioGalleryCandidate({ tone }: { tone: Tone }) {
           <div className={`absolute inset-0 ${isLight ? "bg-gradient-to-t from-[rgb(0_0_0/0.35)] to-transparent" : "bg-gradient-to-t from-[rgb(0_0_0/0.72)] to-transparent"}`} />
           <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
             <p className="eyebrow text-ink">Featured project</p>
-            <p className="mt-2 font-serif text-xl font-semibold uppercase">Industrial pad expansion</p>
+            <p className="mt-2 font-sans text-xl font-semibold uppercase">Industrial pad expansion</p>
           </div>
         </div>
         <div className="grid gap-4 lg:col-span-5">
@@ -233,7 +233,7 @@ function WhyChooseUsCandidate({ tone }: { tone: Tone }) {
         {[1, 2, 3].map((n) => (
           <article key={n} className={`relative border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] p-5 shadow-[0_12px_30px_rgb(0_0_0/0.14)] ${itemTone} ${n === 2 ? "lg:-translate-y-3" : ""}`}>
             <p className="eyebrow text-[color:var(--y)]">0{n}</p>
-            <p className="mt-2 font-serif text-lg font-semibold uppercase">Reason headline</p>
+            <p className="mt-2 font-sans text-lg font-semibold uppercase">Reason headline</p>
             <p className={`mt-3 text-sm leading-relaxed ${tone === "light" ? "text-ink-muted" : "text-white/76"}`}>
               Benefit-oriented reason card with asymmetrical offset rhythm and clear scan hierarchy.
             </p>
@@ -267,7 +267,7 @@ function ParallaxHeroCandidate({ tone }: { tone: Tone }) {
         <div className="absolute bottom-8 left-8 right-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-end">
           <div className="max-w-2xl rounded-sm border border-white/12 bg-[rgb(10_12_11/0.48)] p-6 text-white shadow-[0_24px_70px_rgb(0_0_0/0.38)] backdrop-blur-md">
             <p className="eyebrow text-white">Parallax concept</p>
-            <p className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">
+            <p className="mt-3 font-sans text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">
               Full-width momentum section
             </p>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/82">
@@ -281,8 +281,8 @@ function ParallaxHeroCandidate({ tone }: { tone: Tone }) {
             }`}
           >
             <p className="eyebrow text-[color:var(--y)]">Deployment CTA</p>
-            <p className={`mt-2 font-serif text-xl font-semibold uppercase ${isLight ? "text-ink" : "text-white"}`}>Book site review call</p>
-            <a href="#contact" className="cta-primary mt-5 inline-block px-6 py-3 text-xs font-semibold tracking-wide">
+            <p className={`mt-2 font-sans text-xl font-semibold uppercase ${isLight ? "text-ink" : "text-white"}`}>Book site review call</p>
+            <a href="#contact" className="cta-primary mt-5 inline-block px-6 py-3 text-xs font-semibold uppercase tracking-[0.12em]">
               Start consultation
             </a>
           </div>
@@ -309,9 +309,9 @@ function CinematicVideoCtaCandidate({ tone }: { tone: Tone }) {
             isLight ? "bg-[color:var(--brand-canvas)] text-ink" : "bg-[rgb(24_26_25/0.9)] text-white"
           }`}
         >
-          <p className={`font-serif text-xl font-semibold uppercase ${isLight ? "text-ink" : "text-white"}`}>Ready to move from concept to excavation?</p>
+          <p className={`font-sans text-xl font-semibold uppercase ${isLight ? "text-ink" : "text-white"}`}>Ready to move from concept to excavation?</p>
           <p className={`mt-3 text-sm leading-relaxed ${isLight ? "text-ink-muted" : "text-white/78"}`}>CTA-focused companion panel with action-first hierarchy for video-led sections.</p>
-          <a href="#contact" className="cta-primary mt-6 inline-block px-6 py-3 text-xs font-semibold tracking-wide">Book consultation</a>
+          <a href="#contact" className="cta-primary mt-6 inline-block px-6 py-3 text-xs font-semibold uppercase tracking-[0.12em]">Book consultation</a>
         </div>
       </div>
     </CandidateShell>
@@ -325,7 +325,7 @@ function CoverageMapCandidate({ tone }: { tone: Tone }) {
       <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(300px,0.9fr)_minmax(0,1.1fr)] lg:items-center">
         <div className={`border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] p-6 ${panelTone}`}>
           <p className="eyebrow text-[color:var(--y)]">Service territory</p>
-          <p className="mt-2 font-serif text-xl font-semibold uppercase">Barrie, Midland, Orillia, Simcoe County</p>
+          <p className="mt-2 font-sans text-xl font-semibold uppercase">Barrie, Midland, Orillia, Simcoe County</p>
           <ul className={`mt-4 space-y-2 text-sm ${tone === "light" ? "text-ink-muted" : "text-white/78"}`}>
             <li>Rapid dispatch lanes</li>
             <li>Commercial-first scheduling</li>
@@ -372,7 +372,7 @@ function EstimatorBandCandidate() {
           <div className="absolute -top-3 right-6 border border-[color:var(--y)]/50 bg-[color:var(--brand-canvas)] px-3 py-1 eyebrow text-[color:var(--y)]">
             24-hour turnaround
           </div>
-          <p className="font-serif text-2xl font-semibold uppercase text-ink">Project estimator intake</p>
+          <p className="font-sans text-2xl font-semibold uppercase text-ink">Project estimator intake</p>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-muted">
             Form-first conversion section for budgets, timelines, and scope categories with quick routing into quote workflows.
           </p>
@@ -383,7 +383,7 @@ function EstimatorBandCandidate() {
               {field}
             </div>
           ))}
-          <a href="#contact" className="cta-primary mt-2 inline-block px-6 py-3 text-center text-xs font-semibold tracking-wide">
+          <a href="#contact" className="cta-primary mt-2 inline-block px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
             Submit pre-brief
           </a>
         </div>
@@ -410,7 +410,7 @@ function BeforeAfterSliderCandidate() {
           </div>
         </div>
         <div className="border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[rgb(24_26_25/0.84)] p-6 text-white shadow-[0_16px_40px_rgb(0_0_0/0.24)]">
-          <p className="font-serif text-xl font-semibold uppercase">Visual proof section</p>
+          <p className="font-sans text-xl font-semibold uppercase">Visual proof section</p>
           <p className="mt-3 text-sm leading-relaxed text-white/78">
             A conversion-oriented trust block for showcasing measurable transformation from rough ground to ready-build condition.
           </p>
@@ -426,7 +426,7 @@ function EquipmentFleetCandidate() {
       <div className="mt-8 grid gap-5 lg:grid-cols-12">
         <div className="border border-[color:var(--g200)] bg-[color:var(--brand-canvas)] p-6 lg:col-span-5">
           <p className="eyebrow text-[color:var(--y)]">Fleet readiness</p>
-          <p className="mt-2 font-serif text-2xl font-semibold uppercase text-ink">Iron matched to scope</p>
+          <p className="mt-2 font-sans text-2xl font-semibold uppercase text-ink">Iron matched to scope</p>
           <p className="mt-3 text-sm leading-relaxed text-ink-muted">
             Useful for capability pages where procurement teams want machine class confidence and uptime positioning.
           </p>
@@ -457,7 +457,7 @@ function SafetyTimelineCandidate() {
                 {i + 1}
               </span>
               <div className="border border-[color:var(--g200)] bg-[rgb(22_24_23/0.82)] p-4 text-white shadow-[0_10px_28px_rgb(0_0_0/0.2)]">
-                <p className="font-serif text-lg font-semibold uppercase">{step}</p>
+                <p className="font-sans text-lg font-semibold uppercase">{step}</p>
               </div>
             </li>
           ))}
@@ -474,7 +474,7 @@ function SectorGridCandidate() {
         {["Industrial", "Commercial", "Civil", "Institutional"].map((sector, i) => (
           <article key={sector} className={`relative overflow-hidden border border-[color:var(--g200)] bg-[color:var(--brand-canvas)] p-5 shadow-[0_12px_28px_rgb(0_0_0/0.1)] ${i === 2 ? "lg:-translate-y-2" : ""}`}>
             <div className="absolute right-0 top-0 h-12 w-12 border-l border-b border-[color:var(--y)]/50" aria-hidden />
-            <p className="font-serif text-lg font-semibold uppercase text-ink">{sector}</p>
+            <p className="font-sans text-lg font-semibold uppercase text-ink">{sector}</p>
             <p className="mt-2 text-sm leading-relaxed text-ink-muted">Sector-specific constraints, sequencing, and delivery expectations.</p>
           </article>
         ))}
@@ -512,7 +512,7 @@ function SpecDownloadCandidate() {
     <CandidateShell id="review-spec-download" title="Spec and compliance download block" tone="light">
       <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.9fr)] lg:items-center">
         <div className="border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:var(--brand-canvas)] p-6">
-          <p className="font-serif text-2xl font-semibold uppercase text-ink">Spec package access</p>
+          <p className="font-sans text-2xl font-semibold uppercase text-ink">Spec package access</p>
           <p className="mt-3 text-sm leading-relaxed text-ink-muted">
             Download-ready section for insurance certs, WSIB letters, safety outlines, and method summaries.
           </p>
@@ -552,7 +552,7 @@ export function HomeReviewCandidates() {
     <div id="home-review-candidates" className="border-t-4 border-[color:var(--y)]/40">
       <div className="mx-auto max-w-[min(100%,var(--max))] px-4 py-10 sm:px-6 sm:py-12">
         <p className="label-overline mb-2 text-ink-muted">Home review candidates</p>
-        <h2 className="font-serif text-2xl font-semibold uppercase tracking-tight text-ink sm:text-3xl">
+        <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl">
           <span className="text-ink">Candidate </span>
           <span className="text-[color:var(--y)]">library</span>
         </h2>

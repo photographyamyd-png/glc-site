@@ -111,7 +111,7 @@ export default function MaintenancePage() {
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
               <a
                 href={phoneHref}
-                className="cta-primary inline-flex w-fit items-center gap-2 border border-[var(--y)] bg-[var(--y)] px-6 py-3 font-label text-xs font-extrabold uppercase tracking-[0.12em] text-ink transition-[transform,filter] duration-200 hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--y)]"
+                className="cta-primary inline-flex w-fit items-center gap-2 border border-[var(--y)] bg-[var(--y)] px-6 py-3 font-label text-xs font-semibold uppercase tracking-[0.12em] text-ink transition-[transform,filter] duration-200 hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--y)]"
               >
                 Call {phoneDisplay}
               </a>

@@ -78,7 +78,7 @@ export function GLProcess({
               <p className="label-overline mb-3">{p.eyebrow}</p>
               <h2
                 id={headingId}
-                className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+                className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
               >
                 {headingToneCanvas(p.heading)}
               </h2>
@@ -110,7 +110,7 @@ export function GLProcess({
                 <span className="eyebrow text-[color:var(--y)]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="mt-2 font-serif text-sm font-semibold uppercase tracking-[0.06em] text-ink">
+                <p className="mt-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-ink">
                   Step {String(i + 1).padStart(2, "0")}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-ink-muted">{step}</p>
@@ -121,7 +121,7 @@ export function GLProcess({
                 className={`${stepIsland} ${i === 1 ? "lg:-translate-y-4" : i === 2 ? "lg:translate-y-4" : ""}`}
               >
                 <span className="eyebrow text-[color:var(--y)]">{step.index}</span>
-                <p className="mt-2 font-serif text-sm font-semibold uppercase tracking-[0.06em] text-ink">{step.title}</p>
+                <p className="mt-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-ink">{step.title}</p>
                 <p className="mt-2 text-sm leading-relaxed text-ink-muted">{step.body}</p>
               </li>
             ),

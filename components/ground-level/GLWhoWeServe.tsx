@@ -83,7 +83,7 @@ export function GLWhoWeServe({
             <p className="label-overline-on-dark mb-3">{a.eyebrow}</p>
             <h2
               id={headingId}
-              className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl"
+              className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
             >
               {headingTone(a.heading)}
             </h2>
@@ -112,11 +112,11 @@ export function GLWhoWeServe({
               })}
             </ul>
             {isInternalRoute ? (
-              <Link href={ctaHref} className="cta-hero-fill mt-8 inline-block px-8 py-4 text-sm font-semibold tracking-wide">
+              <Link href={ctaHref} className="cta-hero-fill mt-8 inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.12em]">
                 {ctaLabel}
               </Link>
             ) : (
-              <a href={ctaHref} className="cta-hero-fill mt-8 inline-block px-8 py-4 text-sm font-semibold tracking-wide">
+              <a href={ctaHref} className="cta-hero-fill mt-8 inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.12em]">
                 {ctaLabel}
               </a>
             )}
@@ -138,7 +138,7 @@ export function GLWhoWeServe({
               </div>
 
               <div className="panel-machined-dark absolute -right-2 top-6 z-[3] hidden max-w-[11.5rem] border border-white/18 bg-[color:var(--ink-mid)] p-4 shadow-[0_20px_48px_rgb(0_0_0/0.4)] sm:block lg:-right-4 lg:top-10">
-                <p className="font-serif text-lg font-semibold leading-tight text-white">{a.mediaStat}</p>
+                <p className="font-serif text-lg font-bold leading-tight tracking-[-0.04em] text-white">{a.mediaStat}</p>
                 <p className="mt-2 eyebrow leading-snug text-white">{a.badge}</p>
               </div>
             </div>

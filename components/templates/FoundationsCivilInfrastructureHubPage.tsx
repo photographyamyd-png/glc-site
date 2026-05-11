@@ -35,7 +35,7 @@ export function FoundationsCivilInfrastructureHubPage() {
         <div className="border-l-4 border-[color:var(--y)] pl-5 lg:col-span-6">
           <p className="eyebrow text-ink">Overview & trust</p>
           <p className="mt-2 eyebrow text-ink-muted">Field-led crews · WSIB · Liability coverage</p>
-          <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">
+          <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
             Why teams spec us on <span className="text-[color:var(--y)]">civil packages</span>
           </h2>
           <div className="mt-[var(--s7)] max-w-[min(100%,42rem)] space-y-6">
@@ -60,7 +60,7 @@ export function FoundationsCivilInfrastructureHubPage() {
                 <li key={item.title} className="flex gap-3">
                   <span className="mt-1.5 inline-block h-2 w-2 shrink-0 bg-[color:var(--y)]" aria-hidden />
                   <div className="min-w-0">
-                    <p className="font-serif text-sm font-bold uppercase tracking-[0.02em] text-ink sm:text-base">{item.title}</p>
+                    <p className="font-serif text-sm font-bold uppercase tracking-[0.04em] text-ink sm:text-base">{item.title}</p>
                     <p className="mt-1 text-[15px] leading-[1.72] text-ink sm:text-base">{item.body}</p>
                   </div>
                 </li>
@@ -79,7 +79,7 @@ export function FoundationsCivilInfrastructureHubPage() {
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))]">
         <div className="border-l-4 border-[color:var(--y)] pl-5">
           <p className="eyebrow text-ink">Capabilities</p>
-          <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">
+          <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
             Our Foundations & Civil Infrastructure Services
           </h2>
         </div>
@@ -92,7 +92,7 @@ export function FoundationsCivilInfrastructureHubPage() {
               href={`/services/foundations-civil-infrastructure/${card.slug}/`}
               className="group bespoke-surface panel-machined flex flex-col border border-[color:var(--g200)] bg-white p-5 transition-[box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-lg motion-reduce:transform-none sm:p-6"
             >
-              <span className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink group-hover:text-[color:var(--y)] sm:text-2xl">
+              <span className="font-serif text-xl font-bold uppercase tracking-[0.04em] text-ink group-hover:text-[color:var(--y)] sm:text-2xl">
                 {card.title}
               </span>
               <p className="mt-3 flex-1 text-[15px] leading-[1.72] text-ink sm:text-base">{card.blurb}</p>
@@ -114,7 +114,7 @@ export function FoundationsCivilInfrastructureHubPage() {
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))]">
         <div className="border-l-4 border-[color:var(--y)] pl-5">
           <p className="eyebrow text-ink">Differentiators</p>
-          <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">
+          <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
             Why Builders, Developers & Municipalities Choose Us
           </h2>
         </div>
@@ -125,7 +125,7 @@ export function FoundationsCivilInfrastructureHubPage() {
               name="foundations-why"
               className="foundations-hub-details group border border-[color:var(--g200)] bg-white p-4 shadow-sm panel-machined"
             >
-              <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink marker:content-none sm:text-2xl [&::-webkit-details-marker]:hidden">
+              <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-xl font-bold uppercase tracking-[0.04em] text-ink marker:content-none sm:text-2xl [&::-webkit-details-marker]:hidden">
                 <span>{block.heading}</span>
                 <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
                 <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
@@ -145,7 +145,7 @@ export function FoundationsCivilInfrastructureHubPage() {
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))]">
         <div className="border-l-4 border-[color:var(--y)] pl-5">
           <p className="eyebrow text-ink">Coverage</p>
-          <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">
+          <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
             {FOUNDATIONS_SERVICE_AREA.heading}
           </h2>
         </div>
@@ -176,14 +176,14 @@ export function FoundationsCivilInfrastructureHubPage() {
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))]">
         <div className="border-l-4 border-[color:var(--y)] pl-5">
           <p className="eyebrow text-ink">FAQ</p>
-          <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">
+          <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
             Frequently Asked Questions — Foundations & Civil Infrastructure
           </h2>
         </div>
         <div className="mt-10 space-y-3">
           {FOUNDATIONS_FAQ.map((item) => (
             <details key={item.q} name="foundations-faq" className="foundations-hub-details group border border-[color:var(--g200)] bg-white p-4 panel-machined">
-              <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink marker:content-none sm:text-2xl [&::-webkit-details-marker]:hidden">
+              <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-xl font-bold uppercase tracking-[0.04em] text-ink marker:content-none sm:text-2xl [&::-webkit-details-marker]:hidden">
                 <span>{item.q}</span>
                 <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
                 <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
@@ -203,12 +203,12 @@ export function FoundationsCivilInfrastructureHubPage() {
         <ClaudeLogicWatermark placement="bottom-left" mode="on-dark" className="opacity-[0.1]" />
         <div className="relative z-10 border-l-4 border-[color:var(--y)] pl-5">
           <p className="eyebrow text-white">Mid-page CTA</p>
-          <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">
+          <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">
             {FOUNDATIONS_MID_CTA.heading}
           </h2>
           <p className="mt-[var(--s7)] max-w-prose text-[15px] leading-[1.72] text-white/90 sm:text-base">{FOUNDATIONS_MID_CTA.sub}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href="/contact/" className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]">
+            <Link href="/contact/" className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
               {FOUNDATIONS_HUB_HERO.ctaPrimaryLabel}
             </Link>
             <Link
@@ -225,13 +225,13 @@ export function FoundationsCivilInfrastructureHubPage() {
       <section className="relative border border-[color:var(--g200)] bg-white p-6 sm:p-10">
         <div className="border-l-4 border-[color:var(--y)] pl-5">
           <p className="eyebrow text-ink">Final CTA</p>
-          <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">
+          <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
             {FOUNDATIONS_FINAL_CTA.heading}
           </h2>
           <p className="mt-[var(--s7)] max-w-prose text-[15px] leading-[1.72] text-ink sm:text-base">{FOUNDATIONS_FINAL_CTA.bodyA}</p>
           <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-ink sm:text-base">{FOUNDATIONS_FINAL_CTA.bodyB}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href="/contact/" className="cta-hero-fill inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]">
+            <Link href="/contact/" className="cta-hero-fill inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
               {FOUNDATIONS_HUB_HERO.ctaPrimaryLabel}
             </Link>
             <Link
@@ -268,7 +268,7 @@ export function FoundationsCivilInfrastructureHubPage() {
               Foundations & Civil Infrastructure Built to Last —{" "}
               <span className="text-[color:var(--y)]">Serving Barrie, Orillia & Simcoe County</span>
             </h1>
-            <h2 className="mt-6 max-w-4xl font-serif text-base font-semibold uppercase leading-snug tracking-tight text-white/90 sm:text-lg">
+            <h2 className="mt-6 max-w-4xl font-serif text-base font-bold uppercase leading-snug tracking-tight text-white/90 sm:text-lg">
               {FOUNDATIONS_HUB_HERO.h2}
             </h2>
             <p className="mt-6 max-w-prose text-[15px] leading-[1.72] text-white/90 sm:text-base">{FOUNDATIONS_HUB_HERO.introA}</p>
@@ -277,7 +277,7 @@ export function FoundationsCivilInfrastructureHubPage() {
             <div className="hero-cta-row mt-6 grid gap-3 border border-white/14 bg-[rgb(0_0_0/0.24)] p-4 sm:grid-cols-2 sm:items-stretch">
               <Link
                 href="/contact/"
-                className="cta-hero-fill flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
+                className="cta-hero-fill flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]"
               >
                 {FOUNDATIONS_HUB_HERO.ctaPrimaryLabel}
               </Link>

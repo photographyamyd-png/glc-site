@@ -125,11 +125,11 @@ export function SiteHeader() {
                   Company <span className="text-[10px] font-normal text-ink-muted">{companyOpen ? "▲" : "▼"}</span>
                 </button>
               </div>
-              <Link href="/contact" className="cta-primary ml-2 px-4 py-2.5 text-[11px] tracking-wide">Site consultation</Link>
+              <Link href="/contact" className="cta-primary ml-2 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em]">Site consultation</Link>
             </nav>
 
             <div className="flex items-center gap-2 xl:hidden">
-              <Link href="/contact" className="cta-primary px-3 py-2 text-[10px] tracking-wide sm:px-4 sm:text-[11px]">
+              <Link href="/contact" className="cta-primary px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] sm:px-4 sm:text-[11px]">
                 Site consultation
               </Link>
               <button
@@ -206,7 +206,7 @@ export function SiteHeader() {
                   </a>
                   <Link
                     href="/contact"
-                    className="cta-primary inline-block w-full px-4 py-3 text-center text-xs tracking-wide"
+                    className="cta-primary inline-block w-full px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]"
                     onClick={closeAll}
                   >
                     Site consultation
@@ -262,7 +262,7 @@ export function SiteHeader() {
             <Link href="/#process" className="border border-black/[0.1] bg-white/95 px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>Process</Link>
             <Link href="/#coverage" className="border border-black/[0.1] bg-white/95 px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>Coverage</Link>
             <Link href="/#testimonials" className="border border-black/[0.1] bg-white/95 px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>Projects</Link>
-            <Link href="/contact" className="cta-primary mt-1 px-4 py-3 text-center text-sm" onClick={closeAll}>Site consultation</Link>
+            <Link href="/contact" className="cta-primary mt-1 px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>Site consultation</Link>
           </div>
         </div>
       ) : null}

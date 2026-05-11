@@ -53,7 +53,7 @@ function SectionShell({
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))]">
         <div className={`max-w-4xl border ${c.shellBorder} border-l-[5px] border-l-[color:var(--y)] p-5 backdrop-blur-md ${c.shell}`}>
           <p className={c.label}>Hero entry variation</p>
-          <h2 id={`${id}-heading`} className={`mt-2 font-serif text-3xl font-semibold uppercase tracking-tight sm:text-4xl ${c.heading}`}>
+          <h2 id={`${id}-heading`} className={`mt-2 font-serif text-3xl font-bold uppercase tracking-tight sm:text-4xl ${c.heading}`}>
             <span className={c.heading}>{split.base} </span>
             <span className="text-[color:var(--y)]">{split.accent}</span>
           </h2>
@@ -81,7 +81,7 @@ function KineticSpine({ tone }: { tone: Tone }) {
         </div>
         <div className="pl-0 lg:pl-10">
           <p className={c.label}>Optical counterweight</p>
-          <h3 className={`mt-2 font-serif text-5xl font-semibold uppercase leading-[0.95] tracking-tight sm:text-6xl ${c.heading}`}>
+          <h3 className={`mt-2 font-serif text-5xl font-bold uppercase leading-[0.95] tracking-tight sm:text-6xl ${c.heading}`}>
             <span className={c.heading}>Mass on the </span>
             <span className="text-[color:var(--y)]">left</span>
           </h3>
@@ -118,7 +118,7 @@ function AtmosphericLoop({ tone }: { tone: Tone }) {
           <div className="absolute inset-y-0 right-0 flex w-full max-w-[560px] items-center pr-6">
             <div className="w-full border border-white/18 bg-[rgb(255_255_255/0.14)] p-6 text-white backdrop-blur-lg">
               <p className="eyebrow text-[color:var(--y)]">Mood entry</p>
-              <p className="mt-2 font-serif text-4xl font-semibold uppercase leading-tight">
+              <p className="mt-2 font-serif text-4xl font-bold uppercase leading-none tracking-[-0.04em]">
                 <span className="text-white">Atmosphere </span>
                 <span className="text-[color:var(--y)]">first</span>
               </p>
@@ -146,7 +146,7 @@ function SplitShiftHero({ tone }: { tone: Tone }) {
           <div className="absolute inset-0 bg-gradient-to-r from-[rgb(0_0_0/0.46)] to-[rgb(0_0_0/0.15)]" aria-hidden />
           <div className="absolute left-8 top-1/2 -translate-y-1/2 w-[min(90%,480px)] border border-white/20 bg-[rgb(255_255_255/0.14)] p-6 text-white backdrop-blur-lg shadow-[0_20px_52px_rgb(0_0_0/0.34)]">
             <p className="eyebrow text-[color:var(--y)]">Split overlay</p>
-            <h3 className="mt-2 font-serif text-4xl font-semibold uppercase leading-tight">
+            <h3 className="mt-2 font-serif text-4xl font-bold uppercase leading-tight">
               <span className="text-white">Shift the </span>
               <span className="text-[color:var(--y)]">grid</span>
             </h3>
@@ -155,7 +155,7 @@ function SplitShiftHero({ tone }: { tone: Tone }) {
         </div>
         <aside className={`border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] p-6 ${tone === "light" ? "bg-white text-ink" : "bg-[rgb(23_26_24/0.9)] text-white"}`}>
           <p className={c.label}>Sticky detail rail</p>
-          <p className={`mt-3 font-serif text-2xl font-semibold uppercase ${c.heading}`}>
+          <p className={`mt-3 font-sans text-2xl font-semibold uppercase ${c.heading}`}>
             <span className={c.heading}>30% command </span>
             <span className="text-[color:var(--y)]">panel</span>
           </p>
@@ -190,7 +190,7 @@ function CoordinatesEntry({ tone }: { tone: Tone }) {
         </div>
         <div className="pt-4 lg:pt-10">
           <p className={c.label}>Technical authority</p>
-          <h3 className={`mt-2 font-serif text-5xl font-semibold uppercase leading-[0.95] tracking-tight sm:text-6xl ${c.heading}`}>
+          <h3 className={`mt-2 font-serif text-5xl font-bold uppercase leading-[0.95] tracking-tight sm:text-6xl ${c.heading}`}>
             <span className={c.heading}>Coordinates as </span>
             <span className="text-[color:var(--y)]">entry</span>
           </h3>
@@ -208,7 +208,7 @@ export function HeroEntryVariationsSet() {
     <section id="review-hero-entry-variations-set" className="border-t-4 border-[color:var(--y)]/45">
       <div className="mx-auto max-w-[min(100%,var(--max))] px-4 py-10 sm:px-6 sm:py-12">
         <p className="label-overline mb-2 text-ink-muted">Hero & entry variation block</p>
-        <h2 className="font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">
+        <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
           <span className="text-ink">Optical weight </span>
           <span className="text-[color:var(--y)]">balancing</span>
         </h2>

@@ -16,7 +16,7 @@ export function ServiceLayoutLabA({ items }: Props) {
         <p className="label-overline mb-2">Layout option A — Zigzag editorial</p>
         <h2
           id="service-layout-lab-a-heading"
-          className="font-serif text-2xl font-semibold uppercase tracking-tight text-ink sm:text-3xl"
+          className="font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl"
         >
           <span className="text-ink">Six service lines — </span>
           <span className="text-[color:var(--y)]">alternating media and copy</span>
@@ -43,7 +43,7 @@ export function ServiceLayoutLabA({ items }: Props) {
                   <p className="eyebrow text-ink-muted">
                     {String(i + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="mt-2 font-serif text-xl font-semibold uppercase tracking-tight text-ink sm:text-2xl lg:text-3xl">
+                  <h3 className="mt-2 font-serif text-xl font-bold uppercase leading-tight tracking-[0.04em] text-ink sm:text-2xl lg:text-3xl">
                     {serviceTitleTone(item.title)}
                   </h3>
                   <p className="mt-4 text-sm leading-relaxed text-ink-muted sm:text-base">{item.short}</p>

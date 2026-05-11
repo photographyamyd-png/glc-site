@@ -47,7 +47,7 @@ export function GLPedigree() {
                   ✓
                 </span>
               </div>
-              <p className="mt-4 font-serif text-sm font-semibold uppercase tracking-[0.12em] text-ink">{s.label}</p>
+              <p className="mt-4 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-ink">{s.label}</p>
               <p className="mt-1 text-xs text-ink-muted">{s.sub}</p>
             </li>
           ))}

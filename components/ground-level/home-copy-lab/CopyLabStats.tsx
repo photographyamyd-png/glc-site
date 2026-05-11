@@ -61,7 +61,7 @@ export function CopyLabStats(props: { content?: CopyLabStatsContent } = {}) {
               <p className="eyebrow text-ink">{s.eyebrow}</p>
               <h2
                 id="metrics-heading"
-                className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+                className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
               >
                 {s.heading}
               </h2>
@@ -77,7 +77,7 @@ export function CopyLabStats(props: { content?: CopyLabStatsContent } = {}) {
                   }`}
                 >
                   <p
-                    className={`font-serif text-3xl font-bold leading-tight tracking-[-0.04em] tabular-nums sm:text-4xl ${
+                    className={`font-serif text-3xl font-bold leading-none tracking-[-0.04em] tabular-nums sm:text-4xl ${
                       i === 0 ? "text-[color:var(--y)]" : "text-ink"
                     }`}
                   >

@@ -77,7 +77,7 @@ export function DrainageSubServiceTabs({
           <p className="mb-3 eyebrow text-ink">{eyebrow}</p>
           <h2
             id={headingId}
-            className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+            className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
           >
             {title}
           </h2>
@@ -143,7 +143,7 @@ export function DrainageSubServiceTabs({
                     </div>
                   </div>
                   <div className="lg:col-span-7">
-                    <h3 className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink sm:text-2xl">
+                    <h3 className="font-serif text-xl font-bold uppercase tracking-[0.04em] text-ink sm:text-2xl">
                       {item.heading}
                     </h3>
                     <div className="mt-6 space-y-8">

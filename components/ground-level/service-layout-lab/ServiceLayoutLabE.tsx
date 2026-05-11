@@ -20,7 +20,7 @@ export function ServiceLayoutLabE({ items }: Props) {
         <p className="label-overline mb-2">Layout option E — Magazine hero + satellites</p>
         <h2
           id="service-layout-lab-e-heading"
-          className="font-serif text-2xl font-semibold uppercase tracking-tight text-ink sm:text-3xl"
+          className="font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl"
         >
           <span className="text-ink">One lead story, then a </span>
           <span className="text-[color:var(--y)]">supporting grid</span>
@@ -40,7 +40,7 @@ export function ServiceLayoutLabE({ items }: Props) {
               <span className="eyebrow text-[color:var(--y)]">
                 Lead service line
               </span>
-              <h3 className="mt-3 font-serif text-2xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-3xl">
+              <h3 className="mt-3 font-serif text-2xl font-bold uppercase leading-tight tracking-[0.04em] text-ink sm:text-3xl">
                 {serviceTitleTone(featured.title)}
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-ink-muted sm:text-base">{featured.short}</p>
@@ -74,7 +74,7 @@ export function ServiceLayoutLabE({ items }: Props) {
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col p-4">
-                  <h3 className="font-serif text-sm font-semibold uppercase leading-snug tracking-tight text-ink sm:text-base">
+                  <h3 className="font-serif text-sm font-bold uppercase leading-snug tracking-[0.04em] text-ink sm:text-base">
                     {serviceTitleTone(item.title)}
                   </h3>
                   <p className="mt-2 flex-1 text-xs leading-relaxed text-ink-muted">{item.short}</p>

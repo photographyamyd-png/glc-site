@@ -108,7 +108,7 @@ export const TruckHero = () => (
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45 }}
-      className="font-serif text-4xl font-semibold uppercase tracking-tight sm:text-5xl"
+      className="font-serif text-4xl font-bold uppercase tracking-tight sm:text-5xl"
     >
       Built From the <span className="text-[color:var(--yellow-core)]">Ground Up</span>
     </motion.h1>
@@ -121,7 +121,7 @@ export const TruckHero = () => (
 
 export const TruckPricingCard = () => (
   <TruckCard>
-    <h3 className="font-serif text-xl font-semibold uppercase tracking-tight">Standard Package</h3>
+    <h3 className="font-serif text-xl font-bold uppercase leading-tight tracking-[0.04em]">Standard Package</h3>
     <p className="mt-2 text-sm leading-relaxed text-white/75">Perfect for most project mobilization scopes.</p>
     <TruckButton className="mt-4">Choose Plan</TruckButton>
   </TruckCard>

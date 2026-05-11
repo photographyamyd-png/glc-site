@@ -190,7 +190,7 @@ export function ProcessVerticalFlow() {
             </p>
             <h2
               id="process-vertical-flow-lab-heading"
-              className="mt-[var(--s7)] font-serif text-[clamp(2.4rem,6vw,5.2rem)] font-semibold uppercase leading-[0.92] tracking-tight"
+              className="mt-[var(--s7)] font-serif text-[clamp(2.4rem,6vw,5.2rem)] font-bold uppercase leading-[0.92] tracking-tight"
             >
               <PaintedHeading
                 text={`${HERO.titleLine1} ${HERO.titleLine2} ${HERO.titleLine3}`}
@@ -229,7 +229,7 @@ export function ProcessVerticalFlow() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 href="/contact/"
-                className="cta-primary inline-flex min-h-[44px] items-center justify-center px-6 py-3 text-xs font-bold uppercase tracking-[0.14em]"
+                className="cta-primary inline-flex min-h-[44px] items-center justify-center px-6 py-3 text-xs font-semibold uppercase tracking-[0.12em]"
               >
                 Get project quote
               </Link>
@@ -271,7 +271,7 @@ export function ProcessVerticalFlow() {
                 </p>
                 <h2
                   id="process-vertical-flow-lab-split-heading"
-                  className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight sm:text-4xl"
+                  className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight sm:text-4xl"
                 >
                   <PaintedHeading
                     text={PROCESS.heading}
@@ -294,7 +294,7 @@ export function ProcessVerticalFlow() {
               <div className="mt-8">
                 <Link
                   href="/contact/"
-                  className="cta-primary inline-flex min-h-[44px] items-center justify-center px-6 py-3 text-xs font-bold uppercase tracking-[0.14em]"
+                  className="cta-primary inline-flex min-h-[44px] items-center justify-center px-6 py-3 text-xs font-semibold uppercase tracking-[0.12em]"
                 >
                   {HERO.primaryCta}
                 </Link>
@@ -323,7 +323,7 @@ export function ProcessVerticalFlow() {
                   <p className="eyebrow text-white">
                     {WHY.eyebrow}
                   </p>
-                  <p className="mt-1 font-serif text-lg font-semibold uppercase leading-tight tracking-tight text-white sm:text-xl">
+                  <p className="mt-1 font-serif text-lg font-bold uppercase leading-tight tracking-[0.04em] text-white sm:text-xl">
                     {WHY.heading}
                   </p>
                 </div>
@@ -359,7 +359,7 @@ export function ProcessVerticalFlow() {
             </p>
             <h2
               id="process-vertical-flow-lab-industries-heading"
-              className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight sm:text-4xl"
+              className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight sm:text-4xl"
             >
               <span className="text-white">Industries we </span>
               <span className="text-[color:var(--y)]">serve</span>
@@ -394,7 +394,7 @@ export function ProcessVerticalFlow() {
                     <span className="eyebrow text-white">
                       Sector
                     </span>
-                    <span className="mt-2 font-serif text-xl font-bold uppercase tracking-[0.02em] text-white group-hover:text-[color:var(--y)] sm:text-2xl">
+                    <span className="mt-2 font-serif text-xl font-bold uppercase tracking-[0.04em] text-white group-hover:text-[color:var(--y)] sm:text-2xl">
                       {item.label}
                     </span>
                     <span className="mt-3 text-[15px] leading-[1.72] text-white/90 sm:text-base">
@@ -428,7 +428,7 @@ export function ProcessVerticalFlow() {
               </p>
               <h2
                 id="process-vertical-flow-lab-offers-heading"
-                className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight sm:text-4xl"
+                className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight sm:text-4xl"
               >
                 <span className="text-ink">Site process </span>
                 <span className="text-[color:var(--y)]">offerings</span>
@@ -451,7 +451,7 @@ export function ProcessVerticalFlow() {
                   <p className="font-serif text-4xl font-bold leading-none tracking-[-0.04em] text-[color:var(--y)]">
                     {step.id || "00"}
                   </p>
-                  <p className="mt-3 font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink sm:text-2xl">
+                  <p className="mt-3 font-serif text-xl font-bold uppercase tracking-[0.04em] text-ink sm:text-2xl">
                     {step.title}
                   </p>
                   <p className="mt-3 text-[15px] leading-[1.72] text-ink sm:text-base">
@@ -501,7 +501,7 @@ export function ProcessVerticalFlow() {
             </p>
             <h2
               id="process-vertical-flow-lab-showcase-heading"
-              className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+              className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight sm:text-4xl lg:text-5xl"
             >
               <span className="text-white">{HOME_COPY.testimonialsFeature.heading} </span>
               <span className="text-[color:var(--y)]">
@@ -523,7 +523,7 @@ export function ProcessVerticalFlow() {
             <div className="mt-8">
               <Link
                 href={HOME_COPY.testimonialsFeature.cta.href}
-                className="cta-primary inline-flex min-h-[44px] items-center justify-center px-6 py-3 text-xs font-bold uppercase tracking-[0.14em]"
+                className="cta-primary inline-flex min-h-[44px] items-center justify-center px-6 py-3 text-xs font-semibold uppercase tracking-[0.12em]"
               >
                 {HOME_COPY.testimonialsFeature.cta.label}
               </Link>
@@ -578,7 +578,7 @@ export function ProcessVerticalFlow() {
                 </p>
                 <h2
                   id="process-vertical-flow-lab-final-heading"
-                  className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+                  className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight sm:text-4xl lg:text-5xl"
                 >
                   <PaintedHeading
                     text={CTA_BAND.heading}
@@ -596,7 +596,7 @@ export function ProcessVerticalFlow() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Link
                   href={PHONE_TEL}
-                  className="cta-primary inline-flex min-h-[44px] items-center justify-center px-6 py-3 text-xs font-bold uppercase tracking-[0.14em]"
+                  className="cta-primary inline-flex min-h-[44px] items-center justify-center px-6 py-3 text-xs font-semibold uppercase tracking-[0.12em]"
                 >
                   {CTA_BAND.phoneLabel}
                 </Link>

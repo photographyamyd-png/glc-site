@@ -48,7 +48,7 @@ export function CTAButton({
   icon?: ReactNode;
 }) {
   const base =
-    "inline-flex min-h-[48px] items-center justify-center gap-2 px-6 text-center font-label text-xs font-bold uppercase tracking-[0.08em] transition-[transform,box-shadow] duration-200 ease-out";
+    "inline-flex min-h-[48px] items-center justify-center gap-2 px-6 text-center font-label text-xs font-semibold uppercase tracking-[0.12em] transition-[transform,box-shadow] duration-200 ease-out";
   const styles =
     variant === "primary"
       ? "bg-[color:var(--y)] text-ink hover:brightness-105"

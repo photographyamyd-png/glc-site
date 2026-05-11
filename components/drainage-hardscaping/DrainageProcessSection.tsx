@@ -51,7 +51,7 @@ export function DrainageProcessSection({ headingId = "process-h2" }: { headingId
               <SectionEyebrow text={DRAINAGE_PROCESS.eyebrow} band="light" />
               <h2
                 id={headingId}
-                className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-[clamp(36px,3.5vw,52px)]"
+                className="mt-[var(--s7)] font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-[clamp(36px,3.5vw,52px)]"
               >
                 {headingAccent(DRAINAGE_PROCESS.h2)}
               </h2>
@@ -81,7 +81,7 @@ export function DrainageProcessSection({ headingId = "process-h2" }: { headingId
                 )}
               >
                 <span className="eyebrow text-[color:var(--y)]">{String(i + 1).padStart(2, "0")}</span>
-                <p className="mt-2 font-serif text-sm font-semibold uppercase tracking-[0.06em] text-ink">{step.title}</p>
+                <p className="mt-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-ink">{step.title}</p>
                 <div className="mt-3 space-y-3">
                   {step.paras.map((para) => (
                     <p key={para.slice(0, 48)} className="text-sm leading-relaxed text-ink-muted sm:text-[15px] sm:leading-[1.72]">

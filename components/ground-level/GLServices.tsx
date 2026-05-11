@@ -53,7 +53,7 @@ export function GLServices() {
           <p className="label-overline mb-3">{SERVICES_GRID.eyebrow}</p>
           <h2
             id="services-heading"
-            className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+            className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
           >
             {headingToneCanvas(SERVICES_GRID.heading)}
           </h2>
@@ -69,7 +69,7 @@ export function GLServices() {
                 <span className="eyebrow text-ink-muted">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="relative z-[1] mt-3 font-serif text-xl font-semibold uppercase tracking-tight text-ink transition-colors group-hover:text-[color:var(--ink-deep)]">
+                <span className="relative z-[1] mt-3 font-serif text-xl font-bold uppercase leading-tight tracking-[0.04em] text-ink transition-colors group-hover:text-[color:var(--ink-deep)]">
                   {serviceTitleTone(s.title)}
                 </span>
                 <span className="relative z-[1] mt-2 flex-1 text-sm leading-relaxed text-ink-muted">

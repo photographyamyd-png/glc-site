@@ -189,11 +189,11 @@ export function GLHero({
                   Start with a scoped consultation, then move to pricing and mobilization.
                 </p>
                 {isInternalRoute(c.primaryCta.href) ? (
-                  <Link href={c.primaryCta.href} className="cta-hero-fill px-5 py-3 text-center text-xs tracking-wide">
+                  <Link href={c.primaryCta.href} className="cta-hero-fill px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
                     {c.primaryCta.label}
                   </Link>
                 ) : (
-                  <a href={c.primaryCta.href} className="cta-hero-fill px-5 py-3 text-center text-xs tracking-wide">
+                  <a href={c.primaryCta.href} className="cta-hero-fill px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
                     {c.primaryCta.label}
                   </a>
                 )}
@@ -305,11 +305,11 @@ export function GLHero({
 
         <div className="hero-cta-row mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           {isInternalRoute(c.primaryCta.href) ? (
-            <Link href={c.primaryCta.href} className="cta-hero-fill px-5 py-3 text-center text-xs tracking-wide">
+            <Link href={c.primaryCta.href} className="cta-hero-fill px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
               {c.primaryCta.label}
             </Link>
           ) : (
-            <a href={c.primaryCta.href} className="cta-hero-fill px-5 py-3 text-center text-xs tracking-wide">
+            <a href={c.primaryCta.href} className="cta-hero-fill px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
               {c.primaryCta.label}
             </a>
           )}

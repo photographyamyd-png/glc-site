@@ -97,7 +97,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
               <p className="eyebrow text-ink-muted">Operations snapshot</p>
               <h2
                 id="excavation-metrics-heading"
-                className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+                className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
               >
                 Field metrics
               </h2>
@@ -151,7 +151,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                 <p className="label-overline-on-dark mb-0">{detail.scopeStripLabels[0] ?? "Overview"}</p>
                 <h2
                   id="excavation-scope-heading"
-                  className="mt-6 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl"
+                  className="mt-6 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
                 >
                   <span className="text-white">{detail.scopeStripLabels[1] ?? "Scope"} — </span>
                   <span className="text-[color:var(--y)]">{detail.deliverablesHeading}</span>
@@ -176,7 +176,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                 </ul>
                 <Link
                   href="/contact/"
-                  className="cta-hero-fill mt-8 inline-block px-8 py-4 text-sm font-semibold tracking-wide"
+                  className="cta-hero-fill mt-8 inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.12em]"
                 >
                   {detail.ctaOverride.buttonLabel}
                 </Link>
@@ -210,7 +210,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
             <p className="eyebrow text-ink-muted">Capabilities</p>
             <h2
               id="excavation-deliverables-heading"
-              className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+              className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
             >
               What we deliver on site
             </h2>
@@ -234,11 +234,11 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                   <div className="absolute inset-0 bg-gradient-to-t from-[rgb(0_0_0/0.25)] to-transparent" aria-hidden />
                 </div>
                 <div className="flex flex-1 flex-col p-5 sm:p-7">
-                  <h3 className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink sm:text-2xl">{cap}</h3>
+                  <h3 className="font-serif text-xl font-bold uppercase tracking-[0.04em] text-ink sm:text-2xl">{cap}</h3>
                   <p className="mt-2 text-xs leading-snug text-ink-muted sm:text-sm">{DELIVERABLE_CARD_CAPTION}</p>
                   <Link
                     href="/contact/"
-                    className="cta-primary mt-6 inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-bold uppercase tracking-[0.12em]"
+                    className="cta-primary mt-6 inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em]"
                   >
                     Request this scope
                   </Link>
@@ -278,7 +278,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                 <p className="eyebrow text-white">{detail.scopeStripLabels[2] ?? "Capabilities"}</p>
                 <h2
                   id="excavation-trust-heading"
-                  className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl"
+                  className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
                 >
                   <span className="text-white">Trust & </span>
                   <span className="text-[color:var(--y)]">authority</span>
@@ -329,7 +329,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
             <p className="eyebrow text-white">Field standard</p>
             <h2
               id="excavation-editorial-heading"
-              className="mt-4 font-serif text-2xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-3xl"
+              className="mt-4 font-serif text-2xl font-bold uppercase leading-tight tracking-tight text-white sm:text-3xl"
             >
               Workmanship that carries the build
             </h2>
@@ -368,7 +368,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
               <p className="eyebrow text-ink">{detail.process.eyebrow}</p>
               <h2
                 id="excavation-process-heading"
-                className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+                className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
               >
                 {processAccentMatch ? (
                   <>
@@ -386,7 +386,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                     className="bespoke-surface panel-machined rounded-none border border-[color:var(--g200)] bg-white p-5"
                   >
                     <p className="eyebrow text-[color:var(--y)]">{step.id}</p>
-                    <p className="mt-2 font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink sm:text-2xl">{step.title}</p>
+                    <p className="mt-2 font-sans text-xl font-bold uppercase tracking-[0.04em] text-ink sm:text-2xl">{step.title}</p>
                     <p className={`mt-4 ${bodyLightMuted}`}>{step.body}</p>
                   </li>
                 ))}
@@ -409,7 +409,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                 <p className="eyebrow text-ink">{HOME_COPY.coverage.eyebrow}</p>
                 <h2
                   id="excavation-coverage-heading"
-                  className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+                  className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
                 >
                   Serving Barrie, Midland, Orillia &{" "}
                   <span className="text-[color:var(--y)]">Simcoe County</span>
@@ -448,7 +448,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
             <p className="eyebrow text-white">{testimonials.eyebrow}</p>
             <h2
               id="excavation-testimonials-heading"
-              className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl"
+              className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
             >
               <span className="text-white">Trusted by site supervisors </span>
               <span className="text-[color:var(--y)]">& PMs</span>
@@ -469,7 +469,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
           <div className="mt-10">
             <Link
               href="/contact/"
-              className="cta-hero-fill inline-flex min-h-[44px] items-center justify-center px-8 py-4 text-xs font-bold uppercase tracking-[0.14em]"
+              className="cta-hero-fill inline-flex min-h-[44px] items-center justify-center px-8 py-4 text-xs font-semibold uppercase tracking-[0.12em]"
             >
               Start consultation
             </Link>
@@ -501,7 +501,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
             <p className="eyebrow text-ink-muted">FAQ</p>
             <h2
               id="excavation-faq-heading"
-              className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+              className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
             >
               Common questions
             </h2>
@@ -544,7 +544,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
             <p className="eyebrow text-white">Related</p>
             <h2
               id="excavation-related-heading"
-              className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl"
+              className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
             >
               <span className="text-white">Other </span>
               <span className="text-[color:var(--y)]">service lines</span>
@@ -569,7 +569,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                     />
                   </div>
                   <div className="flex flex-1 flex-col justify-center border-l border-[color:var(--g200)] bg-[color:var(--brand-canvas)] p-4 sm:p-5">
-                    <span className="line-clamp-2 font-serif text-lg font-semibold uppercase tracking-tight text-ink group-hover:text-[color:var(--y)]">
+                    <span className="line-clamp-2 font-serif text-lg font-bold uppercase tracking-[0.04em] text-ink group-hover:text-[color:var(--y)]">
                       {r.title}
                     </span>
                     <span className={`mt-2 ${bodyLightPrimary}`}>{r.description}</span>
@@ -581,7 +581,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
           <div className="mt-8">
             <Link
               href="/services/"
-              className="cta-hero-fill inline-flex min-h-[44px] items-center px-8 py-4 text-sm font-semibold tracking-wide"
+              className="cta-hero-fill inline-flex min-h-[44px] items-center px-8 py-4 text-xs font-semibold uppercase tracking-[0.12em]"
             >
               All services
             </Link>

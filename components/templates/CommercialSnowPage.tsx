@@ -146,7 +146,7 @@ export function CommercialSnowPage({ service, related }: Props) {
               </ul>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Link href={COMMERCIAL_SNOW_HERO.ctas.primary.href} className="cta-hero-fill inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]">
+                <Link href={COMMERCIAL_SNOW_HERO.ctas.primary.href} className="cta-hero-fill inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
                   {COMMERCIAL_SNOW_HERO.ctas.primary.label}
                 </Link>
                 <Link
@@ -184,7 +184,7 @@ export function CommercialSnowPage({ service, related }: Props) {
                   key={t.label}
                   className="border border-[color:var(--g200)] bg-white p-5 shadow-[inset_0_1px_0_rgb(242_183_5/0.35)]"
                 >
-                  <p className="font-serif text-lg font-bold uppercase tracking-tight text-ink">{t.label}</p>
+                  <p className="font-sans text-lg font-bold uppercase tracking-[0.04em] text-ink">{t.label}</p>
                   <p className="mt-2 text-[15px] leading-[1.72] text-ink-muted">{t.sub}</p>
                 </div>
               ))}
@@ -196,11 +196,11 @@ export function CommercialSnowPage({ service, related }: Props) {
                 <p className="mt-6 eyebrow text-[color:var(--y)]" aria-hidden>
                   —
                 </p>
-                <p className="mt-2 max-w-prose font-serif text-xl font-bold uppercase tracking-tight text-ink/90">
+                <p className="mt-2 max-w-prose font-sans text-xl font-bold uppercase tracking-[0.04em] text-ink/90">
                   {COMMERCIAL_SNOW_VALUE_PROP.pullQuote}
                 </p>
                 <details className="mt-8 group border border-[color:var(--g200)] bg-white p-4">
-                  <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-sm font-semibold uppercase tracking-tight text-ink marker:content-none [&::-webkit-details-marker]:hidden">
+                  <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-sm font-bold uppercase tracking-[0.04em] text-ink marker:content-none [&::-webkit-details-marker]:hidden">
                     {COMMERCIAL_SNOW_VALUE_PROP.detailsSummary}
                     <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
                     <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
@@ -243,7 +243,7 @@ export function CommercialSnowPage({ service, related }: Props) {
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
             <p className="eyebrow text-white">Commercial programs</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">
               {COMMERCIAL_SNOW_SERVICES_CHAPTER.h2}
             </h2>
             <p className="mt-[var(--s7)] max-w-[42rem] text-[15px] leading-[1.72] text-white/90 sm:text-base">
@@ -259,7 +259,7 @@ export function CommercialSnowPage({ service, related }: Props) {
                 className="group flex min-h-[44px] flex-col border border-white/15 bg-[rgb(255_255_255/0.06)] p-4 backdrop-blur-sm transition-colors hover:border-[color:var(--y)]/50"
               >
                 <span className="eyebrow text-[color:var(--y)]">{c.num}</span>
-                <span className="mt-2 font-serif text-lg font-bold uppercase tracking-tight text-white group-hover:text-[color:var(--y)]">
+                <span className="mt-2 font-serif text-lg font-bold uppercase tracking-[0.04em] text-white group-hover:text-[color:var(--y)]">
                   {c.title}
                 </span>
                 <span className="mt-2 text-[15px] leading-[1.65] text-white/88">{c.teaser}</span>
@@ -276,7 +276,7 @@ export function CommercialSnowPage({ service, related }: Props) {
                 className="group scroll-mt-[calc(var(--header)+52px)] border border-white/18 bg-[rgb(255_255_255/0.06)] p-4 backdrop-blur-sm"
               >
                 <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 marker:content-none [&::-webkit-details-marker]:hidden">
-                  <span className="font-serif text-base font-semibold uppercase tracking-tight text-white sm:text-lg">{d.summary}</span>
+                  <span className="font-serif text-base font-bold uppercase tracking-[0.04em] text-white sm:text-lg">{d.summary}</span>
                   <span className="eyebrow shrink-0 text-[color:var(--y)] group-open:hidden">+</span>
                   <span className="hidden shrink-0 eyebrow text-[color:var(--y)] group-open:inline">−</span>
                 </summary>
@@ -312,7 +312,7 @@ export function CommercialSnowPage({ service, related }: Props) {
                     <p className="text-[15px] text-white/90">{COMMERCIAL_SNOW_MID_SERVICE_CTA.text}</p>
                     <Link
                       href={COMMERCIAL_SNOW_MID_SERVICE_CTA.href}
-                      className="cta-primary mt-4 inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-bold uppercase tracking-[0.12em]"
+                      className="cta-primary mt-4 inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em]"
                     >
                       {COMMERCIAL_SNOW_MID_SERVICE_CTA.buttonLabel}
                     </Link>
@@ -329,7 +329,7 @@ export function CommercialSnowPage({ service, related }: Props) {
                 <li key={c.href}>
                   <Link href={c.href} className="flex min-h-[44px] flex-col justify-center border border-white/20 bg-[rgb(255_255_255/0.05)] p-4 hover:border-[color:var(--y)]/60">
                     <span className="eyebrow text-white/70">{c.sub}</span>
-                    <span className="mt-1 font-serif text-sm font-semibold uppercase tracking-tight text-white">{c.title}</span>
+                    <span className="mt-1 font-serif text-sm font-bold uppercase tracking-[0.04em] text-white">{c.title}</span>
                   </Link>
                 </li>
               ))}
@@ -360,7 +360,7 @@ export function CommercialSnowPage({ service, related }: Props) {
                   credentialsPanel={
                     <div>
                       <p className="eyebrow text-[color:var(--y)]">Commercial proof</p>
-                      <h2 className="mt-3 font-serif text-2xl font-semibold uppercase tracking-tight text-white sm:text-3xl">
+                      <h2 className="mt-3 font-serif text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
                         {COMMERCIAL_SNOW_CREDENTIALS.h2}
                       </h2>
                       <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-white/90">{COMMERCIAL_SNOW_CREDENTIALS.visibleLede}</p>
@@ -394,7 +394,7 @@ export function CommercialSnowPage({ service, related }: Props) {
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
             <p className="eyebrow text-white">Operations</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">
               Equipment, SLAs, contracts &amp; process
             </h2>
             <p className="mt-[var(--s7)] max-w-[42rem] text-[15px] leading-[1.72] text-white/90">
@@ -404,7 +404,7 @@ export function CommercialSnowPage({ service, related }: Props) {
 
           <div className="mt-10 space-y-3">
             <details className="group border border-white/18 bg-[rgb(255_255_255/0.06)] p-4 backdrop-blur-sm">
-              <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-lg font-semibold uppercase tracking-tight text-white marker:content-none [&::-webkit-details-marker]:hidden">
+              <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-lg font-bold uppercase tracking-[0.04em] text-white marker:content-none [&::-webkit-details-marker]:hidden">
                 {COMMERCIAL_SNOW_EQUIPMENT.h2}
                 <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
                 <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
@@ -435,7 +435,7 @@ export function CommercialSnowPage({ service, related }: Props) {
             </details>
 
             <details className="group border border-white/18 bg-[rgb(255_255_255/0.06)] p-4 backdrop-blur-sm">
-              <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-lg font-semibold uppercase tracking-tight text-white marker:content-none [&::-webkit-details-marker]:hidden">
+              <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-lg font-bold uppercase tracking-[0.04em] text-white marker:content-none [&::-webkit-details-marker]:hidden">
                 {COMMERCIAL_SNOW_SLA.h2}
                 <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
                 <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
@@ -466,7 +466,7 @@ export function CommercialSnowPage({ service, related }: Props) {
             </details>
 
             <details className="group border border-white/18 bg-[rgb(255_255_255/0.06)] p-4 backdrop-blur-sm">
-              <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-lg font-semibold uppercase tracking-tight text-white marker:content-none [&::-webkit-details-marker]:hidden">
+              <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-lg font-bold uppercase tracking-[0.04em] text-white marker:content-none [&::-webkit-details-marker]:hidden">
                 {COMMERCIAL_SNOW_CONTRACTS.h2}
                 <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
                 <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
@@ -507,7 +507,7 @@ export function CommercialSnowPage({ service, related }: Props) {
             </details>
 
             <details className="group border border-white/18 bg-[rgb(255_255_255/0.06)] p-4 backdrop-blur-sm">
-              <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-lg font-semibold uppercase tracking-tight text-white marker:content-none [&::-webkit-details-marker]:hidden">
+              <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-lg font-bold uppercase tracking-[0.04em] text-white marker:content-none [&::-webkit-details-marker]:hidden">
                 {COMMERCIAL_SNOW_PROCESS.h2}
                 <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
                 <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
@@ -542,12 +542,12 @@ export function CommercialSnowPage({ service, related }: Props) {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
             <div className="border-l-4 border-[color:var(--y)] pl-5 lg:col-span-5">
               <p className="eyebrow text-ink">Coverage</p>
-              <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">
+              <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
                 {COMMERCIAL_SNOW_SERVICE_AREA.h2}
               </h2>
               <p className="mt-[var(--s7)] text-[15px] leading-[1.72] text-ink sm:text-base">{COMMERCIAL_SNOW_SERVICE_AREA.visibleLede}</p>
               <details className="mt-6 border border-[color:var(--g200)] bg-white p-4">
-                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-sm font-semibold uppercase tracking-tight text-ink marker:content-none [&::-webkit-details-marker]:hidden">
+                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-sm font-bold uppercase tracking-[0.04em] text-ink marker:content-none [&::-webkit-details-marker]:hidden">
                   Regional service detail
                   <span className="eyebrow text-[color:var(--y)]">+</span>
                 </summary>
@@ -587,7 +587,7 @@ export function CommercialSnowPage({ service, related }: Props) {
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(200deg,rgb(242_183_5/0.05),transparent_42%)]" aria-hidden />
             <ClaudeLogicWatermark placement="top-right" mode="default" className="pointer-events-none absolute right-0 top-8 z-[1] opacity-[0.07]" />
             <div className="relative z-10 rounded-sm border border-[color:var(--g200)] bg-white/90 p-6 shadow-[inset_0_1px_0_rgb(242_183_5/0.25)] sm:p-8">
-              <h2 className="font-serif text-2xl font-semibold uppercase tracking-tight text-ink sm:text-3xl">{COMMERCIAL_SNOW_PROPERTY_TYPES.h2}</h2>
+              <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl">{COMMERCIAL_SNOW_PROPERTY_TYPES.h2}</h2>
               <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-ink">{COMMERCIAL_SNOW_PROPERTY_TYPES.visibleLede}</p>
               <div className="mt-8">
                 <CommercialSnowPropertyTabs
@@ -613,14 +613,14 @@ export function CommercialSnowPage({ service, related }: Props) {
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
             <p className="eyebrow text-white">Assurance</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">
               {COMMERCIAL_SNOW_WHY_INTRO.h2}
             </h2>
             <p className="mt-[var(--s7)] max-w-[42rem] text-[15px] leading-[1.72] text-white/90">{COMMERCIAL_SNOW_WHY_INTRO.visibleLede}</p>
           </div>
 
           <details className="mt-8 border border-white/18 bg-[rgb(255_255_255/0.06)] p-4">
-            <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-sm font-semibold uppercase tracking-tight text-white marker:content-none [&::-webkit-details-marker]:hidden">
+            <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-sm font-bold uppercase tracking-[0.04em] text-white marker:content-none [&::-webkit-details-marker]:hidden">
               Read full positioning narrative
               <span className="eyebrow text-[color:var(--y)]">+</span>
             </summary>
@@ -644,7 +644,7 @@ export function CommercialSnowPage({ service, related }: Props) {
             </div>
           </details>
 
-          <h2 className="mt-14 font-serif text-2xl font-semibold uppercase tracking-tight text-white sm:text-3xl">
+          <h2 className="mt-14 font-serif text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
             {COMMERCIAL_SNOW_WHY_CHOOSE.h2}
           </h2>
           <p className="mt-4 max-w-prose text-[15px] text-white/90">{COMMERCIAL_SNOW_WHY_CHOOSE.visibleLede}</p>
@@ -653,7 +653,7 @@ export function CommercialSnowPage({ service, related }: Props) {
               <details key={item.title} name="why-choose" className="group border border-white/18 bg-[rgb(255_255_255/0.06)] p-4">
                 <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 marker:content-none [&::-webkit-details-marker]:hidden">
                   <span>
-                    <span className="font-serif text-base font-semibold uppercase tracking-tight text-white">{item.title}</span>
+                    <span className="font-serif text-base font-bold uppercase tracking-[0.04em] text-white">{item.title}</span>
                     <span className="mt-1 block text-sm text-white/70">{item.subtitle}</span>
                   </span>
                   <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
@@ -691,7 +691,7 @@ export function CommercialSnowPage({ service, related }: Props) {
             <p className="eyebrow text-ink">{COMMERCIAL_SNOW_FAQ_SECTION.eyebrow}</p>
             <h2
               id="chapter-faq-heading"
-              className="mt-3 font-serif text-2xl font-semibold uppercase tracking-tight text-ink sm:text-3xl"
+              className="mt-3 font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl"
             >
               {COMMERCIAL_SNOW_FAQ_SECTION.h2}
             </h2>
@@ -700,7 +700,7 @@ export function CommercialSnowPage({ service, related }: Props) {
           <div className="mt-10 space-y-3">
             {COMMERCIAL_SNOW_FAQS.map((item) => (
               <details key={item.q} name="snow-faq" className="group border border-[color:var(--g200)] bg-white p-4 shadow-[inset_0_1px_0_rgb(242_183_5/0.2)]">
-                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-base font-semibold uppercase tracking-tight text-ink marker:content-none [&::-webkit-details-marker]:hidden">
+                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-base font-bold uppercase tracking-[0.04em] text-ink marker:content-none [&::-webkit-details-marker]:hidden">
                   <span className="text-balance">{item.q}</span>
                   <span className="eyebrow shrink-0 text-[color:var(--y)] group-open:hidden">+</span>
                   <span className="hidden shrink-0 eyebrow text-[color:var(--y)] group-open:inline">−</span>
@@ -726,12 +726,12 @@ export function CommercialSnowPage({ service, related }: Props) {
             className={`relative overflow-hidden border border-[color:var(--g200)] border-l-[4px] border-l-[color:var(--y)] bg-[rgb(12_14_13)] p-6 text-white sm:p-8 ${COMMERCIAL_SNOW_MID_LOWER_CTA.className}`}
           >
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgb(242_183_5/0.12),transparent_38%)]" aria-hidden />
-            <p className="relative z-10 max-w-3xl font-serif text-xl font-semibold uppercase tracking-tight sm:text-2xl">
+            <p className="relative z-10 max-w-3xl font-sans text-xl font-bold uppercase tracking-[0.04em] sm:text-2xl">
               {COMMERCIAL_SNOW_MID_LOWER_CTA.headline}
             </p>
             <p className="relative z-10 mt-3 max-w-2xl text-[15px] leading-[1.72] text-white/90">{COMMERCIAL_SNOW_MID_LOWER_CTA.sub}</p>
             <div className="relative z-10 mt-6 flex flex-col gap-3 sm:flex-row">
-              <Link href={COMMERCIAL_SNOW_MID_LOWER_CTA.primary.href} className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-bold uppercase tracking-[0.12em]">
+              <Link href={COMMERCIAL_SNOW_MID_LOWER_CTA.primary.href} className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em]">
                 {COMMERCIAL_SNOW_MID_LOWER_CTA.primary.label}
               </Link>
               <Link
@@ -746,10 +746,10 @@ export function CommercialSnowPage({ service, related }: Props) {
           <div className="relative mt-12 grid gap-8 border-t border-[color:var(--g200)] pt-12 lg:grid-cols-2">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-[linear-gradient(180deg,rgb(30_28_26/0.04),transparent)]" aria-hidden />
             <div className="relative border-l-4 border-[color:var(--y)] pl-5">
-              <h2 className="font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">{COMMERCIAL_SNOW_CLOSING.h2}</h2>
+              <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">{COMMERCIAL_SNOW_CLOSING.h2}</h2>
               <p className="mt-4 text-[15px] leading-[1.72] text-ink sm:text-base">{COMMERCIAL_SNOW_CLOSING.visibleLede}</p>
               <details className="mt-6 border border-[color:var(--g200)] bg-white p-4">
-                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-sm font-semibold uppercase tracking-tight text-ink marker:content-none [&::-webkit-details-marker]:hidden">
+                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-sm font-bold uppercase tracking-[0.04em] text-ink marker:content-none [&::-webkit-details-marker]:hidden">
                   Read closing detail
                   <span className="eyebrow text-[color:var(--y)]">+</span>
                 </summary>
@@ -789,7 +789,7 @@ export function CommercialSnowPage({ service, related }: Props) {
                           <Image src={ri.src} alt={ri.alt} fill className="object-cover transition-transform group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100" sizes="(min-width: 1024px) 33vw, 100vw" />
                         </div>
                         <div className="flex flex-1 flex-col p-5">
-                          <span className="font-serif text-lg font-semibold uppercase tracking-tight text-ink group-hover:text-[color:var(--y)]">{r.title}</span>
+                          <span className="font-serif text-lg font-bold uppercase tracking-[0.04em] text-ink group-hover:text-[color:var(--y)]">{r.title}</span>
                           <span className="mt-2 text-[15px] leading-[1.72] text-ink-muted">{r.description}</span>
                         </div>
                       </Link>

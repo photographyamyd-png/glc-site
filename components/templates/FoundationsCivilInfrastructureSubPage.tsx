@@ -26,7 +26,7 @@ export function FoundationsCivilInfrastructureSubPage({ content, imageSrc, image
               {content.h1Lead}
               <span className="text-[color:var(--y)]">{content.h1Accent}</span>
             </h1>
-            <h2 className="mt-6 font-serif text-base font-semibold uppercase leading-snug tracking-tight text-white/90 sm:text-lg">
+            <h2 className="mt-6 font-serif text-base font-bold uppercase leading-snug tracking-tight text-white/90 sm:text-lg">
               {content.h2}
             </h2>
             <p className="mt-6 max-w-prose text-[15px] leading-[1.72] text-white/90 sm:text-base">{content.heroLead}</p>
@@ -43,7 +43,7 @@ export function FoundationsCivilInfrastructureSubPage({ content, imageSrc, image
             <div className="hero-cta-row mt-6 grid max-w-prose gap-3 border border-white/14 bg-[rgb(0_0_0/0.24)] p-4 sm:grid-cols-2 sm:items-stretch">
               <Link
                 href="/contact/"
-                className="cta-hero-fill flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
+                className="cta-hero-fill flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]"
               >
                 {FOUNDATIONS_HUB_HERO.ctaPrimaryLabel}
               </Link>
@@ -65,7 +65,7 @@ export function FoundationsCivilInfrastructureSubPage({ content, imageSrc, image
         <div className="relative z-10 mx-auto grid max-w-[min(100%,var(--max))] gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5 lg:col-span-6">
             <p className="eyebrow text-ink">Scope</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">{content.servicesHeading}</h2>
+            <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">{content.servicesHeading}</h2>
             <ul className="mt-8 max-w-prose space-y-3">
               {content.bullets.map((item) => (
                 <li key={item} className="flex gap-3 text-[15px] leading-[1.72] text-ink sm:text-base">
@@ -94,7 +94,7 @@ export function FoundationsCivilInfrastructureSubPage({ content, imageSrc, image
                 <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-white/90 sm:text-base">{content.ctaParagraphB}</p>
               ) : null}
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Link href="/contact/" className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]">
+                <Link href="/contact/" className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
                   {content.ctaButtonLabel}
                 </Link>
                 <Link

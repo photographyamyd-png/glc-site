@@ -76,7 +76,7 @@ export function HomeHeroSection({ copy }: HomeHeroSectionProps) {
                 <p className="text-xs leading-relaxed text-white/76">
                   Start with a scoped consultation, then move to pricing and mobilization.
                 </p>
-                <Link href={copy.primaryCta.href} className="cta-hero-fill px-5 py-3 text-xs tracking-wide text-center">
+                <Link href={copy.primaryCta.href} className="cta-hero-fill px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
                   {copy.primaryCta.label}
                 </Link>
                 <Link
@@ -104,7 +104,7 @@ export function HomeHeroSection({ copy }: HomeHeroSectionProps) {
                 href="/about/"
                 className="border border-white/16 bg-[rgb(10_12_11/0.5)] p-3 text-white backdrop-blur-sm transition hover:border-[color:var(--y)]/80 hover:bg-[rgb(10_12_11/0.68)]"
               >
-                <p className="font-serif text-xl sm:text-2xl">{stat.value}</p>
+                <p className="font-serif text-xl font-bold leading-none tracking-[-0.04em] sm:text-2xl">{stat.value}</p>
                 <p className="mt-1 eyebrow text-white">{stat.label}</p>
               </Link>
             ))}

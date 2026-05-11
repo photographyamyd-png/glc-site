@@ -82,7 +82,7 @@ export function GLDifference({
               <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[rgb(0_0_0/0.18)] to-transparent" aria-hidden />
             </div>
             <div className="pointer-events-none absolute bottom-6 right-4 z-[2] hidden border border-[color:var(--y)]/40 bg-[rgb(255_255_255/0.92)] px-4 py-3 text-right shadow-lg sm:block">
-              <p className="font-serif text-xs font-semibold uppercase tracking-[0.12em] text-ink">{w.chipLine1}</p>
+              <p className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-ink">{w.chipLine1}</p>
               <p className="mt-1 font-serif text-sm font-bold uppercase tracking-tight text-ink">{w.chipLine2}</p>
             </div>
           </div>
@@ -90,7 +90,7 @@ export function GLDifference({
             <p className="label-overline mb-3">{w.eyebrow}</p>
             <h2
               id={headingId}
-              className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+              className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
             >
               {headingTone(w.heading)}
             </h2>
@@ -114,7 +114,7 @@ export function GLDifference({
                     <span className="eyebrow text-[color:var(--y)]">
                       {r.index}
                     </span>
-                    <p className="mt-1 font-serif text-sm font-semibold uppercase tracking-[0.06em] text-ink">{r.title}</p>
+                    <p className="mt-1 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-ink">{r.title}</p>
                     <p className="mt-2 text-sm leading-relaxed text-ink-muted">{r.body}</p>
                   </li>
                 ),

@@ -154,7 +154,7 @@ function GlcServiceCard({
       />
 
       <div className="relative z-[3] mt-auto flex flex-col px-6 py-7 sm:px-8 sm:py-8">
-        <h3 className="card__title font-serif text-lg font-bold uppercase leading-snug tracking-[0.02em] text-white transition-colors duration-300 ease-[var(--ease)] sm:text-xl">
+        <h3 className="card__title font-serif text-lg font-bold uppercase leading-snug tracking-[0.04em] text-white transition-colors duration-300 ease-[var(--ease)] sm:text-xl">
           {serviceTitleTone(item.title)}
         </h3>
         <p className="card__desc mt-0 max-h-0 overflow-hidden text-sm leading-relaxed text-white/92 opacity-0 transition-[max-height,opacity,margin] duration-400 ease-[var(--ease)] group-hover:mt-3 group-hover:max-h-32 group-hover:opacity-100 group-focus-visible:mt-3 group-focus-visible:max-h-32 group-focus-visible:opacity-100 motion-reduce:transition-none">
@@ -255,7 +255,7 @@ export function GLFeaturedServicesBento({
           <p className="label-overline mb-3">{featured.eyebrow}</p>
           <h2
             id={headingId}
-            className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+            className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
           >
             {toneSplit(featured.heading)}
           </h2>
@@ -316,11 +316,11 @@ export function GLFeaturedServicesBento({
 
         <div className="mt-10">
           {isInternalRoute(ctaHref) ? (
-            <Link href={ctaHref} className="cta-primary inline-block px-8 py-4 text-sm font-semibold tracking-wide">
+            <Link href={ctaHref} className="cta-primary inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.12em]">
               {featured.cta}
             </Link>
           ) : (
-            <a href={ctaHref} className="cta-primary inline-block px-8 py-4 text-sm font-semibold tracking-wide">
+            <a href={ctaHref} className="cta-primary inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.12em]">
               {featured.cta}
             </a>
           )}

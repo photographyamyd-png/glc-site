@@ -41,7 +41,7 @@ export function GLServiceFaq({
           <p className={`eyebrow ${isLight ? "text-ink" : "text-white"}`}>{eyebrow}</p>
           <h2
             id={headingId}
-            className={`mt-3 font-serif text-3xl font-semibold uppercase tracking-tight sm:text-4xl ${isLight ? "text-ink" : "text-white"}`}
+            className={`mt-3 font-serif text-3xl font-bold uppercase tracking-tight sm:text-4xl ${isLight ? "text-ink" : "text-white"}`}
           >
             {title}
           </h2>
@@ -58,7 +58,7 @@ export function GLServiceFaq({
               }`}
             >
               <summary
-                className={`flex min-h-[44px] cursor-pointer items-center justify-between gap-4 list-none font-serif text-lg font-semibold uppercase tracking-tight marker:content-none [&::-webkit-details-marker]:hidden ${isLight ? "text-ink" : "text-white"}`}
+                className={`flex min-h-[44px] cursor-pointer items-center justify-between gap-4 list-none font-serif text-lg font-bold uppercase tracking-[0.04em] marker:content-none [&::-webkit-details-marker]:hidden ${isLight ? "text-ink" : "text-white"}`}
               >
                 <span>{item.q}</span>
                 <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>

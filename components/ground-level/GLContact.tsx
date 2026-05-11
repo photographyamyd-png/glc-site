@@ -33,7 +33,7 @@ export function GLContact() {
             <p className="label-overline mb-3">{CTA_BAND.eyebrow}</p>
             <h2
               id="contact-heading"
-              className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+              className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
             >
               {headingTone(CTA_BAND.heading)}
             </h2>

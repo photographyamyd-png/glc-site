@@ -27,7 +27,7 @@ export function ServiceCard({
       )}
     >
       <div className="text-[color:var(--y)] [&_svg]:h-10 [&_svg]:w-10">{icon}</div>
-      <h3 className="mt-3 font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink sm:text-2xl">{title}</h3>
+      <h3 className="mt-3 font-serif text-xl font-bold uppercase tracking-[0.04em] text-ink sm:text-2xl">{title}</h3>
       {paras?.length ? (
         <div className="mt-3 space-y-3">
           {paras.map((p) => (

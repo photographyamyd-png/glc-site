@@ -21,7 +21,7 @@ export function GLTestimonialsFeature({ content }: GLTestimonialsFeatureProps) {
       />
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))]">
         <p className="label-overline-on-dark">{content.eyebrow}</p>
-        <h2 id="testimonials-feature-heading" className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">
+        <h2 id="testimonials-feature-heading" className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">
           {content.heading} <span className="text-[color:var(--y)]">{content.headingAccent}</span>
         </h2>
         <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/82">{content.intro}</p>
@@ -59,7 +59,7 @@ export function GLTestimonialsFeature({ content }: GLTestimonialsFeatureProps) {
 
           <aside className="bespoke-surface relative z-40 border border-[color:var(--g200)] bg-[color:var(--brand-canvas)] p-5 text-ink lg:-ml-6 lg:translate-y-[var(--dna-stagger-md)]">
             <p className="eyebrow text-ink/65">{content.proofPanel.eyebrow}</p>
-            <h3 className="mt-2 font-serif text-2xl font-semibold uppercase tracking-tight text-ink">{content.proofPanel.heading}</h3>
+            <h3 className="mt-2 font-serif text-2xl font-bold uppercase leading-tight tracking-[0.04em] text-ink">{content.proofPanel.heading}</h3>
             <ul className="mt-4 space-y-2">
               {content.proofPanel.items.map((item) => (
                 <li key={item} className="border border-[color:var(--g200)] bg-white/70 px-3 py-2 text-sm text-ink-muted">
@@ -67,7 +67,7 @@ export function GLTestimonialsFeature({ content }: GLTestimonialsFeatureProps) {
                 </li>
               ))}
             </ul>
-            <Link href={content.cta.href} className="cta-primary mt-5 inline-block px-5 py-3 text-xs tracking-wide">
+            <Link href={content.cta.href} className="cta-primary mt-5 inline-block px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em]">
               {content.cta.label}
             </Link>
           </aside>

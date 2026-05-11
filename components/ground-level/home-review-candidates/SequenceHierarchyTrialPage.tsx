@@ -55,7 +55,7 @@ function SequenceShell({
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-[color:var(--y)]/45" aria-hidden />
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-14 sm:px-6 sm:py-16">
         <p className={c.label}>Sequence trial block</p>
-        <h2 id={`${id}-heading`} className={`mt-2 font-serif text-3xl font-semibold uppercase tracking-tight sm:text-4xl ${c.heading}`}>
+        <h2 id={`${id}-heading`} className={`mt-2 font-serif text-3xl font-bold uppercase tracking-tight sm:text-4xl ${c.heading}`}>
           <span className={c.heading}>{split.base} </span>
           <span className="text-[color:var(--y)]">{split.accent}</span>
         </h2>
@@ -81,7 +81,7 @@ function KineticSpineHero({ tone }: { tone: Tone }) {
           <div className="absolute inset-0 bg-[rgb(0_0_0/0.4)]" aria-hidden />
         </div>
         <div className="grid gap-6 lg:items-end">
-          <h3 className={`sticky top-[calc(var(--header)+20px)] font-serif text-5xl font-semibold uppercase leading-[0.85] tracking-tight sm:text-7xl ${c.heading}`}>
+          <h3 className={`sticky top-[calc(var(--header)+20px)] font-serif text-5xl font-bold uppercase leading-[0.85] tracking-tight sm:text-7xl ${c.heading}`}>
             <span className={c.heading}>Ground moves at </span>
             <span className="text-[color:var(--y)]">speed</span>
           </h3>
@@ -121,7 +121,7 @@ function PedigreeLedger({ tone }: { tone: Tone }) {
               { value: "48h", label: "Mobilization target" },
             ].map((stat) => (
               <div key={stat.label} className={`border ${c.border} p-3`}>
-                <p className={`font-serif text-3xl font-semibold uppercase ${c.heading}`}>
+                <p className={`font-sans text-3xl font-semibold uppercase ${c.heading}`}>
                   <span className={c.heading}>{stat.value.slice(0, Math.max(1, stat.value.length - 1))}</span>
                   <span className="text-[color:var(--y)]">{stat.value.slice(-1)}</span>
                 </p>
@@ -161,13 +161,13 @@ function ServiceMatrix({ tone }: { tone: Tone }) {
               } ${active === service ? "border-[color:var(--y)] bg-[color:var(--y)]/10" : c.panelSoft}`}
             >
               <p className="eyebrow text-[color:var(--y)]">Sub-service</p>
-              <p className={`mt-2 font-serif text-lg font-semibold uppercase ${c.heading}`}>{service}</p>
+              <p className={`mt-2 font-sans text-lg font-semibold uppercase ${c.heading}`}>{service}</p>
             </button>
           ))}
         </div>
         <aside className={`border ${c.border} border-l-[5px] border-l-[color:var(--y)] p-5 ${c.panel}`}>
           <p className="eyebrow text-[color:var(--y)]">Selected scope</p>
-          <p className={`mt-2 font-serif text-3xl font-semibold uppercase ${c.heading}`}>{active}</p>
+          <p className={`mt-2 font-sans text-3xl font-semibold uppercase ${c.heading}`}>{active}</p>
           <p className={`mt-3 text-sm leading-relaxed ${c.body}`}>Clustered cards intentionally offset optical mass while preserving scan clarity.</p>
         </aside>
       </div>
@@ -195,7 +195,7 @@ function StowContentBlock({ tone }: { tone: Tone }) {
             </button>
           </div>
           <div className={`border ${c.border} p-4 ${c.panelSoft}`}>
-            <p className={`font-serif text-2xl font-semibold uppercase ${c.heading}`}>
+            <p className={`font-sans text-2xl font-semibold uppercase ${c.heading}`}>
               <span className={c.heading}>Clean first </span>
               <span className="text-[color:var(--y)]">view</span>
             </p>
@@ -246,7 +246,7 @@ function InkMotifQuote({ tone }: { tone: Tone }) {
     >
       <div className="mt-8 border border-[color:var(--g200)] bg-white p-8 sm:p-12">
         <p className="eyebrow text-[color:var(--y)]">Value motif</p>
-        <p className="mt-4 font-serif text-4xl font-semibold uppercase leading-[1.02] tracking-tight text-[color:var(--ink-deep)] sm:text-6xl">
+        <p className="mt-4 font-serif text-4xl font-bold uppercase leading-none tracking-[-0.04em] text-[color:var(--ink-deep)] sm:text-6xl">
           We engineer grade, drainage, and schedule integrity into every site before concrete ever lands.
         </p>
         <p className="mt-4 text-sm leading-relaxed text-ink-muted">Obsidian display + yellow accent token + muted supporting line keeps role contrast compliant.</p>
@@ -274,7 +274,7 @@ function TechnicalCapabilities({ tone }: { tone: Tone }) {
         {rows.map((row) => (
           <button key={row.id} type="button" onClick={() => setExpanded(expanded === row.id ? null : row.id)} className={`block w-full border-b ${c.border} p-5 text-left last:border-b-0`}>
             <div className="grid gap-3 sm:grid-cols-[1.1fr_1fr_1fr]">
-              <p className={`font-serif text-lg font-semibold uppercase ${c.heading}`}>{row.cap}</p>
+              <p className={`font-sans text-lg font-semibold uppercase ${c.heading}`}>{row.cap}</p>
               <p className={`text-sm ${c.body}`}>{row.spec}</p>
               <p className="text-sm text-[color:var(--y)]">{row.cert}</p>
             </div>
@@ -317,7 +317,7 @@ function RegionalImpactMap({ tone }: { tone: Tone }) {
         </div>
         <aside className={`border ${c.border} border-l-[5px] border-l-[color:var(--y)] p-5 ${c.panel}`}>
           <p className="eyebrow text-[color:var(--y)]">Coordinate entry</p>
-          <p className={`mt-2 font-serif text-3xl font-semibold uppercase ${c.heading}`}>{active.label}</p>
+          <p className={`mt-2 font-sans text-3xl font-semibold uppercase ${c.heading}`}>{active.label}</p>
           <p className={`mt-2 text-sm leading-relaxed ${c.body}`}>{active.note}</p>
         </aside>
       </div>
@@ -346,7 +346,7 @@ function SocialProofSpine({ tone }: { tone: Tone }) {
         <div className="absolute inset-0 flex items-center justify-center p-6">
           <article className={`max-w-xl border ${c.border} bg-[rgb(255_255_255/0.16)] p-6 text-white backdrop-blur-lg`}>
             <p className="eyebrow text-[color:var(--y)]">Client signal</p>
-            <p className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight">
+            <p className="mt-3 font-sans text-3xl font-semibold uppercase tracking-tight">
               <span className="text-white">Proof in </span>
               <span className="text-[color:var(--y)]">motion</span>
             </p>
@@ -375,7 +375,7 @@ function TerminalCta({ tone }: { tone: Tone }) {
       <div className="mt-8 grid gap-6 lg:grid-cols-[1.4fr_0.6fr]">
         <div className={`border ${c.border} border-l-[5px] border-l-[color:var(--y)] p-6 ${c.panel}`}>
           <p className="eyebrow text-[color:var(--y)]">Contact command</p>
-          <p className={`mt-2 font-serif text-3xl font-semibold uppercase ${c.heading}`}>
+          <p className={`mt-2 font-sans text-3xl font-semibold uppercase ${c.heading}`}>
             <span className={c.heading}>Book your </span>
             <span className="text-[color:var(--y)]">pre-con</span>
           </p>

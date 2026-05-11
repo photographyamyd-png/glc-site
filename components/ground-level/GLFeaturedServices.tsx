@@ -113,7 +113,7 @@ export function GLFeaturedServices({
           <p className="label-overline mb-3">{featured.eyebrow}</p>
           <h2
             id={headingId}
-            className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+            className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
           >
             {toneSplit(featured.heading)}
           </h2>
@@ -162,7 +162,7 @@ export function GLFeaturedServices({
               hidden={selected !== i}
               className="pt-6"
             >
-              <h3 className="font-serif text-xl font-semibold uppercase tracking-tight text-ink sm:text-2xl">
+              <h3 className="font-serif text-xl font-bold uppercase leading-tight tracking-[0.04em] text-ink sm:text-2xl">
                 {serviceTitleTone(s.title)}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-ink-muted sm:text-base">{s.short}</p>
@@ -181,11 +181,11 @@ export function GLFeaturedServices({
 
         <div className="mt-10">
           {isInternalRoute(ctaHref) ? (
-            <Link href={ctaHref} className="cta-primary inline-block px-8 py-4 text-sm font-semibold tracking-wide">
+            <Link href={ctaHref} className="cta-primary inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.12em]">
               {featured.cta}
             </Link>
           ) : (
-            <a href={ctaHref} className="cta-primary inline-block px-8 py-4 text-sm font-semibold tracking-wide">
+            <a href={ctaHref} className="cta-primary inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.12em]">
               {featured.cta}
             </a>
           )}

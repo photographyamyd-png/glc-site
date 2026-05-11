@@ -198,7 +198,7 @@ function HeroLikeVariant({
         <div className={`relative z-10 flex min-h-[96dvh] flex-col justify-end px-5 pb-8 pt-24 sm:px-8 lg:px-14 ${align}`}>
           <div className="rounded-sm border border-white/12 bg-[rgb(9_11_10/0.46)] p-6 shadow-[0_28px_84px_rgb(0_0_0/0.38)] backdrop-blur-md sm:p-8">
             <p className="label-overline-on-dark">{concept.eyebrow}</p>
-            <h3 id={`${id}-heading`} className="mt-5 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl lg:text-5xl">
+            <h3 id={`${id}-heading`} className="mt-5 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl lg:text-5xl">
               {concept.heading} <span className="text-[color:var(--y)]">Variant {variant.toUpperCase()}</span>
             </h3>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/84">{concept.body}</p>
@@ -220,7 +220,7 @@ function HeroLikeVariant({
             </div>
           </div>
           <div className={`mt-7 flex flex-col gap-3 sm:flex-row sm:items-center ${ctaOffset}`}>
-            <a href="#contact" className="cta-hero-fill px-6 py-4 text-center text-sm font-semibold tracking-wide">
+            <a href="#contact" className="cta-hero-fill px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.12em]">
               {concept.cta}
             </a>
             <a href="#services" className="cta-outline-light px-6 py-3.5 text-center text-sm font-semibold tracking-wide">
@@ -257,7 +257,7 @@ function ServicesVariant({ concept, variant, toneMode }: { concept: Concept; var
       <div className={`grid gap-6 ${frame}`}>
         <aside className={`border border-[color:var(--g200)] p-5 shadow-[0_14px_38px_rgb(0_0_0/0.16)] ${c.shell}`}>
           <p className={c.label}>{concept.eyebrow}</p>
-          <h3 id={`${id}-heading`} className={`mt-3 font-serif text-2xl font-semibold uppercase tracking-tight ${c.heading}`}>
+          <h3 id={`${id}-heading`} className={`mt-3 font-serif text-2xl font-bold uppercase tracking-tight ${c.heading}`}>
             <span className={c.heading}>{split.base} </span>
             <span className="text-[color:var(--y)]">{split.accent}</span>
           </h3>
@@ -276,7 +276,7 @@ function ServicesVariant({ concept, variant, toneMode }: { concept: Concept; var
               } ${variant === "b" && i % 2 === 0 ? "lg:-translate-y-3" : ""} ${variant === "c" && i === 1 ? "lg:translate-y-5" : ""}`}
             >
               <p className="eyebrow text-[color:var(--y)]">Service</p>
-              <p className="mt-2 font-serif text-xl font-semibold uppercase">{item}</p>
+              <p className="mt-2 font-sans text-xl font-semibold uppercase">{item}</p>
               <p className={`mt-2 text-xs uppercase tracking-[0.12em] ${toneMode === "light" ? "text-ink-muted" : "text-white/72"}`}>
                 field verified
               </p>
@@ -302,13 +302,13 @@ function WhyVariant({ concept, variant, toneMode }: { concept: Concept; variant:
         </div>
         <div className={`grid gap-3 border border-[color:var(--g200)] p-6 ${c.shell}`}>
           <p className={c.label}>{concept.eyebrow}</p>
-          <h3 id={`${id}-heading`} className={`font-serif text-3xl font-semibold uppercase tracking-tight ${c.heading}`}>
+          <h3 id={`${id}-heading`} className={`font-serif text-3xl font-bold uppercase tracking-tight ${c.heading}`}>
             <span className={c.heading}>{split.base} </span>
             <span className="text-[color:var(--y)]">{split.accent}</span>
           </h3>
           {["PM-facing communication cadence", "Crew-first safety discipline", "Material and timeline transparency"].map((reason, i) => (
             <article key={`${id}-${reason}`} className={`border-l-[4px] border-l-[color:var(--y)] border border-[color:var(--g200)] p-4 ${toneMode === "light" ? "bg-white/70 text-ink" : "bg-[rgb(29_32_30/0.8)] text-white"} ${variant === "c" && i === 1 ? "lg:translate-x-5" : ""}`}>
-              <p className="font-serif text-lg font-semibold uppercase">{reason}</p>
+              <p className="font-sans text-lg font-semibold uppercase">{reason}</p>
               <p className={`mt-2 text-xs uppercase tracking-[0.12em] ${toneMode === "light" ? "text-ink-muted" : "text-white/72"}`}>
                 risk control
               </p>
@@ -329,7 +329,7 @@ function ProcessLeftVariant({ concept, variant, toneMode }: { concept: Concept; 
       <div className={`grid gap-6 ${variant === "a" ? "lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]" : "lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]"}`}>
         <article className={`border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] p-6 shadow-[0_14px_36px_rgb(0_0_0/0.18)] ${c.shell}`}>
           <p className={c.label}>{concept.eyebrow}</p>
-          <h3 id={`${id}-heading`} className={`mt-3 font-serif text-2xl font-semibold uppercase tracking-tight ${c.heading}`}>
+          <h3 id={`${id}-heading`} className={`mt-3 font-serif text-2xl font-bold uppercase tracking-tight ${c.heading}`}>
             <span className={c.heading}>{split.base} </span>
             <span className="text-[color:var(--y)]">{split.accent}</span>
           </h3>
@@ -342,7 +342,7 @@ function ProcessLeftVariant({ concept, variant, toneMode }: { concept: Concept; 
           {["Pre-construction call", "Site walk + constraints", "Execution schedule", "Handover"].map((step, i) => (
             <div key={`${id}-${step}`} className={`border border-[color:var(--g200)] p-4 ${toneMode === "light" ? "bg-[color:var(--brand-canvas)] text-ink" : "bg-[rgb(22_25_23/0.84)] text-white"} ${variant === "b" && i % 2 === 1 ? "lg:ml-8" : ""}`}>
               <p className="eyebrow text-[color:var(--y)]">Step {i + 1}</p>
-              <p className="mt-2 font-serif text-lg font-semibold uppercase">{step}</p>
+              <p className="mt-2 font-sans text-lg font-semibold uppercase">{step}</p>
               <p className={`mt-2 text-xs uppercase tracking-[0.12em] ${toneMode === "light" ? "text-ink-muted" : "text-white/72"}`}>
                 milestone
               </p>
@@ -362,7 +362,7 @@ function ProcessStepsVariant({ concept, variant, toneMode }: { concept: Concept;
     <VariantSection id={id} toneMode={toneMode}>
       <div className={`border border-[color:var(--g200)] p-6 ${c.shell}`}>
         <p className={c.label}>{concept.eyebrow}</p>
-        <h3 id={`${id}-heading`} className={`mt-3 font-serif text-2xl font-semibold uppercase tracking-tight ${c.heading}`}>
+        <h3 id={`${id}-heading`} className={`mt-3 font-serif text-2xl font-bold uppercase tracking-tight ${c.heading}`}>
           <span className={c.heading}>{split.base} </span>
           <span className="text-[color:var(--y)]">{split.accent}</span>
         </h3>
@@ -372,7 +372,7 @@ function ProcessStepsVariant({ concept, variant, toneMode }: { concept: Concept;
               <span className="absolute -top-3 left-4 rounded-full border border-[color:var(--y)] bg-[color:var(--brand-canvas)] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.1em] text-ink">
                 {i + 1}
               </span>
-              <p className="mt-2 font-serif text-lg font-semibold uppercase">{step}</p>
+              <p className="mt-2 font-sans text-lg font-semibold uppercase">{step}</p>
               <p className={`mt-2 text-sm leading-relaxed ${c.body}`}>Defined owner, deliverable, and acceptance marker.</p>
             </article>
           ))}
@@ -391,7 +391,7 @@ function CoverageVariant({ concept, variant, toneMode }: { concept: Concept; var
       <div className={`grid gap-6 ${variant === "b" ? "lg:grid-cols-[minmax(0,1fr)_340px]" : "lg:grid-cols-[340px_minmax(0,1fr)]"}`}>
         <div className={`border border-[color:var(--g200)] p-6 ${c.shell}`}>
           <p className={c.label}>{concept.eyebrow}</p>
-          <h3 id={`${id}-heading`} className={`mt-3 font-serif text-2xl font-semibold uppercase tracking-tight ${c.heading}`}>
+          <h3 id={`${id}-heading`} className={`mt-3 font-serif text-2xl font-bold uppercase tracking-tight ${c.heading}`}>
             <span className={c.heading}>{split.base} </span>
             <span className="text-[color:var(--y)]">{split.accent}</span>
           </h3>
@@ -423,7 +423,7 @@ function CtaBandVariant({ concept, variant, toneMode }: { concept: Concept; vari
       <div className={`grid gap-5 ${variant === "a" ? "lg:grid-cols-[minmax(0,1.2fr)_300px]" : "lg:grid-cols-[300px_minmax(0,1.2fr)]"}`}>
         <div className={`border border-[color:var(--g200)] p-6 ${c.shell}`}>
           <p className={c.label}>{concept.eyebrow}</p>
-          <h3 id={`${id}-heading`} className={`mt-3 font-serif text-3xl font-semibold uppercase tracking-tight ${c.heading}`}>
+          <h3 id={`${id}-heading`} className={`mt-3 font-serif text-3xl font-bold uppercase tracking-tight ${c.heading}`}>
             <span className={c.heading}>{split.base} </span>
             <span className="text-[color:var(--y)]">{split.accent}</span>
           </h3>
@@ -456,7 +456,7 @@ function AboutVariant({ concept, variant, toneMode }: { concept: Concept; varian
         </div>
         <article className={`border border-[color:var(--g200)] p-6 ${c.shell}`}>
           <p className={c.label}>{concept.eyebrow}</p>
-          <h3 id={`${id}-heading`} className={`mt-3 font-serif text-3xl font-semibold uppercase tracking-tight ${c.heading}`}>
+          <h3 id={`${id}-heading`} className={`mt-3 font-serif text-3xl font-bold uppercase tracking-tight ${c.heading}`}>
             <span className={c.heading}>{split.base} </span>
             <span className="text-[color:var(--y)]">{split.accent}</span>
           </h3>
@@ -495,7 +495,7 @@ function ConceptGroup({ concept }: { concept: Concept }) {
     <div id={`review-tagged-group-${concept.key}`} className="border-t-4 border-[color:var(--y)]/35">
       <div className="mx-auto max-w-[min(100%,var(--max))] px-4 py-10 sm:px-6 sm:py-12">
         <p className="label-overline mb-2 text-ink-muted">Tagged concept set</p>
-        <h2 className="font-serif text-2xl font-semibold uppercase tracking-tight text-ink sm:text-3xl">
+        <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl">
           <span className="text-ink">{base} </span>
           <span className="text-[color:var(--y)]">{accent}</span>
         </h2>

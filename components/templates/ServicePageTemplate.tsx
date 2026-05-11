@@ -99,7 +99,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
             ))}
           </ul>
           <div className="hero-cta-row mt-6 grid gap-3 border border-white/14 bg-[rgb(0_0_0/0.24)] p-4 sm:grid-cols-2 sm:items-center">
-            <Link href="/contact/" className="cta-hero-fill px-5 py-3 text-center text-xs tracking-wide">
+            <Link href="/contact/" className="cta-hero-fill px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
               {detail?.ctaOverride.buttonLabel ?? "Request Dispatch"}
             </Link>
             <Link
@@ -129,7 +129,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
             <p className="eyebrow text-ink">Service overview</p>
             <h2
               id={`${service.slug}-scope-heading`}
-              className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl"
+              className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl"
             >
               Scope and delivery
             </h2>
@@ -178,7 +178,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
             <p className="eyebrow text-white">Service breakdown</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">
               {detail?.deliverablesHeading ?? "Capabilities"}
             </h2>
           </div>
@@ -191,7 +191,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
                 <div className="relative mb-4 aspect-[16/10] overflow-hidden border border-white/20">
                   <Image src={imageSrc} alt={`${item.heading} visual ${idx + 1}`} fill className="object-cover" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
                 </div>
-                <h3 className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-white sm:text-2xl">{item.heading}</h3>
+                <h3 className="font-serif text-xl font-bold uppercase tracking-[0.04em] text-white sm:text-2xl">{item.heading}</h3>
                 <p className="mt-3 text-[15px] leading-[1.72] text-white/90 sm:text-base">{item.paragraphs[0]}</p>
               </article>
             ))}
@@ -224,13 +224,13 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
             <p className="eyebrow text-white">Why GLC</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">Differentiators</h2>
+            <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">Differentiators</h2>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {whyItems.slice(0, 4).map((item, idx) => (
               <article key={item} className="border border-white/15 bg-[rgb(255_255_255/0.06)] p-5 backdrop-blur-sm">
                 <p className="eyebrow text-[color:var(--y)]">0{idx + 1}</p>
-                <p className="mt-2 font-serif text-xl font-bold uppercase tracking-[0.02em] text-white">Field advantage</p>
+                <p className="mt-2 font-sans text-xl font-bold uppercase tracking-[0.04em] text-white">Field advantage</p>
                 <p className="mt-3 text-[15px] leading-[1.72] text-white/88 sm:text-base">{item}</p>
               </article>
             ))}
@@ -242,13 +242,13 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
             <p className="eyebrow text-ink">{detail?.process.eyebrow ?? "How it works"}</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">{detail?.process.heading ?? "Delivery process"}</h2>
+            <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">{detail?.process.heading ?? "Delivery process"}</h2>
           </div>
           <ol className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step) => (
               <li key={step.id} className="bespoke-surface panel-machined border border-[color:var(--g200)] bg-white p-5 sm:min-h-[44px]">
                 <p className="eyebrow text-[color:var(--y)]">{step.id}</p>
-                <p className="mt-2 font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink">{step.title}</p>
+                <p className="mt-2 font-sans text-xl font-bold uppercase tracking-[0.04em] text-ink">{step.title}</p>
                 <p className="mt-3 text-[15px] leading-[1.72] text-ink-muted sm:text-base">{step.body}</p>
               </li>
             ))}
@@ -261,12 +261,12 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
             <p className="eyebrow text-white">FAQ</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">Common questions</h2>
+            <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">Common questions</h2>
           </div>
           <div className="mt-10 space-y-3">
             {faqItems.map((item) => (
               <details key={item.q} name={`${service.slug}-faq`} className="group border border-white/20 bg-[rgb(255_255_255/0.06)] p-4 backdrop-blur-sm">
-                <summary className="flex min-h-[44px] cursor-pointer items-center justify-between gap-4 list-none font-serif text-lg font-semibold uppercase tracking-tight text-white marker:content-none [&::-webkit-details-marker]:hidden">
+                <summary className="flex min-h-[44px] cursor-pointer items-center justify-between gap-4 list-none font-serif text-lg font-bold uppercase tracking-[0.04em] text-white marker:content-none [&::-webkit-details-marker]:hidden">
                   <span>{item.q}</span>
                   <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
                   <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
@@ -276,7 +276,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
             ))}
             {!faqItems.length ? (
               <details name={`${service.slug}-faq`} className="border border-white/20 bg-[rgb(255_255_255/0.06)] p-4 backdrop-blur-sm">
-                <summary className="flex min-h-[44px] cursor-pointer items-center font-serif text-lg font-semibold uppercase tracking-tight text-white">
+                <summary className="flex min-h-[44px] cursor-pointer items-center font-serif text-lg font-bold uppercase tracking-[0.04em] text-white">
                   Need detailed scope?
                 </summary>
                 <p className="mt-3 text-[15px] leading-[1.72] text-white/88 sm:text-base">
@@ -293,7 +293,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
           <div className="grid gap-8 lg:grid-cols-2">
             <div className="border-l-4 border-[color:var(--y)] pl-5">
               <p className="eyebrow text-ink">Service area</p>
-              <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">Barrie and Simcoe County coverage</h2>
+              <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">Barrie and Simcoe County coverage</h2>
               <p className="mt-[var(--s7)] text-[15px] leading-[1.72] text-ink sm:text-base">
                 Ground Level Contracting serves Barrie, Midland, Orillia, and surrounding Simcoe County municipalities with commercial-focused dispatch and reliable field coordination.
               </p>
@@ -317,7 +317,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
             <p className="eyebrow text-white">Related services</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl">Related service lines</h2>
+            <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">Related service lines</h2>
           </div>
           <ul className="mt-10 grid gap-4 lg:grid-cols-3">
             {related.slice(0, 3).map((r) => {
@@ -329,7 +329,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
                       <Image src={relatedImage.src} alt={relatedImage.alt} fill className="object-cover transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100" sizes="(min-width: 1024px) 33vw, 100vw" />
                     </div>
                     <div className="flex flex-1 flex-col p-5">
-                      <span className="font-serif text-xl font-semibold uppercase tracking-tight text-white group-hover:text-[color:var(--y)]">{r.title}</span>
+                      <span className="font-serif text-xl font-bold uppercase leading-tight tracking-[0.04em] text-white group-hover:text-[color:var(--y)]">{r.title}</span>
                       <span className="mt-3 text-[15px] leading-[1.72] text-white/85">{r.description}</span>
                     </div>
                   </Link>
@@ -345,14 +345,14 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
           <div id="cta-band" className="relative overflow-hidden border border-[color:var(--g200)] border-l-[4px] border-l-[color:var(--y)] bg-[rgb(12_14_13)] p-6 text-white sm:p-8">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgb(242_183_5/0.12),transparent_38%)]" aria-hidden />
             <p className="relative z-10 eyebrow text-white">Request site visit</p>
-            <p className="relative z-10 mt-3 font-serif text-2xl font-semibold uppercase tracking-tight text-white sm:text-3xl">
+            <p className="relative z-10 mt-3 font-sans text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
               {detail?.ctaOverride.heading ?? "Ready to scope your site?"}
             </p>
             <p className="relative z-10 mt-4 max-w-3xl text-[15px] leading-[1.72] text-white/90 sm:text-base">
               {detail?.ctaOverride.supporting ?? "Share site address, scope context, and target timeline to receive a scoped dispatch response."}
             </p>
             <div className="relative z-10 mt-6 flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact/" className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-bold uppercase tracking-[0.12em]">
+              <Link href="/contact/" className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em]">
                 {detail?.ctaOverride.buttonLabel ?? "Request Dispatch"}
               </Link>
               <Link

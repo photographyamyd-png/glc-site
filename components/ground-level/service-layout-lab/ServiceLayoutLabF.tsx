@@ -17,7 +17,7 @@ export function ServiceLayoutLabF({ items }: Props) {
         <p className="label-overline mb-2">Layout option F — Vertical timeline rail</p>
         <h2
           id="service-layout-lab-f-heading"
-          className="font-serif text-2xl font-semibold uppercase tracking-tight text-ink sm:text-3xl"
+          className="font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl"
         >
           <span className="text-ink">Numbered rail with </span>
           <span className="text-[color:var(--y)]">stacked service nodes</span>
@@ -45,7 +45,7 @@ export function ServiceLayoutLabF({ items }: Props) {
                       />
                     </div>
                     <div className="flex flex-col justify-center p-4 sm:p-5">
-                      <h3 className="font-serif text-lg font-semibold uppercase leading-snug tracking-tight text-ink sm:text-xl">
+                      <h3 className="font-serif text-lg font-bold uppercase leading-snug tracking-[0.04em] text-ink sm:text-xl">
                         {serviceTitleTone(item.title)}
                       </h3>
                       <p className="mt-2 text-sm leading-relaxed text-ink-muted">{item.short}</p>

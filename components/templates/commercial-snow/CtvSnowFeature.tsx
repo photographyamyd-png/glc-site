@@ -8,7 +8,7 @@ export function CtvSnowFeature() {
       <div className="glc-snow-ctv__inner">
         <p className="eyebrow mb-3 text-[color:var(--y)]">{ctvSnowFeature.eyebrow}</p>
 
-        <h2 id="ctv-heading" className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl">
+        <h2 id="ctv-heading" className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl">
           {ctvSnowFeature.heading}
         </h2>
 

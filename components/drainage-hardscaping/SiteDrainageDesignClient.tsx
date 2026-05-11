@@ -56,7 +56,7 @@ export function SiteDrainageDesignClient({ sectionId }: { sectionId: string }) {
         </p>
       ))}
       <div>
-        <h3 className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-white sm:text-2xl">
+        <h3 className="font-serif text-xl font-bold uppercase tracking-[0.04em] text-white sm:text-2xl">
           {DRAINAGE_SITE_DRAINAGE.whatsIncludedHeader}
         </h3>
         <ul className={`mt-4 list-inside list-disc space-y-2 ${bodyDark}`}>
@@ -66,13 +66,13 @@ export function SiteDrainageDesignClient({ sectionId }: { sectionId: string }) {
         </ul>
       </div>
       <div>
-        <h3 className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-white sm:text-2xl">
+        <h3 className="font-serif text-xl font-bold uppercase tracking-[0.04em] text-white sm:text-2xl">
           {DRAINAGE_SITE_DRAINAGE.solutionsIntro}
         </h3>
         <div className="mt-6 space-y-8">
           {DRAINAGE_SITE_DRAINAGE.solutions.map((sol, i) => (
             <div key={sol.label} id={`drain-solution-${i}`} className="scroll-mt-[calc(var(--header)+24px)]">
-              <p className="font-serif text-lg font-bold uppercase tracking-[0.02em] text-[color:var(--y)]">{sol.label}</p>
+              <p className="font-serif text-lg font-bold uppercase tracking-[0.04em] text-[color:var(--y)]">{sol.label}</p>
               <div className={`mt-2 space-y-2 ${bodyDark}`}>
                 {sol.textParas.map((t, ti) => (
                   <p key={ti}>{t}</p>
@@ -113,7 +113,7 @@ export function SiteDrainageDesignClient({ sectionId }: { sectionId: string }) {
             <SectionEyebrow text={DRAINAGE_SITE_DRAINAGE.eyebrow} band="dark" />
             <h2
               id={headingId}
-              className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-[clamp(36px,3.5vw,52px)]"
+              className="mt-[var(--s7)] font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-[clamp(36px,3.5vw,52px)]"
             >
               {DRAINAGE_SITE_DRAINAGE.h2}
             </h2>

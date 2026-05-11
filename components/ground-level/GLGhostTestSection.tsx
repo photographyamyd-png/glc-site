@@ -27,7 +27,7 @@ export function GLGhostTestSection({
               <p className="mb-3 eyebrow text-ink">
                 Final scope alignment
               </p>
-              <h2 id={headingId} className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl">
+              <h2 id={headingId} className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl">
                 Project Ready
                 <span className="text-[color:var(--y)]"> Without Surprises</span>
               </h2>
@@ -50,7 +50,7 @@ export function GLGhostTestSection({
           <div className="relative lg:translate-y-[var(--dna-stagger-sm)]">
             <div className="relative z-10 border border-[color:var(--g200)] bg-[color:var(--ink-deep)] p-6 text-white shadow-[0_24px_50px_rgb(0_0_0/0.24)] sm:p-7">
               <p className="eyebrow text-[color:var(--y)]">Coordination window</p>
-              <p className="mt-2 font-serif text-4xl font-semibold leading-none">48h</p>
+              <p className="mt-2 font-serif text-4xl font-bold leading-none tracking-[-0.04em]">48h</p>
               <p className="mt-3 text-sm leading-relaxed text-white/78">
                 Typical turnaround from confirmed scope to scheduling and mobilization planning.
               </p>

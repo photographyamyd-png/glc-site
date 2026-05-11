@@ -56,7 +56,7 @@ function NewComponentShell({
           }`}
         >
           <p className={`${isLight ? "label-overline text-ink-muted" : "label-overline-on-dark"} mb-3`}>New component</p>
-          <h2 id={`${id}-heading`} className="font-serif text-2xl font-semibold uppercase tracking-tight sm:text-3xl">
+          <h2 id={`${id}-heading`} className="font-serif text-2xl font-bold uppercase tracking-tight sm:text-3xl">
             {splitAccentHeading(title)}
           </h2>
         </div>
@@ -73,7 +73,7 @@ function ProductionMetricsBoard({ tone }: { tone: Tone }) {
       <div className="mt-8 grid gap-4 lg:grid-cols-[260px_minmax(0,1fr)]">
         <aside className={`border border-[color:var(--g200)] p-5 ${isLight ? "bg-white text-ink" : "bg-[rgb(25_28_26/0.84)] text-white"}`}>
           <p className="eyebrow text-[color:var(--y)]">Performance rail</p>
-          <p className="mt-2 font-serif text-2xl font-semibold uppercase">
+          <p className="mt-2 font-sans text-2xl font-semibold uppercase">
             <span className={isLight ? "text-ink" : "text-white"}>Weekly </span>
             <span className="text-[color:var(--y)]">snapshot</span>
           </p>
@@ -87,7 +87,7 @@ function ProductionMetricsBoard({ tone }: { tone: Tone }) {
             } ${i === 1 ? "lg:-translate-y-3" : ""}`}
           >
             <p className="eyebrow text-[color:var(--y)]">{metric}</p>
-            <p className={`mt-3 font-serif text-3xl font-semibold ${isLight ? "text-ink" : "text-white"}`}>9{7 + i}%</p>
+            <p className={`mt-3 font-serif text-3xl font-bold leading-none tracking-[-0.04em] ${isLight ? "text-ink" : "text-white"}`}>9{7 + i}%</p>
           </article>
         ))}
         </div>
@@ -102,7 +102,7 @@ function BidPackageStrip({ tone }: { tone: Tone }) {
     <NewComponentShell id={`review-new-bid-strip-${tone}`} title={`Bid package strip (${tone})`} tone={tone}>
       <div className="mt-8 grid gap-6 lg:grid-cols-[340px_minmax(0,1fr)]">
         <div className={`border border-[color:var(--g200)] p-5 ${isLight ? "bg-[color:var(--brand-canvas)] text-ink" : "bg-[rgb(24_27_25/0.84)] text-white"}`}>
-          <p className="font-serif text-xl font-semibold uppercase">
+          <p className="font-sans text-xl font-semibold uppercase">
             <span className={isLight ? "text-ink" : "text-white"}>Downloadables and </span>
             <span className="text-[color:var(--y)]">scope</span>
           </p>
@@ -137,7 +137,7 @@ function MobilizationStrip({ tone }: { tone: Tone }) {
         </div>
         <div className={`border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] p-5 ${isLight ? "bg-white text-ink" : "bg-[rgb(22_24_23/0.84)] text-white"}`}>
           <p className="eyebrow text-[color:var(--y)]">Mobilization window</p>
-          <p className="mt-2 font-serif text-2xl font-semibold uppercase">
+          <p className="mt-2 font-sans text-2xl font-semibold uppercase">
             <span className={isLight ? "text-ink" : "text-white"}>4</span>
             <span className="text-[color:var(--y)]">8</span>
             <span className={isLight ? "text-ink" : "text-white"}>H</span>
@@ -161,7 +161,7 @@ function CalloutRail({ tone }: { tone: Tone }) {
         <div className="space-y-3">
           {["Geotech awareness", "Schedule integrity", "Cost transparency"].map((item, i) => (
             <div key={item} className={`border-l-[5px] border-[color:var(--y)] border border-[color:var(--g200)] p-4 ${isLight ? "bg-[color:var(--brand-canvas)] text-ink" : "bg-[rgb(22_24_23/0.84)] text-white"} ${i === 1 ? "lg:translate-x-3" : ""}`}>
-              <p className="font-serif text-lg font-semibold uppercase">
+              <p className="font-sans text-lg font-semibold uppercase">
                 <span className={isLight ? "text-ink" : "text-white"}>{item.split(" ")[0]} </span>
                 <span className="text-[color:var(--y)]">{item.split(" ").slice(1).join(" ")}</span>
               </p>
@@ -181,7 +181,7 @@ function ProcurementFaq({ tone }: { tone: Tone }) {
       <div className="mt-8 grid gap-4 lg:grid-cols-[320px_minmax(0,1fr)]">
         <aside className={`border border-[color:var(--g200)] p-5 ${isLight ? "bg-[color:var(--brand-canvas)] text-ink" : "bg-[rgb(24_27_25/0.84)] text-white"}`}>
           <p className="eyebrow text-[color:var(--y)]">Procurement support</p>
-          <p className="mt-2 font-serif text-2xl font-semibold uppercase">
+          <p className="mt-2 font-sans text-2xl font-semibold uppercase">
             <span className={isLight ? "text-ink" : "text-white"}>FAQ </span>
             <span className="text-[color:var(--y)]">stack</span>
           </p>
@@ -189,7 +189,7 @@ function ProcurementFaq({ tone }: { tone: Tone }) {
         <div className="grid gap-4">
         {["Insurance and certs?", "How fast can you mobilize?", "Who is PM contact?"].map((q, i) => (
           <article key={q} className={`border border-[color:var(--g200)] p-5 ${isLight ? "bg-[color:var(--brand-canvas)] text-ink" : "bg-[rgb(22_24_23/0.84)] text-white"} ${i === 1 ? "lg:ml-8 lg:mr-8" : ""}`}>
-            <p className="font-serif text-lg font-semibold uppercase">
+            <p className="font-sans text-lg font-semibold uppercase">
               <span className={isLight ? "text-ink" : "text-white"}>{q.split(" ").slice(0, 2).join(" ")} </span>
               <span className="text-[color:var(--y)]">{q.split(" ").slice(2).join(" ")}</span>
             </p>

@@ -86,7 +86,7 @@ export function GLCapabilitiesRail({
         <p className="label-overline-on-dark mb-3">{eyebrow}</p>
         <h2
           id={headingId}
-          className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl"
+          className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
         >
           <span className="text-white">{titleLine1}</span>{" "}
           <span className="text-[color:var(--y)]">{titleLine2}</span>
@@ -121,7 +121,7 @@ export function GLCapabilitiesRail({
                   >
                     <p
                       className={cn(
-                        "font-serif text-lg font-bold uppercase leading-snug tracking-tight line-clamp-3 sm:text-xl",
+                        "font-serif text-lg font-bold uppercase leading-snug tracking-[0.04em] line-clamp-3 sm:text-xl",
                         isSel ? "text-[color:var(--y)]" : "text-[color:var(--y)]/80",
                       )}
                     >
@@ -173,7 +173,7 @@ export function GLCapabilitiesRail({
                     {String(i + 1).padStart(2, "0")} — {s.slug.replace(/-/g, " ")}
                   </p>
                 </div>
-                <h3 className="font-serif text-xl font-semibold uppercase tracking-tight text-ink sm:text-2xl">
+                <h3 className="font-serif text-xl font-bold uppercase leading-tight tracking-[0.04em] text-ink sm:text-2xl">
                   {serviceTitleToneOnCanvas(s.title)}
                 </h3>
                 <div className="mt-4">

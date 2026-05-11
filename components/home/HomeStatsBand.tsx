@@ -23,7 +23,7 @@ export function HomeStatsBand({ band, stats }: HomeStatsBandProps) {
       />
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6">
         <p className="eyebrow text-ink">{band.eyebrow}</p>
-        <h2 id="metrics-heading" className="mt-3 font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-4xl">
+        <h2 id="metrics-heading" className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl">
           {band.heading}{" "}
           <span className="text-[color:var(--y)]">{band.headingAccent}</span>
         </h2>

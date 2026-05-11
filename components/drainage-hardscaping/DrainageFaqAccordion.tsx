@@ -27,7 +27,7 @@ export function DrainageFaqAccordion({
         <p className="eyebrow text-ink">{eyebrow}</p>
         <h2
           id={headingId}
-          className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-[clamp(36px,3.5vw,52px)]"
+          className="mt-[var(--s7)] font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-[clamp(36px,3.5vw,52px)]"
         >
           {h2}
         </h2>
@@ -47,7 +47,7 @@ export function DrainageFaqAccordion({
                 className="flex min-h-[52px] w-full items-center justify-between gap-4 py-3 text-left"
               >
                 <span className="text-base font-medium text-ink">{item.q}</span>
-                <span className="eyebrow shrink-0 text-2xl leading-none text-[color:var(--y)]" aria-hidden>
+                <span className="eyebrow shrink-0 leading-none text-[color:var(--y)]" aria-hidden>
                   {isOpen ? "−" : "+"}
                 </span>
               </button>

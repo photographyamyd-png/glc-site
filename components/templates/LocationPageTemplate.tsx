@@ -77,7 +77,7 @@ export function LocationPageTemplate({ location }: { location: LocationDef }) {
             </div>
             <div className="bespoke-surface panel-machined flex flex-col justify-center border border-[color:var(--g200)] bg-white p-6 lg:col-span-7 lg:p-8">
               <p className="eyebrow text-ink">Local Coverage</p>
-              <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">
+              <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
                 Dispatch coverage for {place}
               </h2>
               <p className="mt-3 text-[15px] leading-[1.72] text-ink-muted sm:text-base">
@@ -85,7 +85,7 @@ export function LocationPageTemplate({ location }: { location: LocationDef }) {
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 {LOCATION_COPY_MODEL.ctas.map((cta) => (
-                  <Link key={cta.href} href={cta.href} className="cta-primary inline-flex min-h-[44px] items-center px-5 py-3 text-xs tracking-wide">
+                  <Link key={cta.href} href={cta.href} className="cta-primary inline-flex min-h-[44px] items-center px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em]">
                     {cta.label}
                   </Link>
                 ))}

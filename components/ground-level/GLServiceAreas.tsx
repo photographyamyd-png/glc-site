@@ -80,7 +80,7 @@ export function GLServiceAreas({
         <p className={`mb-3 ${isLight ? "label-overline" : "label-overline-on-dark"}`}>{cov.eyebrow}</p>
         <h2
           id={headingId}
-          className={`font-serif text-3xl font-semibold uppercase leading-tight tracking-tight sm:text-4xl ${
+          className={`font-serif text-3xl font-bold uppercase leading-tight tracking-tight sm:text-4xl ${
             isLight ? "text-ink" : "text-white"
           }`}
         >

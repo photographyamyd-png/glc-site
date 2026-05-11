@@ -33,7 +33,7 @@ export function LegalPageTemplate({ title, intro, sections }: LegalPageTemplateP
         <div className="mt-8 space-y-6">
           {sections.map((section) => (
             <section key={section.heading} className="bespoke-surface panel-machined border border-[color:var(--g200)] bg-white p-5">
-              <h2 className="font-serif text-xl font-semibold uppercase tracking-tight text-ink">{section.heading}</h2>
+              <h2 className="font-serif text-xl font-bold uppercase tracking-tight text-ink">{section.heading}</h2>
               <p className="mt-2 text-[15px] leading-[1.72] text-ink-muted sm:text-base">{section.body}</p>
             </section>
           ))}

@@ -19,7 +19,7 @@ export function ServiceLayoutLabD({ items }: Props) {
         <p className="label-overline-on-dark mb-2">Layout option D — Dense directory</p>
         <h2
           id="service-layout-lab-d-heading"
-          className="font-serif text-2xl font-semibold uppercase tracking-tight text-white sm:text-3xl"
+          className="font-serif text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl"
         >
           <span className="text-white/90">Compact </span>
           <span className="text-[color:var(--y)]">spec-sheet</span>
@@ -46,7 +46,7 @@ export function ServiceLayoutLabD({ items }: Props) {
                   </div>
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h3 className="font-serif text-base font-semibold uppercase leading-snug tracking-tight text-ink sm:text-lg">
+                  <h3 className="font-serif text-base font-bold uppercase leading-snug tracking-[0.04em] text-ink sm:text-lg">
                     {serviceTitleTone(item.title)}
                   </h3>
                   <p className="mt-1 text-sm leading-relaxed text-ink-muted">{item.short}</p>

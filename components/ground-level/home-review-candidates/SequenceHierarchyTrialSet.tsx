@@ -55,7 +55,7 @@ function Shell({
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-12 sm:px-6 sm:py-14">
         <div className={`max-w-4xl border ${c.panel} border-l-[5px] border-l-[color:var(--y)] p-5 backdrop-blur-md`}>
           <p className={c.label}>{kicker}</p>
-          <h2 id={`${id}-heading`} className={`mt-2 font-serif text-3xl font-semibold uppercase tracking-tight sm:text-4xl ${c.heading}`}>
+          <h2 id={`${id}-heading`} className={`mt-2 font-serif text-3xl font-bold uppercase tracking-tight sm:text-4xl ${c.heading}`}>
             <span className={c.heading}>{split.base} </span>
             <span className="text-[color:var(--y)]">{split.accent}</span>
           </h2>
@@ -77,7 +77,7 @@ function KineticSpineHero({ tone }: { tone: Tone }) {
         </div>
         <div>
           <p className={c.label}>5:1 type ratio</p>
-          <h3 className={`mt-2 font-serif text-5xl font-semibold uppercase leading-[0.92] tracking-tight sm:text-7xl ${c.heading}`}>Ground command in <span className="text-[color:var(--y)]">motion</span></h3>
+          <h3 className={`mt-2 font-serif text-5xl font-bold uppercase leading-[0.92] tracking-tight sm:text-7xl ${c.heading}`}>Ground command in <span className="text-[color:var(--y)]">motion</span></h3>
           <p className={`mt-4 max-w-2xl text-base leading-relaxed ${c.body}`}>A fixed visual spine anchors heavy equipment imagery while the command headline reads as a scrolling narrative plane.</p>
         </div>
       </div>
@@ -101,9 +101,9 @@ function PedigreeLedger({ tone }: { tone: Tone }) {
         </div>
         <aside className={`border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] p-5 ${c.panel}`}>
           <p className={c.label}>High-impact stats</p>
-          <p className={`mt-3 font-serif text-4xl font-semibold ${c.heading}`}>500+</p>
+          <p className={`mt-3 font-serif text-4xl font-bold leading-none tracking-[-0.04em] ${c.heading}`}>500+</p>
           <p className={c.body}>Completed commercial scopes</p>
-          <p className={`mt-3 font-serif text-4xl font-semibold ${c.heading}`}>15+</p>
+          <p className={`mt-3 font-serif text-4xl font-bold leading-none tracking-[-0.04em] ${c.heading}`}>15+</p>
           <p className={c.body}>Years of delivery continuity</p>
         </aside>
       </div>
@@ -120,7 +120,7 @@ function ServiceMatrix({ tone }: { tone: Tone }) {
         {services.map((service, i) => (
           <article key={service} className={`border p-4 ${c.panel} ${i % 3 === 0 ? "lg:-translate-y-4" : i % 3 === 1 ? "lg:translate-y-3" : ""}`}>
             <p className="eyebrow text-[color:var(--y)]">{`0${i + 1}`}</p>
-            <h3 className={`mt-2 font-serif text-xl font-semibold uppercase ${c.heading}`}>{service}</h3>
+            <h3 className={`mt-2 font-serif text-xl font-bold uppercase leading-tight tracking-[0.04em] ${c.heading}`}>{service}</h3>
             <p className={`mt-2 text-sm ${c.body}`}>Non-standard cluster position balances optical weight across the field.</p>
           </article>
         ))}
@@ -145,7 +145,7 @@ function StowContentBlock({ tone }: { tone: Tone }) {
           return (
             <article key={block.title} className={`border ${c.panel}`}>
               <button type="button" className="flex w-full items-center justify-between px-5 py-4 text-left" onClick={() => setOpen(i)} aria-expanded={isOpen}>
-                <span className={`font-serif text-xl font-semibold uppercase ${c.heading}`}>
+                <span className={`font-serif text-xl font-bold uppercase leading-tight tracking-[0.04em] ${c.heading}`}>
                   <span className={c.heading}>{block.title.split(" ")[0]} </span>
                   <span className="text-[color:var(--y)]">{block.title.split(" ").slice(1).join(" ")}</span>
                 </span>
@@ -187,7 +187,7 @@ function InkMotifQuote({ tone }: { tone: Tone }) {
   return (
     <Shell id="sequence-ink-motif-quote" tone={tone} title='The "Ink" Motif Quote' kicker="06 Sequence section">
       <blockquote className="mt-8 border border-[color:var(--g200)] bg-white px-6 py-10 sm:px-10 sm:py-14">
-        <p className="font-serif text-4xl font-semibold uppercase leading-[1.02] tracking-tight text-[color:var(--ink-deep)] sm:text-6xl">
+        <p className="font-serif text-4xl font-bold uppercase leading-none tracking-[-0.04em] text-[color:var(--ink-deep)] sm:text-6xl">
           Every grade cut becomes a measurable commitment to timeline, safety, and structural confidence.
         </p>
         <p className={`mt-4 text-sm ${c.body}`}>Obsidian typography on white canvas with yellow accent punctuation.</p>
@@ -269,7 +269,7 @@ function RegionalImpactMap({ tone }: { tone: Tone }) {
         </div>
         <aside className={`border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] p-5 ${c.panel}`}>
           <p className={c.label}>Coordinate entry marker</p>
-          <p className={`mt-2 font-serif text-2xl font-semibold uppercase ${c.heading}`}>
+          <p className={`mt-2 font-sans text-2xl font-semibold uppercase ${c.heading}`}>
             <span className={c.heading}>{active.id.split(" ")[0]} </span>
             <span className="text-[color:var(--y)]">{active.id.split(" ").slice(1).join(" ")}</span>
           </p>
@@ -312,7 +312,7 @@ function TerminalCta({ tone }: { tone: Tone }) {
       <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,0.65fr)]">
         <div className={`border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] p-6 ${c.panel}`}>
           <p className={c.label}>70/30 balance</p>
-          <h3 className={`mt-2 font-serif text-3xl font-semibold uppercase sm:text-4xl ${c.heading}`}>
+          <h3 className={`mt-2 font-serif text-3xl font-bold uppercase sm:text-4xl ${c.heading}`}>
             <span className={c.heading}>Book the field </span>
             <span className="text-[color:var(--y)]">walkthrough</span>
           </h3>

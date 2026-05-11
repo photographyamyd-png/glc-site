@@ -301,7 +301,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                 })}
               </div>
               <div className="hero-cta-row mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-                <Link href="/contact/" className="cta-hero-fill px-5 py-3 text-center text-xs tracking-wide">
+                <Link href="/contact/" className="cta-hero-fill px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
                   {DRAINAGE_HERO.ctaPrimary}
                 </Link>
                 <Link href="/contact/" className="cta-outline-light px-5 py-3 text-center text-xs tracking-wide">
@@ -448,7 +448,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                 <SectionEyebrow text={DRAINAGE_DRAIN_TILE.eyebrow} band="light" />
                 <h2
                   id="drain-tile-h2"
-                  className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-[clamp(36px,3.5vw,52px)]"
+                  className="mt-[var(--s7)] font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-[clamp(36px,3.5vw,52px)]"
                 >
                   {DRAINAGE_DRAIN_TILE.h2}
                 </h2>
@@ -468,7 +468,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
               >
                 <div className="space-y-10">
                   <div>
-                    <h3 className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink sm:text-2xl">
+                    <h3 className="font-serif text-xl font-bold uppercase tracking-[0.04em] text-ink sm:text-2xl">
                       {DRAINAGE_DRAIN_TILE.h3WhatIs}
                     </h3>
                     <div className={`mt-4 space-y-4 ${bodyLight}`}>
@@ -478,7 +478,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink sm:text-2xl">
+                    <h3 className="font-serif text-xl font-bold uppercase tracking-[0.04em] text-ink sm:text-2xl">
                       {DRAINAGE_DRAIN_TILE.h3Signs}
                     </h3>
                     <p className={`mt-4 ${bodyLight}`}>{DRAINAGE_DRAIN_TILE.signsIntro}</p>
@@ -494,7 +494,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink sm:text-2xl">
+                    <h3 className="font-serif text-xl font-bold uppercase tracking-[0.04em] text-ink sm:text-2xl">
                       {DRAINAGE_DRAIN_TILE.h3InteriorExterior}
                     </h3>
                     <div className={`mt-4 space-y-4 ${bodyLight}`}>
@@ -504,7 +504,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink sm:text-2xl">
+                    <h3 className="font-serif text-xl font-bold uppercase tracking-[0.04em] text-ink sm:text-2xl">
                       {DRAINAGE_DRAIN_TILE.h3Process}
                     </h3>
                     <ol className="mt-4 list-decimal space-y-3 pl-5 text-[15px] text-ink">
@@ -557,7 +557,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
             <SectionEyebrow text={DRAINAGE_RETAINING_WALLS.eyebrow} band="light" />
             <h2
               id="walls-h2"
-              className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-[clamp(36px,3.5vw,52px)]"
+              className="mt-[var(--s7)] font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-[clamp(36px,3.5vw,52px)]"
             >
               {DRAINAGE_RETAINING_WALLS.h2}
             </h2>
@@ -634,7 +634,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
           <div className="rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_20px_60px_rgb(0_0_0/0.25)] backdrop-blur-md sm:p-8 lg:col-span-7">
             <h2
               id="mid-cta-heading"
-              className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-[clamp(36px,3.5vw,52px)]"
+              className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-[clamp(36px,3.5vw,52px)]"
             >
               {DRAINAGE_MID_CTA.headline}
             </h2>
@@ -669,7 +669,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
           <div className="max-w-4xl rounded-sm border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:rgb(255_255_255/0.9)] p-5 shadow-[0_12px_40px_rgb(0_0_0/0.05)] backdrop-blur-sm sm:p-8">
             <YellowRule className="mb-6" width="2px" />
             <SectionEyebrow text={DRAINAGE_PATIOS.eyebrow} band="light" />
-            <h2 id="patios-h2" className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase text-ink sm:text-[clamp(36px,3.5vw,52px)]">
+            <h2 id="patios-h2" className="mt-[var(--s7)] font-serif text-3xl font-bold uppercase text-ink sm:text-[clamp(36px,3.5vw,52px)]">
               {DRAINAGE_PATIOS.h2}
             </h2>
           </div>
@@ -772,7 +772,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
             <div className="max-w-4xl rounded-sm border border-white/15 bg-[rgb(10_12_11/0.55)] p-5 shadow-[0_16px_48px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-7">
               <h2
                 id="integration-h2"
-                className="border-l-4 border-[color:var(--y)] pl-5 font-serif text-3xl font-semibold uppercase text-white sm:text-[clamp(36px,3.5vw,52px)]"
+                className="border-l-4 border-[color:var(--y)] pl-5 font-serif text-3xl font-bold uppercase text-white sm:text-[clamp(36px,3.5vw,52px)]"
               >
                 {DRAINAGE_INTEGRATION.h2}
               </h2>
@@ -797,7 +797,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                 <ul className="mt-6 space-y-6">
                   {DRAINAGE_INTEGRATION.condensedList.map((item) => (
                     <li key={item.title}>
-                      <p className="font-serif text-lg font-bold uppercase tracking-[0.02em] text-ink">{item.title}</p>
+                      <p className="font-sans text-lg font-bold uppercase tracking-[0.04em] text-ink">{item.title}</p>
                       <p className="mt-1 text-sm text-ink-muted sm:text-[15px]">{item.desc}</p>
                     </li>
                   ))}
@@ -871,7 +871,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <YellowRule className="mb-8" />
           <SectionEyebrow text={DRAINAGE_WHY_CHOOSE.eyebrow} band="dark" />
-          <h2 id="why-h2" className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase text-white sm:text-[clamp(36px,3.5vw,52px)]">
+          <h2 id="why-h2" className="mt-[var(--s7)] font-serif text-3xl font-bold uppercase text-white sm:text-[clamp(36px,3.5vw,52px)]">
             {DRAINAGE_WHY_CHOOSE.h2}
           </h2>
           <div className="mt-12 grid gap-10 md:grid-cols-2">
@@ -881,7 +881,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                 className="border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 backdrop-blur-md sm:p-8"
               >
                 <YellowRule width="2px" className="mb-4" />
-                <h3 className="font-serif text-lg font-bold uppercase tracking-[0.02em] text-white">{pt.title}</h3>
+                <h3 className="font-serif text-lg font-bold uppercase tracking-[0.04em] text-white">{pt.title}</h3>
                 <p className={`mt-2 text-sm text-white/90 sm:text-[15px]`}>{pt.summary}</p>
                 <ExpandSection band="dark" summary={null} triggerLabel={pt.expandTrigger} className="mt-4 border-white/10">
                   <div className={`max-w-[75ch] space-y-3 ${bodyDark}`}>
@@ -907,7 +907,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
           <div className="rounded-sm border border-white/10 bg-[rgb(10_12_11/0.35)] p-6 backdrop-blur-md sm:p-8">
             <YellowRule className="mb-8" />
             <SectionEyebrow text={DRAINAGE_SERVICE_AREAS.eyebrow} band="dark" />
-            <h2 id="areas-h2" className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase text-white sm:text-[clamp(36px,3.5vw,52px)]">
+            <h2 id="areas-h2" className="mt-[var(--s7)] font-serif text-3xl font-bold uppercase text-white sm:text-[clamp(36px,3.5vw,52px)]">
               {DRAINAGE_SERVICE_AREAS.h2}
             </h2>
             <p className={`mt-6 ${bodyDark}`}>{DRAINAGE_SERVICE_AREAS.intro}</p>
@@ -915,7 +915,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
             <ul className="mt-4 space-y-4">
               {DRAINAGE_SERVICE_AREAS.primary.map((row) => (
                 <li key={row.city}>
-                  <p className="font-serif text-base font-bold uppercase text-white">{row.city}</p>
+                  <p className="font-sans text-base font-bold uppercase text-white">{row.city}</p>
                   <p className="mt-1 text-sm text-white/90">{row.note}</p>
                 </li>
               ))}
@@ -975,7 +975,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <YellowRule className="mb-8" />
           <SectionEyebrow text={DRAINAGE_TRUST_SIGNALS.eyebrow} band="dark" />
-          <h2 id="trust-h2" className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase text-white sm:text-[clamp(36px,3.5vw,52px)]">
+          <h2 id="trust-h2" className="mt-[var(--s7)] font-serif text-3xl font-bold uppercase text-white sm:text-[clamp(36px,3.5vw,52px)]">
             {DRAINAGE_TRUST_SIGNALS.h2}
           </h2>
           <ul className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -988,7 +988,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                   <path d="M5 12l4 4L19 6" stroke="currentColor" strokeWidth="2" />
                 </svg>
                 <div>
-                  <p className="font-serif text-base font-bold uppercase text-white">{item.label}</p>
+                  <p className="font-sans text-base font-bold uppercase text-white">{item.label}</p>
                   <p className="mt-1 text-sm text-white/90">{substituteGoogleReviewPlaceholders(item.sub)}</p>
                 </div>
               </li>
@@ -1053,7 +1053,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                   href={card.href}
                   className="group flex h-full flex-col border border-[color:var(--g200)] border-t-[4px] border-t-[color:var(--y)] bg-white p-8 transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <span className="font-serif text-xl font-bold uppercase tracking-[0.02em] text-ink">{card.title}</span>
+                  <span className="font-serif text-xl font-bold uppercase tracking-[0.04em] text-ink">{card.title}</span>
                   <div className="mt-3 space-y-2 text-sm text-ink-muted sm:text-[15px]">
                     {card.paras.map((para, i) => (
                       <p key={i}>{para}</p>
@@ -1079,10 +1079,10 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         <div className="absolute inset-0 bg-[rgb(10_12_11/0.45)]" aria-hidden />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 text-center sm:px-6 lg:px-10">
           <div className="mx-auto max-w-4xl rounded-sm border border-white/10 bg-[rgb(10_12_11/0.5)] px-6 py-10 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:px-10 sm:py-12">
-            <h2 id="final-cta-h2" className="font-serif text-4xl font-semibold uppercase text-white sm:text-[48px]">
+            <h2 id="final-cta-h2" className="font-serif text-4xl font-bold uppercase text-white sm:text-[48px]">
               {DRAINAGE_FINAL_CTA.line1}
             </h2>
-            <p className="mt-2 font-serif text-4xl font-semibold uppercase text-[color:var(--y)] sm:text-[48px]">{DRAINAGE_FINAL_CTA.line2}</p>
+            <p className="mt-2 font-serif text-4xl font-bold uppercase leading-none tracking-[-0.04em] text-[color:var(--y)] sm:text-[48px]">{DRAINAGE_FINAL_CTA.line2}</p>
             <div className={`mx-auto mt-8 max-w-2xl space-y-3 text-left text-base text-white/90 sm:text-center`}>
               {DRAINAGE_FINAL_CTA.subParas.map((p) => (
                 <p key={p.slice(0, 40)}>{p}</p>

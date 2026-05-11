@@ -338,7 +338,7 @@ export function GLTestimonialsBlock({
             <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
               <motion.h2
                 id={headingId}
-                className={`font-serif text-3xl font-semibold uppercase leading-tight tracking-tight sm:text-4xl ${isDark ? "text-white" : "text-ink"}`}
+                className={`font-serif text-3xl font-bold uppercase leading-tight tracking-tight sm:text-4xl ${isDark ? "text-white" : "text-ink"}`}
                 initial={{ opacity: 0, y: reducedMotion ? 0 : 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
@@ -365,7 +365,7 @@ export function GLTestimonialsBlock({
               >
                 <a
                   href="#cta-band"
-                  className={`group mt-8 inline-flex items-center gap-2 px-8 py-4 text-xs font-bold uppercase tracking-[0.14em] ${isDark ? "cta-hero-fill" : "cta-primary"}`}
+                  className={`group mt-8 inline-flex items-center gap-2 px-8 py-4 text-xs font-semibold uppercase tracking-[0.12em] ${isDark ? "cta-hero-fill" : "cta-primary"}`}
                 >
                   Start Consultation
                   <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
@@ -448,7 +448,7 @@ export function GLTestimonialsBlock({
                     </p>
                   </div>
                   <h3
-                    className={`font-serif text-xl font-bold uppercase tracking-[0.02em] sm:text-2xl ${isDark ? "text-white" : "text-ink"}`}
+                    className={`font-serif text-xl font-bold uppercase tracking-[0.04em] sm:text-2xl ${isDark ? "text-white" : "text-ink"}`}
                   >
                     {entry.attribution.split(",")[0] ?? entry.attribution}
                   </h3>
@@ -504,7 +504,7 @@ export function GLTestimonialsVariantLab({ variantId }: { variantId: Testimonial
       <ClaudeLogicWatermark placement="top-right" mode="on-dark" />
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))]">
         <p className="eyebrow text-white">Testimonials · DNA lab</p>
-        <h2 className="mt-2 font-serif text-xl font-semibold uppercase tracking-tight text-white sm:text-2xl">
+        <h2 className="mt-2 font-serif text-xl font-bold uppercase tracking-tight text-white sm:text-2xl">
           <span className="text-white/85">{variant.label.split(" — ")[0]}</span>
           {variant.label.includes(" — ") ? (
             <>
@@ -540,7 +540,7 @@ export function GLTestimonials() {
         <p className="label-overline-on-dark mb-3">{TESTIMONIALS.eyebrow}</p>
         <h2
           id="testimonials-heading"
-          className="font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl"
+          className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
         >
           {headingTone(TESTIMONIALS.heading)}
         </h2>

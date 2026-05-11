@@ -25,7 +25,7 @@ export function ServiceLayoutLabC({ items }: Props) {
         <p className="label-overline mb-2">Layout option C — Bento grid</p>
         <h2
           id="service-layout-lab-c-heading"
-          className="font-serif text-2xl font-semibold uppercase tracking-tight text-ink sm:text-3xl"
+          className="font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl"
         >
           <span className="text-ink">Mixed-span grid: one anchor tile + </span>
           <span className="text-[color:var(--y)]">five satellites</span>
@@ -45,7 +45,7 @@ export function ServiceLayoutLabC({ items }: Props) {
             <span className="relative eyebrow text-[color:var(--y)]">
               01 — Featured line
             </span>
-            <h3 className="relative mt-2 font-serif text-xl font-semibold uppercase leading-tight tracking-tight sm:text-2xl">
+            <h3 className="relative mt-2 font-serif text-xl font-bold uppercase leading-tight tracking-[0.04em] sm:text-2xl">
               {serviceTitleTone(hero.title)}
             </h3>
             <p className="relative mt-2 text-sm text-white/85">{hero.short}</p>
@@ -102,7 +102,7 @@ function SatelliteBody({ item, index }: { item: ServiceLayoutLabItem; index: num
         <span className="font-label text-[9px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
           {String(index).padStart(2, "0")}
         </span>
-        <h3 className="mt-1 font-serif text-sm font-semibold uppercase leading-snug tracking-tight text-ink sm:text-base">
+        <h3 className="mt-1 font-serif text-sm font-bold uppercase leading-snug tracking-[0.04em] text-ink sm:text-base">
           {serviceTitleTone(item.title)}
         </h3>
         <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-ink-muted">{item.short}</p>

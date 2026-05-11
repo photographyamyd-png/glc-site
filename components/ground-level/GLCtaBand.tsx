@@ -90,7 +90,7 @@ export function GLCtaBand({
           </p>
           <h2
             id={headingId}
-            className="font-serif text-2xl font-semibold uppercase leading-tight tracking-tight text-ink sm:text-3xl"
+            className="font-serif text-2xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-3xl"
           >
             {headingTone(c.heading, c.headingAccentKey)}
           </h2>
@@ -110,7 +110,7 @@ export function GLCtaBand({
             data-motif-id="cta3__divider"
             aria-hidden
           />
-          <a href={c.emailHref} className="cta-primary px-5 py-3 text-center text-xs font-semibold tracking-wide">
+          <a href={c.emailHref} className="cta-primary px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
             {c.emailCta}
           </a>
         </div>
