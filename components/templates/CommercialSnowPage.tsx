@@ -674,22 +674,40 @@ export function CommercialSnowPage({ service, related }: Props) {
               </details>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="mt-16 border-t border-white/15 pt-12">
-            <h2 className="font-serif text-2xl font-semibold uppercase tracking-tight text-white sm:text-3xl">{COMMERCIAL_SNOW_FAQ_SECTION.h2}</h2>
-            <p className="mt-4 max-w-prose text-[15px] text-white/90">{COMMERCIAL_SNOW_FAQ_SECTION.visibleLede}</p>
-            <div className="mt-8 space-y-3">
-              {COMMERCIAL_SNOW_FAQS.map((item) => (
-                <details key={item.q} name="snow-faq" className="group border border-white/18 bg-[rgb(255_255_255/0.06)] p-4">
-                  <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-base font-semibold uppercase tracking-tight text-white marker:content-none [&::-webkit-details-marker]:hidden">
-                    <span className="text-balance">{item.q}</span>
-                    <span className="eyebrow shrink-0 text-[color:var(--y)] group-open:hidden">+</span>
-                    <span className="hidden shrink-0 eyebrow text-[color:var(--y)] group-open:inline">−</span>
-                  </summary>
-                  <p className="mt-4 text-[15px] leading-[1.72] text-white/88">{item.a}</p>
-                </details>
-              ))}
-            </div>
+      {/* —— FAQ (editorial light — breaks long dark assurance run) —— */}
+      <section
+        id="chapter-faq"
+        className="section-major band-light relative scroll-mt-[var(--header)] overflow-hidden border-t border-[color:var(--g200)] view-reveal"
+        aria-labelledby="chapter-faq-heading"
+      >
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(118deg,rgb(242_183_5/0.055),transparent_48%)]" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_42%_at_15%_0%,rgb(30_28_26/0.04),transparent_50%)]" aria-hidden />
+        <ClaudeLogicWatermark placement="bottom-right" mode="default" className="z-[1] opacity-[0.09]" />
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
+          <div className="border-l-4 border-[color:var(--y)] pl-5">
+            <p className="eyebrow text-ink">{COMMERCIAL_SNOW_FAQ_SECTION.eyebrow}</p>
+            <h2
+              id="chapter-faq-heading"
+              className="mt-3 font-serif text-2xl font-semibold uppercase tracking-tight text-ink sm:text-3xl"
+            >
+              {COMMERCIAL_SNOW_FAQ_SECTION.h2}
+            </h2>
+            <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-ink sm:text-base">{COMMERCIAL_SNOW_FAQ_SECTION.visibleLede}</p>
+          </div>
+          <div className="mt-10 space-y-3">
+            {COMMERCIAL_SNOW_FAQS.map((item) => (
+              <details key={item.q} name="snow-faq" className="group border border-[color:var(--g200)] bg-white p-4 shadow-[inset_0_1px_0_rgb(242_183_5/0.2)]">
+                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-base font-semibold uppercase tracking-tight text-ink marker:content-none [&::-webkit-details-marker]:hidden">
+                  <span className="text-balance">{item.q}</span>
+                  <span className="eyebrow shrink-0 text-[color:var(--y)] group-open:hidden">+</span>
+                  <span className="hidden shrink-0 eyebrow text-[color:var(--y)] group-open:inline">−</span>
+                </summary>
+                <p className="mt-4 text-[15px] leading-[1.72] text-ink sm:text-base">{item.a}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

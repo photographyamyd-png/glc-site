@@ -26,7 +26,8 @@ export const COMMERCIAL_SNOW_CHAPTERS = [
   { id: "chapter-proof", label: "Proof", shortLabel: "Proof" },
   { id: "chapter-operations", label: "Operations", shortLabel: "Ops" },
   { id: "chapter-coverage", label: "Coverage", shortLabel: "Area" },
-  { id: "chapter-assurance", label: "FAQ", shortLabel: "FAQ" },
+  { id: "chapter-assurance", label: "Why GLC", shortLabel: "Why" },
+  { id: "chapter-faq", label: "FAQ", shortLabel: "FAQ" },
   { id: "chapter-contact", label: "Contact", shortLabel: "Contact" },
 ] as const;
 
@@ -610,6 +611,7 @@ export const COMMERCIAL_SNOW_MID_LOWER_CTA = {
 } as const;
 
 export const COMMERCIAL_SNOW_FAQ_SECTION = {
+  eyebrow: "FAQ",
   h2: "Commercial Snow Removal FAQs — Barrie and Simcoe County",
   visibleLede: "Eighteen common questions — full answers in-page for search and procurement review.",
 } as const;
