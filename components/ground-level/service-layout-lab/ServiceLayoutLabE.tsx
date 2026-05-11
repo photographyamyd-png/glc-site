@@ -47,7 +47,7 @@ export function ServiceLayoutLabE({ items }: Props) {
               <p className="mt-3 text-sm leading-relaxed text-ink-muted sm:text-base">{featured.megaBlurb}</p>
               <Link
                 href={`/services/${featured.slug}`}
-                className="mt-6 inline-block w-fit text-xs font-bold uppercase tracking-[0.14em] text-[color:var(--y)] underline decoration-[color:var(--y)]/40 underline-offset-4"
+                className="mt-6 inline-block w-fit text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--y)] underline decoration-[color:var(--y)]/40 underline-offset-4"
               >
                 View service →
               </Link>
@@ -69,7 +69,7 @@ export function ServiceLayoutLabE({ items }: Props) {
                     alt=""
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                   />
-                  <span className="absolute left-2 top-2 rounded bg-[color:var(--ink-deep)] px-2 py-0.5 font-label text-[9px] font-bold uppercase tracking-wider text-white">
+                  <span className="absolute left-2 top-2 rounded bg-[color:var(--ink-deep)] px-2 py-0.5 font-label text-[9px] font-semibold uppercase tracking-wider text-white">
                     {String(i + 2).padStart(2, "0")}
                   </span>
                 </div>
@@ -78,7 +78,7 @@ export function ServiceLayoutLabE({ items }: Props) {
                     {serviceTitleTone(item.title)}
                   </h3>
                   <p className="mt-2 flex-1 text-xs leading-relaxed text-ink-muted">{item.short}</p>
-                  <span className="mt-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[color:var(--y)]">
+                  <span className="mt-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-[color:var(--y)]">
                     View →
                   </span>
                 </div>

@@ -31,7 +31,7 @@ export function ServiceLayoutLabF({ items }: Props) {
           <ol className="relative flex flex-col gap-10 sm:gap-12">
             {items.map((item, i) => (
               <li key={item.slug} className="relative pl-10 sm:pl-14">
-                <span className="absolute left-0 top-2 flex h-8 w-8 items-center justify-center rounded-full border-2 border-[color:var(--y)] bg-[color:var(--y)] font-label text-[10px] font-bold text-[color:var(--ink-deep)] sm:left-1 sm:h-9 sm:w-9">
+                <span className="absolute left-0 top-2 flex h-8 w-8 items-center justify-center rounded-full border-2 border-[color:var(--y)] bg-[color:var(--y)] font-label text-[10px] font-semibold text-[color:var(--ink-deep)] sm:left-1 sm:h-9 sm:w-9">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="overflow-hidden border border-[color:var(--g200)] bg-[color:var(--brand-canvas)] shadow-[0_12px_32px_rgb(0_0_0/0.07)]">
@@ -51,7 +51,7 @@ export function ServiceLayoutLabF({ items }: Props) {
                       <p className="mt-2 text-sm leading-relaxed text-ink-muted">{item.short}</p>
                       <Link
                         href={`/services/${item.slug}`}
-                        className="mt-4 inline-block w-fit text-[10px] font-bold uppercase tracking-[0.14em] text-[color:var(--y)] underline decoration-[color:var(--y)]/40 underline-offset-4"
+                        className="mt-4 inline-block w-fit text-[10px] font-semibold uppercase tracking-[0.14em] text-[color:var(--y)] underline decoration-[color:var(--y)]/40 underline-offset-4"
                       >
                         View service →
                       </Link>

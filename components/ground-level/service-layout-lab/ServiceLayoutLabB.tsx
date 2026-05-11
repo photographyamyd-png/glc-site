@@ -38,7 +38,7 @@ export function ServiceLayoutLabB({ items }: Props) {
                   alt=""
                   className="h-full w-full object-cover"
                 />
-                <span className="absolute left-3 top-3 rounded bg-[color:var(--y)] px-2 py-0.5 font-label text-[9px] font-bold uppercase tracking-wider text-[color:var(--ink-deep)]">
+                <span className="absolute left-3 top-3 rounded bg-[color:var(--y)] px-2 py-0.5 font-label text-[9px] font-semibold uppercase tracking-wider text-[color:var(--ink-deep)]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
@@ -49,7 +49,7 @@ export function ServiceLayoutLabB({ items }: Props) {
                 <p className="mt-3 flex-1 text-xs leading-relaxed text-ink-muted sm:text-sm">{item.short}</p>
                 <Link
                   href={`/services/${item.slug}`}
-                  className="mt-4 inline-block text-[10px] font-bold uppercase tracking-[0.14em] text-[color:var(--y)] underline decoration-[color:var(--y)]/45 underline-offset-4"
+                  className="mt-4 inline-block text-[10px] font-semibold uppercase tracking-[0.14em] text-[color:var(--y)] underline decoration-[color:var(--y)]/45 underline-offset-4"
                 >
                   View service →
                 </Link>

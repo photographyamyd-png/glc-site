@@ -235,7 +235,7 @@ export function ProcessVerticalFlow() {
               </Link>
               <Link
                 href="/services/"
-                className="cta-outline-light inline-flex min-h-[44px] items-center justify-center px-6 py-3 text-xs font-bold uppercase tracking-[0.14em]"
+                className="cta-outline-light inline-flex min-h-[44px] items-center justify-center px-6 py-3 text-xs font-semibold uppercase tracking-[0.14em]"
               >
                 View services
               </Link>
@@ -400,7 +400,7 @@ export function ProcessVerticalFlow() {
                     <span className="mt-3 text-[15px] leading-[1.72] text-white/90 sm:text-base">
                       {item.description}
                     </span>
-                    <span className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[color:var(--y)]">
+                    <span className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--y)]">
                       Open scope <span aria-hidden>{"->"}</span>
                     </span>
                   </div>
@@ -602,7 +602,7 @@ export function ProcessVerticalFlow() {
                 </Link>
                 <Link
                   href={EMAIL_MAILTO}
-                  className="cta-outline-light inline-flex min-h-[44px] items-center justify-center px-6 py-3 text-xs font-bold uppercase tracking-[0.14em]"
+                  className="cta-outline-light inline-flex min-h-[44px] items-center justify-center px-6 py-3 text-xs font-semibold uppercase tracking-[0.14em]"
                 >
                   {CTA_BAND.emailCta}
                 </Link>

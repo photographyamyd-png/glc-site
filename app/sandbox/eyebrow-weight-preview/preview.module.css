@@ -1,18 +1,6 @@
 /**
- * Scoped overrides for /sandbox/eyebrow-weight-preview only.
- * Simulates proposed 600-weight condensed chrome without changing app/globals.css.
+ * Layout helpers for /sandbox/eyebrow-weight-preview (live globals stack; no scoped weight override).
  */
-.grid {
-  display: grid;
-  gap: 1.25rem;
-  grid-template-columns: 1fr 1fr;
-}
-
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 .sectionLabel {
   margin-bottom: 0.5rem;
@@ -51,18 +39,4 @@
   border: 1px solid rgb(30 28 26 / 0.15);
   background: rgb(242 183 5 / 0.18);
   padding: 0.5rem 0.75rem;
-}
-
-.proposed :global(.eyebrow),
-.proposed :global(.label-overline),
-.proposed :global(.label-overline-on-dark) {
-  font-weight: 600;
-}
-
-.proposed :global(a.previewLink) {
-  font-weight: 600 !important;
-}
-
-.proposed :global(span.previewChip) {
-  font-weight: 600 !important;
 }

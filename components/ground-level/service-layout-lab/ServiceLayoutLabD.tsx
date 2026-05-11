@@ -53,7 +53,7 @@ export function ServiceLayoutLabD({ items }: Props) {
                 </div>
                 <Link
                   href={`/services/${item.slug}`}
-                  className="shrink-0 self-start text-[10px] font-bold uppercase tracking-[0.14em] text-[color:var(--y)] underline decoration-[color:var(--y)]/45 underline-offset-4 sm:self-center"
+                  className="shrink-0 self-start text-[10px] font-semibold uppercase tracking-[0.14em] text-[color:var(--y)] underline decoration-[color:var(--y)]/45 underline-offset-4 sm:self-center"
                 >
                   View →
                 </Link>

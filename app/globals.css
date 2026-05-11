@@ -7,7 +7,7 @@
 
 /*
  * Stakeholder tokens + Prime Directive canvas (#FAFAFA).
- * Display: Oswald (mapped to legacy font-serif utilities). Body: Source Sans 3. Condensed UI: Barlow Condensed (`font-label`). Section eyebrows / overlines: Barlow Condensed `.eyebrow` (13px, solid white on dark).
+ * Display: Oswald (mapped to legacy font-serif utilities). Body: Source Sans 3. Condensed UI: Barlow Condensed (`font-label`). Section eyebrows / overlines: Barlow Condensed `.eyebrow` (13px / 600, solid white on dark).
  */
 :root {
   /* Accent: aligned with glc-site `glc-base.css` (--yellow-core #F2B705) */
@@ -212,7 +212,7 @@ body {
 .eyebrow {
   font-family: var(--font-barlow-condensed), system-ui, sans-serif;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.35;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -258,7 +258,7 @@ body {
 .label-overline-on-dark {
   font-family: var(--font-barlow-condensed), system-ui, sans-serif;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.35;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -564,7 +564,7 @@ body {
 .label-overline {
   font-family: var(--font-barlow-condensed), system-ui, sans-serif;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.35;
   letter-spacing: 0.07em;
   text-transform: uppercase;

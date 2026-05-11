@@ -19,7 +19,7 @@ This file carries **exhaustive** content from the legacy monolithic `master/MAST
 - **Body:** Longform and general UI use **Source Sans 3** (`--font-source-sans` / `font-sans`).
 - **Paragraph (`<p>`) vs Oswald (`font-serif`) — drift lock:** Do **not** put **`font-serif`** on `<p>` elements that carry **prose body copy** (sentences, paragraphs, quotes meant to read as running text). Use **`font-sans`** for those. **`font-serif` on `<p>` is allowed** only for **display-role** lines that still use a `<p>` tag: **stat numerals**, **hero/metric values**, **short marketing callouts** (headline-like), **chip/label lines**, and **non-sentence UI labels**. For quoted testimonials or italic pull quotes in body voice, use **`font-sans`** (italic optional). When in doubt, use a heading level or `<span>` for display lines instead of forcing Oswald onto prose `<p>` tags.
 - **Condensed UI:** **Barlow Condensed** via `font-label` for dense chrome (badges on yellow, some CTAs, ~9px index marks). Do not use `font-label` for full-width section eyebrows — use **`.eyebrow`** instead (same typeface, different utility).
-- **Section eyebrows / kickers:** Use the **`.eyebrow`** utility in **`app/globals.css`** (**Barlow Condensed**, **13px**, **700**, uppercase, **0.07em** tracking). On **dark** bands pair with **`text-white`** (solid). On **light** bands use **`text-ink`** or **`text-ink-muted`** for secondary. Avoid low-opacity white for primary eyebrow copy. Do **not** override eyebrow font size with `text-xs`–`text-8xl` or arbitrary `text-[…]` **font-size** tokens — color arbitrary values like `text-[color:var(--y)]` are fine.
+- **Section eyebrows / kickers:** Use the **`.eyebrow`** utility in **`app/globals.css`** (**Barlow Condensed**, **13px**, **600**, uppercase, **0.07em** tracking). On **dark** bands pair with **`text-white`** (solid). On **light** bands use **`text-ink`** or **`text-ink-muted`** for secondary. Avoid low-opacity white for primary eyebrow copy. Do **not** override eyebrow font size with `text-xs`–`text-8xl` or arbitrary `text-[…]` **font-size** tokens — color arbitrary values like `text-[color:var(--y)]` are fine.
 
 ## §1 — Layout and grid logic (structural pivots and DOM)
 
@@ -104,7 +104,7 @@ Shift away from muted overlines toward explicit sizing, tracking, and `text-ink`
 ### Section eyebrows and overlines
 
 - **Eyebrows (preferred):** `eyebrow text-ink` (light band) or `eyebrow text-white` (dark band); secondary: `eyebrow text-ink-muted`. Accent lines: `eyebrow text-[color:var(--y)]`.
-- **Legacy class names:** `.label-overline` (light) and `.label-overline-on-dark` match the same **13px Barlow Condensed** eyebrow metrics; use with hero choreography (`hero-eyebrow`) where needed. Do not add `opacity-*` on dark hero eyebrows.
+- **Legacy class names:** `.label-overline` (light) and `.label-overline-on-dark` match the same **13px Barlow Condensed** eyebrow metrics (**600**); use with hero choreography (`hero-eyebrow`) where needed. Do not add `opacity-*` on dark hero eyebrows.
 - **Condensed / micro (`font-label`):** 9px side labels; yellow-chip labels with black ink; some CTA rows. Not for full-width section eyebrows.
 
 ### Metadata (tabs, stats, CTAs)
@@ -239,7 +239,7 @@ Prefer **`next/image`**; encode path segments with spaces.
 
 Before shipping UI that depends on V7 DNA, confirm in **`app/globals.css`** / Tailwind:
 
-- **`eyebrow`** / legacy overlines → **Barlow Condensed** (13px, 700, 0.07em tracking); **`font-label`** → **Barlow Condensed** for condensed micro chrome only (not interchangeable with `.eyebrow` at scale).
+- **`eyebrow`** / legacy overlines → **Barlow Condensed** (13px, **600**, 0.07em tracking); **`font-label`** → **Barlow Condensed** for condensed micro chrome only (not interchangeable with `.eyebrow` at scale).
 - Dark glass RGB **`rgb(10,12,11,0.45)`** (or token) for charcoal atmospheric panels.
 - **`text-[color:var(--y)]`** / `#f2b705` available for yellow core.
 - **`.hero-stage`** on ancestors when staggered `view-reveal` / hero choreography is required.

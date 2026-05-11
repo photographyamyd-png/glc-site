@@ -87,7 +87,7 @@ export function CommercialSnowPage({ service, related }: Props) {
               >
                 <div className="flex flex-col gap-0.5">
                   {COMMERCIAL_SNOW_HERO.pressBadgeLines.map((line) => (
-                    <span key={line} className="font-label text-[10px] font-bold uppercase tracking-[0.14em] text-white">
+                    <span key={line} className="font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-white">
                       {line}
                     </span>
                   ))}

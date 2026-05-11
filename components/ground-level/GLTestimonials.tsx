@@ -327,7 +327,7 @@ export function GLTestimonialsBlock({
             className="w-full md:w-1/2"
           >
             <motion.p
-              className={`mb-3 eyebrow font-extrabold tracking-[0.15em] ${isDark ? "text-white" : "text-ink-muted"}`}
+              className={`mb-3 eyebrow tracking-[0.15em] ${isDark ? "text-white" : "text-ink-muted"}`}
               initial={{ opacity: 0, y: reducedMotion ? 0 : 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
@@ -442,7 +442,7 @@ export function GLTestimonialsBlock({
                       />
                     </svg>
                     <p
-                      className={`eyebrow font-extrabold tracking-[0.18em] ${isDark ? "text-white/72" : "text-ink-muted"}`}
+                      className={`eyebrow tracking-[0.18em] ${isDark ? "text-white/72" : "text-ink-muted"}`}
                     >
                       Verified Field Testimonial
                     </p>
@@ -463,7 +463,7 @@ export function GLTestimonialsBlock({
                     const detail = rest.join(",").trim();
                     return (
                       <p
-                        className={`mt-6 border-t pt-4 eyebrow font-extrabold tracking-[0.11em] leading-[1.45] ${isDark ? "border-white/15 text-white" : "border-[color:var(--g200)] text-ink"}`}
+                        className={`mt-6 border-t pt-4 eyebrow tracking-[0.11em] leading-[1.45] ${isDark ? "border-white/15 text-white" : "border-[color:var(--g200)] text-ink"}`}
                       >
                         <span className="block">{name?.trim() ?? entry.attribution}</span>
                         {detail ? (

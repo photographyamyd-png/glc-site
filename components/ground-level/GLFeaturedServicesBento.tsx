@@ -160,7 +160,7 @@ function GlcServiceCard({
         <p className="card__desc mt-0 max-h-0 overflow-hidden text-sm leading-relaxed text-white/92 opacity-0 transition-[max-height,opacity,margin] duration-400 ease-[var(--ease)] group-hover:mt-3 group-hover:max-h-32 group-hover:opacity-100 group-focus-visible:mt-3 group-focus-visible:max-h-32 group-focus-visible:opacity-100 motion-reduce:transition-none">
           {item.short}
         </p>
-        <span className="card__link mt-5 inline-flex items-center gap-1 text-xs font-bold uppercase tracking-[0.14em] text-[color:var(--y)] transition-[transform,color] duration-300 ease-[var(--ease)] group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:group-hover:translate-x-0 motion-reduce:group-focus-visible:translate-x-0">
+        <span className="card__link mt-5 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--y)] transition-[transform,color] duration-300 ease-[var(--ease)] group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:group-hover:translate-x-0 motion-reduce:group-focus-visible:translate-x-0">
           View service →
         </span>
       </div>

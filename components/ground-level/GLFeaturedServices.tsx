@@ -171,7 +171,7 @@ export function GLFeaturedServices({
               </div>
               <Link
                 href={`/services/${s.slug}`}
-                className="mt-6 inline-block text-xs font-bold uppercase tracking-[0.14em] text-[color:var(--y)] underline decoration-[color:var(--y)]/40 underline-offset-4 transition-colors hover:decoration-[color:var(--y)]"
+                className="mt-6 inline-block text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--y)] underline decoration-[color:var(--y)]/40 underline-offset-4 transition-colors hover:decoration-[color:var(--y)]"
               >
                 View service →
               </Link>

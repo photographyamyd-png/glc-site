@@ -180,7 +180,7 @@ export function SiteHeader() {
                 <p className="mt-4 text-sm leading-relaxed text-ink-muted">Commercial excavation and civil operations across Simcoe County.</p>
                 <Link
                   href="/about"
-                  className="mt-5 inline-block text-xs font-bold uppercase tracking-[0.14em] text-ink underline decoration-[color:var(--y)]/40 underline-offset-4 transition-colors hover:text-[color:var(--y)] hover:decoration-[color:var(--y)]"
+                  className="mt-5 inline-block text-xs font-semibold uppercase tracking-[0.14em] text-ink underline decoration-[color:var(--y)]/40 underline-offset-4 transition-colors hover:text-[color:var(--y)] hover:decoration-[color:var(--y)]"
                   onClick={closeAll}
                 >
                   About {"->"}

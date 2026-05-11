@@ -75,7 +75,7 @@ export function GLServices() {
                 <span className="relative z-[1] mt-2 flex-1 text-sm leading-relaxed text-ink-muted">
                   {s.short}
                 </span>
-                <span className="relative z-[1] mt-4 text-xs font-bold uppercase tracking-[0.14em] text-[color:var(--y)]">
+                <span className="relative z-[1] mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--y)]">
                   View service →
                 </span>
               </Link>
