@@ -26,64 +26,48 @@ export function FoundationsCivilInfrastructureHubPage() {
   const overviewPanel = (
     <div className="relative">
       <div
-        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(180deg,rgb(242_183_5/0.07),transparent_42%)]"
+        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(135deg,rgb(242_183_5/0.06),transparent_52%)]"
         aria-hidden
       />
-      <ClaudeLogicWatermark placement="bottom-right" mode="default" className="z-[1] opacity-[0.08]" />
-
-      <div className="relative z-10 flex flex-col gap-12 sm:gap-14 lg:gap-[var(--s12)]">
-        {/* Chapter A — centered editorial (symmetric measure) */}
-        <header className="mx-auto w-full max-w-[36rem] px-0 text-center lg:max-w-[42rem]">
-          <div className="mx-auto h-1 w-14 bg-[color:var(--y)]" aria-hidden />
-          <p className="mt-6 eyebrow text-ink">Overview & trust</p>
+      <ClaudeLogicWatermark placement="bottom-right" mode="default" className="z-[1] opacity-[0.08] sm:opacity-[0.11]" />
+      {/* Same architecture as ServicePageTemplate scope band: 6+6 split, raster + machined panel (no centered stack / no dark slab / no gutter breakout) */}
+      <div className="relative z-10 mx-auto grid max-w-[min(100%,var(--max))] gap-10 lg:grid-cols-12 lg:gap-12">
+        <div className="border-l-4 border-[color:var(--y)] pl-5 lg:col-span-6">
+          <p className="eyebrow text-ink">Overview & trust</p>
           <p className="mt-2 eyebrow text-ink-muted">Field-led crews · WSIB · Liability coverage</p>
-          <h2 className="mt-6 font-serif text-3xl font-semibold uppercase leading-[1.05] tracking-tight text-ink sm:text-4xl">
-            Why teams spec us on{" "}
-            <span className="text-[color:var(--y)]">civil packages</span>
+          <h2 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">
+            Why teams spec us on <span className="text-[color:var(--y)]">civil packages</span>
           </h2>
-          <div className="mt-10 space-y-6 border-t border-[color:var(--g200)] pt-10 text-left">
+          <div className="mt-[var(--s7)] max-w-[min(100%,42rem)] space-y-6">
             <p className="text-[15px] leading-[1.72] text-ink sm:text-base">{FOUNDATIONS_HUB_HERO.introC}</p>
             <p className="text-[15px] leading-[1.72] text-ink sm:text-base">{FOUNDATIONS_HUB_HERO.introD}</p>
           </div>
-        </header>
-
-        {/* Chapter B — panorama strip (breaks out of tab gutters; substrate + scrim) */}
-        <figure className="relative -mx-4 aspect-[16/9] min-h-[12.5rem] w-[calc(100%+2rem)] max-w-none sm:-mx-6 sm:min-h-[14rem] sm:w-[calc(100%+3rem)] lg:-mx-10 lg:aspect-[21/9] lg:min-h-[17.5rem] lg:w-[calc(100%+5rem)]">
-          <Image
-            src={heroImage.src}
-            alt={heroImage.alt}
-            fill
-            className="object-cover object-[center_40%]"
-            sizes="100vw"
-          />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.55)] via-[rgb(10_12_11/0.12)] to-transparent" aria-hidden />
-          <figcaption className="sr-only">{heroImage.alt}</figcaption>
-        </figure>
-
-        {/* Chapter C — authority registry: single dark band, five equal lanes (tonal break + tri-color on dark) */}
-        <section
-          aria-labelledby="foundations-trust-registry-heading"
-          className="relative -mx-4 border-y border-white/10 bg-[color:var(--ink)] px-4 py-12 text-white sm:-mx-6 sm:px-6 lg:-mx-10 lg:px-10 lg:py-16"
-        >
-          <ClaudeLogicWatermark placement="top-left" mode="on-dark" className="pointer-events-none absolute left-0 top-0 z-0 opacity-[0.11]" />
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgb(242_183_5/0.08),transparent_45%)]" aria-hidden />
-          <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))]">
-            <h3 id="foundations-trust-registry-heading" className="eyebrow text-white">
-              What GCs verify first
-            </h3>
-            <ol className="mt-8 grid list-none grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:mt-10 lg:grid-cols-5 lg:gap-x-6 lg:gap-y-0">
-              {FOUNDATIONS_TRUST_BENTO.map((item, idx) => (
-                <li key={item.title} className="border-l-2 border-[color:var(--y)] pl-4">
-                  <span className="font-serif text-3xl font-bold leading-none tracking-tight text-[color:var(--y)] tabular-nums">
-                    {String(idx + 1).padStart(2, "0")}
-                  </span>
-                  <p className="mt-3 font-serif text-sm font-bold uppercase tracking-[0.08em] text-white">{item.title}</p>
-                  <p className="mt-2 text-[14px] leading-[1.65] text-white/90 sm:text-[15px] sm:leading-[1.72]">{item.body}</p>
+        </div>
+        <div className="flex flex-col gap-6 lg:col-span-6">
+          <div className="relative aspect-[16/10] overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)]">
+            <Image
+              src={heroImage.src}
+              alt={heroImage.alt}
+              fill
+              className="object-cover object-[center_42%] sm:object-[center_38%]"
+              sizes="(min-width: 1024px) 42vw, 100vw"
+            />
+          </div>
+          <div className="bespoke-surface panel-machined relative border border-[color:var(--g200)] bg-white p-5 sm:p-8">
+            <p className="eyebrow text-ink-muted">Trust & compliance</p>
+            <ul className="mt-4 space-y-5">
+              {FOUNDATIONS_TRUST_BENTO.map((item) => (
+                <li key={item.title} className="flex gap-3">
+                  <span className="mt-1.5 inline-block h-2 w-2 shrink-0 bg-[color:var(--y)]" aria-hidden />
+                  <div className="min-w-0">
+                    <p className="font-serif text-sm font-bold uppercase tracking-[0.02em] text-ink sm:text-base">{item.title}</p>
+                    <p className="mt-1 text-[15px] leading-[1.72] text-ink sm:text-base">{item.body}</p>
+                  </div>
                 </li>
               ))}
-            </ol>
+            </ul>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   );
