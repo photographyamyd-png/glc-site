@@ -65,11 +65,11 @@ Use this list as the **label / affordance** audit set:
 
 1. **[`GLTestimonials.tsx`](../../components/ground-level/GLTestimonials.tsx) tab panel** — Long **attribution** strings sit inside `.eyebrow` tab buttons, so they inherit **uppercase + Barlow Condensed 13px + 600**; the inner span adds **`tracking-[0.14em]`**, which reads wider than the utility rail’s base **0.07em**. That stack trades **scan density** for **sentence readability** on long names. **Possible follow-ups (if you approve a later change):** render attribution in **`font-sans`** with **`normal-case`** on a second line while keeping the “Quote 01” line in eyebrow; or slightly larger tab label size; or shorten copy at source.
 
+2. **Labs / review candidates** — High count of `eyebrow` usage; acceptable for sandbox routes; not production-nav critical unless linked.
+
 ## Post-rollout (2026-05-11)
 
 Shipped default: **`app/globals.css`** sets **`.eyebrow`**, **`.label-overline`**, and **`.label-overline-on-dark`** to **`font-weight: 600`**. Affordance rows use **`font-semibold`** with **`tracking-[0.14em]`**; tiny **`font-label`** chips use **`font-semibold`** where previously **`font-bold`**. **`GLTestimonials`** no longer stacks **`font-extrabold`** on `.eyebrow`. DNA lane **`.eyebrow`** in **`app/glc-dna-extracted.css`** was aligned to **600** (from 800) with scoped CSS regenerated via **`npm run scope:glc-dna`**. Sandbox reference: [`app/sandbox/eyebrow-weight-preview/page.tsx`](../../app/sandbox/eyebrow-weight-preview/page.tsx) (single-column “live” strip; no scoped 700 vs 600 comparison).
-
-2. **Labs / review candidates** — High count of `eyebrow` usage; acceptable for sandbox routes; not production-nav critical unless linked.
 
 ## Related docs
 
