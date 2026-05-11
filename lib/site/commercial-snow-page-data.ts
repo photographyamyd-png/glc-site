@@ -11,11 +11,16 @@ export const COMMERCIAL_SNOW_SEO = {
     "24/7 commercial snow removal for businesses in Barrie & Simcoe County. Industrial, retail & warehouse. Licensed, insured, guaranteed SLA response.",
 } as const;
 
-/** Set when CTV provides a stable embed URL; otherwise UI uses link-only panel. */
+/**
+ * HTTPS `src` for an embeddable player only (e.g. from CTV “Share” / Brightcove if offered).
+ * Do not set this to the article URL — article pages are typically `X-Frame-Options` blocked.
+ * When `null`, CommercialSnowPage shows quote + link only (no iframe).
+ */
 export const COMMERCIAL_SNOW_CTV_EMBED_SRC: string | null = null;
 
-/** Update to the live CTV segment URL when available. */
-export const COMMERCIAL_SNOW_CTV_ARTICLE_URL = "https://www.ctvnews.ca/barrie";
+/** Canonical article: Terry King / Ground Level Contracting on Simcoe salt costs (Jan 8, 2026). */
+export const COMMERCIAL_SNOW_CTV_ARTICLE_URL =
+  "https://www.ctvnews.ca/barrie/article/snow-removal-contractors-face-doubling-costs-amid-salt-shortage/";
 
 export const COMMERCIAL_SNOW_CHAPTERS = [
   { id: "chapter-overview", label: "Overview", shortLabel: "Overview" },
@@ -88,7 +93,7 @@ export const COMMERCIAL_SNOW_CTV = {
   h3: "Municipalities relying on the same resource to manage winter weather",
   paragraphs: [
     "Road salt is becoming an expensive commodity for private contractors in Simcoe County.",
-    "January 08, 2026 at 6:23PM EST",
+    "Published: January 08, 2026 at 6:56PM EST",
   ],
   quote: "To have two salt shortages in one fiscal year, it's a lot.",
   attribution: "Terry King, Co-owner — Ground Level Contracting",
