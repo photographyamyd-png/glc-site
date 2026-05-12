@@ -24,7 +24,6 @@ import {
   COMMERCIAL_SNOW_PROCESS,
   COMMERCIAL_SNOW_PROPERTY_TYPES,
   COMMERCIAL_SNOW_RELATED,
-  COMMERCIAL_SNOW_SERVICE_AREA,
   COMMERCIAL_SNOW_SERVICE_CARDS,
   COMMERCIAL_SNOW_SERVICE_DEEP_DIVES,
   COMMERCIAL_SNOW_SERVICES_CHAPTER,
@@ -56,12 +55,12 @@ export function CommercialSnowPage({ service, related }: Props) {
       <CommercialSnowStickyNav chapters={COMMERCIAL_SNOW_CHAPTERS} />
 
       {/* —— Hero —— */}
-      <section
-        id="chapter-hero"
-        className="scroll-mt-[var(--header)] bg-[var(--ink-deep)]"
-        aria-labelledby={COMMERCIAL_SNOW_HERO.h1Id}
-      >
-        <div className="hero-stage section-major band-dark-field relative min-h-[min(100dvh,920px)] overflow-hidden">
+            <section
+              id="chapter-hero"
+              className="scroll-mt-[var(--header)] bg-[var(--ink-deep)]"
+              aria-labelledby={COMMERCIAL_SNOW_HERO.h1Id}
+            >
+              <div className="hero-stage section-major band-dark-field relative min-h-[min(100dvh,920px)] overflow-hidden">
           <Image
             src={SNOW_HUB_SECTION.hero.src}
             alt={COMMERCIAL_SNOW_HERO.heroImageAriaLabel}
@@ -543,51 +542,7 @@ export function CommercialSnowPage({ service, related }: Props) {
         <ClaudeLogicWatermark placement="bottom-left" mode="default" className="z-[1] opacity-[0.1]" />
         <ClaudeLogicWatermark placement="top-right" mode="default" className="z-[1] opacity-[0.07]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
-            <div className="border-l-4 border-[color:var(--y)] pl-5 lg:col-span-5">
-              <p className="eyebrow text-ink">Coverage</p>
-              <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
-                {COMMERCIAL_SNOW_SERVICE_AREA.h2}
-              </h2>
-              <p className="mt-[var(--s7)] text-[15px] leading-[1.72] text-ink sm:text-base">{COMMERCIAL_SNOW_SERVICE_AREA.visibleLede}</p>
-              <details className="mt-6 border border-[color:var(--g200)] bg-white p-4">
-                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-sm font-bold uppercase tracking-[0.04em] text-ink marker:content-none [&::-webkit-details-marker]:hidden">
-                  Regional service detail
-                  <span className="eyebrow text-[color:var(--y)]">+</span>
-                </summary>
-                <div className="mt-4 space-y-4">
-                  {COMMERCIAL_SNOW_SERVICE_AREA.paragraphs.map((p) => (
-                    <p key={p.slice(0, 20)} className="text-[15px] leading-[1.72] text-ink sm:text-base">
-                      {p}
-                    </p>
-                  ))}
-                  <p className="text-[15px] text-ink">
-                    {COMMERCIAL_SNOW_SERVICE_AREA.links.map((l, i) => (
-                      <span key={l.href}>
-                        {i > 0 ? <span className="text-ink-muted"> · </span> : null}
-                        <Link href={l.href} className="font-semibold text-ink underline-offset-2 hover:text-[color:var(--y)]">
-                          {l.label}
-                        </Link>
-                      </span>
-                    ))}
-                  </p>
-                </div>
-              </details>
-            </div>
-            <div className="lg:col-span-7">
-              <div className="relative aspect-[16/11] overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)]">
-                <Image
-                  src={SNOW_HUB_SECTION.coverage.src}
-                  alt={SNOW_HUB_SECTION.coverage.alt}
-                  fill
-                  className="object-cover object-[center_40%]"
-                  sizes="(min-width: 1024px) 45vw, 100vw"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="relative z-10 mt-14 border-t border-[color:var(--g200)] pt-12">
+          <div className="relative z-10">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(200deg,rgb(242_183_5/0.05),transparent_42%)]" aria-hidden />
             <ClaudeLogicWatermark placement="top-right" mode="default" className="pointer-events-none absolute right-0 top-8 z-[1] opacity-[0.07]" />
             {/* Chassis + split measure: substrate plane, spine typography, raised machined deck (V7 layer stack). */}
