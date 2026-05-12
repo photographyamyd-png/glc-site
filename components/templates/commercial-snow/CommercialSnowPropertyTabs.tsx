@@ -85,12 +85,12 @@ export function CommercialSnowPropertyTabs({
                   sizes="(min-width: 1024px) 40vw, 100vw"
                 />
                 <div
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.62)] via-[rgb(10_12_11/0.12)] to-[rgb(10_12_11/0.2)]"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.82)] via-[rgb(10_12_11/0.28)] to-[rgb(10_12_11/0.35)]"
                   aria-hidden
                 />
                 <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" aria-hidden />
                 <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 md:pr-8 md:pb-6">
-                  <div className="pointer-events-auto max-w-md rounded-sm border border-white/15 bg-[rgb(10_12_11/0.45)] p-4 shadow-[0_20px_56px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-5">
+                  <div className="pointer-events-auto max-w-md rounded-sm border border-white/15 bg-[rgb(10_12_11/0.58)] p-4 shadow-[0_20px_56px_rgb(0_0_0/0.45)] backdrop-blur-md sm:p-5">
                     <p className="eyebrow text-[color:var(--y)]">{t.overlayKicker}</p>
                     <p className="mt-1 font-serif text-xl font-bold uppercase leading-[1.1] tracking-[0.04em] text-white sm:text-2xl">
                       {t.overlayTitle}
