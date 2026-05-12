@@ -252,6 +252,134 @@ export const FOUNDATIONS_FINAL_CTA = {
   tagline: "Proudly serving Barrie, Orillia, Innisfil, Wasaga Beach & Simcoe County, Ontario",
 } as const;
 
+/** Post-hero funnel: pain / solution / proof / CTA (hero copy unchanged on page). */
+export const FOUNDATIONS_HUB_PAIN = {
+  h2: "Foundation failure is non-negotiable.",
+  lede: "Poor compaction, weak forming, and skipped inspection holds compound into schedule-killing rework. We engineer the groundwork so your structure starts on solid decisions.",
+  cards: [
+    {
+      title: "Compaction that does not match spec",
+      body: "Undocumented lifts or wrong moisture content under footings and slabs telegraph upward as cracks, heave, and callbacks. We place and prove granular work to engineer direction.",
+    },
+    {
+      title: "Forming that will not survive a pour",
+      body: "Bracing, alignment, and pour sequencing matter as much as the mix. Weak forming wastes concrete, time, and trust before the wall ever cures.",
+    },
+    {
+      title: "Inspection surprises nobody budgeted for",
+      body: "RFIs, hold fixes, and re-inspection loops stall trades. We coordinate holds and documentation so your inspector sees a site that is ready—not improvised.",
+    },
+  ],
+} as const;
+
+export const FOUNDATIONS_HUB_ZIGZAG = [
+  {
+    step: "01",
+    title: "Rebar cages & reinforcement",
+    body: "Spacing, laps, chairs, and cover follow structural drawings. We walk steel with your engineer before the pour so cages read clean on inspection day.",
+    imageSlug: "concrete-footings-walls-pads-grade-beams" as FoundationsSubSlug,
+  },
+  {
+    step: "02",
+    title: "Concrete forming",
+    body: "Conventional and engineered forming systems for footings, walls, and commercial profiles—stripped, braced, and staged for the pour window you committed to.",
+    imageSlug: "foundation-excavation-backfilling" as FoundationsSubSlug,
+  },
+  {
+    step: "03",
+    title: "Structural slabs & flatwork",
+    body: "Slab-on-grade, equipment pads, and structural decks tied into drainage and backfill plans so what is poured today carries load tomorrow.",
+    imageSlug: "multi-storey-high-rise-foundations" as FoundationsSubSlug,
+  },
+] as const;
+
+export const FOUNDATIONS_HUB_QUALITY_CHECKS = [
+  { label: "Line & grade", detail: "Formwork and bulkheads checked to IFC before tie-in." },
+  { label: "Steel schedule", detail: "Rebar cages match drawings—no field substitutions without RFI." },
+  { label: "Mix & pour plan", detail: "Strength class, slump, and cold-weather protocol per engineer spec." },
+] as const;
+
+export const FOUNDATIONS_HUB_PROOF = {
+  h2: "Proof you can spec with confidence",
+  inspectionLine: "Inspection-first delivery — coordinated holds, documentation, and rework avoidance baked into the schedule.",
+  badgeTitles: ["OBC-aligned work", "WSIB clearance ready", "Engineer-led RFIs", "Municipal pacing"] as const,
+  highlights: [
+    "Barrie, Orillia, and Simcoe County foundation and civil packages on one roster.",
+    "Commercial, residential, and municipal scopes with bonding-friendly documentation when required.",
+    "Mass excavation through final backfill coordinated as a single accountable thread.",
+  ] as const,
+} as const;
+
+export const FOUNDATIONS_HUB_YELLOW_STRIP = {
+  h2: "Ready when your drawings are.",
+  sub: "Send scope, IFC, or geotech — we respond with capacity, timing, and a straight answer on fit.",
+} as const;
+
+export const FOUNDATIONS_HUB_QUOTE_FORM = {
+  h2: "Get a Foundation Quote",
+  sub: "Three fields — we route it to our bids desk. Prefer the phone? Call from the button below.",
+  submitLabel: "Get a Foundation Quote",
+  mailtoSubject: "Foundation quote request — Ground Level Contracting",
+} as const;
+
+export const FOUNDATIONS_KNOWLEDGE_HUB_TITLE = "Technical Specifications & Project FAQ" as const;
+
+/** Educational SEO copy — defer to engineer / OBC; no project-specific numeric guarantees. */
+export const FOUNDATIONS_TECHNICAL_BASEMENT = {
+  heading: "Ontario technical context — concrete, reinforcement, and frost design",
+  paragraphs: [
+    "Specified concrete strength (MPa / PSI class), exposure classification, and air-entrainment follow the structural engineer’s mix designs and Ontario Building Code tables for the building’s use and environment. Field targets always defer to signed drawings—not marketing tables.",
+    "Reinforcement grades, bar sizes, spacing, laps, mechanical splices, and cover are set per structural drawings and reviewed before each pour, including slab, wall, and beam schedules.",
+    "Foundation depth, frost protection, and drainage strategy depend on local authority requirements, climate data, and geotechnical recommendations for your site. Simcoe County and Central Ontario projects are designed per OBC and the Chief Building Official’s direction—never a one-line “frost depth” substitute for engineering.",
+  ],
+} as const;
+
+export type FoundationsKnowledgeAccordion = {
+  summary: string;
+  paragraphs: readonly string[];
+};
+
+export const FOUNDATIONS_KNOWLEDGE_HUB_ACCORDIONS: readonly FoundationsKnowledgeAccordion[] = [
+  {
+    summary: "Field operations overview",
+    paragraphs: [FOUNDATIONS_HUB_HERO.introC, FOUNDATIONS_HUB_HERO.introD],
+  },
+  {
+    summary: "Trust, licensing, and code compliance (full text)",
+    paragraphs: FOUNDATIONS_TRUST_BENTO.map((b) => `${b.title}. ${b.body}`),
+  },
+  {
+    summary: "Service capabilities & keyword scope",
+    paragraphs: [FOUNDATIONS_SERVICES_INTRO, FOUNDATIONS_SERVICES_INTRO_B, ...FOUNDATIONS_SERVICE_CARDS.map((c) => `${c.title}: ${c.blurb}`)],
+  },
+  {
+    summary: "Why builders, developers, and municipalities choose us",
+    paragraphs: FOUNDATIONS_WHY.map((w) => `${w.heading}. ${w.body}`),
+  },
+  {
+    summary: "Service area & coverage",
+    paragraphs: [
+      FOUNDATIONS_SERVICE_AREA.heading,
+      FOUNDATIONS_SERVICE_AREA.intro,
+      FOUNDATIONS_SERVICE_AREA.introB,
+      `Communities we actively support include: ${FOUNDATIONS_SERVICE_AREA.cities.join(", ")}.`,
+      FOUNDATIONS_SERVICE_AREA.closing,
+    ],
+  },
+  {
+    summary: "Engagement copy — mid-page and final CTAs",
+    paragraphs: [
+      FOUNDATIONS_MID_CTA.heading,
+      FOUNDATIONS_MID_CTA.sub,
+      FOUNDATIONS_MID_CTA.microcopy,
+      FOUNDATIONS_FINAL_CTA.heading,
+      FOUNDATIONS_FINAL_CTA.bodyA,
+      FOUNDATIONS_FINAL_CTA.bodyB,
+      FOUNDATIONS_FINAL_CTA.tagline,
+    ],
+  },
+] as const;
+
 export type FoundationsSubPageContent = {
   seoTitle: string;
   seoDescription: string;
