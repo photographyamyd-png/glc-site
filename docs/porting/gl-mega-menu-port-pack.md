@@ -84,7 +84,7 @@ Utilities in `globals.css`: `.site-header-utility-bar`, `.site-header-nav-shell`
 | Kicker / label | `.label-overline` or `.eyebrow` + `text-ink` / `text-white` |
 | Yellow rail | `.accent-punctuation-l` → `4px solid var(--y)` |
 | Elevated column | `.panel-machined` + `.mega-elevated` → `var(--mega-elevated-surface)` |
-| Link row hover | `.mega-service-link:hover` → `var(--muted)` + `var(--border)`; title `group-hover:text-[color:var(--y)]` |
+| Service card (mega grid) | Border / surface: `border-border`, `bg-muted/25`, hover `bg-muted`; num `text-[color:var(--y)]` + `font-serif` |
 | Primary CTA | `.cta-primary` |
 | Dark utility bar | `.site-header-utility-bar` → `var(--header-utility-bg)` + `var(--header-utility-border)` |
 | Main nav shell | `.site-header-nav-shell` + `data-scrolled="true"` → scrolled bg + `var(--header-nav-shadow)` |
@@ -97,6 +97,7 @@ There are **no** `mega-menu-services.tsx` or `mega-menu-company.tsx` files.
 | Concern | Path |
 | --- | --- |
 | All mega + mobile behavior and markup | [`components/ui/SiteHeader.tsx`](../../components/ui/SiteHeader.tsx) |
+| Mega / company / mobile **copy + structure** | [`content/navigation.json`](../../content/navigation.json) (`megaMenu`, `companyMega`, `mobile`, `primary`, `utility`) |
 | Tokens + shared utilities | [`app/globals.css`](../../app/globals.css) |
 
 ### Suggested slices for `globals.css` (line numbers as of last doc update)
@@ -144,7 +145,7 @@ Production implementation uses Next.js (`next/link`), React client hooks only—
 
 ## Second message checklist (other Cursor project)
 
-1. Paste or `@` this repo’s [`components/ui/SiteHeader.tsx`](../../components/ui/SiteHeader.tsx).
+1. Paste or `@` this repo’s [`components/ui/SiteHeader.tsx`](../../components/ui/SiteHeader.tsx) and [`content/navigation.json`](../../content/navigation.json).
 2. Paste or `@` the `globals.css` slices listed in section 3 (or `@` full [`app/globals.css`](../../app/globals.css) and ask the model to ignore unrelated sections).
 3. Paste a link or short quote from **section 4** of this file so the model does not assume hover + delay + body class behavior that GLC does not implement.
 

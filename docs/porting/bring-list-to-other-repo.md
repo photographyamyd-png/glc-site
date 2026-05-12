@@ -23,14 +23,15 @@ Anything you copy for “canonical GLC” should use the **Canonical paths** tab
 
 | What | Canonical path (repo root) |
 |------|----------------------------|
-| Header + mega + mobile (all state and markup) | [`components/ui/SiteHeader.tsx`](../../components/ui/SiteHeader.tsx) |
-| Split `mega-menu-services` / `mega-menu-company` | **Not present** — logic is inline in `SiteHeader.tsx`. For the other app you may split using this file as the single source. |
+| Header + mega + mobile (all state and markup) | [`components/ui/SiteHeader.tsx`](../../components/ui/SiteHeader.tsx) — consumes [`content/navigation.json`](../../content/navigation.json) for mega + nav copy |
+| Split `mega-menu-services` / `mega-menu-company` | **Not present** as separate files; markup lives in `SiteHeader.tsx`. Legacy split sources may live under a recovered `src/` tree (see bundle README). |
 
 **Transitive imports** (from `SiteHeader.tsx` today):
 
 - [`components/ui/LogoMark.tsx`](../../components/ui/LogoMark.tsx)
 - `next/link`
-- [`lib/site/registry.ts`](../../lib/site/registry.ts) — `NAV_LINKS`, `PRIMARY_SERVICES` (titles, descriptions, slugs → `/services/${slug}`)
+- [`content/navigation.json`](../../content/navigation.json) — mega + company + mobile + utility copy
+- [`content/types.ts`](../../content/types.ts) — `NavigationConfig` (type assertion on import)
 
 There is **no** `smart-link`, `icon-arrow`, or `lib/routes.ts` in this tree. If your bring list assumed those, they belong to a **different** GLC mirror or a stub you add in the target app.
 
@@ -50,7 +51,7 @@ There is **no** `smart-link`, `icon-arrow`, or `lib/routes.ts` in this tree. If 
 | Types (`NavLink`, `MegaMenuCard`, `CompanyMegaColumn`, `CompanyMegaConfig`, `NavigationConfig`) | [`content/types.ts`](../../content/types.ts) (navigation-related types mid-file) |
 | DNA / sandbox types (overlap) | [`lib/glc-dna/types.ts`](../../lib/glc-dna/types.ts) — `MegaMenuCard`, `NavigationConfig`, etc. |
 
-**Note:** Production [`SiteHeader`](../../components/ui/SiteHeader.tsx) is driven by **`lib/site/registry.ts`**, not `navigation.json`. The JSON carries **richer** mega copy (kickers, card blurbs, company columns) used elsewhere (footer clone, DNA). When porting to another app, choose one source of truth or merge JSON fields into whatever replaces `SiteHeader`.
+**Note:** Production [`SiteHeader`](../../components/ui/SiteHeader.tsx) now reads **[`content/navigation.json`](../../content/navigation.json)** for utility copy, primary nav links, `megaMenu` (services mega layout + cards), `companyMega` (company panel + dispatch band), and mobile drawer links. [`lib/site/registry.ts`](../../lib/site/registry.ts) remains the source of truth for **service page** metadata elsewhere; keep navigation card `slug` values aligned with `PRIMARY_SERVICES` slugs when you edit JSON.
 
 ---
 
@@ -74,7 +75,6 @@ If this repo is mounted as e.g. `glc-site/` next to the target app:
 
 ```text
 @glc-site/components/ui/SiteHeader.tsx
-@glc-site/lib/site/registry.ts
 @glc-site/content/navigation.json
 @glc-site/content/types.ts
 @glc-site/app/globals.css

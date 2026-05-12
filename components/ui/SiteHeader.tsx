@@ -3,9 +3,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { LogoMark } from "@/components/ui/LogoMark";
-import { NAV_LINKS, PRIMARY_SERVICES } from "@/lib/site/registry";
+import type { NavigationConfig } from "@/content/types";
+import navigation from "@/content/navigation.json";
 
-const headerMax = "max-w-[min(100%,var(--max))]";
+const headerMax = "max-w-[min(100%,var(--max))]" as const;
+
+const nav = navigation as NavigationConfig;
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,7 +25,7 @@ export function SiteHeader() {
   };
 
   const utilityLine = useMemo(
-    () => NAV_LINKS.utility.rotator[rotatorIndex % NAV_LINKS.utility.rotator.length],
+    () => nav.utilityRotator[rotatorIndex % nav.utilityRotator.length],
     [rotatorIndex],
   );
 
@@ -68,15 +71,18 @@ export function SiteHeader() {
     return () => document.removeEventListener("keydown", onEsc);
   });
 
+  const { megaMenu, companyMega } = nav;
+  const { dispatchBand } = companyMega;
+
   return (
     <header className="pointer-events-none fixed left-0 right-0 top-0 z-40">
       <div ref={wrapRef} className="pointer-events-auto">
         <div className="site-header-utility-bar px-3 py-2 sm:px-6">
           <div className={`mx-auto flex ${headerMax} items-center justify-between gap-3`}>
-            <p className="eyebrow text-white">{NAV_LINKS.utility.location}</p>
+            <p className="eyebrow text-white">{nav.utility.locationLine}</p>
             <div className="flex items-center gap-4 eyebrow text-white">
-              <a href={NAV_LINKS.utility.phoneHref} className="text-white hover:text-[color:var(--y)]">
-                {NAV_LINKS.utility.phoneDisplay}
+              <a href={nav.utility.phoneHref} className="text-white hover:text-[color:var(--y)]">
+                {nav.utility.phoneDisplay}
               </a>
               <span className="hidden text-white/70 sm:inline">{utilityLine}</span>
             </div>
@@ -111,10 +117,11 @@ export function SiteHeader() {
                   <span className="text-[10px] font-normal text-ink-muted" aria-hidden>{servicesOpen ? "▲" : "▼"}</span>
                 </button>
               </div>
-              <Link href="/about" className="px-3 py-2 transition-colors hover:text-[color:var(--y)]">About</Link>
-              <Link href="/#process" className="px-3 py-2 transition-colors hover:text-[color:var(--y)]">Process</Link>
-              <Link href="/#coverage" className="px-3 py-2 transition-colors hover:text-[color:var(--y)]">Coverage</Link>
-              <Link href="/#testimonials" className="px-3 py-2 transition-colors hover:text-[color:var(--y)]">Projects</Link>
+              {nav.primary.map((item) => (
+                <Link key={item.href} href={item.href} className="px-3 py-2 transition-colors hover:text-[color:var(--y)]">
+                  {item.label}
+                </Link>
+              ))}
               <div className="relative">
                 <button
                   type="button"
@@ -128,10 +135,13 @@ export function SiteHeader() {
                     setCompanyOpen((v) => !v);
                   }}
                 >
-                  Company <span className="text-[10px] font-normal text-ink-muted">{companyOpen ? "▲" : "▼"}</span>
+                  Company{" "}
+                  <span className="text-[10px] font-normal text-ink-muted">{companyOpen ? "▲" : "▼"}</span>
                 </button>
               </div>
-              <Link href="/contact" className="cta-primary ml-2 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em]">Site consultation</Link>
+              <Link href="/contact" className="cta-primary ml-2 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em]">
+                Site consultation
+              </Link>
             </nav>
 
             <div className="flex items-center gap-2 xl:hidden">
@@ -156,65 +166,85 @@ export function SiteHeader() {
             aria-hidden={!servicesOpen}
             className={`mega-panel mega-panel--enter ${servicesOpen ? "hidden xl:block" : "hidden"}`}
           >
-            <div className={`mx-auto grid ${headerMax} gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[1.15fr_1fr_280px]`}>
-              <div>
-                <p className="label-overline mb-4">Services</p>
-                <ul className="grid gap-1 sm:grid-cols-2">
-                  {PRIMARY_SERVICES.map((service) => (
-                    <li key={service.slug}>
-                      <Link
-                        href={`/services/${service.slug}`}
-                        className="mega-service-link group block px-2 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[color:var(--y)]"
-                        onClick={closeAll}
-                      >
-                        <span className="block text-sm font-semibold text-ink group-hover:text-[color:var(--y)]">
-                          {service.title}
-                        </span>
-                        <span className="mt-0.5 block text-xs font-normal normal-case tracking-normal text-ink-muted">
-                          {service.description}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+            <div className={`mx-auto ${headerMax} px-4 py-8 sm:px-6`}>
+              <div className="mb-8 border-b border-border pb-6">
+                <p className="label-overline mb-2 text-[color:var(--y)]">{megaMenu.kicker}</p>
+                <p className="max-w-4xl text-sm leading-relaxed text-ink-muted sm:text-base">{megaMenu.intro}</p>
               </div>
-              <div className="accent-punctuation-l border-l border-border pl-6 lg:border-l-0 lg:pl-0 lg:pt-1">
-                <p className="label-overline mb-3">Company</p>
-                <p className="font-serif text-xl font-medium leading-snug text-ink sm:text-2xl">Ground Level Contracting</p>
-                <p className="mt-4 text-sm leading-relaxed text-ink-muted">Commercial excavation and civil operations across Simcoe County.</p>
-                <Link
-                  href="/about"
-                  className="mt-5 inline-block text-xs font-semibold uppercase tracking-[0.14em] text-ink underline decoration-[color:var(--y)]/40 underline-offset-4 transition-colors hover:text-[color:var(--y)] hover:decoration-[color:var(--y)]"
-                  onClick={closeAll}
-                >
-                  About {"->"}
-                </Link>
-              </div>
-              <div className="panel-machined mega-elevated flex flex-col justify-between p-5">
+
+              <div className="grid gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)_minmax(260px,280px)]">
                 <div>
-                  <p className="label-overline mb-2">Fastest path to a bid</p>
-                  <p className="text-sm font-medium text-ink">
-                    Send prints, a site pin, and your target mobilization week—we&apos;ll return a clear scope
-                    outline.
-                  </p>
-                </div>
-                <div className="mt-6 space-y-3 border-t border-border pt-5">
-                  <a
-                    href={NAV_LINKS.utility.phoneHref}
-                    className="block text-lg font-semibold tracking-tight text-ink hover:text-[color:var(--y)]"
-                  >
-                    {NAV_LINKS.utility.phoneDisplay}
-                  </a>
-                  <a href="mailto:dispatch@groundlevelcontracting.ca" className="block text-sm text-ink-muted hover:text-ink">
-                    dispatch@groundlevelcontracting.ca
-                  </a>
+                  <ul className="grid gap-3 sm:grid-cols-2">
+                    {megaMenu.cards.map((card) => (
+                      <li key={card.slug}>
+                        <Link
+                          href={`/services/${card.slug}`}
+                          className="mega-service-link group flex min-h-[44px] gap-3 border border-border bg-muted/25 p-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[color:var(--y)]"
+                          onClick={closeAll}
+                        >
+                          <span className="font-serif text-2xl font-semibold leading-none text-[color:var(--y)] tabular-nums" aria-hidden>
+                            {card.num}
+                          </span>
+                          <span className="min-w-0 flex-1">
+                            <span className="block font-semibold uppercase tracking-[0.04em] text-ink group-hover:text-[color:var(--y)]">
+                              {card.title}
+                            </span>
+                            <span className="mt-1 block text-xs font-normal normal-case tracking-normal text-ink-muted">
+                              {card.description}
+                            </span>
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                   <Link
-                    href="/contact"
-                    className="cta-primary inline-block w-full px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]"
+                    href={megaMenu.viewAllHref}
+                    className="mt-6 inline-flex text-xs font-semibold uppercase tracking-[0.14em] text-ink underline decoration-[color:var(--y)]/45 underline-offset-4 transition-colors hover:text-[color:var(--y)] hover:decoration-[color:var(--y)]"
                     onClick={closeAll}
                   >
-                    Site consultation
+                    {megaMenu.viewAllLabel}
+                    {" →"}
                   </Link>
+                </div>
+
+                <div className="accent-punctuation-l border-l-0 pl-0 lg:border-l lg:border-border lg:pl-8">
+                  <p className="label-overline mb-4 text-ink">Featured lines</p>
+                  <ul className="space-y-5">
+                    {megaMenu.cards.slice(0, 3).map((card) => (
+                      <li key={`feat-${card.slug}`} className="border-b border-border pb-5 last:border-b-0 last:pb-0">
+                        <p className="font-serif text-base font-semibold uppercase leading-snug tracking-[0.04em] text-ink">
+                          {card.gridTitle.join(" ")}
+                        </p>
+                        <p className="mt-2 text-xs leading-relaxed text-ink-muted sm:text-sm">{card.gridDescription}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="panel-machined mega-elevated flex flex-col justify-between p-5 lg:min-h-[320px]">
+                  <div>
+                    <p className="label-overline mb-2">{dispatchBand.kicker}</p>
+                    <p className="font-serif text-lg font-semibold leading-snug text-ink">{dispatchBand.title}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-ink-muted">{dispatchBand.sub}</p>
+                  </div>
+                  <div className="mt-8 space-y-3 border-t border-border pt-5">
+                    <a
+                      href={dispatchBand.phoneHref}
+                      className="block text-lg font-semibold tracking-tight text-ink hover:text-[color:var(--y)]"
+                    >
+                      {dispatchBand.phoneDisplay}
+                    </a>
+                    <a href="mailto:dispatch@groundlevelcontracting.ca" className="block text-sm text-ink-muted hover:text-ink">
+                      dispatch@groundlevelcontracting.ca
+                    </a>
+                    <Link
+                      href="/contact"
+                      className="cta-primary inline-block w-full px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]"
+                      onClick={closeAll}
+                    >
+                      Site consultation
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -225,30 +255,37 @@ export function SiteHeader() {
             aria-hidden={!companyOpen}
             className={`mega-panel ${companyOpen ? "hidden xl:block" : "hidden"}`}
           >
-            <div className={`mx-auto grid ${headerMax} gap-8 px-4 py-8 sm:px-6 lg:grid-cols-3`}>
-              <div>
-                <p className="label-overline mb-3">Ground Level</p>
-                <ul className="space-y-2 text-sm">
-                  <li><Link href="/about" className="text-ink-muted hover:text-[color:var(--y)]">About</Link></li>
-                  <li><Link href="/contact" className="text-ink-muted hover:text-[color:var(--y)]">Contact</Link></li>
-                  <li><Link href="/#process" className="text-ink-muted hover:text-[color:var(--y)]">Our Process</Link></li>
-                  <li><Link href="/#coverage" className="text-ink-muted hover:text-[color:var(--y)]">Coverage Area</Link></li>
-                </ul>
+            <div className={`mx-auto ${headerMax} px-4 py-8 sm:px-6`}>
+              <div className="mb-8 max-w-3xl border-b border-border pb-6">
+                <p className="label-overline mb-2 text-[color:var(--y)]">{companyMega.kicker}</p>
+                <p className="text-sm leading-relaxed text-ink-muted sm:text-base">{companyMega.intro}</p>
               </div>
-              <div>
-                <p className="label-overline mb-3">Resources</p>
-                <ul className="space-y-2 text-sm">
-                  <li><Link href="/services" className="text-ink-muted hover:text-[color:var(--y)]">All services</Link></li>
-                  <li><Link href="/#about" className="text-ink-muted hover:text-[color:var(--y)]">Commercial Positioning</Link></li>
-                  <li><Link href="/#testimonials" className="text-ink-muted hover:text-[color:var(--y)]">Client Projects</Link></li>
-                  <li><Link href="/#cta-band" className="text-ink-muted hover:text-[color:var(--y)]">Site consultation</Link></li>
-                </ul>
-              </div>
-              <div className="panel-machined mega-elevated p-5">
-                <p className="label-overline">Dispatch</p>
-                <a href={NAV_LINKS.utility.phoneHref} className="mt-3 block text-lg font-semibold text-ink hover:text-[color:var(--y)]">
-                  Call {NAV_LINKS.utility.phoneDisplay}
-                </a>
+              <div className="grid gap-10 lg:grid-cols-3">
+                {companyMega.columns.map((col) => (
+                  <div key={col.title}>
+                    <p className="label-overline mb-4">{col.title}</p>
+                    <ul className="space-y-2 text-sm">
+                      {col.links.map((link) => (
+                        <li key={link.href + link.label}>
+                          <Link href={link.href} className="text-ink-muted hover:text-[color:var(--y)]" onClick={closeAll}>
+                            {link.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+                <div className="panel-machined mega-elevated p-5">
+                  <p className="label-overline">{dispatchBand.kicker}</p>
+                  <p className="mt-3 font-serif text-lg font-semibold text-ink">{dispatchBand.title}</p>
+                  <p className="mt-2 text-sm text-ink-muted">{dispatchBand.sub}</p>
+                  <a
+                    href={dispatchBand.phoneHref}
+                    className="mt-5 block text-lg font-semibold text-ink hover:text-[color:var(--y)]"
+                  >
+                    {dispatchBand.phoneDisplay}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -261,13 +298,19 @@ export function SiteHeader() {
           className="pointer-events-auto fixed inset-x-0 bottom-0 top-[var(--header)] z-30 overflow-y-auto border-t border-border bg-canvas px-4 py-5 xl:hidden"
         >
           <div className={`mx-auto flex ${headerMax} flex-col gap-2`}>
-            <Link href="/about" className="mega-mobile-row px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>About</Link>
-            <Link href="/services" className="mega-mobile-row px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>Services</Link>
-            <Link href="/#capabilities" className="mega-mobile-row px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>Capabilities</Link>
-            <Link href="/#process" className="mega-mobile-row px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>Process</Link>
-            <Link href="/#coverage" className="mega-mobile-row px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>Coverage</Link>
-            <Link href="/#testimonials" className="mega-mobile-row px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>Projects</Link>
-            <Link href="/contact" className="cta-primary mt-1 px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>Site consultation</Link>
+            {nav.mobile.links.map((item) => (
+              <Link
+                key={item.href + item.label}
+                href={item.href}
+                className="mega-mobile-row px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]"
+                onClick={closeAll}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link href="/contact" className="cta-primary mt-1 px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>
+              Site consultation
+            </Link>
           </div>
         </div>
       ) : null}
