@@ -258,7 +258,7 @@ export function SiteHeader() {
       {mobileOpen ? (
         <div
           id="mobile-nav-gl"
-          className="pointer-events-auto fixed inset-x-0 bottom-0 top-[4.25rem] z-30 overflow-y-auto border-t border-border bg-canvas px-4 py-5 xl:hidden"
+          className="pointer-events-auto fixed inset-x-0 bottom-0 top-[var(--header)] z-30 overflow-y-auto border-t border-border bg-canvas px-4 py-5 xl:hidden"
         >
           <div className={`mx-auto flex ${headerMax} flex-col gap-2`}>
             <Link href="/about" className="mega-mobile-row px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em]" onClick={closeAll}>About</Link>

@@ -373,7 +373,8 @@ body {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 50;
+  /* Below fixed SiteHeader (z-40) so mega menu / mobile nav are not visually occluded */
+  z-index: 30;
   opacity: 0.045;
   mix-blend-mode: multiply;
 }
