@@ -285,13 +285,7 @@ export function FoundationsCivilInfrastructureHubPage() {
                 <span className="hidden shrink-0 eyebrow text-[color:var(--y)] group-open:inline">−</span>
               </summary>
               <div className="mt-3 border-t border-[color:var(--g200)] pt-4">
-                <GlcFaqDetailsGrid
-                  groupName="foundations-faq-verbatim"
-                  tone="light"
-                  maxColumns={2}
-                  density="cards"
-                  items={FOUNDATIONS_FAQ}
-                />
+                <GlcFaqDetailsGrid className="w-full max-w-none" groupName="foundations-faq-verbatim" tone="light" items={FOUNDATIONS_FAQ} />
               </div>
             </details>
           </div>

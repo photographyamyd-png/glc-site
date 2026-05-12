@@ -699,14 +699,7 @@ export function CommercialSnowPage({ service, related }: Props) {
             </h2>
             <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-ink sm:text-base">{COMMERCIAL_SNOW_FAQ_SECTION.visibleLede}</p>
           </div>
-          <GlcFaqDetailsGrid
-            className="mt-8 sm:mt-10"
-            groupName="snow-faq"
-            tone="light"
-            maxColumns={4}
-            density="cards"
-            items={COMMERCIAL_SNOW_FAQS}
-          />
+          <GlcFaqDetailsGrid className="mt-8 sm:mt-10" groupName="snow-faq" tone="light" items={COMMERCIAL_SNOW_FAQS} />
         </div>
       </section>
 

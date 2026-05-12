@@ -9,7 +9,8 @@ import { ServicesGridSection } from "@/components/glc-dna/sections/services-grid
 import { CtaBandSection } from "@/components/glc-dna/sections/cta-band-section";
 import { WhySection } from "@/components/glc-dna/sections/why-section";
 import { ProcessSection } from "@/components/glc-dna/sections/process-section";
-import { FeaturedAccordion } from "@/components/glc-dna/sections/featured-accordion";
+import { HaulingFaqServiceGridSection } from "@/components/services/hauling/HaulingFaqServiceGridSection";
+import { HaulingLaneVisualDivision } from "@/components/services/hauling/HaulingLaneVisualDivision";
 import { CoverageSection } from "@/components/glc-dna/sections/coverage-section";
 import type { HaulingGlcDnaLaneProps } from "@/lib/site/hauling-glc-dna-map";
 
@@ -25,6 +26,8 @@ export function HaulingGlcDnaLane(props: HaulingGlcDnaLaneProps) {
         <div className="band-light section-major scroll-mt-[var(--header)]">
           <AboutSection {...props.scopeAbout} />
         </div>
+
+        <HaulingLaneVisualDivision />
 
         <div className="band-dark-field section-major scroll-mt-[var(--header)]">
           <ServicesGridSection {...props.fieldGrid} />
@@ -43,7 +46,7 @@ export function HaulingGlcDnaLane(props: HaulingGlcDnaLaneProps) {
         <section
           id="faq"
           className="section-major scroll-mt-[var(--header)] band-dark text-white"
-          aria-labelledby="hauling-faq-summary-heading"
+          aria-labelledby="hauling-faq-grid-heading"
         >
           <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
             <details
@@ -65,17 +68,7 @@ export function HaulingGlcDnaLane(props: HaulingGlcDnaLaneProps) {
             </details>
           </div>
 
-          <div className="band-light">
-            <FeaturedAccordion
-              eyebrow={faqAccordion.eyebrow}
-              headingLine1={faqAccordion.headingLine1}
-              headingLine2={faqAccordion.headingLine2}
-              intro={faqAccordion.intro}
-              cta={faqAccordion.cta}
-              items={faqAccordion.items}
-              layoutVariant="split-copy-left-strip-right"
-            />
-          </div>
+          <HaulingFaqServiceGridSection faqAccordion={faqAccordion} />
         </section>
 
         <CoverageSection {...props.coverage} />

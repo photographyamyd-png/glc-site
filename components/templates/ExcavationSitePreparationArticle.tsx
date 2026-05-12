@@ -507,14 +507,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
               Common questions
             </h2>
           </div>
-          <GlcFaqDetailsGrid
-            className="mt-8 sm:mt-10"
-            groupName="excavation-site-prep-faq"
-            tone="light"
-            maxColumns={4}
-            density="cards"
-            items={detail.faq}
-          />
+          <GlcFaqDetailsGrid className="mt-8 sm:mt-10" groupName="excavation-site-prep-faq" tone="light" items={detail.faq} />
         </div>
       </section>
 

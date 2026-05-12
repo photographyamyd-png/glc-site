@@ -230,6 +230,7 @@ export function buildHaulingGlcDnaLaneProps(input: {
   const faqItems: AccordionContentItem[] = detail.faq.map((item, i) => ({
     id: i + 1,
     title: item.q,
+    body: item.a,
     imageUrl: faqImages[i % faqImages.length] ?? heroImageSrc,
   }));
 

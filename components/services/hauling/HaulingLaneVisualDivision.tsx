@@ -1,25 +1,22 @@
 import Image from "next/image";
-import { getServiceImage } from "@/lib/site/service-images";
-
-/** Primary service rasters — distinct from default #about column (excavation). */
-const DIVISION_PAIR = [
-  getServiceImage("foundations-civil-infrastructure"),
-  getServiceImage("hauling-site-clearing-logistics"),
-] as const;
+import { getHaulingScopeProofImage, getServiceImage } from "@/lib/site/service-images";
 
 /**
- * Full-bleed visual bridge between major homepage bands (services → about).
- * Mirrors hub / hauling lane two-up rhythm: paired photography + yellow hairline.
+ * Full-bleed two-up photography between About and the field services grid on the hauling DNA lane.
+ * Same rhythm as hub / home visual bridges: paired rasters + yellow hairline.
  */
-export function HomeVisualDivision() {
+export function HaulingLaneVisualDivision() {
+  const primary = getServiceImage("hauling-site-clearing-logistics");
+  const secondary = getHaulingScopeProofImage();
+
   return (
-    <section
-      className="relative -mt-px scroll-mt-[var(--site-header-offset)] border-y border-[color:var(--g200)] bg-[rgb(10_12_11)]"
-      aria-label="Commercial foundations and hauling project photography"
+    <div
+      className="relative -mt-px w-full scroll-mt-[var(--site-header-offset)] border-y border-[color:var(--g200)] bg-[rgb(10_12_11)]"
+      aria-label="Hauling and site logistics project photography"
     >
       <div className="relative grid grid-cols-1 sm:grid-cols-2 sm:gap-px sm:bg-[color:var(--g200)]">
-        {DIVISION_PAIR.map((img) => (
-          <div key={img.src} className="relative aspect-[16/10] min-h-[11rem] overflow-hidden sm:min-h-[12rem] md:min-h-[14rem]">
+        {[primary, secondary].map((img) => (
+          <div key={img.src} className="relative aspect-[16/10] min-h-[10rem] overflow-hidden sm:min-h-[11rem] md:min-h-[12rem]">
             <Image
               src={img.src}
               alt={img.alt}
@@ -43,6 +40,6 @@ export function HomeVisualDivision() {
         ))}
       </div>
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-1 bg-[color:var(--y)]/90" aria-hidden />
-    </section>
+    </div>
   );
 }

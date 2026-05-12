@@ -301,8 +301,6 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
             className="mt-8 sm:mt-10"
             groupName={`${service.slug}-faq`}
             tone="dark"
-            maxColumns={4}
-            density="cards"
             items={
               faqItems.length
                 ? faqItems

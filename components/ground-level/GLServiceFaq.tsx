@@ -48,14 +48,7 @@ export function GLServiceFaq({
             {title}
           </h2>
         </div>
-        <GlcFaqDetailsGrid
-          className="mt-8 sm:mt-10"
-          items={items}
-          groupName={faqGroupName}
-          tone={isLight ? "light" : "dark"}
-          maxColumns={4}
-          density="cards"
-        />
+        <GlcFaqDetailsGrid className="mt-8 sm:mt-10" items={items} groupName={faqGroupName} tone={isLight ? "light" : "dark"} />
       </div>
     </section>
   );

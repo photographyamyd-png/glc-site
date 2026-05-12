@@ -36,13 +36,7 @@ export function HomeSeoFaqSection() {
                 {group.sectionTitle ? (
                   <h3 className="font-label text-[12px] font-semibold uppercase tracking-[0.1em] text-ink-muted">{group.sectionTitle}</h3>
                 ) : null}
-                <GlcFaqDetailsGrid
-                  items={group.items}
-                  groupName={FAQ_NAME}
-                  tone="light"
-                  maxColumns={4}
-                  density="cards"
-                />
+                <GlcFaqDetailsGrid className="mt-2 w-full" items={group.items} groupName={FAQ_NAME} tone="light" />
               </>
             );
 

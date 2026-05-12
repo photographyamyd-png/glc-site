@@ -31,14 +31,7 @@ export function DrainageFaqAccordion({
           {h2}
         </h2>
       </div>
-      <GlcFaqDetailsGrid
-        className="mt-8 sm:mt-10"
-        groupName="drainage-faq"
-        tone="light"
-        maxColumns={3}
-        density="cards"
-        items={gridItems}
-      />
+      <GlcFaqDetailsGrid className="mt-8 sm:mt-10" groupName="drainage-faq" tone="light" items={gridItems} />
     </div>
   );
 }

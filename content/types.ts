@@ -4,6 +4,8 @@ export type AccordionContentItem = {
   id: number;
   title: string;
   imageUrl: string;
+  /** Optional body copy (e.g. FAQ answer on hauling service-card grid). */
+  body?: string;
 };
 
 export type HeroProps = {

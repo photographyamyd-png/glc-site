@@ -7,7 +7,6 @@
  * 1. `#hero` — `GLHero`
  * 2. Marquee — `GLMarqueeBand`
  * 3. `#services` — `GLFeaturedServicesBento`
- * 3b. Visual division — `HomeVisualDivision` (paired service photography)
  * 4. `#about` — `GLWhoWeServe`
  * 5. `#agitator` — `HomeAgitatorSection`
  * 6. `#capabilities` — `HomeCapabilityBentoSection`
@@ -25,7 +24,6 @@ import { HomeCapabilityBentoSection } from "@/components/ground-level/home-copy-
 import { HomeFinalCtaSection } from "@/components/ground-level/home-copy-lab/HomeFinalCtaSection";
 import { HomeProofBeforeAfter } from "@/components/ground-level/home-copy-lab/HomeProofBeforeAfter";
 import { HomeSeoFaqSection } from "@/components/ground-level/home-copy-lab/HomeSeoFaqSection";
-import { HomeVisualDivision } from "@/components/ground-level/home-copy-lab/HomeVisualDivision";
 import {
   COPY_LAB_ABOUT,
   COPY_LAB_FEATURED_SERVICES,
@@ -86,7 +84,6 @@ export function GLHomeCopyLab() {
         content={copyLabFeaturedContent}
         services={copyLabMergedServices}
       />
-      <HomeVisualDivision />
       <GLWhoWeServe
         sectionId="about"
         headingId="about-heading"

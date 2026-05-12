@@ -419,14 +419,16 @@
    SERVICES GRID
 ═══════════════════════════════════════════ */
 .glc-dna-sandbox #services,
-.glc-dna-sandbox #glc-dna-services {
+.glc-dna-sandbox #glc-dna-services,
+.glc-dna-sandbox #glc-dna-faq {
   background: var(--off-white);
   padding: var(--section-v) 0;
   position: relative; overflow: hidden;
 }
 /* GROUND structure marks */
 .glc-dna-sandbox #services::before,
-.glc-dna-sandbox #glc-dna-services::before {
+.glc-dna-sandbox #glc-dna-services::before,
+.glc-dna-sandbox #glc-dna-faq::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; height: 4px;
@@ -451,6 +453,14 @@
   font-size: 15px; line-height: 1.7;
   color: var(--text-600);
 }
+@media (max-width: 900px) {
+  .glc-dna-sandbox .services__header {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: start;
+    padding: 0 24px 48px;
+  }
+}
 /* STRUCTURE plane: dark rail at left edge */
 .glc-dna-sandbox .services__grid-wrap {
   max-width: var(--container-max);
@@ -468,6 +478,16 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
+}
+@media (max-width: 1024px) {
+  .glc-dna-sandbox .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .glc-dna-sandbox .services__grid {
+    grid-template-columns: 1fr;
+  }
 }
 .glc-dna-sandbox a.service-card {
   text-decoration: none;
@@ -552,6 +572,57 @@
 .glc-dna-sandbox .service-card:hover .service-card__link, .glc-dna-sandbox a.service-card:focus-visible .service-card__link {
   color: var(--yellow-core);
   gap: 12px;
+}
+
+/* FAQ tiles: <details class="service-card"> — mirror hover “lift” when open */
+.glc-dna-sandbox details.service-card {
+  cursor: default;
+}
+.glc-dna-sandbox details.service-card > .service-card__summary {
+  list-style: none;
+  cursor: pointer;
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+.glc-dna-sandbox details.service-card > .service-card__summary::-webkit-details-marker {
+  display: none;
+}
+.glc-dna-sandbox details.service-card .service-card__summary:focus-visible {
+  outline: 2px solid var(--yellow-core);
+  outline-offset: 3px;
+}
+.glc-dna-sandbox details.service-card[open]::before {
+  transform: scaleY(1);
+}
+.glc-dna-sandbox details.service-card[open] {
+  box-shadow: var(--shadow-card), inset 0 0 0 1px var(--gray-200);
+}
+.glc-dna-sandbox details.service-card[open] .service-card__num {
+  color: rgba(30, 28, 26, 0.12);
+}
+.glc-dna-sandbox details.service-card[open] .service-card__title {
+  color: var(--charcoal-deep);
+}
+.glc-dna-sandbox details.service-card[open] .service-card__faq-answer {
+  color: var(--text-600);
+}
+.glc-dna-sandbox details.service-card:not([open]) .service-card__faq-toggle--close {
+  display: none !important;
+}
+.glc-dna-sandbox details.service-card[open] .service-card__faq-toggle--open {
+  display: none !important;
+}
+.glc-dna-sandbox .service-card__faq-answer {
+  position: relative;
+  z-index: 1;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+.glc-dna-sandbox details.service-card[open] .service-card__faq-answer {
+  border-top-color: var(--gray-200);
 }
 
 

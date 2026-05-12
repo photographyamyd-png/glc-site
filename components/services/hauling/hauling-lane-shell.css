@@ -11,11 +11,6 @@
   border-top-width: 0;
 }
 
-/* FAQ strip: FeaturedAccordion root uses inline border-top */
-#hauling-glc-dna-lane #faq > .band-light > div {
-  border-top: none !important;
-}
-
 /* Hero: full-bleed yellow-beige engineering crosshatch */
 #hauling-glc-dna-lane .hero-v2__eng-grid {
   display: none;
