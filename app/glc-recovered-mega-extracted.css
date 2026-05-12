@@ -85,7 +85,14 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: rgba(250, 250, 248, 0.97);
+  isolation: isolate;
+  background-color: var(--mega-panel-field, rgb(250 249 247));
+  background-image: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--brand-white) 88%, rgb(245 242 236)) 0%,
+    var(--mega-panel-field, rgb(250 249 247)) 48%,
+    color-mix(in srgb, var(--canvas) 35%, var(--brand-white)) 100%
+  );
   backdrop-filter: blur(40px) saturate(180%);
   -webkit-backdrop-filter: blur(40px) saturate(180%);
   border-top: 3px solid var(--yellow-core);
@@ -105,6 +112,26 @@
     transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
     visibility 0.3s;
   pointer-events: none;
+}
+
+/* Hero-adjacent yellow atmosphere (decorative layer) */
+.gl-mega-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--mega-hero-wash, radial-gradient(
+    ellipse 82% 66% at 72% 36%,
+    rgb(242 183 5 / 0.14) 0%,
+    transparent 56%
+  ));
+  opacity: 0.85;
+}
+
+.gl-mega-panel > * {
+  position: relative;
+  z-index: 1;
 }
 .gl-mega-panel.is-open {
   opacity: 1;
@@ -127,6 +154,51 @@
   animation: glmc-item-in 0.42s var(--ease-expo) 0.04s both;
 }
 
+/* Intro column — homepage hero glass DNA */
+.gl-mega-panel__intro {
+  padding: 22px 20px 24px;
+  border: 1px solid var(--mega-intro-glass-border, rgb(255 255 255 / 0.12));
+  background: var(--mega-intro-glass-bg, rgb(10 12 11 / 0.44));
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  box-shadow:
+    0 20px 48px rgb(0 0 0 / 0.18),
+    inset 0 1px 0 rgb(255 255 255 / 0.06);
+}
+
+.gl-mega-panel__intro .gl-mega-panel__kicker {
+  flex-wrap: wrap;
+  row-gap: 8px;
+  color: var(--mega-intro-heading, rgb(250 249 247 / 0.96));
+  margin-bottom: 14px;
+}
+
+.gl-mega-panel__intro .gl-mega-panel__kicker::before {
+  background: var(--yellow-core);
+}
+
+/* Yellow rule under kicker (hero metrics pattern) */
+.gl-mega-panel__intro .gl-mega-panel__kicker::after {
+  content: '';
+  flex-basis: 100%;
+  order: 3;
+  height: 1px;
+  max-width: 220px;
+  margin-top: 4px;
+  background: color-mix(in srgb, var(--yellow-core) 42%, transparent);
+}
+
+.gl-mega-panel__intro p {
+  font-size: 13px;
+  line-height: 1.65;
+  margin-bottom: 24px;
+  color: var(--mega-intro-body, rgb(250 249 247 / 0.86));
+}
+.gl-mega-panel__intro .btn-primary {
+  font-size: 11px;
+  padding: 10px 18px;
+}
+
 .gl-mega-panel__kicker {
   display: flex;
   align-items: center;
@@ -146,16 +218,6 @@
   background: var(--yellow-core);
   flex-shrink: 0;
 }
-.gl-mega-panel__intro p {
-  font-size: 13px;
-  line-height: 1.65;
-  color: var(--text-500);
-  margin-bottom: 24px;
-}
-.gl-mega-panel__intro .btn-primary {
-  font-size: 11px;
-  padding: 10px 18px;
-}
 
 .gl-mega-grid {
   display: grid;
@@ -166,12 +228,13 @@
 .gl-mega-card {
   display: flex;
   flex-direction: column;
-  background: var(--white);
-  border: 1px solid rgba(0,0,0,0.08);
+  background: var(--mega-card-surface, var(--white));
+  border: 1px solid var(--mega-card-border, rgba(0,0,0,0.09));
+  border-left: 3px solid transparent;
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,1),
     inset 0 -1px 0 rgba(0,0,0,0.04),
-    0 1px 3px rgba(0,0,0,0.05);
+    0 2px 8px rgba(0,0,0,0.06);
   padding: 24px;
   transition:
     background 0.24s var(--ease-expo),
@@ -185,11 +248,12 @@
 .gl-mega-card:focus-visible {
   background: var(--yellow-tint);
   border-color: rgba(242,183,5,0.45);
+  border-left-color: var(--yellow-core);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,1),
     inset 0 -1px 0 rgba(0,0,0,0.04),
-    0 6px 20px rgba(0,0,0,0.08),
-    0 0 0 1px rgba(242,183,5,0.2);
+    0 8px 24px rgba(0,0,0,0.1),
+    0 0 0 1px rgba(242,183,5,0.18);
   transform: translateY(-2px);
   outline: none;
 }
@@ -341,24 +405,34 @@ body.gl-mega-open .gl-mega-backdrop {
   gap: 16px 24px;
   padding: 24px 32px;
   margin-top: 8px;
-  background: var(--gray-100);
-  border: 1px solid rgba(0,0,0,0.07);
+  background: var(--mega-dispatch-bg, rgb(10 12 11 / 0.9));
+  border: 1px solid var(--mega-dispatch-border, rgb(255 255 255 / 0.12));
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.9),
-    inset 0 -1px 0 rgba(0,0,0,0.04);
+    inset 0 1px 0 rgb(255 255 255 / 0.06),
+    0 16px 40px rgb(0 0 0 / 0.2);
 }
+
+.gl-mega-dispatch .gl-mega-panel__kicker {
+  color: rgb(250 249 247 / 0.9);
+  margin-bottom: 10px;
+}
+
+.gl-mega-dispatch .gl-mega-panel__kicker::before {
+  background: var(--yellow-core);
+}
+
 .gl-mega-dispatch__title {
   font-family: var(--font-display);
   font-size: 18px;
   font-weight: 600;
-  color: var(--charcoal-deep);
+  color: var(--mega-dispatch-title, rgb(250 249 247 / 0.96));
   margin: 4px 0;
   line-height: 1.25;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
 }
 .gl-mega-dispatch__sub {
   font-size: 12px;
-  color: var(--text-500);
+  color: var(--mega-dispatch-sub, rgb(250 249 247 / 0.74));
   margin: 0;
   max-width: 480px;
   line-height: 1.5;
@@ -374,5 +448,24 @@ body.gl-mega-open .gl-mega-backdrop {
   }
   .gl-mega-panel--company .gl-mega-panel__intro {
     grid-column: 1 / -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gl-mega-panel,
+  .gl-mega-panel.is-open {
+    animation: none !important;
+    transition-duration: 0.01ms;
+  }
+  .gl-mega-panel.is-open .gl-mega-card,
+  .gl-mega-panel.is-open .gl-mega-panel__intro,
+  .gl-mega-panel.is-open .gl-mega-company-col:nth-child(2),
+  .gl-mega-panel.is-open .gl-mega-company-col:nth-child(3),
+  .gl-mega-panel.is-open .gl-mega-dispatch {
+    animation: none !important;
+  }
+  .gl-mega-card:hover,
+  .gl-mega-card:focus-visible {
+    transform: none;
   }
 }

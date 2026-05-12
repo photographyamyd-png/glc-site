@@ -241,6 +241,14 @@ export type NavLink = {
   href: string;
 };
 
+/** Rich row for mobile drawer service lines (icon + title + short blurb). */
+export type MobileMegaServiceRow = {
+  href: string;
+  slug: string;
+  title: string;
+  description: string;
+};
+
 export type MegaMenuCard = {
   slug: string;
   num: string;

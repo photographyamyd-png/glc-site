@@ -141,9 +141,11 @@ export function GlcRecoveredSiteHeader({ navigation }: Props) {
       ? "Six core service lines for commercial excavation and civil infrastructure."
       : mega.intro;
 
-  const mobileServiceLinks = mega.cards.map((c) => ({
-    label: c.gridTitle.join(" "),
+  const mobileServiceRows = mega.cards.map((c) => ({
     href: ROUTES.service(c.slug),
+    slug: c.slug,
+    title: c.title,
+    description: c.description,
   }));
 
   const mobileCompanyLinks = companyMega.columns.flatMap((c) => c.links);
@@ -309,7 +311,7 @@ export function GlcRecoveredSiteHeader({ navigation }: Props) {
         open={drawerOpen}
         onClose={closeDrawer}
         mobileLinks={navigation.mobile.links}
-        serviceLinks={mobileServiceLinks}
+        serviceRows={mobileServiceRows}
         companyLinks={mobileCompanyLinks}
         utilityPhoneDisplay={util.phoneDisplay}
         utilityPhoneHref={util.phoneHref}

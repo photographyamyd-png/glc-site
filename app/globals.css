@@ -147,6 +147,24 @@
   --mega-panel-bg: color-mix(in srgb, var(--popover) 97%, transparent);
   --mega-elevated-surface: color-mix(in srgb, var(--card) 80%, transparent);
   --mega-mobile-row-bg: color-mix(in srgb, var(--popover) 95%, transparent);
+
+  /* Mega menu — hero-adjacent surfaces (desktop panels + dispatch band) */
+  --mega-panel-field: color-mix(in srgb, var(--canvas) 38%, var(--brand-white) 62%);
+  --mega-hero-wash: radial-gradient(
+    ellipse 82% 66% at 72% 36%,
+    color-mix(in srgb, var(--yellow-core) 22%, transparent) 0%,
+    transparent 56%
+  );
+  --mega-intro-glass-bg: rgb(10 12 11 / 0.44);
+  --mega-intro-glass-border: rgb(255 255 255 / 0.12);
+  --mega-intro-heading: rgb(250 249 247 / 0.96);
+  --mega-intro-body: rgb(250 249 247 / 0.86);
+  --mega-card-surface: color-mix(in srgb, var(--brand-white) 90%, rgb(252 250 246));
+  --mega-card-border: rgb(30 28 26 / 0.09);
+  --mega-dispatch-bg: rgb(10 12 11 / 0.9);
+  --mega-dispatch-border: rgb(255 255 255 / 0.12);
+  --mega-dispatch-title: rgb(250 249 247 / 0.96);
+  --mega-dispatch-sub: rgb(250 249 247 / 0.74);
 }
 
 @theme inline {
