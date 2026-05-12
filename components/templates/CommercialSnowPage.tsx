@@ -597,6 +597,7 @@ export function CommercialSnowPage({ service, related }: Props) {
                 <CommercialSnowPropertyTabs
                   tablistAria={COMMERCIAL_SNOW_PROPERTY_TYPES.tablistAria}
                   types={COMMERCIAL_SNOW_PROPERTY_TYPES.types}
+                  imageCta={COMMERCIAL_SNOW_HERO.ctas.primary}
                 />
               </div>
             </div>

@@ -93,6 +93,11 @@ export const SNOW_MEDIA = {
     `${INDUSTRIAL_PREFIX} s.JPG`,
     "Nighttime commercial snow clearing with Ground Level Contracting industrial equipment",
   ),
+  /** Parkside Plaza — loader and crew clearing retail lot (property-type retail tab). */
+  plazaParkside: snowRaster(
+    "Ground Level Contracting - Plaza Snow Removal Parkside.png",
+    "Yellow loader and crew clearing snow and salting walks at Parkside Plaza retail centre in Simcoe County",
+  ),
 } as const;
 
 /** Ordered gallery for deterministic `pick(i)` patterns (SSR-stable). */
@@ -157,7 +162,7 @@ export const SNOW_HUB_DEEP_DIVE_RASTERS: readonly SnowHubRaster[] = [
 
 /** Property-type tab imagery (order matches COMMERCIAL_SNOW_PROPERTY_TYPES.types). */
 export const SNOW_HUB_PROPERTY_TAB_RASTERS: readonly SnowHubRaster[] = [
-  SNOW_MEDIA.ctvBarrie(5),
+  SNOW_MEDIA.plazaParkside,
   SNOW_MEDIA.bedrock6,
   SNOW_MEDIA.industrial(6),
   SNOW_MEDIA.industrial(8),

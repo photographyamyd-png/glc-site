@@ -450,6 +450,8 @@ export const COMMERCIAL_SNOW_PROPERTY_TYPES = {
       label: "Retail Plazas and Shopping Centres",
       imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[0]!.src,
       imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[0]!.alt,
+      overlayKicker: "Retail plazas",
+      overlayTitle: "Opening-time clearing",
       body: "High-traffic lots, cart corrals, and storefront approaches are sequenced for opening-time access and slip prevention. Ice revisit rules align to retail peaks and municipal expectations.",
     },
     {
@@ -457,6 +459,8 @@ export const COMMERCIAL_SNOW_PROPERTY_TYPES = {
       label: "Office Buildings and Corporate Campuses",
       imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[1]!.src,
       imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[1]!.alt,
+      overlayKicker: "Office & campus",
+      overlayTitle: "Visitor routes first",
       body: "Executive entrances, visitor parking, and ADA-sensitive routes are prioritized per SLA. Documentation supports tenant communication and insurer requests.",
     },
     {
@@ -464,6 +468,8 @@ export const COMMERCIAL_SNOW_PROPERTY_TYPES = {
       label: "Industrial Facilities and Warehouses",
       imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[2]!.src,
       imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[2]!.alt,
+      overlayKicker: "Industrial",
+      overlayTitle: "Yards & dock lanes",
       body: "Yards, docks, and shift-change windows drive blade order. Loader-led clearing supports freight timelines and emergency access.",
     },
     {
@@ -471,6 +477,8 @@ export const COMMERCIAL_SNOW_PROPERTY_TYPES = {
       label: "Manufacturing and Production Facilities",
       imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[3]!.src,
       imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[3]!.alt,
+      overlayKicker: "Manufacturing",
+      overlayTitle: "Shift windows protected",
       body: "Production schedules and inbound raw material paths inform route priority. We coordinate with security and shipping for 24/7 operational windows where required.",
     },
     {
@@ -478,6 +486,8 @@ export const COMMERCIAL_SNOW_PROPERTY_TYPES = {
       label: "Multi-Residential Properties — Condominiums and Apartments",
       imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[4]!.src,
       imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[4]!.alt,
+      overlayKicker: "Multi-residential",
+      overlayTitle: "Portfolio-wide SLAs",
       body: "Portfolio-standard SLAs, consolidated reporting, and resident-safe pedestrian standards across multi-building sites.",
     },
     {
@@ -485,6 +495,8 @@ export const COMMERCIAL_SNOW_PROPERTY_TYPES = {
       label: "Medical Facilities and Healthcare Properties",
       imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[5]!.src,
       imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[5]!.alt,
+      overlayKicker: "Healthcare",
+      overlayTitle: "Ambulance access clear",
       body: "Ambulance routes, patient drop-offs, and staff parking are sequenced for continuous access. Ice control emphasizes pedestrian safety at transitions.",
     },
     {
@@ -492,6 +504,8 @@ export const COMMERCIAL_SNOW_PROPERTY_TYPES = {
       label: "Educational Institutions",
       imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[6]!.src,
       imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[6]!.alt,
+      overlayKicker: "Education",
+      overlayTitle: "Buses & walks on time",
       body: "Bus lanes, staff lots, and primary walkways align to class schedules and event calendars with documented completion times.",
     },
     {
@@ -499,6 +513,8 @@ export const COMMERCIAL_SNOW_PROPERTY_TYPES = {
       label: "Hospitality and Entertainment Venues",
       imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[7]!.src,
       imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[7]!.alt,
+      overlayKicker: "Hospitality",
+      overlayTitle: "Guest arrivals protected",
       body: "Guest arrival lanes, valet zones, and high-visibility entries are maintained to brand standards during storms and refreeze nights.",
     },
   ],
