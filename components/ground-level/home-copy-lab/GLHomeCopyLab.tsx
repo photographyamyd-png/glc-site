@@ -7,6 +7,7 @@
  * 1. `#hero` — `GLHero`
  * 2. Marquee — `GLMarqueeBand`
  * 3. `#services` — `GLFeaturedServicesBento`
+ * 3b. `#services-about-divider` — `CopyLabServicesAboutDivider`
  * 4. `#about` — `GLWhoWeServe`
  * 5. `#agitator` — `HomeAgitatorSection`
  * 6. `#capabilities` — `HomeCapabilityBentoSection`
@@ -23,6 +24,7 @@ import { HomeAgitatorSection } from "@/components/ground-level/home-copy-lab/Hom
 import { HomeCapabilityBentoSection } from "@/components/ground-level/home-copy-lab/HomeCapabilityBentoSection";
 import { HomeFinalCtaSection } from "@/components/ground-level/home-copy-lab/HomeFinalCtaSection";
 import { HomeProofBeforeAfter } from "@/components/ground-level/home-copy-lab/HomeProofBeforeAfter";
+import { CopyLabServicesAboutDivider } from "@/components/ground-level/home-copy-lab/CopyLabServicesAboutDivider";
 import { HomeSeoFaqSection } from "@/components/ground-level/home-copy-lab/HomeSeoFaqSection";
 import {
   COPY_LAB_ABOUT,
@@ -84,6 +86,7 @@ export function GLHomeCopyLab() {
         content={copyLabFeaturedContent}
         services={copyLabMergedServices}
       />
+      <CopyLabServicesAboutDivider />
       <GLWhoWeServe
         sectionId="about"
         headingId="about-heading"
