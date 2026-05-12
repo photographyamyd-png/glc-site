@@ -36,11 +36,6 @@ export type GLFeaturedServicesBentoProps = {
   services?: readonly GroundLevelService[];
   showProgressRail?: boolean;
   showStepNumbers?: boolean;
-  /**
-   * When `false`, skips the visible eyebrow / H2 / intro stack (e.g. services index already has an H1 + lede).
-   * Renders an `h2` with `headingId` as **screen-reader-only** using `content.heading` for its text.
-   */
-  showSectionHeader?: boolean;
 };
 
 const defaultFeaturedContent: GLFeaturedServicesContent = {
@@ -180,7 +175,6 @@ export function GLFeaturedServicesBento({
   services: servicesProp,
   showProgressRail = true,
   showStepNumbers = true,
-  showSectionHeader = true,
 }: GLFeaturedServicesBentoProps = {}) {
   const featured = content ?? defaultFeaturedContent;
   const services = servicesProp ?? GROUND_LEVEL_SERVICES;
@@ -248,7 +242,7 @@ export function GLFeaturedServicesBento({
   return (
     <section
       id={sectionId}
-      className="section-major band-light relative scroll-mt-[var(--header)] view-reveal"
+      className="section-major band-light relative scroll-mt-[var(--header)] overflow-hidden view-reveal"
       aria-labelledby={headingId}
     >
       <div
@@ -256,31 +250,25 @@ export function GLFeaturedServicesBento({
         aria-hidden
       />
       <ClaudeLogicWatermark placement="top-left" className="opacity-[0.07]" />
-      <div className="relative z-10 mx-auto min-w-0 max-w-[min(100%,var(--max))] px-4 sm:px-6">
-        {showSectionHeader ? (
-          <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
-            <p className="label-overline mb-3">{featured.eyebrow}</p>
-            <h2
-              id={headingId}
-              className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
-            >
-              {toneSplit(featured.heading)}
-            </h2>
-            <div className="mt-[var(--s7)]">
-              <ExpandableCopy text={featured.intro} className="text-sm leading-relaxed text-ink-muted sm:text-base" />
-            </div>
-          </div>
-        ) : (
-          <h2 id={headingId} className="sr-only">
-            {featured.heading}
+      <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6">
+        <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
+          <p className="label-overline mb-3">{featured.eyebrow}</p>
+          <h2
+            id={headingId}
+            className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+          >
+            {toneSplit(featured.heading)}
           </h2>
-        )}
+          <div className="mt-[var(--s7)]">
+            <ExpandableCopy text={featured.intro} className="text-sm leading-relaxed text-ink-muted sm:text-base" />
+          </div>
+        </div>
 
         <nav
           aria-label="Service line shortcuts"
-          className="sticky top-[var(--header)] z-20 -mx-4 mt-10 border-y border-[color:var(--g200)] bg-[color:var(--brand-canvas)]/95 backdrop-blur-sm sm:-mx-6 sm:mt-12"
+          className="sticky top-[var(--header)] z-20 -mx-4 mt-10 border-y border-[color:var(--g200)] bg-[color:var(--brand-canvas)]/95 backdrop-blur-sm sm:-mx-6 sm:mt-12 lg:hidden"
         >
-          <ul className="flex w-full min-w-0 flex-nowrap items-center gap-[clamp(4px,1vw,8px)] overflow-x-auto overscroll-x-contain snap-x snap-mandatory px-4 py-2.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:px-6 sm:py-3 [&::-webkit-scrollbar]:hidden">
+          <ul className="flex flex-nowrap items-center gap-2 overflow-x-auto snap-x snap-mandatory px-4 py-3 [-ms-overflow-style:none] [scrollbar-width:none] sm:px-6 [&::-webkit-scrollbar]:hidden">
             {servicesWithImages.map((s, i) => {
               const isSel = selected === i;
               return (
@@ -289,7 +277,7 @@ export function GLFeaturedServicesBento({
                     href={`#services-${s.slug}`}
                     aria-current={isSel ? "true" : undefined}
                     onClick={(e) => onShortcutClick(e, s.slug, i)}
-                    className={`inline-flex min-h-[44px] items-center justify-center whitespace-nowrap px-[clamp(0.375rem,1.25vw,0.875rem)] font-label font-semibold uppercase tracking-[0.1em] transition-[background,color,box-shadow] text-[clamp(0.5625rem,calc(0.48rem+0.55vw),0.8125rem)] ${
+                    className={`inline-flex h-11 items-center justify-center whitespace-nowrap px-4 font-label text-xs font-semibold uppercase tracking-[0.12em] transition-[background,color,box-shadow] sm:text-sm ${
                       isSel
                         ? "bg-[color:var(--ink-deep)] text-white shadow-[inset_0_0_0_1px_rgb(0_0_0/0.08)]"
                         : "border border-[color:var(--g200)] bg-white/80 text-ink hover:border-[color:var(--y)]/45"
