@@ -10,7 +10,6 @@ import { CommercialSnowLocalVideos } from "@/components/templates/commercial-sno
 import { CommercialSnowPropertyTabs } from "@/components/templates/commercial-snow/CommercialSnowPropertyTabs";
 import { CommercialSnowProofTabs } from "@/components/templates/commercial-snow/CommercialSnowProofTabs";
 import { CommercialSnowChapterTabs } from "@/components/templates/commercial-snow/CommercialSnowChapterTabs";
-import { CommercialSnowHubCtaDock } from "@/components/templates/commercial-snow/CommercialSnowHubCtaDock";
 import { COMMERCIAL_SNOW_FAQS } from "@/lib/site/commercial-snow-faqs";
 import {
   COMMERCIAL_SNOW_STICKY_CHAPTERS,
@@ -20,9 +19,11 @@ import {
   COMMERCIAL_SNOW_EQUIPMENT,
   COMMERCIAL_SNOW_FAQ_SECTION,
   COMMERCIAL_SNOW_HERO,
-  COMMERCIAL_SNOW_SERVICE_AREA,
+  COMMERCIAL_SNOW_MID_LOWER_CTA,
+  COMMERCIAL_SNOW_MID_SERVICE_CTA,
   COMMERCIAL_SNOW_PROCESS,
   COMMERCIAL_SNOW_PROPERTY_TYPES,
+  COMMERCIAL_SNOW_RELATED,
   COMMERCIAL_SNOW_SERVICE_CARDS,
   COMMERCIAL_SNOW_SERVICE_DEEP_DIVES,
   COMMERCIAL_SNOW_SERVICES_CHAPTER,
@@ -30,6 +31,7 @@ import {
   COMMERCIAL_SNOW_TRUST_ITEMS,
   COMMERCIAL_SNOW_TRUST_STRIP_ARIA,
   COMMERCIAL_SNOW_VALUE_PROP,
+  COMMERCIAL_SNOW_WHY_CHOOSE,
   COMMERCIAL_SNOW_WHY_INTRO,
   getCommercialSnowProcessStepsForJsonLd,
 } from "@/lib/site/commercial-snow-page-data";
@@ -40,10 +42,9 @@ type Props = { service: ServiceDef; related: ServiceDef[] };
 
 export function CommercialSnowPage({ service, related }: Props) {
   const processStepsJson = getCommercialSnowProcessStepsForJsonLd();
-  const closingSampleCta = COMMERCIAL_SNOW_CLOSING.ctas[2];
 
   return (
-    <article className="relative pb-[calc(5.25rem+env(safe-area-inset-bottom))]">
+    <article className="relative">
       <CommercialSnowJsonLd
         faq={COMMERCIAL_SNOW_FAQS}
         processHeading={COMMERCIAL_SNOW_PROCESS.h2}
@@ -271,7 +272,7 @@ export function CommercialSnowPage({ service, related }: Props) {
           </div>
 
           <div className="mt-12 space-y-3">
-            {COMMERCIAL_SNOW_SERVICE_DEEP_DIVES.map((d) => (
+            {COMMERCIAL_SNOW_SERVICE_DEEP_DIVES.map((d, idx) => (
               <details
                 key={d.anchor}
                 id={d.anchor}
@@ -310,8 +311,33 @@ export function CommercialSnowPage({ service, related }: Props) {
                     </Link>
                   </div>
                 </div>
+                {idx === 3 ? (
+                  <div className="mt-8 border-t border-white/15 pt-6">
+                    <p className="text-[15px] text-white/90">{COMMERCIAL_SNOW_MID_SERVICE_CTA.text}</p>
+                    <Link
+                      href={COMMERCIAL_SNOW_MID_SERVICE_CTA.href}
+                      className="cta-primary mt-4 inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em]"
+                    >
+                      {COMMERCIAL_SNOW_MID_SERVICE_CTA.buttonLabel}
+                    </Link>
+                  </div>
+                ) : null}
               </details>
             ))}
+          </div>
+
+          <div className="mt-12 border border-white/15 bg-[rgb(0_0_0/0.25)] p-6">
+            <p className="eyebrow text-white">{COMMERCIAL_SNOW_RELATED.eyebrow}</p>
+            <ul className="mt-4 grid gap-3 sm:grid-cols-3">
+              {COMMERCIAL_SNOW_RELATED.cards.map((c) => (
+                <li key={c.href}>
+                  <Link href={c.href} className="flex min-h-[44px] flex-col justify-center border border-white/20 bg-[rgb(255_255_255/0.05)] p-4 hover:border-[color:var(--y)]/60">
+                    <span className="eyebrow text-white/70">{c.sub}</span>
+                    <span className="mt-1 font-serif text-sm font-bold uppercase tracking-[0.04em] text-white">{c.title}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -525,53 +551,10 @@ export function CommercialSnowPage({ service, related }: Props) {
         <ClaudeLogicWatermark placement="bottom-left" mode="default" className="z-[1] opacity-[0.1]" />
         <ClaudeLogicWatermark placement="top-right" mode="default" className="z-[1] opacity-[0.07]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
-            <div className="border-l-4 border-[color:var(--y)] pl-5 lg:col-span-5">
-              <p className="eyebrow text-ink">Coverage</p>
-              <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
-                {COMMERCIAL_SNOW_SERVICE_AREA.h2}
-              </h2>
-              <p className="mt-[var(--s7)] text-[15px] leading-[1.72] text-ink sm:text-base">{COMMERCIAL_SNOW_SERVICE_AREA.visibleLede}</p>
-              <details className="mt-6 border border-[color:var(--g200)] bg-white p-4">
-                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-sm font-bold uppercase tracking-[0.04em] text-ink marker:content-none [&::-webkit-details-marker]:hidden">
-                  Regional service detail
-                  <span className="eyebrow text-[color:var(--y)]">+</span>
-                </summary>
-                <div className="mt-4 space-y-4">
-                  {COMMERCIAL_SNOW_SERVICE_AREA.paragraphs.map((p) => (
-                    <p key={p.slice(0, 20)} className="text-[15px] leading-[1.72] text-ink sm:text-base">
-                      {p}
-                    </p>
-                  ))}
-                  <p className="text-[15px] text-ink">
-                    {COMMERCIAL_SNOW_SERVICE_AREA.links.map((l, i) => (
-                      <span key={l.href}>
-                        {i > 0 ? <span className="text-ink-muted"> · </span> : null}
-                        <Link href={l.href} className="font-semibold text-ink underline-offset-2 hover:text-[color:var(--y)]">
-                          {l.label}
-                        </Link>
-                      </span>
-                    ))}
-                  </p>
-                </div>
-              </details>
-            </div>
-            <div className="lg:col-span-7">
-              <div className="relative aspect-[16/11] overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)]">
-                <Image
-                  src={SNOW_HUB_SECTION.coverage.src}
-                  alt={SNOW_HUB_SECTION.coverage.alt}
-                  fill
-                  className="object-cover object-[center_40%]"
-                  sizes="(min-width: 1024px) 45vw, 100vw"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="relative z-10 mt-14 border-t border-[color:var(--g200)] pt-12">
+          <div className="relative z-10">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(200deg,rgb(242_183_5/0.05),transparent_42%)]" aria-hidden />
             <ClaudeLogicWatermark placement="top-right" mode="default" className="pointer-events-none absolute right-0 top-8 z-[1] opacity-[0.07]" />
+            {/* Chassis + split measure: substrate plane, spine typography, raised machined deck (V7 layer stack). */}
             <div className="relative z-10 overflow-hidden rounded-sm border border-[color:var(--g200)] bg-[color:rgb(30_28_26/0.028)] shadow-[0_22px_64px_rgb(0_0_0/0.07)]">
               <div
                 className="pointer-events-none absolute inset-0 bg-[linear-gradient(125deg,rgb(242_183_5/0.07),transparent_42%)]"
@@ -651,6 +634,37 @@ export function CommercialSnowPage({ service, related }: Props) {
               </div>
             </div>
           </details>
+
+          <h2 className="mt-14 font-serif text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
+            {COMMERCIAL_SNOW_WHY_CHOOSE.h2}
+          </h2>
+          <p className="mt-4 max-w-prose text-[15px] text-white/90">{COMMERCIAL_SNOW_WHY_CHOOSE.visibleLede}</p>
+          <div className="mt-8 space-y-3">
+            {COMMERCIAL_SNOW_WHY_CHOOSE.items.map((item) => (
+              <details key={item.title} name="why-choose" className="group border border-white/18 bg-[rgb(255_255_255/0.06)] p-4">
+                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 marker:content-none [&::-webkit-details-marker]:hidden">
+                  <span>
+                    <span className="font-serif text-base font-bold uppercase tracking-[0.04em] text-white">{item.title}</span>
+                    <span className="mt-1 block text-sm text-white/70">{item.subtitle}</span>
+                  </span>
+                  <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
+                  <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
+                </summary>
+                <div className="mt-4 grid gap-4 lg:grid-cols-2">
+                  <p className="text-[15px] leading-[1.72] text-white/88">{item.body}</p>
+                  <div className="relative aspect-video overflow-hidden border border-white/15">
+                    <Image
+                      src={item.imageSrc}
+                      alt={item.imageAlt}
+                      fill
+                      className="object-cover object-[center_45%]"
+                      sizes="(min-width: 1024px) 35vw, 100vw"
+                    />
+                  </div>
+                </div>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -701,7 +715,28 @@ export function CommercialSnowPage({ service, related }: Props) {
         <ClaudeLogicWatermark placement="top-right" mode="default" className="z-[1] opacity-[0.09]" />
         <ClaudeLogicWatermark placement="bottom-left" mode="default" className="z-[1] opacity-[0.08]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
-          <div className="relative grid gap-8 lg:grid-cols-2">
+          <div
+            className={`relative overflow-hidden border border-[color:var(--g200)] border-l-[4px] border-l-[color:var(--y)] bg-[rgb(12_14_13)] p-6 text-white sm:p-8 ${COMMERCIAL_SNOW_MID_LOWER_CTA.className}`}
+          >
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgb(242_183_5/0.12),transparent_38%)]" aria-hidden />
+            <p className="relative z-10 max-w-3xl font-sans text-xl font-bold uppercase tracking-[0.04em] sm:text-2xl">
+              {COMMERCIAL_SNOW_MID_LOWER_CTA.headline}
+            </p>
+            <p className="relative z-10 mt-3 max-w-2xl text-[15px] leading-[1.72] text-white/90">{COMMERCIAL_SNOW_MID_LOWER_CTA.sub}</p>
+            <div className="relative z-10 mt-6 flex flex-col gap-3 sm:flex-row">
+              <Link href={COMMERCIAL_SNOW_MID_LOWER_CTA.primary.href} className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em]">
+                {COMMERCIAL_SNOW_MID_LOWER_CTA.primary.label}
+              </Link>
+              <Link
+                href={COMMERCIAL_SNOW_MID_LOWER_CTA.secondary.href}
+                className="cta-outline-light inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-bold uppercase tracking-[0.12em]"
+              >
+                {COMMERCIAL_SNOW_MID_LOWER_CTA.secondary.label}
+              </Link>
+            </div>
+          </div>
+
+          <div className="relative mt-12 grid gap-8 border-t border-[color:var(--g200)] pt-12 lg:grid-cols-2">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-[linear-gradient(180deg,rgb(30_28_26/0.04),transparent)]" aria-hidden />
             <div className="relative border-l-4 border-[color:var(--y)] pl-5">
               <h2 className="font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">{COMMERCIAL_SNOW_CLOSING.h2}</h2>
@@ -722,26 +757,15 @@ export function CommercialSnowPage({ service, related }: Props) {
               <p className="mt-6 font-semibold text-ink">{COMMERCIAL_SNOW_CLOSING.urgency}</p>
             </div>
             <div className="relative flex flex-col gap-3">
-              <Link
-                href={COMMERCIAL_SNOW_HERO.ctas.primary.href}
-                className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em]"
-              >
-                {COMMERCIAL_SNOW_HERO.ctas.primary.label}
-              </Link>
-              <Link
-                href={COMMERCIAL_SNOW_HERO.ctas.secondary.href}
-                className="inline-flex min-h-[44px] items-center justify-center border border-[color:var(--g200)] bg-white px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-ink hover:border-[color:var(--y)]"
-              >
-                {COMMERCIAL_SNOW_HERO.ctas.secondary.label}
-              </Link>
-              {closingSampleCta ? (
+              {COMMERCIAL_SNOW_CLOSING.ctas.map((c) => (
                 <Link
-                  href={closingSampleCta.href}
-                  className="inline-flex min-h-[44px] items-center justify-center text-center text-xs font-bold uppercase tracking-[0.12em] text-ink-muted underline-offset-2 hover:text-[color:var(--y)] hover:underline"
+                  key={c.href}
+                  href={c.href}
+                  className="inline-flex min-h-[44px] items-center justify-center border border-[color:var(--g200)] bg-white px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] text-ink hover:border-[color:var(--y)]"
                 >
-                  {closingSampleCta.label}
+                  {c.label}
                 </Link>
-              ) : null}
+              ))}
             </div>
           </div>
 
@@ -772,7 +796,6 @@ export function CommercialSnowPage({ service, related }: Props) {
       </section>
         </>
       </CommercialSnowChapterTabs>
-      <CommercialSnowHubCtaDock />
     </article>
   );
 }
