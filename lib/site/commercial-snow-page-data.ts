@@ -26,15 +26,14 @@ export const COMMERCIAL_SNOW_SEO = {
 
 /** Sticky nav — DOM ids must match `CommercialSnowPage` section anchors. */
 export const COMMERCIAL_SNOW_CHAPTERS = [
-  { id: "chapter-hero", label: "Hero", shortLabel: "Hero" },
-  { id: "chapter-overview", label: "Trust & value", shortLabel: "Trust" },
-  { id: "chapter-services", label: "Services", shortLabel: "Services" },
-  { id: "chapter-proof", label: "CTV & field video", shortLabel: "CTV" },
-  { id: "chapter-operations", label: "Operations", shortLabel: "Ops" },
-  { id: "chapter-coverage", label: "Coverage", shortLabel: "Area" },
-  { id: "chapter-assurance", label: "Assurance", shortLabel: "GLC" },
-  { id: "chapter-faq", label: "FAQ", shortLabel: "FAQ" },
-  { id: "chapter-contact", label: "Contact", shortLabel: "Contact" },
+  { id: "chapter-hero", label: "Overview", shortLabel: "Start" },
+  { id: "chapter-pain", label: "Winter risk", shortLabel: "Risk" },
+  { id: "chapter-authority", label: "Press proof", shortLabel: "CTV" },
+  { id: "chapter-services", label: "Programs", shortLabel: "Programs" },
+  { id: "chapter-coverage", label: "Site flow", shortLabel: "Area" },
+  { id: "chapter-proof", label: "Proof", shortLabel: "Proof" },
+  { id: "chapter-contact", label: "Contract", shortLabel: "CTA" },
+  { id: "chapter-seo-basement", label: "Specs & FAQ", shortLabel: "FAQ" },
 ] as const;
 
 export const COMMERCIAL_SNOW_HERO = {
@@ -48,9 +47,9 @@ export const COMMERCIAL_SNOW_HERO = {
     servicesHref: "/services/",
     currentLabel: "Commercial snow",
   },
-  h1: "Total Operational Continuity for Your Commercial Site",
+  h1: "Commercial Snow Management That Never Sleeps.",
   lede:
-    "24/7 proactive monitoring and winter maintenance for high-priority infrastructure. We are on-site before your first shift starts — SLA-backed, GPS-verified, built for when downtime is not an option.",
+    "24/7 proactive monitoring and winter maintenance for high-priority infrastructure — on-site before your first shift, SLA-backed and GPS-verified when downtime is not an option.",
   metricsAriaLabel: "Commercial highlights",
   metrics: [
     { value: "200+", label: "Properties Served" },
@@ -60,10 +59,35 @@ export const COMMERCIAL_SNOW_HERO = {
   heroImageAriaLabel: SNOW_HUB_SECTION.hero.alt,
   /** Primary = audit entry; secondary = voice; optional text CTA for assessment (not a third button). */
   ctas: {
-    primary: { label: "Request a Priority Site Audit", href: "/contact/?topic=priority-site-audit" },
+    primary: { label: "Secure Your 2026 Winter Contract", href: "/contact/?topic=seasonal-snow-contract" },
     secondary: { label: `Call 24/7: ${PHONE_DISPLAY}`, href: PHONE_TEL },
     textCta: { label: "Get a free property assessment", href: "/contact/?topic=property-assessment" },
   },
+  /** In-page anchor for CTV authority block (lazy player id stays `#ctv-news-barrie`). */
+  authorityChapterAnchor: "chapter-authority",
+} as const;
+
+/** Caution-forward pain grid — ≤2 sentences per card body where possible. */
+export const COMMERCIAL_SNOW_PAIN_SECTION = {
+  h2Id: "commercial-snow-pain-h2",
+  eyebrow: "Operational exposure",
+  h2: "When Your Lot Fails, Everything Else Does Too",
+  visibleLede:
+    "Slip-and-fall exposure, blocked docks, and shutdowns compound fast. Every hour buried is lost revenue and a legal clock you cannot rewind.",
+  cards: [
+    {
+      title: "Slip-and-fall liability",
+      body: "Uncleared walks and refreeze nights create exposure where documentation matters as much as the blade pass.",
+    },
+    {
+      title: "Forced shutdowns",
+      body: "Industrial lots and freight routes that stall mean missed windows — not just inconvenience, but contractual breach risk.",
+    },
+    {
+      title: "Reputation & uptime",
+      body: "Retail and medical sites are judged at the curb first; customers, patients, and insurers read the pavement before your lobby.",
+    },
+  ] as const,
 } as const;
 
 export const COMMERCIAL_SNOW_TRUST_STRIP_ARIA = "Commercial trust signals";
@@ -702,12 +726,12 @@ export const COMMERCIAL_SNOW_PROCESS = {
   ],
 } as const;
 
-/** Proof band — CTV News Barrie + local field MP4s stay first-class (see `CommercialSnowPage` chapter-proof). */
+/** Proof band — stats + field MP4s (CTV lives in `chapter-authority`). */
 export const COMMERCIAL_SNOW_MEDIA_PROOF = {
-  eyebrow: "Press & field proof",
-  h2: "CTV News Barrie and on-site winter video",
+  eyebrow: "Commercial proof",
+  h2: "On-Site in Two Hours or Less — Verified Winter Performance",
   visibleLede:
-    "Third-party news coverage plus Simcoe County field footage — loaders, salting, and dispatch rhythm you can watch before procurement signs. Use the Media tab first for CTV and local MP4 controls.",
+    "Credentials, response discipline, and field footage from Simcoe County operations — evidence procurement and risk teams can evaluate before contract execution.",
 } as const;
 
 export const COMMERCIAL_SNOW_CREDENTIALS = {
@@ -728,9 +752,9 @@ export const COMMERCIAL_SNOW_CREDENTIALS = {
 
 export const COMMERCIAL_SNOW_MID_LOWER_CTA = {
   className: "glc-snow-midlower-cta",
-  headline: "Secure Your Site’s Reliability for the Season",
+  headline: "Secure Your 2026 Winter Contract",
   sub: "Partnership, not a one-off push. Limited seasonal placements — book early for priority tier, documented SLAs, and GPS-verified winter coverage.",
-  primary: { label: "Get a Custom Management Plan", href: "/contact/?topic=custom-management-plan" },
+  primary: { label: "Request a Seasonal Contract Consultation", href: "/contact/?topic=seasonal-snow-contract" },
   secondary: { label: `Call 24/7: ${PHONE_DISPLAY}`, href: PHONE_TEL },
 } as const;
 
@@ -774,7 +798,7 @@ export const COMMERCIAL_SNOW_CLOSING = {
   ],
   urgency: "Limited seasonal contracts available. Book now for guaranteed priority service and early-commitment pricing.",
   ctas: [
-    { label: "Get a Custom Management Plan", href: "/contact/?topic=custom-management-plan" },
+    { label: "Secure Your 2026 Winter Contract", href: "/contact/?topic=seasonal-snow-contract" },
     { label: `Call 24/7: ${PHONE_DISPLAY}`, href: PHONE_TEL },
   ],
 } as const;

@@ -99,7 +99,7 @@ export default async function ServicePage({
   }
 
   if (service.slug === "snow-removal") {
-    return <CommercialSnowPage service={service} related={related} />;
+    return <CommercialSnowPage related={related} />;
   }
 
   return (

@@ -1122,7 +1122,7 @@ export const SERVICE_DETAILS: Record<PrimaryServiceSlug, ServiceDetailCopy> = {
       heading: COMMERCIAL_SNOW_PROCESS.h2,
       steps: COMMERCIAL_SNOW_PROCESS.steps.map((s) => ({ id: s.id, title: s.title, body: s.body })),
     },
-    scopeStripLabels: ["Overview", "Services", "CTV & video", "Operations", "Coverage", "FAQ", "Contact"],
+    scopeStripLabels: ["Overview", "Risk", "CTV", "Programs", "Area", "Proof", "Contract", "Specs & FAQ"],
     intro: [COMMERCIAL_SNOW_VALUE_PROP.visibleLede],
     deliverablesHeading: COMMERCIAL_SNOW_EQUIPMENT.h2,
     deliverables: COMMERCIAL_SNOW_EQUIPMENT.items.map((i) => i.name),
@@ -1141,7 +1141,7 @@ export const SERVICE_DETAILS: Record<PrimaryServiceSlug, ServiceDetailCopy> = {
     faq: COMMERCIAL_SNOW_FAQ_SHORT,
     ctaOverride: {
       heading: COMMERCIAL_SNOW_MID_LOWER_CTA.headline,
-      buttonLabel: COMMERCIAL_SNOW_HERO.ctas.secondary.label,
+      buttonLabel: COMMERCIAL_SNOW_MID_LOWER_CTA.primary.label,
       supporting: COMMERCIAL_SNOW_MID_LOWER_CTA.sub,
     },
     extra: {
