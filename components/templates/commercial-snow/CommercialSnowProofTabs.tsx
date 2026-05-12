@@ -24,7 +24,7 @@ export function CommercialSnowProofTabs({
 
   return (
     <div>
-      <div role="tablist" aria-label="Proof sections" className="flex gap-2 border-b border-white/15 pb-3">
+      <div role="tablist" aria-label="CTV News Barrie coverage and on-site field video proof" className="flex gap-2 border-b border-white/15 pb-3">
         <button
           type="button"
           role="tab"

@@ -5,13 +5,11 @@ import { cn } from "@/lib/utils";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { CardSurface } from "@/components/ui/CardSurface";
 import { CommercialSnowJsonLd } from "@/components/seo/CommercialSnowJsonLd";
-import { CtvSnowFeature } from "@/components/templates/commercial-snow/CtvSnowFeature";
-import { CommercialSnowLocalVideos } from "@/components/templates/commercial-snow/CommercialSnowLocalVideos";
-import { CommercialSnowPropertyTabs } from "@/components/templates/commercial-snow/CommercialSnowPropertyTabs";
-import { CommercialSnowProofTabs } from "@/components/templates/commercial-snow/CommercialSnowProofTabs";
+import { CommercialSnowMediaBroadcastSection } from "@/components/templates/commercial-snow/CommercialSnowMediaBroadcastSection";
 import { CommercialSnowStickyNav } from "@/components/templates/commercial-snow/CommercialSnowStickyNav";
 import { COMMERCIAL_SNOW_FAQS } from "@/lib/site/commercial-snow-faqs";
 import {
+  COMMERCIAL_SNOW_ASSURANCE_BAND,
   COMMERCIAL_SNOW_CHAPTERS,
   COMMERCIAL_SNOW_CLOSING,
   COMMERCIAL_SNOW_CONTRACTS,
@@ -19,6 +17,7 @@ import {
   COMMERCIAL_SNOW_EQUIPMENT,
   COMMERCIAL_SNOW_FAQ_SECTION,
   COMMERCIAL_SNOW_HERO,
+  COMMERCIAL_SNOW_MEDIA_PROOF,
   COMMERCIAL_SNOW_MID_LOWER_CTA,
   COMMERCIAL_SNOW_MID_SERVICE_CTA,
   COMMERCIAL_SNOW_PROCESS,
@@ -93,6 +92,14 @@ export function CommercialSnowPage({ service, related }: Props) {
               </div>
 
               <p className="eyebrow text-white">{COMMERCIAL_SNOW_HERO.eyebrow}</p>
+              <p className="mt-3">
+                <Link
+                  href="#chapter-proof"
+                  className="text-[13px] font-semibold uppercase tracking-[0.1em] text-[color:var(--y)] underline-offset-4 hover:underline"
+                >
+                  Watch CTV Barrie coverage &amp; field winter video
+                </Link>
+              </p>
               <p className="mt-2 text-[13px] text-white/80">
                 <Link href={COMMERCIAL_SNOW_HERO.breadcrumb.homeHref} className="underline-offset-2 hover:text-white hover:underline">
                   Home
@@ -153,13 +160,15 @@ export function CommercialSnowPage({ service, related }: Props) {
                 >
                   {COMMERCIAL_SNOW_HERO.ctas.secondary.label}
                 </Link>
-                <Link
-                  href={COMMERCIAL_SNOW_HERO.ctas.tertiary.href}
-                  className="inline-flex min-h-[44px] items-center justify-center border border-white/25 px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em] text-white hover:border-white/50"
-                >
-                  {COMMERCIAL_SNOW_HERO.ctas.tertiary.label}
-                </Link>
               </div>
+              <p className="mt-5 text-center sm:text-left">
+                <Link
+                  href={COMMERCIAL_SNOW_HERO.ctas.textCta.href}
+                  className="text-[13px] font-semibold uppercase tracking-[0.08em] text-white/85 underline-offset-4 hover:text-white hover:underline"
+                >
+                  {COMMERCIAL_SNOW_HERO.ctas.textCta.label}
+                </Link>
+              </p>
             </div>
           </div>
         </div>
@@ -336,53 +345,46 @@ export function CommercialSnowPage({ service, related }: Props) {
         </div>
       </section>
 
-      {/* —— Proof —— */}
+      {/* —— Broadcast proof: CTV + field video (cinema layout) + credentials —— */}
       <section
         id="chapter-proof"
         className="section-major band-light-drift relative scroll-mt-[var(--header)] overflow-hidden border-t border-[color:var(--g200)] view-reveal"
+        aria-labelledby="commercial-snow-media-proof-heading"
       >
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(128deg,rgb(242_183_5/0.07),transparent_55%)]" aria-hidden />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_40%,rgb(30_28_26/0.04)_100%)]" aria-hidden />
         <ClaudeLogicWatermark placement="bottom-left" mode="default" className="z-[1] opacity-[0.1]" />
         <ClaudeLogicWatermark placement="top-right" mode="default" className="z-[1] opacity-[0.06]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 pt-[var(--section-v)] pb-[calc(var(--section-v)+var(--s8))] sm:px-6 lg:px-10">
-          <div className="overflow-hidden border border-[color:var(--g200)] bg-[rgb(12_14_13)] text-white shadow-2xl ring-1 ring-black/20">
-            <div className="relative bg-[rgb(10_12_11/0.92)] p-6 sm:p-8">
-              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgb(242_183_5/0.1),transparent_40%)]" aria-hidden />
-              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgb(0_0_0/0.35),transparent_45%)]" aria-hidden />
-              <div className="relative z-10">
-                <CommercialSnowProofTabs
-                  mediaLabel="Media"
-                  credentialsLabel="Credentials"
-                  mediaPanel={
-                    <>
-                      <CtvSnowFeature />
-                      <CommercialSnowLocalVideos />
-                    </>
-                  }
-                  credentialsPanel={
-                    <div>
-                      <p className="eyebrow text-[color:var(--y)]">Commercial proof</p>
-                      <h2 className="mt-3 font-serif text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
-                        {COMMERCIAL_SNOW_CREDENTIALS.h2}
-                      </h2>
-                      <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-white/90">{COMMERCIAL_SNOW_CREDENTIALS.visibleLede}</p>
-                      <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                        {COMMERCIAL_SNOW_CREDENTIALS.badges.map((b) => (
-                          <div key={b.label} className="border border-white/15 bg-[rgb(255_255_255/0.05)] p-4">
-                            <p className="font-serif text-2xl font-bold text-[color:var(--y)]">{b.stat}</p>
-                            <p className="mt-2 font-serif text-sm font-bold uppercase tracking-tight text-white">{b.label}</p>
-                            <p className="mt-2 text-[13px] leading-snug text-white/75">{b.detail}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  }
-                />
-              </div>
+          <div className="border-l-4 border-[color:var(--y)] pl-5">
+            <p className="eyebrow text-ink">{COMMERCIAL_SNOW_MEDIA_PROOF.eyebrow}</p>
+            <h2
+              id="commercial-snow-media-proof-heading"
+              className="mt-3 max-w-[42rem] font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl"
+            >
+              {COMMERCIAL_SNOW_MEDIA_PROOF.h2}
+            </h2>
+            <p className="mt-[var(--s7)] max-w-[42rem] text-[15px] leading-[1.72] text-ink sm:text-base">{COMMERCIAL_SNOW_MEDIA_PROOF.visibleLede}</p>
+          </div>
+
+          <div className="mt-10">
+            <CommercialSnowMediaBroadcastSection />
+          </div>
+
+          <div className="bespoke-surface panel-machined relative mt-12 border border-[color:var(--g200)] border-l-[4px] border-l-[color:var(--y)] bg-white p-6 shadow-[0_18px_48px_rgb(0_0_0/0.06)] sm:p-8">
+            <p className="eyebrow text-ink">Commercial proof</p>
+            <h3 className="mt-3 font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl">{COMMERCIAL_SNOW_CREDENTIALS.h2}</h3>
+            <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-ink sm:text-base">{COMMERCIAL_SNOW_CREDENTIALS.visibleLede}</p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {COMMERCIAL_SNOW_CREDENTIALS.badges.map((b) => (
+                <div key={b.label} className="border border-[color:var(--g200)] bg-[color:rgb(30_28_26/0.02)] p-4 shadow-[inset_0_1px_0_rgb(242_183_5/0.25)]">
+                  <p className="font-serif text-2xl font-bold text-[color:var(--y)]">{b.stat}</p>
+                  <p className="mt-2 font-serif text-sm font-bold uppercase tracking-tight text-ink">{b.label}</p>
+                  <p className="mt-2 text-[13px] leading-snug text-ink-muted">{b.detail}</p>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="mt-10 border-t border-[color:var(--g200)] pt-8" aria-hidden />
         </div>
       </section>
 
@@ -582,83 +584,100 @@ export function CommercialSnowPage({ service, related }: Props) {
         </div>
       </section>
 
-      {/* —— Assurance & FAQ —— */}
+      {/* —— Assurance (compact dark band + two disclosures; full copy stays in DOM) —— */}
       <section
         id="chapter-assurance"
         className="section-major band-dark-field relative scroll-mt-[var(--header)] overflow-hidden border-t border-white/10 view-reveal"
+        aria-labelledby="snow-assurance-heading"
       >
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,rgb(255_255_255/0.04),transparent_50%)]" aria-hidden />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_10%_100%,rgb(242_183_5/0.05),transparent_55%)]" aria-hidden />
         <ClaudeLogicWatermark placement="bottom-right" mode="on-dark" className="z-[1] opacity-[0.1]" />
         <ClaudeLogicWatermark placement="top-left" mode="on-dark" className="z-[1] opacity-[0.08]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
-          <div className="border-l-4 border-[color:var(--y)] pl-5">
-            <p className="eyebrow text-white">Assurance</p>
-            <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">
-              {COMMERCIAL_SNOW_WHY_INTRO.h2}
-            </h2>
-            <p className="mt-[var(--s7)] max-w-[42rem] text-[15px] leading-[1.72] text-white/90">{COMMERCIAL_SNOW_WHY_INTRO.visibleLede}</p>
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+            <div className="border-l-4 border-[color:var(--y)] pl-5 lg:col-span-5">
+              <p className="eyebrow text-white">{COMMERCIAL_SNOW_ASSURANCE_BAND.eyebrow}</p>
+              <h2
+                id="snow-assurance-heading"
+                className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl"
+              >
+                {COMMERCIAL_SNOW_ASSURANCE_BAND.h2}
+              </h2>
+              <p className="mt-[var(--s7)] max-w-prose text-[15px] leading-[1.72] text-white/90 sm:text-base">
+                {COMMERCIAL_SNOW_WHY_INTRO.visibleLede}
+              </p>
+              <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-white/75 sm:text-base">
+                {COMMERCIAL_SNOW_ASSURANCE_BAND.caption}
+              </p>
+              <Link
+                href={COMMERCIAL_SNOW_HERO.ctas.primary.href}
+                className="cta-primary mt-8 inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em]"
+              >
+                {COMMERCIAL_SNOW_HERO.ctas.primary.label}
+              </Link>
+            </div>
+            <div className="relative min-h-[220px] overflow-hidden border border-white/15 lg:col-span-7 lg:min-h-[280px]">
+              <Image
+                src={SNOW_HUB_SECTION.assuranceNarrative.src}
+                alt={SNOW_HUB_SECTION.assuranceNarrative.alt}
+                fill
+                className="object-cover object-[center_50%]"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[rgb(10_12_11/0.35)] to-transparent" aria-hidden />
+            </div>
           </div>
 
-          <details className="mt-8 border border-white/18 bg-[rgb(255_255_255/0.06)] p-4">
+          <details
+            name="snow-assurance-depth"
+            className="group mt-10 border border-white/18 bg-[rgb(255_255_255/0.06)] p-4 backdrop-blur-sm"
+          >
             <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-sm font-bold uppercase tracking-[0.04em] text-white marker:content-none [&::-webkit-details-marker]:hidden">
-              Read full positioning narrative
-              <span className="eyebrow text-[color:var(--y)]">+</span>
+              {COMMERCIAL_SNOW_ASSURANCE_BAND.narrativeSummary}
+              <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
+              <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
             </summary>
-            <div className="mt-6 grid gap-6 lg:grid-cols-2">
-              <div className="space-y-4">
-                {COMMERCIAL_SNOW_WHY_INTRO.paragraphs.map((p) => (
-                  <p key={p.slice(0, 24)} className="text-[15px] leading-[1.72] text-white/90">
-                    {p}
-                  </p>
-                ))}
-              </div>
-              <div className="relative aspect-[16/11] overflow-hidden border border-white/15">
-                <Image
-                  src={SNOW_HUB_SECTION.assuranceNarrative.src}
-                  alt={SNOW_HUB_SECTION.assuranceNarrative.alt}
-                  fill
-                  className="object-cover object-[center_50%]"
-                  sizes="(min-width: 1024px) 40vw, 100vw"
-                />
-              </div>
+            <div className="mt-6 space-y-4">
+              <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/60">{COMMERCIAL_SNOW_WHY_INTRO.h2}</p>
+              {COMMERCIAL_SNOW_WHY_INTRO.paragraphs.map((p) => (
+                <p key={p.slice(0, 24)} className="text-[15px] leading-[1.72] text-white/90 sm:text-base">
+                  {p}
+                </p>
+              ))}
             </div>
           </details>
 
-          <h2 className="mt-14 font-serif text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
-            {COMMERCIAL_SNOW_WHY_CHOOSE.h2}
-          </h2>
-          <p className="mt-4 max-w-prose text-[15px] text-white/90">{COMMERCIAL_SNOW_WHY_CHOOSE.visibleLede}</p>
-          <div className="mt-8 space-y-3">
-            {COMMERCIAL_SNOW_WHY_CHOOSE.items.map((item) => (
-              <details key={item.title} name="why-choose" className="group border border-white/18 bg-[rgb(255_255_255/0.06)] p-4">
-                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 marker:content-none [&::-webkit-details-marker]:hidden">
-                  <span>
-                    <span className="font-serif text-base font-bold uppercase tracking-[0.04em] text-white">{item.title}</span>
-                    <span className="mt-1 block text-sm text-white/70">{item.subtitle}</span>
-                  </span>
-                  <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
-                  <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
-                </summary>
-                <div className="mt-4 grid gap-4 lg:grid-cols-2">
-                  <p className="text-[15px] leading-[1.72] text-white/88">{item.body}</p>
-                  <div className="relative aspect-video overflow-hidden border border-white/15">
-                    <Image
-                      src={item.imageSrc}
-                      alt={item.imageAlt}
-                      fill
-                      className="object-cover object-[center_45%]"
-                      sizes="(min-width: 1024px) 35vw, 100vw"
-                    />
-                  </div>
-                </div>
-              </details>
-            ))}
-          </div>
+          <details
+            name="snow-assurance-depth"
+            className="group mt-3 border border-white/18 bg-[rgb(255_255_255/0.06)] p-4 backdrop-blur-sm"
+          >
+            <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between font-serif text-sm font-bold uppercase tracking-[0.04em] text-white marker:content-none [&::-webkit-details-marker]:hidden">
+              {COMMERCIAL_SNOW_ASSURANCE_BAND.reasonsSummary}
+              <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
+              <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
+            </summary>
+            <div className="mt-6 space-y-8">
+              <p className="max-w-prose text-[15px] leading-[1.72] text-white/90 sm:text-base">{COMMERCIAL_SNOW_WHY_CHOOSE.visibleLede}</p>
+              <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/60">{COMMERCIAL_SNOW_WHY_CHOOSE.h2}</p>
+              <ol className="list-none space-y-8 p-0">
+                {COMMERCIAL_SNOW_WHY_CHOOSE.items.map((item, i) => (
+                  <li key={item.title} className="border-l-2 border-[color:var(--y)]/80 pl-4">
+                    <p className="font-serif text-base font-bold uppercase tracking-[0.04em] text-white">
+                      {i + 1}. {item.title}
+                    </p>
+                    <p className="mt-1 text-sm text-white/70">{item.subtitle}</p>
+                    <p className="mt-3 text-[15px] leading-[1.72] text-white/88 sm:text-base">{item.body}</p>
+                    <p className="sr-only">Supporting photo context: {item.imageAlt}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </details>
         </div>
       </section>
 
-      {/* —— FAQ (editorial light — breaks long dark assurance run) —— */}
+      {/* —— FAQ —— */}
       <section
         id="chapter-faq"
         className="section-major band-light relative scroll-mt-[var(--header)] overflow-hidden border-t border-[color:var(--g200)] view-reveal"
