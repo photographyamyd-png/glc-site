@@ -26,6 +26,7 @@ import {
   FoundationsHubServiceFilmstrip,
   FoundationsHubVisualBridge,
 } from "@/components/foundations/FoundationsHubLaneRhythm";
+import { GlcFaqDetailsGrid } from "@/components/faq/GlcFaqDetailsGrid";
 import {
   toFoundationsCtaBandProps,
   toFoundationsMegaMenuCards,
@@ -38,10 +39,10 @@ import { PHONE_TEL } from "@/lib/ground-level/homepage-copy";
 import { getServiceImage } from "@/lib/site/service-images";
 
 const detailsClass =
-  "foundations-hub-details group border border-[color:var(--g200)] bg-white p-4 shadow-sm panel-machined";
+  "foundations-hub-details group border border-[color:var(--g200)] bg-white p-3 shadow-sm panel-machined";
 
 const summaryClass =
-  "flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg font-bold uppercase tracking-[0.04em] text-ink marker:content-none sm:text-xl [&::-webkit-details-marker]:hidden";
+  "flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-3 font-label text-[13px] font-semibold leading-snug tracking-[0.02em] text-ink marker:content-none outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--y)] focus-visible:ring-offset-2 focus-visible:ring-offset-white [&::-webkit-details-marker]:hidden";
 
 export function FoundationsCivilInfrastructureHubPage() {
   const heroImage = getServiceImage("foundations-civil-infrastructure");
@@ -216,7 +217,7 @@ export function FoundationsCivilInfrastructureHubPage() {
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
             <p className="eyebrow text-ink">Reference library</p>
-            <h2 id="foundations-knowledge-hub-heading" className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
+            <h2 id="foundations-knowledge-hub-heading" className="mt-3 font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl">
               {FOUNDATIONS_KNOWLEDGE_HUB_TITLE}
             </h2>
             <p className="mt-4 max-w-prose font-sans text-sm leading-relaxed text-ink-muted">
@@ -283,13 +284,14 @@ export function FoundationsCivilInfrastructureHubPage() {
                 <span className="eyebrow shrink-0 text-[color:var(--y)] group-open:hidden">+</span>
                 <span className="hidden shrink-0 eyebrow text-[color:var(--y)] group-open:inline">−</span>
               </summary>
-              <div className="mt-3 space-y-6 border-t border-[color:var(--g200)] pt-4">
-                {FOUNDATIONS_FAQ.map((item) => (
-                  <div key={item.q}>
-                    <p className="font-sans text-base font-semibold text-ink">{item.q}</p>
-                    <p className="mt-2 max-w-prose font-sans text-[15px] leading-[1.72] text-ink sm:text-base">{item.a}</p>
-                  </div>
-                ))}
+              <div className="mt-3 border-t border-[color:var(--g200)] pt-4">
+                <GlcFaqDetailsGrid
+                  groupName="foundations-faq-verbatim"
+                  tone="light"
+                  maxColumns={2}
+                  density="cards"
+                  items={FOUNDATIONS_FAQ}
+                />
               </div>
             </details>
           </div>

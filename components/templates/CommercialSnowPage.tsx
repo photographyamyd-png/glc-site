@@ -4,6 +4,7 @@ import type { ServiceDef } from "@/lib/site/registry";
 import { cn } from "@/lib/utils";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { CardSurface } from "@/components/ui/CardSurface";
+import { GlcFaqDetailsGrid } from "@/components/faq/GlcFaqDetailsGrid";
 import { CommercialSnowJsonLd } from "@/components/seo/CommercialSnowJsonLd";
 import { CommercialSnowMediaBroadcastSection } from "@/components/templates/commercial-snow/CommercialSnowMediaBroadcastSection";
 import { CommercialSnowPropertyTabs } from "@/components/templates/commercial-snow/CommercialSnowPropertyTabs";
@@ -698,18 +699,14 @@ export function CommercialSnowPage({ service, related }: Props) {
             </h2>
             <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-ink sm:text-base">{COMMERCIAL_SNOW_FAQ_SECTION.visibleLede}</p>
           </div>
-          <div className="mt-10 space-y-3">
-            {COMMERCIAL_SNOW_FAQS.map((item) => (
-              <details key={item.q} name="snow-faq" className="group border border-[color:var(--g200)] bg-white p-4 shadow-[inset_0_1px_0_rgb(242_183_5/0.2)]">
-                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-base font-bold uppercase tracking-[0.04em] text-ink marker:content-none [&::-webkit-details-marker]:hidden">
-                  <span className="text-balance">{item.q}</span>
-                  <span className="eyebrow shrink-0 text-[color:var(--y)] group-open:hidden">+</span>
-                  <span className="hidden shrink-0 eyebrow text-[color:var(--y)] group-open:inline">−</span>
-                </summary>
-                <p className="mt-4 text-[15px] leading-[1.72] text-ink sm:text-base">{item.a}</p>
-              </details>
-            ))}
-          </div>
+          <GlcFaqDetailsGrid
+            className="mt-8 sm:mt-10"
+            groupName="snow-faq"
+            tone="light"
+            maxColumns={4}
+            density="cards"
+            items={COMMERCIAL_SNOW_FAQS}
+          />
         </div>
       </section>
 

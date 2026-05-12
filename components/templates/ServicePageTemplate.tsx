@@ -14,6 +14,7 @@ import { SnowSubServiceJsonLd } from "@/components/seo/SnowSubServiceJsonLd";
 import { HaulingGlcDnaLane } from "@/components/services/hauling/HaulingGlcDnaLane";
 import { HaulingSeoTechnicalBasement } from "@/components/services/hauling/HaulingSeoTechnicalBasement";
 import { buildHaulingGlcDnaLaneProps } from "@/lib/site/hauling-glc-dna-map";
+import { GlcFaqDetailsGrid } from "@/components/faq/GlcFaqDetailsGrid";
 
 type ServicePageTemplateProps = {
   service: ServiceDef;
@@ -294,30 +295,25 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
             <p className="eyebrow text-white">FAQ</p>
-            <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">Common questions</h2>
+            <h2 className="mt-3 font-serif text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">Common questions</h2>
           </div>
-          <div className="mt-10 space-y-3">
-            {faqItems.map((item) => (
-                <details key={item.q} name={`${service.slug}-faq`} className="group border border-white/20 bg-[rgb(255_255_255/0.06)] p-4 backdrop-blur-sm">
-                  <summary className="flex min-h-[44px] cursor-pointer items-center justify-between gap-4 list-none font-serif text-lg font-bold uppercase tracking-[0.04em] text-white marker:content-none [&::-webkit-details-marker]:hidden">
-                    <span>{item.q}</span>
-                    <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
-                    <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
-                  </summary>
-                  <p className="mt-3 text-[15px] leading-[1.72] text-white/88 sm:text-base">{item.a}</p>
-                </details>
-              ))}
-            {!faqItems.length ? (
-              <details name={`${service.slug}-faq`} className="border border-white/20 bg-[rgb(255_255_255/0.06)] p-4 backdrop-blur-sm">
-                <summary className="flex min-h-[44px] cursor-pointer items-center font-serif text-lg font-bold uppercase tracking-[0.04em] text-white">
-                  Need detailed scope?
-                </summary>
-                <p className="mt-3 text-[15px] leading-[1.72] text-white/88 sm:text-base">
-                  This sub-service has dedicated scope alignment on the snow hub. Use the active link below to open its full context.
-                </p>
-              </details>
-            ) : null}
-          </div>
+          <GlcFaqDetailsGrid
+            className="mt-8 sm:mt-10"
+            groupName={`${service.slug}-faq`}
+            tone="dark"
+            maxColumns={4}
+            density="cards"
+            items={
+              faqItems.length
+                ? faqItems
+                : [
+                    {
+                      q: "Need detailed scope?",
+                      a: "This sub-service has dedicated scope alignment on the snow hub. Use the active link below to open its full context.",
+                    },
+                  ]
+            }
+          />
         </div>
       </section>
 

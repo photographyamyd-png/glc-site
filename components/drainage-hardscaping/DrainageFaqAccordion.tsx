@@ -1,8 +1,5 @@
-"use client";
-
-import { useId, useState } from "react";
+import { GlcFaqDetailsGrid } from "@/components/faq/GlcFaqDetailsGrid";
 import { YellowRule } from "@/components/drainage-hardscaping/primitives";
-import { cn } from "@/lib/utils";
 
 export type DrainageFaqItem = { readonly q: string; readonly aParas: readonly string[] };
 
@@ -17,8 +14,10 @@ export function DrainageFaqAccordion({
   eyebrow: string;
   h2: string;
 }) {
-  const baseId = useId();
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const gridItems = items.map((item) => ({
+    q: item.q,
+    answerParas: item.aParas,
+  }));
 
   return (
     <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
@@ -27,50 +26,19 @@ export function DrainageFaqAccordion({
         <p className="eyebrow text-ink">{eyebrow}</p>
         <h2
           id={headingId}
-          className="mt-[var(--s7)] font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-[clamp(36px,3.5vw,52px)]"
+          className="mt-[var(--s7)] font-serif text-2xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-3xl"
         >
           {h2}
         </h2>
       </div>
-      <ul className="mt-10 max-w-[75ch] list-none space-y-0 rounded-sm border border-[color:var(--g200)] bg-white/80 px-2 py-1 shadow-md backdrop-blur-sm sm:px-4">
-        {items.map((item, i) => {
-          const isOpen = openIndex === i;
-          const panelId = `${baseId}-faq-${i}`;
-          return (
-            <li key={item.q} className="border-b border-[color:var(--g200)]">
-              <button
-                type="button"
-                aria-expanded={isOpen}
-                aria-controls={panelId}
-                id={`${baseId}-faq-btn-${i}`}
-                onClick={() => setOpenIndex(isOpen ? null : i)}
-                className="flex min-h-[52px] w-full items-center justify-between gap-4 py-3 text-left"
-              >
-                <span className="text-base font-medium text-ink">{item.q}</span>
-                <span className="eyebrow shrink-0 leading-none text-[color:var(--y)]" aria-hidden>
-                  {isOpen ? "−" : "+"}
-                </span>
-              </button>
-              <div
-                id={panelId}
-                role="region"
-                aria-labelledby={`${baseId}-faq-btn-${i}`}
-                hidden={!isOpen}
-                className={cn(
-                  "overflow-hidden motion-safe:transition-[max-height] motion-safe:duration-[250ms] motion-safe:ease-[cubic-bezier(0.16,1,0.3,1)]",
-                  isOpen ? "max-h-[2000px] pb-6 pt-1" : "max-h-0",
-                )}
-              >
-                <div className="space-y-3 text-[15px] leading-[1.72] text-ink sm:text-base">
-                  {item.aParas.map((para, pi) => (
-                    <p key={pi}>{para}</p>
-                  ))}
-                </div>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+      <GlcFaqDetailsGrid
+        className="mt-8 sm:mt-10"
+        groupName="drainage-faq"
+        tone="light"
+        maxColumns={3}
+        density="cards"
+        items={gridItems}
+      />
     </div>
   );
 }

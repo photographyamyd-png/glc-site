@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { CardSurface } from "@/components/ui/CardSurface";
 import { GLCtaBand } from "@/components/ground-level/GLCtaBand";
+import { GlcFaqDetailsGrid } from "@/components/faq/GlcFaqDetailsGrid";
 import { excavationClosingCtaContent } from "@/lib/ground-level/excavation-sandbox-map";
 import { HOME_COPY, SERVICE_DETAILS } from "@/lib/site/copy";
 import type { ServiceDef } from "@/lib/site/registry";
@@ -501,29 +502,19 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
             <p className="eyebrow text-ink-muted">FAQ</p>
             <h2
               id="excavation-faq-heading"
-              className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+              className="mt-3 font-serif text-2xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-3xl"
             >
               Common questions
             </h2>
           </div>
-          <div className="mt-10 space-y-3 sm:mt-12">
-            {detail.faq.map((item) => (
-              <details
-                key={item.q}
-                name="excavation-site-prep-faq"
-                className="group border border-[color:var(--g200)] bg-[color:var(--brand-canvas)] p-4 sm:min-h-[44px] sm:p-5"
-              >
-                <summary className="cursor-pointer list-none font-sans text-[15px] font-semibold leading-snug text-ink marker:content-none [&::-webkit-details-marker]:hidden">
-                  <span className="flex min-h-[44px] items-center justify-between gap-4">
-                    {item.q}
-                    <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
-                    <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
-                  </span>
-                </summary>
-                <p className={`mt-2 max-w-prose pb-1 ${bodyLightPrimary}`}>{item.a}</p>
-              </details>
-            ))}
-          </div>
+          <GlcFaqDetailsGrid
+            className="mt-8 sm:mt-10"
+            groupName="excavation-site-prep-faq"
+            tone="light"
+            maxColumns={4}
+            density="cards"
+            items={detail.faq}
+          />
         </div>
       </section>
 

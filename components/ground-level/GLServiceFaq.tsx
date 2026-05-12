@@ -1,3 +1,5 @@
+import { GlcFaqDetailsGrid } from "@/components/faq/GlcFaqDetailsGrid";
+
 type FaqItem = { q: string; a: string };
 
 export type GLServiceFaqProps = {
@@ -41,35 +43,19 @@ export function GLServiceFaq({
           <p className={`eyebrow ${isLight ? "text-ink" : "text-white"}`}>{eyebrow}</p>
           <h2
             id={headingId}
-            className={`mt-3 font-serif text-3xl font-bold uppercase tracking-tight sm:text-4xl ${isLight ? "text-ink" : "text-white"}`}
+            className={`mt-3 font-serif text-2xl font-bold uppercase tracking-tight sm:text-3xl ${isLight ? "text-ink" : "text-white"}`}
           >
             {title}
           </h2>
         </div>
-        <div className="mt-10 space-y-3">
-          {items.map((item) => (
-            <details
-              key={item.q}
-              name={faqGroupName}
-              className={`group border p-4 backdrop-blur-sm ${
-                isLight
-                  ? "border-[color:var(--g200)] bg-white shadow-[0_8px_24px_rgb(0_0_0/0.05)]"
-                  : "border-white/20 bg-[rgb(255_255_255/0.06)]"
-              }`}
-            >
-              <summary
-                className={`flex min-h-[44px] cursor-pointer items-center justify-between gap-4 list-none font-serif text-lg font-bold uppercase tracking-[0.04em] marker:content-none [&::-webkit-details-marker]:hidden ${isLight ? "text-ink" : "text-white"}`}
-              >
-                <span>{item.q}</span>
-                <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
-                <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
-              </summary>
-              <p className={`mt-3 text-[15px] leading-[1.72] sm:text-base ${isLight ? "text-[color:var(--text-600)]" : "text-white/88"}`}>
-                {item.a}
-              </p>
-            </details>
-          ))}
-        </div>
+        <GlcFaqDetailsGrid
+          className="mt-8 sm:mt-10"
+          items={items}
+          groupName={faqGroupName}
+          tone={isLight ? "light" : "dark"}
+          maxColumns={4}
+          density="cards"
+        />
       </div>
     </section>
   );

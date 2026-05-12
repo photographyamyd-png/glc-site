@@ -1,3 +1,4 @@
+import { GlcFaqDetailsGrid } from "@/components/faq/GlcFaqDetailsGrid";
 import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { COPY_LAB_HOME_FAQ } from "@/lib/ground-level/home-copy-lab-content";
 import { cn } from "@/lib/utils";
@@ -20,7 +21,7 @@ export function HomeSeoFaqSection() {
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
         <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
           <p className="eyebrow text-ink">{f.eyebrow}</p>
-          <h2 id="home-faq-heading" className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
+          <h2 id="home-faq-heading" className="mt-3 font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl">
             {f.heading}
           </h2>
           <div className="mt-5 max-w-xl">
@@ -33,37 +34,28 @@ export function HomeSeoFaqSection() {
             const items = (
               <>
                 {group.sectionTitle ? (
-                  <h3 className="font-serif text-xl font-bold uppercase tracking-[0.04em] text-ink">{group.sectionTitle}</h3>
+                  <h3 className="font-label text-[12px] font-semibold uppercase tracking-[0.1em] text-ink-muted">{group.sectionTitle}</h3>
                 ) : null}
-                <div className="space-y-3">
-                  {group.items.map((item) => (
-                    <details
-                      key={`${gi}-${item.q}`}
-                      name={FAQ_NAME}
-                      className="group border border-[color:var(--g200)] bg-white/95 p-4 shadow-[0_8px_24px_rgb(0_0_0/0.06)] backdrop-blur-sm"
-                    >
-                      <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg font-bold uppercase tracking-[0.04em] text-ink marker:content-none [&::-webkit-details-marker]:hidden sm:text-xl">
-                        <span>{item.q}</span>
-                        <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
-                        <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
-                      </summary>
-                      <p className="mt-3 text-[15px] leading-[1.72] text-[color:var(--text-600)] sm:text-base">{item.a}</p>
-                    </details>
-                  ))}
-                </div>
+                <GlcFaqDetailsGrid
+                  items={group.items}
+                  groupName={FAQ_NAME}
+                  tone="light"
+                  maxColumns={4}
+                  density="cards"
+                />
               </>
             );
 
             if (group.anchorId) {
               return (
-                <div key={`${group.anchorId}-${gi}`} id={group.anchorId} className={cn("scroll-mt-[var(--header)] space-y-3")}>
+                <div key={`${group.anchorId}-${gi}`} id={group.anchorId} className={cn("scroll-mt-[var(--header)] space-y-4")}>
                   {items}
                 </div>
               );
             }
 
             return (
-              <div key={`faq-group-${gi}`} className="space-y-3">
+              <div key={`faq-group-${gi}`} className="space-y-4">
                 {items}
               </div>
             );
