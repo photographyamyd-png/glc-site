@@ -36,6 +36,15 @@ Project hooks (if present): [`.cursor/hooks.json`](.cursor/hooks.json) and [`.cu
 
 Editor defaults for this repo: [`.vscode/settings.json`](.vscode/settings.json).
 
+## Agent scope: audit vs implementation
+
+When the user asks for an **audit** or **review** only (and does not explicitly ask to change code, ship, refactor, or implement):
+
+- Deliver findings and recommendations in prose (or in a doc they request).
+- Do **not** edit the repository, create commits, or push unless they clearly ask to **implement**, **apply**, **ship**, or equivalent.
+
+If a message mixes “audit” with product goals (for example “simplify” or “CTA always visible”), treat that as **analysis plus suggested next steps** unless the user unambiguously directs you to make those changes in the codebase.
+
 ---
 
 ## Cursor workflow (2026) — rule precedence and drift control
