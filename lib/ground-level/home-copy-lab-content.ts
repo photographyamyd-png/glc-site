@@ -311,8 +311,10 @@ export const COPY_LAB_TESTIMONIALS = {
 } as const;
 
 export const COPY_LAB_CLOSING_CTA = {
-  eyebrow: "Dispatch-Ready Crews",
-  headline: "Commercial Sites — Delivered Without The Vanishing Act",
+  eyebrow: "Dispatch-ready crews",
+  /** Split for display: line 1 ink-white, line 2 yellow accent (single logical H2). */
+  headlineLine1: "Commercial sites — delivered",
+  headlineLine2: "Without the vanishing act",
   supporting:
     "Barrie-based dispatch for excavation, civil, drainage, hauling, and winter operations across Midland, Orillia, and Simcoe County.",
   primaryCtaLabel: "Start Your Project On Time",
