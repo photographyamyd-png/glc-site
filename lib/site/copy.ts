@@ -1,3 +1,5 @@
+import type { SiteConfig } from "@/content/types";
+import site from "@/content/site.json";
 import type { LocationSlug, PrimaryServiceSlug, SnowSubServiceSlug } from "./registry";
 import {
   COMMERCIAL_SNOW_CLOSING,
@@ -13,6 +15,9 @@ import {
   COMMERCIAL_SNOW_WHY_CHOOSE,
   COMMERCIAL_SNOW_WHY_INTRO,
 } from "./commercial-snow-page-data";
+
+const SITE = site as SiteConfig;
+const PHONE_HREF = `tel:${SITE.telephone}` as const;
 
 export type HomeCopy = {
   hero: {
@@ -98,6 +103,9 @@ export type CorePageCopy = {
     emailHeading: string;
     phone: { label: string; href: string };
     email: { label: string; href: string };
+    /** Eyebrow above leadership / dispatch contact name. */
+    primaryContactEyebrow: string;
+    primaryContact: { name: string; title: string };
     addressHeading: string;
     address: string;
     supportLinks: Array<{ label: string; href: string }>;
@@ -171,7 +179,7 @@ export const HOME_COPY: HomeCopy = {
     titleLines: ["From", "Concept", "To Creation"],
     lede:
       "Ground Level Contracting prepares land for development — delivering excavation, foundations, drainage, and civil infrastructure exclusively for commercial project managers and site supervisors across Barrie, Midland, Orillia, and Simcoe County.",
-    primaryCta: { label: "Request a Quote", href: "tel:+17056194902" },
+    primaryCta: { label: "Request a Quote", href: PHONE_HREF },
     secondaryCta: { label: "View Services", href: "/#services" },
     stats: [
       { value: "15+", label: "Years of Field Experience" },
@@ -211,7 +219,7 @@ export const HOME_COPY: HomeCopy = {
     heading: "Six Core Service Lines",
     intro:
       "From initial site clearing through drainage, hauling, and winter operations, Ground Level Contracting delivers end-to-end excavation and civil infrastructure services for commercial builds across Barrie, Midland, Orillia, and Simcoe County.",
-    cta: { label: "Request a Quote", href: "tel:+17056194902" },
+    cta: { label: "Request a Quote", href: PHONE_HREF },
   },
   positioning: {
     eyebrow: "Commercial-Only Positioning",
@@ -231,7 +239,7 @@ export const HOME_COPY: HomeCopy = {
       "Safety First — Licensed & insured crews",
       "B2B Specialists — PM & supervisor trusted",
     ],
-    cta: { label: "Discuss Your Project", href: "tel:+17056194902" },
+    cta: { label: "Discuss Your Project", href: PHONE_HREF },
     mediaStat: "15+ — Yrs. Experience",
     badge: "Licensed & Insured",
     watermarkText: "GLC",
@@ -261,7 +269,7 @@ export const HOME_COPY: HomeCopy = {
         body: "One contractor across excavation, drainage, and clearing — fewer handoffs, tighter coordination.",
       },
     ],
-    cta: { label: "705-619-4902", href: "tel:+17056194902" },
+    cta: { label: SITE.telephoneDisplay, href: PHONE_HREF },
     floatChip: "Simcoe County's Preferred Excavator",
   },
   process: {
@@ -339,15 +347,15 @@ export const HOME_COPY: HomeCopy = {
       heading: "Execution signals",
       items: ["Mobilization windows held", "PM-first daily updates", "Inspection-ready turnover"],
     },
-    cta: { label: "Discuss your project", href: "tel:+17056194902" },
+    cta: { label: "Discuss your project", href: PHONE_HREF },
   },
   ctaBand: {
     eyebrow: "Ready to Build?",
     heading: "Start With a Site Consultation",
     sub: "Commercial projects across Barrie, Midland, Orillia, and Simcoe County. Affordable, reliable, satisfaction guaranteed.",
     phoneLabel: "Call Direct",
-    phone: { label: "705-619-4902", href: "tel:+17056194902" },
-    email: { label: "Email Us", href: "mailto:info@groundlevelcontracting.com" },
+    phone: { label: SITE.telephoneDisplay, href: PHONE_HREF },
+    email: { label: "Email Us", href: `mailto:${SITE.email}` },
   },
 };
 
@@ -357,7 +365,7 @@ export const CORE_COPY: CorePageCopy = {
     heading: "Built On Ground Level — Trusted From Below Up",
     body: HOME_COPY.about.body,
     credentials: HOME_COPY.about.credentials,
-    primaryCta: { label: "Discuss Your Project", href: "tel:+17056194902" },
+    primaryCta: { label: "Discuss Your Project", href: PHONE_HREF },
     supportLinks: [
       { label: "Coverage area", href: "/#coverage" },
       { label: "Our process", href: "/#process" },
@@ -373,8 +381,13 @@ export const CORE_COPY: CorePageCopy = {
       "Commercial projects across Barrie, Midland, Orillia, and Simcoe County. Affordable, reliable, satisfaction guaranteed.",
     phoneHeading: "Call direct",
     emailHeading: "Email",
-    phone: { label: "705-619-4902", href: "tel:+17056194902" },
-    email: { label: "Email Us", href: "mailto:info@groundlevelcontracting.com" },
+    phone: { label: SITE.telephoneDisplay, href: PHONE_HREF },
+    email: { label: SITE.email, href: `mailto:${SITE.email}` },
+    primaryContactEyebrow: "Leadership & dispatch",
+    primaryContact: {
+      name: SITE.primaryContact.name,
+      title: SITE.primaryContact.title,
+    },
     addressHeading: "Mailing address",
     address: "PO BOX 193 STN Main, Barrie, ON L4M 4T2",
     supportLinks: [

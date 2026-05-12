@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
+import { EMAIL_ADDRESS, PHONE_DISPLAY } from "@/lib/ground-level/homepage-copy";
 
 type Tone = "light" | "dark";
 
@@ -187,8 +188,8 @@ function FooterCandidate({ tone }: { tone: Tone }) {
           </div>
           <div className="border-l border-[color:var(--g200)] pl-5">
             <p className="eyebrow text-[color:var(--y)]">Contact</p>
-            <p className="mt-3 text-sm">705-619-4902</p>
-            <p className={`mt-2 text-sm ${tone === "light" ? "text-ink-muted" : "text-white/78"}`}>bids@groundlevel.example</p>
+            <p className="mt-3 text-sm">{PHONE_DISPLAY}</p>
+            <p className={`mt-2 text-sm ${tone === "light" ? "text-ink-muted" : "text-white/78"}`}>{EMAIL_ADDRESS}</p>
           </div>
         </div>
       </footer>

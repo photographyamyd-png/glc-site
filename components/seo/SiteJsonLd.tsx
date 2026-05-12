@@ -2,7 +2,11 @@
  * Master Project Bible §XIV — LocalBusiness + Service JSON-LD.
  * Set `NEXT_PUBLIC_SITE_URL` in production (canonical origin, no trailing slash).
  */
+import type { SiteConfig } from "@/content/types";
+import site from "@/content/site.json";
 import { PRIMARY_SERVICES } from "@/lib/site/registry";
+
+const SITE = site as SiteConfig;
 
 function telToSchema(phoneHref: string): string {
   const digits = phoneHref.replace(/\D/g, "");
@@ -17,6 +21,8 @@ export function SiteJsonLd() {
       ? process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "")
       : null) ?? "https://groundlevel.example.com";
 
+  const phoneSchema = telToSchema(`tel:${SITE.telephone}`);
+
   const business = {
     "@type": "LocalBusiness",
     "@id": `${siteUrl}/#business`,
@@ -24,8 +30,17 @@ export function SiteJsonLd() {
     description:
       "Commercial excavation and site operations across Barrie, Midland, Orillia, and Simcoe County.",
     url: siteUrl,
-    telephone: telToSchema("tel:+17056194902"),
-    email: "dispatch@groundlevelcontracting.ca",
+    telephone: phoneSchema,
+    email: SITE.email,
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: SITE.primaryContact.title,
+        name: SITE.primaryContact.name,
+        telephone: phoneSchema,
+        email: SITE.email,
+      },
+    ],
     priceRange: "$$$",
     address: {
       "@type": "PostalAddress",

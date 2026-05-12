@@ -185,7 +185,7 @@
             "text": "One contractor across excavation, drainage, and clearing — fewer handoffs, tighter coordination."
           }
         ],
-        "cta": { "label": "705-619-4902", "href": "tel:+17056194902" },
+        "cta": { "label": "(705) 619-4902", "href": "tel:+17056194902" },
         "floatChip": {
           "line1": "Simcoe County's",
           "line2": "Preferred Excavator"
@@ -274,11 +274,11 @@
         "headingEmphasis": "Consultation",
         "sub": "Commercial projects across Barrie, Midland, Orillia, and Simcoe County. Affordable, reliable, satisfaction guaranteed.",
         "phoneLabel": "Call Direct",
-        "phone": "705-619-4902",
+        "phone": "(705) 619-4902",
         "phoneHref": "tel:+17056194902",
         "emailCta": {
           "label": "Email Us",
-          "href": "mailto:info@groundlevelcontracting.com"
+          "href": "mailto:groundlevelcontracting@outlook.com"
         }
       }
     }

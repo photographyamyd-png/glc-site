@@ -34,6 +34,13 @@ export default function ContactPage() {
           <Link href={CORE_COPY.contact.email.href} className="mt-2 block text-sm font-semibold text-ink">
             {CORE_COPY.contact.email.label}
           </Link>
+          <p className="mt-6 label-overline">{CORE_COPY.contact.primaryContactEyebrow}</p>
+          <p className="mt-2 font-serif text-xl font-semibold uppercase tracking-tight text-ink">
+            {CORE_COPY.contact.primaryContact.name}
+          </p>
+          <p className="mt-1 text-[15px] leading-[1.72] text-ink-muted sm:text-base">
+            {CORE_COPY.contact.primaryContact.title}
+          </p>
         </article>
         <article className="rounded-xl border border-[color:var(--g200)] bg-white/80 p-5 backdrop-blur-sm">
           <p className="label-overline">{CORE_COPY.contact.addressHeading}</p>

@@ -87,7 +87,7 @@ export const FOUNDATIONS_HUB_HERO = {
   introD:
     "We carry full WSIB registration and liability insurance, and we work directly with structural engineers, general contractors, and municipal project managers.",
   ctaPrimaryLabel: "Request a Project Quote",
-  ctaPhoneLabel: "Call Us Now: 705-619-4902",
+  ctaPhoneLabel: "Call Us Now: (705) 619-4902",
   microcopy: "No obligation. Licensed & insured. We respond within 1 business day.",
 } as const;
 

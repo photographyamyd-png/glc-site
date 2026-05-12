@@ -86,7 +86,7 @@ export function FoundationsHubQuoteForm() {
           href={PHONE_TEL}
           className="inline-flex min-h-[48px] min-w-[200px] items-center justify-center border-2 border-[color:var(--ink-deep)] bg-transparent px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.12em] text-[color:var(--ink-deep)]"
         >
-          Call 705-619-4902
+          Call (705) 619-4902
         </Link>
         <Link
           href="/contact/"

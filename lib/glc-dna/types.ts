@@ -190,6 +190,10 @@ export type SiteConfig = {
   telephone: string;
   telephoneDisplay: string;
   email: string;
+  primaryContact: {
+    name: string;
+    title: string;
+  };
   slogan: string;
   description: string;
   address: {

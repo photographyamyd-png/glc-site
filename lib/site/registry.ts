@@ -203,7 +203,7 @@ export const SEO_TITLES = {
 export const NAV_LINKS = {
   utility: {
     location: "Barrie • Midland • Orillia • Simcoe County",
-    phoneDisplay: "705-619-4902",
+    phoneDisplay: "(705) 619-4902",
     phoneHref: "tel:+17056194902",
     rotator: [
       "Available for Site Dispatch — Commercial Projects",

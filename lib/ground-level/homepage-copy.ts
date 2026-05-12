@@ -1,7 +1,11 @@
 /**
  * Canonical homepage copy — verbatim stakeholder strings. Do not paraphrase.
  */
+import type { SiteConfig } from "@/content/types";
+import site from "@/content/site.json";
 import type { GLProcessStructuredStep } from "@/lib/ground-level/process-step-types";
+
+const SITE = site as SiteConfig;
 
 export const PAGE_TITLE =
   "Excavation & Site Preparation Barrie | Simcoe County | Orillia | Innisfil";
@@ -14,9 +18,9 @@ export const OG_TITLE = "Expert Excavation & Site Prep — Serving All of Simcoe
 export const OG_DESCRIPTION =
   "From single-lot grading to full commercial site prep — we dig deep across Barrie, Orillia, Wasaga Beach & beyond. Call for a free estimate.";
 
-export const PHONE_DISPLAY = "705-619-4902";
-export const PHONE_TEL = "tel:+17056194902";
-export const EMAIL_ADDRESS = "bids@groundlevel.example";
+export const PHONE_DISPLAY = SITE.telephoneDisplay;
+export const PHONE_TEL = `tel:${SITE.telephone}` as const;
+export const EMAIL_ADDRESS = SITE.email;
 export const EMAIL_MAILTO = `mailto:${EMAIL_ADDRESS}`;
 
 export const HERO = {
@@ -100,7 +104,7 @@ export const WHY = {
     "(03) PM-Friendly Communication — Direct lines, daily updates, and documentation that keeps your project files clean.",
     "(04) Single-Source Accountability — One contractor across excavation, drainage, and clearing — fewer handoffs, tighter coordination.",
   ] as const,
-  cta: "705-619-4902",
+  cta: PHONE_DISPLAY,
   floatChipLine1: "Simcoe County's",
   floatChipLine2: "Preferred Excavator",
 } as const;
@@ -180,6 +184,6 @@ export const CTA_BAND = {
   headingAccentKey: "Site Consultation",
   sub:
     "Commercial projects across Barrie, Midland, Orillia, and Simcoe County. Affordable, reliable, satisfaction guaranteed.",
-  phoneLabel: "Call Direct — 705-619-4902",
+  phoneLabel: `Call Direct — ${PHONE_DISPLAY}`,
   emailCta: "Email Us",
 } as const;

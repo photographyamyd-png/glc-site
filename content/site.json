@@ -3,8 +3,12 @@
   "legalName": "Ground Level Contracting Inc.",
   "url": "https://groundlevelcontracting.com",
   "telephone": "+17056194902",
-  "telephoneDisplay": "705-619-4902",
-  "email": "info@groundlevelcontracting.com",
+  "telephoneDisplay": "(705) 619-4902",
+  "email": "groundlevelcontracting@outlook.com",
+  "primaryContact": {
+    "name": "Terry King",
+    "title": "Co-Owner & President"
+  },
   "slogan": "From Concept to Creation",
   "description": "Commercial excavation, foundations, drainage, and civil infrastructure for Barrie, Midland, Orillia, and Simcoe County.",
   "address": {

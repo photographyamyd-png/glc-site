@@ -1,7 +1,7 @@
 {
   "utility": {
     "locationLine": "Barrie • Midland • Orillia • Simcoe County",
-    "phoneDisplay": "705-619-4902",
+    "phoneDisplay": "(705) 619-4902",
     "phoneHref": "tel:+17056194902"
   },
   "utilityRotator": [
@@ -98,7 +98,7 @@
       "kicker": "Dispatch",
       "title": "Available for Site Dispatch — Commercial Projects",
       "sub": "Call direct for quotes, mobilization, and same-day assessments.",
-      "phoneDisplay": "705-619-4902",
+      "phoneDisplay": "(705) 619-4902",
       "phoneHref": "tel:+17056194902"
     }
   },

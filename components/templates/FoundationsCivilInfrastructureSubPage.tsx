@@ -101,7 +101,7 @@ export function FoundationsCivilInfrastructureSubPage({ content, imageSrc, image
                   href={PHONE_TEL}
                   className="cta-outline-light inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
                 >
-                  Call 705-619-4902
+                  Call (705) 619-4902
                 </Link>
               </div>
               <p className="mt-10">
