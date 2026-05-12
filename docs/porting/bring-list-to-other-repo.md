@@ -23,8 +23,9 @@ Anything you copy for “canonical GLC” should use the **Canonical paths** tab
 
 | What | Canonical path (repo root) |
 |------|----------------------------|
-| Header + mega + mobile (all state and markup) | [`components/ui/SiteHeader.tsx`](../../components/ui/SiteHeader.tsx) — consumes [`content/navigation.json`](../../content/navigation.json) for mega + nav copy |
-| Split `mega-menu-services` / `mega-menu-company` | **Not present** as separate files; markup lives in `SiteHeader.tsx`. Legacy split sources may live under a recovered `src/` tree (see bundle README). |
+| Recovered header (hover delay, backdrop, pathname close) | [`components/layout/glc-recovered-site-header.tsx`](../../components/layout/glc-recovered-site-header.tsx) |
+| Split mega bodies | [`components/layout/mega-menu-services.tsx`](../../components/layout/mega-menu-services.tsx), [`components/layout/mega-menu-company.tsx`](../../components/layout/mega-menu-company.tsx) |
+| App entry (wires `navigation.json`) | [`components/ui/SiteHeader.tsx`](../../components/ui/SiteHeader.tsx) |
 
 **Transitive imports** (from `SiteHeader.tsx` today):
 
@@ -60,12 +61,11 @@ There is **no** `smart-link`, `icon-arrow`, or `lib/routes.ts` in this tree. If 
 | What | Canonical path |
 |------|----------------|
 | Global tokens + Tailwind `@theme inline` | [`app/globals.css`](../../app/globals.css) — `:root` from file start |
-| Header / mega utilities (token-composed) | Same file — classes `.site-header-utility-bar`, `.site-header-nav-shell`, `.mega-panel`, `.mega-panel--enter`, `.mega-elevated`, `.mega-service-link`, `.mega-mobile-row` |
-| Shared chrome | `.eyebrow`, `.label-overline`, `.label-overline-on-dark`, `.accent-punctuation-l`, `.panel-machined`, `.cta-primary`, `.bespoke-surface` |
+| Recovered header shell + drawer + CSS var bridge | [`app/glc-recovered-mega-shell.css`](../../app/glc-recovered-mega-shell.css) |
+| Recovered mega extract (panels, cards, `.btn-primary`, backdrop) | [`app/glc-recovered-mega-extracted.css`](../../app/glc-recovered-mega-extracted.css) |
+| Shared chrome (rest of site) | `.eyebrow`, `.label-overline`, `.panel-machined`, `.cta-primary`, etc. in `globals.css` |
 
-**There is no `glc-base.css` in this repository.** Comments may mention it historically; do not search for line ranges `2597–2862` here—they apply only if you still have a **legacy** stylesheet elsewhere.
-
-If the other project needs a **slice file**, export the relevant blocks from `app/globals.css` into their `docs/porting/source-glc/mega-from-glc-globals.css` (or similar) by copy-paste, not by line number from `glc-base.css`.
+**There is no monolithic `glc-base.css` in this repository.** The mega slice from the recovered bundle lives in **`app/glc-recovered-mega-extracted.css`**.
 
 ---
 
@@ -75,11 +75,14 @@ If this repo is mounted as e.g. `glc-site/` next to the target app:
 
 ```text
 @glc-site/components/ui/SiteHeader.tsx
+@glc-site/components/layout/glc-recovered-site-header.tsx
+@glc-site/components/layout/mega-menu-services.tsx
+@glc-site/components/layout/mega-menu-company.tsx
 @glc-site/content/navigation.json
 @glc-site/content/types.ts
 @glc-site/app/globals.css
-
-Use app/globals.css for :root tokens and the .site-header-* / .mega-* utilities. There is no glc-base.css in glc-site.
+@glc-site/app/glc-recovered-mega-shell.css
+@glc-site/app/glc-recovered-mega-extracted.css
 
 Merge behavior and tokens with our port pack:
 @docs/porting/gl-mega-menu-port-pack.md
@@ -93,7 +96,7 @@ Adjust the last two lines to the **target** repo’s paths for its own port pack
 ## 5) One-line note for the other Cursor
 
 ```text
-Attached GLC files are reference only: production GLC collapses mega into components/ui/SiteHeader.tsx with click-toggle desktop panels and no hover close delay. Final behavior and tokens must match the target repo’s docs/porting/gl-mega-menu-port-pack.md (or equivalent), not a line-for-line copy of an imaginary src/layout split or glc-base.css line ranges from this tree.
+Production GLC uses the recovered split header (`glc-recovered-site-header` + mega components), hover close delay, `body.gl-mega-open`, backdrop, and `usePathname` close — see docs/porting/gl-mega-menu-port-pack.md section 4. Map fonts and palette to the target repo’s tokens.
 ```
 
 ---

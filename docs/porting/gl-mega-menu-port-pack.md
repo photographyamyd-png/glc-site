@@ -90,15 +90,17 @@ Utilities in `globals.css`: `.site-header-utility-bar`, `.site-header-nav-shell`
 | Main nav shell | `.site-header-nav-shell` + `data-scrolled="true"` → scrolled bg + `var(--header-nav-shadow)` |
 | Mobile drawer rows | `.mega-mobile-row` → `var(--mega-mobile-row-bg)` + `var(--border)` |
 
-## 3) Source files (what exists—no split mega components)
-
-There are **no** `mega-menu-services.tsx` or `mega-menu-company.tsx` files.
+## 3) Source files
 
 | Concern | Path |
 | --- | --- |
-| All mega + mobile behavior and markup | [`components/ui/SiteHeader.tsx`](../../components/ui/SiteHeader.tsx) |
-| Mega / company / mobile **copy + structure** | [`content/navigation.json`](../../content/navigation.json) (`megaMenu`, `companyMega`, `mobile`, `primary`, `utility`) |
-| Tokens + shared utilities | [`app/globals.css`](../../app/globals.css) |
+| App entry for header | [`components/ui/SiteHeader.tsx`](../../components/ui/SiteHeader.tsx) — passes [`content/navigation.json`](../../content/navigation.json) into recovered header |
+| Recovered header (hover delay, pathname close, backdrop) | [`components/layout/glc-recovered-site-header.tsx`](../../components/layout/glc-recovered-site-header.tsx) |
+| Mega bodies | [`components/layout/mega-menu-services.tsx`](../../components/layout/mega-menu-services.tsx), [`components/layout/mega-menu-company.tsx`](../../components/layout/mega-menu-company.tsx) |
+| Mobile drawer + utility rotator | [`components/layout/mobile-drawer.tsx`](../../components/layout/mobile-drawer.tsx), [`components/layout/utility-rotator.tsx`](../../components/layout/utility-rotator.tsx) |
+| Smart link / routes / icon (compat shims) | [`components/ui/smart-link.tsx`](../../components/ui/smart-link.tsx), [`lib/routes.ts`](../../lib/routes.ts), [`components/ui/icon-arrow.tsx`](../../components/ui/icon-arrow.tsx) |
+| Mega + header shell CSS | [`app/glc-recovered-mega-shell.css`](../../app/glc-recovered-mega-shell.css), [`app/glc-recovered-mega-extracted.css`](../../app/glc-recovered-mega-extracted.css) (imported from [`app/layout.tsx`](../../app/layout.tsx) after `globals.css`) |
+| Tokens + rest of site | [`app/globals.css`](../../app/globals.css) |
 
 ### Suggested slices for `globals.css` (line numbers as of last doc update)
 
@@ -117,27 +119,25 @@ When attaching to another chat, copy these ranges from `app/globals.css`:
 
 Re-verify line numbers if `globals.css` changes (`rg -n "^:root|^@theme|^\\.eyebrow"`).
 
-## 4) Interaction and layout (read before porting)
+## 4) Interaction and layout (production `GlcRecoveredSiteHeader`)
 
-**Desktop mega panels are click toggles**, not hover-open with a pointer grace-period close delay.
+**Desktop mega** uses **hover intent** plus **click toggle**: moving onto Services/Company opens the panel; leaving the `#site-header` schedules a **~130ms** close delay so the cursor can move into the panel. Panels call `onMouseEnter` / `onMouseLeave` to cancel or schedule that close while moving between trigger and panel.
 
-Close paths today:
+**Backdrop:** `#gl-mega-backdrop` dims the page when `body.gl-mega-open` is set (while a mega panel is open).
 
-- **Escape** — document `keydown` closes all.
-- **Outside click** — `mousedown` on `document` outside `wrapRef` closes Services/Company.
-- **In-panel links** — `onClick={closeAll}` on `Link`s.
-- Trigger buttons use `stopPropagation` on click so document handler does not immediately close.
+**Body class:** `document.body.classList.add("gl-mega-open")` when `megaMode` is non-null.
 
-**Body class / scroll lock:** `document.body.style.overflow = "hidden"` is applied only when the **mobile** menu is open, not when desktop mega panels are open.
+**Mobile drawer:** `document.body.style.overflow = "hidden"` while the drawer is open.
 
-**Route change:** There is no `usePathname` listener; closing on navigation relies on link `click`. Programmatic navigation may leave a panel open until another close path runs.
+**Route change:** `usePathname` — mega and drawer **close on every pathname change**.
 
-**Layout:** Outer `<header>` is `fixed` with `pointer-events-none`; inner wrapper uses `pointer-events-auto`. Mega panels are **in-flow** below the nav row (not absolutely positioned under a single trigger), which differs from classic flyout dropdowns.
+**Keyboard:** `Escape` closes drawer and mega.
+
+**Layout:** `#site-header` is **fixed** with `z-index: var(--gl-header-z)` (900). Mega panels are **`position: absolute; top: 100%; left: 0; right: 0`** under the header (recovered `gl-mega-panel` CSS). Styles live in [`app/glc-recovered-mega-shell.css`](../../app/glc-recovered-mega-shell.css) (header chrome + drawer) and [`app/glc-recovered-mega-extracted.css`](../../app/glc-recovered-mega-extracted.css) (mega grid, `.btn-primary`, backdrop).
 
 ### Accessibility (mega triggers)
 
-- **Services** trigger: `aria-expanded`, `aria-haspopup`, `aria-controls="mega-services-panel"`.
-- **Company** trigger: `aria-expanded`, `aria-haspopup`, `aria-controls="mega-company-panel"`; company panel `id="mega-company-panel"`.
+- **Services** / **Company** triggers: `aria-expanded`, `aria-haspopup`, `aria-controls` wired to `mega-services-panel` / `mega-company-panel`.
 
 ## 5) Dependencies
 
@@ -147,6 +147,6 @@ Production implementation uses Next.js (`next/link`), React client hooks only—
 
 1. Paste or `@` this repo’s [`components/ui/SiteHeader.tsx`](../../components/ui/SiteHeader.tsx) and [`content/navigation.json`](../../content/navigation.json).
 2. Paste or `@` the `globals.css` slices listed in section 3 (or `@` full [`app/globals.css`](../../app/globals.css) and ask the model to ignore unrelated sections).
-3. Paste a link or short quote from **section 4** of this file so the model does not assume hover + delay + body class behavior that GLC does not implement.
+3. Paste or quote **section 4** of this file for current behavior (hover grace delay, `usePathname` close, `gl-mega-open`, backdrop).
 
-There is **no** `glc-base.css` excerpt to attach from this repository.
+There is **no** monolithic `glc-base.css` in-repo; recovered mega rules live in **`app/glc-recovered-mega-extracted.css`** plus the shell file above.

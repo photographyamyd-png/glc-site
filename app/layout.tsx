@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { Oswald, Barlow_Condensed, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
+import "./glc-recovered-mega-shell.css";
+import "./glc-recovered-mega-extracted.css";
 import "@/styles/footer-clone.css";
 import { GrainOverlay } from "@/components/ui/GrainOverlay";
 import { SiteJsonLd } from "@/components/seo/SiteJsonLd";
