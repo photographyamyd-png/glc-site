@@ -155,10 +155,11 @@
     color-mix(in srgb, var(--yellow-core) 22%, transparent) 0%,
     transparent 56%
   );
-  --mega-intro-glass-bg: rgb(10 12 11 / 0.44);
-  --mega-intro-glass-border: rgb(255 255 255 / 0.12);
-  --mega-intro-heading: rgb(250 249 247 / 0.96);
-  --mega-intro-body: rgb(250 249 247 / 0.86);
+  /* Mega intro: light editorial panel (pairs with charcoal service grid) */
+  --mega-intro-glass-bg: color-mix(in srgb, var(--brand-white) 86%, var(--canvas));
+  --mega-intro-glass-border: var(--border);
+  --mega-intro-heading: var(--ink-mid);
+  --mega-intro-body: var(--t500);
   --mega-card-surface: color-mix(in srgb, var(--brand-white) 90%, rgb(252 250 246));
   --mega-card-border: rgb(30 28 26 / 0.09);
   --mega-dispatch-bg: rgb(10 12 11 / 0.9);
