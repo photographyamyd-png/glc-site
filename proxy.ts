@@ -17,6 +17,21 @@ function stripQuotes(s: string): string {
   return t;
 }
 
+function isTruthyEnv(v: string | undefined): boolean {
+  if (!v) return false;
+  const s = stripQuotes(v).toLowerCase();
+  return s === "1" || s === "true" || s === "yes";
+}
+
+/**
+ * Host-based redirect to `/maintenance/` runs only when this is truthy (`1`, `true`, `yes`).
+ * Lets you keep `MAINTENANCE_HOSTS` / `MAINTENANCE_PRIMARY_DOMAIN` in env for later without
+ * parking the site until you explicitly turn parking on.
+ */
+function maintenanceParkingActive(): boolean {
+  return isTruthyEnv(process.env.MAINTENANCE_ENABLED);
+}
+
 function bypassSecret(): string | undefined {
   const s = process.env.MAINTENANCE_BYPASS_SECRET?.trim();
   return s || undefined;
@@ -29,7 +44,7 @@ function hasValidBypass(request: NextRequest): boolean {
 }
 
 /**
- * Hosts that receive /maintenance/ only:
+ * Hosts that receive `/maintenance/` when {@link maintenanceParkingActive} is on:
  *
  * - **MAINTENANCE_HOSTS** — comma-separated, no protocol, e.g.
  *   `groundlevelcontracting.ca,www.groundlevelcontracting.ca`
@@ -89,6 +104,10 @@ export function proxy(request: NextRequest) {
     return NextResponse.next({
       request: { headers: requestHeaders },
     });
+  }
+
+  if (!maintenanceParkingActive()) {
+    return NextResponse.next();
   }
 
   if (hasValidBypass(request)) {
