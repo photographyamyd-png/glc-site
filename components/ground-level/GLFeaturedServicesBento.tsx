@@ -250,7 +250,7 @@ export function GLFeaturedServicesBento({
         aria-hidden
       />
       <ClaudeLogicWatermark placement="top-left" className="opacity-[0.07]" />
-      <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6">
+      <div className="relative z-10 mx-auto min-w-0 max-w-[min(100%,var(--max))] px-4 sm:px-6">
         <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
           <p className="label-overline mb-3">{featured.eyebrow}</p>
           <h2
@@ -264,32 +264,40 @@ export function GLFeaturedServicesBento({
           </div>
         </div>
 
-        <nav
-          aria-label="Service line shortcuts"
-          className="sticky top-[var(--header)] z-20 -mx-4 mt-10 border-y border-[color:var(--g200)] bg-[color:var(--brand-canvas)]/95 backdrop-blur-sm sm:-mx-6 sm:mt-12 lg:hidden"
-        >
-          <ul className="flex flex-nowrap items-center gap-2 overflow-x-auto snap-x snap-mandatory px-4 py-3 [-ms-overflow-style:none] [scrollbar-width:none] sm:px-6 [&::-webkit-scrollbar]:hidden">
-            {servicesWithImages.map((s, i) => {
-              const isSel = selected === i;
-              return (
-                <li key={s.slug} className="snap-start shrink-0">
-                  <a
-                    href={`#services-${s.slug}`}
-                    aria-current={isSel ? "true" : undefined}
-                    onClick={(e) => onShortcutClick(e, s.slug, i)}
-                    className={`inline-flex h-11 items-center justify-center whitespace-nowrap px-4 font-label text-xs font-semibold uppercase tracking-[0.12em] transition-[background,color,box-shadow] sm:text-sm ${
-                      isSel
-                        ? "bg-[color:var(--ink-deep)] text-white shadow-[inset_0_0_0_1px_rgb(0_0_0/0.08)]"
-                        : "border border-[color:var(--g200)] bg-white/80 text-ink hover:border-[color:var(--y)]/45"
-                    }`}
-                  >
-                    {serviceTitleTone(s.title)}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+        <div className="relative left-1/2 z-20 mt-10 w-screen max-w-[100vw] -translate-x-1/2 sm:mt-12 lg:hidden">
+          <nav
+            aria-label="Service line shortcuts"
+            className="sticky top-[var(--header)] z-20 border-y border-[color:var(--g200)] bg-[color:var(--brand-canvas)]/95 backdrop-blur-sm"
+          >
+            <ul
+              className={
+                "flex w-full min-w-0 items-center gap-1.5 px-4 py-2.5 sm:gap-2 sm:px-6 sm:py-3 " +
+                "max-md:flex-nowrap max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:[-ms-overflow-style:none] max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden " +
+                "md:flex-wrap md:justify-center md:overflow-visible md:snap-none"
+              }
+            >
+              {servicesWithImages.map((s, i) => {
+                const isSel = selected === i;
+                return (
+                  <li key={s.slug} className="max-md:snap-start max-md:shrink-0 md:shrink-0">
+                    <a
+                      href={`#services-${s.slug}`}
+                      aria-current={isSel ? "true" : undefined}
+                      onClick={(e) => onShortcutClick(e, s.slug, i)}
+                      className={`inline-flex min-h-[44px] items-center justify-center whitespace-nowrap px-2.5 font-label font-semibold uppercase tracking-[0.1em] transition-[background,color,box-shadow] text-[clamp(0.625rem,2.15vw,0.8125rem)] sm:px-3.5 sm:tracking-[0.12em] md:text-sm ${
+                        isSel
+                          ? "bg-[color:var(--ink-deep)] text-white shadow-[inset_0_0_0_1px_rgb(0_0_0/0.08)]"
+                          : "border border-[color:var(--g200)] bg-white/80 text-ink hover:border-[color:var(--y)]/45"
+                      }`}
+                    >
+                      {serviceTitleTone(s.title)}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        </div>
 
         <div className="relative mt-10 sm:mt-12 lg:mt-12">
           {showProgressRail ? <span className={YELLOW_THREAD_VERTICAL} aria-hidden /> : null}
