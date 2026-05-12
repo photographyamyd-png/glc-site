@@ -168,13 +168,10 @@ export const SNOW_HUB_DEEP_DIVE_RASTERS: readonly SnowHubRaster[] = [
 /** Property-type tab imagery (order matches COMMERCIAL_SNOW_PROPERTY_TYPES.types). */
 export const SNOW_HUB_PROPERTY_TAB_RASTERS: readonly SnowHubRaster[] = [
   SNOW_MEDIA.plazaParkside,
-  SNOW_MEDIA.officeCampusBarrie,
-  SNOW_MEDIA.industrial(6),
+  SNOW_MEDIA.industrialG,
   SNOW_MEDIA.industrial(8),
-  SNOW_MEDIA.ctvBarrie(8),
   SNOW_MEDIA.ctvBarrie(9),
-  SNOW_MEDIA.ctvBarrieMain,
-  SNOW_MEDIA.ctvComma,
+  SNOW_MEDIA.officeCampusBarrie,
 ];
 
 /** Why-choose accordion imagery (order matches COMMERCIAL_SNOW_WHY_CHOOSE.items). */

@@ -22,7 +22,7 @@ export const COMMERCIAL_SNOW_FAQS: CommercialSnowFaq[] = [
   },
   {
     q: "What types of commercial properties do you service?",
-    a: "Retail plazas, office campuses, industrial and logistics sites, manufacturing, multi-residential portfolios, medical, education, hospitality, and mixed-use commercial — each scoped to operational priorities and access constraints.",
+    a: "Retail and mall-scale sites, utilities and critical infrastructure, manufacturing and heavy industry, healthcare and medical campuses, and corporate headquarters — each scoped to access constraints, liability documentation, and SLA timing.",
   },
   {
     q: "Do you offer seasonal contracts for commercial snow removal?",
