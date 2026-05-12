@@ -17,20 +17,6 @@ function stripQuotes(s: string): string {
   return t;
 }
 
-function isTruthyEnv(v: string | undefined): boolean {
-  if (!v) return false;
-  const s = stripQuotes(v).toLowerCase();
-  return s === "1" || s === "true" || s === "yes";
-}
-
-/**
- * When set (1/true/yes), every host is sent to /maintenance/ unless bypass cookie matches
- * MAINTENANCE_BYPASS_SECRET. Use for verification or full-site hold; turn off for normal production.
- */
-function redirectAllHosts(): boolean {
-  return isTruthyEnv(process.env.MAINTENANCE_REDIRECT_ALL);
-}
-
 function bypassSecret(): string | undefined {
   const s = process.env.MAINTENANCE_BYPASS_SECRET?.trim();
   return s || undefined;
@@ -49,8 +35,6 @@ function hasValidBypass(request: NextRequest): boolean {
  *   `groundlevelcontracting.ca,www.groundlevelcontracting.ca`
  * - **MAINTENANCE_PRIMARY_DOMAIN** — apex only, e.g. `groundlevelcontracting.ca`;
  *   we also add `www.<apex>` so one variable covers both.
- *
- * Ignored when MAINTENANCE_REDIRECT_ALL is enabled (unless bypass cookie is valid).
  */
 function getMaintenanceHosts(): string[] {
   const hosts = new Set<string>();
@@ -114,9 +98,8 @@ export function proxy(request: NextRequest) {
   const maintenanceHosts = getMaintenanceHosts();
   const hostIsParked =
     maintenanceHosts.length > 0 && maintenanceHosts.includes(host);
-  const forceAll = redirectAllHosts();
 
-  if (forceAll || hostIsParked) {
+  if (hostIsParked) {
     const url = request.nextUrl.clone();
     url.pathname = MAINTENANCE_PATH;
     url.search = "";
