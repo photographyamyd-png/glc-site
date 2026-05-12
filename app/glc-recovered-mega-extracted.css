@@ -85,12 +85,12 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: color-mix(in srgb, var(--brand-white) 96%, var(--canvas));
-  backdrop-filter: blur(20px) saturate(140%);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
-  border-top: 2px solid var(--yellow-core);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 24px 48px rgb(0 0 0 / 0.07);
+  background: var(--mega-panel-field, var(--brand-white));
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border-top: 3px solid var(--yellow-core);
+  border-bottom: 1px solid var(--g200);
+  box-shadow: 0 20px 48px rgb(0 0 0 / 0.08);
   padding: 40px 36px 44px;
   z-index: 1;
   opacity: 0;
@@ -137,8 +137,8 @@
 .gl-mega-panel__intro .gl-mega-panel__kicker {
   margin-bottom: 14px;
   padding-bottom: 12px;
-  border-bottom: 1px solid color-mix(in srgb, var(--yellow-core) 28%, var(--border));
-  color: var(--mega-intro-heading, var(--ink-mid));
+  border-bottom: 1px solid var(--g200);
+  color: var(--mega-intro-heading, var(--ink-deep));
 }
 
 .gl-mega-panel__intro .gl-mega-panel__kicker::before {
@@ -149,7 +149,7 @@
   font-size: 13px;
   line-height: 1.65;
   margin-bottom: 24px;
-  color: var(--mega-intro-body, rgb(250 249 247 / 0.86));
+  color: var(--mega-intro-body, var(--t500));
 }
 .gl-mega-panel__intro .btn-primary {
   font-size: 11px;
@@ -261,7 +261,7 @@ a.gl-mega-card {
   display: block;
   font-size: 13px;
   line-height: 1.55;
-  color: var(--text-600);
+  color: var(--t500);
   margin-top: 0;
   margin-bottom: auto;
   flex: 1;
@@ -270,7 +270,7 @@ a.gl-mega-card {
 
 .gl-mega-card:hover .gl-mega-card__desc,
 .gl-mega-card:focus-visible .gl-mega-card__desc {
-  color: var(--charcoal-deep);
+  color: var(--t600);
 }
 
 .gl-mega-card__link {
@@ -339,7 +339,7 @@ body.gl-mega-open .gl-mega-backdrop {
   content: '';
   flex: 1;
   height: 1px;
-  background: rgba(0,0,0,0.08);
+  background: var(--g200);
 }
 
 .gl-mega-company-col__list {
