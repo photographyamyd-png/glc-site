@@ -269,22 +269,16 @@ export function GLFeaturedServicesBento({
             aria-label="Service line shortcuts"
             className="sticky top-[var(--header)] z-20 border-y border-[color:var(--g200)] bg-[color:var(--brand-canvas)]/95 backdrop-blur-sm"
           >
-            <ul
-              className={
-                "flex w-full min-w-0 items-center gap-1.5 px-4 py-2.5 sm:gap-2 sm:px-6 sm:py-3 " +
-                "max-md:flex-nowrap max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:[-ms-overflow-style:none] max-md:[scrollbar-width:none] max-md:[&::-webkit-scrollbar]:hidden " +
-                "md:flex-wrap md:justify-center md:overflow-visible md:snap-none"
-              }
-            >
+            <ul className="flex w-full min-w-0 flex-nowrap items-center gap-[clamp(4px,1vw,8px)] overflow-x-auto overscroll-x-contain snap-x snap-mandatory px-[clamp(12px,3vw,24px)] py-2.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:py-3 [&::-webkit-scrollbar]:hidden">
               {servicesWithImages.map((s, i) => {
                 const isSel = selected === i;
                 return (
-                  <li key={s.slug} className="max-md:snap-start max-md:shrink-0 md:shrink-0">
+                  <li key={s.slug} className="snap-start shrink-0">
                     <a
                       href={`#services-${s.slug}`}
                       aria-current={isSel ? "true" : undefined}
                       onClick={(e) => onShortcutClick(e, s.slug, i)}
-                      className={`inline-flex min-h-[44px] items-center justify-center whitespace-nowrap px-2.5 font-label font-semibold uppercase tracking-[0.1em] transition-[background,color,box-shadow] text-[clamp(0.625rem,2.15vw,0.8125rem)] sm:px-3.5 sm:tracking-[0.12em] md:text-sm ${
+                      className={`inline-flex min-h-[44px] items-center justify-center whitespace-nowrap px-[clamp(0.375rem,1.25vw,0.875rem)] font-label font-semibold uppercase tracking-[0.1em] transition-[background,color,box-shadow] text-[clamp(0.5625rem,calc(0.48rem+0.55vw),0.8125rem)] ${
                         isSel
                           ? "bg-[color:var(--ink-deep)] text-white shadow-[inset_0_0_0_1px_rgb(0_0_0/0.08)]"
                           : "border border-[color:var(--g200)] bg-white/80 text-ink hover:border-[color:var(--y)]/45"
