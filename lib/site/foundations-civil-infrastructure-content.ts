@@ -252,6 +252,160 @@ export const FOUNDATIONS_FINAL_CTA = {
   tagline: "Proudly serving Barrie, Orillia, Innisfil, Wasaga Beach & Simcoe County, Ontario",
 } as const;
 
+/** Funnel hub hero — forming / pour photography (rebar + concrete context). */
+export const FOUNDATIONS_HUB_FUNNEL_HERO = {
+  eyebrow: "Foundations & Civil Infrastructure",
+  h1: "The Backbone of Your Construction Project.",
+  imageSlug: "concrete-footings-walls-pads-grade-beams" as FoundationsSubSlug,
+  imageAlt:
+    "Steel rebar reinforcement and fresh concrete placement for foundation walls in Simcoe County Ontario",
+  supportingLine:
+    "Commercial, residential, and municipal groundwork from one accountable crew — Barrie, Orillia, and across Simcoe County.",
+} as const;
+
+export const FOUNDATIONS_STANDARD_SECTION = {
+  h2: "The Standard",
+  lede: "Built to Code. Passed Inspection — First Time.",
+  badges: [
+    {
+      title: "Ontario Building Code",
+      body: "Work is staged to meet OBC requirements. We coordinate inspection holds before backfill and critical pour windows.",
+    },
+    {
+      title: "Inspection-ready execution",
+      body: "Digs, forming, reinforcement, and pours are checked against structural drawings so your team is not chasing rework on inspection day.",
+    },
+    {
+      title: "WSIB in good standing",
+      body: "WSIB clearance certificates are available for GC and owner files.",
+    },
+    {
+      title: "Liability insurance",
+      body: "Active liability coverage with certificates available for municipal, commercial, and residential files.",
+    },
+    {
+      title: "Engineer-led coordination",
+      body: "We build from structural and civil plans with disciplined RFIs when office and field share one thread.",
+    },
+  ],
+} as const;
+
+export const FOUNDATIONS_HUB_ZIGZAG = [
+  {
+    title: "Concrete forming",
+    body: "Conventional plywood-and-steel and engineered forming systems for walls, steps, and commercial profiles. Stripping, curing, and pour logistics follow the engineer’s sequence.",
+    imageSlug: "concrete-footings-walls-pads-grade-beams" as FoundationsSubSlug,
+  },
+  {
+    title: "Footings & structural bases",
+    body: "Spread footings, continuous strips, pad footings, and grade-beam packages are formed and poured to structural tolerance before walls and slabs advance.",
+    imageSlug: "foundation-excavation-backfilling" as FoundationsSubSlug,
+  },
+  {
+    title: "Structural slabs & flatwork",
+    body: "Slab-on-grade, equipment pads, loading docks, and structural flatwork tied into the larger foundation package — coordinated with grades, drainage, and backfill plans.",
+    imageSlug: "multi-storey-high-rise-foundations" as FoundationsSubSlug,
+  },
+] as const;
+
+export const FOUNDATIONS_HUB_SPEC_SHEET = {
+  h2: "Safety & durability spec sheet",
+  intro:
+    "Field targets always defer to your structural engineer and geotechnical consultant. The rows below describe how we align production to approved documents — they do not replace engineer-signed drawings.",
+  rows: [
+    {
+      label: "Concrete strength (PSI / exposure class)",
+      value:
+        "Specified strength classes, admixtures, air entrainment, and exposure classifications follow the engineer’s mix designs and OBC tables for the structure’s use and environment.",
+    },
+    {
+      label: "Reinforcement spacing & cover",
+      value:
+        "Rebar spacing, laps, mechanical splices, chairs, and cover are set per structural drawings and reviewed before the pour — including slab, wall, and beam schedules.",
+    },
+    {
+      label: "Soil compaction & granular lifts",
+      value:
+        "Backfill and engineered fill are placed in lifts with compaction matched to the specification. Density testing is coordinated where the engineer or contract requires verified proof.",
+    },
+    {
+      label: "Documentation & verification",
+      value:
+        "Pour logs, inspection sign-offs, as-built notes when specified, and photo records stay organized for commercial and municipal turnover.",
+    },
+  ],
+} as const;
+
+export const FOUNDATIONS_HUB_FUNNEL_CTA = {
+  h2: "Talk to a Foundation Specialist.",
+  sub: "We respond within one business day with a straight answer on scope, timing, and fit.",
+  primaryLabel: "Request a Project Quote",
+  phoneLabel: "Call 705-619-4902",
+} as const;
+
+export const FOUNDATIONS_KNOWLEDGE_HUB_TITLE = "Technical Specifications & Project FAQ" as const;
+
+export type FoundationsKnowledgeAccordion = {
+  summary: string;
+  paragraphs: readonly string[];
+};
+
+/** Verbatim relocation of legacy hub SEO blocks for `<details>` / `<summary>` rendering. */
+export const FOUNDATIONS_KNOWLEDGE_HUB_ACCORDIONS: readonly FoundationsKnowledgeAccordion[] = [
+  {
+    summary: "Complete hub positioning — legacy H1, subhead, and intro paragraphs",
+    paragraphs: [
+      FOUNDATIONS_HUB_HERO.h1,
+      FOUNDATIONS_HUB_HERO.h2,
+      FOUNDATIONS_HUB_HERO.introA,
+      FOUNDATIONS_HUB_HERO.introB,
+      FOUNDATIONS_COMPANY,
+    ],
+  },
+  {
+    summary: "Field operations overview",
+    paragraphs: [FOUNDATIONS_HUB_HERO.introC, FOUNDATIONS_HUB_HERO.introD, FOUNDATIONS_HUB_HERO.microcopy],
+  },
+  {
+    summary: "Trust, licensing, and code compliance (full text)",
+    paragraphs: FOUNDATIONS_TRUST_BENTO.map((b) => `${b.title}. ${b.body}`),
+  },
+  {
+    summary: "Service capabilities & keyword scope",
+    paragraphs: [
+      FOUNDATIONS_SERVICES_INTRO,
+      FOUNDATIONS_SERVICES_INTRO_B,
+      ...FOUNDATIONS_SERVICE_CARDS.map((c) => `${c.title}: ${c.blurb}`),
+    ],
+  },
+  {
+    summary: "Why builders, developers, and municipalities choose us",
+    paragraphs: FOUNDATIONS_WHY.map((w) => `${w.heading}. ${w.body}`),
+  },
+  {
+    summary: "Service area & coverage",
+    paragraphs: [
+      FOUNDATIONS_SERVICE_AREA.heading,
+      FOUNDATIONS_SERVICE_AREA.intro,
+      FOUNDATIONS_SERVICE_AREA.introB,
+      `Communities we actively support include: ${FOUNDATIONS_SERVICE_AREA.cities.join(", ")}.`,
+      FOUNDATIONS_SERVICE_AREA.closing,
+    ],
+  },
+  {
+    summary: "Engagement copy — mid-page and final CTAs",
+    paragraphs: [
+      FOUNDATIONS_MID_CTA.heading,
+      FOUNDATIONS_MID_CTA.sub,
+      FOUNDATIONS_MID_CTA.microcopy,
+      FOUNDATIONS_FINAL_CTA.heading,
+      FOUNDATIONS_FINAL_CTA.bodyA,
+      FOUNDATIONS_FINAL_CTA.bodyB,
+      FOUNDATIONS_FINAL_CTA.tagline,
+    ],
+  },
+] as const;
+
 export type FoundationsSubPageContent = {
   seoTitle: string;
   seoDescription: string;
