@@ -225,37 +225,54 @@
   gap: 2px;
 }
 
+/* Service cards — same dark → light sweep DNA as `#glc-dna-services` `.service-card` */
+a.gl-mega-card {
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
 .gl-mega-card {
   display: flex;
   flex-direction: column;
-  background: var(--mega-card-surface, var(--white));
-  border: 1px solid var(--mega-card-border, rgba(0,0,0,0.09));
-  border-left: 3px solid transparent;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,1),
-    inset 0 -1px 0 rgba(0,0,0,0.04),
-    0 2px 8px rgba(0,0,0,0.06);
-  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  background: var(--charcoal-deep);
+  padding: 28px 22px 26px;
+  min-height: 240px;
+  cursor: pointer;
   transition:
-    background 0.24s var(--ease-expo),
-    border-color 0.24s,
-    box-shadow 0.24s var(--ease-expo),
-    transform 0.24s var(--ease-expo);
+    background 0.3s var(--ease-expo),
+    box-shadow 0.3s var(--ease-expo);
   -webkit-user-select: none;
   user-select: none;
 }
+
+.gl-mega-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--white);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.5s var(--ease-expo);
+  z-index: 0;
+}
+
+.gl-mega-card:hover::before,
+.gl-mega-card:focus-visible::before {
+  transform: scaleY(1);
+}
+
 .gl-mega-card:hover,
 .gl-mega-card:focus-visible {
-  background: var(--yellow-tint);
-  border-color: rgba(242,183,5,0.45);
-  border-left-color: var(--yellow-core);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,1),
-    inset 0 -1px 0 rgba(0,0,0,0.04),
-    0 8px 24px rgba(0,0,0,0.1),
-    0 0 0 1px rgba(242,183,5,0.18);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-card, 0 4px 24px rgb(0 0 0 / 0.12)), inset 0 0 0 1px var(--gray-200, #e0deda);
   outline: none;
+}
+
+.gl-mega-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .gl-mega-panel.is-open .gl-mega-card          { animation: glmc-item-in 0.5s var(--ease-expo) both; }
@@ -267,47 +284,89 @@
 .gl-mega-panel.is-open .gl-mega-card:nth-child(6) { animation-delay: 0.31s; }
 
 .gl-mega-card__num {
-  display: block;
   font-family: var(--font-display);
-  font-size: 40px;
+  font-size: 52px;
   font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.03em;
-  color: rgba(30,28,26,0.08);
-  margin-bottom: 16px;
-  transition: color 0.24s var(--ease-expo);
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.07);
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  transition: color 0.3s var(--ease-expo);
 }
-.gl-mega-card:hover .gl-mega-card__num {
-  color: rgba(242,183,5,0.35);
+
+.gl-mega-card:hover .gl-mega-card__num,
+.gl-mega-card:focus-visible .gl-mega-card__num {
+  color: rgba(30, 28, 26, 0.12);
+}
+
+.gl-mega-card__icon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 14px;
+  color: var(--yellow-core);
+  transition: color 0.3s var(--ease-expo);
+}
+
+.gl-mega-card:hover .gl-mega-card__icon,
+.gl-mega-card:focus-visible .gl-mega-card__icon {
+  color: var(--yellow-core);
 }
 
 .gl-mega-card__title {
   display: block;
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
-  color: var(--charcoal-deep);
+  color: var(--white);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  line-height: 1.2;
-  margin-bottom: 8px;
-  transition: color 0.2s;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  transition: color 0.3s var(--ease-expo);
 }
-.gl-mega-card:hover .gl-mega-card__title {
+
+.gl-mega-card:hover .gl-mega-card__title,
+.gl-mega-card:focus-visible .gl-mega-card__title {
   color: var(--charcoal-deep);
 }
 
 .gl-mega-card__desc {
   display: block;
-  font-size: 12px;
-  line-height: 1.55;
-  color: var(--text-500);
-  margin-top: auto;
-  padding-top: 8px;
-  transition: color 0.2s;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: auto;
+  margin-top: 0;
+  padding-top: 0;
+  transition: color 0.3s var(--ease-expo);
 }
-.gl-mega-card:hover .gl-mega-card__desc {
-  color: var(--text-700);
+
+.gl-mega-card:hover .gl-mega-card__desc,
+.gl-mega-card:focus-visible .gl-mega-card__desc {
+  color: var(--text-600);
+}
+
+.gl-mega-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow-core);
+  transition:
+    color 0.3s var(--ease-expo),
+    gap 0.2s var(--ease-expo);
+}
+
+.gl-mega-card:hover .gl-mega-card__link,
+.gl-mega-card:focus-visible .gl-mega-card__link {
+  color: var(--yellow-core);
+  gap: 12px;
 }
 
 .gl-mega-backdrop {
@@ -329,7 +388,7 @@ body.gl-mega-open .gl-mega-backdrop {
 @media (max-width: 1100px) {
   .gl-mega-panel__inner { grid-template-columns: 1fr; gap: 32px; }
   .gl-mega-grid { grid-template-columns: repeat(2, 1fr); }
-  .gl-mega-card__num { font-size: 32px; }
+  .gl-mega-card__num { font-size: 44px; }
 }
 @media (max-width: 1024px) {
   .gl-mega-panel { display: none !important; }
@@ -463,6 +522,9 @@ body.gl-mega-open .gl-mega-backdrop {
   .gl-mega-panel.is-open .gl-mega-company-col:nth-child(3),
   .gl-mega-panel.is-open .gl-mega-dispatch {
     animation: none !important;
+  }
+  .gl-mega-card::before {
+    transition: none;
   }
   .gl-mega-card:hover,
   .gl-mega-card:focus-visible {

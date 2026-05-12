@@ -13,6 +13,8 @@
   --yellow-tint: rgb(242 183 5 / 0.08);
   --yellow-tint-md: rgb(242 183 5 / 0.14);
   --gray-100: color-mix(in srgb, var(--canvas) 55%, var(--brand-white));
+  --gray-200: #e0deda;
+  --shadow-card: 0 4px 24px rgb(0 0 0 / 0.12);
   --text-500: var(--ink-warm);
   --text-600: rgb(30 28 26 / 0.72);
   --text-700: var(--ink-mid);
