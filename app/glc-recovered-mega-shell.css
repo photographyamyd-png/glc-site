@@ -27,7 +27,8 @@
   background: var(--brand-white);
 }
 
-#site-header.scrolled .gl-header__nav-row {
+#site-header.scrolled .gl-header__nav-row,
+#site-header.scrolled .gl-header__mobile-bar {
   box-shadow: 0 4px 20px color-mix(in srgb, var(--ink-deep) 8%, transparent);
 }
 
@@ -50,6 +51,21 @@
   justify-content: space-between;
   gap: 16px;
   padding: 8px 24px;
+}
+
+@media (max-width: 480px) {
+  .gl-header__utility-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 8px 14px;
+  }
+
+  .gl-header__utility-rotator {
+    text-align: left;
+    max-width: 100%;
+    white-space: normal;
+  }
 }
 
 .gl-header__utility-left {
@@ -79,6 +95,10 @@
   color: color-mix(in srgb, var(--brand-white) 70%, transparent);
   max-width: min(100%, 420px);
   text-align: right;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .gl-header__gold-strip {
@@ -182,8 +202,12 @@
   display: none;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 16px;
+  gap: 12px;
+  padding: 10px 14px;
   border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--popover) 94%, transparent);
+  backdrop-filter: var(--glass-depth);
+  -webkit-backdrop-filter: var(--glass-depth);
 }
 
 .gl-hamburger-icon {
@@ -198,9 +222,13 @@
   cursor: pointer;
 }
 
+/**
+ * ≤1024px: desktop nav + mega triggers live in `.gl-header__nav-row`; they are already hidden here.
+ * Keeping the nav row would duplicate the logo (nav inner + mobile bar). Hide the whole row — navigation
+ * is the hamburger + drawer; mega panels are suppressed in extracted CSS at the same breakpoint.
+ */
 @media (max-width: 1024px) {
-  .gl-header__nav-inner .gl-header__nav-links,
-  .gl-header__nav-inner .gl-header__cta-wrap {
+  .gl-header__nav-row {
     display: none;
   }
 

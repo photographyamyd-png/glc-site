@@ -52,6 +52,16 @@ export function GlcRecoveredSiteHeader({ navigation }: Props) {
   }, [pathname]);
 
   useEffect(() => {
+    const mq = window.matchMedia("(max-width: 1024px)");
+    const onChange = () => {
+      if (mq.matches) closeMega();
+    };
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, [closeMega]);
+
+  useEffect(() => {
     const header = document.getElementById("site-header");
     if (!header) return;
     const onScroll = () => {

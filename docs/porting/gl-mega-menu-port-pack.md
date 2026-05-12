@@ -135,7 +135,9 @@ Re-verify line numbers if `globals.css` changes (`rg -n "^:root|^@theme|^\\.eyeb
 
 **Layout:** `#site-header` is **fixed** with `z-index: var(--gl-header-z)` (900). Mega panels are **`position: absolute; top: 100%; left: 0; right: 0`** under the header (recovered `gl-mega-panel` CSS). Styles live in [`app/glc-recovered-mega-shell.css`](../../app/glc-recovered-mega-shell.css) (header chrome + drawer) and [`app/glc-recovered-mega-extracted.css`](../../app/glc-recovered-mega-extracted.css) (mega grid, `.btn-primary`, backdrop).
 
-**Hero offset:** `useLayoutEffect` + `ResizeObserver` on `#site-header` writes `--site-header-offset` / `--header` to `document.documentElement` so full-bleed heroes (`pt-[var(--site-header-offset)]`, `scroll-mt-[var(--site-header-offset)]`, `min-h-[calc(100svh-var(--site-header-offset)-…)]`) track the real chrome height (including the extra mobile bar row under `1024px`).
+**Mobile (≤1024px):** The desktop nav row is hidden so the brand appears only on the **mobile bar** (logo + hamburger). Mega panels and backdrop are CSS-disabled; navigation is the drawer. Utility strip stacks in a column on very narrow widths.
+
+**Hero offset:** `useLayoutEffect` + `ResizeObserver` on `#site-header` writes `--site-header-offset` / `--header` to `document.documentElement` so full-bleed heroes (`pt-[var(--site-header-offset)]`, `scroll-mt-[var(--site-header-offset)]`, `min-h-[calc(100svh-var(--site-header-offset)-…)]`) track the real chrome height. `matchMedia('(max-width: 1024px)')` clears mega when crossing into the drawer layout.
 
 ### Accessibility (mega triggers)
 

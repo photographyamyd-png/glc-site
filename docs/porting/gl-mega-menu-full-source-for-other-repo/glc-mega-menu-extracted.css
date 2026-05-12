@@ -267,8 +267,8 @@ body.gl-mega-open .gl-mega-backdrop {
   .gl-mega-grid { grid-template-columns: repeat(2, 1fr); }
   .gl-mega-card__num { font-size: 32px; }
 }
-@media (max-width: 768px) {
-  .gl-mega-panel { display: none; }
+@media (max-width: 1024px) {
+  .gl-mega-panel { display: none !important; }
 }
 
 /* Company mega */
