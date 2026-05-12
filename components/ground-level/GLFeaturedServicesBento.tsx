@@ -266,9 +266,9 @@ export function GLFeaturedServicesBento({
 
         <nav
           aria-label="Service line shortcuts"
-          className="sticky top-[var(--header)] z-20 -mx-4 mt-10 border-y border-[color:var(--g200)] bg-[color:var(--brand-canvas)]/95 backdrop-blur-sm sm:-mx-6 sm:mt-12 lg:hidden"
+          className="sticky top-[var(--header)] z-20 -mx-4 mt-10 w-full min-w-0 border-y border-[color:var(--g200)] bg-[color:var(--brand-canvas)]/95 backdrop-blur-sm sm:-mx-6 sm:mt-12 lg:hidden"
         >
-          <ul className="flex flex-nowrap items-center gap-2 overflow-x-auto snap-x snap-mandatory px-4 py-3 [-ms-overflow-style:none] [scrollbar-width:none] sm:px-6 [&::-webkit-scrollbar]:hidden">
+          <ul className="flex w-full min-w-0 max-w-full flex-nowrap items-stretch gap-1.5 overflow-x-auto overscroll-x-contain px-4 py-3 [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory sm:gap-2 sm:px-6 [&::-webkit-scrollbar]:hidden">
             {servicesWithImages.map((s, i) => {
               const isSel = selected === i;
               return (
@@ -277,7 +277,7 @@ export function GLFeaturedServicesBento({
                     href={`#services-${s.slug}`}
                     aria-current={isSel ? "true" : undefined}
                     onClick={(e) => onShortcutClick(e, s.slug, i)}
-                    className={`inline-flex h-11 items-center justify-center whitespace-nowrap px-4 font-label text-xs font-semibold uppercase tracking-[0.12em] transition-[background,color,box-shadow] sm:text-sm ${
+                    className={`inline-flex max-w-[min(100%,11.5rem)] min-h-11 items-center justify-center px-2.5 py-2 text-center font-label text-[length:clamp(0.6875rem,0.52rem+1.35vw,0.8125rem)] font-semibold uppercase leading-tight tracking-[0.08em] transition-[background,color,box-shadow] max-sm:line-clamp-2 max-sm:whitespace-normal sm:max-w-none sm:h-11 sm:min-h-0 sm:px-3.5 sm:py-0 sm:leading-none sm:tracking-[0.12em] md:px-4 ${
                       isSel
                         ? "bg-[color:var(--ink-deep)] text-white shadow-[inset_0_0_0_1px_rgb(0_0_0/0.08)]"
                         : "border border-[color:var(--g200)] bg-white/80 text-ink hover:border-[color:var(--y)]/45"
