@@ -163,6 +163,25 @@ export type ServiceDetailCopy = {
       closingCtaLabels: string[];
       faqLongFormTodo: string;
     };
+    /** Conversion lane + SEO basement extras for `site-preparation-grading` only. */
+    gradingLane?: {
+      displayH1: string;
+      heroKeywordLine: string;
+      painHeading: string;
+      painIntro: string;
+      painCards: Array<{ id: string; title: string; body: string }>;
+      solutionEyebrow: string;
+      solutionHeading: string;
+      solutionParagraphs: string[];
+      proofEyebrow: string;
+      proofHeading: string;
+      proofCaption: string;
+      technicalSpecs: {
+        slopeRatios: string[];
+        erosionControl: string[];
+        topsoilPreservation: string[];
+      };
+    };
   };
 };
 
@@ -434,9 +453,10 @@ export const SERVICE_DETAILS: Record<PrimaryServiceSlug, ServiceDetailCopy> = {
       "Expert excavation & site preparation across Barrie, Orillia, Wasaga Beach, Innisfil & Simcoe County. Grading, clearing, trenching, pool digging, hydrovac & more. Free estimates.",
     hero: {
       breadcrumbParent: "Services",
-      titleBefore: "Professional Excavation & Site Preparation — Barrie, Orillia, Wasaga Beach &",
-      titleEmphasis: "Simcoe County",
-      lede: "From single-lot custom home builds to full subdivision development — we move the earth that moves your project forward.",
+      titleBefore: "Precision Digging for Complex",
+      titleEmphasis: "Projects.",
+      lede:
+        "Utility-aware excavation, disciplined spoils handling, and survey-tied grades for schedule-critical sites across Simcoe County.",
       body: [
         "Serving contractors, developers & homeowners across all of Simcoe County with precision excavation and site preparation.",
         "Licensed, insured and locally trusted — delivering exceptional results on residential, commercial and industrial projects of all scales.",
@@ -620,9 +640,9 @@ export const SERVICE_DETAILS: Record<PrimaryServiceSlug, ServiceDetailCopy> = {
     },
   },
   "site-preparation-grading": {
-    seoTitle: "Site Preparation & Grading | Ground Level Contracting",
+    seoTitle: "Commercial Site Grading & Pad Prep | Barrie, Midland, Orillia | GLC",
     seoDescription:
-      "Commercial site grading, pad prep, compaction, and finish tolerances for Barrie, Midland, Orillia, and Simcoe County.",
+      "The foundation of a perfect site is level — commercial grading, laser and GPS finish, and build-ready pads across Barrie, Midland, Orillia, and Simcoe County. Start your grading project.",
     hero: {
       breadcrumbParent: "Services",
       titleBefore: "Site Preparation",
@@ -688,9 +708,60 @@ export const SERVICE_DETAILS: Record<PrimaryServiceSlug, ServiceDetailCopy> = {
     ],
     ctaOverride: {
       heading: "Book a grading walkthrough",
-      buttonLabel: "Call dispatch",
+      buttonLabel: "Start Your Grading Project",
       supporting:
         "Share your civil IFC, geotech report, and schedule — we will align mass grading, fills, and fine work with your forming and utility milestones.",
+    },
+    extra: {
+      gradingLane: {
+        displayH1: "The Foundation of a Perfect Site is Level.",
+        heroKeywordLine:
+          "Commercial site grading, pad prep, laser and GPS finish — Barrie, Midland, Orillia, and Simcoe County.",
+        painHeading: "Poor grading is a hidden tax on your build.",
+        painIntro:
+          "Wrong cross-slopes and low points steer runoff toward foundations, loading doors, and finished paving. Wasted fall on a tight lot can erase parking stalls, yard storage, and usable setbacks — then trades burn hours shimming to fake grades that were never true.",
+        painCards: [
+          {
+            id: "runoff",
+            title: "Runoff and ponding",
+            body: "Sheet flow that misses the civil model soaks subgrades, softens lifts, and shows up as callbacks after asphalt and flatwork are locked in.",
+          },
+          {
+            id: "land",
+            title: "Wasted land and schedule",
+            body: "Every inch of erroneous elevation is usable footprint you do not get back. Rework loops with survey and geotech burn calendar days you cannot reclaim on a winter-critical pour.",
+          },
+          {
+            id: "trades",
+            title: "Downstream trade tax",
+            body: "Forming, utilities, and paving inherit bad numbers. The hidden tax is overtime, re-stakes, and export you never budgeted because the pad never matched the IFC.",
+          },
+        ],
+        solutionEyebrow: "The solution",
+        solutionHeading: "Laser and GPS finish, documented lifts, trade-ready pads",
+        solutionParagraphs: [
+          "We sequence stripping, rough shaping, structural fills, and fine work so moisture, density, and benchmarks stay married to the civil model your consultants signed.",
+          "Finish blades follow survey stakes or machine control files so sidewalks, pavers, and asphalt get consistent cover — clean, drained surfaces that shed water the way the drawing set expects.",
+        ],
+        proofEyebrow: "Proof",
+        proofHeading: "Rough, unusable terrain vs. a perfectly graded lot",
+        proofCaption:
+          "Compare two distinct commercial site photographs — rough mobilization conditions vs. finish pad prep. Illustrative field outcomes, not a georeferenced survey pair.",
+        technicalSpecs: {
+          slopeRatios: [
+            "Finished grades and interim surfaces are built to designer cross-slopes and longitudinal slopes so sheet flow reaches catchments without ponding on structural fills. We coordinate tie-ins to municipal storm and private drainage so overland routes stay stable through paving and landscape cover.",
+            "When models call for minimum grades across parking and yards, we set high/low points with survey before curb and island work locks geometry — reducing late elevation conflicts at catch basins and trench drains.",
+          ],
+          erosionControl: [
+            "Interim grading balances production speed with erosion control: tracked access paths, stabilized exits, and staged stripping so exposed soils are not left vulnerable across weather windows.",
+            "We align silt fence, inlet protection, and temporary swales with your ESC plan and site logistics, adjusting sequencing when haul routes or laydown areas shift the drainage picture.",
+          ],
+          topsoilPreservation: [
+            "Topsoil stripping depths and stockpile locations are planned so landscape placement stays economical and organics stay out of structural lifts.",
+            "We separate unsuitable materials from approved fills early, documenting undercuts and replacement so geotech sign-off is not fighting contamination that should never have entered the pad line.",
+          ],
+        },
+      },
     },
   },
   "foundations-civil-infrastructure": {

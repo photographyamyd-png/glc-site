@@ -15,9 +15,8 @@ import { HOME_COPY, SERVICE_DETAILS } from "@/lib/site/copy";
 const detail = SERVICE_DETAILS["excavation-site-preparation"];
 
 /**
- * Excavation route — copy helpers for hero/marquee/CTA. Main narrative lives in
- * [ExcavationSitePreparationArticle]: hero → marquee → metrics → scope → deliverables grid →
- * trust split → editorial band → process → coverage → testimonials → FAQ → related → GLCtaBand.
+ * Excavation route — copy helpers for hero/marquee/CTA. Article flow:
+ * pain → solution → proof gallery → yellow conversion CTA → SEO basement → related.
  */
 
 /** Same ticker phrases as copy-lab / sandbox-approved marquee pool. */
@@ -33,9 +32,9 @@ export function excavationHeroContent(): GLHeroContent {
   const h = detail.hero;
   return {
     eyebrow: "Commercial excavation & site preparation",
-    titleLine1: "Professional Excavation",
-    titleLine2: "& Site Preparation — Barrie, Orillia, Wasaga Beach &",
-    titleLine3: h.titleEmphasis,
+    titleLine1: "Precision",
+    titleLine2: "Digging for Complex",
+    titleLine3: "Projects.",
     lede: h.lede,
     /** Structured for marketing hero metrics (yellow value + white eyebrow label). */
     stats: detail.hubStats.map((s) => ({ value: s.value, label: s.label })),
@@ -172,9 +171,59 @@ export function excavationRelatedFeaturedContent(): GLFeaturedServicesContent {
   return {
     eyebrow: "Related",
     heading: "Other / Service Lines",
-    intro: detail.hero.body[0],
+    intro:
+      "Explore adjacent service lines that pair with excavation — grading, foundations, drainage, and hauling on commercial programs.",
     cta: "All services",
     ctaHref: "/services/",
+  };
+}
+
+/** Conversion funnel — pain band (asymmetric + asset anchor). */
+export const excavationPainCopy = {
+  eyebrow: "The cost of guessing",
+  headingLine1: "Digging blind costs",
+  headingAccent: "thousands.",
+  bodyParas: [
+    "Utility strikes, undocumented locates, and rushed trench walls turn a single day into a week of insurance calls and re-design.",
+    "Poor soil management — mixing organics into structural lifts, skipping moisture checks, or hauling without a balanced cut-fill plan — shows up as settlement, heave, and failed compaction tests.",
+    "Without survey-tied precision, pads drift, footings miss line, and trades stack delay on delay. You need operators who read the plan set like a control document, not a suggestion.",
+  ],
+} as const;
+
+/** Conversion funnel — solution feature list + icon labels. */
+export const excavationSolutionFeatures = [
+  {
+    title: "Laser- & GPS-guided grading",
+    body: "Machine control tied to survey models keeps pads, trenches, and finish corridors inside tolerance so the next trade inherits a true surface.",
+  },
+  {
+    title: "Heavy excavator capability",
+    body: "Deep structural digs, mass rock handling, and production trenching with the reach and power your schedule assumes — not rental-store guesswork.",
+  },
+  {
+    title: "Utility discipline & spoils control",
+    body: "Coordinated daylighting, benching, and export/import sequencing so corridors stay safe and inspectors see intent, not improvisation.",
+  },
+] as const;
+
+/** Proof gallery — captions / editorial line. */
+export const excavationProofGalleryEyebrow = "Field proof";
+export const excavationProofGalleryHeading = "Clean footings. Tight trenches.";
+export const excavationProofGallerySub =
+  "Tight shots from active commercial digs — structural lines held, spoils managed, and turnover ready for forming.";
+
+/** High-contrast conversion strip before SEO basement. */
+export function excavationYellowConversionCtaContent() {
+  return {
+    eyebrow: "Mobilization",
+    heading: "Book your site prep window",
+    supporting: detail.ctaOverride.supporting,
+    primaryLabel: "Book Your Site Prep",
+    primaryHref: "/contact/" as const,
+    phoneLabel: CTA_BAND.phoneLabel,
+    phoneHref: PHONE_TEL,
+    emailCta: CTA_BAND.emailCta,
+    emailHref: `${EMAIL_MAILTO}?subject=${encodeURIComponent("Excavation & site preparation inquiry")}`,
   };
 }
 

@@ -17,7 +17,7 @@ type Props = {
 };
 
 /**
- * Excavation primary route — marketing hero + bespoke article body (Drainage-class DNA).
+ * Excavation primary route — marketing hero + marquee + conversion article (pain → solution → proof → CTA) + SEO basement.
  */
 export function ExcavationSitePreparationPage(props: Props) {
   void props.service;
