@@ -59,32 +59,32 @@
           {
             "id": 1,
             "title": "Excavation & Site Prep",
-            "imageUrl": "/images/excavation-and-foundations.png"
+            "imageUrl": "/images/services/Excavation/excavation-016.jpg"
           },
           {
             "id": 2,
             "title": "Site Prep & Grading",
-            "imageUrl": "/images/excavation-and-foundations-orillia-barrie.png"
+            "imageUrl": "/images/services/Grading/Ground%20Level%20Contracting%20grading.jpg"
           },
           {
             "id": 3,
             "title": "Foundations & Civil",
-            "imageUrl": "/images/excavation-and-foundations-orillia-barrie-pools.png"
+            "imageUrl": "/images/services/Foundations/Ground%20Level%20Contracting%20-%20Excavation%2C%20Foundations%2C%20Industrial%20Construction%20-%20Barrie%2C%20Orilla%2C%20Simcoe%20County%20-%20Muskoka%20Bedrock-%20Drainage%2C%20%20(2%20of%2034).jpg"
           },
           {
             "id": 4,
             "title": "Drainage & Hardscaping",
-            "imageUrl": "/images/armour-stone-retaining-walls.png"
+            "imageUrl": "/images/services/Drainage-and-Hardscaping/drainage-hardscaping-018.jpg"
           },
           {
             "id": 5,
             "title": "Hauling & Clearing",
-            "imageUrl": "/images/excavation-and-foundations-orillia-barrie-pools.png"
+            "imageUrl": "/images/services/Hauling/Ground%20Level%20Contracting.jpg"
           },
           {
             "id": 6,
             "title": "Snow Removal",
-            "imageUrl": "/images/excavation-and-foundations-orillia-barrie.png"
+            "imageUrl": "/images/services/Snow%20Removal/Ground%20Level%20Contracting%20barrie%20snow%20removal23.JPG"
           }
         ]
       }
@@ -107,7 +107,7 @@
         "mediaStat": { "value": "15+", "label": "Yrs. Experience" },
         "badgeText": "Licensed & Insured",
         "watermarkText": "GLC",
-        "photoUrl": "/images/excavation-and-foundations.png",
+        "photoUrl": "/images/services/Excavation/excavation-016.jpg",
         "photoAlt": "Excavation and site work — Ground Level Contracting crew on a commercial site"
       }
     },

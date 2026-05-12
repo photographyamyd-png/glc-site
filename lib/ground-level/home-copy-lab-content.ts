@@ -370,7 +370,7 @@ export const COPY_LAB_PROOF = {
   beforeSrc: "/images/services/Excavation/excavation-016.jpg",
   beforeAlt:
     "Commercial excavation equipment preparing an active construction site in Simcoe County — before finish grading phase",
-  afterSrc: "/images/services/Grading/grading-001.jpg",
+  afterSrc: "/images/services/Grading/Ground%20Level%20Contracting%20grading.jpg",
   afterAlt:
     "Grading equipment shaping a commercial site pad — finish prep and turnover-ready surface",
   pullQuote:

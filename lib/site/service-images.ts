@@ -16,7 +16,7 @@ const SERVICE_IMAGES: Record<PrimaryServiceSlug, ServiceImage> = {
     alt: "Commercial excavation equipment preparing an active construction site in Simcoe County",
   },
   "site-preparation-grading": {
-    src: "/images/services/Grading/grading-001.jpg",
+    src: "/images/services/Grading/Ground%20Level%20Contracting%20grading.jpg",
     alt: "Grading equipment shaping a commercial site pad for construction turnover",
   },
   "foundations-civil-infrastructure": {
