@@ -6,6 +6,7 @@ import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { CardSurface } from "@/components/ui/CardSurface";
 import { CommercialSnowJsonLd } from "@/components/seo/CommercialSnowJsonLd";
 import { CtvSnowFeature } from "@/components/templates/commercial-snow/CtvSnowFeature";
+import { CommercialSnowLocalVideos } from "@/components/templates/commercial-snow/CommercialSnowLocalVideos";
 import { CommercialSnowPropertyTabs } from "@/components/templates/commercial-snow/CommercialSnowPropertyTabs";
 import { CommercialSnowProofTabs } from "@/components/templates/commercial-snow/CommercialSnowProofTabs";
 import { CommercialSnowStickyNav } from "@/components/templates/commercial-snow/CommercialSnowStickyNav";
@@ -20,8 +21,6 @@ import {
   COMMERCIAL_SNOW_HERO,
   COMMERCIAL_SNOW_MID_LOWER_CTA,
   COMMERCIAL_SNOW_MID_SERVICE_CTA,
-  COMMERCIAL_SNOW_PRIMARY_RASTER_ALT,
-  COMMERCIAL_SNOW_PRIMARY_RASTER_SRC,
   COMMERCIAL_SNOW_PROCESS,
   COMMERCIAL_SNOW_PROPERTY_TYPES,
   COMMERCIAL_SNOW_RELATED,
@@ -37,12 +36,12 @@ import {
   COMMERCIAL_SNOW_WHY_INTRO,
   getCommercialSnowProcessStepsForJsonLd,
 } from "@/lib/site/commercial-snow-page-data";
+import { SNOW_HUB_SECTION } from "@/lib/site/snow-removal-media";
 import { getServiceImage } from "@/lib/site/service-images";
 
 type Props = { service: ServiceDef; related: ServiceDef[] };
 
 export function CommercialSnowPage({ service, related }: Props) {
-  const image = getServiceImage(service.slug);
   const processStepsJson = getCommercialSnowProcessStepsForJsonLd();
 
   return (
@@ -64,7 +63,7 @@ export function CommercialSnowPage({ service, related }: Props) {
       >
         <div className="hero-stage section-major band-dark-field relative min-h-[min(100dvh,920px)] overflow-hidden">
           <Image
-            src={image.src}
+            src={SNOW_HUB_SECTION.hero.src}
             alt={COMMERCIAL_SNOW_HERO.heroImageAriaLabel}
             fill
             priority
@@ -219,8 +218,8 @@ export function CommercialSnowPage({ service, related }: Props) {
               </div>
               <div className="relative aspect-[16/11] overflow-hidden border border-[color:var(--g200)] lg:col-span-6">
                 <Image
-                  src={COMMERCIAL_SNOW_PRIMARY_RASTER_SRC}
-                  alt={COMMERCIAL_SNOW_PRIMARY_RASTER_ALT}
+                  src={SNOW_HUB_SECTION.valueProp.src}
+                  alt={SNOW_HUB_SECTION.valueProp.alt}
                   fill
                   className="object-cover object-[center_45%]"
                   sizes="(min-width: 1024px) 42vw, 100vw"
@@ -283,8 +282,8 @@ export function CommercialSnowPage({ service, related }: Props) {
                 <div className="mt-4 grid gap-6 lg:grid-cols-2">
                   <div className="relative aspect-[16/10] overflow-hidden border border-white/15">
                     <Image
-                      src={d.imageSrc ?? COMMERCIAL_SNOW_PRIMARY_RASTER_SRC}
-                      alt={COMMERCIAL_SNOW_PRIMARY_RASTER_ALT}
+                      src={d.imageSrc}
+                      alt={d.imageAlt}
                       fill
                       className={cn("object-cover", d.imageObjectClass ?? "object-center")}
                       sizes="(min-width: 1024px) 40vw, 100vw"
@@ -356,7 +355,12 @@ export function CommercialSnowPage({ service, related }: Props) {
                 <CommercialSnowProofTabs
                   mediaLabel="Media"
                   credentialsLabel="Credentials"
-                  mediaPanel={<CtvSnowFeature />}
+                  mediaPanel={
+                    <>
+                      <CtvSnowFeature />
+                      <CommercialSnowLocalVideos />
+                    </>
+                  }
                   credentialsPanel={
                     <div>
                       <p className="eyebrow text-[color:var(--y)]">Commercial proof</p>
@@ -412,8 +416,8 @@ export function CommercialSnowPage({ service, related }: Props) {
               <div className="mt-6 grid gap-6 lg:grid-cols-2">
                 <div className="relative aspect-[16/11] overflow-hidden border border-white/15">
                   <Image
-                    src={COMMERCIAL_SNOW_PRIMARY_RASTER_SRC}
-                    alt={COMMERCIAL_SNOW_PRIMARY_RASTER_ALT}
+                    src={SNOW_HUB_SECTION.equipment.src}
+                    alt={SNOW_HUB_SECTION.equipment.alt}
                     fill
                     className="object-cover object-[center_48%]"
                     sizes="(min-width: 1024px) 38vw, 100vw"
@@ -443,8 +447,8 @@ export function CommercialSnowPage({ service, related }: Props) {
               <div className="mt-6 grid gap-6 lg:grid-cols-2">
                 <div className="relative aspect-video overflow-hidden border border-white/15">
                   <Image
-                    src={image.src}
-                    alt={COMMERCIAL_SNOW_PRIMARY_RASTER_ALT}
+                    src={SNOW_HUB_SECTION.sla.src}
+                    alt={SNOW_HUB_SECTION.sla.alt}
                     fill
                     className="object-cover object-[center_42%]"
                     sizes="(min-width: 1024px) 38vw, 100vw"
@@ -495,8 +499,8 @@ export function CommercialSnowPage({ service, related }: Props) {
                 </div>
                 <div className="relative aspect-[4/5] min-h-[240px] overflow-hidden border border-white/15 lg:aspect-auto lg:min-h-[min(100%,420px)]">
                   <Image
-                    src={COMMERCIAL_SNOW_PRIMARY_RASTER_SRC}
-                    alt={COMMERCIAL_SNOW_PRIMARY_RASTER_ALT}
+                    src={SNOW_HUB_SECTION.contracts.src}
+                    alt={SNOW_HUB_SECTION.contracts.alt}
                     fill
                     className="object-cover object-[center_42%]"
                     sizes="(min-width: 1024px) 38vw, 100vw"
@@ -573,8 +577,8 @@ export function CommercialSnowPage({ service, related }: Props) {
             <div className="lg:col-span-7">
               <div className="relative aspect-[16/11] overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)]">
                 <Image
-                  src={image.src}
-                  alt={COMMERCIAL_SNOW_PRIMARY_RASTER_ALT}
+                  src={SNOW_HUB_SECTION.coverage.src}
+                  alt={SNOW_HUB_SECTION.coverage.alt}
                   fill
                   className="object-cover object-[center_40%]"
                   sizes="(min-width: 1024px) 45vw, 100vw"
@@ -593,7 +597,6 @@ export function CommercialSnowPage({ service, related }: Props) {
                 <CommercialSnowPropertyTabs
                   tablistAria={COMMERCIAL_SNOW_PROPERTY_TYPES.tablistAria}
                   types={COMMERCIAL_SNOW_PROPERTY_TYPES.types}
-                  service={service}
                 />
               </div>
             </div>
@@ -634,8 +637,8 @@ export function CommercialSnowPage({ service, related }: Props) {
               </div>
               <div className="relative aspect-[16/11] overflow-hidden border border-white/15">
                 <Image
-                  src={COMMERCIAL_SNOW_PRIMARY_RASTER_SRC}
-                  alt={COMMERCIAL_SNOW_PRIMARY_RASTER_ALT}
+                  src={SNOW_HUB_SECTION.assuranceNarrative.src}
+                  alt={SNOW_HUB_SECTION.assuranceNarrative.alt}
                   fill
                   className="object-cover object-[center_50%]"
                   sizes="(min-width: 1024px) 40vw, 100vw"
@@ -663,8 +666,8 @@ export function CommercialSnowPage({ service, related }: Props) {
                   <p className="text-[15px] leading-[1.72] text-white/88">{item.body}</p>
                   <div className="relative aspect-video overflow-hidden border border-white/15">
                     <Image
-                      src={image.src}
-                      alt={COMMERCIAL_SNOW_PRIMARY_RASTER_ALT}
+                      src={item.imageSrc}
+                      alt={item.imageAlt}
                       fill
                       className="object-cover object-[center_45%]"
                       sizes="(min-width: 1024px) 35vw, 100vw"

@@ -4,14 +4,19 @@
  */
 import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/ground-level/homepage-copy";
 import { COMMERCIAL_SNOW_FAQS } from "@/lib/site/commercial-snow-faqs";
+import {
+  SNOW_HUB_DEEP_DIVE_RASTERS,
+  SNOW_HUB_PROPERTY_TAB_RASTERS,
+  SNOW_HUB_SECTION,
+  SNOW_HUB_WHY_CHOOSE_RASTERS,
+  SNOW_MEDIA,
+} from "@/lib/site/snow-removal-media";
 
-/** Canonical snow service photography (encoded path); used when per-section assets are not available. */
-export const COMMERCIAL_SNOW_PRIMARY_RASTER_SRC =
-  "/images/services/Snow%20Removal/Ground%20Level%20Contracting%20barrie%20snow%20removal23.JPG" as const;
+/** Fallback hub raster (cards, JSON consumers, legacy imports). */
+export const COMMERCIAL_SNOW_PRIMARY_RASTER_SRC = SNOW_MEDIA.hubDefault.src;
 
-/** Factual alt for `COMMERCIAL_SNOW_PRIMARY_RASTER_SRC` — keep in sync with visible scene. */
-export const COMMERCIAL_SNOW_PRIMARY_RASTER_ALT =
-  "Commercial snow removal contractor clearing large business parking lot with industrial equipment in Barrie Ontario" as const;
+/** Alt aligned with `COMMERCIAL_SNOW_PRIMARY_RASTER_SRC`. */
+export const COMMERCIAL_SNOW_PRIMARY_RASTER_ALT = SNOW_MEDIA.hubDefault.alt;
 
 export const COMMERCIAL_SNOW_SEO = {
   title: "Commercial Snow Removal Contractors | Barrie, Simcoe County",
@@ -50,7 +55,7 @@ export const COMMERCIAL_SNOW_HERO = {
     { value: "24/7", label: "Emergency Response" },
     { value: "$5M+", label: "Liability Coverage" },
   ] as const,
-  heroImageAriaLabel: COMMERCIAL_SNOW_PRIMARY_RASTER_ALT,
+  heroImageAriaLabel: SNOW_HUB_SECTION.hero.alt,
   ctas: {
     primary: { label: "Request Commercial Quote", href: "/contact/" },
     secondary: { label: `Call 24/7: ${PHONE_DISPLAY}`, href: PHONE_TEL },
@@ -176,8 +181,8 @@ export type SnowServiceDeepDive = {
   propertyTypes?: string;
   learnMoreHref: string;
   learnMoreLabel: string;
-  /** Optional override when a distinct raster exists; otherwise hub primary src is used. */
-  imageSrc?: string;
+  imageSrc: string;
+  imageAlt: string;
   /** Vary focal plane when sharing one raster across programs. */
   imageObjectClass?: string;
 };
@@ -186,6 +191,8 @@ export const COMMERCIAL_SNOW_SERVICE_DEEP_DIVES: SnowServiceDeepDive[] = [
   {
     anchor: "svc-parking-lot",
     summary: "Commercial Parking Lot Snow Plowing — Barrie & Simcoe County",
+    imageSrc: SNOW_HUB_DEEP_DIVE_RASTERS[0]!.src,
+    imageAlt: SNOW_HUB_DEEP_DIVE_RASTERS[0]!.alt,
     imageObjectClass: "object-[center_40%]",
     paragraphs: [
       "Parking lot accessibility is the first operational checkpoint of every business day. We clear retail plazas, shopping centres, and office building lots to an operationally accessible standard before your first staff and customers arrive.",
@@ -199,6 +206,8 @@ export const COMMERCIAL_SNOW_SERVICE_DEEP_DIVES: SnowServiceDeepDive[] = [
   {
     anchor: "svc-industrial",
     summary: "Industrial Snow Removal — 24/7 Operational Access for Simcoe County Facilities",
+    imageSrc: SNOW_HUB_DEEP_DIVE_RASTERS[1]!.src,
+    imageAlt: SNOW_HUB_DEEP_DIVE_RASTERS[1]!.alt,
     imageObjectClass: "object-[center_52%]",
     paragraphs: [
       "Industrial facilities operate on schedules that do not accommodate winter delays. Our service deploys loaders and heavy-duty plow trucks for 24/7 operational access, shift-change coordination, and loading dock priority at warehouses and distribution centres.",
@@ -213,6 +222,8 @@ export const COMMERCIAL_SNOW_SERVICE_DEEP_DIVES: SnowServiceDeepDive[] = [
   {
     anchor: "svc-ice",
     summary: "Commercial Ice Management & De-Icing — Barrie, Orillia & Simcoe County",
+    imageSrc: SNOW_HUB_DEEP_DIVE_RASTERS[2]!.src,
+    imageAlt: SNOW_HUB_DEEP_DIVE_RASTERS[2]!.alt,
     imageObjectClass: "object-[center_35%]",
     paragraphs: [
       "Snow removal clears what you can see. Ice management protects against what you cannot—our program addresses pre-storm anti-icing and reactive de-icing across the full freeze-thaw cycle.",
@@ -225,6 +236,8 @@ export const COMMERCIAL_SNOW_SERVICE_DEEP_DIVES: SnowServiceDeepDive[] = [
   {
     anchor: "svc-emergency",
     summary: "24/7 Emergency Snow Removal — Commercial Response Across Barrie & Simcoe County",
+    imageSrc: SNOW_HUB_DEEP_DIVE_RASTERS[3]!.src,
+    imageAlt: SNOW_HUB_DEEP_DIVE_RASTERS[3]!.alt,
     imageObjectClass: "object-[center_48%]",
     paragraphs: [
       "Weather does not operate on a business schedule, nor do we. Automatic dispatch at your trigger depth—no call required. Priority clients receive on-site response within the windows defined in their SLA.",
@@ -236,6 +249,8 @@ export const COMMERCIAL_SNOW_SERVICE_DEEP_DIVES: SnowServiceDeepDive[] = [
   {
     anchor: "svc-hauling",
     summary: "Commercial Snow Hauling & Off-Site Removal — Simcoe County",
+    imageSrc: SNOW_HUB_DEEP_DIVE_RASTERS[4]!.src,
+    imageAlt: SNOW_HUB_DEEP_DIVE_RASTERS[4]!.alt,
     imageObjectClass: "object-[center_58%]",
     paragraphs: [
       "Urban commercial properties frequently run out of on-site storage by mid-season. Loader and dump truck operations reclaim parking capacity and eliminate ice hazard concentrations.",
@@ -247,6 +262,8 @@ export const COMMERCIAL_SNOW_SERVICE_DEEP_DIVES: SnowServiceDeepDive[] = [
   {
     anchor: "svc-retail",
     summary: "Retail Plaza & Shopping Centre Snow Removal — Customer Access, All Season",
+    imageSrc: SNOW_HUB_DEEP_DIVE_RASTERS[5]!.src,
+    imageAlt: SNOW_HUB_DEEP_DIVE_RASTERS[5]!.alt,
     imageObjectClass: "object-[center_44%]",
     paragraphs: [
       "Customer accessibility is the single most critical operational metric for retail businesses during a winter storm. Your property is accessible, professional, and safe before the first customer arrives.",
@@ -258,6 +275,8 @@ export const COMMERCIAL_SNOW_SERVICE_DEEP_DIVES: SnowServiceDeepDive[] = [
   {
     anchor: "svc-property-management",
     summary: "Multi-Site Property Management Snow Removal — Barrie & Simcoe County",
+    imageSrc: SNOW_HUB_DEEP_DIVE_RASTERS[6]!.src,
+    imageAlt: SNOW_HUB_DEEP_DIVE_RASTERS[6]!.alt,
     imageObjectClass: "object-[center_50%]",
     paragraphs: [
       "Standardized SLAs across your entire portfolio. Centralized billing, consolidated service reporting, and one dedicated account contact for all winter maintenance logistics.",
@@ -269,6 +288,8 @@ export const COMMERCIAL_SNOW_SERVICE_DEEP_DIVES: SnowServiceDeepDive[] = [
   {
     anchor: "svc-office-campus",
     summary: "Office Building & Corporate Campus Snow Removal — Professional Standards, Guaranteed",
+    imageSrc: SNOW_HUB_DEEP_DIVE_RASTERS[7]!.src,
+    imageAlt: SNOW_HUB_DEEP_DIVE_RASTERS[7]!.alt,
     imageObjectClass: "object-[center_46%]",
     paragraphs: [
       "Your corporate property's first impression is formed before a client steps inside. Professional clearing standards for executive and visitor areas with GPS-verified documentation.",
@@ -427,49 +448,57 @@ export const COMMERCIAL_SNOW_PROPERTY_TYPES = {
     {
       id: "retail",
       label: "Retail Plazas and Shopping Centres",
-      imageAlt: "Retail plaza winter clearing and ice management in Simcoe County",
+      imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[0]!.src,
+      imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[0]!.alt,
       body: "High-traffic lots, cart corrals, and storefront approaches are sequenced for opening-time access and slip prevention. Ice revisit rules align to retail peaks and municipal expectations.",
     },
     {
       id: "office",
       label: "Office Buildings and Corporate Campuses",
-      imageAlt: "Office campus parking and walkway snow removal",
+      imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[1]!.src,
+      imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[1]!.alt,
       body: "Executive entrances, visitor parking, and ADA-sensitive routes are prioritized per SLA. Documentation supports tenant communication and insurer requests.",
     },
     {
       id: "industrial",
       label: "Industrial Facilities and Warehouses",
-      imageAlt: "Industrial yard and dock snow removal",
+      imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[2]!.src,
+      imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[2]!.alt,
       body: "Yards, docks, and shift-change windows drive blade order. Loader-led clearing supports freight timelines and emergency access.",
     },
     {
       id: "manufacturing",
       label: "Manufacturing and Production Facilities",
-      imageAlt: "Manufacturing plant access and yard snow operations",
+      imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[3]!.src,
+      imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[3]!.alt,
       body: "Production schedules and inbound raw material paths inform route priority. We coordinate with security and shipping for 24/7 operational windows where required.",
     },
     {
       id: "multires",
       label: "Multi-Residential Properties — Condominiums and Apartments",
-      imageAlt: "Condo and apartment commercial snow clearing",
+      imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[4]!.src,
+      imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[4]!.alt,
       body: "Portfolio-standard SLAs, consolidated reporting, and resident-safe pedestrian standards across multi-building sites.",
     },
     {
       id: "medical",
       label: "Medical Facilities and Healthcare Properties",
-      imageAlt: "Healthcare campus access and patient drop-off clearing",
+      imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[5]!.src,
+      imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[5]!.alt,
       body: "Ambulance routes, patient drop-offs, and staff parking are sequenced for continuous access. Ice control emphasizes pedestrian safety at transitions.",
     },
     {
       id: "education",
       label: "Educational Institutions",
-      imageAlt: "School and campus snow removal",
+      imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[6]!.src,
+      imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[6]!.alt,
       body: "Bus lanes, staff lots, and primary walkways align to class schedules and event calendars with documented completion times.",
     },
     {
       id: "hospitality",
       label: "Hospitality and Entertainment Venues",
-      imageAlt: "Hospitality venue parking and entry snow service",
+      imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[7]!.src,
+      imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[7]!.alt,
       body: "Guest arrival lanes, valet zones, and high-visibility entries are maintained to brand standards during storms and refreeze nights.",
     },
   ],
@@ -484,61 +513,71 @@ export const COMMERCIAL_SNOW_WHY_CHOOSE = {
       title: "Commercial-Only Specialization",
       subtitle: "Business-focused fleets—not residential routes.",
       body: "Equipment, routing, and insurance are sized for commercial liability and access windows — not mixed with driveway routes that dilute response.",
-      imageAlt: "Commercial snow fleet staged for business property service",
+      imageSrc: SNOW_HUB_WHY_CHOOSE_RASTERS[0]!.src,
+      imageAlt: SNOW_HUB_WHY_CHOOSE_RASTERS[0]!.alt,
     },
     {
       title: "24/7 Emergency Response with Guaranteed Dispatch Times",
       subtitle: "Storm monitoring with accountable dispatch.",
       body: "Monitoring ties triggers to dispatch rules in your SLA so accountability is contractual, not anecdotal.",
-      imageAlt: "Night operations snow crew dispatching to commercial site",
+      imageSrc: SNOW_HUB_WHY_CHOOSE_RASTERS[1]!.src,
+      imageAlt: SNOW_HUB_WHY_CHOOSE_RASTERS[1]!.alt,
     },
     {
       title: "Industrial and Warehouse Operational Expertise",
       subtitle: "Loading docks, yards, and shift coordination.",
       body: "Loader-led sequences and dock-first priorities keep freight moving when storms stack.",
-      imageAlt: "Loader clearing industrial yard and dock apron",
+      imageSrc: SNOW_HUB_WHY_CHOOSE_RASTERS[2]!.src,
+      imageAlt: SNOW_HUB_WHY_CHOOSE_RASTERS[2]!.alt,
     },
     {
       title: "GPS-Tracked Fleet with Verified Service Documentation",
       subtitle: "Accountability for insurers and asset teams.",
       body: "Time and location data support portfolio reporting and post-event audits without reconstructing verbal logs.",
-      imageAlt: "GPS fleet tracking display for snow operations",
+      imageSrc: SNOW_HUB_WHY_CHOOSE_RASTERS[3]!.src,
+      imageAlt: SNOW_HUB_WHY_CHOOSE_RASTERS[3]!.alt,
     },
     {
       title: "$5 Million Commercial Liability Insurance — Certificates on Request",
       subtitle: "$5M+ programs with certificates on request.",
       body: "Certificates are issued to align with your risk and vendor file requirements at contract execution.",
-      imageAlt: "Commercial insurance documentation folder",
+      imageSrc: SNOW_HUB_WHY_CHOOSE_RASTERS[4]!.src,
+      imageAlt: SNOW_HUB_WHY_CHOOSE_RASTERS[4]!.alt,
     },
     {
       title: "Seasonal Contracts with Written SLA Guarantees",
       subtitle: "Budget certainty and performance clarity.",
       body: "Triggers, standards, and remedies are explicit so finance and operations plan from the same document.",
-      imageAlt: "Signed commercial snow contract and SLA document",
+      imageSrc: SNOW_HUB_WHY_CHOOSE_RASTERS[5]!.src,
+      imageAlt: SNOW_HUB_WHY_CHOOSE_RASTERS[5]!.alt,
     },
     {
       title: "Snow Hauling and Off-Site Removal Capabilities",
       subtitle: "Space-limited sites and municipal compliance.",
       body: "When piles constrain parking or violate local rules, hauling reclaims safe capacity.",
-      imageAlt: "Dump truck and loader hauling snow off-site",
+      imageSrc: SNOW_HUB_WHY_CHOOSE_RASTERS[6]!.src,
+      imageAlt: SNOW_HUB_WHY_CHOOSE_RASTERS[6]!.alt,
     },
     {
       title: "Comprehensive Ice Management—Anti-Icing and De-Icing",
       subtitle: "Anti-icing, de-icing, and refreeze revisits.",
       body: "Programs address what plowing cannot see — thin ice and refreeze after melt.",
-      imageAlt: "De-icing application on commercial sidewalk",
+      imageSrc: SNOW_HUB_WHY_CHOOSE_RASTERS[7]!.src,
+      imageAlt: SNOW_HUB_WHY_CHOOSE_RASTERS[7]!.alt,
     },
     {
       title: "Property Management and Multi-Site Portfolio Experience",
       subtitle: "Portfolios, condos, and centralized reporting.",
       body: "One escalation path and consistent standards across sites reduce storm-night chaos for regional managers.",
-      imageAlt: "Property manager reviewing snow service reports",
+      imageSrc: SNOW_HUB_WHY_CHOOSE_RASTERS[8]!.src,
+      imageAlt: SNOW_HUB_WHY_CHOOSE_RASTERS[8]!.alt,
     },
     {
       title: "Safety-Certified Operators and Compliance-Conscious Operations",
       subtitle: "Trained operators and commercial safety protocols.",
       body: "Field protocols align to WSIB and site rules so commercial sites meet supervisor expectations.",
-      imageAlt: "Safety-certified equipment operators on commercial site",
+      imageSrc: SNOW_HUB_WHY_CHOOSE_RASTERS[9]!.src,
+      imageAlt: SNOW_HUB_WHY_CHOOSE_RASTERS[9]!.alt,
     },
   ],
 } as const;

@@ -3,12 +3,11 @@
 import Image from "next/image";
 import { useId, useState } from "react";
 import { cn } from "@/lib/utils";
-import type { ServiceDef } from "@/lib/site/registry";
-import { getServiceImage } from "@/lib/site/service-images";
 
 type PropertyType = {
   id: string;
   label: string;
+  imageSrc: string;
   imageAlt: string;
   body: string;
 };
@@ -16,15 +15,12 @@ type PropertyType = {
 export function CommercialSnowPropertyTabs({
   tablistAria,
   types,
-  service,
 }: {
   tablistAria: string;
   types: readonly PropertyType[];
-  service: ServiceDef;
 }) {
   const baseId = useId();
   const [selected, setSelected] = useState(0);
-  const img = getServiceImage(service.slug);
 
   if (!types.length) return null;
 
@@ -76,7 +72,13 @@ export function CommercialSnowPropertyTabs({
           >
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-10">
               <div className="relative aspect-[16/10] overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)]">
-                <Image src={img.src} alt={t.imageAlt} fill className="object-cover object-center" sizes="(min-width: 1024px) 40vw, 100vw" />
+                <Image
+                  src={t.imageSrc}
+                  alt={t.imageAlt}
+                  fill
+                  className="object-cover object-center"
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                />
               </div>
               <p className="text-[15px] leading-[1.72] text-ink sm:text-base">{t.body}</p>
             </div>
