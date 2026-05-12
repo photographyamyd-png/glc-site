@@ -29,9 +29,11 @@ export const COMMERCIAL_SNOW_CHAPTERS = [
   { id: "chapter-hero", label: "Overview", shortLabel: "Start" },
   { id: "chapter-pain", label: "Winter risk", shortLabel: "Risk" },
   { id: "chapter-authority", label: "Press proof", shortLabel: "CTV" },
+  { id: "chapter-live-tracking", label: "Dispatch", shortLabel: "Live" },
   { id: "chapter-services", label: "Programs", shortLabel: "Programs" },
   { id: "chapter-coverage", label: "Site flow", shortLabel: "Area" },
   { id: "chapter-proof", label: "Proof", shortLabel: "Proof" },
+  { id: "chapter-specs-compliance", label: "Specs", shortLabel: "Specs" },
   { id: "chapter-contact", label: "Contract", shortLabel: "CTA" },
   { id: "chapter-seo-basement", label: "Specs & FAQ", shortLabel: "FAQ" },
 ] as const;
@@ -98,6 +100,37 @@ export const COMMERCIAL_SNOW_TRUST_ITEMS = [
   { label: "GPS-Tracked Fleet", sub: "Every Service Verified" },
   { label: "WSIB Compliant", sub: "Commercial-Ready" },
 ] as const;
+
+/** Two chips directly under the CTV frame — language aligned to trust + credential rows (no new factual claims). */
+export const COMMERCIAL_SNOW_AUTHORITY_TRUST_CHIPS = [
+  {
+    title: "24/7 emergency dispatch",
+    sub: "Year-round dispatch — no exceptions.",
+    icon: "headset" as const,
+  },
+  {
+    title: "Rapid mobilization (SLA tier)",
+    sub: "~90 min average emergency response — priority SLA tier per contract.",
+    icon: "clock" as const,
+  },
+] as const;
+
+/** Dispatch visualization — representative graphic; not a live third-party map product. */
+export const COMMERCIAL_SNOW_LIVE_TRACKING = {
+  h2Id: "commercial-snow-live-h2",
+  eyebrow: "Dispatch visualization",
+  h2: "Live Response Tracking",
+  visibleLede:
+    "SLA-backed routing and GPS verification are contract-defined on your account. Markers show representative mobilization patterns — not a live consumer map.",
+  figureSrc: SNOW_MEDIA.officeCampusBarrie.src,
+  figureAlt: SNOW_MEDIA.officeCampusBarrie.alt,
+  fleetOverlayLabel: "Representative fleet routing",
+  siteContextLabel: "Site operations context",
+  statusLabel: "Priority emergency tier",
+  statusValue: "~90 min",
+  statusDetail: "Average emergency response — priority SLA tier per contract.",
+  disclaimer: "Illustration only; reporting cadence follows your SLA package.",
+} as const;
 
 /** High-stakes trust band — ≤2 sentences visible (copy-writing pivot). */
 export const COMMERCIAL_SNOW_INFRA_TRUST = {
@@ -493,6 +526,30 @@ export const COMMERCIAL_SNOW_SLA = {
   ],
   outro: "Our SLA framework ensures that your operations planning is based on certainty, not hope.",
 } as const;
+
+/** Tabbed snapshot before final CTA — deep copy remains in SEO basement. */
+export const COMMERCIAL_SNOW_SPECS_COMPLIANCE_BAND = {
+  h2Id: "commercial-snow-specs-h2",
+  eyebrow: "Procurement snapshot",
+  h2: "Technical Specs & Compliance",
+  visibleLede:
+    "Equipment scale and how liability is controlled on paper — expand Technical Specifications & Project FAQ for full narratives.",
+  logisticsTabLabel: "Logistics data",
+  liabilityTabLabel: "Liability protection",
+  logisticsBullets: [
+    COMMERCIAL_SNOW_EQUIPMENT.items[0]!.name,
+    COMMERCIAL_SNOW_EQUIPMENT.items[1]!.name,
+    COMMERCIAL_SNOW_EQUIPMENT.items[2]!.name,
+    COMMERCIAL_SNOW_EQUIPMENT.items[3]!.name,
+  ] as const,
+  liabilityChecklist: [
+    "GPS timestamped logging on service events",
+    "WSIB compliant field operations",
+    "Multi-million-dollar commercial liability programs with certificates on request",
+  ] as const,
+} as const;
+
+export type CommercialSnowSpecsComplianceBand = typeof COMMERCIAL_SNOW_SPECS_COMPLIANCE_BAND;
 
 export const COMMERCIAL_SNOW_CONTRACTS = {
   visibleLede:

@@ -1122,7 +1122,7 @@ export const SERVICE_DETAILS: Record<PrimaryServiceSlug, ServiceDetailCopy> = {
       heading: COMMERCIAL_SNOW_PROCESS.h2,
       steps: COMMERCIAL_SNOW_PROCESS.steps.map((s) => ({ id: s.id, title: s.title, body: s.body })),
     },
-    scopeStripLabels: ["Overview", "Risk", "CTV", "Programs", "Area", "Proof", "Contract", "Specs & FAQ"],
+    scopeStripLabels: ["Overview", "Risk", "CTV", "Live", "Programs", "Area", "Proof", "Specs", "Contract", "FAQ"],
     intro: [COMMERCIAL_SNOW_VALUE_PROP.visibleLede],
     deliverablesHeading: COMMERCIAL_SNOW_EQUIPMENT.h2,
     deliverables: COMMERCIAL_SNOW_EQUIPMENT.items.map((i) => i.name),

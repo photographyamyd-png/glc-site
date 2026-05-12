@@ -7,9 +7,11 @@ import { CardSurface } from "@/components/ui/CardSurface";
 import { CommercialSnowJsonLd } from "@/components/seo/CommercialSnowJsonLd";
 import { CommercialSnowCtvAuthorityBlock } from "@/components/templates/commercial-snow/CommercialSnowCtvAuthorityBlock";
 import { CommercialSnowFieldVideoRail } from "@/components/templates/commercial-snow/CommercialSnowFieldVideoRail";
+import { CommercialSnowLiveTrackingSection } from "@/components/templates/commercial-snow/CommercialSnowLiveTrackingSection";
 import { CommercialSnowMobileCtaBar } from "@/components/templates/commercial-snow/CommercialSnowMobileCtaBar";
 import { CommercialSnowPropertyTabs } from "@/components/templates/commercial-snow/CommercialSnowPropertyTabs";
 import { CommercialSnowSeoTechnicalBasement } from "@/components/templates/commercial-snow/CommercialSnowSeoTechnicalBasement";
+import { CommercialSnowSpecsComplianceTabs } from "@/components/templates/commercial-snow/CommercialSnowSpecsComplianceTabs";
 import { CommercialSnowStickyNav } from "@/components/templates/commercial-snow/CommercialSnowStickyNav";
 import { COMMERCIAL_SNOW_FAQS } from "@/lib/site/commercial-snow-faqs";
 import {
@@ -27,6 +29,7 @@ import {
   COMMERCIAL_SNOW_SERVICE_CARDS,
   COMMERCIAL_SNOW_SERVICE_DEEP_DIVES,
   COMMERCIAL_SNOW_SERVICES_CHAPTER,
+  COMMERCIAL_SNOW_SPECS_COMPLIANCE_BAND,
   COMMERCIAL_SNOW_TRUST_ITEMS,
   COMMERCIAL_SNOW_TRUST_STRIP_ARIA,
   COMMERCIAL_SNOW_VALUE_PROP,
@@ -225,6 +228,8 @@ export function CommercialSnowPage({ related }: Props) {
       </section>
 
       <CommercialSnowCtvAuthorityBlock />
+
+      <CommercialSnowLiveTrackingSection />
 
       {/* —— Services (solution) —— */}
       <section
@@ -426,6 +431,28 @@ export function CommercialSnowPage({ related }: Props) {
         </div>
       </section>
 
+      {/* —— Technical specs snapshot (full depth in SEO basement) —— */}
+      <section
+        id="chapter-specs-compliance"
+        className="section-major band-light relative scroll-mt-[var(--header)] overflow-hidden border-t border-[color:var(--g200)] view-reveal"
+        aria-labelledby={COMMERCIAL_SNOW_SPECS_COMPLIANCE_BAND.h2Id}
+      >
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(118deg,rgb(242_183_5/0.055),transparent_48%)]" aria-hidden />
+        <ClaudeLogicWatermark placement="top-right" mode="default" className="z-[1] opacity-[0.07]" />
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
+          <div className="border-l-4 border-[color:var(--y)] pl-5">
+            <p className="eyebrow text-ink">{COMMERCIAL_SNOW_SPECS_COMPLIANCE_BAND.eyebrow}</p>
+            <h2 id={COMMERCIAL_SNOW_SPECS_COMPLIANCE_BAND.h2Id} className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
+              {COMMERCIAL_SNOW_SPECS_COMPLIANCE_BAND.h2}
+            </h2>
+            <p className="mt-[var(--s7)] max-w-[42rem] text-[15px] leading-[1.72] text-ink sm:text-base">{COMMERCIAL_SNOW_SPECS_COMPLIANCE_BAND.visibleLede}</p>
+          </div>
+          <div className="mt-10">
+            <CommercialSnowSpecsComplianceTabs data={COMMERCIAL_SNOW_SPECS_COMPLIANCE_BAND} />
+          </div>
+        </div>
+      </section>
+
       {/* —— Final CTA —— */}
       <section
         id="chapter-contact"
@@ -509,7 +536,7 @@ export function CommercialSnowPage({ related }: Props) {
         </div>
       </section>
 
-      <CommercialSnowSeoTechnicalBasement />
+      <CommercialSnowSeoTechnicalBasement summaryTone="rail" />
 
       <CommercialSnowMobileCtaBar />
     </article>
