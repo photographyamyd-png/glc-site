@@ -18,8 +18,14 @@ import {
   FOUNDATIONS_KNOWLEDGE_HUB_ACCORDIONS,
   FOUNDATIONS_KNOWLEDGE_HUB_TITLE,
   FOUNDATIONS_SERVICE_CARDS,
+  FOUNDATIONS_SUB_SLUGS,
   FOUNDATIONS_TECHNICAL_BASEMENT,
 } from "@/lib/site/foundations-civil-infrastructure-content";
+import {
+  foundationsBlueprintMotif,
+  FoundationsHubServiceFilmstrip,
+  FoundationsHubVisualBridge,
+} from "@/components/foundations/FoundationsHubLaneRhythm";
 import {
   toFoundationsCtaBandProps,
   toFoundationsMegaMenuCards,
@@ -89,32 +95,111 @@ export function FoundationsCivilInfrastructureHubPage() {
         </div>
       </section>
 
-      {/* Post-hero — GLC-DNA lane sections (sandbox-approved blocks + lane CSS). */}
+      {/* Post-hero — GLC-DNA lane sections + layered rhythm (imagery / scrims / rails; order unchanged). */}
       <GlcDnaLaneStyles />
+      <FoundationsHubVisualBridge slug={FOUNDATIONS_SUB_SLUGS[7]} variant="into-dark" priority />
+
       <div className="glc-dna-sandbox" id="foundations-glc-dna-lane">
-        <div className="section-major scroll-mt-[var(--header)] border-b-4 border-[color:var(--y)]">
-          <WhySection {...toFoundationsWhyProps()} />
+        <div className="relative isolate scroll-mt-[var(--header)] border-b-4 border-[color:var(--y)]">
+          <div
+            className="pointer-events-none absolute inset-0 z-[1] opacity-[0.14]"
+            style={{
+              background:
+                "radial-gradient(ellipse 65% 70% at 18% 12%, rgb(242 183 5 / 0.35) 0%, transparent 52%), radial-gradient(ellipse 50% 45% at 92% 88%, rgb(242 183 5 / 0.12) 0%, transparent 48%)",
+            }}
+            aria-hidden
+          />
+          <ClaudeLogicWatermark placement="top-left" mode="on-dark" className="z-[2] opacity-[0.12]" />
+          <div className="relative z-[3]">
+            <WhySection {...toFoundationsWhyProps()} />
+          </div>
         </div>
-        <div className="section-major scroll-mt-[var(--header)] border-b border-[color:var(--g200)]">
-          <ProcessSection {...toFoundationsProcessProps()} />
+
+        <FoundationsHubVisualBridge slug={FOUNDATIONS_SUB_SLUGS[0]} variant="into-light" />
+
+        <div className="relative isolate scroll-mt-[var(--header)] overflow-hidden border-b border-[color:var(--g200)] bg-white">
+          <div className={foundationsBlueprintMotif} aria-hidden />
+          <div
+            className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_70%_55%_at_20%_0%,rgb(242_183_5/0.08),transparent_55%)]"
+            aria-hidden
+          />
+          <ClaudeLogicWatermark placement="center-right" mode="default" className="z-[2] opacity-[0.06]" />
+          <div className="relative z-[3]">
+            <ProcessSection {...toFoundationsProcessProps()} />
+          </div>
         </div>
-        <div className="section-major scroll-mt-[var(--header)]">
-          <ServicesGridSection cards={megaCards} {...toFoundationsServicesGridProps()} />
+
+        <FoundationsHubVisualBridge slug={FOUNDATIONS_SUB_SLUGS[2]} variant="into-light" />
+
+        <div className="relative isolate scroll-mt-[var(--header)] overflow-hidden">
+          <div
+            className="pointer-events-none absolute inset-0 z-[0] opacity-[0.06]"
+            style={{
+              background:
+                "radial-gradient(ellipse 80% 60% at 50% 0%, rgb(30 28 26 / 0.2) 0%, transparent 55%), linear-gradient(180deg, rgb(255 255 255 / 0.9) 0%, transparent 28%)",
+            }}
+            aria-hidden
+          />
+          <ClaudeLogicWatermark placement="top-right" mode="default" className="z-[2] opacity-[0.05]" />
+          <div className="relative z-[3]">
+            <FoundationsHubServiceFilmstrip slugs={FOUNDATIONS_SUB_SLUGS.slice(0, 6)} />
+            <ServicesGridSection cards={megaCards} {...toFoundationsServicesGridProps()} />
+          </div>
         </div>
-        <div className="section-major scroll-mt-[var(--header)] border-b border-[color:var(--g200)]">
-          <StatsSection {...toFoundationsStatsProps()} />
+
+        <FoundationsHubVisualBridge slug={FOUNDATIONS_SUB_SLUGS[4]} variant="into-dark" />
+
+        <div className="relative isolate scroll-mt-[var(--header)] border-b border-[color:var(--g200)]">
+          <ClaudeLogicWatermark placement="bottom-left" mode="on-dark" className="z-[2] opacity-[0.1]" />
+          <div className="relative z-[3]">
+            <StatsSection {...toFoundationsStatsProps()} />
+          </div>
         </div>
-        <div className="section-major scroll-mt-[var(--header)]">
-          <CtaBandSection {...toFoundationsCtaBandProps()} />
+
+        <FoundationsHubVisualBridge slug={FOUNDATIONS_SUB_SLUGS[5]} variant="into-dark" />
+
+        <div className="relative isolate scroll-mt-[var(--header)]">
+          <ClaudeLogicWatermark placement="bottom-right" mode="on-dark" className="z-[2] opacity-[0.08]" />
+          <div className="relative z-[3]">
+            <CtaBandSection {...toFoundationsCtaBandProps()} />
+          </div>
         </div>
       </div>
 
-      {/* Quote form — adjunct (not a DNA section); lane spacing via max width shell. */}
+      <FoundationsHubVisualBridge slug={FOUNDATIONS_SUB_SLUGS[3]} variant="into-light" />
+
+      {/* Quote form — hero-style layers on brand yellow (adjunct, not a DNA section). */}
       <section
-        className="relative scroll-mt-[var(--header)] border-y-4 border-[color:var(--ink-deep)] bg-[color:var(--y)] py-[var(--section-v)]"
+        className="relative scroll-mt-[var(--header)] overflow-hidden border-y-4 border-[color:var(--ink-deep)] py-[var(--section-v)]"
         aria-labelledby="foundations-quote-form-heading"
       >
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,color-mix(in_srgb,var(--ink-deep)_12%,transparent),transparent_50%)]" aria-hidden />
+        <Image
+          src={heroImage.src}
+          alt=""
+          fill
+          className="object-cover object-[center_35%] opacity-[0.18]"
+          sizes="100vw"
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-[color:var(--y)]" aria-hidden />
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[rgb(10_12_11/0.22)] via-transparent to-[rgb(10_12_11/0.18)]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.35)] via-transparent to-[rgb(255_255_255/0.12)]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.2]"
+          style={{
+            background:
+              "radial-gradient(ellipse 70% 55% at 78% 30%, rgb(242 183 5 / 0.55) 0%, transparent 50%)",
+          }}
+          aria-hidden
+        />
+        <ClaudeLogicWatermark placement="top-left" mode="default" className="z-[1] opacity-[0.07]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,color-mix(in_srgb,var(--ink-deep)_14%,transparent),transparent_48%)]" aria-hidden />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <FoundationsHubQuoteForm />
         </div>
@@ -122,9 +207,10 @@ export function FoundationsCivilInfrastructureHubPage() {
 
       {/* SEO basement — native <details> for FAQ crawl parity with FoundationsHubJsonLd (not FeaturedAccordion). */}
       <section
-        className="band-light-field relative z-[6] -mt-8 scroll-mt-[var(--header)] border-t border-[color:var(--y)] bg-[rgb(255_255_255/0.97)] pb-[var(--section-v)] pt-10 shadow-[0_-20px_56px_rgb(0_0_0/0.12)] backdrop-blur-xl sm:-mt-10 lg:-mt-12"
+        className="band-light-field relative isolate z-[6] -mt-8 overflow-hidden scroll-mt-[var(--header)] border-t border-[color:var(--y)] bg-[rgb(255_255_255/0.97)] pb-[var(--section-v)] pt-10 shadow-[0_-20px_56px_rgb(0_0_0/0.12)] backdrop-blur-xl sm:-mt-10 lg:-mt-12"
         aria-labelledby="foundations-knowledge-hub-heading"
       >
+        <div className={foundationsBlueprintMotif} aria-hidden />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--y)_5%,transparent),transparent_45%)]" aria-hidden />
         <ClaudeLogicWatermark placement="center-left" mode="default" className="opacity-[0.05]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
