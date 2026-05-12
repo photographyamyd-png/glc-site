@@ -137,14 +137,15 @@
   --sidebar-border: var(--g200);
   --sidebar-ring: var(--y);
 
-  /* Site header (components/ui/SiteHeader.tsx) — surfaces from tokens only */
-  --site-header-utility-bg: color-mix(in srgb, var(--ink-deep) 96%, transparent);
-  --site-header-utility-border: color-mix(in srgb, var(--brand-white) 10%, transparent);
-  --site-header-nav-bg: color-mix(in srgb, var(--popover) 90%, transparent);
-  --site-header-nav-bg-scrolled: color-mix(in srgb, var(--popover) 94%, transparent);
-  --site-header-nav-scrolled-shadow: 0 4px 20px color-mix(in srgb, var(--ink-deep) 8%, transparent);
-  --site-header-mega-panel-bg: color-mix(in srgb, var(--popover) 97%, transparent);
-  --site-header-mega-card-bg: color-mix(in srgb, var(--card) 80%, transparent);
+  /* Site header + mega (composed from palette; docs/porting/gl-mega-menu-port-pack.md) */
+  --header-utility-bg: color-mix(in srgb, var(--ink-deep) 96%, transparent);
+  --header-utility-border: color-mix(in srgb, var(--brand-white) 10%, transparent);
+  --header-nav-bg: color-mix(in srgb, var(--popover) 90%, transparent);
+  --header-nav-bg-scrolled: color-mix(in srgb, var(--popover) 94%, transparent);
+  --header-nav-shadow: 0 4px 20px color-mix(in srgb, var(--ink-deep) 8%, transparent);
+  --mega-panel-bg: color-mix(in srgb, var(--popover) 97%, transparent);
+  --mega-elevated-surface: color-mix(in srgb, var(--card) 80%, transparent);
+  --mega-mobile-row-bg: color-mix(in srgb, var(--popover) 95%, transparent);
 }
 
 @theme inline {
@@ -215,43 +216,6 @@ body {
 
 .font-label {
   font-family: var(--font-barlow-condensed), system-ui, sans-serif;
-}
-
-/* Site header — token-backed chrome (mega panels in-flow under fixed header) */
-.site-header-utility-bar {
-  border-bottom: 1px solid var(--site-header-utility-border);
-  background: var(--site-header-utility-bg);
-  color: var(--brand-white);
-}
-
-.site-header-nav-shell {
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: var(--glass-depth);
-  transition:
-    background-color 0.2s var(--ease),
-    box-shadow 0.2s var(--ease);
-}
-
-.site-header-nav-shell[data-scrolled="true"] {
-  background: var(--site-header-nav-bg-scrolled);
-  box-shadow: var(--site-header-nav-scrolled-shadow);
-}
-
-.site-header-nav-shell[data-scrolled="false"] {
-  background: var(--site-header-nav-bg);
-}
-
-.site-header-mega-panel {
-  border-top: 1px solid var(--border);
-  background: var(--site-header-mega-panel-bg);
-}
-
-.site-header-mega-panel-transition {
-  transition: opacity 0.2s var(--ease);
-}
-
-.site-header-mega-card {
-  background: var(--site-header-mega-card-bg);
 }
 
 /* Section eyebrows / kickers — Barlow Condensed (approved stack); pair with text-ink, text-white, etc. */
@@ -398,6 +362,58 @@ body {
 .grain-overlay svg {
   width: 100%;
   height: 100%;
+}
+
+/* Site header + mega surfaces (token-only; see docs/porting/gl-mega-menu-port-pack.md) */
+.site-header-utility-bar {
+  background: var(--header-utility-bg);
+  border-bottom: 1px solid var(--header-utility-border);
+  color: var(--brand-white);
+}
+
+.site-header-nav-shell {
+  border-bottom: 1px solid var(--border);
+  background: var(--header-nav-bg);
+  backdrop-filter: var(--glass-depth);
+  transition:
+    background 0.2s var(--ease),
+    box-shadow 0.2s var(--ease);
+}
+
+.site-header-nav-shell[data-scrolled="true"] {
+  background: var(--header-nav-bg-scrolled);
+  box-shadow: var(--header-nav-shadow);
+}
+
+.mega-panel {
+  border-top: 1px solid var(--border);
+  background: var(--mega-panel-bg);
+  backdrop-filter: var(--glass-depth);
+}
+
+.mega-panel--enter {
+  transition: opacity 0.2s var(--ease);
+}
+
+.mega-elevated {
+  background: var(--mega-elevated-surface);
+}
+
+.mega-service-link {
+  border: 1px solid transparent;
+  transition:
+    border-color 0.15s var(--ease),
+    background-color 0.15s var(--ease);
+}
+
+.mega-service-link:hover {
+  border-color: var(--border);
+  background: var(--muted);
+}
+
+.mega-mobile-row {
+  border: 1px solid var(--border);
+  background: var(--mega-mobile-row-bg);
 }
 
 .panel-machined {
