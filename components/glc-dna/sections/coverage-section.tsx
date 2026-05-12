@@ -3,11 +3,14 @@ import type { CoverageProps } from "@/lib/glc-dna/types";
 
 /** Dark-band coverage — Lane B; ids namespaced so Lane A `#coverage` stays canonical for nav anchors. */
 export function CoverageSection(props: CoverageProps) {
+  const sectionId = props.sectionId ?? "glc-dna-coverage";
+  const headingId = `${sectionId}-heading`;
+
   return (
     <section
-      id="glc-dna-coverage"
+      id={sectionId}
       className="coverage section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden view-reveal"
-      aria-labelledby="glc-dna-coverage-heading"
+      aria-labelledby={headingId}
     >
       {/* STRUCTURE: top accent + radial glow (see .coverage__fx-* in glc-base.css) */}
       <span aria-hidden className="coverage__fx-radial" />
@@ -17,7 +20,7 @@ export function CoverageSection(props: CoverageProps) {
           <div className="coverage__intro">
             <Reveal className="eyebrow coverage__eyebrow">{props.eyebrow}</Reveal>
             <Reveal delayClass="reveal--delay-1">
-              <h2 id="glc-dna-coverage-heading" className="coverage__heading">
+              <h2 id={headingId} className="coverage__heading">
                 {props.headingBefore}
                 <em>{props.headingEmphasis}</em>
                 {props.headingAfter}

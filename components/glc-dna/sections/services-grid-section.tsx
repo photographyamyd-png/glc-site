@@ -11,16 +11,16 @@ const delayFor = (i: number): RevealDelayClass | undefined => {
 
 type Props = ServicesSectionProps & { cards: MegaMenuCard[] };
 
-export function ServicesGridSection({ cards, ...props }: Props) {
+export function ServicesGridSection({ cards, sectionId = "glc-dna-services", servicesHeadingId = "glc-dna-services-heading", ...props }: Props) {
   return (
-    <section id="glc-dna-services" aria-labelledby="glc-dna-services-heading">
+    <section id={sectionId} aria-labelledby={servicesHeadingId}>
       <div className="services__header">
         <div>
           <Reveal className="eyebrow eyebrow--dark" style={{ marginBottom: 16 }}>
             {props.eyebrow}
           </Reveal>
           <Reveal delayClass="reveal--delay-1">
-            <h2 id="glc-dna-services-heading" className="services__heading">
+            <h2 id={servicesHeadingId} className="services__heading">
               {props.headingLine1}
               <br />
               <span>{props.headingLine2}</span>

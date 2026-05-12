@@ -1,13 +1,13 @@
 import { IconArrow } from "@/components/glc-dna/ui/icon-arrow";
 import type { CtaBandProps } from "@/lib/glc-dna/types";
 
-type CtaBandSectionProps = CtaBandProps & {
-  sectionId?: string;
-};
-
-export function CtaBandSection({ sectionId = "cta-band", ...props }: CtaBandSectionProps) {
+export function CtaBandSection({
+  sectionId = "cta-band",
+  headingId = "cta-heading",
+  ...props
+}: CtaBandProps) {
   return (
-    <section id={sectionId} aria-labelledby="cta-heading" data-accent-family="cta" data-accent-zone="conversion-endband">
+    <section id={sectionId} aria-labelledby={headingId} data-accent-family="cta" data-accent-zone="conversion-endband">
       {/* Structural diagonal accent */}
       <div className="cta3__diag" aria-hidden data-motif-id="cta3__diag" />
 
@@ -19,7 +19,7 @@ export function CtaBandSection({ sectionId = "cta-band", ...props }: CtaBandSect
             <span className="cta3__eyebrow">{props.eyebrow}</span>
             <span className="cta3__eyebrow-line" data-motif-id="cta3__eyebrow-line" />
           </div>
-          <h2 id="cta-heading" className="cta3__heading">
+          <h2 id={headingId} className="cta3__heading">
             {props.headingLine1}
             <br />
             {props.headingLine2}

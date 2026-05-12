@@ -1,7 +1,7 @@
 import type { StatsProps } from "@/lib/glc-dna/types";
 import { StatCellAnimated } from "@/components/glc-dna/ui/stat-cell-animated";
 
-export function StatsSection({ cells }: StatsProps) {
+export function StatsSection({ cells, sectionId = "stats" }: StatsProps) {
   const delays = [
     undefined,
     "reveal--delay-1",
@@ -10,7 +10,7 @@ export function StatsSection({ cells }: StatsProps) {
   ] as const;
 
   return (
-    <section id="stats" aria-label="Company statistics" data-accent-family="stats" data-accent-zone="metrics-data">
+    <section id={sectionId} aria-label="Company statistics" data-accent-family="stats" data-accent-zone="metrics-data">
       {/* Yellow punctuation rail */}
       <div className="st3__top-rail" aria-hidden />
 
