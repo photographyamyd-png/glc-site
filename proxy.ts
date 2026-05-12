@@ -78,6 +78,7 @@ function getMaintenanceHosts(): string[] {
 function isAssetOrInternalPath(pathname: string): boolean {
   if (pathname.startsWith("/_next")) return true;
   if (pathname.startsWith("/favicon")) return true;
+  if (pathname.startsWith("/api/")) return true;
   return /\.(ico|png|jpg|jpeg|svg|webp|gif|woff2?|txt|xml|webmanifest)$/i.test(
     pathname,
   );

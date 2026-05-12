@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ContactLeadForm } from "@/components/contact/ContactLeadForm";
 import { MarketingPageShell } from "@/components/templates/MarketingPageShell";
 import { SEO_TITLES } from "@/lib/site/registry";
 import { CORE_COPY } from "@/lib/site/copy";
@@ -52,6 +53,19 @@ export default function ContactPage() {
               </Link>
             ))}
           </div>
+        </article>
+        <article className="rounded-xl border border-[color:var(--g200)] bg-white/80 p-5 backdrop-blur-sm sm:col-span-2">
+          <p className="label-overline">Send a message</p>
+          <p className="mt-2 max-w-prose text-[15px] leading-[1.72] text-ink-muted sm:text-base">
+            Submit the form and we will route it to dispatch. For urgent mobilization, call the number above.
+          </p>
+          <ContactLeadForm
+            idPrefix="contact-page"
+            source="contact"
+            variant="default"
+            className="mt-6 max-w-2xl"
+            submitLabel="Send message"
+          />
         </article>
       </div>
     </MarketingPageShell>

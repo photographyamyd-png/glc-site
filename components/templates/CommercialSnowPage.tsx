@@ -6,6 +6,7 @@ import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { CardSurface } from "@/components/ui/CardSurface";
 import { CommercialSnowJsonLd } from "@/components/seo/CommercialSnowJsonLd";
 import { CommercialSnowMediaBroadcastSection } from "@/components/templates/commercial-snow/CommercialSnowMediaBroadcastSection";
+import { CommercialSnowPropertyTabs } from "@/components/templates/commercial-snow/CommercialSnowPropertyTabs";
 import { CommercialSnowStickyNav } from "@/components/templates/commercial-snow/CommercialSnowStickyNav";
 import { COMMERCIAL_SNOW_FAQS } from "@/lib/site/commercial-snow-faqs";
 import {
