@@ -7,68 +7,78 @@ import { cn } from "@/lib/utils";
 const a = COPY_LAB_AGITATOR;
 const fieldImage = getServiceImage("site-preparation-grading");
 
-const cardLayout = [
-  "relative z-[3] motion-reduce:transform-none lg:absolute lg:left-[2%] lg:top-4 lg:w-[min(100%,380px)] lg:-rotate-[1.5deg]",
-  "relative z-[2] motion-reduce:transform-none lg:absolute lg:left-[28%] lg:top-[52%] lg:w-[min(100%,360px)] lg:translate-y-[-50%] lg:rotate-[1deg]",
-  "relative z-[1] motion-reduce:transform-none lg:absolute lg:right-[2%] lg:top-10 lg:w-[min(100%,360px)] lg:-rotate-[0.75deg]",
-] as const;
-
 export function HomeAgitatorSection() {
   return (
     <section
       id="agitator"
-      className="section-major band-light-drift relative scroll-mt-[var(--header)] overflow-hidden view-reveal"
+      className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden text-white view-reveal"
       aria-labelledby="agitator-heading"
     >
-      <div className="pointer-events-none absolute inset-0 opacity-[0.14]" aria-hidden>
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
         <Image
           src={fieldImage.src}
           alt=""
           fill
-          className="object-cover mix-blend-multiply"
+          className="object-cover opacity-[0.22]"
           sizes="100vw"
           aria-hidden
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[rgb(252_251_249/0.92)] via-[rgb(248_247_245/0.88)] to-[rgb(245_243_240/0.95)]" />
+        <div className="absolute inset-0 bg-[rgb(30_28_26/0.82)]" />
+        <div
+          className="absolute inset-0 bg-[linear-gradient(135deg,rgb(0_0_0/0.45),transparent_42%,rgb(242_183_5/0.07))]"
+          aria-hidden
+        />
       </div>
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--y)]/50 to-transparent"
-        aria-hidden
-      />
-      <ClaudeLogicWatermark placement="top-right" className="opacity-[0.06]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-[color:var(--y)]" aria-hidden />
+      <ClaudeLogicWatermark placement="center-right" className="opacity-[0.1]" />
 
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6">
-        <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
-          <p className="eyebrow text-ink">{a.eyebrow}</p>
-          <h2
-            id="agitator-heading"
-            className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
-          >
-            {a.heading}
-          </h2>
-          <p className="mt-6 max-w-xl text-[15px] leading-[1.72] text-ink sm:text-base">{a.lede}</p>
+        <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5 lg:col-span-5">
+            <p className="eyebrow text-white">{a.eyebrow}</p>
+            <h2
+              id="agitator-heading"
+              className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
+            >
+              {a.heading}
+            </h2>
+            <p className="mt-6 max-w-xl font-sans text-[15px] leading-[1.72] text-white/90 sm:text-base">{a.lede}</p>
+          </div>
+
+          <figure className="relative isolate overflow-hidden border border-white/10 bg-[rgb(10_12_11/0.35)] shadow-[0_24px_64px_rgb(0_0_0/0.45)] backdrop-blur-sm lg:col-span-7">
+            <div className="relative aspect-[4/3] min-h-[200px] w-full sm:min-h-[240px] lg:min-h-[280px]">
+              <Image
+                src={fieldImage.src}
+                alt={a.imageAlt}
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+              />
+              <div
+                className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgb(0_0_0/0.5),transparent_55%)]"
+                aria-hidden
+              />
+            </div>
+          </figure>
         </div>
 
-        <div className="relative mt-14 min-h-0 lg:mt-16 lg:min-h-[400px]">
-          <ul className="flex list-none flex-col gap-6 lg:block lg:gap-0">
-            {a.cards.map((card, i) => (
-              <li
-                key={card.title}
-                className={cn(
-                  "bespoke-surface panel-machined border border-[color:var(--g200)] border-l-[4px] border-l-[color:var(--y)] bg-white/95 p-6 shadow-[0_18px_48px_rgb(0_0_0/0.12)] backdrop-blur-sm transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none lg:p-8",
-                  "hover:-translate-y-1 hover:shadow-[0_26px_56px_rgb(0_0_0/0.16)] motion-reduce:hover:transform-none",
-                  cardLayout[i] ?? "",
-                )}
-              >
-                <p className="eyebrow text-[color:var(--y)]">{card.accent}</p>
-                <h3 className="mt-2 font-serif text-xl font-bold uppercase tracking-[0.04em] text-ink sm:text-2xl">
-                  {card.title}
-                </h3>
-                <p className="mt-3 text-[15px] leading-[1.72] text-[color:var(--text-600)] sm:text-base">{card.body}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className="mt-14 list-none space-y-6 lg:mt-16 lg:grid lg:grid-cols-3 lg:gap-6 lg:space-y-0">
+          {a.cards.map((card) => (
+            <li
+              key={card.title}
+              className={cn(
+                "border border-white/10 border-l-[4px] border-l-[color:var(--y)] bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_24px_64px_rgb(0_0_0/0.35)] backdrop-blur-md transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none lg:p-8",
+                "hover:-translate-y-1 hover:shadow-[0_28px_72px_rgb(0_0_0/0.45)] motion-reduce:hover:transform-none",
+              )}
+            >
+              <p className="eyebrow text-[color:var(--y)]">{card.accent}</p>
+              <h3 className="mt-2 font-serif text-xl font-bold uppercase tracking-[0.04em] text-white sm:text-2xl">
+                {card.title}
+              </h3>
+              <p className="mt-3 font-sans text-[15px] leading-[1.72] text-white/90 sm:text-base">{card.body}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
