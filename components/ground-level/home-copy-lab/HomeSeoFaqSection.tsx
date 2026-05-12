@@ -1,9 +1,15 @@
 import { GlcFaqDetailsGrid } from "@/components/faq/GlcFaqDetailsGrid";
+import { ServiceLabImg } from "@/components/ground-level/service-layout-lab/ServiceLabImg";
+import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { COPY_LAB_HOME_FAQ } from "@/lib/ground-level/home-copy-lab-content";
-import { cn } from "@/lib/utils";
+import { getServiceImage, getServiceImageRasterPlaceholder } from "@/lib/site/service-images";
 
 const FAQ_NAME = "home-faq";
+
+const FAQ_FIELD_SLUG = "excavation-site-preparation" as const;
+const fieldImage = getServiceImage(FAQ_FIELD_SLUG);
+const fieldImageFallback = getServiceImageRasterPlaceholder(FAQ_FIELD_SLUG);
 
 export function HomeSeoFaqSection() {
   const f = COPY_LAB_HOME_FAQ;
@@ -14,46 +20,43 @@ export function HomeSeoFaqSection() {
       className="section-major band-light-drift relative scroll-mt-[var(--header)] overflow-hidden view-reveal"
       aria-labelledby="home-faq-heading"
     >
-      <div
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.6),transparent_40%)]"
-        aria-hidden
-      />
-      <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
-        <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
-          <p className="eyebrow text-ink">{f.eyebrow}</p>
-          <h2 id="home-faq-heading" className="mt-3 font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl">
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+        <ServiceLabImg
+          src={fieldImage.src}
+          fallbackSrc={fieldImageFallback}
+          alt=""
+          sizes="100vw"
+          className="h-full w-full object-cover opacity-[0.1] sm:opacity-[0.14]"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.94),rgb(252_251_249/0.88))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(125deg,transparent_42%,rgb(242_183_5/0.045))]" />
+      </div>
+
+      <ClaudeLogicWatermark placement="bottom-right" mode="on-light" className="z-[1]" />
+
+      <div className="relative z-10 mx-auto w-full max-w-[min(100%,var(--max-bleed))]">
+        <div className="mx-auto max-w-[min(100%,var(--max))] rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:max-w-4xl lg:pt-10">
+          <p className="hero-eyebrow label-overline-on-dark mb-0">{f.eyebrow}</p>
+          <h2
+            id="home-faq-heading"
+            className="mt-[var(--s7)] font-serif text-3xl font-semibold uppercase leading-tight tracking-tight text-white sm:text-4xl"
+          >
             {f.heading}
           </h2>
-          <div className="mt-5 max-w-xl">
-            <ExpandableCopy text={f.intro} className="text-sm leading-relaxed text-ink-muted sm:text-base" />
+          <div className="hero-caption mt-[var(--s7)] max-w-xl">
+            <ExpandableCopy text={f.intro} className="text-[15px] leading-relaxed text-white/90 sm:text-base" />
           </div>
-        </div>
+          <div className="hero-rule mt-6 h-px w-full max-w-md bg-[color:var(--y)]/40" aria-hidden />
 
-        <div className="mt-10 space-y-10">
-          {f.groups.map((group, gi) => {
-            const items = (
-              <>
-                {group.sectionTitle ? (
-                  <h3 className="font-label text-[12px] font-semibold uppercase tracking-[0.1em] text-ink-muted">{group.sectionTitle}</h3>
-                ) : null}
-                <GlcFaqDetailsGrid className="mt-2 w-full" items={group.items} groupName={FAQ_NAME} tone="light" />
-              </>
-            );
-
-            if (group.anchorId) {
-              return (
-                <div key={`${group.anchorId}-${gi}`} id={group.anchorId} className={cn("scroll-mt-[var(--header)] space-y-4")}>
-                  {items}
-                </div>
-              );
-            }
-
-            return (
-              <div key={`faq-group-${gi}`} className="space-y-4">
-                {items}
-              </div>
-            );
-          })}
+          <div className="mt-8">
+            <GlcFaqDetailsGrid
+              clusters={[...f.groups]}
+              embedded
+              groupName={FAQ_NAME}
+              tone="dark"
+              className="w-full"
+            />
+          </div>
         </div>
       </div>
     </section>
