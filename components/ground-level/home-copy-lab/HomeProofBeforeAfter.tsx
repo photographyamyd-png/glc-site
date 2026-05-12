@@ -26,35 +26,44 @@ export function HomeProofBeforeAfter() {
     const el = trackRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
-    const x = Math.min(Math.max(clientX - rect.left, 0), rect.width);
-    setPct(Math.round((x / rect.width) * 100));
+    const w = rect.width;
+    if (w <= 0) return;
+    const x = Math.min(Math.max(clientX - rect.left, 0), w);
+    setPct(Math.round((x / w) * 100));
   }, []);
 
-  useEffect(() => {
-    const onUp = () => {
-      dragging.current = false;
-    };
-    window.addEventListener("mouseup", onUp);
-    window.addEventListener("touchend", onUp);
-    return () => {
-      window.removeEventListener("mouseup", onUp);
-      window.removeEventListener("touchend", onUp);
-    };
+  const endDrag = useCallback((el: HTMLDivElement | null, pointerId: number) => {
+    dragging.current = false;
+    if (!el) return;
+    try {
+      if (el.hasPointerCapture(pointerId)) el.releasePointerCapture(pointerId);
+    } catch {
+      /* capture already released */
+    }
   }, []);
 
-  useEffect(() => {
-    const onMove = (e: MouseEvent | TouchEvent) => {
-      if (!dragging.current) return;
-      const clientX = "touches" in e ? e.touches[0]?.clientX ?? 0 : e.clientX;
-      setFromClientX(clientX);
-    };
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("touchmove", onMove, { passive: false });
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("touchmove", onMove);
-    };
-  }, [setFromClientX]);
+  const onPointerDown = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      e.currentTarget.setPointerCapture(e.pointerId);
+      dragging.current = true;
+      setFromClientX(e.clientX);
+    },
+    [setFromClientX],
+  );
+
+  const onPointerMove = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      if (!dragging.current || !e.currentTarget.hasPointerCapture(e.pointerId)) return;
+      if (e.pointerType !== "mouse" && e.cancelable) e.preventDefault();
+      setFromClientX(e.clientX);
+    },
+    [setFromClientX],
+  );
+
+  const onPointerUpOrCancel = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    endDrag(e.currentTarget, e.pointerId);
+  }, [endDrag]);
 
   const onKeyDown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "ArrowLeft") {
@@ -124,7 +133,7 @@ export function HomeProofBeforeAfter() {
               ) : (
                 <div
                   ref={trackRef}
-                  className="relative aspect-[16/10] min-h-[260px] w-full touch-none select-none"
+                  className="relative aspect-[4/3] min-h-[200px] w-full touch-none select-none sm:aspect-[16/10] sm:min-h-[240px] lg:min-h-[260px]"
                   role="slider"
                   tabIndex={0}
                   aria-valuemin={0}
@@ -133,14 +142,12 @@ export function HomeProofBeforeAfter() {
                   aria-valuetext={`${pct}% before imagery visible`}
                   aria-labelledby={labelId}
                   onKeyDown={onKeyDown}
-                  onMouseDown={(e) => {
-                    dragging.current = true;
-                    setFromClientX(e.clientX);
-                  }}
-                  onTouchStart={(e) => {
-                    dragging.current = true;
-                    const t = e.touches[0];
-                    if (t) setFromClientX(t.clientX);
+                  onPointerDown={onPointerDown}
+                  onPointerMove={onPointerMove}
+                  onPointerUp={onPointerUpOrCancel}
+                  onPointerCancel={onPointerUpOrCancel}
+                  onLostPointerCapture={() => {
+                    dragging.current = false;
                   }}
                 >
                   <Image
@@ -170,20 +177,9 @@ export function HomeProofBeforeAfter() {
                   />
                   <button
                     type="button"
-                    className="absolute top-1/2 z-[2] flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize items-center justify-center rounded-full border-2 border-[color:var(--y)] bg-[rgb(10_12_11/0.75)] text-xs font-bold uppercase tracking-wider text-white shadow-lg backdrop-blur-sm"
+                    className="absolute top-1/2 z-[2] flex min-h-[48px] min-w-[48px] -translate-x-1/2 -translate-y-1/2 cursor-ew-resize touch-manipulation items-center justify-center rounded-full border-2 border-[color:var(--y)] bg-[rgb(10_12_11/0.75)] px-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg backdrop-blur-sm sm:h-12 sm:w-12 sm:px-0 motion-reduce:transition-none"
                     style={{ left: `${pct}%` }}
                     aria-label="Drag to compare before and after"
-                    onMouseDown={(e) => {
-                      e.stopPropagation();
-                      dragging.current = true;
-                      setFromClientX(e.clientX);
-                    }}
-                    onTouchStart={(e) => {
-                      e.stopPropagation();
-                      dragging.current = true;
-                      const t = e.touches[0];
-                      if (t) setFromClientX(t.clientX);
-                    }}
                   >
                     Drag
                   </button>
