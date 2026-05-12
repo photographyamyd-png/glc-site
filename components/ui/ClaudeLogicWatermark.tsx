@@ -31,7 +31,16 @@ export function ClaudeLogicWatermark({ placement = "bottom-right", className = "
       aria-hidden
     >
       {/* eslint-disable-next-line @next/next/no-img-element -- static SVG watermark */}
-      <img src="/images/Logos/claude-logic-mark.svg" alt="" width={320} height={320} className="h-auto w-[min(52vw,280px)] max-w-none sm:w-[min(40vw,320px)]" />
+      <img
+        src="/images/Logos/claude-logic-mark.svg"
+        alt=""
+        width={320}
+        height={320}
+        className="h-auto w-[min(52vw,280px)] max-w-none sm:w-[min(40vw,320px)]"
+        loading="lazy"
+        decoding="async"
+        fetchPriority="low"
+      />
     </div>
   );
 }

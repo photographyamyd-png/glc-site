@@ -25,6 +25,7 @@ export function HomeFinalCtaSection() {
           src={fieldImage.src}
           fallbackSrc={fieldImageFallback}
           alt=""
+          sizes="100vw"
           className="h-full w-full object-cover opacity-[0.2] sm:opacity-[0.24]"
         />
         <div className="absolute inset-0 bg-[rgb(18_17_16/0.94)]" />

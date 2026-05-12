@@ -272,6 +272,7 @@ export function HeroSection(props: HeroProps) {
               className="hero-v2__ghost-mark-img"
               draggable={false}
               decoding="async"
+              fetchPriority="low"
             />
           </div>
 

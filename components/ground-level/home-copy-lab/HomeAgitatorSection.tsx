@@ -22,6 +22,7 @@ export function HomeAgitatorSection() {
           src={fieldImage.src}
           fallbackSrc={fieldImageFallback}
           alt=""
+          sizes="100vw"
           className="h-full w-full object-cover opacity-[0.22]"
         />
         <div className="absolute inset-0 bg-[rgb(30_28_26/0.82)]" />
@@ -52,6 +53,7 @@ export function HomeAgitatorSection() {
                 src={fieldImage.src}
                 fallbackSrc={fieldImageFallback}
                 alt={a.imageAlt}
+                sizes="(min-width: 1024px) 58vw, 100vw"
                 className="absolute inset-0 h-full w-full object-cover"
               />
               <div

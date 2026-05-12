@@ -98,7 +98,7 @@ export function FoundationsCivilInfrastructureHubPage() {
 
       {/* Post-hero — GLC-DNA lane sections + layered rhythm (imagery / scrims / rails; order unchanged). */}
       <GlcDnaLaneStyles />
-      <FoundationsHubVisualBridge slug={FOUNDATIONS_SUB_SLUGS[7]} variant="into-dark" priority />
+      <FoundationsHubVisualBridge slug={FOUNDATIONS_SUB_SLUGS[7]} variant="into-dark" />
 
       <div className="glc-dna-sandbox" id="foundations-glc-dna-lane">
         <div className="relative isolate scroll-mt-[var(--header)] border-b-4 border-[color:var(--y)]">

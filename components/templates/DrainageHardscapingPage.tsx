@@ -861,13 +861,31 @@ export function DrainageHardscapingPage({ service, related }: Props) {
               </div>
               <div className="mt-10 grid gap-4 sm:grid-cols-3">
                 <div className="relative aspect-[4/3] border border-[color:var(--g200)]">
-                  <Image src={DRAINAGE_IMAGES.integrationExpand1.src} alt={DRAINAGE_IMAGES.integrationExpand1.alt} fill className="object-cover" />
+                  <Image
+                    src={DRAINAGE_IMAGES.integrationExpand1.src}
+                    alt={DRAINAGE_IMAGES.integrationExpand1.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                  />
                 </div>
                 <div className="relative aspect-[4/3] border border-[color:var(--g200)]">
-                  <Image src={DRAINAGE_IMAGES.integrationExpand2.src} alt={DRAINAGE_IMAGES.integrationExpand2.alt} fill className="object-cover" />
+                  <Image
+                    src={DRAINAGE_IMAGES.integrationExpand2.src}
+                    alt={DRAINAGE_IMAGES.integrationExpand2.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                  />
                 </div>
                 <div className="relative aspect-[4/3] border border-[color:var(--g200)]">
-                  <Image src={DRAINAGE_IMAGES.integrationExpand3.src} alt={DRAINAGE_IMAGES.integrationExpand3.alt} fill className="object-cover" />
+                  <Image
+                    src={DRAINAGE_IMAGES.integrationExpand3.src}
+                    alt={DRAINAGE_IMAGES.integrationExpand3.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                  />
                 </div>
               </div>
             </ExpandSection>
