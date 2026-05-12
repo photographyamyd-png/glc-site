@@ -4,7 +4,7 @@ Use this document when porting the GLC header / mega-menu pattern to another cod
 
 **File paths for “bring GLC into Cursor” (corrected for this repo):** see [`bring-list-to-other-repo.md`](./bring-list-to-other-repo.md) — older notes that mention `src/components/layout/…` or `glc-base.css` do not match this Next.js tree.
 
-**Legacy split mega + zip bundle (for other machines):** [`gl-mega-menu-full-source-for-other-repo/README.md`](./gl-mega-menu-full-source-for-other-repo/README.md) — includes example JSON/types; add recovered `.tsx` and CSS extract to complete; zip at repo root `glc-mega-menu-source-bundle.zip`.
+**Split mega + zip bundle (for other machines):** [`gl-mega-menu-full-source-for-other-repo/README.md`](./gl-mega-menu-full-source-for-other-repo/README.md) — TS/CSS/JSON mirror production; regenerate **`glc-mega-menu-source-bundle.zip`** from that folder when sources change (see README).
 
 ## Where tokens live (this repo)
 
@@ -43,7 +43,7 @@ Use this document when porting the GLC header / mega-menu pattern to another cod
 
 ### Layout tokens
 
-- Width: `--max` (1320px), `--max-bleed`, `--container-max`, `--header`, `--site-header-offset`.
+- Width: `--max` (1320px), `--max-bleed`, `--container-max`, `--header`, `--site-header-offset` (defaults in `globals.css`; **`GlcRecoveredSiteHeader`** sets `--site-header-offset` and `--header` on `<html>` from the measured height of fixed `#site-header` so hero `pt-[var(--site-header-offset)]` stays aligned when the utility row wraps or the mobile bar is visible).
 - Spacing scale: `--s1` … `--s14` (8px grid-style steps).
 
 ### Motion
@@ -135,6 +135,8 @@ Re-verify line numbers if `globals.css` changes (`rg -n "^:root|^@theme|^\\.eyeb
 
 **Layout:** `#site-header` is **fixed** with `z-index: var(--gl-header-z)` (900). Mega panels are **`position: absolute; top: 100%; left: 0; right: 0`** under the header (recovered `gl-mega-panel` CSS). Styles live in [`app/glc-recovered-mega-shell.css`](../../app/glc-recovered-mega-shell.css) (header chrome + drawer) and [`app/glc-recovered-mega-extracted.css`](../../app/glc-recovered-mega-extracted.css) (mega grid, `.btn-primary`, backdrop).
 
+**Hero offset:** `useLayoutEffect` + `ResizeObserver` on `#site-header` writes `--site-header-offset` / `--header` to `document.documentElement` so full-bleed heroes (`pt-[var(--site-header-offset)]`, `scroll-mt-[var(--site-header-offset)]`, `min-h-[calc(100svh-var(--site-header-offset)-…)]`) track the real chrome height (including the extra mobile bar row under `1024px`).
+
 ### Accessibility (mega triggers)
 
 - **Services** / **Company** triggers: `aria-expanded`, `aria-haspopup`, `aria-controls` wired to `mega-services-panel` / `mega-company-panel`.
@@ -147,6 +149,6 @@ Production implementation uses Next.js (`next/link`), React client hooks only—
 
 1. Paste or `@` this repo’s [`components/ui/SiteHeader.tsx`](../../components/ui/SiteHeader.tsx) and [`content/navigation.json`](../../content/navigation.json).
 2. Paste or `@` the `globals.css` slices listed in section 3 (or `@` full [`app/globals.css`](../../app/globals.css) and ask the model to ignore unrelated sections).
-3. Paste or quote **section 4** of this file for current behavior (hover grace delay, `usePathname` close, `gl-mega-open`, backdrop).
+3. Paste or quote **section 4** of this file for current behavior (hover grace delay, `usePathname` close, `gl-mega-open`, backdrop, measured `--site-header-offset`).
 
 There is **no** monolithic `glc-base.css` in-repo; recovered mega rules live in **`app/glc-recovered-mega-extracted.css`** plus the shell file above.

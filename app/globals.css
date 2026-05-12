@@ -69,7 +69,7 @@
 
   --max: 1320px;
   --max-bleed: 1440px;
-  /* Full fixed header stack (utility + nav); responsive bumps below. --header aliases this for scroll-margin / sticky / calc(). */
+  /* Full fixed header stack — fallbacks before client measures `#site-header` (see GlcRecoveredSiteHeader). */
   --site-header-offset: 106px;
   --header: var(--site-header-offset);
 

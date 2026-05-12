@@ -106,7 +106,7 @@ Production GLC uses the recovered split header (`glc-recovered-site-header` + me
 For the **split** header/mega implementation, extracted CSS slice, and copy-paste prompts intended for another machine, see:
 
 - Folder: [`gl-mega-menu-full-source-for-other-repo/`](./gl-mega-menu-full-source-for-other-repo/README.md)
-- Zip (regenerate after copying recovered TS/CSS into the folder): **`glc-mega-menu-source-bundle.zip`** at repo root (see README in that folder for `Compress-Archive`).
+- Zip: **`glc-mega-menu-source-bundle.zip`** at repo root — regenerate with `Compress-Archive -Path "docs/porting/gl-mega-menu-full-source-for-other-repo\*" …` (see [`gl-mega-menu-full-source-for-other-repo/README.md`](./gl-mega-menu-full-source-for-other-repo/README.md); use `\*` for a flat zip).
 
 That bundle can be refreshed by copying from this repo: `components/layout/glc-recovered-site-header.tsx`, `mega-menu-*.tsx`, `mobile-drawer.tsx`, `utility-rotator.tsx`, `app/glc-recovered-mega-*.css`, and `content/navigation.json` (plus shims under `components/ui/` and `lib/routes.ts` if the target lacks those paths).
 

@@ -1,0 +1,293 @@
+/**
+ * Shell layout for recovered GLC header + mega + mobile drawer.
+ * Load after app/globals.css. Pairs with glc-recovered-mega-extracted.css.
+ */
+
+/* Bridge vars used by recovered mega CSS (see glc-dna-lane / legacy glc-base naming) */
+:root {
+  --gl-header-z: 900;
+  --ease-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --r: var(--radius);
+  --white: var(--brand-white);
+  --gold: var(--brand-yellow-mid);
+  --yellow-tint: rgb(242 183 5 / 0.08);
+  --yellow-tint-md: rgb(242 183 5 / 0.14);
+  --gray-100: color-mix(in srgb, var(--canvas) 55%, var(--brand-white));
+  --text-500: var(--ink-warm);
+  --text-600: rgb(30 28 26 / 0.72);
+  --text-700: var(--ink-mid);
+}
+
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--gl-header-z);
+  background: var(--brand-white);
+}
+
+#site-header.scrolled .gl-header__nav-row {
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--ink-deep) 8%, transparent);
+}
+
+.gl-header__utility {
+  background: color-mix(in srgb, var(--ink-deep) 96%, transparent);
+  color: var(--brand-white);
+  border-bottom: 1px solid color-mix(in srgb, var(--brand-white) 10%, transparent);
+  font-family: var(--font-barlow-condensed), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.gl-header__utility-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 24px;
+}
+
+.gl-header__utility-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.gl-util-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: inherit;
+}
+
+.gl-util-item a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.gl-util-item a:hover {
+  color: var(--yellow-core);
+}
+
+.gl-header__utility-rotator {
+  color: color-mix(in srgb, var(--brand-white) 70%, transparent);
+  max-width: min(100%, 420px);
+  text-align: right;
+}
+
+.gl-header__gold-strip {
+  height: 4px;
+  background: var(--yellow-core);
+}
+
+.gl-header__nav-row {
+  position: relative;
+  background: color-mix(in srgb, var(--popover) 94%, transparent);
+  backdrop-filter: var(--glass-depth);
+  -webkit-backdrop-filter: var(--glass-depth);
+  border-bottom: 1px solid var(--border);
+}
+
+.gl-header__nav-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 24px;
+}
+
+.gl-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--ink-deep);
+}
+
+.gl-logo-mark {
+  flex-shrink: 0;
+}
+
+.gl-header__wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.gl-wordmark-name {
+  font-family: var(--font-oswald), system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.gl-wordmark-sub {
+  font-family: var(--font-source-sans), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.gl-header__nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.gl-header__nav-links > a,
+.gl-header__nav-links > .gl-nav-mega-wrap {
+  font-family: var(--font-source-sans), system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-600);
+}
+
+.gl-header__nav-links > a {
+  padding: 8px 14px;
+  text-decoration: none;
+  transition: color 0.2s var(--ease-expo), background 0.2s var(--ease-expo);
+}
+
+.gl-header__nav-links > a:hover {
+  color: var(--charcoal-deep);
+  background: var(--yellow-tint);
+}
+
+.gl-nav-mega-trigger {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+}
+
+.gl-header__cta-wrap .btn-primary {
+  text-decoration: none;
+}
+
+.gl-header__mobile-bar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.gl-hamburger-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--popover) 92%, transparent);
+  color: var(--ink-deep);
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .gl-header__nav-inner .gl-header__nav-links,
+  .gl-header__nav-inner .gl-header__cta-wrap {
+    display: none;
+  }
+
+  .gl-header__mobile-bar {
+    display: flex;
+  }
+}
+
+/* Mobile drawer */
+.gl-mobile-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--gl-header-z) + 2);
+}
+
+.gl-mobile-drawer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(14 12 10 / 0.45);
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.gl-mobile-drawer__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(100%, 400px);
+  background: var(--canvas);
+  border-left: 1px solid var(--border);
+  overflow-y: auto;
+  padding: 20px 20px 32px;
+  box-shadow: -12px 0 40px rgb(0 0 0 / 0.12);
+}
+
+.gl-mobile-drawer__section {
+  margin-bottom: 28px;
+}
+
+.gl-mobile-drawer__label {
+  font-family: var(--font-barlow-condensed), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 10px;
+}
+
+.gl-mobile-drawer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gl-mobile-drawer__list a {
+  display: block;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-deep);
+  text-decoration: none;
+}
+
+.gl-mobile-drawer__list a:hover {
+  color: var(--yellow-core);
+}
+
+.gl-mobile-drawer__phone {
+  display: block;
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink-deep);
+  text-decoration: none;
+}
+
+.gl-mobile-drawer__phone:hover {
+  color: var(--yellow-core);
+}
+
+/* Stack mega panels above nav chrome inside fixed header */
+#site-header .gl-mega-panel {
+  z-index: 2;
+}
