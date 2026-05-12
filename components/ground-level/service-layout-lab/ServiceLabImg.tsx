@@ -9,11 +9,11 @@ type Props = {
   className?: string;
 };
 
-/** Local `/images/*` may 404; swap to placehold on error. */
+/** Local `/images/*` may 404; swap to raster placeholder on error. */
 export function ServiceLabImg({ src, fallbackSrc, alt, className }: Props) {
   const [current, setCurrent] = useState(src);
   const onError = useCallback(() => {
-    setCurrent(fallbackSrc);
+    setCurrent((prev) => (prev === fallbackSrc ? prev : fallbackSrc));
   }, [fallbackSrc]);
 
   return (

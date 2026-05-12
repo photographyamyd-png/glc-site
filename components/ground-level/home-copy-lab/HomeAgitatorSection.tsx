@@ -1,11 +1,14 @@
-import Image from "next/image";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
+import { ServiceLabImg } from "@/components/ground-level/service-layout-lab/ServiceLabImg";
 import { COPY_LAB_AGITATOR } from "@/lib/ground-level/home-copy-lab-content";
-import { getServiceImage } from "@/lib/site/service-images";
+import { getServiceImage, getServiceImageRasterPlaceholder } from "@/lib/site/service-images";
 import { cn } from "@/lib/utils";
 
+const AGITATOR_IMAGE_SLUG = "site-preparation-grading" as const;
+
 const a = COPY_LAB_AGITATOR;
-const fieldImage = getServiceImage("site-preparation-grading");
+const fieldImage = getServiceImage(AGITATOR_IMAGE_SLUG);
+const fieldImageFallback = getServiceImageRasterPlaceholder(AGITATOR_IMAGE_SLUG);
 
 export function HomeAgitatorSection() {
   return (
@@ -15,13 +18,11 @@ export function HomeAgitatorSection() {
       aria-labelledby="agitator-heading"
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <Image
+        <ServiceLabImg
           src={fieldImage.src}
+          fallbackSrc={fieldImageFallback}
           alt=""
-          fill
-          className="object-cover opacity-[0.22]"
-          sizes="100vw"
-          aria-hidden
+          className="h-full w-full object-cover opacity-[0.22]"
         />
         <div className="absolute inset-0 bg-[rgb(30_28_26/0.82)]" />
         <div
@@ -47,12 +48,11 @@ export function HomeAgitatorSection() {
 
           <figure className="relative isolate overflow-hidden border border-white/10 bg-[rgb(10_12_11/0.35)] shadow-[0_24px_64px_rgb(0_0_0/0.45)] backdrop-blur-sm lg:col-span-7">
             <div className="relative aspect-[4/3] min-h-[200px] w-full sm:min-h-[240px] lg:min-h-[280px]">
-              <Image
+              <ServiceLabImg
                 src={fieldImage.src}
+                fallbackSrc={fieldImageFallback}
                 alt={a.imageAlt}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="absolute inset-0 h-full w-full object-cover"
               />
               <div
                 className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgb(0_0_0/0.5),transparent_55%)]"

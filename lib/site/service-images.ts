@@ -60,6 +60,15 @@ export function getServiceImageAlt(slug: ServiceDef["slug"] | SnowSubServiceSlug
   return getServiceImage(slug).alt;
 }
 
+/**
+ * Raster placeholder when canonical `/images/services/*` files are missing locally.
+ * Prefer over placehold.co defaults (often SVG) which break `next/image` and some CSPs.
+ */
+export function getServiceImageRasterPlaceholder(slug: string): string {
+  const label = slug.replace(/-/g, " ").slice(0, 24);
+  return `https://dummyimage.com/640x400/1e1c1a/f2b705.png&text=${encodeURIComponent(label)}`;
+}
+
 /** Second hauling raster for scope two-up on the hauling service page only. */
 export function getHaulingScopeProofImage(): ServiceImage {
   return {
