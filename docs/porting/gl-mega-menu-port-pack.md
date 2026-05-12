@@ -2,6 +2,8 @@
 
 Use this document when porting the GLC header / mega-menu pattern to another codebase. Pair it with that project’s own tokens—do not copy GLC hex values into a foreign design system unless you intend to match GLC visually.
 
+**File paths for “bring GLC into Cursor” (corrected for this repo):** see [`bring-list-to-other-repo.md`](./bring-list-to-other-repo.md) — older notes that mention `src/components/layout/…` or `glc-base.css` do not match this Next.js tree.
+
 ## Where tokens live (this repo)
 
 - **Primary:** [`app/globals.css`](../../app/globals.css) — `:root` custom properties, shadcn-aligned aliases, `@theme inline` (Tailwind v4), and utilities (`.eyebrow`, `.label-overline`, `.panel-machined`, `.cta-primary`, etc.).
