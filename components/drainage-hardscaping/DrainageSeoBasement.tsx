@@ -1,5 +1,5 @@
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
-import { DRAINAGE_SEO_BASEMENT } from "@/lib/site/drainage-hardscaping-landing-content";
+import { DRAINAGE_PAGE_BASEMENT_ACCORDIONS, DRAINAGE_SEO_BASEMENT } from "@/lib/site/drainage-hardscaping-landing-content";
 
 const detailsClass =
   "group border border-[color:var(--g200)] bg-white p-3 shadow-sm panel-machined";
@@ -31,7 +31,7 @@ export function DrainageSeoBasement() {
         </div>
 
         <div className="mt-10 space-y-3">
-          {DRAINAGE_SEO_BASEMENT.blocks.map((block) => (
+          {DRAINAGE_PAGE_BASEMENT_ACCORDIONS.map((block) => (
             <details key={block.summary} name="drainage-seo-basement" className={detailsClass}>
               <summary className={summaryClass}>
                 <span className="text-left">{block.summary}</span>

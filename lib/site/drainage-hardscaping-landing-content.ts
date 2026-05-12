@@ -148,6 +148,59 @@ export const DRAINAGE_PROOF_BEFORE_AFTER = {
     "Drag the divider to compare a saturated perimeter / failed drainage context with a corrected grade and conveyance package ready for inspection and cover scopes.",
 } as const;
 
+/** Technical cross-section band — copy + layer labels; diagram is inline SVG in component. */
+export const DRAINAGE_CROSS_SECTION = {
+  eyebrow: "Technical",
+  h2: "Subsurface cross-section — pipe, bedding, and stone envelope",
+  caption:
+    "Illustrative section (not a site-specific drawing). Field dimensions, pipe class, and stone gradation follow your civil / geotech IFC and Ontario Building Code exposure assumptions.",
+  layerLabels: [
+    "Finish / restore",
+    "Bedding lift",
+    "Carrier pipe",
+    "Clear stone envelope",
+    "Filter / separation",
+    "Native soils",
+  ] as const,
+} as const;
+
+export type DrainageBasementAccordionBlock = {
+  summary: string;
+  paragraphs: readonly string[];
+};
+
+/** Trimmed FAQ entries rendered in SEO basement `<details>` and mirrored in FAQPage JSON-LD. */
+export const DRAINAGE_SLIM_FAQ_FOR_BASEMENT: readonly DrainageBasementAccordionBlock[] = [
+  {
+    summary: "What is foundation drain tile and how does it work?",
+    paragraphs: [
+      "Perforated pipe at the footing perimeter collects groundwater and routes it to a sump or daylight outlet, lowering hydrostatic pressure against the wall.",
+      "Modern installs use sock-wrapped PVC in washed clear stone; layout and outlet capacity follow structural and civil drawings.",
+    ],
+  },
+  {
+    summary: "How do I know if my weeping tile needs to be replaced?",
+    paragraphs: [
+      "Watch for wet basements, efflorescence, constant sump cycling, soggy perimeter soil, or cracks that track with storms — especially on pre-1980s clay tile runs.",
+      "Inspect before failure; proactive replacement is usually cheaper than chronic infiltration repair.",
+    ],
+  },
+  {
+    summary: "Can you fix drainage problems on a sloped property?",
+    paragraphs: [
+      "Yes — we combine grading, french drains, swales, basins, and structure when the grade needs it, targeting spring thaw and peak flows.",
+      "Sequencing ties surface collection to storm or private outlets per your plan.",
+    ],
+  },
+  {
+    summary: "How long does a drain tile system last?",
+    paragraphs: [
+      "A correctly built PVC run in clear stone, with proper slope and outlet sizing, often lasts 25–50+ years with little maintenance when installed to spec.",
+      "Older clay systems in the region are commonly past typical design life — evaluate before catastrophic failure.",
+    ],
+  },
+] as const;
+
 /** SEO basement — educational; defer to engineer / OBC / geotech (no project guarantees). */
 export const DRAINAGE_SEO_BASEMENT = {
   sectionEyebrow: "Reference library",
@@ -179,14 +232,20 @@ export const DRAINAGE_SEO_BASEMENT = {
   ],
 } as const;
 
+/** All `<details>` rows in the page basement: technical first, then slim FAQ. */
+export const DRAINAGE_PAGE_BASEMENT_ACCORDIONS: readonly DrainageBasementAccordionBlock[] = [
+  ...DRAINAGE_SEO_BASEMENT.blocks,
+  ...DRAINAGE_SLIM_FAQ_FOR_BASEMENT,
+] as const;
+
 export const DRAINAGE_HERO = {
   /** Full phrase for audits / JSON-LD-adjacent reference. */
   h1: "End Standing Water & Foundation Risks — Drainage & Hardscaping in Barrie & Simcoe County",
   h1LineBefore: "End Standing Water",
   h1LineAccent: "& Foundation Risks",
   /** Service scope line under H1 (still drainage-led). */
-  kicker: "Drainage, hardscaping & landscaping · Simcoe County",
-  sub: "We engineer surface and subsurface drainage — culverts, french drains, catch basins, and grades tied to storm — so hardscapes and foundations stay dry through freeze-thaw.",
+  kicker: "Licensed drainage installs · Barrie, Orillia & Simcoe County",
+  sub: "We engineer culverts, french drains, catch basins, and storm tie-ins so finished grades shed water — field work documented to IFC and municipal inspection.",
   ctaPrimary: "Request a Drainage Assessment",
   ctaSecondary: "Book a Free Site Visit",
   breadcrumbHome: "Home",
@@ -853,8 +912,8 @@ export const DRAINAGE_FINAL_CTA = {
   line1: "Stop the Water. Fix the Grade.",
   line2: "Build Something Exceptional.",
   subParas: [
-    "Complete drainage, hardscaping, and landscaping for Barrie, Orillia, Simcoe County, Wasaga Beach, and Innisfil.",
-    "Every project starts with a free site assessment and a written quote.",
+    "Drainage assessments, written scopes, and installs for Barrie, Orillia, Simcoe County, Wasaga Beach, and Innisfil.",
+    "Request a drainage assessment — we respond with sequencing, capacity, and next steps.",
   ],
   ctaPrimary: "Request a Drainage Assessment",
   ctaSecondary: "Book a Free Site Visit",
@@ -862,8 +921,8 @@ export const DRAINAGE_FINAL_CTA = {
   finePrint: "Licensed & insured. WSIB compliant. Serving Simcoe County since [YEAR].",
 } as const;
 
-export const DRAINAGE_JSONLD_FAQ = DRAINAGE_FAQ.items.map((item) => ({
+export const DRAINAGE_JSONLD_FAQ = DRAINAGE_SLIM_FAQ_FOR_BASEMENT.map((item) => ({
   "@type": "Question" as const,
-  name: item.q,
-  acceptedAnswer: { "@type": "Answer" as const, text: item.aParas.join(" ") },
+  name: item.summary,
+  acceptedAnswer: { "@type": "Answer" as const, text: item.paragraphs.join(" ") },
 }));

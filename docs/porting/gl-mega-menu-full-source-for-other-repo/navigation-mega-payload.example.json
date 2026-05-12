@@ -104,12 +104,9 @@
   },
   "mobile": {
     "links": [
-      { "label": "About", "href": "/about/" },
-      { "label": "All Services", "href": "/services/" },
       { "label": "Services overview", "href": "/#services" },
-      { "label": "Our Process", "href": "/#process" },
-      { "label": "Coverage Area", "href": "/#coverage" },
-      { "label": "Projects", "href": "/#testimonials" }
+      { "label": "Why Ground Level", "href": "/#why" },
+      { "label": "Site consultation", "href": "/#cta-band" }
     ]
   },
   "footer": {

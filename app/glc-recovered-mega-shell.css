@@ -312,7 +312,7 @@
 .gl-mobile-drawer__section--dispatch {
   margin-top: 6px;
   margin-bottom: 0;
-  padding: 20px 18px 22px;
+  padding: 16px 14px 18px;
   border: 1px solid var(--mega-dispatch-border, rgb(255 255 255 / 0.12));
   background: var(--mega-dispatch-bg, rgb(10 12 11 / 0.92));
   box-shadow:
@@ -320,20 +320,96 @@
     0 14px 36px rgb(0 0 0 / 0.18);
 }
 
-.gl-mobile-drawer__section--dispatch .gl-mobile-drawer__label {
-  color: rgb(250 249 247 / 0.88);
+.gl-mobile-drawer__dispatch-split {
+  display: grid;
+  gap: 18px;
+  align-items: stretch;
 }
 
-.gl-mobile-drawer__section--dispatch .gl-mobile-drawer__label-icon {
+@media (min-width: 360px) {
+  .gl-mobile-drawer__dispatch-split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 16px 18px;
+    align-items: center;
+  }
+}
+
+.gl-mobile-drawer__dispatch-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  padding: 14px 12px;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  background: rgb(255 255 255 / 0.06);
+}
+
+.gl-mobile-drawer__dispatch-logo {
+  width: 100%;
+  max-width: min(220px, 46vw);
+  height: auto;
+  object-fit: contain;
+}
+
+.gl-mobile-drawer__dispatch-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.gl-mobile-drawer__dispatch-kicker {
+  margin: 0;
+  font-family: var(--font-barlow-condensed), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--yellow-core);
 }
 
-.gl-mobile-drawer__section--dispatch .gl-mobile-drawer__phone {
+.gl-mobile-drawer__dispatch-headline {
+  margin: 0;
+  font-family: var(--font-oswald), system-ui, sans-serif;
+  font-size: clamp(1.05rem, 3.8vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   color: rgb(250 249 247 / 0.96);
 }
 
-.gl-mobile-drawer__section--dispatch .gl-mobile-drawer__phone:hover {
+.gl-mobile-drawer__dispatch-lede {
+  margin: 0;
+  font-family: var(--font-source-sans), system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: rgb(250 249 247 / 0.76);
+}
+
+.gl-mobile-drawer__phone--dispatch {
+  margin-top: 4px;
+  font-size: clamp(1.2rem, 4.5vw, 1.45rem);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: rgb(250 249 247 / 0.98);
+  text-decoration: none;
+}
+
+.gl-mobile-drawer__phone--dispatch:hover {
   color: var(--yellow-core);
+}
+
+.gl-mobile-drawer__dispatch-btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.gl-mobile-drawer__dispatch-btn:focus-visible {
+  outline: 2px solid var(--yellow-core);
+  outline-offset: 3px;
 }
 
 .gl-mobile-drawer__label {
@@ -363,7 +439,7 @@
   padding: 0;
 }
 
-/* Grouped link lists (Navigate, Company) — machined tray */
+/* Grouped link lists (Explore tray) — machined */
 .gl-mobile-drawer__section .gl-mobile-drawer__list:not(.gl-mobile-drawer__list--services) {
   border: 1px solid var(--border);
   background: var(--mega-mobile-row-bg, color-mix(in srgb, var(--brand-white) 94%, var(--ink-deep) 6%));
@@ -532,6 +608,12 @@
   align-self: center;
 }
 
+.gl-mobile-drawer__phone--dispatch:focus-visible {
+  outline: 2px solid var(--yellow-core);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 .gl-mobile-drawer__phone {
   display: block;
   margin-top: 10px;
@@ -549,11 +631,6 @@
 
 .gl-mobile-drawer__phone:hover {
   color: var(--yellow-core);
-}
-
-.gl-mobile-drawer__section--dispatch .btn-primary {
-  width: 100%;
-  justify-content: center;
 }
 
 @media (prefers-reduced-motion: reduce) {

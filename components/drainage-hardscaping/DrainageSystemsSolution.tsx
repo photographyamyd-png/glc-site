@@ -15,7 +15,7 @@ function systemsImage(field: SystemsImageField) {
 export function DrainageSystemsSolution() {
   return (
     <section
-      className="section-major band-light relative isolate scroll-mt-[var(--header)] overflow-hidden border-b border-[color:var(--g200)] px-0"
+      className="section-major band-light relative isolate scroll-mt-[var(--header)] overflow-hidden border-t-4 border-[color:var(--y)] border-b border-[color:var(--g200)] px-0"
       aria-labelledby="drainage-systems-h2"
     >
       <div
