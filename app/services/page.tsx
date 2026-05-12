@@ -31,7 +31,10 @@ export default function ServicesIndexPage() {
           <p className="eyebrow text-white">
             Home / Services
           </p>
-          <h1 className="mt-3 max-w-4xl font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <h1
+            id="services-index-title"
+            className="mt-3 max-w-4xl font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl lg:text-5xl"
+          >
             Six <span className="text-[color:var(--y)]">Core</span> Service Lines
           </h1>
           <p className="mt-5 max-w-3xl text-[15px] leading-[1.72] text-white/90 sm:text-base">
@@ -42,11 +45,9 @@ export default function ServicesIndexPage() {
 
       <GLFeaturedServicesBento
         sectionId="services-grid"
-        headingId="services-heading"
+        showIntroHeader={false}
+        sectionAriaLabelledBy="services-index-title"
         content={{
-          eyebrow: "Our Services",
-          heading: "Six Core Service Lines",
-          intro: CORE_COPY.servicesIndex.lede,
           cta: "Request a quote",
           ctaHref: "/contact/",
         }}

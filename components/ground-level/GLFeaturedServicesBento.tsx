@@ -31,11 +31,18 @@ function toneSplit(text: string) {
 export type GLFeaturedServicesBentoProps = {
   sectionId?: string;
   headingId?: string;
-  content?: GLFeaturedServicesContent;
+  content?: Partial<GLFeaturedServicesContent>;
   /** Defaults to `GROUND_LEVEL_SERVICES`. */
   services?: readonly GroundLevelService[];
   showProgressRail?: boolean;
   showStepNumbers?: boolean;
+  /**
+   * When false, skips eyebrow + H2 + intro (e.g. services index already has page H1 + lede).
+   * Pass `sectionAriaLabelledBy` with the id of that heading for `aria-labelledby`.
+   */
+  showIntroHeader?: boolean;
+  /** Element id elsewhere in the document; used as section accessible name when `showIntroHeader` is false. */
+  sectionAriaLabelledBy?: string;
 };
 
 const defaultFeaturedContent: GLFeaturedServicesContent = {
@@ -45,6 +52,10 @@ const defaultFeaturedContent: GLFeaturedServicesContent = {
   cta: FEATURED_SERVICES.cta,
   ctaHref: "/contact",
 };
+
+function mergeFeaturedContent(content?: Partial<GLFeaturedServicesContent>): GLFeaturedServicesContent {
+  return { ...defaultFeaturedContent, ...content };
+}
 
 function isInternalRoute(href: string) {
   return href.startsWith("/") || href.startsWith("#");
@@ -175,8 +186,10 @@ export function GLFeaturedServicesBento({
   services: servicesProp,
   showProgressRail = true,
   showStepNumbers = true,
+  showIntroHeader = true,
+  sectionAriaLabelledBy,
 }: GLFeaturedServicesBentoProps = {}) {
-  const featured = content ?? defaultFeaturedContent;
+  const featured = mergeFeaturedContent(content);
   const services = servicesProp ?? GROUND_LEVEL_SERVICES;
   const servicesWithImages = useMemo(() => mergeLabImages(services), [services]);
   const [selected, setSelected] = useState(0);
@@ -239,34 +252,44 @@ export function GLFeaturedServicesBento({
 
   if (!tiles) return null;
 
+  const sectionA11yProps = showIntroHeader
+    ? ({ "aria-labelledby": headingId } as const)
+    : sectionAriaLabelledBy
+      ? ({ "aria-labelledby": sectionAriaLabelledBy } as const)
+      : ({ "aria-label": "Core service lines" } as const);
+
   return (
     <section
       id={sectionId}
       className="section-major band-light relative scroll-mt-[var(--header)] overflow-hidden view-reveal"
-      aria-labelledby={headingId}
+      {...sectionA11yProps}
     >
       <div
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(250_250_250),rgb(255_255_255))]"
         aria-hidden
       />
       <ClaudeLogicWatermark placement="top-left" className="opacity-[0.07]" />
-      <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6">
-        <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
-          <p className="label-overline mb-3">{featured.eyebrow}</p>
-          <h2
-            id={headingId}
-            className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
-          >
-            {toneSplit(featured.heading)}
-          </h2>
-          <div className="mt-[var(--s7)]">
-            <ExpandableCopy text={featured.intro} className="text-sm leading-relaxed text-ink-muted sm:text-base" />
+      <div
+        className={`relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6${showIntroHeader ? "" : " pt-8 sm:pt-10"}`}
+      >
+        {showIntroHeader ? (
+          <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
+            <p className="label-overline mb-3">{featured.eyebrow}</p>
+            <h2
+              id={headingId}
+              className="font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-ink sm:text-4xl"
+            >
+              {toneSplit(featured.heading)}
+            </h2>
+            <div className="mt-[var(--s7)]">
+              <ExpandableCopy text={featured.intro} className="text-sm leading-relaxed text-ink-muted sm:text-base" />
+            </div>
           </div>
-        </div>
+        ) : null}
 
         <nav
           aria-label="Service line shortcuts"
-          className="sticky top-[var(--header)] z-20 -mx-4 mt-10 w-full min-w-0 border-y border-[color:var(--g200)] bg-[color:var(--brand-canvas)]/95 backdrop-blur-sm sm:-mx-6 sm:mt-12"
+          className={`sticky top-[var(--header)] z-20 -mx-4 w-full min-w-0 border-y border-[color:var(--g200)] bg-[color:var(--brand-canvas)]/95 backdrop-blur-sm sm:-mx-6 ${showIntroHeader ? "mt-10 sm:mt-12" : "mt-8 sm:mt-10"}`}
         >
           <ul className="grid w-full min-w-0 list-none gap-1.5 px-4 py-3 [grid-template-columns:repeat(auto-fit,minmax(min(100%,8.75rem),1fr))] sm:gap-2 sm:px-6">
             {servicesWithImages.map((s, i) => {
