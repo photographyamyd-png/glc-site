@@ -183,7 +183,7 @@ export const SEO_TITLES = {
     "foundations-civil-infrastructure": "Foundations & Civil Infrastructure | Barrie, Simcoe County",
     "drainage-hardscaping": "Drainage & Hardscaping | Ground Level Contracting",
     "hauling-site-clearing-logistics":
-      "Hauling, Site Clearing & Logistics | Ground Level Contracting",
+      "Demolition Hauling & Site Logistics | Ground Level Contracting",
     "snow-removal": "Commercial Snow Removal Contractors | Barrie, Simcoe County",
   } as Record<PrimaryServiceSlug, string>,
   locations: {

@@ -5,6 +5,11 @@ type ServiceImage = {
   alt: string;
 };
 
+const HAULING_PRIMARY_FILE =
+  "Heavy equipment performing professional site grading and lot leveling in Barrie. Ground Level Contracting provides precise earthmoving and Hauling.jpg";
+const HAULING_SECONDARY_FILE =
+  "Heavy equipment performing professional site grading and lot leveling in Barrie. Ground Level Contracting provides precise earthmoving and Hauling 2.jpg";
+
 const SERVICE_IMAGES: Record<PrimaryServiceSlug, ServiceImage> = {
   "excavation-site-preparation": {
     src: "/images/services/Excavation/excavation-016.jpg",
@@ -28,8 +33,8 @@ const SERVICE_IMAGES: Record<PrimaryServiceSlug, ServiceImage> = {
       "Drainage hardscaping and landscaping contractor Barrie Ontario armour stone retaining wall interlock patio",
   },
   "hauling-site-clearing-logistics": {
-    src: "/images/services/Hauling/hauling-001.jpg",
-    alt: "Hauling and site clearing equipment supporting commercial construction logistics",
+    src: `/images/services/Hauling/${encodeURIComponent(HAULING_PRIMARY_FILE)}`,
+    alt: "Heavy equipment performing professional site grading and hauling on a commercial construction site in Barrie Ontario",
   },
   "snow-removal": {
     src: "/images/services/Snow%20Removal/Ground%20Level%20Contracting%20barrie%20snow%20removal23.JPG",
@@ -53,4 +58,12 @@ export function getServiceImageSrc(slug: ServiceDef["slug"] | SnowSubServiceSlug
 
 export function getServiceImageAlt(slug: ServiceDef["slug"] | SnowSubServiceSlug) {
   return getServiceImage(slug).alt;
+}
+
+/** Second hauling raster for scope two-up on the hauling service page only. */
+export function getHaulingScopeProofImage(): ServiceImage {
+  return {
+    src: `/images/services/Hauling/${encodeURIComponent(HAULING_SECONDARY_FILE)}`,
+    alt: "Commercial hauling and earthmoving equipment staged for site logistics and material movement in Simcoe County",
+  };
 }

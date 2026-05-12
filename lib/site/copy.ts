@@ -850,64 +850,160 @@ export const SERVICE_DETAILS: Record<PrimaryServiceSlug, ServiceDetailCopy> = {
     },
   },
   "hauling-site-clearing-logistics": {
-    seoTitle: "Hauling, Site Clearing & Logistics | Ground Level Contracting",
+    seoTitle: "Demolition Hauling & Site Logistics | Barrie & Simcoe County | Ground Level Contracting",
     seoDescription:
-      "Hauling, Site Clearing & Logistics — commercial excavation and civil services for Barrie, Midland, Orillia, and Simcoe County.",
+      "Professional hauling for demolition and active commercial sites — reliable truck windows, debris streams under control, and logistics that protect your schedule across Barrie, Midland, Orillia, and Simcoe County.",
     hero: {
       breadcrumbParent: "Services",
-      titleBefore: "Hauling, Clearing &",
-      titleEmphasis: "Logistics",
-      lede: "Material import and export, demolition debris, tree clearing, and day-to-day site logistics for active commercial jobs.",
+      titleBefore: "Clean Sites. Clear Timelines.",
+      titleEmphasis: "Professional Hauling.",
+      lede:
+        "Demolition debris, import/export, and day-to-day site logistics — tri-axle and dump fleets dispatched on windows you can plan around.",
       body: [
-        "Our fleet supports ongoing excavation with tri-axle and dump truck hauling for topsoil, fill, granular, and export spoils — paced to your earthwork schedule.",
-        "We clear vegetation, remove stumps, and manage debris streams so your site stays organized, safe, and inspection-ready while foundations and utilities advance.",
+        "When piles grow and trucks no-show, trades stack idle. We load high-capacity units, route to approved tips, and keep clearing milestones tied to your superintendent’s sequence.",
+        "Selective demolition support, concrete and mixed debris streams, and tight-site bin or live-load coordination — commercial-first, Simcoe County.",
       ],
     },
     hubStats: [
-      { value: "All", label: "Materials", sub: "Import / export" },
-      { value: "Full", label: "Logistics", sub: "Site coordination" },
-      { value: "Same-day", label: "Dispatch", sub: "When scheduled" },
+      { value: "Tons", label: "moved", sub: "Export & import" },
+      { value: "Hours", label: "saved", sub: "Fewer idle crews" },
+      { value: "Sites", label: "cleared", sub: "On schedule" },
     ],
     process: {
-      eyebrow: "Site logistics",
-      heading: "Move material, clear lines, keep pace",
+      eyebrow: "How we haul",
+      heading: "Load, route, clear — without losing the day",
       steps: [
-        { id: "01", title: "Waste streams", body: "Segregate spoils, demo debris, and brush for efficient haul-out and tipping." },
-        { id: "02", title: "Import schedule", body: "Granular and structural fill coordinated with your geotech and placement plan." },
-        { id: "03", title: "Clear & stage", body: "Vegetation, stumps, and obstructions removed to keep production lanes open." },
-        { id: "04", title: "Traffic control", body: "Truck routes, pile locations, and dust control aligned with site rules." },
+        {
+          id: "01",
+          title: "Segregate & stage",
+          body: "Demo, concrete, brush, and spoils are separated where credits and bylaws apply — piles stay controlled until the truck is at the gate.",
+        },
+        {
+          id: "02",
+          title: "High-capacity loadout",
+          body: "Tri-axle and dump units are sequenced to your gate rules, crane paths, and live-load or bin constraints so production lanes stay open.",
+        },
+        {
+          id: "03",
+          title: "Responsible disposal",
+          body: "We route to certified fills and approved tips with documentation that matches environmental plans — import granular and structural fill lands on your geotech schedule.",
+        },
       ],
     },
     scopeStripLabels: ["Overview", "Scope", "Capabilities", "Process", "FAQ", "Related", "Get a quote"],
     intro: [
-      "Our fleet supports ongoing excavation with tri-axle and dump truck hauling for topsoil, fill, granular, and export spoils.",
-      "We clear vegetation, remove stumps, and manage debris streams so your site stays organized and inspection-ready.",
+      "Debris piles and unreliable dump windows kill productivity. We align trucks, stockpiles, and haul routes so demolition and earthwork crews keep moving.",
+      "Tri-axle and dump hauling for topsoil, fill, granular, export spoils, and demolition streams — paced to your clearing milestones and inspection-ready housekeeping.",
     ],
-    deliverablesHeading: "What we deliver",
+    deliverablesHeading: "When the site fights back",
     deliverables: [
-      "Import and export of granular and fill",
-      "Demolition and concrete debris hauling",
-      "Tree clearing and brush removal",
-      "Rock breaking and hammer work",
-      "Site traffic and staging coordination",
+      "Clutter and unplanned piles choking laydown and crane paths",
+      "Debris streams with no clear tip or recycling path",
+      "Dump trucks that miss the window you promised trades",
+      "Tight footprints that cannot hold a growing pile overnight",
     ],
     closingHeading: "Ready to scope your site?",
     trust: {
       id: "trust-logistics",
-      heading: "Logistics that keep civil crews productive",
+      heading: "Proof you can run the job on paper",
       paragraphs: [
-        "A stalled haul route stops every trade downstream. We sequence trucks, stockpiles, and clearances so excavation never waits on a bin or a dump cycle.",
-        "From greenfield clearing to tight urban infill, we manage noise, dust, and neighbor interfaces with practical routing and disciplined staging.",
+        "A stalled haul route stops every trade downstream. We sequence trucks, stockpiles, and clearances so demolition and excavation never wait on a bin cycle or a no-show.",
+        "From selective interior demo to greenfield clearing, we manage dust, noise, and neighbor interfaces with routing and staging that respect municipal and site rules.",
+        "Same-day dispatch is offered where fleet load and bylaws allow — ETAs are communicated plainly so supers can brief crews with confidence.",
+        "Documentation for tipping and segregation is available when your environmental plan or owner rep requires traceability on loads.",
       ],
     },
     subServices: [
-      { id: "granular-import-export", heading: "Granular import & export", paragraphs: ["Structural fills and road bases arrive on pace with placement plans.", "Export spoils route to approved tips with load tracking that supports reporting when required."], closing: "Tri-axle and dump fleets for commercial sites." },
-      { id: "demolition-concrete-debris", heading: "Demolition & concrete debris", paragraphs: ["Demo streams are separated where recycling credits exist and hauled on schedules that match clearing milestones.", "We coordinate bin swaps or live load trucks for tight footprints where piles cannot linger."], closing: "Commercial interior and selective demolition support." },
-      { id: "tree-clearing-stumps", heading: "Tree clearing & stumps", paragraphs: ["Clearing is sequenced ahead of grading so equipment paths stay efficient and protected trees remain undamaged.", "Stumps and root masses are removed to subgrade expectations so fine grading crews are not fighting organics."], closing: "Greenfield and expansion clearing." },
-      { id: "rock-breaking-hammer-work", heading: "Rock breaking & hammer work", paragraphs: ["Ledges and obstructions are reduced with hydraulic hammer and hoe-ram support tied to excavation schedules.", "We manage vibration interfaces near structures and utilities with practical standoffs and inspection pauses."], closing: "Rock and ledge reduction for trenches and pads." },
-      { id: "staging-traffic-plans", heading: "Staging & traffic plans", paragraphs: ["Laydown and stockpile zones are placed to preserve crane paths, concrete washout, and emergency access.", "We adjust on the fly when weather or trade shifts change the daily plan without losing site rules."], closing: "Active commercial job coordination." },
-      { id: "dust-mud-control", heading: "Dust & mud control", paragraphs: ["Wheel washes, dampening, and entrance stone are maintained so haul routes stay neighbor-friendly and safe.", "We coordinate with paving and landscape scopes so temporary surfaces transition cleanly to finals."], closing: "Urban and suburban commercial sites." },
-      { id: "rush-dispatch-windows", heading: "Rush dispatch windows", paragraphs: ["When a trench opens unexpectedly or a bridge inspection fails, we prioritize trucks to keep concrete and utility crews moving.", "Same-day availability is subject to fleet load and realistic ETAs."], closing: "Priority response for active sites." },
+      {
+        id: "pain-site-clutter",
+        heading: "Site clutter kills productivity",
+        paragraphs: [
+          "Laydown, crane swing, and emergency lanes disappear when debris and spoils sit longer than the day’s plan. Trades reroute, lifts wait, and your lookahead slips.",
+          "We treat clearing as part of the critical path — not a cleanup afterthought — so the footprint you need for the next trade is available when the schedule says it should be.",
+        ],
+        closing: "Commercial demolition and active civil sites.",
+      },
+      {
+        id: "pain-debris-piles",
+        heading: "Debris piles with no off-site plan",
+        paragraphs: [
+          "Mixed piles drive expensive guessing at the scale and tipping costs balloon when streams are not separated early.",
+          "We segregate demo, concrete, brush, and spoils where recycling credits and environmental plans allow, and we match haul-out to clearing milestones so piles do not become staging hazards.",
+        ],
+        closing: "Segregation that supports reporting.",
+      },
+      {
+        id: "pain-dump-schedule",
+        heading: "Dump schedules that do not hold",
+        paragraphs: [
+          "When trucks arrive outside the window you communicated, concrete, utilities, and steel crews absorb the cost. Reliability is not a nice-to-have on haul-heavy days.",
+          "Dispatch is confirmed against fleet load and realistic travel; off-hours loads are scheduled only where bylaws and site rules allow.",
+        ],
+        closing: "Dispatch you can brief to the field.",
+      },
+      {
+        id: "granular-import-export",
+        heading: "Granular import & export",
+        paragraphs: [
+          "Structural fills and road bases arrive on pace with placement plans.",
+          "Export spoils route to approved tips with load tracking that supports reporting when required.",
+        ],
+        closing: "Tri-axle and dump fleets for commercial sites.",
+      },
+      {
+        id: "demolition-concrete-debris",
+        heading: "Demolition & concrete debris",
+        paragraphs: [
+          "Demo streams are separated where recycling credits exist and hauled on schedules that match clearing milestones.",
+          "We coordinate bin swaps or live load trucks for tight footprints where piles cannot linger.",
+        ],
+        closing: "Commercial interior and selective demolition support.",
+      },
+      {
+        id: "tree-clearing-stumps",
+        heading: "Tree clearing & stumps",
+        paragraphs: [
+          "Clearing is sequenced ahead of grading so equipment paths stay efficient and protected trees remain undamaged.",
+          "Stumps and root masses are removed to subgrade expectations so fine grading crews are not fighting organics.",
+        ],
+        closing: "Greenfield and expansion clearing.",
+      },
+      {
+        id: "rock-breaking-hammer-work",
+        heading: "Rock breaking & hammer work",
+        paragraphs: [
+          "Ledges and obstructions are reduced with hydraulic hammer and hoe-ram support tied to excavation schedules.",
+          "We manage vibration interfaces near structures and utilities with practical standoffs and inspection pauses.",
+        ],
+        closing: "Rock and ledge reduction for trenches and pads.",
+      },
+      {
+        id: "staging-traffic-plans",
+        heading: "Staging & traffic plans",
+        paragraphs: [
+          "Laydown and stockpile zones are placed to preserve crane paths, concrete washout, and emergency access.",
+          "We adjust on the fly when weather or trade shifts change the daily plan without losing site rules.",
+        ],
+        closing: "Active commercial job coordination.",
+      },
+      {
+        id: "dust-mud-control",
+        heading: "Dust & mud control",
+        paragraphs: [
+          "Wheel washes, dampening, and entrance stone are maintained so haul routes stay neighbor-friendly and safe.",
+          "We coordinate with paving and landscape scopes so temporary surfaces transition cleanly to finals.",
+        ],
+        closing: "Urban and suburban commercial sites.",
+      },
+      {
+        id: "rush-dispatch-windows",
+        heading: "Rush dispatch windows",
+        paragraphs: [
+          "When a trench opens unexpectedly or a bridge inspection fails, we prioritize trucks to keep concrete and utility crews moving.",
+          "Same-day availability is subject to fleet load and realistic ETAs.",
+        ],
+        closing: "Priority response for active sites.",
+      },
     ],
     faq: [
       { q: "Can you haul to specific certified fills or tips?", a: "Yes — provide approved sources and tipping requirements; we route trucks and documentation accordingly." },
@@ -916,10 +1012,10 @@ export const SERVICE_DETAILS: Record<PrimaryServiceSlug, ServiceDetailCopy> = {
       { q: "What coverage area do you haul in?", a: "Barrie, Midland, Orillia, and Simcoe County." },
     ],
     ctaOverride: {
-      heading: "Line up trucks for your site",
-      buttonLabel: "Call dispatch",
+      heading: "Schedule your haul today",
+      buttonLabel: "Schedule your haul today",
       supporting:
-        "Tell us material types, volumes, and windows — we will align trucks, routes, and tipping with your superintendent’s plan.",
+        "Share material types, volumes, gate times, and clearing milestones — we align trucks, routes, and tipping with your superintendent’s plan.",
     },
   },
   "snow-removal": {
