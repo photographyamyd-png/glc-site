@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 
+/** Used when routes do not pass `openGraphExtra.images` / `twitterExtra.images`. */
+const DEFAULT_SOCIAL_IMAGE_PATH = "/images/services/Excavation/excavation-016.jpg" as const;
+
 type PageMetadataInput = {
   title: string;
   description: string;
@@ -31,6 +34,36 @@ export function buildPageMetadata({
   const pathClean = canonicalPath.startsWith("/") ? canonicalPath : `/${canonicalPath}`;
   const canonical = canonicalUrl ?? `${site}${pathClean}`;
 
+  const openGraph: NonNullable<Metadata["openGraph"]> = {
+    title,
+    description,
+    type: "website",
+    url: canonical,
+    locale: "en_CA",
+    siteName: "Ground Level Contracting",
+    ...openGraphExtra,
+  };
+  if (!openGraph.images || (Array.isArray(openGraph.images) && openGraph.images.length === 0)) {
+    openGraph.images = [
+      {
+        url: DEFAULT_SOCIAL_IMAGE_PATH,
+        width: 1920,
+        height: 1280,
+        alt: "Ground Level Contracting commercial excavation and site operations",
+      },
+    ];
+  }
+
+  const twitter: NonNullable<Metadata["twitter"]> = {
+    card: "summary_large_image",
+    title,
+    description,
+    ...twitterExtra,
+  };
+  if (!twitter.images || (Array.isArray(twitter.images) && twitter.images.length === 0)) {
+    twitter.images = [DEFAULT_SOCIAL_IMAGE_PATH];
+  }
+
   return {
     metadataBase: new URL(site),
     title,
@@ -39,19 +72,8 @@ export function buildPageMetadata({
       canonical,
       ...(alternatesLanguages ? { languages: alternatesLanguages } : {}),
     },
-    openGraph: {
-      title,
-      description,
-      type: "website",
-      url: canonical,
-      ...openGraphExtra,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      ...twitterExtra,
-    },
+    openGraph,
+    twitter,
     ...(noIndex ? { robots: { index: false, follow: false } } : {}),
   };
 }

@@ -4,6 +4,10 @@ import { FOUNDATIONS_SUB_SLUGS } from "./lib/site/foundations-civil-infrastructu
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["192.168.39.132"],
   trailingSlash: true,
+  poweredByHeader: false,
+  experimental: {
+    optimizePackageImports: ["framer-motion"],
+  },
   images: {
     remotePatterns: [
       {

@@ -27,6 +27,7 @@ export function SiteJsonLd() {
     "@type": "LocalBusiness",
     "@id": `${siteUrl}/#business`,
     name: "Ground Level Contracting",
+    image: `${siteUrl}/images/services/Excavation/excavation-016.jpg`,
     description:
       "Commercial excavation and site operations across Barrie, Midland, Orillia, and Simcoe County.",
     url: siteUrl,

@@ -23,12 +23,16 @@ const oswald = Oswald({
   variable: "--font-oswald",
   subsets: ["latin"],
   weight: ["200", "500", "600", "700"],
+  display: "swap",
+  adjustFontFallback: true,
 });
 
 const barlowCondensed = Barlow_Condensed({
   variable: "--font-barlow-condensed",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
+  display: "swap",
+  adjustFontFallback: true,
 });
 
 const sourceSans3 = Source_Sans_3({
@@ -36,6 +40,7 @@ const sourceSans3 = Source_Sans_3({
   weight: ["400", "500", "600"],
   variable: "--font-source-sans",
   display: "swap",
+  adjustFontFallback: true,
 });
 
 const googleSiteVerification =

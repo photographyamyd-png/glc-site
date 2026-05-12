@@ -16,16 +16,12 @@
  * 9. `#home-faq` — `HomeSeoFaqSection` (includes `#why`, `#process`, `#coverage` scroll targets)
  */
 
+import dynamic from "next/dynamic";
 import { GLMarqueeBand } from "@/components/glc-sections/GLMarqueeBand";
 import { GLFeaturedServicesBento } from "@/components/ground-level/GLFeaturedServicesBento";
 import { GLHero, type GLHeroContent } from "@/components/ground-level/GLHero";
-import { GLWhoWeServe, type GLWhoWeServeContent } from "@/components/ground-level/GLWhoWeServe";
-import { HomeAgitatorSection } from "@/components/ground-level/home-copy-lab/HomeAgitatorSection";
-import { HomeCapabilityBentoSection } from "@/components/ground-level/home-copy-lab/HomeCapabilityBentoSection";
-import { HomeFinalCtaSection } from "@/components/ground-level/home-copy-lab/HomeFinalCtaSection";
-import { HomeProofBeforeAfter } from "@/components/ground-level/home-copy-lab/HomeProofBeforeAfter";
+import type { GLWhoWeServeContent } from "@/components/ground-level/GLWhoWeServe";
 import { CopyLabServicesAboutDivider } from "@/components/ground-level/home-copy-lab/CopyLabServicesAboutDivider";
-import { HomeSeoFaqSection } from "@/components/ground-level/home-copy-lab/HomeSeoFaqSection";
 import {
   COPY_LAB_ABOUT,
   COPY_LAB_FEATURED_SERVICES,
@@ -33,6 +29,40 @@ import {
   COPY_LAB_MARQUEE_ITEMS,
 } from "@/lib/ground-level/home-copy-lab-content";
 import { groundLevelServicesWithCopyLabDescriptions } from "@/lib/ground-level/merge-copy-lab-services";
+
+const GLWhoWeServe = dynamic(() =>
+  import("@/components/ground-level/GLWhoWeServe").then((m) => ({ default: m.GLWhoWeServe })),
+);
+
+const HomeAgitatorSection = dynamic(() =>
+  import("@/components/ground-level/home-copy-lab/HomeAgitatorSection").then((m) => ({
+    default: m.HomeAgitatorSection,
+  })),
+);
+
+const HomeCapabilityBentoSection = dynamic(() =>
+  import("@/components/ground-level/home-copy-lab/HomeCapabilityBentoSection").then((m) => ({
+    default: m.HomeCapabilityBentoSection,
+  })),
+);
+
+const HomeProofBeforeAfter = dynamic(() =>
+  import("@/components/ground-level/home-copy-lab/HomeProofBeforeAfter").then((m) => ({
+    default: m.HomeProofBeforeAfter,
+  })),
+);
+
+const HomeFinalCtaSection = dynamic(() =>
+  import("@/components/ground-level/home-copy-lab/HomeFinalCtaSection").then((m) => ({
+    default: m.HomeFinalCtaSection,
+  })),
+);
+
+const HomeSeoFaqSection = dynamic(() =>
+  import("@/components/ground-level/home-copy-lab/HomeSeoFaqSection").then((m) => ({
+    default: m.HomeSeoFaqSection,
+  })),
+);
 
 const copyLabMergedServices = groundLevelServicesWithCopyLabDescriptions();
 
