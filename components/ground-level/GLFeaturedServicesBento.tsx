@@ -278,7 +278,7 @@ export function GLFeaturedServicesBento({
 
         <nav
           aria-label="Service line shortcuts"
-          className="sticky top-[var(--header)] z-20 -mx-4 mt-10 border-y border-[color:var(--g200)] bg-[color:var(--brand-canvas)]/95 backdrop-blur-sm sm:-mx-6 sm:mt-12 lg:hidden"
+          className="sticky top-[var(--header)] z-20 -mx-4 mt-10 border-y border-[color:var(--g200)] bg-[color:var(--brand-canvas)]/95 backdrop-blur-sm sm:-mx-6 sm:mt-12"
         >
           <ul className="flex w-full min-w-0 flex-nowrap items-center gap-[clamp(4px,1vw,8px)] overflow-x-auto overscroll-x-contain snap-x snap-mandatory px-4 py-2.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:px-6 sm:py-3 [&::-webkit-scrollbar]:hidden">
             {servicesWithImages.map((s, i) => {
