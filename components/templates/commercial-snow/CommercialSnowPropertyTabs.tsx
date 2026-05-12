@@ -34,7 +34,7 @@ export function CommercialSnowPropertyTabs({
       <div
         role="tablist"
         aria-label={tablistAria}
-        className="flex flex-wrap gap-2 border-b border-[color:var(--g200)] pb-3"
+        className="flex flex-wrap gap-2 rounded-sm border border-[color:var(--g200)] bg-[color:rgb(255_255_255/0.55)] p-3 shadow-[inset_0_1px_0_rgb(255_255_255/0.85)]"
       >
         {types.map((t, i) => {
           const selectedNow = i === selected;
@@ -76,7 +76,8 @@ export function CommercialSnowPropertyTabs({
             className="mt-6"
           >
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-10">
-              <div className="relative aspect-[16/10] overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)]">
+              <div className="relative aspect-[16/10] overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)] shadow-[0_14px_40px_rgb(0_0_0/0.12),inset_0_0_0_1px_rgb(255_255_255/0.12)] ring-1 ring-[color:rgb(30_28_26/0.06)]">
+                <div className="pointer-events-none absolute inset-x-0 top-0 z-[2] h-1 bg-[color:var(--y)]" aria-hidden />
                 <Image
                   src={t.imageSrc}
                   alt={t.imageAlt}
@@ -104,7 +105,9 @@ export function CommercialSnowPropertyTabs({
                   </div>
                 </div>
               </div>
-              <p className="text-[15px] leading-[1.72] text-ink sm:text-base">{t.body}</p>
+              <p className="border-t border-[color:var(--g200)] pt-6 text-[15px] leading-[1.72] text-ink sm:border-t-0 sm:border-l sm:border-[color:var(--g200)] sm:pl-8 sm:pt-0 sm:text-base">
+                {t.body}
+              </p>
             </div>
           </div>
         );

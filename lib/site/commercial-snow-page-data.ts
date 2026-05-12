@@ -440,6 +440,7 @@ export const COMMERCIAL_SNOW_SERVICE_AREA = {
 } as const;
 
 export const COMMERCIAL_SNOW_PROPERTY_TYPES = {
+  sectionEyebrow: "By asset class",
   h2: "Commercial Snow Removal for Every Business Type in Simcoe County",
   tablistAria: "Property type tabs",
   visibleLede:

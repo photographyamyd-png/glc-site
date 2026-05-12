@@ -587,18 +587,40 @@ export function CommercialSnowPage({ service, related }: Props) {
             </div>
           </div>
 
-          <div className="relative mt-14 overflow-hidden border-t border-[color:var(--g200)] pt-12">
+          <div className="relative z-10 mt-14 border-t border-[color:var(--g200)] pt-12">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(200deg,rgb(242_183_5/0.05),transparent_42%)]" aria-hidden />
             <ClaudeLogicWatermark placement="top-right" mode="default" className="pointer-events-none absolute right-0 top-8 z-[1] opacity-[0.07]" />
-            <div className="relative z-10 rounded-sm border border-[color:var(--g200)] bg-white/90 p-6 shadow-[inset_0_1px_0_rgb(242_183_5/0.25)] sm:p-8">
-              <h2 className="font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl">{COMMERCIAL_SNOW_PROPERTY_TYPES.h2}</h2>
-              <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-ink">{COMMERCIAL_SNOW_PROPERTY_TYPES.visibleLede}</p>
-              <div className="mt-8">
-                <CommercialSnowPropertyTabs
-                  tablistAria={COMMERCIAL_SNOW_PROPERTY_TYPES.tablistAria}
-                  types={COMMERCIAL_SNOW_PROPERTY_TYPES.types}
-                  imageCta={COMMERCIAL_SNOW_HERO.ctas.primary}
-                />
+            {/* Chassis + split measure: substrate plane, spine typography, raised machined deck (V7 layer stack). */}
+            <div className="relative z-10 overflow-hidden rounded-sm border border-[color:var(--g200)] bg-[color:rgb(30_28_26/0.028)] shadow-[0_22px_64px_rgb(0_0_0/0.07)]">
+              <div
+                className="pointer-events-none absolute inset-0 bg-[linear-gradient(125deg,rgb(242_183_5/0.07),transparent_42%)]"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_58%_48%_at_92%_8%,rgb(255_255_255/0.72),transparent_58%)]"
+                aria-hidden
+              />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-[color:var(--g200)]" aria-hidden />
+              <div className="relative grid gap-10 p-6 sm:p-8 lg:grid-cols-12 lg:gap-12 lg:p-10">
+                <div className="border-l-4 border-[color:var(--y)] pl-5 lg:col-span-5">
+                  <p className="eyebrow text-ink">{COMMERCIAL_SNOW_PROPERTY_TYPES.sectionEyebrow}</p>
+                  <h2 className="mt-3 font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl">
+                    {COMMERCIAL_SNOW_PROPERTY_TYPES.h2}
+                  </h2>
+                  <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-ink">{COMMERCIAL_SNOW_PROPERTY_TYPES.visibleLede}</p>
+                </div>
+                <div className="relative lg:col-span-7">
+                  <div className="h-px w-full bg-[color:var(--y)]/80 lg:hidden" aria-hidden />
+                  <div className="bespoke-surface panel-machined relative border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:rgb(255_255_255/0.94)] p-5 sm:p-6 lg:ml-[var(--dna-stagger-sm)] lg:p-8">
+                    <div className="relative z-10">
+                      <CommercialSnowPropertyTabs
+                        tablistAria={COMMERCIAL_SNOW_PROPERTY_TYPES.tablistAria}
+                        types={COMMERCIAL_SNOW_PROPERTY_TYPES.types}
+                        imageCta={COMMERCIAL_SNOW_HERO.ctas.primary}
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
