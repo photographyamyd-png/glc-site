@@ -268,22 +268,24 @@ export function GLFeaturedServicesBento({
           aria-label="Service line shortcuts"
           className="sticky top-[var(--header)] z-20 -mx-4 mt-10 w-full min-w-0 border-y border-[color:var(--g200)] bg-[color:var(--brand-canvas)]/95 backdrop-blur-sm sm:-mx-6 sm:mt-12"
         >
-          <ul className="flex w-full min-w-0 max-w-full flex-nowrap items-stretch gap-1.5 overflow-x-auto overscroll-x-contain px-4 py-3 [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory sm:gap-2 sm:px-6 [&::-webkit-scrollbar]:hidden lg:flex-wrap lg:justify-center lg:gap-2 lg:overflow-x-visible lg:snap-none">
+          <ul className="grid w-full min-w-0 list-none gap-1.5 px-4 py-3 [grid-template-columns:repeat(auto-fit,minmax(min(100%,8.75rem),1fr))] sm:gap-2 sm:px-6">
             {servicesWithImages.map((s, i) => {
               const isSel = selected === i;
               return (
-                <li key={s.slug} className="snap-start shrink-0">
+                <li key={s.slug} className="min-w-0">
                   <a
                     href={`#services-${s.slug}`}
                     aria-current={isSel ? "true" : undefined}
                     onClick={(e) => onShortcutClick(e, s.slug, i)}
-                    className={`inline-flex max-w-[min(100%,11.5rem)] min-h-11 items-center justify-center px-2.5 py-2 text-center font-label text-[length:clamp(0.6875rem,0.52rem+1.35vw,0.8125rem)] font-semibold uppercase leading-tight tracking-[0.08em] transition-[background,color,box-shadow] max-sm:line-clamp-2 max-sm:whitespace-normal sm:max-w-none sm:h-11 sm:min-h-0 sm:px-3.5 sm:py-0 sm:leading-none sm:tracking-[0.12em] md:px-4 ${
+                    className={`box-border flex min-h-11 w-full items-center justify-center px-2.5 py-2 text-center font-label text-[length:clamp(0.6875rem,0.45rem+1.05vw,0.8125rem)] font-semibold uppercase tracking-[0.08em] transition-[background,color,box-shadow] sm:px-3 sm:tracking-[0.1em] md:px-3.5 ${
                       isSel
                         ? "bg-[color:var(--ink-deep)] text-white shadow-[inset_0_0_0_1px_rgb(0_0_0/0.08)]"
                         : "border border-[color:var(--g200)] bg-white/80 text-ink hover:border-[color:var(--y)]/45"
                     }`}
                   >
-                    {serviceTitleTone(s.title)}
+                    <span className="block w-full leading-snug [overflow-wrap:anywhere] line-clamp-2">
+                      {serviceTitleTone(s.title)}
+                    </span>
                   </a>
                 </li>
               );
