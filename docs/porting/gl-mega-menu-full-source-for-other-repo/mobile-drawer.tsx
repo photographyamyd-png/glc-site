@@ -1,17 +1,28 @@
 "use client";
 
+import Image from "next/image";
 import { SmartLink } from "@/components/ui/smart-link";
 import { ServiceCardIcon } from "@/components/glc-dna/sections/service-card-icon";
 import type { MobileMegaServiceRow, NavLink } from "@/content/types";
 
+export type MobileDrawerDispatchBand = {
+  kicker: string;
+  title: string;
+  sub: string;
+};
+
 type Props = {
   open: boolean;
   onClose: () => void;
+  /** Merged quick links + company links; hrefs deduped upstream. */
   mobileLinks: NavLink[];
   serviceRows: MobileMegaServiceRow[];
-  companyLinks: NavLink[];
+  brandLogoSrc: string;
+  dispatchBand: MobileDrawerDispatchBand;
   utilityPhoneDisplay: string;
   utilityPhoneHref: string;
+  primaryCtaLabel: string;
+  primaryCtaHref: string;
 };
 
 function ChevronRight({ className }: { className?: string }) {
@@ -36,9 +47,12 @@ export function MobileDrawer({
   onClose,
   mobileLinks,
   serviceRows,
-  companyLinks,
+  brandLogoSrc,
+  dispatchBand,
   utilityPhoneDisplay,
   utilityPhoneHref,
+  primaryCtaLabel,
+  primaryCtaHref,
 }: Props) {
   if (!open) return null;
 
@@ -55,7 +69,7 @@ export function MobileDrawer({
                   <path d="M12 7v5l3 2" strokeLinecap="square" />
                 </svg>
               </span>
-              Navigate
+              Explore
             </p>
             <ul className="gl-mobile-drawer__list">
               {mobileLinks.map((l) => (
@@ -95,43 +109,30 @@ export function MobileDrawer({
               ))}
             </ul>
           </div>
-          <div className="gl-mobile-drawer__section">
-            <p className="gl-mobile-drawer__label">
-              <span className="gl-mobile-drawer__label-icon" aria-hidden>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                  <path d="M4 21V7l8-4 8 4v14" strokeLinejoin="miter" />
-                  <path d="M12 11v10M8 15h8" strokeLinecap="square" />
-                </svg>
-              </span>
-              Company
-            </p>
-            <ul className="gl-mobile-drawer__list">
-              {companyLinks.map((l) => (
-                <li key={`${l.href}-${l.label}`}>
-                  <SmartLink href={l.href} onClick={onClose} className="gl-mobile-drawer__link-row">
-                    <span className="gl-mobile-drawer__link-text">{l.label}</span>
-                    <ChevronRight className="gl-mobile-drawer__row-chevron" />
-                  </SmartLink>
-                </li>
-              ))}
-            </ul>
-          </div>
           <div className="gl-mobile-drawer__section gl-mobile-drawer__section--dispatch">
-            <p className="gl-mobile-drawer__label">
-              <span className="gl-mobile-drawer__label-icon" aria-hidden>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07" />
-                  <path d="M1.21 4.25A2 2 0 0 1 3.18 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81" />
-                </svg>
-              </span>
-              Dispatch
-            </p>
-            <a href={utilityPhoneHref} className="gl-mobile-drawer__phone" onClick={onClose}>
-              {utilityPhoneDisplay}
-            </a>
-            <SmartLink href="/contact" className="btn-primary mt-4 inline-flex" onClick={onClose}>
-              Site consultation
-            </SmartLink>
+            <div className="gl-mobile-drawer__dispatch-split">
+              <div className="gl-mobile-drawer__dispatch-brand">
+                <Image
+                  src={brandLogoSrc}
+                  alt="Ground Level Contracting"
+                  width={240}
+                  height={120}
+                  className="gl-mobile-drawer__dispatch-logo"
+                  sizes="(max-width: 420px) 42vw, 200px"
+                />
+              </div>
+              <div className="gl-mobile-drawer__dispatch-cta">
+                <p className="gl-mobile-drawer__dispatch-kicker">{dispatchBand.kicker}</p>
+                <p className="gl-mobile-drawer__dispatch-headline">{dispatchBand.title}</p>
+                <p className="gl-mobile-drawer__dispatch-lede">{dispatchBand.sub}</p>
+                <a href={utilityPhoneHref} className="gl-mobile-drawer__phone gl-mobile-drawer__phone--dispatch" onClick={onClose}>
+                  {utilityPhoneDisplay}
+                </a>
+                <SmartLink href={primaryCtaHref} className="btn-primary gl-mobile-drawer__dispatch-btn" onClick={onClose}>
+                  {primaryCtaLabel}
+                </SmartLink>
+              </div>
+            </div>
           </div>
         </nav>
       </div>

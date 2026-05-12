@@ -11,6 +11,7 @@ import { MegaMenuCompany } from "@/components/layout/mega-menu-company";
 import { MobileDrawer } from "@/components/layout/mobile-drawer";
 import type { NavigationConfig } from "@/content/types";
 import { ROUTES } from "@/lib/routes";
+import { dedupeNavLinksPreserveOrder, navHrefKey } from "@/lib/site/nav-dedupe";
 
 const LOGO = "/images/glc-logo.png";
 
@@ -149,6 +150,15 @@ export function GlcRecoveredSiteHeader({ navigation }: Props) {
   }));
 
   const mobileCompanyLinks = companyMega.columns.flatMap((c) => c.links);
+  const mergedMobileLinks = dedupeNavLinksPreserveOrder([
+    ...navigation.mobile.links,
+    ...mobileCompanyLinks,
+  ]);
+  /** Service lines already cover `/services/`; drop hub row to avoid repeating “all services”. */
+  const mobileExploreLinks =
+    mobileServiceRows.length > 0
+      ? mergedMobileLinks.filter((l) => navHrefKey(l.href) !== "/services")
+      : mergedMobileLinks;
 
   return (
     <>
@@ -310,11 +320,18 @@ export function GlcRecoveredSiteHeader({ navigation }: Props) {
       <MobileDrawer
         open={drawerOpen}
         onClose={closeDrawer}
-        mobileLinks={navigation.mobile.links}
+        mobileLinks={mobileExploreLinks}
         serviceRows={mobileServiceRows}
-        companyLinks={mobileCompanyLinks}
+        brandLogoSrc={LOGO}
+        dispatchBand={{
+          kicker: companyMega.dispatchBand.kicker,
+          title: companyMega.dispatchBand.title,
+          sub: companyMega.dispatchBand.sub,
+        }}
         utilityPhoneDisplay={util.phoneDisplay}
         utilityPhoneHref={util.phoneHref}
+        primaryCtaLabel="Get a Quote"
+        primaryCtaHref={util.phoneHref}
       />
     </>
   );
