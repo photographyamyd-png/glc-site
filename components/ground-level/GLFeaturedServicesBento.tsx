@@ -266,9 +266,9 @@ export function GLFeaturedServicesBento({
 
         <nav
           aria-label="Service line shortcuts"
-          className="sticky top-[var(--header)] z-20 -mx-4 mt-10 w-full min-w-0 border-y border-[color:var(--g200)] bg-[color:var(--brand-canvas)]/95 backdrop-blur-sm sm:-mx-6 sm:mt-12 lg:hidden"
+          className="sticky top-[var(--header)] z-20 -mx-4 mt-10 w-full min-w-0 border-y border-[color:var(--g200)] bg-[color:var(--brand-canvas)]/95 backdrop-blur-sm sm:-mx-6 sm:mt-12"
         >
-          <ul className="flex w-full min-w-0 max-w-full flex-nowrap items-stretch gap-1.5 overflow-x-auto overscroll-x-contain px-4 py-3 [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory sm:gap-2 sm:px-6 [&::-webkit-scrollbar]:hidden">
+          <ul className="flex w-full min-w-0 max-w-full flex-nowrap items-stretch gap-1.5 overflow-x-auto overscroll-x-contain px-4 py-3 [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory sm:gap-2 sm:px-6 [&::-webkit-scrollbar]:hidden lg:flex-wrap lg:justify-center lg:gap-2 lg:overflow-x-visible lg:snap-none">
             {servicesWithImages.map((s, i) => {
               const isSel = selected === i;
               return (
