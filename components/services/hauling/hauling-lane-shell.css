@@ -1,0 +1,27 @@
+/**
+ * Hauling-only (#hauling-glc-dna-lane): remove stacked horizontal “rules” and faint
+ * ruled-paper textures that read as endless beige lines across the DNA lane.
+ * Loaded only from HaulingGlcDnaLane (not global layout).
+ */
+
+/* Globals: .section-major.band-light / .band-dark add border-top between every band */
+#hauling-glc-dna-lane .section-major.band-light,
+#hauling-glc-dna-lane .section-major.band-light-drift,
+#hauling-glc-dna-lane .section-major.band-dark {
+  border-top-width: 0;
+}
+
+/* FAQ strip: FeaturedAccordion root uses inline border-top */
+#hauling-glc-dna-lane #faq > .band-light > div {
+  border-top: none !important;
+}
+
+/* Hero: full-bleed yellow-beige engineering crosshatch */
+#hauling-glc-dna-lane .hero-v2__eng-grid {
+  display: none;
+}
+
+/* Process: left column horizontal ruling */
+#hauling-glc-dna-lane .proc3__left-panel {
+  background-image: none;
+}

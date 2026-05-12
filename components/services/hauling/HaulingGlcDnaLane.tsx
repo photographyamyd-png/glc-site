@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import "./hauling-lane-shell.css";
 import { GlcDnaLaneStyles } from "@/components/glc-dna/GlcDnaLaneStyles";
 import { HeroSection } from "@/components/glc-dna/sections/hero-section";
 import { AboutSection } from "@/components/glc-dna/sections/about-section";
