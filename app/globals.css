@@ -165,6 +165,8 @@
   --mega-dispatch-title: rgb(250 249 247 / 0.96);
   --mega-dispatch-sub: rgb(250 249 247 / 0.74);
   --mega-mobile-row-bg: color-mix(in srgb, var(--brand-white) 94%, var(--ink-deep) 6%);
+  /* Mega panel hero field — same asset as HomeHeroSection */
+  --gl-mega-hero-bg-image: url("/images/services/Excavation/excavation-016.jpg");
 }
 
 @theme inline {

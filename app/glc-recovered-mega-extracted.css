@@ -85,13 +85,13 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--mega-panel-field, var(--brand-white));
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  isolation: isolate;
+  overflow: hidden;
+  background: rgb(10 12 11);
   border-top: 3px solid var(--yellow-core);
-  border-bottom: 1px solid var(--g200);
-  box-shadow: 0 20px 48px rgb(0 0 0 / 0.08);
-  padding: 40px 36px 44px;
+  border-bottom: 1px solid rgb(255 255 255 / 0.12);
+  box-shadow: 0 24px 80px rgb(0 0 0 / 0.35);
+  padding: 36px 32px 40px;
   z-index: 1;
   opacity: 0;
   visibility: hidden;
@@ -102,6 +102,49 @@
     visibility 0.3s;
   pointer-events: none;
 }
+
+/* Same excavation hero asset + scrim stack as HomeHeroSection */
+.gl-mega-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: var(
+    --gl-mega-hero-bg-image,
+    url("/images/services/Excavation/excavation-016.jpg")
+  );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.gl-mega-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse 82% 66% at 72% 40%, rgb(242 183 5 / 0.045) 0%, transparent 56%),
+    linear-gradient(to top, rgb(10 12 11 / 0.7), transparent, rgb(10 12 11 / 0.32)),
+    linear-gradient(to right, rgb(10 12 11 / 0.92), rgb(10 12 11 / 0.78), rgb(10 12 11 / 0.28));
+}
+
+@media (min-width: 1024px) {
+  .gl-mega-panel::after {
+    background-image:
+      radial-gradient(ellipse 82% 66% at 72% 40%, rgb(242 183 5 / 0.045) 0%, transparent 56%),
+      linear-gradient(to top, rgb(10 12 11 / 0.7), transparent, rgb(10 12 11 / 0.32)),
+      linear-gradient(to right, rgb(10 12 11 / 0.92), rgb(10 12 11 / 0.64), transparent);
+  }
+}
+
+.gl-mega-panel > * {
+  position: relative;
+  z-index: 2;
+}
+
 .gl-mega-panel.is-open {
   opacity: 1;
   visibility: visible;
@@ -123,22 +166,23 @@
   animation: glmc-item-in 0.42s var(--ease-expo) 0.04s both;
 }
 
-/* Intro — yellow spine only, no heavy panel chrome */
+/* Intro — hero primary glass (HomeHeroSection main column) */
 .gl-mega-panel__intro {
-  padding: 4px 0 4px 20px;
+  padding: 22px 24px 24px;
   margin: 0;
+  border: 1px solid rgb(255 255 255 / 0.1);
   border-left: 3px solid var(--yellow-core);
-  background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  background: rgb(10 12 11 / 0.4);
+  box-shadow: 0 20px 60px rgb(0 0 0 / 0.28);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .gl-mega-panel__intro .gl-mega-panel__kicker {
   margin-bottom: 14px;
   padding-bottom: 12px;
-  border-bottom: 1px solid var(--g200);
-  color: var(--mega-intro-heading, var(--ink-deep));
+  border-bottom: 1px solid rgb(255 255 255 / 0.12);
+  color: #fff;
 }
 
 .gl-mega-panel__intro .gl-mega-panel__kicker::before {
@@ -149,7 +193,7 @@
   font-size: 13px;
   line-height: 1.65;
   margin-bottom: 24px;
-  color: var(--mega-intro-body, var(--t500));
+  color: rgb(255 255 255 / 0.84);
 }
 .gl-mega-panel__intro .btn-primary {
   font-size: 11px;
@@ -179,10 +223,10 @@
 .gl-mega-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 10px;
 }
 
-/* Service cards — light, minimal chrome */
+/* Service cards — hero stat tiles (glass on photo) */
 a.gl-mega-card {
   text-decoration: none;
   color: inherit;
@@ -195,14 +239,17 @@ a.gl-mega-card {
   position: relative;
   min-height: 0;
   padding: 20px 18px 18px;
-  background: var(--mega-card-surface, var(--brand-white));
-  border: 1px solid var(--mega-card-border, rgb(30 28 26 / 0.08));
+  background: rgb(10 12 11 / 0.5);
+  border: 1px solid rgb(255 255 255 / 0.16);
   border-left: 2px solid transparent;
-  box-shadow: 0 1px 0 rgb(255 255 255 / 0.9) inset;
+  box-shadow: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   cursor: pointer;
   transition:
     border-color 0.22s var(--ease-expo),
     box-shadow 0.22s var(--ease-expo),
+    background 0.22s var(--ease-expo),
     transform 0.22s var(--ease-expo);
   -webkit-user-select: none;
   user-select: none;
@@ -210,11 +257,10 @@ a.gl-mega-card {
 
 .gl-mega-card:hover,
 .gl-mega-card:focus-visible {
-  border-color: color-mix(in srgb, var(--yellow-core) 35%, var(--border));
-  border-left-color: var(--yellow-core);
-  box-shadow:
-    0 1px 0 rgb(255 255 255 / 0.95) inset,
-    0 12px 28px rgb(0 0 0 / 0.06);
+  border-color: color-mix(in srgb, var(--yellow-core) 80%, transparent);
+  border-left-color: color-mix(in srgb, var(--yellow-core) 80%, transparent);
+  background: rgb(10 12 11 / 0.68);
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.25);
   transform: translateY(-2px);
   outline: none;
 }
@@ -235,7 +281,7 @@ a.gl-mega-card {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: rgb(255 255 255 / 0.42);
   margin-bottom: 10px;
 }
 
@@ -244,7 +290,7 @@ a.gl-mega-card {
   font-family: var(--font-display);
   font-size: 14px;
   font-weight: 700;
-  color: var(--charcoal-deep);
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   line-height: 1.2;
@@ -254,14 +300,14 @@ a.gl-mega-card {
 
 .gl-mega-card:hover .gl-mega-card__title,
 .gl-mega-card:focus-visible .gl-mega-card__title {
-  color: var(--charcoal-deep);
+  color: #fff;
 }
 
 .gl-mega-card__desc {
   display: block;
   font-size: 13px;
   line-height: 1.55;
-  color: var(--t500);
+  color: rgb(255 255 255 / 0.76);
   margin-top: 0;
   margin-bottom: auto;
   flex: 1;
@@ -270,7 +316,7 @@ a.gl-mega-card {
 
 .gl-mega-card:hover .gl-mega-card__desc,
 .gl-mega-card:focus-visible .gl-mega-card__desc {
-  color: var(--t600);
+  color: rgb(255 255 255 / 0.88);
 }
 
 .gl-mega-card__link {
@@ -329,7 +375,7 @@ body.gl-mega-open .gl-mega-backdrop {
   font-weight: 800;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--text-500);
+  color: rgb(255 255 255 / 0.55);
   margin-bottom: 16px;
   display: flex;
   align-items: center;
@@ -339,7 +385,7 @@ body.gl-mega-open .gl-mega-backdrop {
   content: '';
   flex: 1;
   height: 1px;
-  background: var(--g200);
+  background: rgb(255 255 255 / 0.12);
 }
 
 .gl-mega-company-col__list {
@@ -353,9 +399,9 @@ body.gl-mega-open .gl-mega-backdrop {
   gap: 10px;
   font-size: 13px;
   font-weight: 600;
-  color: var(--text-600);
+  color: rgb(255 255 255 / 0.82);
   padding: 10px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgb(255 255 255 / 0.08);
   letter-spacing: 0.02em;
   transition:
     color 0.18s var(--ease-expo),
@@ -370,7 +416,7 @@ body.gl-mega-open .gl-mega-backdrop {
   flex-shrink: 0;
 }
 .gl-mega-company-col__list a:hover {
-  color: var(--charcoal-deep);
+  color: #fff;
   gap: 14px;
 }
 .gl-mega-company-col__list a:hover::before {
@@ -386,11 +432,13 @@ body.gl-mega-open .gl-mega-backdrop {
   gap: 16px 24px;
   padding: 24px 32px;
   margin-top: 8px;
-  background: var(--mega-dispatch-bg, rgb(10 12 11 / 0.9));
+  background: rgb(10 12 11 / 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--mega-dispatch-border, rgb(255 255 255 / 0.12));
   box-shadow:
     inset 0 1px 0 rgb(255 255 255 / 0.06),
-    0 16px 40px rgb(0 0 0 / 0.2);
+    0 20px 50px rgb(0 0 0 / 0.28);
 }
 
 .gl-mega-dispatch .gl-mega-panel__kicker {
