@@ -338,17 +338,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 120px;
-  padding: 14px 12px;
-  border: 1px solid rgb(255 255 255 / 0.12);
-  background: rgb(255 255 255 / 0.06);
+  padding: 0;
+  border: none;
+  background: transparent;
+  min-height: 0;
+}
+
+@media (min-width: 360px) {
+  .gl-mobile-drawer__dispatch-brand {
+    justify-content: flex-start;
+  }
 }
 
 .gl-mobile-drawer__dispatch-logo {
   width: 100%;
-  max-width: min(220px, 46vw);
+  max-width: min(260px, 52vw);
   height: auto;
   object-fit: contain;
+  object-position: left center;
 }
 
 .gl-mobile-drawer__dispatch-cta {

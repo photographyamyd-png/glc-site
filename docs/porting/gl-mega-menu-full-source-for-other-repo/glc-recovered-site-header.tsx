@@ -14,6 +14,8 @@ import { ROUTES } from "@/lib/routes";
 import { dedupeNavLinksPreserveOrder, navHrefKey } from "@/lib/site/nav-dedupe";
 
 const LOGO = "/images/glc-logo.png";
+/** Ground Level wordmark — matches GLC DNA hero (`/images/Logos/ground-level-logo.png`); not the compact `glc-logo` mark. */
+const SITE_BRAND_WORDMARK_SRC = "/images/Logos/ground-level-logo.png";
 
 type Props = {
   navigation: NavigationConfig;
@@ -321,7 +323,7 @@ export function GlcRecoveredSiteHeader({ navigation }: Props) {
         onClose={closeDrawer}
         mobileLinks={mobileExploreLinks}
         serviceRows={mobileServiceRows}
-        brandLogoSrc={LOGO}
+        brandLogoSrc={SITE_BRAND_WORDMARK_SRC}
         dispatchBand={{
           kicker: companyMega.dispatchBand.kicker,
           title: companyMega.dispatchBand.title,

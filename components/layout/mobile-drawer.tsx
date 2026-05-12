@@ -115,10 +115,11 @@ export function MobileDrawer({
                 <Image
                   src={brandLogoSrc}
                   alt="Ground Level Contracting"
-                  width={240}
-                  height={120}
+                  width={320}
+                  height={80}
+                  unoptimized
                   className="gl-mobile-drawer__dispatch-logo"
-                  sizes="(max-width: 420px) 42vw, 200px"
+                  sizes="(max-width: 420px) 48vw, 240px"
                 />
               </div>
               <div className="gl-mobile-drawer__dispatch-cta">
