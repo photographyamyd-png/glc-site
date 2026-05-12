@@ -12,6 +12,9 @@ export type GradingBeforeAfterProofProps = {
   beforeAlt: string;
   afterSrc: string;
   afterAlt: string;
+  /** Defaults preserve grading page anchors. */
+  sectionId?: string;
+  headingId?: string;
 };
 
 export function GradingBeforeAfterProof({
@@ -22,6 +25,8 @@ export function GradingBeforeAfterProof({
   beforeAlt,
   afterSrc,
   afterAlt,
+  sectionId = "grading-proof",
+  headingId = "grading-proof-heading",
 }: GradingBeforeAfterProofProps) {
   const [pct, setPct] = useState(50);
   const [reduceMotion, setReduceMotion] = useState(false);
@@ -89,9 +94,9 @@ export function GradingBeforeAfterProof({
 
   return (
     <section
-      id="grading-proof"
+      id={sectionId}
       className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden text-white view-reveal"
-      aria-labelledby="grading-proof-heading"
+      aria-labelledby={headingId}
     >
       <div
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgb(0_0_0/0.35),transparent_45%,rgb(242_183_5/0.08))]"
@@ -103,7 +108,7 @@ export function GradingBeforeAfterProof({
       <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
         <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
           <p className="eyebrow text-white">{eyebrow}</p>
-          <h2 id="grading-proof-heading" className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl">
+          <h2 id={headingId} className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl">
             {heading}
           </h2>
           <p className="mt-5 max-w-3xl text-[15px] leading-[1.72] text-white/90 sm:text-base">{caption}</p>

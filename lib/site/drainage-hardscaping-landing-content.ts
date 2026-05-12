@@ -8,17 +8,17 @@ import { getSiteUrl } from "@/lib/site/metadata";
 export const drainagePagePath = "/services/drainage-hardscaping/";
 
 export const DRAINAGE_LANDING_SEO = {
-  /** §1.1 Final */
-  title: "Drainage, Hardscaping & Landscaping Barrie | Drain Tile, Retaining Walls & Patios",
+  /** Align with visible split-hero H1 + lede (seo-strategy). */
+  title: "End Standing Water & Foundation Risks | Drainage & Hardscaping Barrie & Simcoe County",
   description:
-    "Drainage, hardscaping & landscaping in Barrie & Simcoe County. Foundation drain tile, armour stone retaining walls, interlock patios & driveways. Free quotes.",
+    "Commercial and residential drainage in Barrie & Simcoe County: culverts, french drains, catch basins, grading tie-ins, and hardscapes built on dry subgrades. Request a drainage assessment.",
   ogTitle:
-    "Drainage, Hardscaping & Landscaping Contractors in Barrie & Simcoe County | Ground Level Contracting",
+    "Drainage Solutions — Barrie & Simcoe County | Ground Level Contracting",
   ogDescription:
-    "Simcoe County's trusted specialists for foundation drain tile, custom site drainage, armour stone retaining walls, interlock patios, driveways & landscaping integration. Serving Barrie, Orillia, Wasaga Beach, Innisfil & beyond.",
-  twitterTitle: "Drainage, Hardscaping & Landscaping Contractors | Barrie & Simcoe County",
+    "Stop ponding and basement symptoms with engineered surface and subsurface drainage — french drains, catch basins, culvert runs, and grades tied to storm. Serving Barrie, Orillia, Wasaga Beach, Innisfil & Simcoe County.",
+  twitterTitle: "Drainage Solutions — Barrie & Simcoe County | Ground Level Contracting",
   twitterDescription:
-    "Foundation drain tile, armour stone retaining walls, custom site drainage, interlock patios, driveways & landscaping integration. Serving Barrie, Orillia & Simcoe County.",
+    "Culverts, french drains, catch basins, and grading corrections for dry foundations and pavements. Barrie, Orillia & Simcoe County.",
   /** Prefer dedicated OG asset when present */
   ogImagePath: "/images/og/drainage-hardscaping-barrie.jpg",
 } as const;
@@ -102,16 +102,92 @@ export const DRAINAGE_IMAGES = {
   whyChoose: drainageLandingImage(28, DRAINAGE_IMAGE_ALTS["28"]),
   finalCta: drainageLandingImage(1, DRAINAGE_IMAGE_ALTS["01"]),
   serviceAreaMap: drainageLandingImage(8, DRAINAGE_IMAGE_ALTS["08"]),
+  /** Proof slider: saturated / failed perimeter vs corrected grade and conveyance. */
+  proofBefore: drainageLandingImage(9, DRAINAGE_IMAGE_ALTS["09"]),
+  proofAfter: drainageLandingImage(7, DRAINAGE_IMAGE_ALTS["07"]),
+} as const;
+
+/** Funnel pain — dark-to-light band (copy-writing: split columns for multi-sentence body). */
+export const DRAINAGE_FUNNEL_PAIN = {
+  eyebrow: "Risk",
+  h2: "A wet basement isn't the problem; it's a symptom of failed site grading.",
+  colLeft:
+    "Standing water and sheet flow toward the structure saturate soils, accelerate erosion, and load footings in ways the original grade never accounted for.",
+  colRight:
+    "When storm tie-ins, trench slopes, and finished grades do not match the site, finishes fail season after season while the real failure stays underground.",
+} as const;
+
+/** Three-lane systems story — imagery keys reference `DRAINAGE_IMAGES` (drainage-hardscaping-landing-content). */
+export const DRAINAGE_SYSTEMS_SOLUTION = {
+  eyebrow: "Systems",
+  h2: "Culverts, french drains & catch basins — installed to move water on purpose",
+  intro: "Heavy typography below pairs each system with field photography from Simcoe County installs.",
+  steps: [
+    {
+      title: "Culverts & storm conveyance",
+      body: "Rigid and corrugated runs, bedding, and structure tie-ins sized for peak flows — sequenced before pavements and hardscape so buried work carries load and frost.",
+      imageField: "drainTileMain" as const,
+    },
+    {
+      title: "French & trench drains",
+      body: "Perimeter and yard interceptors with geotextile, clean stone, and positive outlet to daylight or storm — protecting envelopes while keeping walks and turf usable.",
+      imageField: "siteDrainage1" as const,
+    },
+    {
+      title: "Catch basins & surface collection",
+      body: "Inlets, grates, and lead-ins set to survey so sheet flow reaches the network your civil plan expects — not the neighbour's lawn.",
+      imageField: "siteDrainage2" as const,
+    },
+  ],
+} as const;
+
+export const DRAINAGE_PROOF_BEFORE_AFTER = {
+  eyebrow: "Proof",
+  heading: "Flooded conditions vs. engineered dry finish",
+  caption:
+    "Drag the divider to compare a saturated perimeter / failed drainage context with a corrected grade and conveyance package ready for inspection and cover scopes.",
+} as const;
+
+/** SEO basement — educational; defer to engineer / OBC / geotech (no project guarantees). */
+export const DRAINAGE_SEO_BASEMENT = {
+  sectionEyebrow: "Reference library",
+  sectionTitle: "Technical specifications & drainage context",
+  sectionIntro:
+    "Expand for crawlable depth on soils, pipe sizing, and grades. Field targets always follow signed drawings and municipal direction — not marketing tables.",
+  blocks: [
+    {
+      summary: "Soil saturation and infiltration",
+      paragraphs: [
+        "Clay-heavy profiles near Barrie hold pore pressure longer than sandier strips toward Wasaga; seasonal highs change how quickly subsurface drains must pull water away from footings.",
+        "Saturation rates inform trench depth, stone volume, and whether interceptors belong upgradient of the structure. Geotechnical input and OBC exposure assumptions govern design — we execute to that brief.",
+      ],
+    },
+    {
+      summary: "Pipe diameters, slopes, and materials",
+      paragraphs: [
+        "Carrier diameters, material class (PVC, HDPE, concrete), jointing, and minimum slopes are set by civil drawings and municipal storm standards — not a one-size table in marketing copy.",
+        "Cleanouts, structure connections, and bedding classes are part of the same IFC package; field changes route through RFI so capacity and cover stay traceable at inspection.",
+      ],
+    },
+    {
+      summary: "Grading percentages and sheet flow",
+      paragraphs: [
+        "Finished and interim grades target designer cross-slopes and longitudinal slopes so sheet flow reaches catchments without ponding on structural fills or against walls.",
+        "Percentages tie to hardscape and landscape cover: what reads flat on paper must still move water when pavers, asphalt, or turf are in place — we lock tie-ins before those scopes close the surface.",
+      ],
+    },
+  ],
 } as const;
 
 export const DRAINAGE_HERO = {
-  /** Full phrase for audits / JSON-LD-adjacent reference; visible hero uses `ThreeActHeadline` lines. */
-  h1: "Drainage, Hardscaping & Landscaping Contractors Serving Barrie, Simcoe County & Surrounding Areas",
-  titleLine1: "Drainage &",
-  titleLine2: "Hardscaping",
-  titleLine3: "Landscaping · Simcoe County",
-  sub: "We solve the water problems other contractors ignore. We build hardscapes and landscapes that turn tough grades into outdoor spaces that last.",
-  ctaPrimary: "Get Your Free Drainage Assessment",
+  /** Full phrase for audits / JSON-LD-adjacent reference. */
+  h1: "End Standing Water & Foundation Risks — Drainage & Hardscaping in Barrie & Simcoe County",
+  h1LineBefore: "End Standing Water",
+  h1LineAccent: "& Foundation Risks",
+  /** Service scope line under H1 (still drainage-led). */
+  kicker: "Drainage, hardscaping & landscaping · Simcoe County",
+  sub: "We engineer surface and subsurface drainage — culverts, french drains, catch basins, and grades tied to storm — so hardscapes and foundations stay dry through freeze-thaw.",
+  ctaPrimary: "Request a Drainage Assessment",
   ctaSecondary: "Book a Free Site Visit",
   breadcrumbHome: "Home",
   breadcrumbServices: "Services",
@@ -165,7 +241,7 @@ export const DRAINAGE_INTRO_PANEL_LIST = [
 ] as const;
 
 export const DRAINAGE_INTRO_INLINE_CTA =
-  "Get your free drainage and landscaping assessment or request a quote today.";
+  "Request a drainage assessment or send drawings — we confirm scope, sequencing, and fit before hardscape or landscape cover closes your grades.";
 
 export const DRAINAGE_SERVICE_CARDS_EYEBROW = "WHAT WE BUILD";
 export const DRAINAGE_SERVICE_CARDS = [
@@ -579,7 +655,7 @@ export const DRAINAGE_WHY_CHOOSE = {
 
 export const DRAINAGE_PROCESS = {
   eyebrow: "OUR PROCESS",
-  h2: "Our Drainage & Hardscaping Process — From Assessment to Completion",
+  h2: "How we execute — from assessment through final grade",
   steps: [
     {
       title: "Free Site Assessment",
@@ -780,7 +856,7 @@ export const DRAINAGE_FINAL_CTA = {
     "Complete drainage, hardscaping, and landscaping for Barrie, Orillia, Simcoe County, Wasaga Beach, and Innisfil.",
     "Every project starts with a free site assessment and a written quote.",
   ],
-  ctaPrimary: "Get Your Free Drainage Assessment",
+  ctaPrimary: "Request a Drainage Assessment",
   ctaSecondary: "Book a Free Site Visit",
   ctaPhone: `Call: ${PHONE_DISPLAY}`,
   finePrint: "Licensed & insured. WSIB compliant. Serving Simcoe County since [YEAR].",

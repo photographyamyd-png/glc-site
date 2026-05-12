@@ -2,8 +2,11 @@ import "@/app/glc-dna-intro-value.css";
 import Image from "next/image";
 import Link from "next/link";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
-import { ThreeActHeadline } from "@/components/ui/ThreeActHeadline";
 import { DrainageFaqAccordion } from "@/components/drainage-hardscaping/DrainageFaqAccordion";
+import { DrainagePainGradientSection } from "@/components/drainage-hardscaping/DrainagePainGradientSection";
+import { DrainageSeoBasement } from "@/components/drainage-hardscaping/DrainageSeoBasement";
+import { DrainageSystemsSolution } from "@/components/drainage-hardscaping/DrainageSystemsSolution";
+import { GradingBeforeAfterProof } from "@/components/services/grading/GradingBeforeAfterProof";
 import { DrainageHardscapingJsonLd } from "@/components/seo/DrainageHardscapingJsonLd";
 import { ExpandSection } from "@/components/drainage-hardscaping/ExpandSection";
 import { CTAButton, SectionEyebrow, YellowRule } from "@/components/drainage-hardscaping/primitives";
@@ -18,6 +21,7 @@ import {
   DRAINAGE_FINAL_CTA,
   DRAINAGE_HERO,
   DRAINAGE_IMAGES,
+  DRAINAGE_PROOF_BEFORE_AFTER,
   DRAINAGE_INTEGRATION,
   DRAINAGE_INTRO_EXPAND,
   DRAINAGE_INTRO_EXPAND_TRIGGER,
@@ -60,9 +64,10 @@ const RELATED_STRIP_IMAGES = {
  * - **Z-index:** atmosphere ≤0 (watermarks, motifs); section content `z-10`; sticky tablists `z-10`
  *   inside `StickyTabBox`; sticky sidecars use `z-0` within their column. Avoid `overflow-hidden` on
  *   ancestors of `position:sticky` unless clipping is intentional (tab box root is `overflow` visible).
- * - **Tonal sequence:** dark hero+trust → light intro → dark service cards → light drain tile → dark
- *   site drainage → light retaining → dark mid CTA → light patios → dark/light integration → dark why
- *   choose → light process → dark service areas → light FAQ → dark trust → light related → dark final CTA.
+ * - **Tonal sequence:** dark split hero + trust → gradient pain → light systems → dark proof slider →
+ *   light intro → dark service cards → light drain tile → dark site drainage → light retaining → dark mid CTA →
+ *   light patios → dark/light integration → dark why choose → light process → dark service areas → light FAQ →
+ *   dark trust → light related → light SEO basement → dark final CTA.
  */
 const bodyLight = "text-[15px] leading-[1.72] text-ink sm:text-base";
 const bodyDark = "text-[15px] leading-[1.72] text-white/90 sm:text-base";
@@ -234,83 +239,74 @@ export function DrainageHardscapingPage({ service, related }: Props) {
     <article className="relative">
       <DrainageHardscapingJsonLd />
 
-      {/* 01 Hero + trust metrics — single section avoids consecutive dark band vs trust (design-system §2). */}
+      {/* 01 Split hero + trust metrics */}
       <section
         className="hero-stage band-dark-field relative flex scroll-mt-[var(--header)] flex-col overflow-hidden"
         aria-labelledby="drainage-hero-h1"
       >
-        <div className="relative min-h-[min(100dvh,920px)] w-full">
-          <div className="absolute inset-0">
-            <Image
-              src={DRAINAGE_IMAGES.hero.src}
-              alt={DRAINAGE_IMAGES.hero.alt}
-              fill
-              priority
-              className="hero-bg-image object-cover object-center"
-              sizes="100vw"
-            />
-          </div>
-          <div
-            className="absolute inset-0 bg-gradient-to-r from-[rgb(10_12_11/0.92)] via-[rgb(10_12_11/0.72)] to-[rgb(10_12_11/0.32)] lg:via-[rgb(10_12_11/0.62)]"
-            aria-hidden
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.72)] via-transparent to-[rgb(10_12_11/0.22)]"
-            aria-hidden
-          />
-          <div
-            className="absolute inset-0 bg-[radial-gradient(ellipse_78%_58%_at_72%_30%,rgb(242_183_5/0.14),transparent_58%)]"
-            aria-hidden
-          />
-          <ClaudeLogicWatermark placement="bottom-right" className="z-[1] opacity-[0.16]" />
-
-          <div className="relative z-10 mx-auto flex min-h-[min(100dvh,920px)] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-4 pb-10 pt-[var(--site-header-offset)] sm:px-6 sm:pb-12 lg:justify-between lg:px-10 lg:pb-16 lg:pt-[var(--site-header-offset)]">
-            <div className="max-w-[min(100%,var(--max))] rounded-sm border border-white/10 bg-[rgb(10_12_11/0.42)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:max-w-4xl lg:pt-10">
-              <nav aria-label="Breadcrumb" className="hero-eyebrow eyebrow text-white/55">
-                <Link href="/" className="hover:text-[color:var(--y)]">
-                  {DRAINAGE_HERO.breadcrumbHome}
-                </Link>
-                <span className="mx-2" aria-hidden>
-                  /
-                </span>
-                <Link href="/services/" className="hover:text-[color:var(--y)]">
-                  {DRAINAGE_HERO.breadcrumbServices}
-                </Link>
-                <span className="mx-2" aria-hidden>
-                  /
-                </span>
-                <span className="text-white">{DRAINAGE_HERO.breadcrumbCurrent}</span>
-              </nav>
-              <p className="hero-eyebrow label-overline-on-dark mt-[var(--s7)] mb-0">Service overview</p>
-              <ThreeActHeadline
-                id="drainage-hero-h1"
-                line1={DRAINAGE_HERO.titleLine1}
-                line2={DRAINAGE_HERO.titleLine2}
-                line3={DRAINAGE_HERO.titleLine3}
+        <div className="relative w-full lg:min-h-[min(88dvh,860px)]">
+          <div className="mx-auto grid max-w-[min(100%,var(--max-bleed))] min-h-[min(100dvh,920px)] lg:min-h-[min(88dvh,860px)] lg:grid-cols-2">
+            <div className="relative z-10 order-1 flex flex-col justify-end bg-[rgb(10_12_11)] px-4 pb-8 pt-[var(--site-header-offset)] sm:px-6 sm:pb-10 lg:justify-center lg:px-10 lg:pb-12 lg:pt-[var(--site-header-offset)]">
+              <div
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_0%_100%,rgb(242_183_5/0.08),transparent_55%)]"
+                aria-hidden
               />
-              <div className="mt-6 max-w-xl space-y-3 border-l-4 border-[color:var(--y)]/50 pl-5">
-                {DRAINAGE_HERO.sub.split(". ").map((bit) => {
-                  const t = bit.trim();
-                  if (!t) return null;
-                  const withPeriod = t.endsWith(".") ? t : `${t}.`;
-                  return (
-                    <p key={withPeriod} className="text-[15px] leading-[1.72] text-white/88 sm:text-base">
-                      {withPeriod}
-                    </p>
-                  );
-                })}
+              <ClaudeLogicWatermark placement="bottom-right" mode="on-dark" className="z-0 opacity-[0.12] lg:hidden" />
+              <div className="relative max-w-xl">
+                <nav aria-label="Breadcrumb" className="hero-eyebrow eyebrow text-white/55">
+                  <Link href="/" className="hover:text-[color:var(--y)]">
+                    {DRAINAGE_HERO.breadcrumbHome}
+                  </Link>
+                  <span className="mx-2" aria-hidden>
+                    /
+                  </span>
+                  <Link href="/services/" className="hover:text-[color:var(--y)]">
+                    {DRAINAGE_HERO.breadcrumbServices}
+                  </Link>
+                  <span className="mx-2" aria-hidden>
+                    /
+                  </span>
+                  <span className="text-white">{DRAINAGE_HERO.breadcrumbCurrent}</span>
+                </nav>
+                <p className="hero-eyebrow label-overline-on-dark mt-[var(--s7)] mb-0">Drainage solutions</p>
+                <h1
+                  id="drainage-hero-h1"
+                  className="mt-[var(--s7)] max-w-4xl font-serif text-[clamp(1.75rem,4.2vw,3rem)] font-semibold uppercase leading-[0.98] tracking-tight text-white"
+                >
+                  {DRAINAGE_HERO.h1LineBefore}{" "}
+                  <span className="text-[color:var(--y)]">{DRAINAGE_HERO.h1LineAccent}</span>
+                </h1>
+                <p className="mt-3 font-serif text-sm font-bold uppercase leading-snug tracking-tight text-white/85 sm:text-base">
+                  {DRAINAGE_HERO.kicker}
+                </p>
+                <p className="mt-6 max-w-prose border-l-4 border-[color:var(--y)]/50 pl-5 text-[15px] leading-[1.72] text-white/90 sm:text-base">
+                  {DRAINAGE_HERO.sub}
+                </p>
+                <div className="hero-cta-row mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                  <Link href="/contact/" className="cta-hero-fill px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
+                    {DRAINAGE_HERO.ctaPrimary}
+                  </Link>
+                  <Link href="/contact/" className="cta-outline-light px-5 py-3 text-center text-xs tracking-wide">
+                    {DRAINAGE_HERO.ctaSecondary}
+                  </Link>
+                  <a href={PHONE_TEL} className="cta-outline-light px-5 py-3 text-center text-xs tracking-wide">
+                    {drainageHeroPhoneCta()}
+                  </a>
+                </div>
               </div>
-              <div className="hero-cta-row mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-                <Link href="/contact/" className="cta-hero-fill px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
-                  {DRAINAGE_HERO.ctaPrimary}
-                </Link>
-                <Link href="/contact/" className="cta-outline-light px-5 py-3 text-center text-xs tracking-wide">
-                  {DRAINAGE_HERO.ctaSecondary}
-                </Link>
-                <a href={PHONE_TEL} className="cta-outline-light px-5 py-3 text-center text-xs tracking-wide">
-                  {drainageHeroPhoneCta()}
-                </a>
-              </div>
+            </div>
+
+            <div className="relative order-2 min-h-[min(42dvh,420px)] w-full lg:min-h-0">
+              <Image
+                src={DRAINAGE_IMAGES.hero.src}
+                alt={DRAINAGE_IMAGES.hero.alt}
+                fill
+                priority
+                className="object-cover object-center"
+                sizes="(min-width:1024px) 50vw, 100vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.55)] via-transparent to-[rgb(10_12_11/0.15)] lg:bg-gradient-to-l lg:from-transparent lg:via-transparent lg:to-[rgb(10_12_11/0.45)]" aria-hidden />
+              <ClaudeLogicWatermark placement="bottom-right" mode="on-dark" className="z-[1] hidden opacity-[0.14] lg:block" />
             </div>
           </div>
         </div>
@@ -342,9 +338,23 @@ export function DrainageHardscapingPage({ service, related }: Props) {
         </div>
       </section>
 
-      {/* 03 Intro — tri-plane: wash + watermark + content */}
+      <DrainagePainGradientSection />
+      <DrainageSystemsSolution />
+      <GradingBeforeAfterProof
+        sectionId="drainage-proof"
+        headingId="drainage-proof-heading"
+        eyebrow={DRAINAGE_PROOF_BEFORE_AFTER.eyebrow}
+        heading={DRAINAGE_PROOF_BEFORE_AFTER.heading}
+        caption={DRAINAGE_PROOF_BEFORE_AFTER.caption}
+        beforeSrc={DRAINAGE_IMAGES.proofBefore.src}
+        beforeAlt={DRAINAGE_IMAGES.proofBefore.alt}
+        afterSrc={DRAINAGE_IMAGES.proofAfter.src}
+        afterAlt={DRAINAGE_IMAGES.proofAfter.alt}
+      />
+
+      {/* 03 Intro — tri-plane: wash + watermark + content (after proof for tonal rhythm) */}
       <section
-        className="section-major band-light relative isolate scroll-mt-[var(--header)] view-reveal overflow-hidden px-0"
+        className="section-major band-light relative isolate scroll-mt-[var(--header)] view-reveal overflow-hidden border-t border-[color:var(--g200)] px-0"
         id="intro-value"
       >
         <div className="iv1__wash" aria-hidden />
@@ -1066,6 +1076,8 @@ export function DrainageHardscapingPage({ service, related }: Props) {
           </ul>
         </div>
       </section>
+
+      <DrainageSeoBasement />
 
       {/* Final CTA */}
       <section

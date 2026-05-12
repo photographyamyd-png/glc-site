@@ -18,7 +18,7 @@ export function DrainageHardscapingJsonLd() {
     serviceType: "Drainage, Hardscaping and Landscaping",
     name: "Drainage, Hardscaping & Landscaping Services",
     description:
-      "Ground Level Contracting provides complete drainage, hardscaping, and landscaping integration services throughout Barrie and Simcoe County, Ontario — including foundation drain tile installation and replacement, custom site drainage design, french drains, retaining walls in armour stone, segmental block and concrete, interlock patios, driveways, natural stone walkways, steps, and hardscape and landscape integration for sloped, lakeside, and challenging-grade properties.",
+      "Ground Level Contracting delivers drainage-led site work in Barrie and Simcoe County, Ontario — culverts, french drains, catch basins, grading tie-ins to storm, foundation drain tile, custom site drainage, armour stone and segmental retaining walls, interlock and natural stone hardscapes, and integrated landscape finishes for sloped, lakeside, and challenging-grade properties.",
     url: pageUrl,
     provider: { "@id": `${siteUrl}/#business` },
     areaServed: [
