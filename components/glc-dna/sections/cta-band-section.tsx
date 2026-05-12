@@ -7,7 +7,13 @@ export function CtaBandSection({
   ...props
 }: CtaBandProps) {
   return (
-    <section id={sectionId} aria-labelledby={headingId} data-accent-family="cta" data-accent-zone="conversion-endband">
+    <section
+      id={sectionId}
+      className="cta3-root"
+      aria-labelledby={headingId}
+      data-accent-family="cta"
+      data-accent-zone="conversion-endband"
+    >
       {/* Structural diagonal accent */}
       <div className="cta3__diag" aria-hidden data-motif-id="cta3__diag" />
 

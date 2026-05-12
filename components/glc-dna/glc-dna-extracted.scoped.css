@@ -1520,14 +1520,16 @@
    CTA BAND — v3 Dark Charcoal Close
    Diagonal yellow accent · massive phone display
 ═══════════════════════════════════════════ */
-.glc-dna-sandbox #cta-band {
+.glc-dna-sandbox #cta-band,
+.glc-dna-sandbox section.cta3-root {
   background: var(--charcoal-deep);
   position: relative;
   overflow: hidden;
 }
 
 /* Blueprint grid texture */
-.glc-dna-sandbox #cta-band::before {
+.glc-dna-sandbox #cta-band::before,
+.glc-dna-sandbox section.cta3-root::before {
   content: '';
   position: absolute; inset: 0;
   background:
