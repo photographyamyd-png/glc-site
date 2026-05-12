@@ -4,6 +4,8 @@ Use this document when porting the GLC header / mega-menu pattern to another cod
 
 **File paths for “bring GLC into Cursor” (corrected for this repo):** see [`bring-list-to-other-repo.md`](./bring-list-to-other-repo.md) — older notes that mention `src/components/layout/…` or `glc-base.css` do not match this Next.js tree.
 
+**Legacy split mega + zip bundle (for other machines):** [`gl-mega-menu-full-source-for-other-repo/README.md`](./gl-mega-menu-full-source-for-other-repo/README.md) — includes example JSON/types; add recovered `.tsx` and CSS extract to complete; zip at repo root `glc-mega-menu-source-bundle.zip`.
+
 ## Where tokens live (this repo)
 
 - **Primary:** [`app/globals.css`](../../app/globals.css) — `:root` custom properties, shadcn-aligned aliases, `@theme inline` (Tailwind v4), and utilities (`.eyebrow`, `.label-overline`, `.panel-machined`, `.cta-primary`, etc.).

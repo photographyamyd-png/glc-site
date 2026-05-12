@@ -1,0 +1,16 @@
+/**
+ * GLC mega menu + company panel + btn-primary (reference stylesheet slice)
+ * -------------------------------------------------------------------------
+ * This file is a PLACEHOLDER in the canonical Next.js repo: there is no
+ * `src/styles/glc-base.css` checked in here.
+ *
+ * Populate this file by copying from the recovered GLC tree:
+ *   - From `src/styles/glc-base.css` (or equivalent), the blocks described in
+ *     README.md under “CSS extraction”.
+ *
+ * The production Next.js app uses `app/globals.css` for tokens and
+ * `.site-header-*` / `.mega-*` utilities instead of legacy `gl-*` class names.
+ * The other project should map reference classes to their token bridge.
+ */
+
+/* (empty — add extracted rules from recovered glc-base.css) */

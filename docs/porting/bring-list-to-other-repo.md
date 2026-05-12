@@ -98,6 +98,17 @@ Attached GLC files are reference only: production GLC collapses mega into compon
 
 ---
 
-## 6) Related doc
+## 6) Full reference bundle (legacy `src/` mega + zip)
+
+For the **split** header/mega implementation, extracted CSS slice, and copy-paste prompts intended for another machine, see:
+
+- Folder: [`gl-mega-menu-full-source-for-other-repo/`](./gl-mega-menu-full-source-for-other-repo/README.md)
+- Zip (regenerate after copying recovered TS/CSS into the folder): **`glc-mega-menu-source-bundle.zip`** at repo root (see README in that folder for `Compress-Archive`).
+
+That bundle may be **partial** until someone copies `site-header.tsx`, `mega-menu-services.tsx`, `mega-menu-company.tsx`, and `glc-base.css` extracts from a recovered `glc-site/src/` tree into the folder.
+
+---
+
+## 7) Related doc
 
 - In-repo mega/token story and interaction notes: [`gl-mega-menu-port-pack.md`](./gl-mega-menu-port-pack.md)
