@@ -14,14 +14,14 @@ describe("internal destinations integrity", () => {
       "hero",
       "services",
       "about",
-      "metrics",
+      "agitator",
       "capabilities",
+      "proof",
+      "cta-band",
+      "home-faq",
       "why",
       "process",
       "coverage",
-      "testimonials",
-      "cta-band",
-      "ghost-test",
     ]);
     expect(HOME_HASH_ROUTES).toContain("/#services");
     expect(HOME_HASH_ROUTES).toContain("/#cta-band");

@@ -311,13 +311,160 @@ export const COPY_LAB_TESTIMONIALS = {
 } as const;
 
 export const COPY_LAB_CLOSING_CTA = {
-  eyebrow: "Ready to Build?",
-  headline: "Start With a Site Consultation",
+  eyebrow: "Dispatch-Ready Crews",
+  headline: "Commercial Sites — Delivered Without The Vanishing Act",
   supporting:
-    "Commercial projects across Barrie, Midland, Orillia, and Simcoe County. Affordable, reliable, satisfaction guaranteed.",
+    "Barrie-based dispatch for excavation, civil, drainage, hauling, and winter operations across Midland, Orillia, and Simcoe County.",
+  primaryCtaLabel: "Start Your Project On Time",
+  primaryCtaHref: PHONE_TEL,
+  secondaryCtaLabel: "Email scope & drawings",
+  secondaryCtaHref: EMAIL_MAILTO,
   phoneLabel: "Call Direct",
   phoneDisplay: PHONE_DISPLAY,
   phoneHref: PHONE_TEL,
   emailLabel: "Email Us",
   emailHref: EMAIL_MAILTO,
+} as const;
+
+/** Post-`#about` homepage stack — agitator band (contractor reliability narrative). */
+export const COPY_LAB_AGITATOR = {
+  eyebrow: "Site Reality",
+  heading: "When Contractors Ghost, Schedules Bleed",
+  lede:
+    "No-shows, radio silence, and iron that never arrives turn tight pours into expensive standby days. Ground Level is built for dispatch-first commercial work.",
+  cards: [
+    {
+      title: "The Silent No-Show",
+      body: "Crews that disappear mid-sequence leave supers guessing and concrete windows collapsing.",
+      accent: "01",
+    },
+    {
+      title: "Schedule Drift",
+      body: "Every unanswered call stacks delay fees, inspection re-books, and downstream trades idle on your dime.",
+      accent: "02",
+    },
+    {
+      title: "Iron Failure",
+      body: "Wrong-class equipment or dead mobilization turns a one-day dig into a multi-day recovery.",
+      accent: "03",
+    },
+  ] as const,
+  imageAlt:
+    "Heavy civil equipment staged for commercial site preparation — Ground Level Contracting Simcoe County",
+} as const;
+
+/** Second capability surface after `#services` intro bento — depth + asymmetric spans. */
+export const COPY_LAB_CAPABILITY_BENTO = {
+  eyebrow: "Capability Depth",
+  heading: "Heavy Lifts Where Deadlines Tighten",
+  intro:
+    "Detailed scopes by line — excavation and winter operations run wide because most schedules break there first. Every tile routes to its canonical service page.",
+} as const;
+
+/** Before/after uses two distinct on-site rasters; slider compares compositionally (not pixel-matched survey pair). */
+export const COPY_LAB_PROOF = {
+  eyebrow: "Field Proof",
+  heading: "Rough Site To Ready-Build Condition",
+  caption:
+    "Commercial earthworks and finish prep across Barrie and Simcoe County — same dispatch discipline we bring to every mobilization.",
+  beforeSrc: "/images/services/Excavation/excavation-016.jpg",
+  beforeAlt:
+    "Commercial excavation equipment preparing an active construction site in Simcoe County — before finish grading phase",
+  afterSrc: "/images/services/Grading/grading-001.jpg",
+  afterAlt:
+    "Grading equipment shaping a commercial site pad — finish prep and turnover-ready surface",
+  pullQuote:
+    "Ground Level mobilized faster than any contractor we'd used before. Site was prepped and ready two days ahead of our concrete pour — that kind of reliability is rare.",
+  pullAttribution: "Marcus T., Project Manager — Commercial Developer, Barrie",
+} as const;
+
+export type HomeFaqGroup = {
+  /** In-page hash targets for legacy nav (`/#why`, `/#process`, `/#coverage`). */
+  anchorId?: "why" | "process" | "coverage";
+  sectionTitle?: string;
+  items: readonly { q: string; a: string }[];
+};
+
+export const COPY_LAB_HOME_FAQ = {
+  eyebrow: "Reference",
+  heading: "Service Area & Capability FAQ",
+  intro:
+    "Answers compiled from our commercial positioning, process, coverage, metrics, and client feedback — all retained in-page for search clarity.",
+  groups: [
+    {
+      anchorId: "why",
+      sectionTitle: "Why Ground Level",
+      items: [
+        {
+          q: "Why choose Ground Level for commercial excavation and civil work?",
+          a:
+            `${COPY_LAB_WHY.body} Rapid mobilization, geotechnical depth, PM-friendly communication, and single-source accountability across excavation, drainage, and clearing keep handoffs tight.`,
+        },
+      ],
+    },
+    {
+      anchorId: "process",
+      sectionTitle: "How we work",
+      items: [
+        {
+          q: "What happens after the first call?",
+          a: `${COPY_LAB_PROCESS.intro} ${COPY_LAB_PROCESS.steps.map((s) => `${s.index} ${s.title}: ${s.body}`).join(" ")}`,
+        },
+      ],
+    },
+    {
+      anchorId: "coverage",
+      sectionTitle: "Service territory",
+      items: [
+        {
+          q: "Where does Ground Level operate commercially?",
+          a: `${COPY_LAB_COVERAGE.body} Territory highlights: ${COPY_LAB_COVERAGE.regions.map((r) => `${r.name} — ${r.sub}`).join("; ")}.`,
+        },
+      ],
+    },
+    {
+      items: [
+        {
+          q: "What does Ground Level Contracting provide end-to-end?",
+          a: `${COPY_LAB_FEATURED_SERVICES.body} ${COPY_LAB_CAPABILITIES_INTRO}`,
+        },
+        {
+          q: "What field metrics reflect your commercial track record?",
+          a: COPY_LAB_STATS.metrics.map((m) => `${m.value} ${m.label}: ${m.sub}`).join(". ") + ".",
+        },
+        {
+          q: "What does excavation and site preparation include?",
+          a: COPY_LAB_SERVICE_CARDS[0].description,
+        },
+        {
+          q: "What does site preparation and grading cover?",
+          a: COPY_LAB_SERVICE_CARDS[1].description,
+        },
+        {
+          q: "What foundations and civil infrastructure scopes do you take on?",
+          a: COPY_LAB_SERVICE_CARDS[2].description,
+        },
+        {
+          q: "How do drainage and hardscaping services support commercial sites?",
+          a: COPY_LAB_SERVICE_CARDS[3].description,
+        },
+        {
+          q: "What hauling, clearing, and logistics capabilities are available?",
+          a: COPY_LAB_SERVICE_CARDS[4].description,
+        },
+        {
+          q: "How does commercial snow removal operate across Simcoe County?",
+          a: COPY_LAB_SERVICE_CARDS[5].description,
+        },
+      ],
+    },
+    {
+      items: [
+        {
+          q: "What are commercial clients saying about mobilization and quality?",
+          a: `Client feedback snapshot: ${COPY_LAB_TESTIMONIALS.items.map((t) => `“${t.quote}” — ${t.name}, ${t.role}`).join(" ")}`,
+        },
+      ],
+    },
+  ] satisfies readonly HomeFaqGroup[],
 } as const;

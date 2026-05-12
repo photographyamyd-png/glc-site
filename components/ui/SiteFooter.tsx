@@ -25,7 +25,7 @@ export function SiteFooter() {
             <li><Link href="/#about" className="text-ink-muted hover:text-[color:var(--y)]">Commercial Positioning</Link></li>
             <li><Link href="/#process" className="text-ink-muted hover:text-[color:var(--y)]">Process</Link></li>
             <li><Link href="/#coverage" className="text-ink-muted hover:text-[color:var(--y)]">Coverage</Link></li>
-            <li><Link href="/#testimonials" className="text-ink-muted hover:text-[color:var(--y)]">Projects</Link></li>
+            <li><Link href="/#proof" className="text-ink-muted hover:text-[color:var(--y)]">Proof</Link></li>
           </ul>
         </div>
         <div>

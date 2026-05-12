@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { SEO_TITLES } from "@/lib/site/registry";
+import { GLHomeCopyLab } from "@/components/ground-level/home-copy-lab/GLHomeCopyLab";
+import { HomeFaqJsonLd } from "@/components/seo/HomeFaqJsonLd";
 import { COPY_LAB_HERO } from "@/lib/ground-level/home-copy-lab-content";
 import { buildPageMetadata } from "@/lib/site/metadata";
-import { GLHomeCopyLab } from "@/components/ground-level/home-copy-lab/GLHomeCopyLab";
+import { SEO_TITLES } from "@/lib/site/registry";
 
 export const metadata: Metadata = buildPageMetadata({
   title: SEO_TITLES.home,
@@ -11,5 +12,10 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function Home() {
-  return <GLHomeCopyLab />;
+  return (
+    <>
+      <HomeFaqJsonLd />
+      <GLHomeCopyLab />
+    </>
+  );
 }

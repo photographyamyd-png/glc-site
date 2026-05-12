@@ -4,14 +4,14 @@ export const HOME_SECTION_IDS = [
   "hero",
   "services",
   "about",
-  "metrics",
+  "agitator",
   "capabilities",
+  "proof",
+  "cta-band",
+  "home-faq",
   "why",
   "process",
   "coverage",
-  "testimonials",
-  "cta-band",
-  "ghost-test",
 ] as const;
 
 export const HOME_HASH_ROUTES = HOME_SECTION_IDS.map((id) => `/#${id}` as const);

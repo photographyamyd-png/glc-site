@@ -13,7 +13,7 @@
     { "label": "About", "href": "/about/" },
     { "label": "Process", "href": "/#process" },
     { "label": "Coverage", "href": "/#coverage" },
-    { "label": "Projects", "href": "/#testimonials" }
+    { "label": "Proof", "href": "/#proof" }
   ],
   "megaMenu": {
     "kicker": "What we do",
@@ -89,7 +89,7 @@
         "links": [
           { "label": "All services", "href": "/services/" },
           { "label": "Why Ground Level", "href": "/#why" },
-          { "label": "Client Projects", "href": "/#testimonials" },
+          { "label": "Field proof", "href": "/#proof" },
           { "label": "Site consultation", "href": "/#cta-band" }
         ]
       }
@@ -109,7 +109,7 @@
       { "label": "Services overview", "href": "/#services" },
       { "label": "Our Process", "href": "/#process" },
       { "label": "Coverage Area", "href": "/#coverage" },
-      { "label": "Projects", "href": "/#testimonials" }
+      { "label": "Proof", "href": "/#proof" }
     ]
   },
   "footer": {
@@ -152,7 +152,7 @@
           { "label": "Why Ground Level", "href": "/#why" },
           { "label": "Our Process", "href": "/#process" },
           { "label": "Coverage Area", "href": "/#coverage" },
-          { "label": "Client Projects", "href": "/#testimonials" }
+          { "label": "Field proof", "href": "/#proof" }
         ]
       },
       {
