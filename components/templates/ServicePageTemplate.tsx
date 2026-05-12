@@ -13,6 +13,8 @@ import { getSnowSubserviceCapabilityItems } from "@/lib/site/snow-subservice-cap
 import { SnowSubServiceJsonLd } from "@/components/seo/SnowSubServiceJsonLd";
 import { HaulingGlcDnaLane } from "@/components/services/hauling/HaulingGlcDnaLane";
 import { HaulingSeoTechnicalBasement } from "@/components/services/hauling/HaulingSeoTechnicalBasement";
+import { GradingConversionLane } from "@/components/services/grading/GradingConversionLane";
+import { GradingSeoTechnicalBasement } from "@/components/services/grading/GradingSeoTechnicalBasement";
 import { buildHaulingGlcDnaLaneProps } from "@/lib/site/hauling-glc-dna-map";
 import { GlcFaqDetailsGrid } from "@/components/faq/GlcFaqDetailsGrid";
 
@@ -40,6 +42,15 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
           })}
         />
         <HaulingSeoTechnicalBasement detail={detail} />
+      </article>
+    );
+  }
+
+  if (service.category === "primary" && service.slug === "site-preparation-grading" && detail) {
+    return (
+      <article className="relative">
+        <GradingConversionLane service={service} related={related} detail={detail} />
+        <GradingSeoTechnicalBasement detail={detail} />
       </article>
     );
   }

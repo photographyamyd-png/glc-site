@@ -179,7 +179,7 @@ export const SEO_TITLES = {
   primary: {
     "excavation-site-preparation":
       "Excavation & Site Preparation Barrie | Simcoe County Contractor",
-    "site-preparation-grading": "Site Preparation & Grading | Ground Level Contracting",
+    "site-preparation-grading": "Commercial Site Grading & Pad Prep | Barrie, Midland, Orillia | GLC",
     "foundations-civil-infrastructure": "Foundations & Civil Infrastructure | Barrie, Simcoe County",
     "drainage-hardscaping": "Drainage & Hardscaping | Ground Level Contracting",
     "hauling-site-clearing-logistics":

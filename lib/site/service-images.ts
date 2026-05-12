@@ -67,3 +67,14 @@ export function getHaulingScopeProofImage(): ServiceImage {
     alt: "Commercial hauling and earthmoving equipment staged for site logistics and material movement in Simcoe County",
   };
 }
+
+/** Before/after pair for grading conversion proof — distinct rasters (not survey-matched). */
+export function getGradingProofSliderImages(): { before: ServiceImage; after: ServiceImage } {
+  return {
+    before: {
+      src: "/images/services/Excavation/excavation-016.jpg",
+      alt: "Commercial excavation and rough site conditions on an active Simcoe County construction site before finish grading",
+    },
+    after: SERVICE_IMAGES["site-preparation-grading"],
+  };
+}
