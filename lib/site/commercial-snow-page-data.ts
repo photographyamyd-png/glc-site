@@ -36,9 +36,6 @@ export const COMMERCIAL_SNOW_CHAPTERS = [
   { id: "chapter-contact", label: "Contact", shortLabel: "Contact" },
 ] as const;
 
-/** Sticky tab targets below the hero (one visible chapter panel at a time). */
-export const COMMERCIAL_SNOW_STICKY_CHAPTERS = COMMERCIAL_SNOW_CHAPTERS.filter((c) => c.id !== "chapter-hero");
-
 export const COMMERCIAL_SNOW_HERO = {
   h1Id: "commercial-snow-h1",
   sectionAriaLabelledBy: "commercial-snow-h1",
