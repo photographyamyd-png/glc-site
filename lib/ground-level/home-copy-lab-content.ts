@@ -246,21 +246,25 @@ export const COPY_LAB_PROCESS = {
       index: "01",
       title: "Site Consultation",
       body: "Call or email us with your site address and scope. We review conditions and provide a clear assessment.",
+      titleAccentKey: "Consultation",
     },
     {
       index: "02",
       title: "Detailed Quote",
       body: "We provide transparent, itemized pricing with no hidden costs. Scope is confirmed before any equipment moves.",
+      titleAccentKey: "Quote",
     },
     {
       index: "03",
       title: "Crew Mobilization",
       body: "Our equipment and operators are mobilized to your site efficiently. Safety protocols and site prep completed on day one.",
+      titleAccentKey: "Mobilization",
     },
     {
       index: "04",
       title: "Delivery & Signoff",
       body: "Work completed to spec, site documentation provided, and signoff confirmed. Your build can proceed on schedule.",
+      titleAccentKey: "Signoff",
     },
   ] as const,
 } as const;

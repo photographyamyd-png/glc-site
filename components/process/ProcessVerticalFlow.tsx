@@ -9,6 +9,7 @@ import { ShardWatermark } from "@/components/process/ShardWatermark";
 
 import { HOME_COPY } from "@/lib/site/copy";
 import { PRIMARY_SERVICES } from "@/lib/site/registry";
+import type { GLProcessStep } from "@/lib/ground-level/process-step-types";
 import {
   CTA_BAND,
   EMAIL_MAILTO,
@@ -37,7 +38,7 @@ import {
  * `id="process-vertical-flow-lab-heading"` for sandbox jump links.
  *
  * Self-contained: takes no props. Reuses approved copy from lib/ground-level/homepage-copy
- * and lib/site/copy + lib/site/registry. No edits made to those modules.
+ * (structured process steps), lib/site/copy + lib/site/registry.
  */
 
 const HERO_RASTER =
@@ -72,7 +73,7 @@ const INDUSTRY_ALTS = [
   "Institutional foundation excavation and civil prep reference image",
 ] as const;
 
-/** PROCESS.steps strings ship in a "(NN) Title — Body" format. Parse in place; do not mutate copy. */
+/** Legacy long-string steps use "(NN) Title — Body"; structured steps pass through. */
 function parseProcessStep(raw: string): { id: string; title: string; body: string } {
   const match = raw.match(/^\(([^)]+)\)\s*([^—]+)\s—\s*(.*)$/);
   if (match) {
@@ -86,7 +87,12 @@ function parseProcessStep(raw: string): { id: string; title: string; body: strin
   return { id: "", title: raw, body: "" };
 }
 
-const PROCESS_OFFERINGS = PROCESS.steps.map(parseProcessStep);
+function stepToOffering(step: GLProcessStep): { id: string; title: string; body: string } {
+  if (typeof step === "string") return parseProcessStep(step);
+  return { id: step.index, title: step.title, body: step.body };
+}
+
+const PROCESS_OFFERINGS = PROCESS.steps.map(stepToOffering);
 
 /** Three industry cards from existing copy — no new strings introduced. */
 const INDUSTRIES = [0, 1, 2].map((i) => ({

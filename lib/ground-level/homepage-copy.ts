@@ -1,6 +1,8 @@
 /**
  * Canonical homepage copy — verbatim stakeholder strings. Do not paraphrase.
  */
+import type { GLProcessStructuredStep } from "@/lib/ground-level/process-step-types";
+
 export const PAGE_TITLE =
   "Excavation & Site Preparation Barrie | Simcoe County | Orillia | Innisfil";
 
@@ -107,11 +109,35 @@ export const PROCESS = {
   eyebrow: "How It Works",
   heading: "From First Call to Final Grade",
   steps: [
-    "(01) Site Consultation — Call or email us with your site address and scope. We review conditions and provide a clear assessment.",
-    "(02) Detailed Quote — We provide transparent, itemized pricing with no hidden costs. Scope is confirmed before any equipment moves.",
-    "(03) Crew Mobilization — Our equipment and operators are mobilized to your site efficiently. Safety protocols and site prep completed on day one.",
-    "(04) Delivery & Signoff — Work completed to spec, site documentation provided, and signoff confirmed. Your build can proceed on schedule.",
-  ] as const,
+    {
+      index: "01",
+      title: "Site Consultation",
+      body: "Call or email us with your site address and scope. We review conditions and provide a clear assessment.",
+      titleAccentKey: "Consultation",
+      motif: "consultation",
+    },
+    {
+      index: "02",
+      title: "Detailed Quote",
+      body: "We provide transparent, itemized pricing with no hidden costs. Scope is confirmed before any equipment moves.",
+      titleAccentKey: "Quote",
+      motif: "quote",
+    },
+    {
+      index: "03",
+      title: "Crew Mobilization",
+      body: "Our equipment and operators are mobilized to your site efficiently. Safety protocols and site prep completed on day one.",
+      titleAccentKey: "Mobilization",
+      motif: "mobilization",
+    },
+    {
+      index: "04",
+      title: "Delivery & Signoff",
+      body: "Work completed to spec, site documentation provided, and signoff confirmed. Your build can proceed on schedule.",
+      titleAccentKey: "Signoff",
+      motif: "signoff",
+    },
+  ] as const satisfies readonly GLProcessStructuredStep[],
 } as const;
 
 export const COVERAGE = {

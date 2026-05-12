@@ -1,6 +1,12 @@
+import type { ReactNode } from "react";
+
 import { GLDarkRasterFeatureSection } from "@/components/glc-sections/GLDarkRasterFeatureSection";
+import { ProcessStepMotif } from "@/components/ground-level/ProcessStepMotif";
 import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
+import type { GLProcessStep, ProcessStepMotifId } from "@/lib/ground-level/process-step-types";
 import { PROCESS } from "@/lib/ground-level/homepage-copy";
+
+export type { GLProcessStep, GLProcessStructuredStep, ProcessStepMotifId } from "@/lib/ground-level/process-step-types";
 
 /** Grading raster — same asset family as ProcessVerticalFlow process-split / showcase lab. */
 const PROCESS_BAND_RASTER =
@@ -26,7 +32,30 @@ function headingToneOnGlass(text: string) {
 const stepShell =
   "group relative overflow-hidden border border-white/12 border-l-4 border-l-[color:var(--y)] bg-[rgb(10_12_11/0.38)] p-5 shadow-[0_12px_32px_rgb(0_0_0/0.22)] backdrop-blur-sm transition-[border-color,background-color] duration-200 motion-safe:hover:border-white/25 motion-safe:hover:border-l-[color:var(--y)] motion-safe:hover:bg-[rgb(10_12_11/0.52)]";
 
-export type GLProcessStep = string | { index: string; title: string; body: string };
+const DEFAULT_MOTIFS: readonly ProcessStepMotifId[] = [
+  "consultation",
+  "quote",
+  "mobilization",
+  "signoff",
+] as const;
+
+function defaultMotifForIndex(i: number): ProcessStepMotifId {
+  return DEFAULT_MOTIFS[i % DEFAULT_MOTIFS.length] ?? "consultation";
+}
+
+function processStepTitleTone(title: string, accentKey?: string): ReactNode {
+  if (!accentKey || !title.includes(accentKey)) {
+    return <span className="text-white">{title}</span>;
+  }
+  const [before, after] = title.split(accentKey);
+  return (
+    <>
+      <span className="text-white">{before}</span>
+      <span className="text-[color:var(--y)]">{accentKey}</span>
+      <span className="text-white">{after}</span>
+    </>
+  );
+}
 
 export type GLProcessFooterActions = {
   primary: { label: string; href: string };
@@ -129,36 +158,39 @@ export function GLProcess({
                   typeof step === "string"
                     ? String(i + 1).padStart(2, "0")
                     : step.index;
-                return typeof step === "string" ? (
-                  <li key={step} className={`${stepShell} ${stagger}`}>
-                    <span
-                      className="pointer-events-none absolute -bottom-1 -right-1 font-serif text-[4.5rem] font-semibold leading-none text-white/[0.07] sm:text-[5.25rem]"
-                      aria-hidden
+
+                if (typeof step === "string") {
+                  return (
+                    <li
+                      key={`process-step-str-${i}`}
+                      className={`${stepShell} ${stagger} min-h-[180px]`}
                     >
-                      {mark}
-                    </span>
-                    <div className="relative z-[1]">
-                      <span className="eyebrow text-[color:var(--y)]">{mark}</span>
-                      <p className="mt-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-white">
-                        Step {String(i + 1).padStart(2, "0")}
-                      </p>
-                      <p className="mt-2 text-sm leading-relaxed text-white/90">{step}</p>
-                    </div>
-                  </li>
-                ) : (
-                  <li key={step.index} className={`${stepShell} ${stagger}`}>
-                    <span
-                      className="pointer-events-none absolute -bottom-1 -right-1 font-serif text-[4.5rem] font-semibold leading-none text-white/[0.07] sm:text-[5.25rem]"
-                      aria-hidden
-                    >
-                      {mark}
-                    </span>
-                    <div className="relative z-[1]">
-                      <span className="eyebrow text-[color:var(--y)]">{step.index}</span>
-                      <p className="mt-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-white">
-                        {step.title}
-                      </p>
-                      <p className="mt-2 text-sm leading-relaxed text-white/90">{step.body}</p>
+                      <div className="relative z-[1] flex items-start justify-between gap-4">
+                        <div className="min-w-0 flex-1">
+                          <span className="eyebrow text-[color:var(--y)]">{mark}</span>
+                          <p className="mt-2 text-sm leading-relaxed text-white/90">{step}</p>
+                        </div>
+                        <ProcessStepMotif id={defaultMotifForIndex(i)} />
+                      </div>
+                    </li>
+                  );
+                }
+
+                const motif = step.motif ?? defaultMotifForIndex(i);
+                return (
+                  <li
+                    key={step.index}
+                    className={`${stepShell} ${stagger} min-h-[200px]`}
+                  >
+                    <div className="relative z-[1] flex items-start justify-between gap-4">
+                      <div className="min-w-0 flex-1">
+                        <span className="eyebrow text-[color:var(--y)]">{step.index}</span>
+                        <h3 className="mt-2 font-serif text-xl font-bold uppercase leading-tight tracking-[0.04em] sm:text-2xl">
+                          {processStepTitleTone(step.title, step.titleAccentKey)}
+                        </h3>
+                        <p className="mt-3 text-sm leading-relaxed text-white/90">{step.body}</p>
+                      </div>
+                      <ProcessStepMotif id={motif} />
                     </div>
                   </li>
                 );
