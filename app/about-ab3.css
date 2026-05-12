@@ -1,0 +1,371 @@
+/**
+ * Production #about — DNA AboutSection (ab3) layout, scoped to `.gl-who-ab3`.
+ * Tokens mirror `glc-dna-lane.css` sandbox bridge so ab3 markup matches sandbox reference.
+ * Do not use bare `#about` here (other routes may reuse that id without this layout).
+ */
+
+#about.gl-who-ab3 {
+  --charcoal-deep: var(--ink-deep);
+  --color-surface-page: var(--brand-white);
+  --color-ink-strong: var(--ink-deep);
+  --color-accent-primary: var(--y);
+  --color-accent-hover: var(--brand-yellow-mid);
+  --color-accent-subtle: color-mix(in srgb, var(--y) 12%, transparent);
+  --color-body: var(--ink-muted);
+  --color-body-muted: color-mix(in srgb, var(--ink) 58%, transparent);
+  --surface-muted: var(--g100);
+  --border-subtle: var(--g200);
+  --font-heading: var(--font-oswald), system-ui, sans-serif;
+  --font-ui: var(--font-source-sans), system-ui, sans-serif;
+  --section-v: var(--s12);
+  --section-v-sm: var(--s10);
+  --about-accent-radial-soft: color-mix(in srgb, var(--y) 8%, transparent);
+  --about-section-texture-line: color-mix(in srgb, var(--ink-deep) 10%, transparent);
+  --ab3-photo-fallback-gradient: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--ink-deep) 85%, black) 0%,
+    var(--ink-deep) 45%,
+    color-mix(in srgb, var(--ink-deep) 55%, black) 100%
+  );
+
+  background: var(--canvas);
+  position: relative;
+  overflow: hidden;
+  padding: 0 0 calc(var(--section-v) + 16px);
+}
+
+#about.gl-who-ab3::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 63px,
+    var(--about-section-texture-line) 63px,
+    var(--about-section-texture-line) 64px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+#about.gl-who-ab3 .ab3__section-break {
+  display: block;
+  width: 100%;
+  height: 3px;
+  flex-shrink: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--ink-deep) 0,
+    var(--ink-deep) 2px,
+    var(--y) 2px,
+    var(--y) 3px
+  );
+  position: relative;
+  z-index: 3;
+}
+
+#about.gl-who-ab3 .ab3__wm {
+  position: absolute;
+  right: -0.06em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-heading);
+  font-size: clamp(140px, 18vw, 240px);
+  font-weight: 700;
+  color: var(--ink-deep);
+  opacity: 0.028;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 0;
+  line-height: 1;
+  user-select: none;
+}
+
+#about.gl-who-ab3 .ab3__layout {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  min-height: 680px;
+  position: relative;
+  z-index: 1;
+}
+
+#about.gl-who-ab3 .ab3__copy {
+  padding: var(--section-v) clamp(32px, 5vw, 80px) var(--section-v) clamp(24px, 4vw, 60px);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  max-width: 660px;
+  justify-content: center;
+}
+
+#about.gl-who-ab3 .ab3__copy::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 60px;
+  background: var(--y);
+}
+
+#about.gl-who-ab3 .ab3__top-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+#about.gl-who-ab3 .ab3__since {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-body-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid var(--border-subtle);
+  padding: 4px 12px;
+  flex-shrink: 0;
+}
+
+#about.gl-who-ab3 .ab3__since span {
+  font-weight: 500;
+}
+
+#about.gl-who-ab3 .ab3__heading {
+  font-family: var(--font-heading);
+  font-size: clamp(34px, 3.8vw, 52px);
+  font-weight: 700;
+  color: var(--color-ink-strong);
+  text-transform: uppercase;
+  line-height: 1.04;
+  letter-spacing: 0.01em;
+  margin-bottom: 16px;
+}
+
+#about.gl-who-ab3 .ab3__heading-em {
+  font-style: normal;
+  color: var(--color-accent-primary);
+}
+
+#about.gl-who-ab3 .ab3__heading-rule {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--color-ink-strong);
+  margin-top: 16px;
+}
+
+#about.gl-who-ab3 .ab3__body {
+  font-size: 15px;
+  line-height: 1.82;
+  color: var(--color-body);
+  max-width: 46ch;
+}
+
+#about.gl-who-ab3 .ab3__creds {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 24px;
+}
+
+#about.gl-who-ab3 .ab3__cred {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  background: var(--surface-muted);
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.22s, background 0.22s;
+}
+
+#about.gl-who-ab3 .ab3__cred:hover {
+  border-color: var(--color-accent-primary);
+  background: var(--color-accent-subtle);
+}
+
+#about.gl-who-ab3 .ab3__cred-body {
+  min-width: 0;
+  flex: 1;
+}
+
+#about.gl-who-ab3 .ab3__cred-idx {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-accent-primary);
+  flex-shrink: 0;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+#about.gl-who-ab3 .ab3__cred-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--color-ink-strong);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+#about.gl-who-ab3 .ab3__cred-sub {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-body-muted);
+  letter-spacing: 0.02em;
+}
+
+#about.gl-who-ab3 .ab3__media {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink-deep);
+  clip-path: polygon(28px 0, 100% 0, 100% 100%, 0 100%);
+}
+
+#about.gl-who-ab3 .ab3__media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 60% 40%, var(--about-accent-radial-soft) 0%, transparent 55%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      color-mix(in srgb, var(--canvas) 7%, transparent) 39px,
+      color-mix(in srgb, var(--canvas) 7%, transparent) 40px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+#about.gl-who-ab3 .ab3__photo {
+  position: absolute;
+  inset: 0;
+  background-color: var(--ink-deep);
+  background-image: var(--ab3-photo-fallback-gradient);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+#about.gl-who-ab3 .ab3__badge {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  background: var(--y);
+  padding: 8px 22px 8px 16px;
+  z-index: 2;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+}
+
+#about.gl-who-ab3 .ab3__badge span {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--ink-deep);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+#about.gl-who-ab3 .ab3__chip {
+  position: absolute;
+  bottom: 52px;
+  right: 36px;
+  background: color-mix(in srgb, var(--ink-deep) 88%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand-white) 12%, transparent);
+  border-left: 3px solid var(--y);
+  padding: 18px 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 2;
+}
+
+#about.gl-who-ab3 .ab3__chip-num {
+  font-family: var(--font-heading);
+  font-size: 46px;
+  font-weight: 700;
+  color: var(--color-accent-primary);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+#about.gl-who-ab3 .ab3__chip-lbl {
+  font-size: 10px;
+  font-weight: 800;
+  color: color-mix(in srgb, var(--brand-white) 48%, transparent);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+#about.gl-who-ab3 .ab3__corner-mark {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-top: 2px solid var(--y);
+  border-right: 2px solid var(--y);
+  z-index: 2;
+  transform: rotate(180deg);
+}
+
+#about.gl-who-ab3 .ab3__cta-wrap {
+  margin-top: 4px;
+}
+
+@media (max-width: 1024px) {
+  #about.gl-who-ab3 .ab3__layout {
+    grid-template-columns: 1fr;
+  }
+
+  #about.gl-who-ab3 .ab3__media {
+    min-height: 420px;
+    clip-path: polygon(0 20px, 100% 0, 100% 100%, 0 100%);
+  }
+
+  #about.gl-who-ab3 .ab3__copy {
+    padding: var(--section-v-sm) 40px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  #about.gl-who-ab3 .ab3__copy {
+    padding: var(--section-v-sm) 20px;
+  }
+
+  #about.gl-who-ab3 .ab3__creds {
+    grid-template-columns: 1fr;
+  }
+
+  #about.gl-who-ab3 .ab3__media {
+    min-height: 320px;
+  }
+
+  #about.gl-who-ab3 .ab3__chip {
+    bottom: 28px;
+    right: 20px;
+    padding: 14px 18px;
+  }
+
+  #about.gl-who-ab3 .ab3__chip-num {
+    font-size: 36px;
+  }
+}
+
+/* Stats strip below ab3 grid (unchanged rhythm from prior GLWhoWeServe) */
+#about.gl-who-ab3 .gl-who-ab3__stats {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+}

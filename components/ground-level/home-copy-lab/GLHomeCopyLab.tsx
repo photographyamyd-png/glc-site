@@ -81,9 +81,10 @@ const copyLabAboutContent: GLWhoWeServeContent = {
   body: COPY_LAB_ABOUT.body,
   credentials: COPY_LAB_ABOUT.credentials,
   cta: { label: COPY_LAB_ABOUT.cta.label, href: COPY_LAB_ABOUT.cta.href },
-  mediaStat: `${COPY_LAB_ABOUT.mediaStat.value} ${COPY_LAB_ABOUT.mediaStat.label}`,
+  mediaStat: COPY_LAB_ABOUT.mediaStat,
   badge: COPY_LAB_ABOUT.badge,
   imageAlt: COPY_LAB_ABOUT.imageAlt,
+  watermark: COPY_LAB_ABOUT.watermark,
 };
 
 const copyLabWhyContent: GLDifferenceContent = {
