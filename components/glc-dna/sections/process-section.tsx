@@ -6,9 +6,15 @@ import type { ProcessProps } from "@/lib/glc-dna/types";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
+const DEFAULT_PROCESS_INTRO =
+  "We move fast. Every project begins with a site call, gets a clean quote, and ends with signed-off documentation. No surprises.";
+
 export function ProcessSection(props: ProcessProps) {
+  const sectionId = props.sectionId ?? "glc-dna-process";
+  const processHeadingId = props.processHeadingId ?? "glc-dna-process-heading";
+
   return (
-    <section id="glc-dna-process" aria-labelledby="glc-dna-process-heading" data-accent-family="process" data-accent-zone="timeline-sequence">
+    <section id={sectionId} aria-labelledby={processHeadingId} data-accent-family="process" data-accent-zone="timeline-sequence">
       <div className="proc3__layout">
 
         {/* ══ LEFT — dark editorial panel ══ */}
@@ -18,15 +24,13 @@ export function ProcessSection(props: ProcessProps) {
 
           <Reveal className="eyebrow proc3__eyebrow">{props.eyebrow}</Reveal>
           <Reveal delayClass="reveal--delay-1">
-            <h2 id="glc-dna-process-heading" className="proc3__heading">
+            <h2 id={processHeadingId} className="proc3__heading">
               {props.heading}
               <span className="proc3__heading-accent" data-motif-id="proc3__heading-accent">{props.headingAccent}</span>
             </h2>
           </Reveal>
           <Reveal delayClass="reveal--delay-2">
-            <p className="proc3__intro">
-              We move fast. Every project begins with a site call, gets a clean quote, and ends with signed-off documentation. No surprises.
-            </p>
+            <p className="proc3__intro">{props.intro ?? DEFAULT_PROCESS_INTRO}</p>
           </Reveal>
 
           {/* Decorative large step count */}

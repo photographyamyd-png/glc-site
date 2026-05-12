@@ -18,7 +18,7 @@ export function ServicesGridCard({ card, delayClass }: Props) {
   const delay = delayClass ? ` ${delayClass}` : "";
   return (
     <SmartLink
-      href={ROUTES.service(card.slug)}
+      href={card.href ?? ROUTES.service(card.slug)}
       className={`service-card reveal${delay}`.trim()}
       role="listitem"
       ref={ref}

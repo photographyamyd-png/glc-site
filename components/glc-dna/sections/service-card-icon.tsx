@@ -4,6 +4,14 @@ type Props = { slug: string; className?: string };
 const SERVICE_SLUG_ALIASES: Record<string, string> = {
   "excavation-site-preparation": "excavation-site-prep",
   "foundations-civil-infrastructure": "foundations-civil",
+  "foundation-excavation-backfilling": "foundations-civil",
+  "concrete-footings-walls-pads-grade-beams": "foundations-civil",
+  "multi-storey-high-rise-foundations": "foundations-civil",
+  "subdivision-site-servicing": "foundations-civil",
+  "earthworks-mass-excavation": "foundations-civil",
+  "commercial-municipal-foundation-work": "foundations-civil",
+  "foundation-repair-underpinning": "foundations-civil",
+  "structural-engineering-foundation-solutions": "foundations-civil",
   "hauling-site-clearing-logistics": "hauling-clearing",
 };
 

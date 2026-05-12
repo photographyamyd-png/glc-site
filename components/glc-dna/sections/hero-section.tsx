@@ -105,6 +105,9 @@ export function HeroSection(props: HeroProps) {
     coverage,
     serviceBarSlugTitles,
     parallaxBackgroundImage,
+    sectionId = "hero",
+    photoPanelImageSrc,
+    photoPanelImageAlt = "",
   } = props;
 
   const sectionRef  = useRef<HTMLElement>(null);
@@ -147,7 +150,7 @@ export function HeroSection(props: HeroProps) {
 
   return (
     <>
-    <section id="hero" ref={sectionRef} aria-label="Hero" className="hero-v2" data-accent-family="hero" data-accent-zone="hero">
+    <section id={sectionId} ref={sectionRef} aria-label="Hero" className="hero-v2" data-accent-family="hero" data-accent-zone="hero">
       {/* ════ LAYER 0 — Deep background photo ════════════════════════════════ */}
       <motion.div className="hero-v2__bg-plane" style={{ y: bgY }} aria-hidden>
         {parallaxBackgroundImage ? (
@@ -198,8 +201,8 @@ export function HeroSection(props: HeroProps) {
           aria-hidden
         >
           <Image
-            src="https://placehold.co/1600x1200/202020/f2b705?text=Hero"
-            alt=""
+            src={photoPanelImageSrc ?? "https://placehold.co/1600x1200/202020/f2b705?text=Hero"}
+            alt={photoPanelImageAlt}
             fill
             priority
             sizes="(max-width: 900px) 100vw, 58vw"
@@ -372,29 +375,28 @@ export function HeroSection(props: HeroProps) {
     </section>
 
       {/* ════ SERVICE RAIL — between hero and marquee (full-bleed, not inside #hero) ═══ */}
-      <div
-        className="hero-v2__service-rail"
-        aria-label="Core service lines"
-      >
-        <div className="hero-v2__service-bar">
-          <div className="hero-v2__service-inner">
-            {serviceBarSlugTitles.map((s, i) => (
-              <motion.div
-                key={s.slug}
-                variants={TILE_VARIANT}
-                custom={i}
-                initial="hidden"
-                animate="visible"
-              >
-                <SmartLink className="hero-v2__service-tile" href={ROUTES.service(s.slug)}>
-                  <HeroServiceIcon slug={s.slug} />
-                  <span className="hero-v2__service-label">{s.title}</span>
-                </SmartLink>
-              </motion.div>
-            ))}
+      {serviceBarSlugTitles.length > 0 ? (
+        <div className="hero-v2__service-rail" aria-label="Core service lines">
+          <div className="hero-v2__service-bar">
+            <div className="hero-v2__service-inner">
+              {serviceBarSlugTitles.map((s, i) => (
+                <motion.div
+                  key={s.slug}
+                  variants={TILE_VARIANT}
+                  custom={i}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <SmartLink className="hero-v2__service-tile" href={ROUTES.service(s.slug)}>
+                    <HeroServiceIcon slug={s.slug} />
+                    <span className="hero-v2__service-label">{s.title}</span>
+                  </SmartLink>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      ) : null}
     </>
   );
 }

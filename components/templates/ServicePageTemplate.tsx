@@ -11,6 +11,9 @@ import { cn } from "@/lib/utils";
 import { getHaulingScopeProofImage, getServiceImage } from "@/lib/site/service-images";
 import { getSnowSubserviceCapabilityItems } from "@/lib/site/snow-subservice-capabilities";
 import { SnowSubServiceJsonLd } from "@/components/seo/SnowSubServiceJsonLd";
+import { HaulingGlcDnaLane } from "@/components/services/hauling/HaulingGlcDnaLane";
+import { HaulingSeoTechnicalBasement } from "@/components/services/hauling/HaulingSeoTechnicalBasement";
+import { buildHaulingGlcDnaLaneProps } from "@/lib/site/hauling-glc-dna-map";
 
 type ServicePageTemplateProps = {
   service: ServiceDef;
@@ -19,20 +22,37 @@ type ServicePageTemplateProps = {
 
 export function ServicePageTemplate({ service, related }: ServicePageTemplateProps) {
   const detail = service.category === "primary" ? SERVICE_DETAILS[service.slug as PrimaryServiceSlug] : null;
-  const isHauling = service.slug === "hauling-site-clearing-logistics";
+
+  if (service.category === "primary" && service.slug === "hauling-site-clearing-logistics" && detail) {
+    const serviceImage = getServiceImage(service.slug);
+    const haulingProofImage = getHaulingScopeProofImage();
+    return (
+      <article className="relative">
+        <HaulingGlcDnaLane
+          {...buildHaulingGlcDnaLaneProps({
+            detail,
+            serviceTitle: service.title,
+            related,
+            heroImageSrc: serviceImage.src,
+            heroImageAlt: serviceImage.alt,
+            proofImage: haulingProofImage,
+          })}
+        />
+        <HaulingSeoTechnicalBasement detail={detail} />
+      </article>
+    );
+  }
+
   const serviceImage = getServiceImage(service.slug);
   const imageSrc = serviceImage.src;
-  const haulingProofImage = isHauling ? getHaulingScopeProofImage() : null;
   const scopeAnchorAlt = `${serviceImage.alt} — ${service.title} scope reference`;
   const subServicesForField =
     detail?.subServices?.length ? detail.subServices : getSnowSubserviceCapabilityItems(service);
-  const subServicesForFieldGrid = isHauling ? subServicesForField.slice(0, 3) : subServicesForField.slice(0, 6);
+  const subServicesForFieldGrid = subServicesForField.slice(0, 6);
   const scopeIntroBlocks = (detail?.intro ?? ["Mobilization, staging, and production execution are configured per site constraints and handoff schedule."]).slice(
     0,
-    isHauling ? 1 : 3,
+    3,
   );
-  const SERVICE_AREA_BODY =
-    "Ground Level Contracting serves Barrie, Midland, Orillia, and surrounding Simcoe County municipalities with commercial-focused dispatch and reliable field coordination.";
   const hubStatsForHero =
     detail?.hubStats?.length
       ? detail.hubStats
@@ -52,7 +72,6 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
     { id: "03", title: "Execution", body: "Field operations run with quality controls and documented progress." },
     { id: "04", title: "Turnover", body: "Final checks and handoff keep downstream trades moving." },
   ];
-  const haulingWhyCardTitles = isHauling ? ["Throughput", "Interfaces", "Dispatch clarity", "Site proof"] : null;
   return (
     <article className="relative">
       {service.category === "snow-subservice" ? <SnowSubServiceJsonLd service={service} /> : null}
@@ -136,7 +155,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         />
         <ClaudeLogicWatermark placement="bottom-right" mode="default" className="z-[1] opacity-[0.08] sm:opacity-[0.11]" />
         <div className="relative z-10 mx-auto grid max-w-[min(100%,var(--max))] gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-10">
-          <div className={`border-l-4 border-[color:var(--y)] pl-5 ${isHauling ? "lg:col-span-5" : "lg:col-span-6"}`}>
+          <div className="border-l-4 border-[color:var(--y)] pl-5 lg:col-span-6">
             <p className="eyebrow text-ink">Service overview</p>
             <h2
               id={`${service.slug}-scope-heading`}
@@ -152,29 +171,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
               ))}
             </div>
           </div>
-          <div className={`flex flex-col gap-6 ${isHauling ? "lg:col-span-7" : "lg:col-span-6"}`}>
-            {isHauling && haulingProofImage ? (
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div className="relative aspect-[16/10] overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)]">
-                  <Image
-                    src={imageSrc}
-                    alt={scopeAnchorAlt}
-                    fill
-                    className="object-cover object-[center_42%] sm:object-[center_38%]"
-                    sizes="(min-width: 1024px) 28vw, 50vw"
-                  />
-                </div>
-                <div className="relative aspect-[16/10] overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)]">
-                  <Image
-                    src={haulingProofImage.src}
-                    alt={haulingProofImage.alt}
-                    fill
-                    className="object-cover object-center"
-                    sizes="(min-width: 1024px) 28vw, 50vw"
-                  />
-                </div>
-              </div>
-            ) : (
+          <div className="flex flex-col gap-6 lg:col-span-6">
               <div className="relative aspect-[16/10] overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)]">
                 <Image
                   src={imageSrc}
@@ -184,9 +181,8 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
                   sizes="(min-width: 1024px) 42vw, 100vw"
                 />
               </div>
-            )}
             <div className="bespoke-surface panel-machined relative border border-[color:var(--g200)] bg-white p-5 sm:p-8">
-              <p className="eyebrow text-ink-muted">{isHauling ? "Field pressure points" : "Benefits"}</p>
+              <p className="eyebrow text-ink-muted">Benefits</p>
               <ul className="mt-4 space-y-3">
                 {(detail?.deliverables ?? ["Site analysis", "Field execution", "Quality controls"]).slice(0, 6).map((cap) => (
                   <li key={cap} className="flex gap-3">
@@ -258,16 +254,14 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
           <div className="border-l-4 border-[color:var(--y)] pl-5">
             <p className="eyebrow text-white">Why GLC</p>
             <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">
-              {isHauling && detail?.trust?.heading ? detail.trust.heading : "Differentiators"}
+              Differentiators
             </h2>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {whyItems.slice(0, 4).map((item, idx) => (
               <article key={`why-${idx}`} className="border border-white/15 bg-[rgb(255_255_255/0.06)] p-5 backdrop-blur-sm">
                 <p className="eyebrow text-[color:var(--y)]">0{idx + 1}</p>
-                <p className="mt-2 font-sans text-xl font-bold uppercase tracking-[0.04em] text-white">
-                  {haulingWhyCardTitles?.[idx] ?? "Field advantage"}
-                </p>
+                <p className="mt-2 font-sans text-xl font-bold uppercase tracking-[0.04em] text-white">Field advantage</p>
                 <p className="mt-3 text-[15px] leading-[1.72] text-white/88 sm:text-base">{item}</p>
               </article>
             ))}
@@ -282,10 +276,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
             <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">{detail?.process.heading ?? "Delivery process"}</h2>
           </div>
           <ol
-            className={cn(
-              "mt-10 grid gap-3 sm:grid-cols-2",
-              isHauling && processSteps.length <= 3 ? "lg:grid-cols-3" : "lg:grid-cols-4",
-            )}
+            className={cn("mt-10 grid gap-3 sm:grid-cols-2", processSteps.length <= 3 ? "lg:grid-cols-3" : "lg:grid-cols-4")}
           >
             {processSteps.map((step) => (
               <li key={step.id} className="bespoke-surface panel-machined border border-[color:var(--g200)] bg-white p-5 sm:min-h-[44px]">
@@ -306,26 +297,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
             <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">Common questions</h2>
           </div>
           <div className="mt-10 space-y-3">
-            {isHauling ? (
-              <details
-                name={`${service.slug}-faq`}
-                className="group border border-white/20 bg-[rgb(255_255_255/0.06)] p-4 backdrop-blur-sm"
-              >
-                <summary className="flex min-h-[44px] cursor-pointer items-center justify-between gap-4 list-none font-serif text-lg font-bold uppercase tracking-[0.04em] text-white marker:content-none [&::-webkit-details-marker]:hidden">
-                  <span>Where are detailed specifications and FAQ answers?</span>
-                  <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
-                  <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
-                </summary>
-                <p className="mt-3 text-[15px] leading-[1.72] text-white/88 sm:text-base">
-                  Long-form capability notes, procurement language, and the full project FAQ live in{" "}
-                  <Link href="#seo-technical-basement" className="font-semibold text-[color:var(--y)] underline underline-offset-2">
-                    Technical Specifications &amp; Project FAQ
-                  </Link>{" "}
-                  at the bottom of this page — same answers, organized for quick scanning.
-                </p>
-              </details>
-            ) : (
-              faqItems.map((item) => (
+            {faqItems.map((item) => (
                 <details key={item.q} name={`${service.slug}-faq`} className="group border border-white/20 bg-[rgb(255_255_255/0.06)] p-4 backdrop-blur-sm">
                   <summary className="flex min-h-[44px] cursor-pointer items-center justify-between gap-4 list-none font-serif text-lg font-bold uppercase tracking-[0.04em] text-white marker:content-none [&::-webkit-details-marker]:hidden">
                     <span>{item.q}</span>
@@ -334,9 +306,8 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
                   </summary>
                   <p className="mt-3 text-[15px] leading-[1.72] text-white/88 sm:text-base">{item.a}</p>
                 </details>
-              ))
-            )}
-            {!faqItems.length && !isHauling ? (
+              ))}
+            {!faqItems.length ? (
               <details name={`${service.slug}-faq`} className="border border-white/20 bg-[rgb(255_255_255/0.06)] p-4 backdrop-blur-sm">
                 <summary className="flex min-h-[44px] cursor-pointer items-center font-serif text-lg font-bold uppercase tracking-[0.04em] text-white">
                   Need detailed scope?
@@ -428,131 +399,6 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         </div>
       </section>
 
-      {isHauling && detail ? (
-        <section
-          id="seo-technical-basement"
-          className="section-major scroll-mt-[var(--header)] border-t border-[color:var(--g200)] bg-[color:var(--brand-canvas)]"
-          aria-labelledby="hauling-seo-basement-heading"
-        >
-          <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
-            <div className="border-l-4 border-[color:var(--y)] pl-5">
-              <p className="eyebrow text-ink">Specifications</p>
-              <h2
-                id="hauling-seo-basement-heading"
-                className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl"
-              >
-                Technical Specifications &amp; Project FAQ
-              </h2>
-              <p className="mt-4 max-w-3xl text-[15px] leading-[1.72] text-[color:var(--text-600)] sm:text-base">
-                Procurement-ready notes, logistics detail, and the full FAQ — collapsed by default, always in the DOM for search and bid teams.
-              </p>
-            </div>
-            <div className="mt-10 space-y-3">
-              <details
-                name="hauling-seo-basement"
-                className="group border border-[color:var(--g200)] bg-white p-4 shadow-[0_8px_24px_rgb(0_0_0/0.05)]"
-              >
-                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg font-bold uppercase tracking-[0.04em] text-ink marker:content-none [&::-webkit-details-marker]:hidden">
-                  <span>Full service overview</span>
-                  <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
-                  <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
-                </summary>
-                <div className="mt-3 space-y-4 text-[15px] leading-[1.72] text-[color:var(--text-600)] sm:text-base">
-                  {detail.intro.map((p, i) => (
-                    <p key={`intro-${i}`}>{p}</p>
-                  ))}
-                </div>
-              </details>
-
-              <details
-                name="hauling-seo-basement"
-                className="group border border-[color:var(--g200)] bg-white p-4 shadow-[0_8px_24px_rgb(0_0_0/0.05)]"
-              >
-                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg font-bold uppercase tracking-[0.04em] text-ink marker:content-none [&::-webkit-details-marker]:hidden">
-                  <span>{detail.trust.heading}</span>
-                  <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
-                  <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
-                </summary>
-                <div className="mt-3 space-y-4 text-[15px] leading-[1.72] text-[color:var(--text-600)] sm:text-base">
-                  {detail.trust.paragraphs.map((p, i) => (
-                    <p key={`trust-${i}`}>{p}</p>
-                  ))}
-                </div>
-              </details>
-
-              <details
-                name="hauling-seo-basement"
-                className="group border border-[color:var(--g200)] bg-white p-4 shadow-[0_8px_24px_rgb(0_0_0/0.05)]"
-              >
-                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg font-bold uppercase tracking-[0.04em] text-ink marker:content-none [&::-webkit-details-marker]:hidden">
-                  <span>Site pressure signals &amp; scope anchors</span>
-                  <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
-                  <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
-                </summary>
-                <ul className="mt-3 list-disc space-y-2 pl-5 text-[15px] leading-[1.72] text-[color:var(--text-600)] sm:text-base">
-                  {detail.deliverables.map((cap) => (
-                    <li key={cap}>{cap}</li>
-                  ))}
-                </ul>
-              </details>
-
-              {detail.subServices.map((s) => (
-                <details
-                  key={s.id}
-                  name="hauling-seo-basement"
-                  className="group border border-[color:var(--g200)] bg-white p-4 shadow-[0_8px_24px_rgb(0_0_0/0.05)]"
-                >
-                  <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg font-bold uppercase tracking-[0.04em] text-ink marker:content-none [&::-webkit-details-marker]:hidden">
-                    <span>{s.heading}</span>
-                    <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
-                    <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
-                  </summary>
-                  <div className="mt-3 space-y-4 text-[15px] leading-[1.72] text-[color:var(--text-600)] sm:text-base">
-                    {s.paragraphs.map((p, i) => (
-                      <p key={`${s.id}-p-${i}`}>{p}</p>
-                    ))}
-                    <p className="font-sans font-semibold text-ink">{s.closing}</p>
-                  </div>
-                </details>
-              ))}
-
-              {detail.faq.map((item) => (
-                <details
-                  key={item.q}
-                  name="hauling-seo-basement"
-                  className="group border border-[color:var(--g200)] bg-white p-4 shadow-[0_8px_24px_rgb(0_0_0/0.05)]"
-                >
-                  <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg font-bold uppercase tracking-[0.04em] text-ink marker:content-none [&::-webkit-details-marker]:hidden">
-                    <span>{item.q}</span>
-                    <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
-                    <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
-                  </summary>
-                  <p className="mt-3 text-[15px] leading-[1.72] text-[color:var(--text-600)] sm:text-base">{item.a}</p>
-                </details>
-              ))}
-
-              <details
-                name="hauling-seo-basement"
-                className="group border border-[color:var(--g200)] bg-white p-4 shadow-[0_8px_24px_rgb(0_0_0/0.05)]"
-              >
-                <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg font-bold uppercase tracking-[0.04em] text-ink marker:content-none [&::-webkit-details-marker]:hidden">
-                  <span>Service area &amp; coverage</span>
-                  <span className="eyebrow text-[color:var(--y)] group-open:hidden">+</span>
-                  <span className="hidden eyebrow text-[color:var(--y)] group-open:inline">−</span>
-                </summary>
-                <p className="mt-3 text-[15px] leading-[1.72] text-[color:var(--text-600)] sm:text-base">{SERVICE_AREA_BODY}</p>
-                <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-                  {["Barrie", "Midland", "Orillia", "Innisfil", "Wasaga Beach", "Simcoe County"].map((place) => (
-                    <li key={place} className="text-[15px] leading-[1.72] text-ink sm:text-base">
-                      {place}
-                    </li>
-                  ))}
-                </ul>
-              </details>
-            </div>
-          </div>
-        </section>
-      ) : null}
     </article>
   );
 }

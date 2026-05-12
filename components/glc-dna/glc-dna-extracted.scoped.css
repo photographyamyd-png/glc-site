@@ -418,13 +418,15 @@
 /* ═══════════════════════════════════════════
    SERVICES GRID
 ═══════════════════════════════════════════ */
-.glc-dna-sandbox #services {
+.glc-dna-sandbox #services,
+.glc-dna-sandbox #glc-dna-services {
   background: var(--off-white);
   padding: var(--section-v) 0;
   position: relative; overflow: hidden;
 }
 /* GROUND structure marks */
-.glc-dna-sandbox #services::before {
+.glc-dna-sandbox #services::before,
+.glc-dna-sandbox #glc-dna-services::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; height: 4px;
@@ -930,7 +932,8 @@
    Left: charcoal editorial panel
    Right: white steps on vertical yellow thread
 ═══════════════════════════════════════════ */
-.glc-dna-sandbox #process {
+.glc-dna-sandbox #process,
+.glc-dna-sandbox #glc-dna-process {
   background: var(--charcoal-deep);
   position: relative;
   overflow: hidden;

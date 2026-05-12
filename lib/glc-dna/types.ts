@@ -28,6 +28,11 @@ export type HeroProps = {
    * When omitted, hero-v2 uses the default engineered texture fill.
    */
   parallaxBackgroundImage?: string;
+  /** Section anchor id (default `hero`). Service hubs may use e.g. `overview`. */
+  sectionId?: string;
+  /** Right photo panel; when omitted, hero uses the DNA placeholder image. */
+  photoPanelImageSrc?: string;
+  photoPanelImageAlt?: string;
 };
 
 export type MarqueeProps = {
@@ -96,6 +101,10 @@ export type ServicesSectionProps = {
   headingLine1: string;
   headingLine2: string;
   intro: string;
+  /** Section `id` (default `glc-dna-services`). */
+  sectionId?: string;
+  /** `id` on the services grid H2 (default `glc-dna-services-heading`). */
+  servicesHeadingId?: string;
 };
 
 export type StatCellProps = {
@@ -110,6 +119,8 @@ export type StatCellProps = {
 
 export type StatsProps = {
   cells: StatCellProps[];
+  /** Section anchor id (default `stats`). */
+  sectionId?: string;
 };
 
 export type WhyProps = {
@@ -121,13 +132,21 @@ export type WhyProps = {
   reasons: Array<{ num: string; title: string; text: string }>;
   cta: { label: string; href: string };
   floatChip: { line1: string; line2: string };
+  /** Section root `id` for anchors and lane CSS (defaults to `why`). */
+  sectionId?: string;
 };
 
 export type ProcessProps = {
   eyebrow: string;
   heading: string;
   headingAccent: string;
+  /** When set, replaces the default sandbox intro paragraph on the left panel. */
+  intro?: string;
   steps: Array<{ num: string; title: string; desc: string }>;
+  /** Section root `id` for anchors and lane CSS (defaults to `glc-dna-process`). */
+  sectionId?: string;
+  /** `id` for the process `<h2>` (defaults to `glc-dna-process-heading`). */
+  processHeadingId?: string;
 };
 
 export type CoverageProps = {
@@ -137,6 +156,8 @@ export type CoverageProps = {
   headingAfter: string;
   body: string;
   areas: Array<{ name: string; sub: string }>;
+  /** Section `id` (default `glc-dna-coverage`). */
+  sectionId?: string;
 };
 
 export type Testimonial = {
@@ -164,6 +185,10 @@ export type CtaBandProps = {
   phone: string;
   phoneHref: string;
   emailCta: { label: string; href: string };
+  /** Section `id` (default `cta-band`). */
+  sectionId?: string;
+  /** `id` on the H2 for `aria-labelledby` (default `cta-heading`). */
+  headingId?: string;
 };
 
 export type HomeSectionBlock =
@@ -225,6 +250,8 @@ export type MegaMenuCard = {
   gridTitle: string[];
   /** Long description under the service grid card title. */
   gridDescription: string;
+  /** When set, used instead of `ROUTES.service(slug)` (e.g. nested service hub paths). */
+  href?: string;
 };
 
 export type CompanyMegaColumn = {

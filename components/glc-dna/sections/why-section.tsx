@@ -8,15 +8,18 @@ import type { WhyProps } from "@/lib/glc-dna/types";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function WhySection(props: WhyProps) {
+  const sectionId = props.sectionId ?? "why";
+  const headingId = `${sectionId}-heading`;
+
   return (
-    <section id="why" aria-labelledby="why-heading" data-accent-family="why" data-accent-zone="ordered-reasoning">
+    <section id={sectionId} aria-labelledby={headingId} data-accent-family="why" data-accent-zone="ordered-reasoning">
 
       {/* ══ Header block — 2-col editorial split ══ */}
       <div className="why3__header">
         <div className="why3__header-left">
           <Reveal className="eyebrow">{props.eyebrow}</Reveal>
           <Reveal delayClass="reveal--delay-1">
-            <h2 id="why-heading" className="why3__heading">
+            <h2 id={headingId} className="why3__heading">
               {props.headingBefore}
               <em>{props.headingEmphasis}</em>
               {props.headingAfter}
