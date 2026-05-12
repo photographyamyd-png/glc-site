@@ -10,7 +10,7 @@
  * 3b. `#services-about-divider` — `CopyLabServicesAboutDivider`
  * 4. `#about` — `GLWhoWeServe`
  * 5. `#agitator` — `HomeAgitatorSection`
- * 6. `#capabilities` — `HomeCapabilityBentoSection`
+ * 6. `#capabilities` — `HomeCapabilityBentoSection` (depth rows + `megaBlurb`, not a second featured bento)
  * 7. `#proof` — `HomeProofBeforeAfter`
  * 8. `#cta-band` — `HomeFinalCtaSection`
  * 9. `#home-faq` — `HomeSeoFaqSection` (includes `#why`, `#process`, `#coverage` scroll targets)

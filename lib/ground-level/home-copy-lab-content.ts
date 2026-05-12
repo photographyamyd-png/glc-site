@@ -360,7 +360,7 @@ export const COPY_LAB_CAPABILITY_BENTO = {
   eyebrow: "Capability Depth",
   heading: "Heavy Lifts Where Deadlines Tighten",
   intro:
-    "Detailed scopes by line — excavation and winter operations run wide because most schedules break there first. Every tile routes to its canonical service page.",
+    "Detailed scopes by line — excavation and winter operations run wide because most schedules break there first. Each row expands on the featured cards above with field-level detail and links to the same canonical service pages.",
 } as const;
 
 /** Before/after uses two distinct on-site rasters; slider compares compositionally (not pixel-matched survey pair). */
