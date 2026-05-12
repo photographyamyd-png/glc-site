@@ -69,8 +69,9 @@
 
   --max: 1320px;
   --max-bleed: 1440px;
-  --header: 80px;
+  /* Full fixed header stack (utility + nav); responsive bumps below. --header aliases this for scroll-margin / sticky / calc(). */
   --site-header-offset: 106px;
+  --header: var(--site-header-offset);
 
   /* CTV snow feature (port bundle) — mapped to GLC tokens; Oswald / Source Sans 3 via layout font variables */
   --gold: var(--brand-yellow-mid);
@@ -204,6 +205,10 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+html {
+  scroll-padding-top: var(--header);
+}
+
 body {
   background: var(--canvas);
   color: var(--ink);
@@ -253,6 +258,20 @@ body {
   background: var(--ink-deep);
   border-top: 1px solid rgb(255 255 255 / 0.1);
   color: rgb(250 249 247);
+}
+
+/**
+ * First in-flow shell under `section-major` when `--header` exceeds section `padding-top`
+ * (`--s9` default, `--s12` at lg). Clears fixed `SiteHeader` without changing global section rhythm.
+ */
+.glc-clear-fixed-header {
+  padding-top: max(0px, calc(var(--header) - var(--s9)));
+}
+
+@media (min-width: 1024px) {
+  .glc-clear-fixed-header {
+    padding-top: max(0px, calc(var(--header) - var(--s12)));
+  }
 }
 
 .band-dark-field {

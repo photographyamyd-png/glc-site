@@ -189,7 +189,7 @@ export function ProcessVerticalFlow() {
         />
 
         {/* Interaction plane (10+): glass shell with copy + stats + CTAs */}
-        <div className="relative z-10 mx-auto flex min-h-[min(100dvh,860px)] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-6 pb-12 pt-28 sm:px-10 sm:pb-16 lg:justify-between lg:px-20 lg:pt-[calc(var(--header)+3rem)]">
+        <div className="relative z-10 mx-auto flex min-h-[min(100dvh,860px)] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-6 pb-12 pt-[var(--site-header-offset)] sm:px-10 sm:pb-16 lg:justify-between lg:px-20 lg:pt-[var(--site-header-offset)]">
           <div className="max-w-3xl border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:p-10">
             <p className="eyebrow text-white">
               {HERO.eyebrow}

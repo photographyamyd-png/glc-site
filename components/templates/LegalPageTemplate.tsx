@@ -24,7 +24,7 @@ export function LegalPageTemplate({ title, intro, sections }: LegalPageTemplateP
         aria-hidden
       />
       <ClaudeLogicWatermark placement="bottom-right" mode="default" className="z-[1] opacity-[0.07] sm:opacity-[0.09]" />
-      <div className="relative z-10 mx-auto max-w-[min(100%,900px)] px-4 sm:px-6">
+      <div className="glc-clear-fixed-header relative z-10 mx-auto max-w-[min(100%,900px)] px-4 sm:px-6">
         <div className="border-l-4 border-l-[color:var(--y)] pl-5">
           <p className="eyebrow text-ink">Ground Level Contracting</p>
           <h1 className="mt-3 font-serif text-3xl font-semibold uppercase tracking-tight text-ink sm:text-4xl">{title}</h1>

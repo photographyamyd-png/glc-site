@@ -23,7 +23,7 @@ export function MarketingPageShell({ id, eyebrow, title, lede, ledeSplit, childr
         aria-hidden
       />
       <ClaudeLogicWatermark placement="bottom-right" mode="default" className="z-[1] opacity-[0.07] sm:opacity-[0.09]" />
-      <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))]">
+      <div className="glc-clear-fixed-header relative z-10 mx-auto max-w-[min(100%,var(--max))]">
         <div className="relative overflow-hidden border border-[color:var(--g200)] bg-[color:var(--brand-canvas)] p-6 sm:p-8 lg:p-10">
           <div
             className="pointer-events-none absolute -right-20 top-0 h-full w-72 opacity-[0.1]"

@@ -61,7 +61,7 @@ export default function MaintenancePage() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[100dvh] w-full max-w-[min(100%,var(--max-bleed))] flex-col justify-center px-7 py-16 sm:px-10 lg:px-20">
+      <div className="relative z-10 mx-auto flex min-h-[100dvh] w-full max-w-[min(100%,var(--max-bleed))] flex-col justify-center px-7 pt-[var(--site-header-offset)] pb-16 sm:px-10 lg:px-20">
         <div className="mx-auto w-full max-w-4xl lg:mx-0">
           <div className="mb-10 flex flex-col items-center gap-5 sm:gap-6 lg:flex-row lg:items-center lg:justify-start">
             <div className="relative shrink-0">

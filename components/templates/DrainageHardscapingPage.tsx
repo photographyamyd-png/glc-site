@@ -264,7 +264,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
           />
           <ClaudeLogicWatermark placement="bottom-right" className="z-[1] opacity-[0.16]" />
 
-          <div className="relative z-10 mx-auto flex min-h-[min(100dvh,920px)] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-4 pb-10 pt-28 sm:px-6 sm:pb-12 lg:justify-between lg:px-10 lg:pb-16 lg:pt-[calc(var(--header)+3rem)]">
+          <div className="relative z-10 mx-auto flex min-h-[min(100dvh,920px)] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-4 pb-10 pt-[var(--site-header-offset)] sm:px-6 sm:pb-12 lg:justify-between lg:px-10 lg:pb-16 lg:pt-[var(--site-header-offset)]">
             <div className="max-w-[min(100%,var(--max))] rounded-sm border border-white/10 bg-[rgb(10_12_11/0.42)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:max-w-4xl lg:pt-10">
               <nav aria-label="Breadcrumb" className="hero-eyebrow eyebrow text-white/55">
                 <Link href="/" className="hover:text-[color:var(--y)]">

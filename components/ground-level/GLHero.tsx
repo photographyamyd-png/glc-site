@@ -240,7 +240,7 @@ export function GLHero({
   return (
     <section
       id={sectionId}
-      className="hero-stage band-dark-field relative min-h-[100dvh] w-full scroll-mt-0 overflow-hidden"
+      className="hero-stage band-dark-field relative min-h-[100dvh] w-full scroll-mt-[var(--header)] overflow-hidden"
       aria-labelledby={headingId}
     >
       <div className="absolute inset-0 overflow-hidden">
@@ -262,7 +262,7 @@ export function GLHero({
         aria-hidden
       />
       <ClaudeLogicWatermark placement="bottom-right" className="z-[1]" />
-      <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-7 pb-8 pt-28 sm:px-10 sm:pb-10 lg:justify-between lg:px-20 lg:pb-8 lg:pt-[calc(var(--header)+3rem)]">
+      <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-7 pb-8 pt-[var(--site-header-offset)] sm:px-10 sm:pb-10 lg:justify-between lg:px-20 lg:pb-8 lg:pt-[var(--site-header-offset)]">
         <div className="max-w-[min(100%,var(--max))] space-y-0 rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:max-w-4xl lg:pt-10">
           <p className="hero-eyebrow label-overline-on-dark mb-0">{c.eyebrow}</p>
           <div className="mt-[var(--s7)]">
