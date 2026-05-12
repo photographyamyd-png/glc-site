@@ -85,24 +85,13 @@
   top: 100%;
   left: 0;
   right: 0;
-  isolation: isolate;
-  background-color: var(--mega-panel-field, rgb(250 249 247));
-  background-image: linear-gradient(
-    165deg,
-    color-mix(in srgb, var(--brand-white) 88%, rgb(245 242 236)) 0%,
-    var(--mega-panel-field, rgb(250 249 247)) 48%,
-    color-mix(in srgb, var(--canvas) 35%, var(--brand-white)) 100%
-  );
-  backdrop-filter: blur(40px) saturate(180%);
-  -webkit-backdrop-filter: blur(40px) saturate(180%);
-  border-top: 3px solid var(--yellow-core);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.9),
-    0 2px 0 rgba(242,183,5,0.12),
-    0 24px 64px rgba(0,0,0,0.12),
-    0 8px 24px rgba(0,0,0,0.07);
-  padding: 48px 40px;
+  background: color-mix(in srgb, var(--brand-white) 96%, var(--canvas));
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border-top: 2px solid var(--yellow-core);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 24px 48px rgb(0 0 0 / 0.07);
+  padding: 40px 36px 44px;
   z-index: 1;
   opacity: 0;
   visibility: hidden;
@@ -112,26 +101,6 @@
     transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
     visibility 0.3s;
   pointer-events: none;
-}
-
-/* Hero-adjacent yellow atmosphere (decorative layer) */
-.gl-mega-panel::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: var(--mega-hero-wash, radial-gradient(
-    ellipse 82% 66% at 72% 36%,
-    rgb(242 183 5 / 0.14) 0%,
-    transparent 56%
-  ));
-  opacity: 0.32;
-}
-
-.gl-mega-panel > * {
-  position: relative;
-  z-index: 1;
 }
 .gl-mega-panel.is-open {
   opacity: 1;
@@ -145,8 +114,8 @@
   max-width: var(--container-max);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 256px 1fr;
-  gap: 56px;
+  grid-template-columns: minmax(200px, 240px) 1fr;
+  gap: 48px;
   align-items: start;
 }
 
@@ -154,38 +123,26 @@
   animation: glmc-item-in 0.42s var(--ease-expo) 0.04s both;
 }
 
-/* Intro column — light machined surface (contrasts with charcoal card deck) */
+/* Intro — yellow spine only, no heavy panel chrome */
 .gl-mega-panel__intro {
-  padding: 22px 22px 24px;
-  border: 1px solid var(--mega-intro-glass-border, var(--border));
-  background: var(--mega-intro-glass-bg, color-mix(in srgb, var(--brand-white) 86%, var(--canvas)));
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.92),
-    0 10px 28px rgb(0 0 0 / 0.06);
+  padding: 4px 0 4px 20px;
+  margin: 0;
+  border-left: 3px solid var(--yellow-core);
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .gl-mega-panel__intro .gl-mega-panel__kicker {
-  flex-wrap: wrap;
-  row-gap: 8px;
-  color: var(--mega-intro-heading, rgb(250 249 247 / 0.96));
   margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid color-mix(in srgb, var(--yellow-core) 28%, var(--border));
+  color: var(--mega-intro-heading, var(--ink-mid));
 }
 
 .gl-mega-panel__intro .gl-mega-panel__kicker::before {
   background: var(--yellow-core);
-}
-
-/* Yellow rule under kicker (hero metrics pattern) */
-.gl-mega-panel__intro .gl-mega-panel__kicker::after {
-  content: '';
-  flex-basis: 100%;
-  order: 3;
-  height: 1px;
-  max-width: 220px;
-  margin-top: 4px;
-  background: color-mix(in srgb, var(--yellow-core) 42%, transparent);
 }
 
 .gl-mega-panel__intro p {
@@ -219,34 +176,13 @@
   flex-shrink: 0;
 }
 
-/* One charcoal “tray” so six tiles read as a single deck (not scattered slabs) */
-.gl-mega-grid-wrap {
-  position: relative;
-  background: var(--charcoal-deep);
-  padding: 3px 3px 3px 10px;
-  box-shadow:
-    0 14px 36px rgb(0 0 0 / 0.12),
-    inset 0 1px 0 rgb(255 255 255 / 0.06);
-}
-
-.gl-mega-grid-wrap::before {
-  content: '';
-  position: absolute;
-  left: 3px;
-  top: 3px;
-  bottom: 3px;
-  width: 4px;
-  background: var(--yellow-core);
-  pointer-events: none;
-}
-
 .gl-mega-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  gap: 12px;
 }
 
-/* Service cards — same dark → light sweep DNA as `#glc-dna-services` `.service-card` */
+/* Service cards — light, minimal chrome */
 a.gl-mega-card {
   text-decoration: none;
   color: inherit;
@@ -257,95 +193,63 @@ a.gl-mega-card {
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
-  background: var(--charcoal-deep);
-  padding: 22px 18px 20px;
-  min-height: 200px;
+  min-height: 0;
+  padding: 20px 18px 18px;
+  background: var(--mega-card-surface, var(--brand-white));
+  border: 1px solid var(--mega-card-border, rgb(30 28 26 / 0.08));
+  border-left: 2px solid transparent;
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.9) inset;
   cursor: pointer;
   transition:
-    background 0.3s var(--ease-expo),
-    box-shadow 0.3s var(--ease-expo);
+    border-color 0.22s var(--ease-expo),
+    box-shadow 0.22s var(--ease-expo),
+    transform 0.22s var(--ease-expo);
   -webkit-user-select: none;
   user-select: none;
 }
 
-.gl-mega-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--white);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform 0.5s var(--ease-expo);
-  z-index: 0;
-}
-
-.gl-mega-card:hover::before,
-.gl-mega-card:focus-visible::before {
-  transform: scaleY(1);
-}
-
 .gl-mega-card:hover,
 .gl-mega-card:focus-visible {
-  box-shadow: var(--shadow-card, 0 4px 24px rgb(0 0 0 / 0.12)), inset 0 0 0 1px var(--gray-200, #e0deda);
+  border-color: color-mix(in srgb, var(--yellow-core) 35%, var(--border));
+  border-left-color: var(--yellow-core);
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.95) inset,
+    0 12px 28px rgb(0 0 0 / 0.06);
+  transform: translateY(-2px);
   outline: none;
 }
 
-.gl-mega-card > * {
-  position: relative;
-  z-index: 1;
+.gl-mega-panel.is-open .gl-mega-grid .gl-mega-card {
+  animation: glmc-item-in 0.42s var(--ease-expo) both;
 }
-
-.gl-mega-panel.is-open .gl-mega-grid .gl-mega-card          { animation: glmc-item-in 0.5s var(--ease-expo) both; }
-.gl-mega-panel.is-open .gl-mega-grid .gl-mega-card:nth-child(1) { animation-delay: 0.06s; }
-.gl-mega-panel.is-open .gl-mega-grid .gl-mega-card:nth-child(2) { animation-delay: 0.11s; }
-.gl-mega-panel.is-open .gl-mega-grid .gl-mega-card:nth-child(3) { animation-delay: 0.16s; }
-.gl-mega-panel.is-open .gl-mega-grid .gl-mega-card:nth-child(4) { animation-delay: 0.21s; }
-.gl-mega-panel.is-open .gl-mega-grid .gl-mega-card:nth-child(5) { animation-delay: 0.26s; }
-.gl-mega-panel.is-open .gl-mega-grid .gl-mega-card:nth-child(6) { animation-delay: 0.31s; }
+.gl-mega-panel.is-open .gl-mega-grid .gl-mega-card:nth-child(1) { animation-delay: 0.04s; }
+.gl-mega-panel.is-open .gl-mega-grid .gl-mega-card:nth-child(2) { animation-delay: 0.08s; }
+.gl-mega-panel.is-open .gl-mega-grid .gl-mega-card:nth-child(3) { animation-delay: 0.12s; }
+.gl-mega-panel.is-open .gl-mega-grid .gl-mega-card:nth-child(4) { animation-delay: 0.16s; }
+.gl-mega-panel.is-open .gl-mega-grid .gl-mega-card:nth-child(5) { animation-delay: 0.2s; }
+.gl-mega-panel.is-open .gl-mega-grid .gl-mega-card:nth-child(6) { animation-delay: 0.24s; }
 
 .gl-mega-card__num {
-  font-family: var(--font-display);
-  font-size: 44px;
+  font-family: var(--font-barlow-condensed), system-ui, sans-serif;
+  font-size: 10px;
   font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: rgba(255, 255, 255, 0.07);
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  transition: color 0.3s var(--ease-expo);
-}
-
-.gl-mega-card:hover .gl-mega-card__num,
-.gl-mega-card:focus-visible .gl-mega-card__num {
-  color: rgba(30, 28, 26, 0.12);
-}
-
-.gl-mega-card__icon {
-  width: 32px;
-  height: 32px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
   margin-bottom: 10px;
-  color: var(--yellow-core);
-  transition: color 0.3s var(--ease-expo);
-}
-
-.gl-mega-card:hover .gl-mega-card__icon,
-.gl-mega-card:focus-visible .gl-mega-card__icon {
-  color: var(--yellow-core);
 }
 
 .gl-mega-card__title {
   display: block;
   font-family: var(--font-display);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  color: var(--white);
+  color: var(--charcoal-deep);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  line-height: 1.15;
-  margin-bottom: 10px;
-  transition: color 0.3s var(--ease-expo);
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  transition: color 0.2s var(--ease-expo);
 }
 
 .gl-mega-card:hover .gl-mega-card__title,
@@ -356,38 +260,36 @@ a.gl-mega-card {
 .gl-mega-card__desc {
   display: block;
   font-size: 13px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: auto;
+  line-height: 1.55;
+  color: var(--text-600);
   margin-top: 0;
-  padding-top: 0;
-  transition: color 0.3s var(--ease-expo);
+  margin-bottom: auto;
+  flex: 1;
+  transition: color 0.2s var(--ease-expo);
 }
 
 .gl-mega-card:hover .gl-mega-card__desc,
 .gl-mega-card:focus-visible .gl-mega-card__desc {
-  color: var(--text-600);
+  color: var(--charcoal-deep);
 }
 
 .gl-mega-card__link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 14px;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  gap: 6px;
+  margin-top: 16px;
+  font-family: var(--font-barlow-condensed), system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--yellow-core);
-  transition:
-    color 0.3s var(--ease-expo),
-    gap 0.2s var(--ease-expo);
+  transition: gap 0.2s var(--ease-expo);
 }
 
 .gl-mega-card:hover .gl-mega-card__link,
 .gl-mega-card:focus-visible .gl-mega-card__link {
-  color: var(--yellow-core);
-  gap: 12px;
+  gap: 10px;
 }
 
 .gl-mega-backdrop {
@@ -409,7 +311,6 @@ body.gl-mega-open .gl-mega-backdrop {
 @media (max-width: 1100px) {
   .gl-mega-panel__inner { grid-template-columns: 1fr; gap: 28px; }
   .gl-mega-grid { grid-template-columns: repeat(2, 1fr); }
-  .gl-mega-card__num { font-size: 38px; }
 }
 @media (max-width: 1024px) {
   .gl-mega-panel { display: none !important; }
@@ -543,9 +444,6 @@ body.gl-mega-open .gl-mega-backdrop {
   .gl-mega-panel.is-open .gl-mega-company-col:nth-child(3),
   .gl-mega-panel.is-open .gl-mega-dispatch {
     animation: none !important;
-  }
-  .gl-mega-card::before {
-    transition: none;
   }
   .gl-mega-card:hover,
   .gl-mega-card:focus-visible {
