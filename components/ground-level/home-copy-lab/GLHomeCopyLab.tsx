@@ -102,6 +102,16 @@ const copyLabProcessContent: GLProcessContent = {
   heading: COPY_LAB_PROCESS.headline,
   intro: COPY_LAB_PROCESS.intro,
   steps: COPY_LAB_PROCESS.steps,
+  footerActions: {
+    primary: {
+      label: `${COPY_LAB_CLOSING_CTA.phoneLabel} — ${COPY_LAB_CLOSING_CTA.phoneDisplay}`,
+      href: COPY_LAB_CLOSING_CTA.phoneHref,
+    },
+    secondary: {
+      label: COPY_LAB_CLOSING_CTA.emailLabel,
+      href: COPY_LAB_CLOSING_CTA.emailHref,
+    },
+  },
 };
 
 const copyLabCoverageContent: GLServiceAreasContent = {

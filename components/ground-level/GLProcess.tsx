@@ -22,17 +22,23 @@ function headingToneOnGlass(text: string) {
   );
 }
 
-/** Light nested surfaces on dark glass (measure + steps). */
-const stepIsland =
-  "relative border border-[color:var(--g200)] border-l-[5px] border-l-[color:var(--y)] bg-[color:var(--brand-canvas)] p-5 text-ink shadow-[0_12px_32px_rgb(0_0_0/0.12)]";
+/** Nested dark-glass step tiles (authority band — tri-tone on dark). */
+const stepShell =
+  "group relative overflow-hidden border border-white/12 border-l-4 border-l-[color:var(--y)] bg-[rgb(10_12_11/0.38)] p-5 shadow-[0_12px_32px_rgb(0_0_0/0.22)] backdrop-blur-sm transition-[border-color,background-color] duration-200 motion-safe:hover:border-white/25 motion-safe:hover:border-l-[color:var(--y)] motion-safe:hover:bg-[rgb(10_12_11/0.52)]";
 
 export type GLProcessStep = string | { index: string; title: string; body: string };
+
+export type GLProcessFooterActions = {
+  primary: { label: string; href: string };
+  secondary?: { label: string; href: string };
+};
 
 export type GLProcessContent = {
   eyebrow: string;
   heading: string;
   intro?: string;
   steps: readonly GLProcessStep[];
+  footerActions?: GLProcessFooterActions;
 };
 
 function defaultProcess(): GLProcessContent {
@@ -55,6 +61,7 @@ export function GLProcess({
   content,
 }: GLProcessProps = {}) {
   const p = content ?? defaultProcess();
+  const fa = p.footerActions;
 
   return (
     <GLDarkRasterFeatureSection
@@ -115,37 +122,70 @@ export function GLProcess({
               aria-hidden
             />
             <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {p.steps.map((step, i) =>
-                typeof step === "string" ? (
-                  <li
-                    key={step}
-                    className={`${stepIsland} ${
-                      i === 1 ? "lg:-translate-y-4" : i === 2 ? "lg:translate-y-4" : ""
-                    }`}
-                  >
-                    <span className="eyebrow text-[color:var(--y)]">
-                      {String(i + 1).padStart(2, "0")}
+              {p.steps.map((step, i) => {
+                const stagger =
+                  i === 1 ? "lg:-translate-y-4" : i === 2 ? "lg:translate-y-4" : "";
+                const mark =
+                  typeof step === "string"
+                    ? String(i + 1).padStart(2, "0")
+                    : step.index;
+                return typeof step === "string" ? (
+                  <li key={step} className={`${stepShell} ${stagger}`}>
+                    <span
+                      className="pointer-events-none absolute -bottom-1 -right-1 font-serif text-[4.5rem] font-semibold leading-none text-white/[0.07] sm:text-[5.25rem]"
+                      aria-hidden
+                    >
+                      {mark}
                     </span>
-                    <p className="mt-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-ink">
-                      Step {String(i + 1).padStart(2, "0")}
-                    </p>
-                    <p className="mt-2 text-sm leading-relaxed text-ink-muted">{step}</p>
+                    <div className="relative z-[1]">
+                      <span className="eyebrow text-[color:var(--y)]">{mark}</span>
+                      <p className="mt-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-white">
+                        Step {String(i + 1).padStart(2, "0")}
+                      </p>
+                      <p className="mt-2 text-sm leading-relaxed text-white/90">{step}</p>
+                    </div>
                   </li>
                 ) : (
-                  <li
-                    key={step.index}
-                    className={`${stepIsland} ${i === 1 ? "lg:-translate-y-4" : i === 2 ? "lg:translate-y-4" : ""}`}
-                  >
-                    <span className="eyebrow text-[color:var(--y)]">{step.index}</span>
-                    <p className="mt-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-ink">
-                      {step.title}
-                    </p>
-                    <p className="mt-2 text-sm leading-relaxed text-ink-muted">{step.body}</p>
+                  <li key={step.index} className={`${stepShell} ${stagger}`}>
+                    <span
+                      className="pointer-events-none absolute -bottom-1 -right-1 font-serif text-[4.5rem] font-semibold leading-none text-white/[0.07] sm:text-[5.25rem]"
+                      aria-hidden
+                    >
+                      {mark}
+                    </span>
+                    <div className="relative z-[1]">
+                      <span className="eyebrow text-[color:var(--y)]">{step.index}</span>
+                      <p className="mt-2 font-sans text-sm font-semibold uppercase tracking-[0.06em] text-white">
+                        {step.title}
+                      </p>
+                      <p className="mt-2 text-sm leading-relaxed text-white/90">{step.body}</p>
+                    </div>
                   </li>
-                ),
-              )}
+                );
+              })}
             </ol>
           </div>
+
+          {fa ? (
+            <div className="relative z-10 mt-10 border border-white/14 bg-[rgb(0_0_0/0.24)] p-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-stretch">
+                <a
+                  href={fa.primary.href}
+                  className="cta-hero-fill flex min-h-[44px] min-w-0 flex-1 items-center justify-center px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]"
+                >
+                  {fa.primary.label}
+                </a>
+                {fa.secondary ? (
+                  <a
+                    href={fa.secondary.href}
+                    className="cta-outline-light flex min-h-[44px] min-w-0 flex-1 items-center justify-center px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]"
+                  >
+                    {fa.secondary.label}
+                  </a>
+                ) : null}
+              </div>
+            </div>
+          ) : null}
         </div>
       </div>
     </GLDarkRasterFeatureSection>
