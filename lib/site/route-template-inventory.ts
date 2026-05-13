@@ -3,7 +3,7 @@
  * Update when adding new App Router page modules under app/.
  */
 export const ROUTE_TEMPLATE_INVENTORY = [
-  { path: "/", template: "GLHomeCopyLab", notes: "HeroFieldBackdrop / GLHero / sections" },
+  { path: "/", template: "GLHomeCopyLab", notes: "GLHero / copy-lab sections" },
   { path: "/about/", template: "about/page", notes: "Verify local imagery" },
   { path: "/contact/", template: "contact/page", notes: "Verify local imagery" },
   { path: "/services/", template: "services/page", notes: "Service index" },

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { HeroFieldBackdrop, HERO_FIELD_IMAGE_DEFAULT_SRC } from "@/components/ground-level/HeroFieldBackdrop";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { ThreeActHeadline } from "@/components/ui/ThreeActHeadline";
@@ -77,7 +76,7 @@ export function GLHero({
   sectionId = "top",
   headingId = "hero-heading",
   content,
-  imageSrc = HERO_FIELD_IMAGE_DEFAULT_SRC,
+  imageSrc = "/images/services/Excavation/excavation-016.jpg",
   imageAlt,
   showMarquee = true,
   variant = "default",
@@ -244,7 +243,24 @@ export function GLHero({
       className="hero-stage band-dark-field relative min-h-[100dvh] w-full scroll-mt-[var(--header)] overflow-hidden"
       aria-labelledby={headingId}
     >
-      <HeroFieldBackdrop imageSrc={imageSrc} imageAlt={resolvedAlt} priority />
+      <div className="absolute inset-0 overflow-hidden">
+        <Image
+          src={imageSrc}
+          alt={resolvedAlt}
+          fill
+          priority
+          className="hero-bg-image object-cover object-center"
+          sizes="100vw"
+        />
+      </div>
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.92)] via-[rgb(20_24_22/0.55)] to-[rgb(15_18_16/0.35)]"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_30%,rgb(255_255_255/0.06),transparent_55%)]"
+        aria-hidden
+      />
       <ClaudeLogicWatermark placement="bottom-right" className="z-[1]" />
       <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-7 pb-8 pt-[var(--site-header-offset)] sm:px-10 sm:pb-10 lg:justify-between lg:px-20 lg:pb-8 lg:pt-[var(--site-header-offset)]">
         <div className="max-w-[min(100%,var(--max))] space-y-0 rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:max-w-4xl lg:pt-10">

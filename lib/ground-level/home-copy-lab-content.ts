@@ -125,13 +125,6 @@ export const COPY_LAB_ABOUT = {
     "Foundation excavation and forming crew on a commercial civil site — Ground Level Contracting Simcoe County",
 } as const;
 
-/** FAQ bookend field — distinct from `#hero` default excavation-016. */
-export const COPY_LAB_FAQ_BACKDROP = {
-  imageSrc: "/images/services/Excavation/excavation-012.jpg" as const,
-  imageAlt:
-    "Trench and earthwork on a commercial development site — Ground Level Contracting field operations in Simcoe County",
-} as const;
-
 /** Role-map order for grid cards → `services/[slug]`. */
 /** Verbatim capability band supporting lines from the former `CopyLabServicesGrid` intro. */
 export const COPY_LAB_CAPABILITIES_INTRO =
@@ -404,8 +397,10 @@ export type HomeFaqGroup = {
 };
 
 export const COPY_LAB_HOME_FAQ = {
-  eyebrow: "Reference",
-  heading: "Service Area & Capability FAQ",
+  heading: "Have a question?",
+  /** Short line under the title; accordion sits in the darker panel below. */
+  body: "Expand below for questions and answers.",
+  /** Long-form context for search; kept in DOM, visually hidden in `HomeSeoFaqSection`. */
   intro:
     "Answers compiled from our commercial positioning, process, coverage, metrics, and client feedback — all retained in-page for search clarity.",
   groups: [
