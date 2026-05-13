@@ -13,7 +13,7 @@
  * 6. `#capabilities` — `HomeCapabilityBentoSection` (depth rows + `megaBlurb`, not a second featured bento)
  * 7. `#proof` — `HomeProofBeforeAfter`
  * 8. `#cta-band` — `HomeFinalCtaSection`
- * 9. `#home-faq` — `HomeSeoFaqSection` (includes `#why`, `#process`, `#coverage` scroll targets)
+ * 9. `#home-faq` — `HomeSeoFaqSection` (hero-field bookend: same `HeroFieldBackdrop` DNA as `#hero`; includes `#why`, `#process`, `#coverage` scroll targets)
  */
 
 import dynamic from "next/dynamic";
