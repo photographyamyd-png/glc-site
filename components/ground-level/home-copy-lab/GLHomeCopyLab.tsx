@@ -13,7 +13,7 @@
  * 6. `#capabilities` — `HomeCapabilityBentoSection` (depth rows + `megaBlurb`, not a second featured bento)
  * 7. `#proof` — `HomeProofBeforeAfter`
  * 8. `#cta-band` — `HomeFinalCtaSection`
- * 9. `#home-faq` — `HomeSeoFaqSection` (hero-field bookend: same `HeroFieldBackdrop` DNA as `#hero`; includes `#why`, `#process`, `#coverage` scroll targets)
+ * 9. `#home-faq` — `HomeSeoFaqSection` (compact band: `HeroFieldBackdrop` scrim stack with a **different** field raster than `#hero`; includes `#why`, `#process`, `#coverage` scroll targets)
  */
 
 import dynamic from "next/dynamic";
@@ -96,6 +96,7 @@ const copyLabAboutContent: GLWhoWeServeContent = {
   cta: { label: COPY_LAB_ABOUT.cta.label, href: COPY_LAB_ABOUT.cta.href },
   mediaStat: COPY_LAB_ABOUT.mediaStat,
   badge: COPY_LAB_ABOUT.badge,
+  imageSrc: COPY_LAB_ABOUT.imageSrc,
   imageAlt: COPY_LAB_ABOUT.imageAlt,
   watermark: COPY_LAB_ABOUT.watermark,
 };
@@ -107,7 +108,8 @@ export function GLHomeCopyLab() {
         sectionId="hero"
         headingId="hero-heading"
         content={copyLabHeroContent}
-        imageAlt="Ground Level Contracting equipment preparing a commercial site in Simcoe County"
+        imageSrc={COPY_LAB_HERO.fieldImageSrc}
+        imageAlt={COPY_LAB_HERO.fieldImageAlt}
       />
       <GLMarqueeBand items={COPY_LAB_MARQUEE_ITEMS} />
       <GLFeaturedServicesBento

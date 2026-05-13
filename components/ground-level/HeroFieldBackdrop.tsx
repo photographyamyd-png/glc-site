@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-/** Matches `GLHero` default `imageSrc` — single source for homepage hero + FAQ bookend. */
+/** Default matches legacy `GLHero` field when no `imageSrc` prop is passed. */
 export const HERO_FIELD_IMAGE_DEFAULT_SRC = "/images/services/Excavation/excavation-016.jpg" as const;
 
 export type HeroFieldBackdropProps = {

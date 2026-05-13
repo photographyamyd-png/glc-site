@@ -11,7 +11,8 @@
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "scope:glc-dna": "node scripts/scope-glc-dna-css.cjs"
+    "scope:glc-dna": "node scripts/scope-glc-dna-css.cjs",
+    "check:image-dupes": "node scripts/check-service-image-dupes.cjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",

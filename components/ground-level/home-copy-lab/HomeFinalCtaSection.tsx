@@ -7,7 +7,7 @@ import { getServiceImage, getServiceImageRasterPlaceholder } from "@/lib/site/se
 
 const c = COPY_LAB_CLOSING_CTA;
 
-const CTA_FIELD_SLUG = "excavation-site-preparation" as const;
+const CTA_FIELD_SLUG = "drainage-hardscaping" as const;
 const fieldImage = getServiceImage(CTA_FIELD_SLUG);
 const fieldImageFallback = getServiceImageRasterPlaceholder(CTA_FIELD_SLUG);
 

@@ -4,6 +4,7 @@ import type { LocationDef } from "@/lib/site/registry";
 import { LOCATION_COPY_MODEL, LOCATION_NAMES } from "@/lib/site/copy";
 import { SnowLocationJsonLd } from "@/components/seo/SnowLocationJsonLd";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
+import { SNOW_MEDIA } from "@/lib/site/snow-removal-media";
 
 /** Snow location pages — `public/images/services/Snow Removal/` (spaces encoded). */
 const LOCATION_HERO_IMAGE_SRC =
@@ -11,6 +12,8 @@ const LOCATION_HERO_IMAGE_SRC =
 
 const LOCATION_IMAGE_ALT =
   "Commercial snow removal truck operating on a lot — Ground Level Contracting, Simcoe County";
+
+const LOCATION_SPLIT_IMAGE = SNOW_MEDIA.barrieSnow2;
 
 export function LocationPageTemplate({ location }: { location: LocationDef }) {
   const place = LOCATION_NAMES[location.slug];
@@ -64,8 +67,8 @@ export function LocationPageTemplate({ location }: { location: LocationDef }) {
           <div className="grid gap-8 lg:grid-cols-12 lg:gap-12 lg:items-stretch">
             <div className="relative min-h-[200px] overflow-hidden border border-[color:var(--g200)] lg:col-span-5 lg:min-h-0">
               <Image
-                src={LOCATION_HERO_IMAGE_SRC}
-                alt={LOCATION_IMAGE_ALT}
+                src={LOCATION_SPLIT_IMAGE.src}
+                alt={LOCATION_SPLIT_IMAGE.alt}
                 fill
                 className="object-cover object-[center_40%]"
                 sizes="(min-width: 1024px) 38vw, 100vw"

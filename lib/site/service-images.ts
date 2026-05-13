@@ -1,4 +1,6 @@
 import type { PrimaryServiceSlug, ServiceDef, SnowSubServiceSlug } from "@/lib/site/registry";
+import { SNOW_SUB_SERVICES } from "@/lib/site/registry";
+import { SNOW_HUB_DEEP_DIVE_RASTERS } from "@/lib/site/snow-removal-media";
 
 type ServiceImage = {
   src: string;
@@ -42,14 +44,23 @@ const SERVICE_IMAGES: Record<PrimaryServiceSlug, ServiceImage> = {
   },
 };
 
-const SNOW_SUB_SERVICE_IMAGE: ServiceImage = SERVICE_IMAGES["snow-removal"];
+function snowSubServiceHero(slug: string): ServiceImage | null {
+  const i = SNOW_SUB_SERVICES.findIndex((s) => s.slug === slug);
+  if (i < 0) return null;
+  const r = SNOW_HUB_DEEP_DIVE_RASTERS[i];
+  if (!r) return null;
+  return { src: r.src, alt: r.alt };
+}
 
 export function getServiceImage(slug: ServiceDef["slug"]): ServiceImage {
   if (slug in SERVICE_IMAGES) {
     return SERVICE_IMAGES[slug as PrimaryServiceSlug];
   }
 
-  return SNOW_SUB_SERVICE_IMAGE;
+  const sub = snowSubServiceHero(slug);
+  if (sub) return sub;
+
+  return SERVICE_IMAGES["snow-removal"];
 }
 
 export function getServiceImageSrc(slug: ServiceDef["slug"] | SnowSubServiceSlug) {
@@ -81,7 +92,7 @@ export function getHaulingScopeProofImage(): ServiceImage {
 export function getGradingProofSliderImages(): { before: ServiceImage; after: ServiceImage } {
   return {
     before: {
-      src: "/images/services/Excavation/excavation-016.jpg",
+      src: "/images/services/Excavation/excavation-007.jpg",
       alt: "Commercial excavation and rough site conditions on an active Simcoe County construction site before finish grading",
     },
     after: SERVICE_IMAGES["site-preparation-grading"],

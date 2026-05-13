@@ -8,6 +8,7 @@ import { GLCtaBand } from "@/components/ground-level/GLCtaBand";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { CardSurface } from "@/components/ui/CardSurface";
 import { cn } from "@/lib/utils";
+import { getCapabilityCardRaster, getServicePageSectionRasters } from "@/lib/site/service-section-images";
 import { getHaulingScopeProofImage, getServiceImage } from "@/lib/site/service-images";
 import { getSnowSubserviceCapabilityItems } from "@/lib/site/snow-subservice-capabilities";
 import { SnowSubServiceJsonLd } from "@/components/seo/SnowSubServiceJsonLd";
@@ -57,7 +58,9 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
 
   const serviceImage = getServiceImage(service.slug);
   const imageSrc = serviceImage.src;
-  const scopeAnchorAlt = `${serviceImage.alt} — ${service.title} scope reference`;
+  const sectionRasters = getServicePageSectionRasters(service, serviceImage);
+  const scopeRaster = sectionRasters.scope;
+  const scopeAnchorAlt = `${scopeRaster.alt} — ${service.title} scope reference`;
   const subServicesForField =
     detail?.subServices?.length ? detail.subServices : getSnowSubserviceCapabilityItems(service);
   const subServicesForFieldGrid = subServicesForField.slice(0, 6);
@@ -186,7 +189,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
           <div className="flex flex-col gap-6 lg:col-span-6">
               <div className="relative aspect-[16/10] overflow-hidden border border-[color:var(--g200)] bg-[color:var(--g200)]">
                 <Image
-                  src={imageSrc}
+                  src={scopeRaster.src}
                   alt={scopeAnchorAlt}
                   fill
                   className="object-cover object-[center_42%] sm:object-[center_38%]"
@@ -224,18 +227,27 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
             </h2>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {subServicesForFieldGrid.map((item, idx) => (
+            {subServicesForFieldGrid.map((item, idx) => {
+              const cardRaster = getCapabilityCardRaster(sectionRasters, idx);
+              return (
               <article
                 key={item.id}
                 className="relative panel-machined border border-white/15 bg-[rgb(255_255_255/0.06)] p-5 backdrop-blur-sm sm:p-8"
               >
                 <div className="relative mb-4 aspect-[16/10] overflow-hidden border border-white/20">
-                  <Image src={imageSrc} alt={`${item.heading} visual ${idx + 1}`} fill className="object-cover" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
+                  <Image
+                    src={cardRaster.src}
+                    alt={`${item.heading} — ${cardRaster.alt}`}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  />
                 </div>
                 <h3 className="font-serif text-xl font-bold uppercase tracking-[0.04em] text-white sm:text-2xl">{item.heading}</h3>
                 <p className="mt-3 text-[15px] leading-[1.72] text-white/90 sm:text-base">{item.paragraphs[0]}</p>
               </article>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

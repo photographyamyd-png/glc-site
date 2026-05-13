@@ -66,6 +66,10 @@ export const COPY_LAB_HERO = {
     },
     { label: "Snow Removal", slug: "snow-removal", sub: "COMMERCIAL WINTER OPS" },
   ] as const,
+  /** Distinct from featured-bento excavation canonical (`016`) and other homepage field rasters. */
+  fieldImageSrc: "/images/services/Excavation/excavation-015.jpg" as const,
+  fieldImageAlt:
+    "Heavy excavation equipment stripping topsoil on a commercial development site in Simcoe County Ontario",
 } as const;
 
 export const COPY_LAB_MARQUEE_ITEMS = [
@@ -112,8 +116,20 @@ export const COPY_LAB_ABOUT = {
   mediaStat: { value: "15+", label: "Yrs. Experience" },
   badge: "Licensed & Insured",
   watermark: "GLC",
+  imageSrc:
+    "/images/services/Foundations/" +
+    encodeURIComponent(
+      "Ground Level Contracting - Excavation, Foundations, Industrial Construction - Barrie, Orilla, Simcoe County - Muskoka Bedrock- Drainage,  (5 of 34).jpg",
+    ),
   imageAlt:
-    "Excavation and site work — Ground Level Contracting crew on a commercial site",
+    "Foundation excavation and forming crew on a commercial civil site — Ground Level Contracting Simcoe County",
+} as const;
+
+/** FAQ bookend field — distinct from `#hero` default excavation-016. */
+export const COPY_LAB_FAQ_BACKDROP = {
+  imageSrc: "/images/services/Excavation/excavation-012.jpg" as const,
+  imageAlt:
+    "Trench and earthwork on a commercial development site — Ground Level Contracting field operations in Simcoe County",
 } as const;
 
 /** Role-map order for grid cards → `services/[slug]`. */
@@ -369,9 +385,9 @@ export const COPY_LAB_PROOF = {
   heading: "Rough Site To Ready-Build Condition",
   caption:
     "Commercial earthworks and finish prep across Barrie and Simcoe County — same dispatch discipline we bring to every mobilization.",
-  beforeSrc: "/images/services/Excavation/excavation-016.jpg",
+  beforeSrc: "/images/services/Excavation/excavation-007.jpg",
   beforeAlt:
-    "Commercial excavation equipment preparing an active construction site in Simcoe County — before finish grading phase",
+    "Commercial excavation equipment preparing rough site conditions in Simcoe County — before finish grading phase",
   afterSrc: "/images/services/Grading/Ground%20Level%20Contracting%20grading.jpg",
   afterAlt:
     "Grading equipment shaping a commercial site pad — finish prep and turnover-ready surface",

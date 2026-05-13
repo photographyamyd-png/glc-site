@@ -13,21 +13,16 @@ import {
 } from "@/lib/ground-level/excavation-sandbox-map";
 import { SERVICE_DETAILS } from "@/lib/site/copy";
 import type { ServiceDef } from "@/lib/site/registry";
+import { getServiceImage } from "@/lib/site/service-images";
 import { cn } from "@/lib/utils";
 
 const detail = SERVICE_DETAILS["excavation-site-preparation"];
 
 const EX_IMAGES = [
-  "/images/services/Excavation/excavation-004.jpg",
-  "/images/services/Excavation/excavation-008.jpg",
-  "/images/services/Excavation/excavation-012.jpg",
-  "/images/services/Excavation/excavation-016.jpg",
-] as const;
-
-const RELATED_CARD_IMAGES = [
-  "/images/services/Excavation/excavation-004.jpg",
-  "/images/services/Excavation/excavation-008.jpg",
-  "/images/services/Excavation/excavation-012.jpg",
+  "/images/services/Excavation/excavation-001.jpg",
+  "/images/services/Excavation/excavation-003.jpg",
+  "/images/services/Excavation/excavation-005.jpg",
+  "/images/services/Excavation/excavation-014.jpg",
 ] as const;
 
 const RELATED_INTRO =
@@ -107,7 +102,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
             <div className="order-2 lg:order-1 lg:col-span-5">
               <div className="relative min-h-[240px] overflow-hidden border border-[color:var(--g200)] shadow-[0_16px_40px_rgb(0_0_0/0.08)] lg:min-h-[320px]">
                 <Image
-                  src="/images/services/Excavation/excavation-012.jpg"
+                  src="/images/services/Excavation/excavation-013.jpg"
                   alt="Trench and earthwork cut on a commercial development site in Simcoe County"
                   fill
                   className="object-cover"
@@ -189,7 +184,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
               </div>
               <div className="relative aspect-[4/3] overflow-hidden border border-white/15 shadow-[0_20px_50px_rgb(0_0_0/0.35)]">
                 <Image
-                  src="/images/services/Excavation/excavation-016.jpg"
+                  src="/images/services/Excavation/excavation-015.jpg"
                   alt="Heavy excavator on structural excavation and footing prep"
                   fill
                   className="object-cover"
@@ -349,7 +344,9 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
             <p className={`mt-5 max-w-prose ${bodyOnDark}`}>{RELATED_INTRO}</p>
           </div>
           <ul className="mt-10 grid gap-4 sm:mt-12 lg:grid-cols-3">
-            {related.slice(0, 3).map((r, i) => (
+            {related.slice(0, 3).map((r) => {
+              const relatedRaster = getServiceImage(r.slug);
+              return (
               <CardSurface
                 key={r.slug}
                 as="li"
@@ -358,8 +355,8 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                 <Link href={`/services/${r.slug}/`} className="group flex flex-col sm:flex-row sm:items-stretch">
                   <div className="relative aspect-[16/10] w-full shrink-0 sm:w-[min(42%,260px)]">
                     <Image
-                      src={RELATED_CARD_IMAGES[i % RELATED_CARD_IMAGES.length]}
-                      alt={`${r.title} — related commercial service`}
+                      src={relatedRaster.src}
+                      alt={`${r.title} — ${relatedRaster.alt}`}
                       fill
                       className="object-cover transition-transform duration-300 motion-reduce:transition-none group-hover:scale-[1.02] motion-reduce:group-hover:scale-100"
                       sizes="(min-width: 640px) 220px, 100vw"
@@ -373,7 +370,8 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                   </div>
                 </Link>
               </CardSurface>
-            ))}
+              );
+            })}
           </ul>
           <div className="mt-8">
             <Link

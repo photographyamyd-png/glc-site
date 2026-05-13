@@ -4,7 +4,8 @@ import { footerCloneSiteData } from "@/content/footer-clone-data";
 import { NAV_LINKS, SEO_TITLES } from "@/lib/site/registry";
 import { buildPageMetadata } from "@/lib/site/metadata";
 
-const HERO_IMAGE_SRC = "/images/services/Excavation/excavation-016.jpg";
+const HERO_IMAGE_SRC =
+  "/images/services/Grading/Ground%20Level%20Contracting%20grading2.jpg";
 const LOGO_MARK_SRC = "/images/Logos/ground-level-mark.png";
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ export default function MaintenancePage() {
       <div className="pointer-events-none absolute inset-0">
         <Image
           src={HERO_IMAGE_SRC}
-          alt="Commercial excavation equipment on a Ground Level Contracting job site"
+          alt="Commercial grading equipment shaping a site pad — Ground Level Contracting Simcoe County"
           fill
           priority
           sizes="100vw"
