@@ -810,7 +810,7 @@ export const DRAINAGE_TRUST_SIGNALS = {
   items: [
     { label: "Fully Licensed & Insured", sub: "Commercial general liability coverage on every project" },
     { label: "WSIB Compliant", sub: "Current WSIB clearance certificates available on request" },
-    { label: "Locally Owned & Operated", sub: "Based in Barrie, serving Simcoe County since [YEAR]" },
+    { label: "Locally Owned & Operated", sub: "Based in Barrie, serving Simcoe County across commercial and industrial sites" },
     { label: "Warranty-Backed Workmanship", sub: "Ask about warranty terms for your project type" },
     { label: "Free Site Assessments", sub: "No-obligation site visits and written proposals" },
     { label: "Transparent, Written Quotes", sub: "Line-item pricing with no surprises at invoice" },

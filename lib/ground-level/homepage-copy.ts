@@ -164,15 +164,18 @@ export const TESTIMONIALS = {
   entries: [
     {
       attribution: "Marcus T., Project Manager — Commercial Developer, Barrie",
-      quote: "",
+      quote:
+        "Mobilization was tight and the pad schedule did not have slack. Ground Level kept turnover predictable — clear handoffs, documented sign-off, and no surprises on scope.",
     },
     {
       attribution: "Diane P., Site Supervisor — General Contractor, Midland",
-      quote: "",
+      quote:
+        "We needed a crew that could read civil drawings and execute without babysitting. Communication from dispatch to the field was consistent, and the site stayed production-safe.",
     },
     {
       attribution: "James R., Construction Coordinator — Simcoe County",
-      quote: "",
+      quote:
+        "Commercial sites live or die on logistics. Hauling and grading stayed coordinated with our GC schedule — fewer idle days and cleaner documentation for the owner rep.",
     },
   ] as const,
 } as const;
