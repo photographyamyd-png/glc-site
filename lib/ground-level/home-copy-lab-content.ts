@@ -396,88 +396,97 @@ export type HomeFaqGroup = {
   items: readonly { q: string; a: string }[];
 };
 
+/** Full homepage FAQ library (JSON-LD + expanded UI). */
+const HOME_FAQ_GROUPS = [
+  {
+    anchorId: "why",
+    sectionTitle: "Why Ground Level",
+    items: [
+      {
+        q: "Why choose Ground Level for commercial excavation and civil work?",
+        a:
+          `${COPY_LAB_WHY.body} Rapid mobilization, geotechnical depth, PM-friendly communication, and single-source accountability across excavation, drainage, and clearing keep handoffs tight.`,
+      },
+    ],
+  },
+  {
+    anchorId: "process",
+    sectionTitle: "How we work",
+    items: [
+      {
+        q: "What happens after the first call?",
+        a: `${COPY_LAB_PROCESS.intro} ${COPY_LAB_PROCESS.steps.map((s) => `${s.index} ${s.title}: ${s.body}`).join(" ")}`,
+      },
+    ],
+  },
+  {
+    anchorId: "coverage",
+    sectionTitle: "Service territory",
+    items: [
+      {
+        q: "Where does Ground Level operate commercially?",
+        a: `${COPY_LAB_COVERAGE.body} Territory highlights: ${COPY_LAB_COVERAGE.regions.map((r) => `${r.name} — ${r.sub}`).join("; ")}.`,
+      },
+    ],
+  },
+  {
+    items: [
+      {
+        q: "What does Ground Level Contracting provide end-to-end?",
+        a: `${COPY_LAB_FEATURED_SERVICES.body} ${COPY_LAB_CAPABILITIES_INTRO}`,
+      },
+      {
+        q: "What field metrics reflect your commercial track record?",
+        a: COPY_LAB_STATS.metrics.map((m) => `${m.value} ${m.label}: ${m.sub}`).join(". ") + ".",
+      },
+      {
+        q: "What does excavation and site preparation include?",
+        a: COPY_LAB_SERVICE_CARDS[0].description,
+      },
+      {
+        q: "What does site preparation and grading cover?",
+        a: COPY_LAB_SERVICE_CARDS[1].description,
+      },
+      {
+        q: "What foundations and civil infrastructure scopes do you take on?",
+        a: COPY_LAB_SERVICE_CARDS[2].description,
+      },
+      {
+        q: "How do drainage and hardscaping services support commercial sites?",
+        a: COPY_LAB_SERVICE_CARDS[3].description,
+      },
+      {
+        q: "What hauling, clearing, and logistics capabilities are available?",
+        a: COPY_LAB_SERVICE_CARDS[4].description,
+      },
+      {
+        q: "How does commercial snow removal operate across Simcoe County?",
+        a: COPY_LAB_SERVICE_CARDS[5].description,
+      },
+    ],
+  },
+  {
+    items: [
+      {
+        q: "What are commercial clients saying about mobilization and quality?",
+        a: `Client feedback snapshot: ${COPY_LAB_TESTIMONIALS.items.map((t) => `“${t.quote}” — ${t.name}, ${t.role}`).join(" ")}`,
+      },
+    ],
+  },
+] as const satisfies readonly HomeFaqGroup[];
+
 export const COPY_LAB_HOME_FAQ = {
-  heading: "Have a question?",
-  /** Short line under the title; accordion sits in the darker panel below. */
-  body: "Expand below for questions and answers.",
-  /** Long-form context for search; kept in DOM, visually hidden in `HomeSeoFaqSection`. */
+  eyebrow: "Frequently asked",
+  heading: "Questions",
+  /** Visible lede; keep tight — hero-band FAQ is compact. */
+  introCompact:
+    "Why us, how we start work, and where we run crews. Tap below when you need the full question list.",
+  /** Longer context for search; rendered `sr-only` beside the compact lede. */
   intro:
     "Answers compiled from our commercial positioning, process, coverage, metrics, and client feedback — all retained in-page for search clarity.",
-  groups: [
-    {
-      anchorId: "why",
-      sectionTitle: "Why Ground Level",
-      items: [
-        {
-          q: "Why choose Ground Level for commercial excavation and civil work?",
-          a:
-            `${COPY_LAB_WHY.body} Rapid mobilization, geotechnical depth, PM-friendly communication, and single-source accountability across excavation, drainage, and clearing keep handoffs tight.`,
-        },
-      ],
-    },
-    {
-      anchorId: "process",
-      sectionTitle: "How we work",
-      items: [
-        {
-          q: "What happens after the first call?",
-          a: `${COPY_LAB_PROCESS.intro} ${COPY_LAB_PROCESS.steps.map((s) => `${s.index} ${s.title}: ${s.body}`).join(" ")}`,
-        },
-      ],
-    },
-    {
-      anchorId: "coverage",
-      sectionTitle: "Service territory",
-      items: [
-        {
-          q: "Where does Ground Level operate commercially?",
-          a: `${COPY_LAB_COVERAGE.body} Territory highlights: ${COPY_LAB_COVERAGE.regions.map((r) => `${r.name} — ${r.sub}`).join("; ")}.`,
-        },
-      ],
-    },
-    {
-      items: [
-        {
-          q: "What does Ground Level Contracting provide end-to-end?",
-          a: `${COPY_LAB_FEATURED_SERVICES.body} ${COPY_LAB_CAPABILITIES_INTRO}`,
-        },
-        {
-          q: "What field metrics reflect your commercial track record?",
-          a: COPY_LAB_STATS.metrics.map((m) => `${m.value} ${m.label}: ${m.sub}`).join(". ") + ".",
-        },
-        {
-          q: "What does excavation and site preparation include?",
-          a: COPY_LAB_SERVICE_CARDS[0].description,
-        },
-        {
-          q: "What does site preparation and grading cover?",
-          a: COPY_LAB_SERVICE_CARDS[1].description,
-        },
-        {
-          q: "What foundations and civil infrastructure scopes do you take on?",
-          a: COPY_LAB_SERVICE_CARDS[2].description,
-        },
-        {
-          q: "How do drainage and hardscaping services support commercial sites?",
-          a: COPY_LAB_SERVICE_CARDS[3].description,
-        },
-        {
-          q: "What hauling, clearing, and logistics capabilities are available?",
-          a: COPY_LAB_SERVICE_CARDS[4].description,
-        },
-        {
-          q: "How does commercial snow removal operate across Simcoe County?",
-          a: COPY_LAB_SERVICE_CARDS[5].description,
-        },
-      ],
-    },
-    {
-      items: [
-        {
-          q: "What are commercial clients saying about mobilization and quality?",
-          a: `Client feedback snapshot: ${COPY_LAB_TESTIMONIALS.items.map((t) => `“${t.quote}” — ${t.name}, ${t.role}`).join(" ")}`,
-        },
-      ],
-    },
-  ] satisfies readonly HomeFaqGroup[],
+  expandQuestionsLabel: "Tap to expand all questions",
+  collapseQuestionsLabel: "Collapse to top FAQs",
+  /** Shown before expand; first three clusters only. */
+  frequentGroups: [HOME_FAQ_GROUPS[0], HOME_FAQ_GROUPS[1], HOME_FAQ_GROUPS[2]],
+  groups: HOME_FAQ_GROUPS,
 } as const;
