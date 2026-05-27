@@ -82,36 +82,31 @@ export function HomeProofBeforeAfter() {
   }, []);
 
   return (
-    <section
-      id="proof"
-      className="section-major band-dark relative scroll-mt-[var(--header)] overflow-hidden text-white view-reveal"
-      aria-labelledby="proof-heading"
-    >
-      <div
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgb(0_0_0/0.35),transparent_45%,rgb(242_183_5/0.08))]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-[color:var(--y)]"
-        aria-hidden
-      />
-      <ClaudeLogicWatermark placement="center-right" className="opacity-[0.08]" />
+    <section id="proof" className="scroll-mt-[var(--header)] view-reveal" aria-labelledby="proof-heading">
+      <div className="section-major band-dark relative overflow-hidden text-white">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgb(0_0_0/0.35),transparent_45%,rgb(242_183_5/0.08))]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-[color:var(--y)]"
+          aria-hidden
+        />
+        <ClaudeLogicWatermark placement="center-right" className="opacity-[0.08]" />
 
-      <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)] lg:items-start lg:gap-14">
-          <div>
-            <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
-              <p className="eyebrow text-white">{p.eyebrow}</p>
-              <h2
-                id="proof-heading"
-                className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
-              >
-                {p.heading}
-              </h2>
-              <p className="mt-5 text-[15px] leading-[1.72] text-white/90 sm:text-base">{p.caption}</p>
-            </div>
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6">
+          <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
+            <p className="eyebrow text-white">{p.eyebrow}</p>
+            <h2
+              id="proof-heading"
+              className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
+            >
+              {p.heading}
+            </h2>
+            <p className="mt-5 text-[15px] leading-[1.72] text-white/90 sm:text-base">{p.caption}</p>
+          </div>
 
-            <figure className="mt-10 overflow-hidden border border-white/15 bg-[rgb(10_12_11/0.55)] shadow-[0_24px_64px_rgb(0_0_0/0.45)] backdrop-blur-md">
+          <figure className="mt-10 overflow-hidden border border-white/15 bg-[rgb(10_12_11/0.55)] shadow-[0_24px_64px_rgb(0_0_0/0.45)] backdrop-blur-md">
               <figcaption id={labelId} className="sr-only">
                 Compare before and after site imagery. Drag the slider or use arrow keys to adjust the split.
               </figcaption>
@@ -191,19 +186,29 @@ export function HomeProofBeforeAfter() {
                   </span>
                 </div>
               )}
-            </figure>
-          </div>
+          </figure>
+        </div>
+      </div>
 
-          <aside className="relative border border-white/15 border-l-[4px] border-l-[color:var(--y)] bg-[rgb(10_12_11/0.55)] p-6 shadow-[0_20px_48px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8">
-            <p className="eyebrow text-[color:var(--y)]">Client signal</p>
-            <blockquote className="mt-4 border-l border-white/20 pl-4">
-              <p className="font-sans text-base leading-relaxed text-white/92 sm:text-lg">&ldquo;{p.pullQuote}&rdquo;</p>
-              <footer className="mt-4 text-sm text-white/70">— {p.pullAttribution}</footer>
-            </blockquote>
-            <p className="mt-8 text-sm leading-relaxed text-white/60">
-              Slider compares two distinct commercial site photographs to illustrate mobilization-through-grade outcomes — not a
-              georeferenced survey pair.
+      <div
+        className="section-major band-light-drift relative overflow-hidden border-t border-[color:var(--y)]"
+        aria-labelledby="proof-signal-heading"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--y)_5%,transparent),transparent_42%)]"
+          aria-hidden
+        />
+        <ClaudeLogicWatermark placement="center-left" mode="default" className="opacity-[0.05]" />
+
+        <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
+          <aside className="panel-machined border border-[color:var(--g200)] border-l-4 border-l-[color:var(--y)] bg-white p-6 shadow-[0_16px_48px_rgb(0_0_0/0.08)] sm:p-8 lg:max-w-3xl">
+            <p id="proof-signal-heading" className="eyebrow text-[color:var(--y)]">
+              {p.pullQuoteEyebrow}
             </p>
+            <blockquote className="mt-4 border-l border-[color:var(--g200)] pl-4">
+              <p className="font-sans text-base leading-relaxed text-ink sm:text-lg">&ldquo;{p.pullQuote}&rdquo;</p>
+              <footer className="mt-4 text-sm text-ink-muted">— {p.pullAttribution}</footer>
+            </blockquote>
           </aside>
         </div>
       </div>

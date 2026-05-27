@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { ServiceLabImg } from "@/components/ground-level/service-layout-lab/ServiceLabImg";
-import { COPY_LAB_CAPABILITY_BENTO, COPY_LAB_SERVICE_GRID_SLUGS } from "@/lib/ground-level/home-copy-lab-content";
+import { COPY_LAB_CAPABILITY_BENTO, COPY_LAB_CARD_LINK_LABEL, COPY_LAB_SERVICE_GRID_SLUGS } from "@/lib/ground-level/home-copy-lab-content";
 import { groundLevelServicesWithCopyLabDescriptions } from "@/lib/ground-level/merge-copy-lab-services";
 import { SERVICE_LAYOUT_LAB_ITEMS } from "@/lib/ground-level/service-layout-lab-data";
 import type { GroundLevelService } from "@/lib/ground-level/services";
@@ -91,7 +91,7 @@ export function HomeCapabilityBentoSection() {
                     {item.megaBlurb}
                   </p>
                   <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--y)] transition-transform duration-300 group-hover:translate-x-1 motion-reduce:group-hover:translate-x-0">
-                    View service →
+                    {COPY_LAB_CARD_LINK_LABEL}
                   </span>
                 </div>
               </Link>

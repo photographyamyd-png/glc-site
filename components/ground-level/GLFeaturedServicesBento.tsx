@@ -8,6 +8,7 @@ import type { GLFeaturedServicesContent } from "@/components/ground-level/GLFeat
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { FEATURED_SERVICES } from "@/lib/ground-level/homepage-copy";
+import { COPY_LAB_CARD_LINK_LABEL } from "@/lib/ground-level/home-copy-lab-content";
 import { SERVICE_LAYOUT_LAB_ITEMS } from "@/lib/ground-level/service-layout-lab-data";
 import { ServiceLabImg } from "@/components/ground-level/service-layout-lab/ServiceLabImg";
 import { serviceTitleTone } from "@/components/ground-level/service-layout-lab/serviceLayoutLabShared";
@@ -43,6 +44,8 @@ export type GLFeaturedServicesBentoProps = {
   showIntroHeader?: boolean;
   /** Element id elsewhere in the document; used as section accessible name when `showIntroHeader` is false. */
   sectionAriaLabelledBy?: string;
+  /** Card footer link label; defaults to homepage copy-lab card label. */
+  cardLinkLabel?: string;
 };
 
 const defaultFeaturedContent: GLFeaturedServicesContent = {
@@ -109,6 +112,7 @@ function GlcServiceCard({
   variant,
   showStepNumber = true,
   revealDelayMs = 0,
+  cardLinkLabel,
 }: {
   item: ServiceWithImages;
   step: number;
@@ -116,6 +120,7 @@ function GlcServiceCard({
   variant: "hero" | "satellite";
   showStepNumber?: boolean;
   revealDelayMs?: number;
+  cardLinkLabel: string;
 }) {
   const num = String(step).padStart(2, "0");
   const isHero = variant === "hero";
@@ -172,7 +177,7 @@ function GlcServiceCard({
           {item.short}
         </p>
         <span className="card__link mt-5 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--y)] transition-[transform,color] duration-300 ease-[var(--ease)] group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:group-hover:translate-x-0 motion-reduce:group-focus-visible:translate-x-0">
-          View service →
+          {cardLinkLabel}
         </span>
       </div>
     </MotionLink>
@@ -188,6 +193,7 @@ export function GLFeaturedServicesBento({
   showStepNumbers = true,
   showIntroHeader = true,
   sectionAriaLabelledBy,
+  cardLinkLabel = COPY_LAB_CARD_LINK_LABEL,
 }: GLFeaturedServicesBentoProps = {}) {
   const featured = mergeFeaturedContent(content);
   const services = servicesProp ?? GROUND_LEVEL_SERVICES;
@@ -333,6 +339,7 @@ export function GLFeaturedServicesBento({
                   variant={t.variant}
                   showStepNumber={showStepNumbers}
                   revealDelayMs={i * 70}
+                  cardLinkLabel={cardLinkLabel}
                 />
               </div>
             ))}

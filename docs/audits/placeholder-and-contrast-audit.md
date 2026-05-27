@@ -57,7 +57,7 @@ Columns: **Placeholder** = unresolved tokens / empty shipped strings / TODO. **C
 | `#about` | N | Light editorial (`GLWhoWeServe`) |
 | `#agitator` | N | Dark (`HomeAgitatorSection`) |
 | `#capabilities` | N | Mixed panels; verify imagery alt text in content module |
-| `#proof` | N | Proof section uses structured panels |
+| `#proof` | **Fixed** — removed TSX slider disclaimer; pull-quote eyebrow from `COPY_LAB_PROOF.pullQuoteEyebrow` | Proof section uses structured panels |
 | `#cta-band` | N | Dark field CTA |
 | `#home-faq` (+ `#why`, `#process`, `#coverage` targets) | N | FAQ accordion tone from `HomeSeoFaqSection` implementation |
 

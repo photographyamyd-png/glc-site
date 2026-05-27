@@ -1,4 +1,6 @@
 import { describe, expect, it } from "vitest";
+import { readFileSync, readdirSync } from "node:fs";
+import { join } from "node:path";
 import { TESTIMONIALS } from "@/lib/ground-level/homepage-copy";
 import * as CopyLab from "@/lib/ground-level/home-copy-lab-content";
 import * as CommercialSnow from "@/lib/site/commercial-snow-page-data";
@@ -58,14 +60,35 @@ const COPY_LAB_SCAN_ROOT = {
   COPY_LAB_CLOSING_CTA: CopyLab.COPY_LAB_CLOSING_CTA,
   COPY_LAB_AGITATOR: CopyLab.COPY_LAB_AGITATOR,
   COPY_LAB_CAPABILITY_BENTO: CopyLab.COPY_LAB_CAPABILITY_BENTO,
+  COPY_LAB_CARD_LINK_LABEL: CopyLab.COPY_LAB_CARD_LINK_LABEL,
   COPY_LAB_PROOF: CopyLab.COPY_LAB_PROOF,
   COPY_LAB_HOME_FAQ: CopyLab.COPY_LAB_HOME_FAQ,
 } as const;
+
+const HOME_COPY_LAB_COMPONENT_DIR = join(process.cwd(), "components/ground-level/home-copy-lab");
+const DISALLOWED_HOMEPAGE_TSX_PHRASES = [/Slider compares/i, /georeferenced survey pair/i, /\bClient signal\b/] as const;
+
+function readHomeCopyLabTsxSources(): string[] {
+  return readdirSync(HOME_COPY_LAB_COMPONENT_DIR)
+    .filter((name) => name.endsWith(".tsx"))
+    .map((name) => readFileSync(join(HOME_COPY_LAB_COMPONENT_DIR, name), "utf8"));
+}
 
 describe("extended copy hygiene", () => {
   it("homepage-copy-lab bundle has no TODO/TBD/FIXME tokens", () => {
     const flagged = collectFlaggedStrings(COPY_LAB_SCAN_ROOT, "COPY_LAB");
     expect(flagged, flagged.join(", ")).toEqual([]);
+  });
+
+  it("home-copy-lab TSX shells do not ship known template disclaimer phrases", () => {
+    const sources = readHomeCopyLabTsxSources();
+    const hits: string[] = [];
+    for (const source of sources) {
+      for (const pattern of DISALLOWED_HOMEPAGE_TSX_PHRASES) {
+        if (pattern.test(source)) hits.push(pattern.source);
+      }
+    }
+    expect(hits, hits.join(", ")).toEqual([]);
   });
 
   it("commercial snow page data exports have no TODO/TBD/FIXME tokens", () => {

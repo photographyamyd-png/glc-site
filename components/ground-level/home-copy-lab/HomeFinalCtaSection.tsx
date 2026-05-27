@@ -15,7 +15,7 @@ export function HomeFinalCtaSection() {
   return (
     <section
       id="cta-band"
-      className="section-major band-dark-field relative z-20 -mt-8 scroll-mt-[var(--header)] overflow-hidden border-b border-[color:var(--g200)] text-white shadow-[0_-16px_48px_rgb(0_0_0/0.2)] view-reveal sm:-mt-10 lg:-mt-12"
+      className="section-major band-dark-field relative scroll-mt-[var(--header)] overflow-hidden border-t border-[color:var(--y)] border-b border-[color:var(--g200)] text-white view-reveal"
       aria-labelledby="final-cta-heading"
       data-accent-family="cta"
       data-accent-zone="conversion-endband"
@@ -64,16 +64,16 @@ export function HomeFinalCtaSection() {
                   <IconArrow />
                 </a>
                 <a
-                  href={`${c.secondaryCtaHref}?subject=${encodeURIComponent("Commercial site — mobilization request")}`}
+                  href={`${c.secondaryCtaHref}?subject=${encodeURIComponent(c.secondaryEmailSubject)}`}
                   className="inline-flex min-h-[44px] items-center justify-center border border-white/25 px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em] text-white transition-[background-color,border-color] duration-200 hover:border-[color:var(--y)]/60 hover:bg-white/5"
                 >
                   {c.secondaryCtaLabel}
                 </a>
                 <Link
-                  href="/contact/"
+                  href={c.contactFormHref}
                   className="inline-flex min-h-[44px] items-center justify-center text-sm font-semibold uppercase tracking-[0.1em] text-[color:var(--y)] underline-offset-4 hover:underline"
                 >
-                  Contact form
+                  {c.contactFormLabel}
                 </Link>
               </div>
             </div>
@@ -82,7 +82,7 @@ export function HomeFinalCtaSection() {
           <aside className="flex flex-col justify-center lg:col-span-5">
             <div className="panel-machined-dark relative border border-white/10 bg-[rgb(10_12_11/0.58)] p-6 shadow-[0_24px_64px_rgb(0_0_0/0.45)] backdrop-blur-md sm:p-8">
               <div className="mb-6 h-px w-full bg-[color:var(--y)]/80" aria-hidden />
-              <p className="eyebrow text-white">Direct lines</p>
+              <p className="eyebrow text-white">{c.contactPanelEyebrow}</p>
               <a
                 href={c.phoneHref}
                 className="mt-4 block font-serif text-2xl font-bold uppercase tracking-tight text-[color:var(--y)] sm:text-3xl"

@@ -330,12 +330,19 @@ export const COPY_LAB_CLOSING_CTA = {
   primaryCtaHref: PHONE_TEL,
   secondaryCtaLabel: "Email scope & drawings",
   secondaryCtaHref: EMAIL_MAILTO,
+  secondaryEmailSubject: "Commercial site — mobilization request",
+  contactFormLabel: "Contact form",
+  contactFormHref: "/contact/",
+  contactPanelEyebrow: "Direct lines",
   phoneLabel: "Call Direct",
   phoneDisplay: PHONE_DISPLAY,
   phoneHref: PHONE_TEL,
   emailLabel: "Email Us",
   emailHref: EMAIL_MAILTO,
 } as const;
+
+/** Shared card link label for homepage bento surfaces (matches `COPY_LAB_SERVICE_CARDS[*].linkLabel`). */
+export const COPY_LAB_CARD_LINK_LABEL = "Learn More" as const;
 
 /** Post-`#about` homepage stack — agitator band (contractor reliability narrative). */
 export const COPY_LAB_AGITATOR = {
@@ -372,7 +379,7 @@ export const COPY_LAB_CAPABILITY_BENTO = {
     "Detailed scopes by line — excavation and winter operations run wide because most schedules break there first. Each row expands on the featured cards above with field-level detail and links to the same canonical service pages.",
 } as const;
 
-/** Before/after uses two distinct on-site rasters; slider compares compositionally (not pixel-matched survey pair). */
+/** Before/after uses two distinct on-site rasters (compositionally paired, not pixel-matched survey imagery). */
 export const COPY_LAB_PROOF = {
   eyebrow: "Field Proof",
   heading: "Rough Site To Ready-Build Condition",
@@ -384,6 +391,7 @@ export const COPY_LAB_PROOF = {
   afterSrc: "/images/services/Grading/Ground%20Level%20Contracting%20grading.jpg",
   afterAlt:
     "Grading equipment shaping a commercial site pad — finish prep and turnover-ready surface",
+  pullQuoteEyebrow: COPY_LAB_TESTIMONIALS.eyebrow,
   pullQuote:
     "Ground Level mobilized faster than any contractor we'd used before. Site was prepped and ready two days ahead of our concrete pour — that kind of reliability is rare.",
   pullAttribution: "Marcus T., Project Manager — Commercial Developer, Barrie",
@@ -486,7 +494,22 @@ export const COPY_LAB_HOME_FAQ = {
     "Answers compiled from our commercial positioning, process, coverage, metrics, and client feedback — all retained in-page for search clarity.",
   expandQuestionsLabel: "Tap to expand all questions",
   collapseQuestionsLabel: "Collapse to top FAQs",
+  faqExpandedStatus: "Showing the full library. Collapse to return to the top FAQs only.",
+  faqCollapsedStatus:
+    "Showing {frequentCount} frequent answers. Expand for {moreCount} more question{moreCountPlural}.",
   /** Shown before expand; first three clusters only. */
   frequentGroups: [HOME_FAQ_GROUPS[0], HOME_FAQ_GROUPS[1], HOME_FAQ_GROUPS[2]],
   groups: HOME_FAQ_GROUPS,
 } as const;
+
+/** Interpolate `{frequentCount}`, `{moreCount}`, `{moreCountPlural}` (`""` or `"s"`). */
+export function formatCopyLabFaqCollapsedStatus(
+  template: string,
+  frequentCount: number,
+  moreCount: number,
+): string {
+  return template
+    .replaceAll("{frequentCount}", String(frequentCount))
+    .replaceAll("{moreCount}", String(moreCount))
+    .replaceAll("{moreCountPlural}", moreCount === 1 ? "" : "s");
+}
