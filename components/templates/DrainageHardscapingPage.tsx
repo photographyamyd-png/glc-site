@@ -16,6 +16,7 @@ import { SiteDrainageDesignClient } from "@/components/drainage-hardscaping/Site
 import { GoogleReviewsPanel } from "@/components/drainage-hardscaping/GoogleReviewsPanel";
 import { StickyTabBox } from "@/components/drainage-hardscaping/StickyTabBox";
 import { MotifSharpSlice } from "@/components/motifs";
+import { PHONE_TEL } from "@/lib/ground-level/homepage-copy";
 import { SERVICE_CARD_LINK_LABEL } from "@/lib/site/copy";
 import {
   DRAINAGE_FINAL_CTA,
