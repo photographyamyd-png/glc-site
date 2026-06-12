@@ -309,16 +309,25 @@
   z-index: 0;
 }
 
-/* Photo layer: optional url() via inline style; fallback gradient is token-only */
+/* Photo layer: raster via Ab3Photo; fallback gradient when no url */
 .glc-dna-sandbox .ab3__photo {
   position: absolute;
   inset: 0;
+  overflow: hidden;
   background-color: var(--color-ink-strong);
   background-image: var(--ab3-photo-fallback-gradient);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   z-index: 0;
+}
+
+.glc-dna-sandbox .ab3__photo-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgb(0 0 0 / 0.55), transparent 58%),
+    linear-gradient(135deg, rgb(30 28 26 / 0.42), transparent 46%),
+    radial-gradient(ellipse 75% 65% at 68% 32%, rgb(242 183 5 / 0.07), transparent 52%);
 }
 
 /* Accent floating badge — punches left off the clip edge */

@@ -17,6 +17,7 @@ import {
   FOUNDATIONS_HUB_PATH,
   FOUNDATIONS_KNOWLEDGE_HUB_ACCORDIONS,
   FOUNDATIONS_KNOWLEDGE_HUB_TITLE,
+  FOUNDATIONS_PAGE_CHROME,
   FOUNDATIONS_SERVICE_CARDS,
   FOUNDATIONS_SUB_SLUGS,
   FOUNDATIONS_TECHNICAL_BASEMENT,
@@ -65,7 +66,7 @@ export function FoundationsCivilInfrastructureHubPage() {
         <ClaudeLogicWatermark placement="bottom-right" mode="on-dark" className="z-[1] opacity-[0.16]" />
         <div className="relative z-10 mx-auto flex min-h-[min(100dvh,920px)] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-7 pb-8 pt-[var(--site-header-offset)] sm:px-10 sm:pb-10 lg:justify-between lg:px-20 lg:pt-[var(--site-header-offset)]">
           <div className="max-w-[min(100%,var(--max))] rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:max-w-4xl lg:pt-10">
-            <p className="hero-eyebrow label-overline-on-dark mb-0">Foundations & Civil Infrastructure</p>
+            <p className="hero-eyebrow label-overline-on-dark mb-0">{FOUNDATIONS_PAGE_CHROME.hubHeroEyebrow}</p>
             <h1 className="mt-[var(--s7)] max-w-4xl font-serif text-[clamp(1.75rem,5vw,3.25rem)] font-semibold uppercase leading-[0.95] tracking-tight text-white">
               Foundations & Civil Infrastructure Built to Last —{" "}
               <span className="text-[color:var(--y)]">Serving Barrie, Orillia & Simcoe County</span>
@@ -216,12 +217,12 @@ export function FoundationsCivilInfrastructureHubPage() {
         <ClaudeLogicWatermark placement="center-left" mode="default" className="opacity-[0.05]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
-            <p className="eyebrow text-ink">Reference library</p>
+            <p className="eyebrow text-ink">{FOUNDATIONS_PAGE_CHROME.referenceLibraryEyebrow}</p>
             <h2 id="foundations-knowledge-hub-heading" className="mt-3 font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl">
               {FOUNDATIONS_KNOWLEDGE_HUB_TITLE}
             </h2>
             <p className="mt-4 max-w-prose font-sans text-sm leading-relaxed text-ink-muted">
-              Expand for full service language, coverage, and FAQ — kept in the DOM for search and spec review.
+              {FOUNDATIONS_PAGE_CHROME.referenceLibraryIntro}
             </p>
           </div>
 
@@ -260,7 +261,7 @@ export function FoundationsCivilInfrastructureHubPage() {
 
             <details name="foundations-knowledge" className={detailsClass}>
               <summary className={summaryClass}>
-                <span className="text-left">Service line detail pages</span>
+                <span className="text-left">{FOUNDATIONS_PAGE_CHROME.serviceLineDetailsSummary}</span>
                 <span className="eyebrow shrink-0 text-[color:var(--y)] group-open:hidden">+</span>
                 <span className="hidden shrink-0 eyebrow text-[color:var(--y)] group-open:inline">−</span>
               </summary>
@@ -280,7 +281,7 @@ export function FoundationsCivilInfrastructureHubPage() {
 
             <details name="foundations-knowledge" className={detailsClass}>
               <summary className={summaryClass}>
-                <span className="text-left">Frequently asked questions — verbatim answers</span>
+                <span className="text-left">{FOUNDATIONS_PAGE_CHROME.faqVerbatimSummary}</span>
                 <span className="eyebrow shrink-0 text-[color:var(--y)] group-open:hidden">+</span>
                 <span className="hidden shrink-0 eyebrow text-[color:var(--y)] group-open:inline">−</span>
               </summary>

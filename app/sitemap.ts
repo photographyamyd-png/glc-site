@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 import { FOUNDATIONS_SUB_SLUGS } from "@/lib/site/foundations-civil-infrastructure-content";
+import { getSiteUrl } from "@/lib/site/metadata";
 import { CORE_ROUTES, PRIMARY_SERVICES, getAllSnowLocationDefs, getAllSnowSubServiceDefs } from "@/lib/site/registry";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://groundlevel.example.com").replace(/\/$/, "");
+  const siteUrl = getSiteUrl();
   const now = new Date();
 
   const core = CORE_ROUTES.map((route) => ({

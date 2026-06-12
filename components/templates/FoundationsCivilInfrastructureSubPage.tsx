@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import type { FoundationsSubPageContent } from "@/lib/site/foundations-civil-infrastructure-content";
-import { FOUNDATIONS_HUB_HERO, FOUNDATIONS_HUB_PATH } from "@/lib/site/foundations-civil-infrastructure-content";
+import { FOUNDATIONS_HUB_HERO, FOUNDATIONS_HUB_PATH, FOUNDATIONS_PAGE_CHROME } from "@/lib/site/foundations-civil-infrastructure-content";
 import { PHONE_TEL } from "@/lib/ground-level/homepage-copy";
 
 type Props = {
@@ -21,7 +21,7 @@ export function FoundationsCivilInfrastructureSubPage({ content, imageSrc, image
         <ClaudeLogicWatermark placement="bottom-right" mode="on-dark" className="z-[1] opacity-[0.14]" />
         <div className="relative z-10 mx-auto flex min-h-[min(100dvh,880px)] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-7 pb-10 pt-[var(--site-header-offset)] sm:px-10 lg:px-20 lg:pt-[var(--site-header-offset)]">
           <div className="max-w-[min(100%,var(--max))] rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:max-w-4xl lg:pt-10">
-            <p className="hero-eyebrow label-overline-on-dark mb-0">Foundations & Civil Infrastructure</p>
+            <p className="hero-eyebrow label-overline-on-dark mb-0">{FOUNDATIONS_PAGE_CHROME.subHeroEyebrow}</p>
             <h1 className="mt-[var(--s7)] font-serif text-[clamp(1.5rem,4.5vw,2.75rem)] font-semibold uppercase leading-[0.95] tracking-tight text-white">
               {content.h1Lead}
               <span className="text-[color:var(--y)]">{content.h1Accent}</span>
@@ -64,7 +64,7 @@ export function FoundationsCivilInfrastructureSubPage({ content, imageSrc, image
         <ClaudeLogicWatermark placement="bottom-right" mode="default" className="z-[1] opacity-[0.08]" />
         <div className="relative z-10 mx-auto grid max-w-[min(100%,var(--max))] gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5 lg:col-span-6">
-            <p className="eyebrow text-ink">Scope</p>
+            <p className="eyebrow text-ink">{FOUNDATIONS_PAGE_CHROME.scopeEyebrow}</p>
             <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">{content.servicesHeading}</h2>
             <ul className="mt-8 max-w-prose space-y-3">
               {content.bullets.map((item) => (
@@ -88,7 +88,7 @@ export function FoundationsCivilInfrastructureSubPage({ content, imageSrc, image
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 backdrop-blur-md sm:p-8 lg:p-10">
             <div className="border-l-4 border-[color:var(--y)] pl-5">
-              <p className="eyebrow text-white">Next step</p>
+              <p className="eyebrow text-white">{FOUNDATIONS_PAGE_CHROME.nextStepEyebrow}</p>
               <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-white/90 sm:text-base">{content.ctaParagraph}</p>
               {content.ctaParagraphB ? (
                 <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-white/90 sm:text-base">{content.ctaParagraphB}</p>

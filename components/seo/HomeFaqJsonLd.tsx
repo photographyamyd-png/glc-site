@@ -1,15 +1,8 @@
 import { COPY_LAB_HOME_FAQ } from "@/lib/ground-level/home-copy-lab-content";
-
-function siteUrl(): string {
-  return (
-    (typeof process.env.NEXT_PUBLIC_SITE_URL === "string"
-      ? process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "")
-      : null) ?? "https://groundlevel.example.com"
-  );
-}
+import { getSiteUrl } from "@/lib/site/metadata";
 
 export function HomeFaqJsonLd() {
-  const url = siteUrl();
+  const url = getSiteUrl();
   const pageUrl = `${url}/`;
   const items = COPY_LAB_HOME_FAQ.groups.flatMap((g) => [...g.items]);
 

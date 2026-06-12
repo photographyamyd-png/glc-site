@@ -89,6 +89,8 @@ export type CorePageCopy = {
     credentials: string[];
     primaryCta: { label: string; href: string };
     supportLinks: Array<{ label: string; href: string }>;
+    operatingPrincipleHeading: string;
+    credentialsHeading: string;
   };
   contact: {
     eyebrow: string;
@@ -109,18 +111,25 @@ export type CorePageCopy = {
     addressHeading: string;
     address: string;
     supportLinks: Array<{ label: string; href: string }>;
+    formHeading: string;
+    formHelper: string;
+    formSubmitLabel: string;
   };
   servicesIndex: {
     breadcrumb: [string, string];
     title: string;
+    h1Before: string;
+    h1Emphasis: string;
+    h1After: string;
     /** Short hero line (services index dark band); full narrative lives in `lede`. */
     heroLede: string;
     lede: string;
     cardCtaLabel: string;
     cardDescription: string;
+    gridCtaLabel: string;
   };
-  privacy: { title: string; body: string };
-  terms: { title: string; body: string };
+  privacy: { title: string; body: string; sections: Array<{ heading: string; body: string }> };
+  terms: { title: string; body: string; sections: Array<{ heading: string; body: string }> };
 };
 
 export type ServiceDetailCopy = {
@@ -190,7 +199,59 @@ export type LocationCopyModel = {
   ledePattern: string;
   supportLine: string;
   ctas: Array<{ label: string; href: string }>;
+  serviceAreaEyebrow: string;
+  localCoverageEyebrow: string;
+  localCoverageHeadingPattern: string;
 };
+
+/** Shared card link label for service grids and related cards. */
+export const SERVICE_CARD_LINK_LABEL = "Learn More" as const;
+
+/** Default section chrome for `ServicePageTemplate` (snow subs and generic primary routes). */
+export const SERVICE_PAGE_CHROME = {
+  heroEyebrow: "Service overview",
+  commercialOnlyLine: "Built exclusively for commercial operators across Simcoe County.",
+  serviceCoverageEyebrow: "Service Coverage",
+  coverageTags: ["Barrie", "Midland", "Orillia", "Simcoe County"] as const,
+  requestDispatchFallback: "Request Dispatch",
+  snowHubSecondaryCta: "Open Snow Hub Section",
+  viewServiceScopeCta: "View service scope",
+  browseServicesCta: "Browse Services",
+  scopeSectionEyebrow: "Service overview",
+  scopeHeading: "Scope and delivery",
+  benefitsEyebrow: "Benefits",
+  deliverablesFallback: ["Site analysis", "Field execution", "Quality controls"] as const,
+  breakdownEyebrow: "Service breakdown",
+  capabilitiesFallbackHeading: "Capabilities",
+  whyGlcEyebrow: "Why GLC",
+  differentiatorsHeading: "Differentiators",
+  fieldAdvantageLabel: "Field advantage",
+  whyFallback: [
+    "Experienced crews and commercial-first operations.",
+    "Service area coverage across Barrie and Simcoe County.",
+  ] as const,
+  processEyebrowFallback: "How it works",
+  processHeadingFallback: "Delivery process",
+  faqEyebrow: "FAQ",
+  faqHeading: "Common questions",
+  faqFallback: {
+    q: "Need detailed scope?",
+    a: "This sub-service has dedicated scope alignment on the snow hub. Use the active link below to open its full context.",
+  },
+  serviceAreaEyebrow: "Service area",
+  serviceAreaHeading: "Barrie and Simcoe County coverage",
+  serviceAreaBody:
+    "Ground Level Contracting serves Barrie, Midland, Orillia, and surrounding Simcoe County municipalities with commercial-focused dispatch and reliable field coordination.",
+  coverageListEyebrow: "Coverage list",
+  coveragePlaces: ["Barrie", "Midland", "Orillia", "Innisfil", "Wasaga Beach", "Simcoe County"] as const,
+  relatedEyebrow: "Related services",
+  relatedHeading: "Related service lines",
+  requestVisitEyebrow: "Request site visit",
+  ctaHeadingFallback: "Ready to scope your site?",
+  ctaSupportingFallback:
+    "Share site address, scope context, and target timeline to receive a scoped dispatch response.",
+  emailSubjectSuffix: "service inquiry",
+} as const;
 
 export const HOME_COPY: HomeCopy = {
   hero: {
@@ -390,6 +451,8 @@ export const CORE_COPY: CorePageCopy = {
       { label: "Our process", href: "/#process" },
       { label: "Contact", href: "/contact/" },
     ],
+    operatingPrincipleHeading: "Operating principle",
+    credentialsHeading: "Credentials",
   },
   contact: {
     eyebrow: "Ready to Build?",
@@ -413,25 +476,61 @@ export const CORE_COPY: CorePageCopy = {
       { label: "How we work", href: "/#process" },
       { label: "All services", href: "/services/" },
     ],
+    formHeading: "Send a message",
+    formHelper:
+      "Submit the form and we will route it to dispatch. For urgent mobilization, call the number above.",
+    formSubmitLabel: "Send message",
   },
   servicesIndex: {
     breadcrumb: ["Home", "Services"],
     title: "Six core service lines",
+    h1Before: "Six",
+    h1Emphasis: "Core",
+    h1After: "Service Lines",
     heroLede:
       "Commercial excavation, grading, civil infrastructure, drainage, hauling, and snow operations for schedule-critical sites across Simcoe County.",
     lede:
       "Commercial excavation, site grading, civil infrastructure, drainage, hauling, and winter snow operations — across Barrie, Midland, Orillia, and Simcoe County.",
-    cardCtaLabel: "Open",
+    cardCtaLabel: SERVICE_CARD_LINK_LABEL,
     cardDescription:
       "Detailed scope, deliverables, and how we support PMs and site supers.",
+    gridCtaLabel: "Request a quote",
   },
   privacy: {
     title: "Privacy Policy",
     body: "Ground Level Contracting collects only the contact and project details needed to respond to service inquiries, coordinate dispatch, and maintain operational records.",
+    sections: [
+      {
+        heading: "Information We Collect",
+        body: "We collect contact and project details required to respond to dispatch and service inquiries.",
+      },
+      {
+        heading: "How We Use Information",
+        body: "Information is used to evaluate scope, coordinate responses, and maintain service communication records.",
+      },
+      {
+        heading: "Data Retention",
+        body: "Data is retained only as long as necessary for project communication, compliance, and operational recordkeeping.",
+      },
+    ],
   },
   terms: {
     title: "Terms of Use",
     body: "Use of this website is limited to service information and inquiry pathways; project commitments begin only after scope, schedule, and contract terms are confirmed.",
+    sections: [
+      {
+        heading: "Use of Site",
+        body: "This site provides service information and dispatch contact pathways for commercial and industrial customers.",
+      },
+      {
+        heading: "No Project Guarantee",
+        body: "Website content does not constitute a binding project commitment until scope and contractual terms are confirmed.",
+      },
+      {
+        heading: "Contact Submissions",
+        body: "By submitting contact details, you consent to project-related communication from Ground Level Contracting.",
+      },
+    ],
   },
 };
 
@@ -444,6 +543,9 @@ export const LOCATION_COPY_MODEL: LocationCopyModel = {
     { label: "Service area on hub", href: "/services/snow-removal/#chapter-coverage" },
     { label: "Contact", href: "/contact/" },
   ],
+  serviceAreaEyebrow: "Service Area",
+  localCoverageEyebrow: "Local Coverage",
+  localCoverageHeadingPattern: "Dispatch coverage for {PlaceName}",
 };
 
 export const SERVICE_DETAILS: Record<PrimaryServiceSlug, ServiceDetailCopy> = {
@@ -746,7 +848,7 @@ export const SERVICE_DETAILS: Record<PrimaryServiceSlug, ServiceDetailCopy> = {
         proofEyebrow: "Proof",
         proofHeading: "Rough, unusable terrain vs. a perfectly graded lot",
         proofCaption:
-          "Compare two distinct commercial site photographs — rough mobilization conditions vs. finish pad prep. Illustrative field outcomes, not a georeferenced survey pair.",
+          "Rough mobilization conditions versus finish pad prep — commercial field outcomes across Simcoe County.",
         technicalSpecs: {
           slopeRatios: [
             "Finished grades and interim surfaces are built to designer cross-slopes and longitudinal slopes so sheet flow reaches catchments without ponding on structural fills. We coordinate tie-ins to municipal storm and private drainage so overland routes stay stable through paving and landscape cover.",

@@ -15,20 +15,7 @@ export default function TermsPage() {
     <LegalPageTemplate
       title={CORE_COPY.terms.title}
       intro={CORE_COPY.terms.body}
-      sections={[
-        {
-          heading: "Use of Site",
-          body: "This site provides service information and dispatch contact pathways for commercial and industrial customers.",
-        },
-        {
-          heading: "No Project Guarantee",
-          body: "Website content does not constitute a binding project commitment until scope and contractual terms are confirmed.",
-        },
-        {
-          heading: "Contact Submissions",
-          body: "By submitting contact details, you consent to project-related communication from Ground Level Contracting.",
-        },
-      ]}
+      sections={CORE_COPY.terms.sections}
     />
   );
 }

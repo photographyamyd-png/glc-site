@@ -2,16 +2,9 @@
  * FAQPage + HowTo JSON-LD for `/services/snow-removal/` only.
  */
 import type { CommercialSnowFaq } from "@/lib/site/commercial-snow-faqs";
+import { getSiteUrl } from "@/lib/site/metadata";
 
 type ProcessStep = { id: string; title: string; body: string };
-
-function siteUrl(): string {
-  return (
-    (typeof process.env.NEXT_PUBLIC_SITE_URL === "string"
-      ? process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "")
-      : null) ?? "https://groundlevel.example.com"
-  );
-}
 
 export function CommercialSnowJsonLd({
   faq,
@@ -25,7 +18,7 @@ export function CommercialSnowJsonLd({
   processDescription: string;
   steps: ProcessStep[];
 }) {
-  const url = siteUrl();
+  const url = getSiteUrl();
   const pageUrl = `${url}/services/snow-removal/`;
 
   const breadcrumb = {

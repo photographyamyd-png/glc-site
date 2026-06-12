@@ -2,16 +2,10 @@
  * FAQPage + HowTo JSON-LD for `/services/excavation-site-preparation/` only.
  * No AggregateRating (stakeholder testimonial module uses homepage quotes).
  */
+import { getSiteUrl } from "@/lib/site/metadata";
+
 type FaqItem = { q: string; a: string };
 type ProcessStep = { id: string; title: string; body: string };
-
-function siteUrl(): string {
-  return (
-    (typeof process.env.NEXT_PUBLIC_SITE_URL === "string"
-      ? process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "")
-      : null) ?? "https://groundlevel.example.com"
-  );
-}
 
 export function ExcavationJsonLd({
   faq,
@@ -22,7 +16,7 @@ export function ExcavationJsonLd({
   processHeading: string;
   steps: ProcessStep[];
 }) {
-  const url = siteUrl();
+  const url = getSiteUrl();
   const pageUrl = `${url}/services/excavation-site-preparation/`;
 
   const faqPage = {

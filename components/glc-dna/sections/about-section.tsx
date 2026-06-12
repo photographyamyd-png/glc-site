@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Ab3Photo } from "@/components/ground-level/Ab3Photo";
 import { Reveal } from "@/components/glc-dna/ui/reveal";
 import { IconArrow } from "@/components/glc-dna/ui/icon-arrow";
 import type { AboutProps } from "@/lib/glc-dna/types";
+import { getServiceImageRasterPlaceholder } from "@/lib/site/service-images";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -84,17 +86,17 @@ export function AboutSection(props: AboutProps) {
             <span>{props.badgeText}</span>
           </div>
 
-          {/* Photo fill */}
-          <div
-            className="ab3__photo"
-            role="img"
-            aria-label={photoAlt}
-            style={
-              props.photoUrl
-                ? { backgroundImage: `url(${props.photoUrl})` }
-                : undefined
-            }
-          />
+          {props.photoUrl ? (
+            <Ab3Photo
+              src={props.photoUrl}
+              fallbackSrc={getServiceImageRasterPlaceholder("excavation-site-preparation")}
+              alt={photoAlt}
+            />
+          ) : (
+            <div className="ab3__photo" role="img" aria-label={photoAlt}>
+              <div className="ab3__photo-overlay" aria-hidden />
+            </div>
+          )}
 
           {/* Floating stat chip */}
           <motion.div

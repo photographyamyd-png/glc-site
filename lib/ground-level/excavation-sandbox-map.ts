@@ -211,6 +211,8 @@ export const excavationProofGalleryEyebrow = "Field proof";
 export const excavationProofGalleryHeading = "Clean footings. Tight trenches.";
 export const excavationProofGallerySub =
   "Tight shots from active commercial digs — structural lines held, spoils managed, and turnover ready for forming.";
+export const excavationSolutionSectionEyebrow = "How we de-risk the dig";
+export const excavationRelatedEyebrow = "Related";
 
 /** High-contrast conversion strip before SEO basement. */
 export function excavationYellowConversionCtaContent() {

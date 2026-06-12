@@ -91,6 +91,18 @@ export const FOUNDATIONS_HUB_HERO = {
   microcopy: "No obligation. Licensed & insured. We respond within 1 business day.",
 } as const;
 
+export const FOUNDATIONS_PAGE_CHROME = {
+  hubHeroEyebrow: "Foundations & Civil Infrastructure",
+  subHeroEyebrow: "Foundations & Civil Infrastructure",
+  scopeEyebrow: "Scope",
+  nextStepEyebrow: "Next step",
+  referenceLibraryEyebrow: "Reference library",
+  referenceLibraryIntro:
+    "Expand for full service language, coverage, and FAQ — kept in the DOM for search and spec review.",
+  serviceLineDetailsSummary: "Service line detail pages",
+  faqVerbatimSummary: "Frequently asked questions — verbatim answers",
+} as const;
+
 /** Bento / overview — each body ≤2 sentences. */
 export const FOUNDATIONS_TRUST_BENTO = [
   {

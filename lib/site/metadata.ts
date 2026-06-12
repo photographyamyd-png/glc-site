@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import site from "@/content/site.json";
 
 /** Used when routes do not pass `openGraphExtra.images` / `twitterExtra.images`. */
 const DEFAULT_SOCIAL_IMAGE_PATH = "/images/services/Excavation/excavation-016.jpg" as const;
+
+/** Canonical origin from `content/site.json` when `NEXT_PUBLIC_SITE_URL` is unset. */
+const SITE_JSON_ORIGIN = site.url.replace(/\/$/, "");
 
 type PageMetadataInput = {
   title: string;
@@ -16,7 +20,9 @@ type PageMetadataInput = {
 };
 
 export function getSiteUrl() {
-  return (process.env.NEXT_PUBLIC_SITE_URL ?? "https://groundlevel.example.com").replace(/\/$/, "");
+  const env = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (env) return env.replace(/\/$/, "");
+  return SITE_JSON_ORIGIN;
 }
 
 export function buildPageMetadata({

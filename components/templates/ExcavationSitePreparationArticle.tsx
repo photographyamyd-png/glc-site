@@ -9,6 +9,8 @@ import {
   excavationProofGalleryHeading,
   excavationProofGallerySub,
   excavationSolutionFeatures,
+  excavationSolutionSectionEyebrow,
+  excavationRelatedEyebrow,
   excavationYellowConversionCtaContent,
 } from "@/lib/ground-level/excavation-sandbox-map";
 import { SERVICE_DETAILS } from "@/lib/site/copy";
@@ -160,7 +162,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
         <ClaudeLogicWatermark placement="bottom-left" mode="on-dark" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
-            <p className="eyebrow text-white">How we de-risk the dig</p>
+            <p className="eyebrow text-white">{excavationSolutionSectionEyebrow}</p>
             <h2
               id="excavation-solution-heading"
               className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
@@ -333,7 +335,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
         <ClaudeLogicWatermark placement="top-right" mode="on-dark" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="max-w-2xl border-l-4 border-[color:var(--y)] pl-5">
-            <p className="eyebrow text-white">Related</p>
+            <p className="eyebrow text-white">{excavationRelatedEyebrow}</p>
             <h2
               id="excavation-related-heading"
               className="mt-3 font-serif text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"

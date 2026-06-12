@@ -16,7 +16,7 @@ import { SiteDrainageDesignClient } from "@/components/drainage-hardscaping/Site
 import { GoogleReviewsPanel } from "@/components/drainage-hardscaping/GoogleReviewsPanel";
 import { StickyTabBox } from "@/components/drainage-hardscaping/StickyTabBox";
 import { MotifSharpSlice } from "@/components/motifs";
-import { PHONE_TEL } from "@/lib/ground-level/homepage-copy";
+import { SERVICE_CARD_LINK_LABEL } from "@/lib/site/copy";
 import {
   DRAINAGE_FINAL_CTA,
   DRAINAGE_HERO,
@@ -1087,7 +1087,7 @@ export function DrainageHardscapingPage({ service, related }: Props) {
                       <p key={i}>{para}</p>
                     ))}
                   </div>
-                  <span className="eyebrow mt-auto pt-6 text-[color:var(--y)]">View Service →</span>
+                  <span className="eyebrow mt-auto pt-6 text-[color:var(--y)]">{SERVICE_CARD_LINK_LABEL}</span>
                 </Link>
               </li>
             ))}

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ServiceDef } from "@/lib/site/registry";
 import type { PrimaryServiceSlug } from "@/lib/site/registry";
-import { SERVICE_DETAILS } from "@/lib/site/copy";
+import { SERVICE_DETAILS, SERVICE_PAGE_CHROME } from "@/lib/site/copy";
 import { CTA_BAND, EMAIL_MAILTO, PHONE_TEL } from "@/lib/ground-level/homepage-copy";
 import { GLCtaBand } from "@/components/ground-level/GLCtaBand";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
@@ -74,13 +74,9 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
       : service.category === "snow-subservice"
         ? SERVICE_DETAILS["snow-removal"].hubStats
         : [];
+  const chrome = SERVICE_PAGE_CHROME;
   const faqItems = detail?.faq ?? [];
-  const whyItems = detail?.trust.paragraphs ?? [
-    "Experienced crews and commercial-first operations.",
-    "Service area coverage across Barrie and Simcoe County.",
-    "Fast response with transparent communication.",
-    "Equipment and process discipline built for active sites.",
-  ];
+  const whyItems = detail?.trust.paragraphs ?? [...chrome.whyFallback, "Fast response with transparent communication.", "Equipment and process discipline built for active sites."];
   const processSteps = detail?.process.steps ?? [
     { id: "01", title: "Discovery", body: "Scope, access, and site constraints are confirmed before mobilization." },
     { id: "02", title: "Planning", body: "Production sequence and resources are aligned with your schedule." },
@@ -105,7 +101,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <ClaudeLogicWatermark placement="bottom-right" mode="on-dark" className="z-[1] opacity-[0.16]" />
         <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-7 pb-8 pt-[var(--site-header-offset)] sm:px-10 sm:pb-10 lg:justify-between lg:px-20 lg:pb-8 lg:pt-[var(--site-header-offset)]">
           <div className="max-w-[min(100%,var(--max))] rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:max-w-4xl lg:pt-10">
-          <p className="hero-eyebrow label-overline-on-dark mb-0">Service overview</p>
+          <p className="hero-eyebrow label-overline-on-dark mb-0">{chrome.heroEyebrow}</p>
           <h1 className="mt-[var(--s7)] max-w-4xl font-serif text-[clamp(2.3rem,6.2vw,5.1rem)] font-semibold uppercase leading-[0.9] tracking-tight text-white">
             {detail ? (
               <>
@@ -114,9 +110,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
             ) : service.title}
           </h1>
           <p className="hero-caption mt-[var(--s7)] max-w-[36rem] text-[15px] leading-[1.72] text-white/84 sm:text-base">{detail?.hero.lede ?? service.description}</p>
-          <p className="eyebrow mt-3 max-w-[36rem] text-white">
-            Built exclusively for commercial operators across Simcoe County.
-          </p>
+          <p className="eyebrow mt-3 max-w-[36rem] text-white">{chrome.commercialOnlyLine}</p>
           <div className="hero-rule mt-6 h-px w-full max-w-md bg-[color:var(--y)]/40" aria-hidden />
           <div className="mt-6 max-w-3xl space-y-6 border-l-4 border-[color:var(--y)] pl-5">
             {(detail?.hero.body ?? [service.description]).slice(0, 2).map((p) => (
@@ -132,9 +126,9 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
               </span>
             ))}
           </div>
-          <p className="mt-6 eyebrow text-white">Service Coverage</p>
-          <ul className="mt-3 flex flex-wrap gap-2" aria-label="Service Coverage">
-            {["Barrie", "Midland", "Orillia", "Simcoe County"].map((tag) => (
+          <p className="mt-6 eyebrow text-white">{chrome.serviceCoverageEyebrow}</p>
+          <ul className="mt-3 flex flex-wrap gap-2" aria-label={chrome.serviceCoverageEyebrow}>
+            {chrome.coverageTags.map((tag) => (
               <li
                 key={tag}
                 className="eyebrow border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-white"
@@ -145,13 +139,13 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
           </ul>
           <div className="hero-cta-row mt-6 grid gap-3 border border-white/14 bg-[rgb(0_0_0/0.24)] p-4 sm:grid-cols-2 sm:items-center">
             <Link href="/contact/" className="cta-hero-fill px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
-              {detail?.ctaOverride.buttonLabel ?? "Request Dispatch"}
+              {detail?.ctaOverride.buttonLabel ?? chrome.requestDispatchFallback}
             </Link>
             <Link
               href={service.moreHref ?? "#scope"}
               className="cta-outline-light px-5 py-3 text-center text-xs tracking-wide"
             >
-              {service.moreHref ? "Open Snow Hub Section" : "View service scope"}
+              {service.moreHref ? chrome.snowHubSecondaryCta : chrome.viewServiceScopeCta}
             </Link>
           </div>
           </div>
@@ -171,12 +165,12 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <ClaudeLogicWatermark placement="bottom-right" mode="default" className="z-[1] opacity-[0.08] sm:opacity-[0.11]" />
         <div className="relative z-10 mx-auto grid max-w-[min(100%,var(--max))] gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5 lg:col-span-6">
-            <p className="eyebrow text-ink">Service overview</p>
+            <p className="eyebrow text-ink">{chrome.scopeSectionEyebrow}</p>
             <h2
               id={`${service.slug}-scope-heading`}
               className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl"
             >
-              Scope and delivery
+              {chrome.scopeHeading}
             </h2>
             <div className="mt-[var(--s7)] max-w-[min(100%,42rem)] space-y-6">
               {scopeIntroBlocks.map((p) => (
@@ -197,9 +191,9 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
                 />
               </div>
             <div className="bespoke-surface panel-machined relative border border-[color:var(--g200)] bg-white p-5 sm:p-8">
-              <p className="eyebrow text-ink-muted">Benefits</p>
+              <p className="eyebrow text-ink-muted">{chrome.benefitsEyebrow}</p>
               <ul className="mt-4 space-y-3">
-                {(detail?.deliverables ?? ["Site analysis", "Field execution", "Quality controls"]).slice(0, 6).map((cap) => (
+                {(detail?.deliverables ?? [...chrome.deliverablesFallback]).slice(0, 6).map((cap) => (
                   <li key={cap} className="flex gap-3">
                     <span className="mt-1 inline-block h-2 w-2 shrink-0 bg-[color:var(--y)]" aria-hidden />
                     <span className="text-[15px] leading-[1.72] text-ink sm:text-base">{cap}</span>
@@ -221,9 +215,9 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         </>
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
-            <p className="eyebrow text-white">Service breakdown</p>
+            <p className="eyebrow text-white">{chrome.breakdownEyebrow}</p>
             <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">
-              {detail?.deliverablesHeading ?? "Capabilities"}
+              {detail?.deliverablesHeading ?? chrome.capabilitiesFallbackHeading}
             </h2>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -266,7 +260,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
               phoneLabel: CTA_BAND.phoneLabel,
               phoneHref: PHONE_TEL,
               emailCta: CTA_BAND.emailCta,
-              emailHref: `${EMAIL_MAILTO}?subject=${encodeURIComponent(`${service.title} service inquiry`)}`,
+              emailHref: `${EMAIL_MAILTO}?subject=${encodeURIComponent(`${service.title} ${chrome.emailSubjectSuffix}`)}`,
             }}
           />
         </div>
@@ -276,16 +270,16 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <ClaudeLogicWatermark placement="center-right" mode="on-dark" className="opacity-[0.12]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
-            <p className="eyebrow text-white">Why GLC</p>
+            <p className="eyebrow text-white">{chrome.whyGlcEyebrow}</p>
             <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">
-              Differentiators
+              {chrome.differentiatorsHeading}
             </h2>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {whyItems.slice(0, 4).map((item, idx) => (
               <article key={`why-${idx}`} className="border border-white/15 bg-[rgb(255_255_255/0.06)] p-5 backdrop-blur-sm">
                 <p className="eyebrow text-[color:var(--y)]">0{idx + 1}</p>
-                <p className="mt-2 font-sans text-xl font-bold uppercase tracking-[0.04em] text-white">Field advantage</p>
+                <p className="mt-2 font-sans text-xl font-bold uppercase tracking-[0.04em] text-white">{chrome.fieldAdvantageLabel}</p>
                 <p className="mt-3 text-[15px] leading-[1.72] text-white/88 sm:text-base">{item}</p>
               </article>
             ))}
@@ -296,8 +290,8 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
       <section id="process" className="section-major band-light scroll-mt-[var(--header)]">
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
-            <p className="eyebrow text-ink">{detail?.process.eyebrow ?? "How it works"}</p>
-            <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">{detail?.process.heading ?? "Delivery process"}</h2>
+            <p className="eyebrow text-ink">{detail?.process.eyebrow ?? chrome.processEyebrowFallback}</p>
+            <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">{detail?.process.heading ?? chrome.processHeadingFallback}</h2>
           </div>
           <ol
             className={cn("mt-10 grid gap-3 sm:grid-cols-2", processSteps.length <= 3 ? "lg:grid-cols-3" : "lg:grid-cols-4")}
@@ -317,8 +311,8 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.03),transparent_38%)]" aria-hidden />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
-            <p className="eyebrow text-white">FAQ</p>
-            <h2 className="mt-3 font-serif text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">Common questions</h2>
+            <p className="eyebrow text-white">{chrome.faqEyebrow}</p>
+            <h2 className="mt-3 font-serif text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">{chrome.faqHeading}</h2>
           </div>
           <GlcFaqDetailsGrid
             className="mt-8 sm:mt-10"
@@ -327,12 +321,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
             items={
               faqItems.length
                 ? faqItems
-                : [
-                    {
-                      q: "Need detailed scope?",
-                      a: "This sub-service has dedicated scope alignment on the snow hub. Use the active link below to open its full context.",
-                    },
-                  ]
+                : [chrome.faqFallback]
             }
           />
         </div>
@@ -342,16 +331,14 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="grid gap-8 lg:grid-cols-2">
             <div className="border-l-4 border-[color:var(--y)] pl-5">
-              <p className="eyebrow text-ink">Service area</p>
-              <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">Barrie and Simcoe County coverage</h2>
-              <p className="mt-[var(--s7)] text-[15px] leading-[1.72] text-ink sm:text-base">
-                Ground Level Contracting serves Barrie, Midland, Orillia, and surrounding Simcoe County municipalities with commercial-focused dispatch and reliable field coordination.
-              </p>
+              <p className="eyebrow text-ink">{chrome.serviceAreaEyebrow}</p>
+              <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">{chrome.serviceAreaHeading}</h2>
+              <p className="mt-[var(--s7)] text-[15px] leading-[1.72] text-ink sm:text-base">{chrome.serviceAreaBody}</p>
             </div>
             <div className="bespoke-surface panel-machined border border-[color:var(--g200)] bg-white p-5 sm:p-8">
-              <p className="eyebrow text-ink-muted">Coverage list</p>
+              <p className="eyebrow text-ink-muted">{chrome.coverageListEyebrow}</p>
               <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-                {["Barrie", "Midland", "Orillia", "Innisfil", "Wasaga Beach", "Simcoe County"].map((place) => (
+                {chrome.coveragePlaces.map((place) => (
                   <li key={place} className="text-[15px] leading-[1.72] text-ink sm:text-base">
                     {place}
                   </li>
@@ -366,8 +353,8 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.03),transparent_40%)]" aria-hidden />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
-            <p className="eyebrow text-white">Related services</p>
-            <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">Related service lines</h2>
+            <p className="eyebrow text-white">{chrome.relatedEyebrow}</p>
+            <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">{chrome.relatedHeading}</h2>
           </div>
           <ul className="mt-10 grid gap-4 lg:grid-cols-3">
             {related.slice(0, 3).map((r) => {
@@ -394,22 +381,22 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
         <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
           <div id="cta-band" className="relative overflow-hidden border border-[color:var(--g200)] border-l-[4px] border-l-[color:var(--y)] bg-[rgb(12_14_13)] p-6 text-white sm:p-8">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgb(242_183_5/0.12),transparent_38%)]" aria-hidden />
-            <p className="relative z-10 eyebrow text-white">Request site visit</p>
+            <p className="relative z-10 eyebrow text-white">{chrome.requestVisitEyebrow}</p>
             <p className="relative z-10 mt-3 font-sans text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
-              {detail?.ctaOverride.heading ?? "Ready to scope your site?"}
+              {detail?.ctaOverride.heading ?? chrome.ctaHeadingFallback}
             </p>
             <p className="relative z-10 mt-4 max-w-3xl text-[15px] leading-[1.72] text-white/90 sm:text-base">
-              {detail?.ctaOverride.supporting ?? "Share site address, scope context, and target timeline to receive a scoped dispatch response."}
+              {detail?.ctaOverride.supporting ?? chrome.ctaSupportingFallback}
             </p>
             <div className="relative z-10 mt-6 flex flex-col gap-3 sm:flex-row">
               <Link href="/contact/" className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em]">
-                {detail?.ctaOverride.buttonLabel ?? "Request Dispatch"}
+                {detail?.ctaOverride.buttonLabel ?? chrome.requestDispatchFallback}
               </Link>
               <Link
                 href={service.moreHref ?? "/services/"}
                 className="cta-outline-light inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-bold uppercase tracking-[0.12em]"
               >
-                {service.moreHref ? "Open Snow Hub Section" : "Browse Services"}
+                {service.moreHref ? chrome.snowHubSecondaryCta : chrome.browseServicesCta}
               </Link>
             </div>
           </div>

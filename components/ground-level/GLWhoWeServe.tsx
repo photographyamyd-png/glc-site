@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { Ab3Photo } from "@/components/ground-level/Ab3Photo";
 import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { IconArrow } from "@/components/ui/icon-arrow";
 import { ABOUT, STATS_LINES } from "@/lib/ground-level/homepage-copy";
-import { getServiceImage } from "@/lib/site/service-images";
+import { getServiceImage, getServiceImageRasterPlaceholder } from "@/lib/site/service-images";
 import { cn } from "@/lib/utils";
 
 export type GLWhoCredential = string | { title: string; sub: string };
@@ -77,6 +78,7 @@ export function GLWhoWeServe({
   const ctaLabel = typeof a.cta === "string" ? a.cta : a.cta.label;
   const ctaHref = typeof a.cta === "string" ? "/contact" : a.cta.href;
   const imgSrc = a.imageSrc ?? getServiceImage("excavation-site-preparation").src;
+  const imgFallback = getServiceImageRasterPlaceholder("excavation-site-preparation");
   const isInternalRoute = ctaHref.startsWith("/") || ctaHref.startsWith("#");
   const media = normalizeMediaStat(a.mediaStat);
   const { before, accent, after } = splitHeading(a.heading);
@@ -160,12 +162,7 @@ export function GLWhoWeServe({
           <div className="ab3__badge" aria-hidden>
             <span>{a.badge}</span>
           </div>
-          <div
-            className="ab3__photo"
-            role="img"
-            aria-label={a.imageAlt}
-            style={{ backgroundImage: `url(${JSON.stringify(imgSrc)})` }}
-          />
+          <Ab3Photo src={imgSrc} fallbackSrc={imgFallback} alt={a.imageAlt} />
           <div className="ab3__chip" aria-hidden>
             <div className="ab3__chip-num">{media.value}</div>
             {media.label ? <div className="ab3__chip-lbl">{media.label}</div> : null}

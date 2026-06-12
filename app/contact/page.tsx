@@ -55,16 +55,16 @@ export default function ContactPage() {
           </div>
         </article>
         <article className="rounded-xl border border-[color:var(--g200)] bg-white/80 p-5 backdrop-blur-sm sm:col-span-2">
-          <p className="label-overline">Send a message</p>
+          <p className="label-overline">{CORE_COPY.contact.formHeading}</p>
           <p className="mt-2 max-w-prose text-[15px] leading-[1.72] text-ink-muted sm:text-base">
-            Submit the form and we will route it to dispatch. For urgent mobilization, call the number above.
+            {CORE_COPY.contact.formHelper}
           </p>
           <ContactLeadForm
             idPrefix="contact-page"
             source="contact"
             variant="default"
             className="mt-6 max-w-2xl"
-            submitLabel="Send message"
+            submitLabel={CORE_COPY.contact.formSubmitLabel}
           />
         </article>
       </div>

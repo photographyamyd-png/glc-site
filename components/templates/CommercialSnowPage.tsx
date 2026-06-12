@@ -154,7 +154,7 @@ export function CommercialSnowPage({ related }: Props) {
                 ))}
               </div>
 
-              <p className="mt-6 eyebrow text-white">Service coverage</p>
+              <p className="mt-6 eyebrow text-white">{COMMERCIAL_SNOW_HERO.coverageEyebrow}</p>
               <ul className="mt-3 flex flex-wrap gap-2" aria-label="Service coverage">
                 {["Barrie", "Orillia", "Innisfil", "Wasaga Beach", "Simcoe County"].map((tag) => (
                   <li key={tag} className="eyebrow border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-white">
@@ -241,7 +241,7 @@ export function CommercialSnowPage({ related }: Props) {
         <ClaudeLogicWatermark placement="top-left" mode="on-dark" className="z-[1] opacity-[0.1]" />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 py-[var(--section-v)] sm:px-6 lg:px-10">
           <div className="border-l-4 border-[color:var(--y)] pl-5">
-            <p className="eyebrow text-white">Commercial programs</p>
+            <p className="eyebrow text-white">{COMMERCIAL_SNOW_SERVICES_CHAPTER.programsEyebrow}</p>
             <h2 className="mt-3 font-serif text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">
               {COMMERCIAL_SNOW_SERVICES_CHAPTER.h2}
             </h2>
@@ -400,7 +400,7 @@ export function CommercialSnowPage({ related }: Props) {
           </div>
 
           <div className="bespoke-surface panel-machined relative mt-10 border border-[color:var(--g200)] border-l-[4px] border-l-[color:var(--y)] bg-white p-6 shadow-[0_18px_48px_rgb(0_0_0/0.06)] sm:p-8">
-            <p className="eyebrow text-ink">Commercial proof</p>
+            <p className="eyebrow text-ink">{COMMERCIAL_SNOW_CREDENTIALS.eyebrow}</p>
             <h3 className="mt-3 font-serif text-2xl font-bold uppercase tracking-tight text-ink sm:text-3xl">{COMMERCIAL_SNOW_CREDENTIALS.h2}</h3>
             <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-ink sm:text-base">{COMMERCIAL_SNOW_CREDENTIALS.visibleLede}</p>
             <div className="mt-8 grid auto-rows-fr grid-cols-2 gap-3 md:grid-cols-4 md:grid-rows-2">
@@ -506,7 +506,7 @@ export function CommercialSnowPage({ related }: Props) {
 
           {related.length ? (
             <div className="mt-14 border-t border-[color:var(--g200)] pt-10">
-              <p className="eyebrow text-ink-muted">Related lines</p>
+              <p className="eyebrow text-ink-muted">{COMMERCIAL_SNOW_RELATED.relatedLinesEyebrow}</p>
               <ul className="mt-4 grid gap-4 lg:grid-cols-3">
                 {related.slice(0, 3).map((r) => {
                   const ri = getServiceImage(r.slug);

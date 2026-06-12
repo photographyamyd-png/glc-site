@@ -7,8 +7,8 @@ import type { MouseEvent } from "react";
 import type { GLFeaturedServicesContent } from "@/components/ground-level/GLFeaturedServices";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
+import { SERVICE_CARD_LINK_LABEL } from "@/lib/site/copy";
 import { FEATURED_SERVICES } from "@/lib/ground-level/homepage-copy";
-import { COPY_LAB_CARD_LINK_LABEL } from "@/lib/ground-level/home-copy-lab-content";
 import { SERVICE_LAYOUT_LAB_ITEMS } from "@/lib/ground-level/service-layout-lab-data";
 import { ServiceLabImg } from "@/components/ground-level/service-layout-lab/ServiceLabImg";
 import { serviceTitleTone } from "@/components/ground-level/service-layout-lab/serviceLayoutLabShared";
@@ -193,7 +193,7 @@ export function GLFeaturedServicesBento({
   showStepNumbers = true,
   showIntroHeader = true,
   sectionAriaLabelledBy,
-  cardLinkLabel = COPY_LAB_CARD_LINK_LABEL,
+  cardLinkLabel = SERVICE_CARD_LINK_LABEL,
 }: GLFeaturedServicesBentoProps = {}) {
   const featured = mergeFeaturedContent(content);
   const services = servicesProp ?? GROUND_LEVEL_SERVICES;

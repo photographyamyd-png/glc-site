@@ -4,6 +4,7 @@
  */
 import type { SiteConfig } from "@/content/types";
 import site from "@/content/site.json";
+import { getSiteUrl } from "@/lib/site/metadata";
 import { PRIMARY_SERVICES } from "@/lib/site/registry";
 
 const SITE = site as SiteConfig;
@@ -16,10 +17,7 @@ function telToSchema(phoneHref: string): string {
 }
 
 export function SiteJsonLd() {
-  const siteUrl =
-    (typeof process.env.NEXT_PUBLIC_SITE_URL === "string"
-      ? process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "")
-      : null) ?? "https://groundlevel.example.com";
+  const siteUrl = getSiteUrl();
 
   const phoneSchema = telToSchema(`tel:${SITE.telephone}`);
 

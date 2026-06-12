@@ -53,6 +53,7 @@ export const COMMERCIAL_SNOW_HERO = {
   lede:
     "24/7 proactive monitoring and winter maintenance for high-priority infrastructure — on-site before your first shift, SLA-backed and GPS-verified when downtime is not an option.",
   metricsAriaLabel: "Commercial highlights",
+  coverageEyebrow: "Service coverage",
   metrics: [
     { value: "200+", label: "Properties Served" },
     { value: "24/7", label: "Emergency Response" },
@@ -293,6 +294,7 @@ export const COMMERCIAL_SNOW_SERVICE_CARDS: SnowServiceCard[] = [
 ];
 
 export const COMMERCIAL_SNOW_SERVICES_CHAPTER = {
+  programsEyebrow: "Commercial programs",
   visibleLede:
     "Eight commercial programs — each scoped for operations, liability control, and documented service. Expand a service for full scope or jump to its deep dive below.",
   h2: "Complete Commercial Snow Removal and Ice Management Solutions",
@@ -792,6 +794,7 @@ export const COMMERCIAL_SNOW_MEDIA_PROOF = {
 } as const;
 
 export const COMMERCIAL_SNOW_CREDENTIALS = {
+  eyebrow: "Commercial proof",
   h2: "Licensed, Insured & Built for Commercial Operations",
   visibleLede:
     "Credentials that match how procurement and risk teams evaluate winter vendors — scale, insurance, proof, and focus.",
@@ -824,6 +827,7 @@ export const COMMERCIAL_SNOW_FAQ_SECTION = {
 
 export const COMMERCIAL_SNOW_RELATED = {
   eyebrow: "Also from Ground Level Contracting",
+  relatedLinesEyebrow: "Related lines",
   cards: [
     {
       title: "Commercial Ice Management & De-Icing",

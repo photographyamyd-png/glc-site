@@ -116,13 +116,10 @@ export const COPY_LAB_ABOUT = {
   mediaStat: { value: "15+", label: "Yrs. Experience" },
   badge: "Licensed & Insured",
   watermark: "GLC",
-  imageSrc:
-    "/images/services/Foundations/" +
-    encodeURIComponent(
-      "Ground Level Contracting - Excavation, Foundations, Industrial Construction - Barrie, Orilla, Simcoe County - Muskoka Bedrock- Drainage,  (5 of 34).jpg",
-    ),
+  /** Distinct from hero (`015`), featured bento (`016`), and proof slider (`007`). */
+  imageSrc: "/images/services/Excavation/excavation-008.jpg" as const,
   imageAlt:
-    "Foundation excavation and forming crew on a commercial civil site — Ground Level Contracting Simcoe County",
+    "Ground Level Contracting crew and excavation equipment on a commercial civil site in Simcoe County Ontario",
 } as const;
 
 /** Role-map order for grid cards → `services/[slug]`. */

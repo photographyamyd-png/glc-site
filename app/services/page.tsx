@@ -29,13 +29,15 @@ export default function ServicesIndexPage() {
         />
         <div className="relative z-10 mx-auto max-w-[min(100%,var(--max))] px-4 pb-12 pt-[calc(var(--header)+2.5rem)] sm:px-6 sm:pb-14 lg:px-10 lg:pt-[calc(var(--header)+3rem)]">
           <p className="eyebrow text-white">
-            Home / Services
+            {CORE_COPY.servicesIndex.breadcrumb.join(" / ")}
           </p>
           <h1
             id="services-index-title"
             className="mt-3 max-w-4xl font-serif text-3xl font-semibold uppercase tracking-tight text-white sm:text-4xl lg:text-5xl"
           >
-            Six <span className="text-[color:var(--y)]">Core</span> Service Lines
+            {CORE_COPY.servicesIndex.h1Before}{" "}
+            <span className="text-[color:var(--y)]">{CORE_COPY.servicesIndex.h1Emphasis}</span>{" "}
+            {CORE_COPY.servicesIndex.h1After}
           </h1>
           <p className="mt-5 max-w-3xl text-[15px] leading-[1.72] text-white/90 sm:text-base">
             {CORE_COPY.servicesIndex.heroLede}
@@ -47,8 +49,9 @@ export default function ServicesIndexPage() {
         sectionId="services-grid"
         showIntroHeader={false}
         sectionAriaLabelledBy="services-index-title"
+        cardLinkLabel={CORE_COPY.servicesIndex.cardCtaLabel}
         content={{
-          cta: "Request a quote",
+          cta: CORE_COPY.servicesIndex.gridCtaLabel,
           ctaHref: "/contact/",
         }}
         services={services}
