@@ -18,6 +18,9 @@ import { SEO_TITLES } from "@/lib/site/registry";
 import { buildPageMetadata } from "@/lib/site/metadata";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GlcGoogleAnalytics } from "@/components/analytics/GlcGoogleAnalytics";
+import { ConversionTracking } from "@/components/seo/ConversionTracking";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -95,6 +98,9 @@ export default async function RootLayout({
           />
         )}
         <Analytics />
+        <SpeedInsights />
+        <GlcGoogleAnalytics />
+        <ConversionTracking />
       </body>
     </html>
   );

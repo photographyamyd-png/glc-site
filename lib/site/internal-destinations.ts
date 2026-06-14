@@ -1,4 +1,4 @@
-import { CORE_ROUTES, PRIMARY_SERVICES, getAllSnowLocationDefs } from "@/lib/site/registry";
+import { CORE_ROUTES, PRIMARY_SERVICES, getAllLocationDefs } from "@/lib/site/registry";
 
 export const HOME_SECTION_IDS = [
   "hero",
@@ -20,7 +20,7 @@ export const CANONICAL_SERVICE_ROUTES = PRIMARY_SERVICES.map(
   (service) => `/services/${service.slug}` as const,
 );
 
-export const CANONICAL_LOCATION_ROUTES = getAllSnowLocationDefs().map(
+export const CANONICAL_LOCATION_ROUTES = getAllLocationDefs().map(
   (location) => `/locations/${location.slug}` as const,
 );
 

@@ -28,6 +28,7 @@ import {
   FoundationsHubVisualBridge,
 } from "@/components/foundations/FoundationsHubLaneRhythm";
 import { GlcFaqDetailsGrid } from "@/components/faq/GlcFaqDetailsGrid";
+import { ServiceAreasCrossLinks } from "@/components/seo/ServiceAreasCrossLinks";
 import {
   toFoundationsCtaBandProps,
   toFoundationsMegaMenuCards,
@@ -290,6 +291,12 @@ export function FoundationsCivilInfrastructureHubPage() {
               </div>
             </details>
           </div>
+        </div>
+      </section>
+
+      <section className="section-major band-light border-t border-[color:var(--g200)]">
+        <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
+          <ServiceAreasCrossLinks serviceSlug="foundations-civil-infrastructure" />
         </div>
       </section>
     </article>

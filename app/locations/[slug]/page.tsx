@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LocationPageTemplate } from "@/components/templates/LocationPageTemplate";
-import { SEO_TITLES, getAllSnowLocationDefs } from "@/lib/site/registry";
+import { isServiceGeoLocation, SERVICE_GEO_LOCATION_SEO_TITLES } from "@/lib/site/geo-locations";
+import { SEO_TITLES, getAllLocationDefs } from "@/lib/site/registry";
 import { buildPageMetadata } from "@/lib/site/metadata";
+import type { LocationSlug } from "@/lib/site/geo-locations";
 
 export function generateStaticParams() {
-  return getAllSnowLocationDefs().map((location) => ({ slug: location.slug }));
+  return getAllLocationDefs().map((location) => ({ slug: location.slug }));
 }
 
 export async function generateMetadata({
@@ -14,17 +16,22 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const location = getAllSnowLocationDefs().find((entry) => entry.slug === slug);
+  const location = getAllLocationDefs().find((entry) => entry.slug === slug);
   if (!location) {
     return buildPageMetadata({
       title: "Location | Ground Level Contracting",
-      description: "Ground Level Contracting snow and site service coverage across Central Ontario.",
+      description: "Ground Level Contracting service coverage across Central Ontario.",
       path: "/locations/",
     });
   }
 
+  const title =
+    isServiceGeoLocation(slug)
+      ? SERVICE_GEO_LOCATION_SEO_TITLES[slug]
+      : SEO_TITLES.locations[location.slug as LocationSlug];
+
   return buildPageMetadata({
-    title: SEO_TITLES.locations[location.slug],
+    title,
     description: location.description,
     path: `/locations/${location.slug}/`,
   });
@@ -36,7 +43,7 @@ export default async function LocationPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const location = getAllSnowLocationDefs().find((entry) => entry.slug === slug);
+  const location = getAllLocationDefs().find((entry) => entry.slug === slug);
   if (!location) notFound();
 
   return <LocationPageTemplate location={location} />;

@@ -16,12 +16,27 @@ export type SnowSubServiceSlug =
   | "property-management-snow-removal-contracts"
   | "office-building-corporate-campus-snow-removal-barrie";
 
-export type LocationSlug =
-  | "commercial-snow-removal-barrie-ontario"
-  | "commercial-snow-removal-orillia-ontario"
-  | "commercial-snow-removal-innisfil-ontario"
-  | "commercial-snow-removal-wasaga-beach-ontario"
-  | "commercial-snow-removal-simcoe-county";
+export type {
+  GeoLocationDef,
+  GeoLocationKind,
+  LocationSlug,
+  ServiceGeoLocationSlug,
+  SnowLocationSlug,
+} from "@/lib/site/geo-locations";
+export {
+  SERVICE_GEO_LOCATIONS,
+  SERVICE_GEO_LOCATION_SEO_TITLES,
+  getAllGeoLocationDefs,
+  getGeoLocationCopy,
+  getServiceGeoLocation,
+  isServiceGeoLocation,
+} from "@/lib/site/geo-locations";
+
+import type { GeoLocationDef, LocationSlug, SnowLocationSlug } from "@/lib/site/geo-locations";
+import { getAllGeoLocationDefs, SERVICE_GEO_LOCATION_SEO_TITLES } from "@/lib/site/geo-locations";
+
+/** @deprecated Use GeoLocationDef */
+export type LocationDef = GeoLocationDef;
 
 export type ServiceDef = {
   slug: PrimaryServiceSlug | SnowSubServiceSlug;
@@ -29,12 +44,6 @@ export type ServiceDef = {
   description: string;
   category: "primary" | "snow-subservice";
   moreHref?: string;
-};
-
-export type LocationDef = {
-  slug: LocationSlug;
-  title: string;
-  description: string;
 };
 
 export const CORE_ROUTES = ["/", "/about", "/contact", "/services", "/privacy", "/terms"] as const;
@@ -139,34 +148,6 @@ export const SNOW_SUB_SERVICES: ServiceDef[] = [
 
 export const ALL_SERVICES: ServiceDef[] = [...PRIMARY_SERVICES, ...SNOW_SUB_SERVICES];
 
-export const SNOW_LOCATIONS: LocationDef[] = [
-  {
-    slug: "commercial-snow-removal-barrie-ontario",
-    title: "Commercial Snow Removal — Barrie, Ontario",
-    description: "Commercial winter operations and dispatch support across Barrie service zones.",
-  },
-  {
-    slug: "commercial-snow-removal-orillia-ontario",
-    title: "Commercial Snow Removal — Orillia, Ontario",
-    description: "Commercial snow response and ongoing winter contract coverage in Orillia.",
-  },
-  {
-    slug: "commercial-snow-removal-innisfil-ontario",
-    title: "Commercial Snow Removal — Innisfil, Ontario",
-    description: "Snow and ice control services for Innisfil commercial and industrial properties.",
-  },
-  {
-    slug: "commercial-snow-removal-wasaga-beach-ontario",
-    title: "Commercial Snow Removal — Wasaga Beach, Ontario",
-    description: "Seasonal snow removal for parking lots and private commercial access in Wasaga Beach.",
-  },
-  {
-    slug: "commercial-snow-removal-simcoe-county",
-    title: "Commercial Snow Removal — Simcoe County",
-    description: "Regional Simcoe County winter contract support with priority dispatch workflows.",
-  },
-];
-
 export const SEO_TITLES = {
   home: "Excavation & Site Preparation Barrie | Simcoe County | Orillia | Innisfil",
   maintenance: "Coming Soon | Ground Level Contracting",
@@ -181,9 +162,10 @@ export const SEO_TITLES = {
       "Excavation & Site Preparation Barrie | Simcoe County Contractor",
     "site-preparation-grading": "Commercial Site Grading & Pad Prep | Barrie, Midland, Orillia | GLC",
     "foundations-civil-infrastructure": "Foundations & Civil Infrastructure | Barrie, Simcoe County",
-    "drainage-hardscaping": "Drainage & Hardscaping | Ground Level Contracting",
+    "drainage-hardscaping":
+      "Drainage & Hardscaping Barrie | Simcoe County | Ground Level Contracting",
     "hauling-site-clearing-logistics":
-      "Demolition Hauling & Site Logistics | Ground Level Contracting",
+      "Demolition Hauling & Site Logistics | Barrie, Simcoe County | GLC",
     "snow-removal": "Commercial Snow Removal Contractors | Barrie, Simcoe County",
   } as Record<PrimaryServiceSlug, string>,
   locations: {
@@ -197,6 +179,7 @@ export const SEO_TITLES = {
       "Commercial Snow Removal Wasaga Beach Ontario | Ground Level Contracting",
     "commercial-snow-removal-simcoe-county":
       "Commercial Snow Removal Simcoe County | Ground Level Contracting",
+    ...SERVICE_GEO_LOCATION_SEO_TITLES,
   } as Record<LocationSlug, string>,
 };
 
@@ -218,5 +201,9 @@ export function getAllSnowSubServiceDefs() {
 }
 
 export function getAllSnowLocationDefs() {
-  return SNOW_LOCATIONS;
+  return getAllGeoLocationDefs().filter((l) => l.kind === "snow");
+}
+
+export function getAllLocationDefs() {
+  return getAllGeoLocationDefs();
 }

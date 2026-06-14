@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { GLFeaturedServicesBento } from "@/components/ground-level/GLFeaturedServicesBento";
+import { ServicesIndexGeoChips } from "@/components/seo/ServicesIndexGeoChips";
+import { ServicesIndexJsonLd } from "@/components/seo/ServicesIndexJsonLd";
 import { SEO_TITLES } from "@/lib/site/registry";
 import { CORE_COPY } from "@/lib/site/copy";
 import { groundLevelServicesWithCopyLabDescriptions } from "@/lib/ground-level/merge-copy-lab-services";
@@ -15,6 +17,7 @@ export default function ServicesIndexPage() {
   const services = groundLevelServicesWithCopyLabDescriptions();
   return (
     <>
+      <ServicesIndexJsonLd />
       <section
         id="services-overview"
         className="band-dark-field relative overflow-hidden border-b border-white/10"
@@ -58,6 +61,7 @@ export default function ServicesIndexPage() {
         showProgressRail={false}
         showStepNumbers={false}
       />
+      <ServicesIndexGeoChips />
     </>
   );
 }

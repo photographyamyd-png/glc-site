@@ -1,5 +1,6 @@
 import type { SiteConfig } from "@/content/types";
 import site from "@/content/site.json";
+import { getAllGeoLocationDefs } from "./geo-locations";
 import type { LocationSlug, PrimaryServiceSlug, SnowSubServiceSlug } from "./registry";
 import {
   COMMERCIAL_SNOW_CLOSING,
@@ -511,6 +512,10 @@ export const CORE_COPY: CorePageCopy = {
       {
         heading: "Data Retention",
         body: "Data is retained only as long as necessary for project communication, compliance, and operational recordkeeping.",
+      },
+      {
+        heading: "Analytics",
+        body: "We use Google Analytics to understand how visitors use this website — for example, which pages are viewed, general location, and device or browser type. Google processes this information according to its own privacy policies. We do not send contact-form submissions or other personally identifiable inquiry details to Google Analytics by default.",
       },
     ],
   },
@@ -1268,13 +1273,9 @@ export const SERVICE_DETAILS: Record<PrimaryServiceSlug, ServiceDetailCopy> = {
   },
 };
 
-export const LOCATION_NAMES: Record<LocationSlug, string> = {
-  "commercial-snow-removal-barrie-ontario": "Barrie",
-  "commercial-snow-removal-orillia-ontario": "Orillia",
-  "commercial-snow-removal-innisfil-ontario": "Innisfil",
-  "commercial-snow-removal-wasaga-beach-ontario": "Wasaga Beach",
-  "commercial-snow-removal-simcoe-county": "Simcoe County",
-};
+export const LOCATION_NAMES = Object.fromEntries(
+  getAllGeoLocationDefs().map((l) => [l.slug, l.placeName]),
+) as Record<LocationSlug, string>;
 
 export function getSnowSubServiceInternalHref(slug: SnowSubServiceSlug) {
   return `/services/${slug}/`;

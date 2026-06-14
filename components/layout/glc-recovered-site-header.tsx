@@ -197,7 +197,7 @@ export function GlcRecoveredSiteHeader({ navigation }: Props) {
           <div className="gl-header__nav-inner">
             <SmartLink href={ROUTES.home} className="gl-header__logo" aria-label="Ground Level Contracting Home">
               <div className="gl-logo-mark">
-                <Image src={LOGO} alt="" width={40} height={40} priority />
+                <Image src={LOGO} alt="Ground Level Contracting" width={40} height={40} priority />
               </div>
               <div className="gl-header__wordmark">
                 <span className="gl-wordmark-name">Ground Level</span>
@@ -288,7 +288,7 @@ export function GlcRecoveredSiteHeader({ navigation }: Props) {
         <div className="gl-header__mobile-bar">
           <SmartLink href={ROUTES.home} className="gl-header__logo" aria-label="Ground Level Contracting">
             <div className="gl-logo-mark" style={{ width: 32, height: 32 }}>
-              <Image src={LOGO} alt="" width={40} height={40} />
+              <Image src={LOGO} alt="Ground Level Contracting" width={40} height={40} />
             </div>
             <div className="gl-header__wordmark">
               <span className="gl-wordmark-name" style={{ fontSize: 14 }}>

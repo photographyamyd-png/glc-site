@@ -1,7 +1,7 @@
 {
   "name": "Ground Level Contracting",
   "legalName": "Ground Level Contracting Inc.",
-  "url": "https://groundlevelcontracting.com",
+  "url": "https://groundlevelcontracting.ca",
   "telephone": "+17056194902",
   "telephoneDisplay": "(705) 619-4902",
   "email": "groundlevelcontracting@outlook.com",
@@ -18,7 +18,7 @@
     "postalCode": "L4M 4T2",
     "addressCountry": "CA"
   },
-  "areaServed": ["Barrie", "Midland", "Orillia", "Simcoe County"],
+  "areaServed": ["Barrie", "Midland", "Orillia", "Innisfil", "Wasaga Beach", "Simcoe County"],
   "locale": "en-CA",
   "copyrightYear": 2026
 }

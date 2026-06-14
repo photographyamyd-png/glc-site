@@ -46,6 +46,15 @@ const nextConfig: NextConfig = {
       out.push({ source: `/foundations-civil-infrastructure/${sub}/`, destination: dest, permanent: true });
     }
 
+    const excavationGeo: [string, string][] = [
+      ["excavation-barrie", "/locations/excavation-site-preparation-barrie-ontario/"],
+      ["excavation-orillia", "/locations/excavation-site-preparation-orillia-ontario/"],
+    ];
+    for (const [slug, destination] of excavationGeo) {
+      out.push({ source: `/services/${slug}`, destination, permanent: true });
+      out.push({ source: `/services/${slug}/`, destination, permanent: true });
+    }
+
     return out;
   },
 };

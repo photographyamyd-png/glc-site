@@ -4,16 +4,19 @@
  * Usage:
  *   SITE_URL=https://groundlevelcontracting.ca npm run push:indexing
  */
+import site from "@/content/site.json";
 import { getIndexableAbsoluteUrls } from "@/lib/site/indexable-urls";
 
 const INDEXNOW_KEY = "glcindex2026ca8f3b2d1e9a4f7c";
 const INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow";
 
+const SITE_JSON_ORIGIN = site.url.replace(/\/$/, "");
+
 function resolveSiteUrl(): string {
   const raw =
     process.env.SITE_URL?.trim() ||
     process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
-    "https://groundlevelcontracting.ca";
+    SITE_JSON_ORIGIN;
   return raw.replace(/\/$/, "");
 }
 

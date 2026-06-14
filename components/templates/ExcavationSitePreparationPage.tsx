@@ -2,6 +2,7 @@ import { ExcavationSitePreparationArticle } from "@/components/templates/Excavat
 import { GLHero } from "@/components/ground-level/GLHero";
 import { GLMarqueeBand } from "@/components/glc-sections/GLMarqueeBand";
 import { ExcavationJsonLd } from "@/components/seo/ExcavationJsonLd";
+import { ServiceAreasCrossLinks } from "@/components/seo/ServiceAreasCrossLinks";
 import {
   excavationHeroContent,
   excavationMarqueeItems,
@@ -40,6 +41,12 @@ export function ExcavationSitePreparationPage(props: Props) {
       <GLMarqueeBand items={excavationMarqueeItems} />
 
       <ExcavationSitePreparationArticle related={related} />
+
+      <div className="section-major band-light">
+        <div className="mx-auto max-w-[min(100%,var(--max))] px-4 sm:px-6 lg:px-10">
+          <ServiceAreasCrossLinks serviceSlug="excavation-site-preparation" />
+        </div>
+      </div>
     </>
   );
 }

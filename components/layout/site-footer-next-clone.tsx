@@ -53,7 +53,7 @@ export function SiteFooterNextClone({ site, navigation, minimal }: Props) {
         <div className="footer__brand">
           <div className="footer__logo-row">
             <div className="footer__logo-mark-wrap">
-              <Image src={LOGO} alt="" width={40} height={40} />
+              <Image src={LOGO} alt="Ground Level Contracting" width={40} height={40} />
             </div>
             <div>
               <div className="footer__wordmark-name">{site.name}</div>

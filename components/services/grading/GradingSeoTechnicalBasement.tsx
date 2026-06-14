@@ -1,4 +1,7 @@
 import type { ServiceDetailCopy } from "@/lib/site/copy";
+import Link from "next/link";
+import { getAllGeoLocationDefs } from "@/lib/site/geo-locations";
+import { ServiceAreasCrossLinks } from "@/components/seo/ServiceAreasCrossLinks";
 
 type Props = {
   detail: ServiceDetailCopy;
@@ -243,13 +246,23 @@ export function GradingSeoTechnicalBasement({ detail }: Props) {
             </summary>
             <p className="mt-3 text-[15px] leading-[1.72] text-[color:var(--text-600)] sm:text-base">{SERVICE_AREA_BODY}</p>
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-              {["Barrie", "Midland", "Orillia", "Innisfil", "Wasaga Beach", "Simcoe County"].map((place) => (
-                <li key={place} className="text-[15px] leading-[1.72] text-ink sm:text-base">
-                  {place}
-                </li>
-              ))}
+              {getAllGeoLocationDefs()
+                .filter((loc) => loc.serviceSlug === "site-preparation-grading")
+                .map((loc) => (
+                  <li key={loc.slug} className="text-[15px] leading-[1.72] sm:text-base">
+                    <Link
+                      href={`/locations/${loc.slug}/`}
+                      className="font-semibold text-ink underline decoration-[color:var(--y)]/50 underline-offset-4 hover:text-[color:var(--y)]"
+                    >
+                      {loc.placeName}
+                    </Link>
+                  </li>
+                ))}
             </ul>
           </details>
+        </div>
+        <div className="mt-10">
+          <ServiceAreasCrossLinks serviceSlug="site-preparation-grading" />
         </div>
       </div>
     </section>

@@ -75,19 +75,5 @@ export function GoogleReviewsPanel({ className }: { className?: string }) {
     );
   }
 
-  return (
-    <div
-      className={cn(
-        "mt-[60px] border border-white/10 bg-[rgb(10_12_11/0.45)] p-8 backdrop-blur-md",
-        className,
-      )}
-    >
-      <p className="eyebrow text-[color:var(--y)]">Google Reviews</p>
-      <p className="mt-2 font-sans text-2xl text-white">★★★★★</p>
-      <p className="mt-2 text-sm text-white/80">
-        Placeholder — set <code className="text-white/90">NEXT_PUBLIC_GOOGLE_BUSINESS_PROFILE_URL</code> or{" "}
-        <code className="text-white/90">NEXT_PUBLIC_GOOGLE_REVIEWS_EMBED_SRC</code> for production.
-      </p>
-    </div>
-  );
+  return null;
 }

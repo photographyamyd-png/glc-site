@@ -13,11 +13,16 @@
     "test:watch": "vitest",
     "scope:glc-dna": "node scripts/scope-glc-dna-css.cjs",
     "check:image-dupes": "node scripts/check-service-image-dupes.cjs",
-    "push:indexing": "npx tsx scripts/push-indexing.ts"
+    "push:indexing": "npx tsx scripts/push-indexing.ts",
+    "seo:weekly": "npx tsx scripts/seo-weekly-checklist.ts",
+    "seo:citations": "npx tsx scripts/free-citations-checklist.ts",
+    "seo:listing-pack": "npx tsx scripts/local-seo/generate-listing-pack.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
+    "@next/third-parties": "^16.2.9",
     "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",

@@ -1,13 +1,21 @@
 /**
- * Master Project Bible §XIV — LocalBusiness + Service JSON-LD.
+ * Master Project Bible §XIV — LocalBusiness + Service + WebSite JSON-LD.
  * Set `NEXT_PUBLIC_SITE_URL` in production (canonical origin, no trailing slash).
  */
 import type { SiteConfig } from "@/content/types";
 import site from "@/content/site.json";
 import { getSiteUrl } from "@/lib/site/metadata";
 import { PRIMARY_SERVICES } from "@/lib/site/registry";
+import { getSocialProfileUrls } from "@/lib/site/social-profiles";
 
 const SITE = site as SiteConfig;
+
+/** Barrie service-area centroid for LocalBusiness geo (no storefront). */
+const BARRIE_GEO = {
+  "@type": "GeoCoordinates" as const,
+  latitude: 44.3894,
+  longitude: -79.6903,
+};
 
 function telToSchema(phoneHref: string): string {
   const digits = phoneHref.replace(/\D/g, "");
@@ -18,16 +26,16 @@ function telToSchema(phoneHref: string): string {
 
 export function SiteJsonLd() {
   const siteUrl = getSiteUrl();
-
-  const phoneSchema = telToSchema(`tel:${SITE.telephone}`);
+  const phoneSchema = telToSchema(SITE.telephone);
+  const sameAs = getSocialProfileUrls();
 
   const business = {
     "@type": "LocalBusiness",
     "@id": `${siteUrl}/#business`,
-    name: "Ground Level Contracting",
+    name: SITE.name,
+    legalName: SITE.legalName,
     image: `${siteUrl}/images/services/Excavation/excavation-016.jpg`,
-    description:
-      "Commercial excavation and site operations across Barrie, Midland, Orillia, and Simcoe County.",
+    description: SITE.description,
     url: siteUrl,
     telephone: phoneSchema,
     email: SITE.email,
@@ -38,21 +46,41 @@ export function SiteJsonLd() {
         name: SITE.primaryContact.name,
         telephone: phoneSchema,
         email: SITE.email,
+        areaServed: "CA",
+        availableLanguage: "English",
       },
     ],
     priceRange: "$$$",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Barrie",
-      addressRegion: "ON",
-      addressCountry: "CA",
+      streetAddress: SITE.address.streetAddress,
+      addressLocality: SITE.address.addressLocality,
+      addressRegion: SITE.address.addressRegion,
+      postalCode: SITE.address.postalCode,
+      addressCountry: SITE.address.addressCountry,
     },
-    areaServed: [
-      { "@type": "AdministrativeArea", name: "Barrie" },
-      { "@type": "AdministrativeArea", name: "Midland" },
-      { "@type": "AdministrativeArea", name: "Orillia" },
-      { "@type": "AdministrativeArea", name: "Simcoe County" },
-    ],
+    geo: BARRIE_GEO,
+    ...(sameAs.length > 0 ? { sameAs } : {}),
+    areaServed: SITE.areaServed.map((name) => ({
+      "@type": "AdministrativeArea",
+      name,
+    })),
+  };
+
+  const website = {
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    name: SITE.name,
+    url: siteUrl,
+    publisher: { "@id": `${siteUrl}/#business` },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${siteUrl}/contact/`,
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
 
   const serviceNodes = PRIMARY_SERVICES.map((s) => ({
@@ -67,7 +95,7 @@ export function SiteJsonLd() {
 
   const graph = {
     "@context": "https://schema.org",
-    "@graph": [business, ...serviceNodes],
+    "@graph": [website, business, ...serviceNodes],
   };
 
   return (

@@ -225,7 +225,7 @@ describe("extended copy hygiene", () => {
     const prev = process.env.NEXT_PUBLIC_SITE_URL;
     delete process.env.NEXT_PUBLIC_SITE_URL;
     try {
-      expect(getSiteUrl()).toBe("https://groundlevelcontracting.com");
+      expect(getSiteUrl()).toBe("https://groundlevelcontracting.ca");
     } finally {
       if (prev === undefined) delete process.env.NEXT_PUBLIC_SITE_URL;
       else process.env.NEXT_PUBLIC_SITE_URL = prev;

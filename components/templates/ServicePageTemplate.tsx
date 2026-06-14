@@ -14,6 +14,8 @@ import { getSnowSubserviceCapabilityItems } from "@/lib/site/snow-subservice-cap
 import { SnowSubServiceJsonLd } from "@/components/seo/SnowSubServiceJsonLd";
 import { HaulingGlcDnaLane } from "@/components/services/hauling/HaulingGlcDnaLane";
 import { HaulingSeoTechnicalBasement } from "@/components/services/hauling/HaulingSeoTechnicalBasement";
+import { HaulingJsonLd } from "@/components/seo/HaulingJsonLd";
+import { GradingJsonLd } from "@/components/seo/GradingJsonLd";
 import { GradingConversionLane } from "@/components/services/grading/GradingConversionLane";
 import { GradingSeoTechnicalBasement } from "@/components/services/grading/GradingSeoTechnicalBasement";
 import { buildHaulingGlcDnaLaneProps } from "@/lib/site/hauling-glc-dna-map";
@@ -32,6 +34,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
     const haulingProofImage = getHaulingScopeProofImage();
     return (
       <article className="relative">
+        <HaulingJsonLd faq={detail.faq} />
         <HaulingGlcDnaLane
           {...buildHaulingGlcDnaLaneProps({
             detail,
@@ -50,6 +53,7 @@ export function ServicePageTemplate({ service, related }: ServicePageTemplatePro
   if (service.category === "primary" && service.slug === "site-preparation-grading" && detail) {
     return (
       <article className="relative">
+        <GradingJsonLd faq={detail.faq} />
         <GradingConversionLane service={service} related={related} detail={detail} />
         <GradingSeoTechnicalBasement detail={detail} />
       </article>

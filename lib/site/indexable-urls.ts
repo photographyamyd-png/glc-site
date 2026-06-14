@@ -1,8 +1,9 @@
 import { FOUNDATIONS_SUB_SLUGS } from "@/lib/site/foundations-civil-infrastructure-content";
+import { getResourceSlugs } from "@/lib/site/resources-content";
 import {
   CORE_ROUTES,
   PRIMARY_SERVICES,
-  getAllSnowLocationDefs,
+  getAllGeoLocationDefs,
   getAllSnowSubServiceDefs,
 } from "@/lib/site/registry";
 
@@ -14,8 +15,9 @@ export function getIndexablePaths(): string[] {
     (sub) => `/services/foundations-civil-infrastructure/${sub}/`,
   );
   const snowSubs = getAllSnowSubServiceDefs().map((s) => `/services/${s.slug}/`);
-  const locations = getAllSnowLocationDefs().map((l) => `/locations/${l.slug}/`);
-  return [...core, ...primary, ...foundationsSubs, ...snowSubs, ...locations];
+  const locations = getAllGeoLocationDefs().map((l) => `/locations/${l.slug}/`);
+  const resources = ["/resources/", ...getResourceSlugs().map((s) => `/resources/${s}/`)];
+  return [...core, ...primary, ...foundationsSubs, ...snowSubs, ...locations, ...resources];
 }
 
 export function getIndexableAbsoluteUrls(origin: string): string[] {

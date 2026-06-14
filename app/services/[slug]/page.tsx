@@ -12,6 +12,7 @@ import {
 } from "@/lib/site/drainage-hardscaping-landing-content";
 import { ALL_SERVICES, PRIMARY_SERVICES, SEO_TITLES, type PrimaryServiceSlug } from "@/lib/site/registry";
 import { buildPageMetadata, getSiteUrl } from "@/lib/site/metadata";
+import { openGraphWithServiceImage } from "@/lib/site/og-images";
 
 export function generateStaticParams() {
   return ALL_SERVICES.filter((service) => service.slug !== "foundations-civil-infrastructure").map((service) => ({
@@ -72,10 +73,17 @@ export async function generateMetadata({
       ? (SERVICE_DETAILS[service.slug as PrimaryServiceSlug]?.seoDescription ?? service.description)
       : service.description;
 
+  const social =
+    service.category === "primary"
+      ? openGraphWithServiceImage(service.slug as PrimaryServiceSlug)
+      : {};
+
   return buildPageMetadata({
     title: primaryTitle,
     description,
     path: `/services/${service.slug}/`,
+    openGraphExtra: social.openGraph,
+    twitterExtra: social.twitter,
   });
 }
 
