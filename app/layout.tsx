@@ -49,6 +49,14 @@ const sourceSans3 = Source_Sans_3({
 const googleSiteVerification =
   process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim() || undefined;
 
+const bingSiteVerification =
+  process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION?.trim() || undefined;
+
+const siteVerification: Metadata["verification"] = {
+  ...(googleSiteVerification ? { google: googleSiteVerification } : {}),
+  ...(bingSiteVerification ? { other: { "msvalidate.01": bingSiteVerification } } : {}),
+};
+
 export const metadata: Metadata = {
   ...buildPageMetadata({
     title: SEO_TITLES.home,
@@ -56,9 +64,7 @@ export const metadata: Metadata = {
       "Ground Level Contracting provides excavation, grading, civil infrastructure, hauling, and commercial snow operations.",
     path: "/",
   }),
-  ...(googleSiteVerification
-    ? { verification: { google: googleSiteVerification } }
-    : {}),
+  ...(Object.keys(siteVerification).length > 0 ? { verification: siteVerification } : {}),
 };
 
 export default async function RootLayout({

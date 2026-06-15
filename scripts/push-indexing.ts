@@ -7,7 +7,8 @@
 import site from "@/content/site.json";
 import { getIndexableAbsoluteUrls } from "@/lib/site/indexable-urls";
 
-const INDEXNOW_KEY = "glcindex2026ca8f3b2d1e9a4f7c";
+/** Bing Webmaster Tools IndexNow key — file at /{key}.txt on site root. */
+const INDEXNOW_KEY = "56aab5264c234df6bb7450d9354843cc";
 const INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow";
 
 const SITE_JSON_ORIGIN = site.url.replace(/\/$/, "");
