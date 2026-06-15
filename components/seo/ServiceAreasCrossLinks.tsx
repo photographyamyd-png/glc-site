@@ -38,7 +38,7 @@ export function ServiceAreasCrossLinks({ serviceSlug, className }: Props) {
           Local coverage
         </h2>
         <p className="mt-3 max-w-2xl text-[15px] leading-[1.72] text-ink-muted sm:text-base">
-          City-specific dispatch and scope pages for procurement teams comparing regional contractors.
+          City-specific excavation pages for Barrie, Orillia, and Simcoe County — scope, local context, and mobilization FAQs for procurement teams.
         </p>
       </div>
       <ul className="mt-6 flex flex-wrap gap-2">

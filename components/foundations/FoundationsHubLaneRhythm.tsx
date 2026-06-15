@@ -25,7 +25,7 @@ export function FoundationsHubVisualBridge({ slug, variant = "into-dark", priori
     <div className="relative -mt-px h-24 w-full overflow-hidden sm:h-32 md:h-40" aria-hidden>
       <Image
         src={src}
-        alt=""
+        alt={getFoundationsSubImageAlt(slug)}
         fill
         priority={priority}
         sizes="100vw"

@@ -105,7 +105,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
               <div className="relative min-h-[240px] overflow-hidden border border-[color:var(--g200)] shadow-[0_16px_40px_rgb(0_0_0/0.08)] lg:min-h-[320px]">
                 <Image
                   src="/images/services/Excavation/excavation-013.jpg"
-                  alt="Trench and earthwork cut on a commercial development site in Simcoe County"
+                  alt="Commercial excavation trench and earthwork on a Barrie Ontario development site"
                   fill
                   className="object-cover"
                   sizes="(min-width: 1024px) 40vw, 100vw"
@@ -177,7 +177,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
               <div className="relative aspect-[4/3] overflow-hidden border border-white/15 shadow-[0_20px_50px_rgb(0_0_0/0.35)]">
                 <Image
                   src="/images/services/Excavation/excavation-008.jpg"
-                  alt="Laser- and GPS-guided grading on a commercial site in Simcoe County"
+                  alt="Laser- and GPS-guided grading on a commercial excavation site in Orillia Ontario"
                   fill
                   className="object-cover"
                   sizes="(min-width: 1024px) 20vw, 25vw"
@@ -187,7 +187,7 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
               <div className="relative aspect-[4/3] overflow-hidden border border-white/15 shadow-[0_20px_50px_rgb(0_0_0/0.35)]">
                 <Image
                   src="/images/services/Excavation/excavation-015.jpg"
-                  alt="Heavy excavator on structural excavation and footing prep"
+                  alt="Heavy excavator performing structural footing excavation for a commercial build in Barrie Ontario"
                   fill
                   className="object-cover"
                   sizes="(min-width: 1024px) 20vw, 25vw"
@@ -255,8 +255,8 @@ export function ExcavationSitePreparationArticle({ related }: Props) {
                   src={src}
                   alt={
                     i % 2 === 0
-                      ? "Clean structural footing excavation and trench line on a commercial site"
-                      : "Machine-controlled trench and grade on a Simcoe County civil project"
+                      ? "Structural footing excavation and trench line on a Barrie commercial site"
+                      : "Machine-controlled trench and grade on an Orillia Ontario civil excavation project"
                   }
                   fill
                   className="object-cover"

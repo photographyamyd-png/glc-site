@@ -86,7 +86,7 @@ export const SERVICE_GEO_LOCATIONS: GeoLocationDef[] = [
     slug: "excavation-site-preparation-barrie-ontario",
     title: "Excavation & Site Preparation — Barrie, Ontario",
     description:
-      "Excavation Barrie Ontario — commercial site prep, trenching, and utility-aware digging for industrial and institutional sites. Free estimates.",
+      "Barrie excavation contractor — commercial site prep, trenching, footing digs, and utility-aware digging for industrial and institutional sites. Free estimates.",
     kind: "excavation",
     placeName: "Barrie",
     serviceSlug: "excavation-site-preparation",
@@ -96,7 +96,7 @@ export const SERVICE_GEO_LOCATIONS: GeoLocationDef[] = [
     slug: "excavation-site-preparation-orillia-ontario",
     title: "Excavation & Site Preparation — Orillia, Ontario",
     description:
-      "Excavation Orillia Ontario — commercial excavation, trenching, and site preparation with disciplined spoils handling. Free estimates.",
+      "Orillia excavation contractor — commercial site prep, trenching, footing excavations, and disciplined spoils handling. Free on-site estimates.",
     kind: "excavation",
     placeName: "Orillia",
     serviceSlug: "excavation-site-preparation",
@@ -187,9 +187,9 @@ export const GEO_LOCATION_COPY = {
     localCoverageHeadingPattern: "Dispatch coverage for {PlaceName}",
   },
   excavation: {
-    h1Pattern: "Excavation in {PlaceName}",
+    h1Pattern: "Excavation in {PlaceName}, Ontario",
     ledePattern:
-      "Commercial excavation, trenching, and site preparation for build-ready mobilization across {PlaceName} — utility-aware digging with disciplined spoils handling.",
+      "Commercial excavation contractor in {PlaceName} — trenching, footing excavations, and build-ready site preparation with utility-aware digging and disciplined spoils handling.",
     supportLine: "Scope, capabilities, and process details are on the main excavation & site preparation hub.",
     hubHref: "/services/excavation-site-preparation/",
     hubCtaLabel: "Excavation hub",
@@ -239,9 +239,9 @@ export function getServiceGeoLocation(slug: string): GeoLocationDef | undefined 
 
 export const SERVICE_GEO_LOCATION_SEO_TITLES: Record<ServiceGeoLocationSlug, string> = {
   "excavation-site-preparation-barrie-ontario":
-    "Excavation Barrie Ontario | Commercial Site Prep | Ground Level Contracting",
+    "Excavation Barrie Ontario | Commercial Excavation Contractor | GLC",
   "excavation-site-preparation-orillia-ontario":
-    "Excavation Orillia Ontario | Commercial Site Prep | Ground Level Contracting",
+    "Excavation Orillia Ontario | Commercial Excavation Contractor | GLC",
   "excavation-site-preparation-simcoe-county":
     "Excavation Contractor Simcoe County | Ground Level Contracting",
   "site-preparation-grading-barrie-ontario":

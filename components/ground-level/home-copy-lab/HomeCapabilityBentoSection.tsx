@@ -5,6 +5,7 @@ import { COPY_LAB_CAPABILITY_BENTO, COPY_LAB_CARD_LINK_LABEL, COPY_LAB_SERVICE_G
 import { groundLevelServicesWithCopyLabDescriptions } from "@/lib/ground-level/merge-copy-lab-services";
 import { SERVICE_LAYOUT_LAB_ITEMS } from "@/lib/ground-level/service-layout-lab-data";
 import type { GroundLevelService } from "@/lib/ground-level/services";
+import { getServiceImageAlt } from "@/lib/site/service-images";
 import { cn } from "@/lib/utils";
 
 const labBySlug = new Map(SERVICE_LAYOUT_LAB_ITEMS.map((item) => [item.slug, item]));
@@ -78,7 +79,7 @@ export function HomeCapabilityBentoSection() {
                   <ServiceLabImg
                     src={item.imageUrl}
                     fallbackSrc={item.fallbackImageUrl}
-                    alt=""
+                    alt={getServiceImageAlt(item.slug)}
                     sizes="(max-width:640px)104px,124px"
                     className="h-full w-full object-cover opacity-95 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04] motion-reduce:group-hover:scale-100"
                   />

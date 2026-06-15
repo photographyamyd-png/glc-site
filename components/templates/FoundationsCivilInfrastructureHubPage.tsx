@@ -178,7 +178,7 @@ export function FoundationsCivilInfrastructureHubPage() {
       >
         <Image
           src={heroImage.src}
-          alt=""
+          alt={heroImage.alt}
           fill
           className="object-cover object-[center_35%] opacity-[0.18]"
           sizes="100vw"

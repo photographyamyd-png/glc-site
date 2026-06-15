@@ -39,6 +39,10 @@ const EXCAVATION_BARRIE: GeoLocationExtendedContent = {
       q: "Can you work on schedule-critical Barrie sites?",
       a: "Yes — we align crew and equipment allocation to your lookahead, with daily communication to supers and project managers on production and holds.",
     },
+    {
+      q: "Do you also provide excavation in Orillia?",
+      a: "Yes — we dispatch the same commercial excavation scope to Orillia from our Barrie-area base. See our Orillia excavation page for lake-country drainage and corridor access context.",
+    },
   ],
   seoSections: [
     {
@@ -67,6 +71,7 @@ const EXCAVATION_ORILLIA: GeoLocationExtendedContent = {
     "Orillia excavation work often balances lake-adjacent drainage sensitivity, corridor access constraints, and commercial pad programs that must tie cleanly to civil IFC drawings. We plan spoils handling, export routes, and inspection windows before blades move.",
     "Ground Level Contracting supports Orillia commercial and institutional sites with utility-aware digging, trenching for site services, and foundation excavations aligned to engineering schedules.",
     "Whether your project sits near waterfront-influenced soils or inland commercial zones, our Orillia excavation crews deliver survey-tied grades and documented turnover for consultants and building officials.",
+    "Barrie-based dispatch keeps mobilization efficient for Orillia GCs — the same excavation discipline we apply on Hwy 400 corridor industrial sites extends to Orillia pad programs and institutional expansions.",
   ],
   capabilityBullets: [
     "Commercial pad and footing excavation",
@@ -79,7 +84,11 @@ const EXCAVATION_ORILLIA: GeoLocationExtendedContent = {
   faq: [
     {
       q: "Do you provide excavation in Orillia?",
-      a: "Yes — we serve Orillia commercial, industrial, and institutional sites with full excavation and site preparation scope.",
+      a: "Yes — we serve Orillia commercial, industrial, and institutional sites with full excavation and site preparation scope, including trenching, footing digs, and survey-tied grading.",
+    },
+    {
+      q: "How much does excavation cost in Orillia?",
+      a: "Orillia excavation pricing depends on scope, soil conditions, access, export volume, and utility density. We provide free on-site estimates with transparent pricing for commercial and institutional projects.",
     },
     {
       q: "How far in advance should we book Orillia excavation?",
@@ -88,6 +97,10 @@ const EXCAVATION_ORILLIA: GeoLocationExtendedContent = {
     {
       q: "Can you coordinate with Orillia municipal requirements?",
       a: "We work with your consultant team on permits, ESC, locates, and haul approvals that apply to your municipality and site conditions.",
+    },
+    {
+      q: "Do you also serve Barrie excavation projects?",
+      a: "Yes — we are Barrie-based and dispatch excavation crews across Barrie, Orillia, and Simcoe County. See our Barrie excavation page for industrial corridor and 400-series staging context.",
     },
   ],
   seoSections: [
@@ -98,10 +111,17 @@ const EXCAVATION_ORILLIA: GeoLocationExtendedContent = {
         "From servicing trenches to multi-lot staging, Ground Level Contracting delivers Orillia excavation with the same discipline we apply across Simcoe County.",
       ],
     },
+    {
+      title: "Orillia excavation contractor scope",
+      paragraphs: [
+        "Our Orillia excavation services include commercial pad and footing excavation, site service trenching, mass grading, structural fills, hydrovac support, and spoils export with haul coordination.",
+        "We integrate with survey and geotech partners so proof rolls, compaction testing, and fine grading meet engineer specifications before slabs, utilities, and paving lock geometry.",
+      ],
+    },
   ],
   resourceLink: {
-    href: "/resources/ontario-excavation-permit-basics-simcoe-county/",
-    label: "Ontario excavation permit basics — Simcoe County",
+    href: "/resources/excavation-orillia-commercial-site-prep/",
+    label: "Excavation in Orillia — site prep guide",
   },
 };
 
@@ -120,4 +140,21 @@ export function getGeoLinkLabel(kind: GeoLocationKind, placeName: string): strin
   if (kind === "grading") return `Grading in ${placeName}`;
   if (kind === "foundations") return `Foundations in ${placeName}`;
   return placeName;
+}
+
+/** Sibling excavation geo lander for cross-linking Barrie ↔ Orillia. */
+export function getExcavationGeoCrossLink(slug: string): { href: string; label: string } | undefined {
+  if (slug === "excavation-site-preparation-barrie-ontario") {
+    return {
+      href: "/locations/excavation-site-preparation-orillia-ontario/",
+      label: "Excavation in Orillia",
+    };
+  }
+  if (slug === "excavation-site-preparation-orillia-ontario") {
+    return {
+      href: "/locations/excavation-site-preparation-barrie-ontario/",
+      label: "Excavation in Barrie",
+    };
+  }
+  return undefined;
 }

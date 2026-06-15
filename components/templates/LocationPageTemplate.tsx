@@ -6,7 +6,7 @@ import { getGeoLocationExtended } from "@/lib/site/geo-location-content";
 import { LocationJsonLd } from "@/components/seo/LocationJsonLd";
 import { LocationGeoExtendedSections } from "@/components/templates/LocationGeoExtendedSections";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
-import { getServiceImage } from "@/lib/site/service-images";
+import { getExcavationGeoImageAlt, getServiceImage } from "@/lib/site/service-images";
 import { SNOW_MEDIA } from "@/lib/site/snow-removal-media";
 
 /** Snow location pages — `public/images/services/Snow Removal/` (spaces encoded). */
@@ -27,9 +27,11 @@ export function LocationPageTemplate({ location }: { location: GeoLocationDef })
   const supportLine = extended?.localParagraphs[0] ?? copy.supportLine;
   const serviceImage = getServiceImage(location.serviceSlug);
   const heroSrc = location.kind === "snow" ? SNOW_HERO_IMAGE_SRC : serviceImage.src;
-  const heroAlt = location.kind === "snow" ? SNOW_IMAGE_ALT : serviceImage.alt;
+  const excavationAlt =
+    location.kind === "excavation" ? getExcavationGeoImageAlt(place) : serviceImage.alt;
+  const heroAlt = location.kind === "snow" ? SNOW_IMAGE_ALT : excavationAlt;
   const splitSrc = location.kind === "snow" ? SNOW_SPLIT_IMAGE.src : serviceImage.src;
-  const splitAlt = location.kind === "snow" ? SNOW_SPLIT_IMAGE.alt : serviceImage.alt;
+  const splitAlt = location.kind === "snow" ? SNOW_SPLIT_IMAGE.alt : excavationAlt;
 
   return (
     <article className="relative">
@@ -109,7 +111,9 @@ export function LocationPageTemplate({ location }: { location: GeoLocationDef })
         </div>
       </section>
 
-      {extended ? <LocationGeoExtendedSections placeName={place} extended={extended} /> : null}
+      {extended ? (
+        <LocationGeoExtendedSections placeName={place} locationSlug={location.slug} extended={extended} />
+      ) : null}
     </article>
   );
 }

@@ -8,15 +8,15 @@ import type { GLProcessStructuredStep } from "@/lib/ground-level/process-step-ty
 const SITE = site as SiteConfig;
 
 export const PAGE_TITLE =
-  "Excavation & Site Preparation Barrie | Simcoe County | Orillia | Innisfil";
+  "Excavation Barrie & Orillia | Commercial Site Prep | Simcoe County";
 
 export const META_DESCRIPTION =
-  "Professional excavation, grading, trenching & site prep across Barrie, Orillia, Wasaga Beach, Innisfil & Simcoe County. Residential, commercial & industrial. Free quotes.";
+  "Excavation contractor in Barrie and Orillia — commercial site prep, trenching, footing digs & utility-aware digging across Simcoe County. Licensed, insured. Free estimates.";
 
-export const OG_TITLE = "Expert Excavation & Site Prep — Serving All of Simcoe County";
+export const OG_TITLE = "Excavation Barrie & Orillia — Commercial Site Preparation";
 
 export const OG_DESCRIPTION =
-  "From single-lot grading to full commercial site prep — we dig deep across Barrie, Orillia, Wasaga Beach & beyond. Call for a free estimate.";
+  "Barrie and Orillia excavation for commercial, industrial, and institutional sites — trenching, mass grading, and survey-tied turnover. Call for a free estimate.";
 
 export const PHONE_DISPLAY = SITE.telephoneDisplay;
 export const PHONE_TEL = `tel:${SITE.telephone}` as const;

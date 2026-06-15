@@ -33,7 +33,7 @@ export function ClaudeLogicWatermark({ placement = "bottom-right", className = "
       {/* eslint-disable-next-line @next/next/no-img-element -- static SVG watermark */}
       <img
         src="/images/Logos/claude-logic-mark.svg"
-        alt=""
+        alt="Ground Level Contracting — commercial excavation and civil infrastructure, Barrie and Simcoe County"
         width={320}
         height={320}
         className="h-auto w-[min(52vw,280px)] max-w-none sm:w-[min(40vw,320px)]"

@@ -83,7 +83,14 @@ export function CommercialSnowCtvAuthorityBlock() {
             {ctvSnowFeature.mediaBarPartnerSrcs.length ? (
               <div className="flex flex-wrap items-center gap-4">
                 {ctvSnowFeature.mediaBarPartnerSrcs.map((src) => (
-                  <Image key={src} src={src} alt="" width={120} height={40} className="h-8 w-auto object-contain" />
+                  <Image
+                    key={src}
+                    src={src}
+                    alt="Media partner logo — Ground Level Contracting commercial snow removal Barrie"
+                    width={120}
+                    height={40}
+                    className="h-8 w-auto object-contain"
+                  />
                 ))}
               </div>
             ) : null}

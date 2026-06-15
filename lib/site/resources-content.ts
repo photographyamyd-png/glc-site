@@ -15,7 +15,7 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
     slug: "excavation-barrie-commercial-mobilization",
     title: "Excavation in Barrie: What GCs Should Know Before Mobilization",
     description:
-      "Planning commercial excavation in Barrie — locates, permits, haul routes, frost considerations, and mobilization checklists for Simcoe County GCs and developers.",
+      "Barrie excavation planning for commercial GCs — locates, permits, haul routes, frost considerations, and mobilization checklists for Simcoe County developers.",
     eyebrow: "Process guide",
     published: "2026-06-14",
     relatedServiceHref: "/locations/excavation-site-preparation-barrie-ontario/",
@@ -51,6 +51,49 @@ export const RESOURCE_ARTICLES: ResourceArticle[] = [
       {
         q: "Does Ground Level Contracting serve Barrie commercial sites only?",
         a: "We focus on commercial, industrial, and institutional excavation across Barrie and Simcoe County.",
+      },
+    ],
+  },
+  {
+    slug: "excavation-orillia-commercial-site-prep",
+    title: "Excavation in Orillia: Commercial Site Prep Planning Guide",
+    description:
+      "Orillia excavation planning for commercial builds — lake-country drainage, corridor access, spoils export, and inspection-ready turnover for Simcoe County GCs.",
+    eyebrow: "Process guide",
+    published: "2026-06-14",
+    relatedServiceHref: "/locations/excavation-site-preparation-orillia-ontario/",
+    relatedServiceLabel: "Excavation in Orillia",
+    sections: [
+      {
+        heading: "Orillia site conditions and scope",
+        paragraphs: [
+          "Orillia commercial excavation succeeds when civil IFC drawings, geotech recommendations, and benchmark control are confirmed before mobilization. Lake-adjacent drainage sensitivity and corridor access constraints often change how stripping, structural fills, and fine grading are sequenced.",
+          "Walk the footprint with survey and your superintendent to flag soft zones, unsuitable organics, utility conflicts, and phasing constraints that affect production and export routes.",
+        ],
+      },
+      {
+        heading: "Locates, permits, and haul logistics",
+        paragraphs: [
+          "Build Ontario One Call lead times into your Orillia schedule. Mechanical excavation near marked utilities still demands hand expose, vacuum support, or hydrovac where clearance is tight.",
+          "Coordinate erosion control, haul route approvals, and municipal permits with your consultant team early — especially when export volumes or staging windows are limited.",
+        ],
+      },
+      {
+        heading: "Production and turnover",
+        paragraphs: [
+          "Sequence stripping, structural fills, and fine grading so haul routes stay productive and compaction testing represents real production lifts.",
+          "Turnover should include photos, elevation records, and hold summaries so forming, utilities, and paving trades start on verified grades.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Does Ground Level Contracting provide excavation in Orillia?",
+        a: "Yes — we serve Orillia commercial, industrial, and institutional sites with full excavation and site preparation scope from our Barrie-area dispatch base.",
+      },
+      {
+        q: "How early should we book Orillia excavation?",
+        a: "Contact us as soon as civil drawings and site access are firm — early engagement helps secure equipment and align with forming milestones.",
       },
     ],
   },

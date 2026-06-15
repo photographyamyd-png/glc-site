@@ -149,7 +149,7 @@ export const SNOW_SUB_SERVICES: ServiceDef[] = [
 export const ALL_SERVICES: ServiceDef[] = [...PRIMARY_SERVICES, ...SNOW_SUB_SERVICES];
 
 export const SEO_TITLES = {
-  home: "Excavation & Site Preparation Barrie | Simcoe County | Orillia | Innisfil",
+  home: "Excavation Barrie & Orillia | Commercial Site Prep | Simcoe County",
   maintenance: "Coming Soon | Ground Level Contracting",
   services: "Services | Ground Level Contracting",
   about: "About | Ground Level Contracting",
@@ -159,7 +159,7 @@ export const SEO_TITLES = {
   snowHub: "Commercial Snow Removal Contractors | Barrie, Simcoe County",
   primary: {
     "excavation-site-preparation":
-      "Excavation & Site Preparation Barrie | Simcoe County Contractor",
+      "Excavation Contractor Barrie & Orillia | Simcoe County Site Prep",
     "site-preparation-grading": "Commercial Site Grading & Pad Prep | Barrie, Midland, Orillia | GLC",
     "foundations-civil-infrastructure": "Foundations & Civil Infrastructure | Barrie, Simcoe County",
     "drainage-hardscaping":

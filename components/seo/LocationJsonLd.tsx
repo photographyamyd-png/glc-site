@@ -1,4 +1,5 @@
 import type { GeoLocationDef } from "@/lib/site/geo-locations";
+import { getGeoLinkLabel } from "@/lib/site/geo-location-content";
 import { getSiteUrl } from "@/lib/site/metadata";
 
 type FaqItem = { q: string; a: string };
@@ -16,11 +17,15 @@ export function LocationJsonLd({
   const siteUrl = getSiteUrl();
   const pageUrl = `${siteUrl}/locations/${location.slug}/`;
   const serviceHubUrl = `${siteUrl}/services/${location.serviceSlug}/`;
+  const serviceName =
+    location.kind === "excavation" || location.kind === "grading" || location.kind === "foundations"
+      ? getGeoLinkLabel(location.kind, location.placeName)
+      : location.title;
 
   const webPage = {
     "@type": "WebPage",
     "@id": `${pageUrl}#webpage`,
-    name: location.title,
+    name: serviceName,
     description: location.description,
     url: pageUrl,
     isPartOf: { "@id": `${siteUrl}/#website` },
@@ -30,14 +35,14 @@ export function LocationJsonLd({
   const service = {
     "@type": "Service",
     "@id": `${pageUrl}#service`,
-    name: location.title,
+    name: serviceName,
     serviceType: location.serviceHubLabel,
     description: location.description,
     provider: { "@id": `${siteUrl}/#business` },
     url: serviceHubUrl,
     areaServed: {
-      "@type": "AdministrativeArea",
-      name: location.placeName,
+      "@type": "City",
+      name: `${location.placeName}, Ontario`,
     },
   };
 

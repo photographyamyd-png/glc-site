@@ -15,7 +15,7 @@ const HAULING_SECONDARY_FILE =
 const SERVICE_IMAGES: Record<PrimaryServiceSlug, ServiceImage> = {
   "excavation-site-preparation": {
     src: "/images/services/Excavation/excavation-016.jpg",
-    alt: "Commercial excavation equipment preparing an active construction site in Simcoe County",
+    alt: "Commercial excavation contractor equipment preparing a build-ready site in Barrie and Simcoe County Ontario",
   },
   "site-preparation-grading": {
     src: "/images/services/Grading/Ground%20Level%20Contracting%20grading.jpg",
@@ -69,6 +69,11 @@ export function getServiceImageSrc(slug: ServiceDef["slug"] | SnowSubServiceSlug
 
 export function getServiceImageAlt(slug: ServiceDef["slug"] | SnowSubServiceSlug) {
   return getServiceImage(slug).alt;
+}
+
+/** Place-specific hero alt for excavation geo location landers. */
+export function getExcavationGeoImageAlt(placeName: string): string {
+  return `Commercial excavation and site preparation contractor on an active ${placeName} Ontario construction site — Ground Level Contracting`;
 }
 
 /**

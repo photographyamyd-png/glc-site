@@ -21,7 +21,7 @@ export function HomeAgitatorSection() {
         <ServiceLabImg
           src={fieldImage.src}
           fallbackSrc={fieldImageFallback}
-          alt=""
+          alt={fieldImage.alt}
           sizes="100vw"
           className="h-full w-full object-cover opacity-[0.22]"
         />

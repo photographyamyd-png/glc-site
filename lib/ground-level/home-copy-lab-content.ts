@@ -6,12 +6,12 @@ import { EMAIL_MAILTO, PHONE_DISPLAY, PHONE_TEL } from "@/lib/ground-level/homep
 
 export const COPY_LAB_META = {
   documentTitle:
-    "Excavation & Site Preparation Barrie | Simcoe County | Orillia | Innisfil",
+    "Excavation Barrie & Orillia | Commercial Site Prep | Simcoe County",
   metaDescription:
-    "Professional excavation, grading, trenching & site prep across Barrie, Orillia, Wasaga Beach, Innisfil & Simcoe County. Residential, commercial & industrial. Free quotes.",
-  openGraphTitle: "Expert Excavation & Site Prep — Serving All of Simcoe County",
+    "Excavation contractor in Barrie and Orillia — commercial site prep, trenching, footing digs & utility-aware digging across Simcoe County. Licensed, insured. Free estimates.",
+  openGraphTitle: "Excavation Barrie & Orillia — Commercial Site Preparation",
   openGraphDescription:
-    "From single-lot grading to full commercial site prep — we dig deep across Barrie, Orillia, Wasaga Beach & beyond. Call for a free estimate.",
+    "Barrie and Orillia excavation for commercial, industrial, and institutional sites — trenching, mass grading, and survey-tied turnover. Call for a free estimate.",
 } as const;
 
 export const COPY_LAB_HERO = {
@@ -69,11 +69,38 @@ export const COPY_LAB_HERO = {
   /** Distinct from featured-bento excavation canonical (`016`) and other homepage field rasters. */
   fieldImageSrc: "/images/services/Excavation/excavation-015.jpg" as const,
   fieldImageAlt:
-    "Heavy excavation equipment stripping topsoil on a commercial development site in Simcoe County Ontario",
+    "Heavy excavation equipment stripping topsoil on a commercial development site in Barrie Ontario — Simcoe County excavation contractor",
+} as const;
+
+export const COPY_LAB_LOCAL_EXCAVATION = {
+  eyebrow: "Local excavation",
+  heading: "Barrie & Orillia dispatch",
+  intro:
+    "City-specific excavation pages for procurement teams comparing Barrie excavation contractors and Orillia site prep partners — scope, local context, and mobilization FAQs.",
+  links: [
+    {
+      href: "/locations/excavation-site-preparation-barrie-ontario/",
+      label: "Excavation in Barrie",
+    },
+    {
+      href: "/locations/excavation-site-preparation-orillia-ontario/",
+      label: "Excavation in Orillia",
+    },
+    {
+      href: "/services/excavation-site-preparation/",
+      label: "Excavation hub — Simcoe County",
+    },
+    {
+      href: "/resources/excavation-barrie-commercial-mobilization/",
+      label: "Barrie mobilization guide",
+    },
+  ],
 } as const;
 
 export const COPY_LAB_MARQUEE_ITEMS = [
   "Commercial Excavation",
+  "Excavation Barrie",
+  "Excavation Orillia",
   "Barrie & Simcoe County",
   "Midland & Orillia",
   "Site Preparation",
@@ -384,7 +411,7 @@ export const COPY_LAB_PROOF = {
     "Commercial earthworks and finish prep across Barrie and Simcoe County — same dispatch discipline we bring to every mobilization.",
   beforeSrc: "/images/services/Excavation/excavation-007.jpg",
   beforeAlt:
-    "Commercial excavation equipment preparing rough site conditions in Simcoe County — before finish grading phase",
+    "Commercial excavation equipment preparing rough site conditions in Barrie Ontario — before finish grading phase",
   afterSrc: "/images/services/Grading/Ground%20Level%20Contracting%20grading.jpg",
   afterAlt:
     "Grading equipment shaping a commercial site pad — finish prep and turnover-ready surface",
@@ -431,6 +458,14 @@ const HOME_FAQ_GROUPS = [
       {
         q: "Where does Ground Level operate commercially?",
         a: `${COPY_LAB_COVERAGE.body} Territory highlights: ${COPY_LAB_COVERAGE.regions.map((r) => `${r.name} — ${r.sub}`).join("; ")}.`,
+      },
+      {
+        q: "Who provides commercial excavation in Barrie, Ontario?",
+        a: "Ground Level Contracting is a Barrie-based excavation contractor serving commercial, industrial, and institutional sites across Barrie and Simcoe County — site clearing, trenching, footing excavations, and survey-tied grading with utility-aware digging.",
+      },
+      {
+        q: "Do you offer excavation in Orillia?",
+        a: "Yes — we dispatch excavation crews to Orillia commercial and institutional projects with the same scope as our Barrie work: pad and footing excavation, site service trenching, mass grading, hydrovac support, and documented turnover for consultants.",
       },
     ],
   },

@@ -555,15 +555,15 @@ export const LOCATION_COPY_MODEL: LocationCopyModel = {
 
 export const SERVICE_DETAILS: Record<PrimaryServiceSlug, ServiceDetailCopy> = {
   "excavation-site-preparation": {
-    seoTitle: "Excavation & Site Preparation Barrie | Simcoe County Contractor",
+    seoTitle: "Excavation Contractor Barrie & Orillia | Simcoe County Site Prep",
     seoDescription:
-      "Expert excavation & site preparation across Barrie, Orillia, Wasaga Beach, Innisfil & Simcoe County. Grading, clearing, trenching, pool digging, hydrovac & more. Free estimates.",
+      "Barrie and Orillia excavation contractor — commercial site prep, trenching, footing digs, hydrovac support & survey-tied grading across Simcoe County. Free on-site estimates.",
     hero: {
       breadcrumbParent: "Services",
       titleBefore: "Precision Digging for Complex",
       titleEmphasis: "Projects.",
       lede:
-        "Utility-aware excavation, disciplined spoils handling, and survey-tied grades for schedule-critical sites across Simcoe County.",
+        "Utility-aware excavation and site preparation for Barrie, Orillia, and Simcoe County — disciplined spoils handling and survey-tied grades for schedule-critical commercial sites.",
       body: [
         "Serving contractors, developers & homeowners across all of Simcoe County with precision excavation and site preparation.",
         "Licensed, insured and locally trusted — delivering exceptional results on residential, commercial and industrial projects of all scales.",
@@ -721,7 +721,8 @@ export const SERVICE_DETAILS: Record<PrimaryServiceSlug, ServiceDetailCopy> = {
       },
     ],
     faq: [
-      { q: "How much does excavation cost in Barrie, Ontario?", a: "Excavation costs vary based on scope, soil, access, depth, and export volume. We provide free on-site estimates with transparent pricing." },
+      { q: "How much does excavation cost in Barrie, Ontario?", a: "Excavation costs in Barrie vary by scope, soil, access, depth, and export volume. We provide free on-site estimates with transparent pricing for commercial and institutional sites." },
+      { q: "Do you provide excavation in Orillia?", a: "Yes — we serve Orillia commercial, industrial, and institutional projects with full excavation and site preparation scope, including trenching, footing digs, and survey-tied grading." },
       { q: "Do you serve areas outside of Barrie?", a: "Yes — we operate throughout Simcoe County including Orillia, Wasaga Beach, Innisfil, Collingwood, Midland, and surrounding communities." },
       { q: "Are you licensed and insured for excavation work in Ontario?", a: "Yes. We are fully licensed, insured, and compliant with Ontario excavation and grading requirements." },
       { q: "How far in advance do I need to book?", a: "Lead times vary by season; spring through fall is busiest. Contact us 3–6 weeks ahead where possible." },

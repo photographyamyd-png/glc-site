@@ -2,10 +2,12 @@ import Link from "next/link";
 import { GlcFaqDetailsGrid } from "@/components/faq/GlcFaqDetailsGrid";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import type { GeoLocationExtendedContent } from "@/lib/site/geo-location-content";
+import { getExcavationGeoCrossLink } from "@/lib/site/geo-location-content";
 import { cn } from "@/lib/utils";
 
 type Props = {
   placeName: string;
+  locationSlug: string;
   extended: GeoLocationExtendedContent;
 };
 
@@ -29,7 +31,8 @@ function SeoDetailBlock({ summary, children }: { summary: string; children: Reac
 }
 
 /** City-specific FAQ, capabilities, and SEO basement for geo location landers. */
-export function LocationGeoExtendedSections({ placeName, extended }: Props) {
+export function LocationGeoExtendedSections({ placeName, locationSlug, extended }: Props) {
+  const crossLink = getExcavationGeoCrossLink(locationSlug);
   return (
     <>
       <section
@@ -65,6 +68,16 @@ export function LocationGeoExtendedSections({ placeName, extended }: Props) {
                     className="inline-flex min-h-[44px] items-center border border-white/25 px-4 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-white transition-colors hover:border-[color:var(--y)]"
                   >
                     {extended.resourceLink.label}
+                  </Link>
+                </p>
+              ) : null}
+              {crossLink ? (
+                <p className="mt-4">
+                  <Link
+                    href={crossLink.href}
+                    className="inline-flex min-h-[44px] items-center border border-white/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-white/85 transition-colors hover:border-[color:var(--y)] hover:text-white"
+                  >
+                    Also serving: {crossLink.label}
                   </Link>
                 </p>
               ) : null}

@@ -13,6 +13,7 @@
  * 6. `#capabilities` — `HomeCapabilityBentoSection` (depth rows + `megaBlurb`, not a second featured bento)
  * 7. `#proof` — `HomeProofBeforeAfter`
  * 8. `#cta-band` — `HomeFinalCtaSection`
+ * 8b. `#local-excavation` — `HomeLocalExcavationLinks`
  * 9. `#home-faq` — `HomeSeoFaqSection` (includes `#why`, `#process`, `#coverage` scroll targets)
  */
 
@@ -61,6 +62,12 @@ const HomeFinalCtaSection = dynamic(() =>
 const HomeSeoFaqSection = dynamic(() =>
   import("@/components/ground-level/home-copy-lab/HomeSeoFaqSection").then((m) => ({
     default: m.HomeSeoFaqSection,
+  })),
+);
+
+const HomeLocalExcavationLinks = dynamic(() =>
+  import("@/components/ground-level/home-copy-lab/HomeLocalExcavationLinks").then((m) => ({
+    default: m.HomeLocalExcavationLinks,
   })),
 );
 
@@ -129,6 +136,7 @@ export function GLHomeCopyLab() {
       <HomeCapabilityBentoSection />
       <HomeProofBeforeAfter />
       <HomeFinalCtaSection />
+      <HomeLocalExcavationLinks />
       <HomeSeoFaqSection />
     </div>
   );
