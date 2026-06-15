@@ -1,8 +1,8 @@
 id,type,platform,status,submitted_date,live_url,notes
-gbp,directory,Google Business Profile,pending,,,
-bing-places,directory,Bing Places,pending,,,
+gbp,directory,Google Business Profile,live,2026-06-15,https://share.google/42PVJwliNNfCsHjjz,
+bing-places,directory,Bing Places,submitted,2026-06-15,,
 apple-business,directory,Apple Business Connect,pending,,,
-yellow-pages-ca,directory,Yellow Pages Canada,pending,,,
+yellow-pages-ca,directory,Yellow Pages Canada,live,,https://www.yellowpages.ca/bus/Ontario/Ground-Level-Contracting/102608529.html,pre-existing listing — claim owner and fix phone/website/description
 canada411,directory,Canada411,pending,,,
 homestars,directory,HomeStars,pending,,,
 houzz,directory,Houzz Pro,pending,,,

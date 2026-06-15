@@ -1,10 +1,11 @@
 # Ground Level Contracting — Listing Pack
-Generated: 2026-06-14T22:55:50.264Z
+Generated: 2026-06-15T20:15:24.015Z
 Website: https://groundlevelcontracting.ca
 
 ## NAP (use exactly on every listing)
 
 Name:    Ground Level Contracting
+Slogan:  From Concept to Creation
 Legal:   Ground Level Contracting Inc.
 Phone:   (705) 619-4902
 Email:   groundlevelcontracting@outlook.com
@@ -14,13 +15,26 @@ Web:     https://groundlevelcontracting.ca
 ## Descriptions
 
 ### Short (~150 chars)
-Ground Level Contracting provides commercial excavation, site grading, foundations, drainage, hauling, and winter snow operations across Barrie,…
+Ground Level Contracting — From Concept to Creation. Commercial excavation, site grading, foundations, drainage, hauling, and winter snow operations…
 
 ### Medium (~300 chars)
-Ground Level Contracting provides commercial excavation, site grading, foundations, drainage, hauling, and winter snow operations across Barrie, Orillia, Innisfil, Wasaga Beach, Midland, and Simcoe County. Licensed and insured. Free estimates.
+Ground Level Contracting — From Concept to Creation. Commercial excavation, site grading, foundations, drainage, hauling, and winter snow operations across Barrie, Orillia, Innisfil, Wasaga Beach, Midland, and Simcoe County. Licensed and insured. Free estimates.
 
 ### Long (~500 chars)
-Ground Level Contracting provides commercial excavation, site grading, foundations, drainage, hauling, and winter snow operations across Barrie, Orillia, Innisfil, Wasaga Beach, Midland, and Simcoe County. Licensed and insured. Free estimates. Utility-aware digging, survey-tied grades, disciplined spoils handling, and schedule-critical mobilization for contractors, developers, and institutional sites.
+Ground Level Contracting — From Concept to Creation. Commercial excavation, site grading, foundations, drainage, hauling, and winter snow operations across Barrie, Orillia, Innisfil, Wasaga Beach, Midland, and Simcoe County. Licensed and insured. Free estimates. Utility-aware digging, survey-tied grades, disciplined spoils handling, and schedule-critical mobilization for contractors, developers, and institutional sites.
+
+### Google Business Profile (750 chars max — use only on GBP)
+Ground Level Contracting — From Concept to Creation. A commercial construction company providing excavation, site grading, foundations, drainage, hauling, and civil infrastructure across Barrie, Orillia, Innisfil, Midland, Wasaga Beach, and Simcoe County. We support general contractors, developers, and institutional clients with site preparation, utility-aware digging, survey-tied grades, and disciplined spoils handling.
+
+The company also performs commercial snow removal for Barrie and Orillia properties, including lots, laneways, docks, and priority winter access routes. Earthworks and winter operations are planned around project schedules throughout Central Ontario.
+
+_Char count: 676 / 750. Factual copy only — no phone, URLs, or promotional offers in this field._
+
+**If Google rejects the description again**, use this shorter fallback (241 chars):
+
+Ground Level Contracting — From Concept to Creation. A commercial construction company providing excavation, grading, foundations, drainage, hauling, and snow removal for contractors and property owners in Barrie, Orillia, and Simcoe County.
+
+**Do not include in GBP description:** phone numbers, website URLs, "free estimates," pricing, or repeated city+service keyword pairs.
 
 ## Categories (pick best match per platform)
 - Excavating contractor
@@ -61,7 +75,7 @@ Subject: Ground Level Contracting — member directory listing
 
 Hello,
 
-I'm reaching out from Ground Level Contracting Inc. We provide commercial excavation, grading, foundations, and civil infrastructure across Barrie and Simcoe County.
+I'm reaching out from Ground Level Contracting Inc. — From Concept to Creation. We provide commercial excavation, grading, foundations, and civil infrastructure across Barrie and Simcoe County.
 
 We'd like to confirm our member directory profile lists our website as https://groundlevelcontracting.ca and our primary category as excavation/site preparation.
 
@@ -99,4 +113,4 @@ https://groundlevelcontracting.ca/resources/excavation-barrie-commercial-mobiliz
 If it's useful for your members or project partners, feel free to share. Happy to answer technical questions about commercial site prep in the region.
 
 Regards,
-Ground Level Contracting Inc.
+Ground Level Contracting Inc. — From Concept to Creation

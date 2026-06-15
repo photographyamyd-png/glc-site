@@ -7,6 +7,9 @@ import { join } from "node:path";
 import {
   getListingCategories,
   getListingDescriptions,
+  getGbpDescription,
+  getGbpDescriptionFallback,
+  getGbpDescriptionMaxLength,
   getListingImageUrls,
   getMoneyPageLinks,
   getNap,
@@ -42,6 +45,9 @@ function getPendingFromTracker(): string[] {
 function main(): void {
   const nap = getNap();
   const desc = getListingDescriptions();
+  const gbpDesc = getGbpDescription();
+  const gbpFallback = getGbpDescriptionFallback();
+  const gbpMaxLen = getGbpDescriptionMaxLength();
   const images = getListingImageUrls();
   const siteUrl = getSiteUrl();
   const categories = getListingCategories();
@@ -57,6 +63,7 @@ Website: ${siteUrl}
 ## NAP (use exactly on every listing)
 
 Name:    ${nap.name}
+Slogan:  ${nap.slogan}
 Legal:   ${nap.legalName}
 Phone:   ${nap.phone}
 Email:   ${nap.email}
@@ -73,6 +80,17 @@ ${desc.medium}
 
 ### Long (~500 chars)
 ${desc.long}
+
+### Google Business Profile (${gbpMaxLen} chars max — use only on GBP)
+${gbpDesc}
+
+_Char count: ${gbpDesc.length} / ${gbpMaxLen}. Factual copy only — no phone, URLs, or promotional offers in this field._
+
+**If Google rejects the description again**, use this shorter fallback (${gbpFallback.length} chars):
+
+${gbpFallback}
+
+**Do not include in GBP description:** phone numbers, website URLs, "free estimates," pricing, or repeated city+service keyword pairs.
 
 ## Categories (pick best match per platform)
 ${categories.map((c) => `- ${c}`).join("\n")}

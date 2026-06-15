@@ -20,8 +20,8 @@ export const DIRECTORY_TARGETS: DirectoryTarget[] = [
     tier: 1,
     estimatedMinutes: 20,
     loginRequired: true,
-    suggestedCategories: ["Excavating contractor", "Construction company"],
-    notes: "Verify ownership; set website to .ca; add service areas and photos.",
+    suggestedCategories: ["Excavating contractor", "Construction company", "Snow removal service"],
+    notes: "Verify ownership; set website to .ca; add service areas and photos. Paste the 750-char GBP description from listing-pack.md.",
   },
   {
     id: "bing-places",

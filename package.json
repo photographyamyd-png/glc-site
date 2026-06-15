@@ -16,7 +16,9 @@
     "push:indexing": "npx tsx scripts/push-indexing.ts",
     "seo:weekly": "npx tsx scripts/seo-weekly-checklist.ts",
     "seo:citations": "npx tsx scripts/free-citations-checklist.ts",
-    "seo:listing-pack": "npx tsx scripts/local-seo/generate-listing-pack.ts"
+    "seo:listing-pack": "npx tsx scripts/local-seo/generate-listing-pack.ts",
+    "seo:submission-guide": "npx tsx scripts/local-seo/generate-submission-guide.ts",
+    "seo:local-prep": "npm run seo:listing-pack && npm run seo:submission-guide"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",

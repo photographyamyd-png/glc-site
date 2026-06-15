@@ -12,6 +12,7 @@ function main(): void {
   console.log("\n=== Ground Level Contracting — Citation Checklist ===\n");
   console.log("Use this exact NAP on every listing:\n");
   console.log(`  Name:    ${nap.name}`);
+  console.log(`  Slogan:  ${nap.slogan}`);
   console.log(`  Phone:   ${nap.phone}`);
   console.log(`  Email:   ${nap.email}`);
   console.log(`  Address: ${nap.fullAddress}`);

@@ -1,3 +1,5 @@
+import site from "@/content/site.json";
+
 export type BacklinkTargetType =
   | "chamber"
   | "association"
@@ -91,7 +93,7 @@ export const OUTREACH_TEMPLATES = {
 
 Hello,
 
-I'm reaching out from Ground Level Contracting Inc. We provide commercial excavation, grading, foundations, and civil infrastructure across Barrie and Simcoe County.
+I'm reaching out from Ground Level Contracting Inc. — ${site.slogan}. We provide commercial excavation, grading, foundations, and civil infrastructure across Barrie and Simcoe County.
 
 We'd like to confirm our member directory profile lists our website as https://groundlevelcontracting.ca and our primary category as excavation/site preparation.
 
@@ -127,5 +129,5 @@ https://groundlevelcontracting.ca/resources/excavation-barrie-commercial-mobiliz
 If it's useful for your members or project partners, feel free to share. Happy to answer technical questions about commercial site prep in the region.
 
 Regards,
-Ground Level Contracting Inc.`,
+Ground Level Contracting Inc. — ${site.slogan}`,
 };

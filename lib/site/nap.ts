@@ -60,7 +60,7 @@ function trimToLength(text: string, max: number): string {
 export function getListingDescriptions(): { short: string; medium: string; long: string } {
   const nap = getNap();
   const base =
-    `${nap.name} provides commercial excavation, site grading, foundations, drainage, hauling, and winter snow operations across Barrie, Orillia, Innisfil, Wasaga Beach, Midland, and Simcoe County. Licensed and insured. Free estimates.`;
+    `${nap.name} — ${nap.slogan}. Commercial excavation, site grading, foundations, drainage, hauling, and winter snow operations across Barrie, Orillia, Innisfil, Wasaga Beach, Midland, and Simcoe County. Licensed and insured. Free estimates.`;
 
   return {
     short: trimToLength(base, 150),
@@ -70,6 +70,33 @@ export function getListingDescriptions(): { short: string; medium: string; long:
       500,
     ),
   };
+}
+
+const GBP_DESCRIPTION_MAX = 750;
+
+/**
+ * Google Business Profile business description (750-character limit).
+ * Policy-safe: factual services copy only — no phone, URLs, offers, or keyword repetition.
+ * Mentions construction company once; Barrie/Orillia ranking leans on categories, service areas, and Services.
+ */
+export function getGbpDescription(): string {
+  const nap = getNap();
+  const text = `${nap.name} — ${nap.slogan}. A commercial construction company providing excavation, site grading, foundations, drainage, hauling, and civil infrastructure across Barrie, Orillia, Innisfil, Midland, Wasaga Beach, and Simcoe County. We support general contractors, developers, and institutional clients with site preparation, utility-aware digging, survey-tied grades, and disciplined spoils handling.
+
+The company also performs commercial snow removal for Barrie and Orillia properties, including lots, laneways, docks, and priority winter access routes. Earthworks and winter operations are planned around project schedules throughout Central Ontario.`;
+
+  if (text.length <= GBP_DESCRIPTION_MAX) return text;
+  return trimToLength(text, GBP_DESCRIPTION_MAX);
+}
+
+/** Ultra-minimal GBP description if the standard version is rejected again. */
+export function getGbpDescriptionFallback(): string {
+  const nap = getNap();
+  return `${nap.name} — ${nap.slogan}. A commercial construction company providing excavation, grading, foundations, drainage, hauling, and snow removal for contractors and property owners in Barrie, Orillia, and Simcoe County.`;
+}
+
+export function getGbpDescriptionMaxLength(): number {
+  return GBP_DESCRIPTION_MAX;
 }
 
 export function getListingCategories(): string[] {
