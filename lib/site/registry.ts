@@ -183,11 +183,13 @@ export const SEO_TITLES = {
   } as Record<LocationSlug, string>,
 };
 
+import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL } from "@/lib/site/site-contact";
+
 export const NAV_LINKS = {
   utility: {
     location: "Barrie • Midland • Orillia • Simcoe County",
-    phoneDisplay: "(705) 619-4902",
-    phoneHref: "tel:+17056194902",
+    phoneDisplay: SITE_PHONE_DISPLAY,
+    phoneHref: SITE_PHONE_TEL,
     rotator: [
       "Available for Site Dispatch — Commercial Projects",
       "Licensed & Insured — Barrie, Midland, Orillia & Simcoe County",

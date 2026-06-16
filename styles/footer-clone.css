@@ -195,11 +195,66 @@
 
 .footer__phone-link {
   color: inherit;
+  text-decoration: none;
   transition: color 0.2s;
 }
 
 .footer__phone-link:hover {
   color: var(--yellow-core);
+}
+
+.footer__email-link {
+  color: inherit;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.footer__email-link:hover {
+  color: var(--charcoal-deep);
+}
+
+.footer__owners {
+  margin: 16px 0 12px;
+}
+
+.footer__owners-title {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--charcoal-deep);
+  margin-bottom: 10px;
+}
+
+.footer__owners-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__owner-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footer__owner-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--charcoal-deep);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.footer__owner-meta {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-600);
+  line-height: 1.45;
 }
 
 @media (max-width: 1024px) {

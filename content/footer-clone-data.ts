@@ -9,6 +9,8 @@ export type FooterCloneSiteData = Pick<
   | "slogan"
   | "telephone"
   | "telephoneDisplay"
+  | "email"
+  | "owners"
   | "address"
   | "copyrightYear"
 >;
@@ -26,6 +28,8 @@ export const footerCloneSiteData: FooterCloneSiteData = {
   slogan: siteData.slogan,
   telephone: siteData.telephone,
   telephoneDisplay: siteData.telephoneDisplay,
+  email: siteData.email,
+  owners: siteData.owners,
   address: siteData.address,
   copyrightYear: siteData.copyrightYear,
 };

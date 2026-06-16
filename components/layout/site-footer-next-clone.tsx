@@ -87,6 +87,39 @@ export function SiteFooterNextClone({ site, navigation, minimal }: Props) {
               strokeWidth="2.5"
               aria-hidden
             >
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            <a href={`mailto:${site.email}`} className="footer__email-link">
+              {site.email}
+            </a>
+          </div>
+          <div className="footer__owners">
+            <p className="footer__owners-title">Co-owners</p>
+            <ul className="footer__owners-list">
+              {site.owners.map((owner) => (
+                <li key={owner.name} className="footer__owner-row">
+                  <span className="footer__owner-name">{owner.name}</span>
+                  <span className="footer__owner-meta">
+                    {owner.title} ·{" "}
+                    <a href={`tel:${owner.telephone}`} className="footer__phone-link">
+                      {owner.telephoneDisplay}
+                    </a>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="footer__contact-item">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              aria-hidden
+            >
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
               <circle cx="12" cy="10" r="3" />
             </svg>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import type { FoundationsSubPageContent } from "@/lib/site/foundations-civil-infrastructure-content";
 import { FOUNDATIONS_HUB_HERO, FOUNDATIONS_HUB_PATH, FOUNDATIONS_PAGE_CHROME } from "@/lib/site/foundations-civil-infrastructure-content";
-import { PHONE_TEL } from "@/lib/ground-level/homepage-copy";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/ground-level/homepage-copy";
 
 type Props = {
   content: FoundationsSubPageContent;
@@ -101,7 +101,7 @@ export function FoundationsCivilInfrastructureSubPage({ content, imageSrc, image
                   href={PHONE_TEL}
                   className="cta-outline-light inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
                 >
-                  Call (705) 619-4902
+                  Call {PHONE_DISPLAY}
                 </Link>
               </div>
               <p className="mt-10">

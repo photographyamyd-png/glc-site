@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useId, useState } from "react";
-import { PHONE_TEL } from "@/lib/ground-level/homepage-copy";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/ground-level/homepage-copy";
 import type { ContactLeadSource } from "@/lib/contact/schema";
 
 export type ContactLeadFormProps = {
@@ -285,7 +285,7 @@ export function ContactLeadForm({
                 : "inline-flex min-h-[48px] min-w-[200px] items-center justify-center border-2 border-ink px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.12em] text-ink"
             }
           >
-            Call (705) 619-4902
+            Call {PHONE_DISPLAY}
           </Link>
           {source === "foundations-hub" ? (
             <Link

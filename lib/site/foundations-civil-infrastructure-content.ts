@@ -3,6 +3,11 @@
  * Visible UI blocks follow ≤2-sentence discipline; lists and headings carry SEO depth.
  */
 
+import site from "../../content/site.json";
+import type { SiteConfig } from "../../content/types";
+
+const SITE = site as SiteConfig;
+
 export const FOUNDATIONS_HUB_SLUG = "foundations-civil-infrastructure" as const;
 
 export const FOUNDATIONS_HUB_PATH = `/services/${FOUNDATIONS_HUB_SLUG}/` as const;
@@ -87,7 +92,7 @@ export const FOUNDATIONS_HUB_HERO = {
   introD:
     "We carry full WSIB registration and liability insurance, and we work directly with structural engineers, general contractors, and municipal project managers.",
   ctaPrimaryLabel: "Request a Project Quote",
-  ctaPhoneLabel: "Call Us Now: (705) 619-4902",
+  ctaPhoneLabel: `Call Us Now: ${SITE.telephoneDisplay}`,
   microcopy: "No obligation. Licensed & insured. We respond within 1 business day.",
 } as const;
 
