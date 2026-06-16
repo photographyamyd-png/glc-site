@@ -1,5 +1,5 @@
 # Ground Level Contracting — Listing Pack
-Generated: 2026-06-15T20:15:24.015Z
+Generated: 2026-06-16T22:06:16.302Z
 Website: https://groundlevelcontracting.ca
 
 ## NAP (use exactly on every listing)
@@ -60,11 +60,11 @@ Barrie, Midland, Orillia, Innisfil, Wasaga Beach, Simcoe County
 ---
 
 ## Next directories to submit (pending in tracker)
-- [Tier 1] Google Business Profile: https://business.google.com
-- [Tier 1] Bing Places: https://www.bingplaces.com
 - [Tier 1] Apple Business Connect: https://businessconnect.apple.com
-- [Tier 1] Yellow Pages Canada: https://www.yellowpages.ca
 - [Tier 1] Canada411: https://www.canada411.ca
+- [Tier 1] HomeStars: https://www.homestars.com
+- [Tier 1] Houzz Pro: https://www.houzz.com/pro
+- [Tier 2] Barrie Chamber of Commerce: https://www.barriechamber.com
 
 ---
 
@@ -82,9 +82,10 @@ We'd like to confirm our member directory profile lists our website as https://g
 Happy to provide logo assets or project photos if helpful.
 
 Thank you,
-Terry King
-Ground Level Contracting Inc.
-(705) 619-4902
+Terry King & Ramon Tomporowski
+Co-Owners, Ground Level Contracting Inc.
+(705) 619-4902 | (249) 989-2233
+groundlevelcontracting@outlook.com
 
 ### Partner link
 Subject: Project credit / website link
@@ -98,8 +99,10 @@ https://groundlevelcontracting.ca/locations/excavation-site-preparation-barrie-o
 Let me know if that works for you.
 
 Best,
-Terry King
-(705) 619-4902
+Terry King & Ramon Tomporowski
+Co-Owners, Ground Level Contracting Inc.
+(705) 619-4902 | (249) 989-2233
+groundlevelcontracting@outlook.com
 
 ### Resource pitch
 Subject: Simcoe County excavation mobilization guide

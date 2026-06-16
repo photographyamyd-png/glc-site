@@ -106,9 +106,9 @@ export type CorePageCopy = {
     emailHeading: string;
     phone: { label: string; href: string };
     email: { label: string; href: string };
-    /** Eyebrow above leadership / dispatch contact name. */
-    primaryContactEyebrow: string;
-    primaryContact: { name: string; title: string };
+    /** Eyebrow above co-owner contacts. */
+    ownersEyebrow: string;
+    owners: Array<{ name: string; title: string; phone: { label: string; href: string } }>;
     addressHeading: string;
     address: string;
     supportLinks: Array<{ label: string; href: string }>;
@@ -466,11 +466,12 @@ export const CORE_COPY: CorePageCopy = {
     emailHeading: "Email",
     phone: { label: SITE.telephoneDisplay, href: PHONE_HREF },
     email: { label: SITE.email, href: `mailto:${SITE.email}` },
-    primaryContactEyebrow: "Leadership & dispatch",
-    primaryContact: {
-      name: SITE.primaryContact.name,
-      title: SITE.primaryContact.title,
-    },
+    ownersEyebrow: "Co-owners",
+    owners: SITE.owners.map((owner) => ({
+      name: owner.name,
+      title: owner.title,
+      phone: { label: owner.telephoneDisplay, href: `tel:${owner.telephone}` },
+    })),
     addressHeading: "Mailing address",
     address: "PO BOX 193 STN Main, Barrie, ON L4M 4T2",
     supportLinks: [
@@ -479,7 +480,7 @@ export const CORE_COPY: CorePageCopy = {
     ],
     formHeading: "Send a message",
     formHelper:
-      "Submit the form and we will route it to dispatch. For urgent mobilization, call the number above.",
+      "Submit the form and we will route it to dispatch. For urgent mobilization, call the number above. Written inquiries use groundlevelcontracting@outlook.com only — not personal owner inboxes.",
     formSubmitLabel: "Send message",
   },
   servicesIndex: {

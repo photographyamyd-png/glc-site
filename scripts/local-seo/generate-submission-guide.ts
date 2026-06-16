@@ -4,6 +4,7 @@
  */
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { getBusinessEmail } from "@/lib/site/owners";
 import {
   getListingCategories,
   getListingDescriptions,
@@ -308,7 +309,7 @@ function renderBacklinkSection(): string {
 
   return `## Section 5 — Backlink outreach (${BACKLINK_TARGETS.length} targets)
 
-Work priority 1 first. Send from Terry King / Ground Level Contracting email.
+Work priority 1 first. Send outreach from **${getBusinessEmail()}** only — not personal owner inboxes.
 
 ${byPriority.filter(Boolean).join("\n\n")}
 
@@ -432,6 +433,7 @@ ${renderPreflightSection(preflight)}
 - Slogan always **${nap.slogan}** — include in descriptions and any tagline/slogan field (Facebook, LinkedIn, etc.).
 - Website always **${nap.website}** — no \`www\`, no \`.com\`, no trailing slash unless a form requires it.
 - Phone always **${nap.phone}**.
+- Email always **${nap.email}** — the only published contact email. Do not list personal owner inboxes (Terry King, Ramon Tomporowski, or any other individual).
 - Address always **${nap.fullAddress}** — do not substitute a street address.
 - PO Box / map pin: on Google and similar platforms, choose **service-area business**; list service cities instead of faking a storefront.
 

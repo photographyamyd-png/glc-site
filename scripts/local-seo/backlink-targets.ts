@@ -1,4 +1,7 @@
 import site from "@/content/site.json";
+import { getOwnerOutreachSignature } from "@/lib/site/owners";
+
+const signature = getOwnerOutreachSignature();
 
 export type BacklinkTargetType =
   | "chamber"
@@ -100,9 +103,7 @@ We'd like to confirm our member directory profile lists our website as https://g
 Happy to provide logo assets or project photos if helpful.
 
 Thank you,
-Terry King
-Ground Level Contracting Inc.
-(705) 619-4902`,
+${signature}`,
 
   partnerLink: `Subject: Project credit / website link
 
@@ -115,8 +116,7 @@ https://groundlevelcontracting.ca/locations/excavation-site-preparation-barrie-o
 Let me know if that works for you.
 
 Best,
-Terry King
-(705) 619-4902`,
+${signature}`,
 
   resourcePitch: `Subject: Simcoe County excavation mobilization guide
 

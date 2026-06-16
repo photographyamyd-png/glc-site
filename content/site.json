@@ -5,10 +5,20 @@
   "telephone": "+17056194902",
   "telephoneDisplay": "(705) 619-4902",
   "email": "groundlevelcontracting@outlook.com",
-  "primaryContact": {
-    "name": "Terry King",
-    "title": "Co-Owner & President"
-  },
+  "owners": [
+    {
+      "name": "Terry King",
+      "title": "Co-Owner",
+      "telephone": "+17056194902",
+      "telephoneDisplay": "(705) 619-4902"
+    },
+    {
+      "name": "Ramon Tomporowski",
+      "title": "Co-Owner",
+      "telephone": "+12499892233",
+      "telephoneDisplay": "(249) 989-2233"
+    }
+  ],
   "slogan": "From Concept to Creation",
   "description": "Commercial excavation contractor in Barrie and Orillia — foundations, drainage, and civil infrastructure across Simcoe County.",
   "address": {

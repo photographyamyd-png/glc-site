@@ -1,12 +1,12 @@
 # Ground Level Contracting — Listing Submission Guide
 
-Generated: 2026-06-15T20:15:27.177Z
+Generated: 2026-06-16T22:06:19.454Z
 Website: https://groundlevelcontracting.ca
 Companion: [listing-pack.md](./listing-pack.md) | Tracker: [listings-tracker.csv](./listings-tracker.csv)
 
 Use this guide alongside the listing pack. Paste values **exactly** — character-for-character — on every platform.
 
-## Pre-flight check (run 2026-06-15)
+## Pre-flight check (run 2026-06-16)
 
 - [OK] **Home** — https://groundlevelcontracting.ca/ (200)
 - [OK] **Excavation & Site Preparation** — https://groundlevelcontracting.ca/services/excavation-site-preparation/ (200)
@@ -40,6 +40,7 @@ Use this guide alongside the listing pack. Paste values **exactly** — characte
 - Slogan always **From Concept to Creation** — include in descriptions and any tagline/slogan field (Facebook, LinkedIn, etc.).
 - Website always **https://groundlevelcontracting.ca** — no `www`, no `.com`, no trailing slash unless a form requires it.
 - Phone always **(705) 619-4902**.
+- Email always **groundlevelcontracting@outlook.com** — the only published contact email. Do not list personal owner inboxes (Terry King, Ramon Tomporowski, or any other individual).
 - Address always **PO BOX 193 STN Main, Barrie, ON L4M 4T2** — do not substitute a street address.
 - PO Box / map pin: on Google and similar platforms, choose **service-area business**; list service cities instead of faking a storefront.
 
@@ -937,7 +938,7 @@ The company also performs commercial snow removal for Barrie and Orillia propert
 
 ## Section 5 — Backlink outreach (7 targets)
 
-Work priority 1 first. Send from Terry King / Ground Level Contracting email.
+Work priority 1 first. Send outreach from **groundlevelcontracting@outlook.com** only — not personal owner inboxes.
 
 ### Priority 1
 
@@ -1034,9 +1035,10 @@ We'd like to confirm our member directory profile lists our website as https://g
 Happy to provide logo assets or project photos if helpful.
 
 Thank you,
-Terry King
-Ground Level Contracting Inc.
-(705) 619-4902
+Terry King & Ramon Tomporowski
+Co-Owners, Ground Level Contracting Inc.
+(705) 619-4902 | (249) 989-2233
+groundlevelcontracting@outlook.com
 ```
 
 #### Partner link
@@ -1053,8 +1055,10 @@ https://groundlevelcontracting.ca/locations/excavation-site-preparation-barrie-o
 Let me know if that works for you.
 
 Best,
-Terry King
-(705) 619-4902
+Terry King & Ramon Tomporowski
+Co-Owners, Ground Level Contracting Inc.
+(705) 619-4902 | (249) 989-2233
+groundlevelcontracting@outlook.com
 ```
 
 #### Resource pitch

@@ -39,17 +39,14 @@ export function SiteJsonLd() {
     url: siteUrl,
     telephone: phoneSchema,
     email: SITE.email,
-    contactPoint: [
-      {
-        "@type": "ContactPoint",
-        contactType: SITE.primaryContact.title,
-        name: SITE.primaryContact.name,
-        telephone: phoneSchema,
-        email: SITE.email,
-        areaServed: "CA",
-        availableLanguage: "English",
-      },
-    ],
+    contactPoint: SITE.owners.map((owner) => ({
+      "@type": "ContactPoint" as const,
+      contactType: owner.title,
+      name: owner.name,
+      telephone: telToSchema(owner.telephone),
+      areaServed: "CA",
+      availableLanguage: "English",
+    })),
     priceRange: "$$$",
     address: {
       "@type": "PostalAddress",

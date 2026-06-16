@@ -192,10 +192,12 @@ export type SiteConfig = {
   telephone: string;
   telephoneDisplay: string;
   email: string;
-  primaryContact: {
+  owners: Array<{
     name: string;
     title: string;
-  };
+    telephone: string;
+    telephoneDisplay: string;
+  }>;
   slogan: string;
   description: string;
   address: {
