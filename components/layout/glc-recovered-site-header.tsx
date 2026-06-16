@@ -4,7 +4,8 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { SmartLink } from "@/components/ui/smart-link";
-import { IconArrow } from "@/components/ui/icon-arrow";
+import { DispatchOwnerPhoneButtons } from "@/components/layout/dispatch-owner-phone-buttons";
+import { getOwnerPhoneCtas } from "@/lib/site/site-contact";
 import { UtilityRotator } from "@/components/layout/utility-rotator";
 import { MegaMenuServices } from "@/components/layout/mega-menu-services";
 import { MegaMenuCompany } from "@/components/layout/mega-menu-company";
@@ -184,7 +185,17 @@ export function GlcRecoveredSiteHeader({ navigation }: Props) {
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 12.85 19.79 19.79 0 0 1 1.21 4.25 2 2 0 0 1 3.18 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
-                <a href={util.phoneHref}>{util.phoneDisplay}</a>
+                {getOwnerPhoneCtas().map((phone, index) => (
+                  <span key={phone.href}>
+                    {index > 0 ? (
+                      <span className="gl-util-phone-sep" aria-hidden>
+                        {" "}
+                        ·{" "}
+                      </span>
+                    ) : null}
+                    <a href={phone.href}>{phone.display}</a>
+                  </span>
+                ))}
               </span>
             </div>
             <UtilityRotator lines={navigation.utilityRotator} />
@@ -248,10 +259,7 @@ export function GlcRecoveredSiteHeader({ navigation }: Props) {
             </div>
 
             <div className="gl-header__cta-wrap">
-              <a href={util.phoneHref} className="btn-primary" aria-label="Call for a quote">
-                Get a Quote
-                <IconArrow />
-              </a>
+              <DispatchOwnerPhoneButtons variant="header" />
             </div>
           </div>
         </nav>
@@ -330,10 +338,6 @@ export function GlcRecoveredSiteHeader({ navigation }: Props) {
           title: companyMega.dispatchBand.title,
           sub: companyMega.dispatchBand.sub,
         }}
-        utilityPhoneDisplay={util.phoneDisplay}
-        utilityPhoneHref={util.phoneHref}
-        primaryCtaLabel="Get a Quote"
-        primaryCtaHref={util.phoneHref}
       />
     </>
   );

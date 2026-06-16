@@ -12,3 +12,18 @@ export const SITE_EMAIL_MAILTO = `mailto:${SITE.email}` as const;
 export function getSiteOwners(): SiteConfig["owners"] {
   return SITE.owners.map((owner) => ({ ...owner }));
 }
+
+export type OwnerPhoneCta = {
+  firstName: string;
+  display: string;
+  href: string;
+};
+
+/** Co-owner direct lines for dispatch CTAs (order matches site.json owners). */
+export function getOwnerPhoneCtas(): OwnerPhoneCta[] {
+  return getSiteOwners().map((owner) => ({
+    firstName: owner.name.split(" ")[0] ?? owner.name,
+    display: owner.telephoneDisplay,
+    href: `tel:${owner.telephone}`,
+  }));
+}

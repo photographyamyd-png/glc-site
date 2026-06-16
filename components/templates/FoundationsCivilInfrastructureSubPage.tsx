@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import type { FoundationsSubPageContent } from "@/lib/site/foundations-civil-infrastructure-content";
 import { FOUNDATIONS_HUB_HERO, FOUNDATIONS_HUB_PATH, FOUNDATIONS_PAGE_CHROME } from "@/lib/site/foundations-civil-infrastructure-content";
-import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/ground-level/homepage-copy";
+import { DispatchOwnerPhoneButtons } from "@/components/layout/dispatch-owner-phone-buttons";
 
 type Props = {
   content: FoundationsSubPageContent;
@@ -47,12 +47,7 @@ export function FoundationsCivilInfrastructureSubPage({ content, imageSrc, image
               >
                 {FOUNDATIONS_HUB_HERO.ctaPrimaryLabel}
               </Link>
-              <Link
-                href={PHONE_TEL}
-                className="cta-outline-light flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
-              >
-                {FOUNDATIONS_HUB_HERO.ctaPhoneLabel}
-              </Link>
+              <DispatchOwnerPhoneButtons variant="hero-dark" />
             </div>
             <p className="mt-3 max-w-prose text-sm text-white/60">{FOUNDATIONS_HUB_HERO.microcopy}</p>
           </div>
@@ -93,16 +88,11 @@ export function FoundationsCivilInfrastructureSubPage({ content, imageSrc, image
               {content.ctaParagraphB ? (
                 <p className="mt-4 max-w-prose text-[15px] leading-[1.72] text-white/90 sm:text-base">{content.ctaParagraphB}</p>
               ) : null}
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 <Link href="/contact/" className="cta-primary inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
                   {content.ctaButtonLabel}
                 </Link>
-                <Link
-                  href={PHONE_TEL}
-                  className="cta-outline-light inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
-                >
-                  Call {PHONE_DISPLAY}
-                </Link>
+                <DispatchOwnerPhoneButtons variant="inline" />
               </div>
               <p className="mt-10">
                 <Link href={FOUNDATIONS_HUB_PATH} className="text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--y)] hover:underline">

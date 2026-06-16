@@ -37,7 +37,7 @@ import {
   toFoundationsStatsProps,
   toFoundationsWhyProps,
 } from "@/lib/site/foundations-glc-dna-adapters";
-import { PHONE_TEL } from "@/lib/ground-level/homepage-copy";
+import { DispatchOwnerPhoneButtons } from "@/components/layout/dispatch-owner-phone-buttons";
 import { getServiceImage } from "@/lib/site/service-images";
 
 const detailsClass =
@@ -85,12 +85,7 @@ export function FoundationsCivilInfrastructureHubPage() {
               >
                 {FOUNDATIONS_HUB_HERO.ctaPrimaryLabel}
               </Link>
-              <Link
-                href={PHONE_TEL}
-                className="cta-outline-light flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
-              >
-                {FOUNDATIONS_HUB_HERO.ctaPhoneLabel}
-              </Link>
+              <DispatchOwnerPhoneButtons variant="hero-dark" />
             </div>
             <p className="mt-3 text-sm text-white/60">{FOUNDATIONS_HUB_HERO.microcopy}</p>
             <p className="mt-6 eyebrow text-white">{FOUNDATIONS_COMPANY}</p>

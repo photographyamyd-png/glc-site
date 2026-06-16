@@ -1,3 +1,4 @@
+import { DispatchOwnerPhoneButtons } from "@/components/layout/dispatch-owner-phone-buttons";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { CTA_BAND, EMAIL_MAILTO, PHONE_TEL } from "@/lib/ground-level/homepage-copy";
@@ -98,13 +99,8 @@ export function GLCtaBand({
             <ExpandableCopy text={c.sub} className="text-[15px] leading-[1.72] text-ink sm:text-base" />
           </div>
         </div>
-        <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center">
-          <a
-            href={c.phoneHref}
-            className="border-2 border-ink px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em] text-ink transition-colors hover:border-[color:var(--y)] hover:text-[color:var(--ink-deep)]"
-          >
-            {c.phoneLabel}
-          </a>
+        <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center sm:flex-wrap">
+          <DispatchOwnerPhoneButtons variant="inline" />
           <span
             className="hidden h-8 w-px bg-[color:var(--g200)] sm:inline-block"
             data-motif-id="cta3__divider"

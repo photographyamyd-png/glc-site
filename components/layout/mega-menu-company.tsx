@@ -1,6 +1,6 @@
 import { SmartLink } from "@/components/ui/smart-link";
-import { IconArrow } from "@/components/ui/icon-arrow";
 import type { CompanyMegaConfig } from "@/content/types";
+import { DispatchOwnerPhoneButtons } from "@/components/layout/dispatch-owner-phone-buttons";
 
 type Props = {
   companyMega: CompanyMegaConfig;
@@ -32,10 +32,7 @@ export function MegaMenuCompany({ companyMega }: Props) {
           <p className="gl-mega-dispatch__title">{dispatch.title}</p>
           <p className="gl-mega-dispatch__sub">{dispatch.sub}</p>
         </div>
-        <a href={dispatch.phoneHref} className="btn-primary">
-          {dispatch.phoneDisplay}
-          <IconArrow />
-        </a>
+        <DispatchOwnerPhoneButtons variant="mega" />
       </div>
     </div>
   );

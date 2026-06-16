@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { SmartLink } from "@/components/ui/smart-link";
+import { DispatchOwnerPhoneButtons } from "@/components/layout/dispatch-owner-phone-buttons";
 import { ServiceCardIcon } from "@/components/glc-dna/sections/service-card-icon";
 import type { MobileMegaServiceRow, NavLink } from "@/content/types";
 
@@ -19,10 +20,6 @@ type Props = {
   serviceRows: MobileMegaServiceRow[];
   brandLogoSrc: string;
   dispatchBand: MobileDrawerDispatchBand;
-  utilityPhoneDisplay: string;
-  utilityPhoneHref: string;
-  primaryCtaLabel: string;
-  primaryCtaHref: string;
 };
 
 function ChevronRight({ className }: { className?: string }) {
@@ -49,10 +46,6 @@ export function MobileDrawer({
   serviceRows,
   brandLogoSrc,
   dispatchBand,
-  utilityPhoneDisplay,
-  utilityPhoneHref,
-  primaryCtaLabel,
-  primaryCtaHref,
 }: Props) {
   if (!open) return null;
 
@@ -126,12 +119,7 @@ export function MobileDrawer({
                 <p className="gl-mobile-drawer__dispatch-kicker">{dispatchBand.kicker}</p>
                 <p className="gl-mobile-drawer__dispatch-headline">{dispatchBand.title}</p>
                 <p className="gl-mobile-drawer__dispatch-lede">{dispatchBand.sub}</p>
-                <a href={utilityPhoneHref} className="gl-mobile-drawer__phone gl-mobile-drawer__phone--dispatch" onClick={onClose}>
-                  {utilityPhoneDisplay}
-                </a>
-                <SmartLink href={primaryCtaHref} className="btn-primary gl-mobile-drawer__dispatch-btn" onClick={onClose}>
-                  {primaryCtaLabel}
-                </SmartLink>
+                <DispatchOwnerPhoneButtons variant="mobile" onNavigate={onClose} />
               </div>
             </div>
           </div>

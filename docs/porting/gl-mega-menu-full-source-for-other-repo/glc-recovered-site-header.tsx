@@ -329,10 +329,6 @@ export function GlcRecoveredSiteHeader({ navigation }: Props) {
           title: companyMega.dispatchBand.title,
           sub: companyMega.dispatchBand.sub,
         }}
-        utilityPhoneDisplay={util.phoneDisplay}
-        utilityPhoneHref={util.phoneHref}
-        primaryCtaLabel="Get a Quote"
-        primaryCtaHref={util.phoneHref}
       />
     </>
   );

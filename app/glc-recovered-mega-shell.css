@@ -196,7 +196,9 @@
   margin: 0;
 }
 
-.gl-header__cta-wrap .btn-primary {
+.gl-header__cta-wrap .btn-primary,
+.gl-header__cta-wrap .btn-dispatch-secondary {
+  white-space: nowrap;
   text-decoration: none;
 }
 

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useId, useState } from "react";
-import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/ground-level/homepage-copy";
+import { DispatchOwnerPhoneButtons } from "@/components/layout/dispatch-owner-phone-buttons";
 import type { ContactLeadSource } from "@/lib/contact/schema";
 
 export type ContactLeadFormProps = {
@@ -120,13 +120,8 @@ export function ContactLeadForm({
           Thanks — we received your note and will follow up as soon as we can. You can still reach us by phone if your
           request is urgent.
         </p>
-        <div className="mt-4 flex flex-wrap gap-3">
-          <Link
-            href={PHONE_TEL}
-            className="cta-primary inline-flex min-h-[44px] items-center px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em]"
-          >
-            Call now
-          </Link>
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          <DispatchOwnerPhoneButtons variant="inline" />
           <button
             type="button"
             className="inline-flex min-h-[44px] items-center border border-[color:var(--g200)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-ink"
@@ -277,16 +272,7 @@ export function ContactLeadForm({
           >
             {status === "submitting" ? "Sending…" : submitLabel}
           </button>
-          <Link
-            href={PHONE_TEL}
-            className={
-              variant === "foundations"
-                ? "inline-flex min-h-[48px] min-w-[200px] items-center justify-center border-2 border-[color:var(--ink-deep)] bg-transparent px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.12em] text-[color:var(--ink-deep)]"
-                : "inline-flex min-h-[48px] min-w-[200px] items-center justify-center border-2 border-ink px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.12em] text-ink"
-            }
-          >
-            Call {PHONE_DISPLAY}
-          </Link>
+          <DispatchOwnerPhoneButtons variant="inline" />
           {source === "foundations-hub" ? (
             <Link
               href="/contact/"
