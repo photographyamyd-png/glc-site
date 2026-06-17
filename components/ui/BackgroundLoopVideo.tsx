@@ -29,6 +29,8 @@ export type BackgroundLoopVideoProps = {
    * Keep poster as LCP — mount the video element after idle so large MP4s do not compete on first paint.
    */
   deferVideoMount?: boolean;
+  /** Responsive width hint for the poster `next/image` layer (not the raw `<video poster>`). */
+  posterSizes?: string;
   className?: string;
   imageClassName?: string;
 };
@@ -89,6 +91,7 @@ export function BackgroundLoopVideo({
   overlayVariant = "default",
   softLoopCrossfade = false,
   deferVideoMount = false,
+  posterSizes = "100vw",
   className,
   imageClassName = "object-cover object-center",
 }: BackgroundLoopVideoProps) {
@@ -160,7 +163,7 @@ export function BackgroundLoopVideo({
     if (!video) return;
 
     let lastTime = 0;
-    let fadeTimer: ReturnType<typeof setTimeout> | undefined;
+    let fadeTimer: number | undefined;
 
     const dip = () => {
       video.style.transition = "opacity 0.42s ease";
@@ -201,7 +204,7 @@ export function BackgroundLoopVideo({
         alt={posterAlt}
         fill
         priority={priority}
-        sizes="100vw"
+        sizes={posterSizes}
         className={cn(
           imageClassName,
           "hero-bg-image h-full w-full transition-opacity duration-500",
@@ -218,7 +221,6 @@ export function BackgroundLoopVideo({
           loop
           playsInline
           preload={preload}
-          poster={posterSrc}
           aria-hidden={decorative ? true : undefined}
           aria-label={decorative ? undefined : ariaLabel}
           onCanPlay={(e) => {

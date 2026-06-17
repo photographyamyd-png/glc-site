@@ -14,7 +14,8 @@ const SNOW_VIDEOS_BASE = "/images/services/Snow%20Removal/Videos";
 /** Muted hero/CTA background loop — commercial construction and site operations reel. */
 export const GLC_PROJECT_REEL_LOOP: BrandLoopVideo = {
   src: `${SNOW_VIDEOS_BASE}/${encodeURIComponent("Ground Level Contracting - Project Video.MP4")}`,
-  posterSrc: "/images/services/Excavation/excavation-016.jpg",
+  /** WebP derivative — avoids shipping the 1.7MB source JPG as a raw `<video poster>`. */
+  posterSrc: "/images/services/Excavation/excavation-016-poster.webp",
   ariaLabel:
     "Ground Level Contracting commercial construction and site operations in Simcoe County",
 };

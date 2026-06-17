@@ -29,6 +29,8 @@ export function HomeFinalCtaSection() {
           posterAlt={GLC_PROJECT_REEL_LOOP.ariaLabel}
           preload="none"
           playWhenInView
+          deferVideoMount
+          posterSizes="100vw"
           playbackRate={GLC_PROJECT_REEL_AMBIENT_PLAYBACK_RATE}
           imageClassName={CTA_REEL_IMAGE_CLASS}
           overlayVariant="ambient"
@@ -45,6 +47,8 @@ export function HomeFinalCtaSection() {
           posterAlt={GLC_PROJECT_REEL_LOOP.ariaLabel}
           preload="none"
           playWhenInView
+          deferVideoMount
+          posterSizes="(min-width: 1280px) 1400px, 100vw"
           playbackRate={GLC_PROJECT_REEL_AMBIENT_PLAYBACK_RATE}
           imageClassName={CTA_REEL_IMAGE_CLASS}
           overlayVariant="ambient"

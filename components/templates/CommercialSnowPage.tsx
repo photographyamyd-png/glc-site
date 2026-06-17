@@ -70,7 +70,8 @@ export function CommercialSnowPage({ related }: Props) {
               ariaLabel={COMMERCIAL_SNOW_HERO.heroImageAriaLabel}
               decorative={false}
               priority
-              preload="metadata"
+              preload="none"
+              deferVideoMount
               showOverlay
             />
           ) : (

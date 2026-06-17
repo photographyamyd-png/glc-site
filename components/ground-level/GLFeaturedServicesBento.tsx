@@ -151,6 +151,7 @@ function GlcServiceCard({
           src={item.imageUrl}
           fallbackSrc={item.fallbackImageUrl}
           alt={item.imageAlt}
+          sizes={isHero ? "(min-width: 1024px) 55vw, 100vw" : "(min-width: 1024px) 400px, 100vw"}
           className="h-full w-full object-cover opacity-95 transition-[transform] duration-500 ease-[var(--ease)] group-hover:scale-[1.03] group-focus-visible:scale-[1.03] motion-reduce:group-hover:scale-100 motion-reduce:group-focus-visible:scale-100"
         />
       </div>
