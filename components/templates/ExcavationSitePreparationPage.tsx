@@ -8,6 +8,7 @@ import {
   excavationMarqueeItems,
 } from "@/lib/ground-level/excavation-sandbox-map";
 import { SERVICE_DETAILS } from "@/lib/site/copy";
+import { GLC_PROJECT_REEL_LOOP } from "@/lib/site/brand-media";
 import type { ServiceDef } from "@/lib/site/registry";
 
 const detail = SERVICE_DETAILS["excavation-site-preparation"];
@@ -32,8 +33,10 @@ export function ExcavationSitePreparationPage(props: Props) {
         sectionId="hero"
         headingId="excavation-hero-heading"
         content={excavationHeroContent()}
-        imageSrc="/images/services/Excavation/excavation-016.jpg"
+        imageSrc={GLC_PROJECT_REEL_LOOP.posterSrc}
         imageAlt="Commercial excavation equipment on an active Simcoe County construction site"
+        loopVideo={GLC_PROJECT_REEL_LOOP}
+        loopVideoPlaybackRate={0.65}
         showMarquee={false}
         variant="marketing"
       />

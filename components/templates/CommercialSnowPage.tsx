@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ServiceDef } from "@/lib/site/registry";
 import { cn } from "@/lib/utils";
+import { BackgroundLoopVideo } from "@/components/ui/BackgroundLoopVideo";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { CardSurface } from "@/components/ui/CardSurface";
 import { CommercialSnowJsonLd } from "@/components/seo/CommercialSnowJsonLd";
@@ -62,18 +63,15 @@ export function CommercialSnowPage({ related }: Props) {
       >
         <div className="hero-stage section-major band-dark-field relative min-h-[min(100dvh,920px)] overflow-hidden">
           {SNOW_HUB_HERO_LOOP_VIDEO ? (
-            <video
-              className="absolute inset-0 h-full w-full object-cover object-center"
-              autoPlay
-              muted
-              loop
-              playsInline
+            <BackgroundLoopVideo
+              src={SNOW_HUB_HERO_LOOP_VIDEO.src}
+              posterSrc={SNOW_HUB_SECTION.hero.src}
+              posterAlt={COMMERCIAL_SNOW_HERO.heroImageAriaLabel}
+              ariaLabel={COMMERCIAL_SNOW_HERO.heroImageAriaLabel}
+              decorative={false}
+              priority
               preload="metadata"
-              poster={SNOW_HUB_SECTION.hero.src}
-              aria-label={COMMERCIAL_SNOW_HERO.heroImageAriaLabel}
-            >
-              <source src={SNOW_HUB_HERO_LOOP_VIDEO.src} type="video/mp4" />
-            </video>
+            />
           ) : (
             <Image
               src={SNOW_HUB_SECTION.hero.src}
@@ -85,38 +83,38 @@ export function CommercialSnowPage({ related }: Props) {
             />
           )}
           <div
-            className="absolute inset-0 bg-gradient-to-r from-[rgb(10_12_11/0.92)] via-[rgb(10_12_11/0.72)] to-[rgb(10_12_11/0.35)]"
+            className="absolute inset-0 bg-[radial-gradient(ellipse_85%_65%_at_0%_100%,rgb(10_12_11/0.88),transparent_58%)]"
             aria-hidden
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.75)] via-transparent to-[rgb(10_12_11/0.28)]" aria-hidden />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_30%,rgb(255_255_255/0.06),transparent_55%)]" aria-hidden />
+          <div className="absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.5)] via-transparent to-[rgb(10_12_11/0.12)]" aria-hidden />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_85%_20%,rgb(255_255_255/0.04),transparent_60%)]" aria-hidden />
           <ClaudeLogicWatermark placement="bottom-right" mode="on-dark" className="z-[1] opacity-[0.16]" />
 
-          <div className="relative z-10 mx-auto flex min-h-[min(100dvh,920px)] max-w-[min(100%,var(--max-bleed))] flex-col justify-end px-7 pb-8 pt-[calc(var(--header)+2rem)] sm:px-10 sm:pb-10 lg:justify-between lg:px-20 lg:pt-[calc(var(--header)+3rem)]">
-            <div className="max-w-[min(100%,var(--max))] rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-6 shadow-[0_24px_80px_rgb(0_0_0/0.35)] backdrop-blur-md sm:p-8 lg:max-w-4xl">
+          <div className="relative z-10 flex min-h-[min(100dvh,920px)] w-full items-end justify-start px-4 pb-5 pt-[calc(var(--header)+0.75rem)] sm:px-6 sm:pb-7 lg:px-10 lg:pb-10">
+            <div className="w-full max-w-[min(100%,20rem)] rounded-sm border border-white/10 bg-[rgb(10_12_11/0.45)] p-3 shadow-[0_16px_48px_rgb(0_0_0/0.35)] backdrop-blur-md sm:max-w-[22rem] sm:p-4 md:max-w-[24rem] lg:max-w-[min(33vw,28rem)] lg:p-5">
               <div
-                className="mb-4 inline-flex border border-white/20 bg-[rgb(0_0_0/0.35)] px-3 py-2"
+                className="mb-2 inline-flex border border-white/20 bg-[rgb(0_0_0/0.35)] px-2 py-1"
                 aria-label={COMMERCIAL_SNOW_HERO.pressBadgeAriaLabel}
               >
                 <div className="flex flex-col gap-0.5">
                   {COMMERCIAL_SNOW_HERO.pressBadgeLines.map((line) => (
-                    <span key={line} className="font-label text-[10px] font-semibold uppercase tracking-[0.14em] text-white">
+                    <span key={line} className="font-label text-[8px] font-semibold uppercase tracking-[0.12em] text-white sm:text-[9px]">
                       {line}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <p className="eyebrow text-white">{COMMERCIAL_SNOW_HERO.eyebrow}</p>
-              <p className="mt-3">
+              <p className="eyebrow text-[11px] text-white sm:text-[12px]">{COMMERCIAL_SNOW_HERO.eyebrow}</p>
+              <p className="mt-1.5">
                 <Link
                   href={`#${COMMERCIAL_SNOW_HERO.authorityChapterAnchor}`}
-                  className="text-[13px] font-semibold uppercase tracking-[0.1em] text-[color:var(--y)] underline-offset-4 hover:underline"
+                  className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[color:var(--y)] underline-offset-4 hover:underline sm:text-[11px]"
                 >
                   Watch CTV Barrie coverage
                 </Link>
               </p>
-              <p className="mt-2 text-[13px] text-white/80">
+              <p className="mt-1 text-[10px] text-white/80 sm:text-[11px]">
                 <Link href={COMMERCIAL_SNOW_HERO.breadcrumb.homeHref} className="underline-offset-2 hover:text-white hover:underline">
                   Home
                 </Link>
@@ -130,54 +128,54 @@ export function CommercialSnowPage({ related }: Props) {
 
               <h1
                 id={COMMERCIAL_SNOW_HERO.h1Id}
-                className="mt-[var(--s7)] max-w-4xl font-serif text-[clamp(2.3rem,6.2vw,5.1rem)] font-semibold uppercase leading-[0.9] tracking-[-0.02em] text-white"
+                className="mt-3 max-w-none font-serif text-[clamp(1.15rem,3.2vw,1.85rem)] font-semibold uppercase leading-[0.92] tracking-[-0.02em] text-white sm:mt-4"
               >
                 {COMMERCIAL_SNOW_HERO.h1}
               </h1>
-              <p className="hero-caption mt-[var(--s7)] max-w-[36rem] text-[15px] leading-[1.72] text-white/90 sm:text-base">
+              <p className="hero-caption mt-2 max-w-none text-[11px] leading-[1.55] text-white/90 sm:mt-3 sm:text-[12px] sm:leading-[1.6]">
                 {COMMERCIAL_SNOW_HERO.lede}
               </p>
 
-              <div className="hero-rule mt-6 h-px w-full max-w-md bg-[color:var(--y)]/80" aria-hidden />
+              <div className="hero-rule mt-3 h-px w-full max-w-full bg-[color:var(--y)]/80 sm:mt-4" aria-hidden />
 
               <div
-                className="mt-6 grid gap-4 border-l-4 border-[color:var(--y)] pl-5 sm:grid-cols-3"
+                className="mt-3 grid grid-cols-3 gap-2 border-l-2 border-[color:var(--y)] pl-2.5 sm:mt-4 sm:gap-3 sm:border-l-4 sm:pl-3"
                 aria-label={COMMERCIAL_SNOW_HERO.metricsAriaLabel}
               >
                 {COMMERCIAL_SNOW_HERO.metrics.map((m) => (
                   <div key={m.label}>
-                    <p className="font-serif text-[clamp(52px,5vw,80px)] font-bold leading-none tracking-[-0.04em] text-[color:var(--y)]">
+                    <p className="font-serif text-[clamp(1.25rem,2.8vw,1.75rem)] font-bold leading-none tracking-[-0.04em] text-[color:var(--y)]">
                       {m.value}
                     </p>
-                    <p className="mt-2 text-[15px] leading-snug text-white/90">{m.label}</p>
+                    <p className="mt-0.5 text-[9px] leading-snug text-white/90 sm:mt-1 sm:text-[10px]">{m.label}</p>
                   </div>
                 ))}
               </div>
 
-              <p className="mt-6 eyebrow text-white">{COMMERCIAL_SNOW_HERO.coverageEyebrow}</p>
-              <ul className="mt-3 flex flex-wrap gap-2" aria-label="Service coverage">
+              <p className="mt-3 eyebrow text-[11px] text-white sm:mt-4 sm:text-[12px]">{COMMERCIAL_SNOW_HERO.coverageEyebrow}</p>
+              <ul className="mt-1.5 flex flex-wrap gap-1 sm:mt-2 sm:gap-1.5" aria-label="Service coverage">
                 {["Barrie", "Orillia", "Innisfil", "Wasaga Beach", "Simcoe County"].map((tag) => (
-                  <li key={tag} className="eyebrow border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-white">
+                  <li key={tag} className="eyebrow border border-white/15 bg-[rgb(255_255_255/0.06)] px-1.5 py-0.5 text-[9px] text-white sm:px-2 sm:py-1 sm:text-[10px]">
                     {tag}
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Link href={COMMERCIAL_SNOW_HERO.ctas.primary.href} className="cta-hero-fill inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em]">
+              <div className="mt-4 flex flex-col gap-2 sm:mt-5 sm:flex-row sm:flex-wrap">
+                <Link href={COMMERCIAL_SNOW_HERO.ctas.primary.href} className="cta-hero-fill inline-flex min-h-[44px] items-center justify-center px-3 py-2 text-center text-[10px] font-semibold uppercase tracking-[0.1em] sm:px-4 sm:text-[11px]">
                   {COMMERCIAL_SNOW_HERO.ctas.primary.label}
                 </Link>
                 <Link
                   href={COMMERCIAL_SNOW_HERO.ctas.secondary.href}
-                  className="cta-outline-light inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
+                  className="cta-outline-light inline-flex min-h-[44px] items-center justify-center px-3 py-2 text-center text-[10px] font-bold uppercase tracking-[0.1em] sm:px-4 sm:text-[11px]"
                 >
                   {COMMERCIAL_SNOW_HERO.ctas.secondary.label}
                 </Link>
               </div>
-              <p className="mt-5 text-center sm:text-left">
+              <p className="mt-3 text-center sm:text-left">
                 <Link
                   href={COMMERCIAL_SNOW_HERO.ctas.textCta.href}
-                  className="text-[13px] font-semibold uppercase tracking-[0.08em] text-white/85 underline-offset-4 hover:text-white hover:underline"
+                  className="text-[10px] font-semibold uppercase tracking-[0.06em] text-white/85 underline-offset-4 hover:text-white hover:underline sm:text-[11px]"
                 >
                   {COMMERCIAL_SNOW_HERO.ctas.textCta.label}
                 </Link>

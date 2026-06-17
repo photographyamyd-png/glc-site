@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BackgroundLoopVideo } from "@/components/ui/BackgroundLoopVideo";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { ExpandableCopy } from "@/components/ui/ExpandableCopy";
 import { ThreeActHeadline } from "@/components/ui/ThreeActHeadline";
 import { HERO, MARQUEE_PHRASES } from "@/lib/ground-level/homepage-copy";
+import type { BrandLoopVideo } from "@/lib/site/brand-media";
 import type { PrimaryServiceSlug } from "@/lib/site/registry";
 
 export type GLHeroStat = string | { value: string; label: string };
@@ -70,7 +72,50 @@ export type GLHeroProps = {
    * and secondary CTA as underlined text (not outline slab).
    */
   variant?: "default" | "marketing";
+  /** Optional muted background loop; `imageSrc` / `imageAlt` serve as poster fallback. */
+  loopVideo?: BrandLoopVideo;
+  /** Slows the hero loop when set (e.g. `0.65` ≈ 65% speed). */
+  loopVideoPlaybackRate?: number;
 };
+
+function HeroBackgroundMedia({
+  imageSrc,
+  imageAlt,
+  loopVideo,
+  loopVideoPlaybackRate,
+  priority = true,
+}: {
+  imageSrc: string;
+  imageAlt: string;
+  loopVideo?: BrandLoopVideo;
+  loopVideoPlaybackRate?: number;
+  priority?: boolean;
+}) {
+  if (loopVideo) {
+    return (
+      <BackgroundLoopVideo
+        src={loopVideo.src}
+        posterSrc={loopVideo.posterSrc}
+        posterAlt={imageAlt || loopVideo.ariaLabel}
+        ariaLabel={loopVideo.ariaLabel}
+        priority={priority}
+        preload="metadata"
+        playbackRate={loopVideoPlaybackRate}
+      />
+    );
+  }
+
+  return (
+    <Image
+      src={imageSrc}
+      alt={imageAlt}
+      fill
+      priority={priority}
+      sizes="100vw"
+      className="hero-bg-image object-cover object-center"
+    />
+  );
+}
 
 export function GLHero({
   sectionId = "top",
@@ -80,12 +125,15 @@ export function GLHero({
   imageAlt,
   showMarquee = true,
   variant = "default",
+  loopVideo,
+  loopVideoPlaybackRate,
 }: GLHeroProps = {}) {
   const c = content ?? defaultHeroContent();
   const marqueeDup = [...c.marqueePhrases, ...c.marqueePhrases];
   const shortcuts = c.serviceShortcuts;
   const barLabels = c.serviceBarLabels;
   const resolvedAlt = variant === "marketing" ? imageAlt ?? MARKETING_IMAGE_ALT_DEFAULT : imageAlt ?? "";
+  const hasVideoBg = Boolean(loopVideo);
 
   if (variant === "marketing") {
     return (
@@ -95,20 +143,26 @@ export function GLHero({
         aria-labelledby={headingId}
       >
         <div className="pointer-events-none absolute inset-0">
-          <Image
-            src={imageSrc}
-            alt={resolvedAlt}
-            fill
-            priority
-            sizes="100vw"
-            className="hero-bg-image object-cover object-center"
+          <HeroBackgroundMedia
+            imageSrc={imageSrc}
+            imageAlt={resolvedAlt}
+            loopVideo={loopVideo}
+            loopVideoPlaybackRate={loopVideoPlaybackRate}
           />
           <div
-            className="absolute inset-0 bg-gradient-to-r from-[rgb(10_12_11/0.92)] via-[rgb(10_12_11/0.78)] to-[rgb(10_12_11/0.28)] lg:via-[rgb(10_12_11/0.64)] lg:to-transparent"
+            className={`absolute inset-0 bg-gradient-to-r ${
+              hasVideoBg
+                ? "from-[rgb(10_12_11/0.96)] via-[rgb(10_12_11/0.82)] to-[rgb(10_12_11/0.32)] lg:via-[rgb(10_12_11/0.68)] lg:to-transparent"
+                : "from-[rgb(10_12_11/0.92)] via-[rgb(10_12_11/0.78)] to-[rgb(10_12_11/0.28)] lg:via-[rgb(10_12_11/0.64)] lg:to-transparent"
+            }`}
             aria-hidden
           />
           <div
-            className="absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.7)] via-transparent to-[rgb(10_12_11/0.32)]"
+            className={`absolute inset-0 bg-gradient-to-t ${
+              hasVideoBg
+                ? "from-[rgb(10_12_11/0.78)] via-transparent to-[rgb(10_12_11/0.36)]"
+                : "from-[rgb(10_12_11/0.7)] via-transparent to-[rgb(10_12_11/0.32)]"
+            }`}
             aria-hidden
           />
           <div
@@ -244,17 +298,19 @@ export function GLHero({
       aria-labelledby={headingId}
     >
       <div className="absolute inset-0 overflow-hidden">
-        <Image
-          src={imageSrc}
-          alt={resolvedAlt}
-          fill
-          priority
-          className="hero-bg-image object-cover object-center"
-          sizes="100vw"
+        <HeroBackgroundMedia
+          imageSrc={imageSrc}
+          imageAlt={resolvedAlt}
+          loopVideo={loopVideo}
+          loopVideoPlaybackRate={loopVideoPlaybackRate}
         />
       </div>
       <div
-        className="absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.92)] via-[rgb(20_24_22/0.55)] to-[rgb(15_18_16/0.35)]"
+        className={`absolute inset-0 bg-gradient-to-t ${
+          hasVideoBg
+            ? "from-[rgb(10_12_11/0.96)] via-[rgb(20_24_22/0.62)] to-[rgb(15_18_16/0.4)]"
+            : "from-[rgb(10_12_11/0.92)] via-[rgb(20_24_22/0.55)] to-[rgb(15_18_16/0.35)]"
+        }`}
         aria-hidden
       />
       <div

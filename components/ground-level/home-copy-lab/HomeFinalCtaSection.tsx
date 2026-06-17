@@ -1,15 +1,11 @@
 import Link from "next/link";
+import { BackgroundLoopVideo } from "@/components/ui/BackgroundLoopVideo";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { IconArrow } from "@/components/ui/icon-arrow";
-import { ServiceLabImg } from "@/components/ground-level/service-layout-lab/ServiceLabImg";
 import { COPY_LAB_CLOSING_CTA } from "@/lib/ground-level/home-copy-lab-content";
-import { getServiceImage, getServiceImageRasterPlaceholder } from "@/lib/site/service-images";
+import { GLC_PROJECT_REEL_LOOP } from "@/lib/site/brand-media";
 
 const c = COPY_LAB_CLOSING_CTA;
-
-const CTA_FIELD_SLUG = "drainage-hardscaping" as const;
-const fieldImage = getServiceImage(CTA_FIELD_SLUG);
-const fieldImageFallback = getServiceImageRasterPlaceholder(CTA_FIELD_SLUG);
 
 export function HomeFinalCtaSection() {
   return (
@@ -21,14 +17,17 @@ export function HomeFinalCtaSection() {
       data-accent-zone="conversion-endband"
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <ServiceLabImg
-          src={fieldImage.src}
-          fallbackSrc={fieldImageFallback}
-          alt={fieldImage.alt}
-          sizes="100vw"
-          className="h-full w-full object-cover opacity-[0.2] sm:opacity-[0.24]"
+        <BackgroundLoopVideo
+          src={GLC_PROJECT_REEL_LOOP.src}
+          posterSrc={GLC_PROJECT_REEL_LOOP.posterSrc}
+          posterAlt={GLC_PROJECT_REEL_LOOP.ariaLabel}
+          preload="none"
+          playWhenInView
         />
-        <div className="absolute inset-0 bg-[rgb(18_17_16/0.94)]" />
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-[rgb(10_12_11/0.92)] via-[rgb(10_12_11/0.88)] to-[rgb(10_12_11/0.72)]"
+          aria-hidden
+        />
         <div className="absolute inset-0 bg-[linear-gradient(125deg,rgb(0_0_0/0.55),transparent_48%,rgb(242_183_5/0.07))]" />
         <div
           className="absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255/0.04),transparent_38%)]"
