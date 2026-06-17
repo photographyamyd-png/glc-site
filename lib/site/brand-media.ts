@@ -18,3 +18,6 @@ export const GLC_PROJECT_REEL_LOOP: BrandLoopVideo = {
   ariaLabel:
     "Ground Level Contracting commercial construction and site operations in Simcoe County",
 };
+
+/** Thin-strip CTA backgrounds — panning reel with jump cuts reads better well below native speed. */
+export const GLC_PROJECT_REEL_AMBIENT_PLAYBACK_RATE = 0.35;

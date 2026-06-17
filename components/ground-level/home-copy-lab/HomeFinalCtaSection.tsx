@@ -3,12 +3,11 @@ import { BackgroundLoopVideo } from "@/components/ui/BackgroundLoopVideo";
 import { ClaudeLogicWatermark } from "@/components/ui/ClaudeLogicWatermark";
 import { IconArrow } from "@/components/ui/icon-arrow";
 import { COPY_LAB_CLOSING_CTA } from "@/lib/ground-level/home-copy-lab-content";
-import { GLC_PROJECT_REEL_LOOP } from "@/lib/site/brand-media";
+import { GLC_PROJECT_REEL_AMBIENT_PLAYBACK_RATE, GLC_PROJECT_REEL_LOOP } from "@/lib/site/brand-media";
 
 const c = COPY_LAB_CLOSING_CTA;
 
-/** Ambient CTA loop — slower than native speed so the band reads as atmosphere, not action reel. */
-const CTA_REEL_PLAYBACK_RATE = 0.65;
+const CTA_REEL_IMAGE_CLASS = "object-cover object-center cta-reel-drift";
 
 export function HomeFinalCtaSection() {
   return (
@@ -30,7 +29,10 @@ export function HomeFinalCtaSection() {
           posterAlt={GLC_PROJECT_REEL_LOOP.ariaLabel}
           preload="none"
           playWhenInView
-          playbackRate={CTA_REEL_PLAYBACK_RATE}
+          playbackRate={GLC_PROJECT_REEL_AMBIENT_PLAYBACK_RATE}
+          imageClassName={CTA_REEL_IMAGE_CLASS}
+          overlayVariant="ambient"
+          softLoopCrossfade
           showOverlay
         />
       </div>
@@ -43,7 +45,10 @@ export function HomeFinalCtaSection() {
           posterAlt={GLC_PROJECT_REEL_LOOP.ariaLabel}
           preload="none"
           playWhenInView
-          playbackRate={CTA_REEL_PLAYBACK_RATE}
+          playbackRate={GLC_PROJECT_REEL_AMBIENT_PLAYBACK_RATE}
+          imageClassName={CTA_REEL_IMAGE_CLASS}
+          overlayVariant="ambient"
+          softLoopCrossfade
           showOverlay
         />
         <div className="absolute inset-0 bg-[linear-gradient(125deg,rgb(0_0_0/0.35),transparent_48%,rgb(242_183_5/0.07))]" />

@@ -21,31 +21,52 @@ export type BackgroundLoopVideoProps = {
   playbackRate?: number;
   /** Dark scrim stacked on the video (recommended for text legibility). */
   showOverlay?: boolean;
+  /** Heavier scrim for thin-strip ambient loops over busy panning footage. */
+  overlayVariant?: "default" | "ambient";
+  /** Brief opacity dip on loop seams and hard jump cuts in the source reel. */
+  softLoopCrossfade?: boolean;
+  /**
+   * Keep poster as LCP — mount the video element after idle so large MP4s do not compete on first paint.
+   */
+  deferVideoMount?: boolean;
   className?: string;
   imageClassName?: string;
 };
 
 /** Shared dark scrim — sits on the video plane only, not the whole section. */
-export function BackgroundLoopVideoOverlay({ className }: { className?: string }) {
+export function BackgroundLoopVideoOverlay({
+  className,
+  variant = "default",
+}: {
+  className?: string;
+  variant?: "default" | "ambient";
+}) {
+  const ambient = variant === "ambient";
   return (
     <>
       <div
         className={cn(
-          "absolute inset-0 bg-[rgb(10_12_11/0.14)] md:bg-[rgb(10_12_11/0.26)]",
+          ambient
+            ? "absolute inset-0 bg-[rgb(10_12_11/0.34)] md:bg-[rgb(10_12_11/0.52)]"
+            : "absolute inset-0 bg-[rgb(10_12_11/0.14)] md:bg-[rgb(10_12_11/0.26)]",
           className,
         )}
         aria-hidden
       />
       <div
         className={cn(
-          "absolute inset-0 bg-gradient-to-r from-[rgb(10_12_11/0.38)] via-[rgb(10_12_11/0.22)] to-[rgb(10_12_11/0.1)] md:from-[rgb(10_12_11/0.58)] md:via-[rgb(10_12_11/0.36)] md:to-[rgb(10_12_11/0.18)]",
+          ambient
+            ? "absolute inset-0 bg-gradient-to-r from-[rgb(10_12_11/0.62)] via-[rgb(10_12_11/0.42)] to-[rgb(10_12_11/0.24)] md:from-[rgb(10_12_11/0.72)] md:via-[rgb(10_12_11/0.5)] md:to-[rgb(10_12_11/0.28)]"
+            : "absolute inset-0 bg-gradient-to-r from-[rgb(10_12_11/0.38)] via-[rgb(10_12_11/0.22)] to-[rgb(10_12_11/0.1)] md:from-[rgb(10_12_11/0.58)] md:via-[rgb(10_12_11/0.36)] md:to-[rgb(10_12_11/0.18)]",
           className,
         )}
         aria-hidden
       />
       <div
         className={cn(
-          "absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.28)] via-[rgb(10_12_11/0.1)] to-transparent md:from-[rgb(10_12_11/0.45)] md:via-[rgb(10_12_11/0.14)] md:to-[rgb(10_12_11/0.08)]",
+          ambient
+            ? "absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.52)] via-[rgb(10_12_11/0.2)] to-[rgb(10_12_11/0.1)] md:from-[rgb(10_12_11/0.58)] md:via-[rgb(10_12_11/0.22)] md:to-[rgb(10_12_11/0.12)]"
+            : "absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.28)] via-[rgb(10_12_11/0.1)] to-transparent md:from-[rgb(10_12_11/0.45)] md:via-[rgb(10_12_11/0.14)] md:to-[rgb(10_12_11/0.08)]",
           className,
         )}
         aria-hidden
@@ -65,6 +86,9 @@ export function BackgroundLoopVideo({
   priority = false,
   playbackRate = 1,
   showOverlay = true,
+  overlayVariant = "default",
+  softLoopCrossfade = false,
+  deferVideoMount = false,
   className,
   imageClassName = "object-cover object-center",
 }: BackgroundLoopVideoProps) {
@@ -72,6 +96,21 @@ export function BackgroundLoopVideo({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [reduceMotion, setReduceMotion] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
+  const [mountVideo, setMountVideo] = useState(!deferVideoMount);
+
+  useEffect(() => {
+    if (!deferVideoMount || reduceMotion) return;
+    const win = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    if (win.requestIdleCallback) {
+      const id = win.requestIdleCallback(() => setMountVideo(true), { timeout: 2500 });
+      return () => win.cancelIdleCallback?.(id);
+    }
+    const t = window.setTimeout(() => setMountVideo(true), 1200);
+    return () => window.clearTimeout(t);
+  }, [deferVideoMount, reduceMotion]);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -82,11 +121,11 @@ export function BackgroundLoopVideo({
   }, []);
 
   useEffect(() => {
-    if (reduceMotion || playWhenInView) return;
+    if (reduceMotion || playWhenInView || !mountVideo) return;
     const video = videoRef.current;
     if (!video) return;
     void video.play().catch(() => undefined);
-  }, [reduceMotion, playWhenInView]);
+  }, [reduceMotion, playWhenInView, mountVideo]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -115,6 +154,43 @@ export function BackgroundLoopVideo({
     return () => observer.disconnect();
   }, [reduceMotion, playWhenInView]);
 
+  useEffect(() => {
+    if (!softLoopCrossfade || reduceMotion || !mountVideo) return;
+    const video = videoRef.current;
+    if (!video) return;
+
+    let lastTime = 0;
+    let fadeTimer: ReturnType<typeof setTimeout> | undefined;
+
+    const dip = () => {
+      video.style.transition = "opacity 0.42s ease";
+      video.style.opacity = "0.48";
+      fadeTimer = window.setTimeout(() => {
+        video.style.transition = "opacity 0.72s ease";
+        video.style.opacity = "1";
+      }, 260);
+    };
+
+    const onTimeUpdate = () => {
+      const t = video.currentTime;
+      const dur = video.duration;
+      if (t < 0.2 && lastTime > Math.max(0, (dur || 0) - 0.55)) {
+        dip();
+      } else if (t - lastTime > 0.55 && lastTime > 0) {
+        dip();
+      }
+      lastTime = t;
+    };
+
+    video.addEventListener("timeupdate", onTimeUpdate);
+    return () => {
+      video.removeEventListener("timeupdate", onTimeUpdate);
+      if (fadeTimer) window.clearTimeout(fadeTimer);
+      video.style.transition = "";
+      video.style.opacity = "";
+    };
+  }, [softLoopCrossfade, reduceMotion, mountVideo]);
+
   const showPosterOnly = reduceMotion;
   const hidePosterUnderVideo = videoReady && !showPosterOnly;
 
@@ -133,7 +209,7 @@ export function BackgroundLoopVideo({
         )}
         aria-hidden={decorative ? true : undefined}
       />
-      {!showPosterOnly ? (
+      {!showPosterOnly && mountVideo ? (
         <video
           ref={videoRef}
           className={cn("absolute inset-0 h-full w-full", imageClassName)}
@@ -153,7 +229,7 @@ export function BackgroundLoopVideo({
           <source src={src} type="video/mp4" />
         </video>
       ) : null}
-      {showOverlay ? <BackgroundLoopVideoOverlay /> : null}
+      {showOverlay ? <BackgroundLoopVideoOverlay variant={overlayVariant} /> : null}
     </div>
   );
 }

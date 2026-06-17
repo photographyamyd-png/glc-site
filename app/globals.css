@@ -767,6 +767,32 @@ body {
   }
 }
 
+/* Slow horizontal drift for cropped CTA reel strips — decouples pan from jump-cut edits. */
+@keyframes cta-reel-drift {
+  0%,
+  100% {
+    object-position: 36% center;
+    transform: scale(1.22);
+  }
+  50% {
+    object-position: 64% center;
+    transform: scale(1.22);
+  }
+}
+
+.cta-reel-drift {
+  transform-origin: center center;
+  animation: cta-reel-drift 64s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-reel-drift {
+    animation: none;
+    object-position: center center;
+    transform: scale(1.12);
+  }
+}
+
 @keyframes hero-bg-scale {
   to {
     transform: scale(1);
