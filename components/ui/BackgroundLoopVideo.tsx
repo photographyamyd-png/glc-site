@@ -19,9 +19,40 @@ export type BackgroundLoopVideoProps = {
   priority?: boolean;
   /** Playback speed (1 = normal). Values below 1 slow the loop for hero backgrounds. */
   playbackRate?: number;
+  /** Dark scrim stacked on the video (recommended for text legibility). */
+  showOverlay?: boolean;
   className?: string;
   imageClassName?: string;
 };
+
+/** Shared dark scrim — sits on the video plane only, not the whole section. */
+export function BackgroundLoopVideoOverlay({ className }: { className?: string }) {
+  return (
+    <>
+      <div
+        className={cn(
+          "absolute inset-0 bg-[rgb(10_12_11/0.14)] md:bg-[rgb(10_12_11/0.26)]",
+          className,
+        )}
+        aria-hidden
+      />
+      <div
+        className={cn(
+          "absolute inset-0 bg-gradient-to-r from-[rgb(10_12_11/0.38)] via-[rgb(10_12_11/0.22)] to-[rgb(10_12_11/0.1)] md:from-[rgb(10_12_11/0.58)] md:via-[rgb(10_12_11/0.36)] md:to-[rgb(10_12_11/0.18)]",
+          className,
+        )}
+        aria-hidden
+      />
+      <div
+        className={cn(
+          "absolute inset-0 bg-gradient-to-t from-[rgb(10_12_11/0.28)] via-[rgb(10_12_11/0.1)] to-transparent md:from-[rgb(10_12_11/0.45)] md:via-[rgb(10_12_11/0.14)] md:to-[rgb(10_12_11/0.08)]",
+          className,
+        )}
+        aria-hidden
+      />
+    </>
+  );
+}
 
 export function BackgroundLoopVideo({
   src,
@@ -33,6 +64,7 @@ export function BackgroundLoopVideo({
   playWhenInView = false,
   priority = false,
   playbackRate = 1,
+  showOverlay = true,
   className,
   imageClassName = "object-cover object-center",
 }: BackgroundLoopVideoProps) {
@@ -121,6 +153,7 @@ export function BackgroundLoopVideo({
           <source src={src} type="video/mp4" />
         </video>
       ) : null}
+      {showOverlay ? <BackgroundLoopVideoOverlay /> : null}
     </div>
   );
 }

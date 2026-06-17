@@ -7,6 +7,7 @@ import { ThreeActHeadline } from "@/components/ui/ThreeActHeadline";
 import { HERO, MARQUEE_PHRASES } from "@/lib/ground-level/homepage-copy";
 import type { BrandLoopVideo } from "@/lib/site/brand-media";
 import type { PrimaryServiceSlug } from "@/lib/site/registry";
+import { cn } from "@/lib/utils";
 
 export type GLHeroStat = string | { value: string; label: string };
 
@@ -101,6 +102,7 @@ function HeroBackgroundMedia({
         priority={priority}
         preload="metadata"
         playbackRate={loopVideoPlaybackRate}
+        showOverlay
       />
     );
   }
@@ -139,10 +141,21 @@ export function GLHero({
     return (
       <section
         id={sectionId}
-        className="hero-stage band-dark-field relative isolate min-h-[100svh] scroll-mt-[var(--site-header-offset)] overflow-hidden"
+        className={cn(
+          "hero-stage band-dark-field relative isolate scroll-mt-[var(--site-header-offset)] overflow-hidden",
+          hasVideoBg ? "min-h-0 md:min-h-[100svh]" : "min-h-[100svh]",
+        )}
         aria-labelledby={headingId}
       >
-        <div className="pointer-events-none absolute inset-0">
+        <div
+          className={cn(
+            "pointer-events-none overflow-hidden",
+            hasVideoBg
+              ? "relative z-0 mt-[var(--site-header-offset)] aspect-video max-h-[min(56.25vw,44svh)] w-full shrink-0 border-b border-white/10 md:absolute md:inset-0 md:mt-0 md:aspect-auto md:max-h-none md:border-0"
+              : "absolute inset-0",
+          )}
+          aria-hidden={hasVideoBg ? true : undefined}
+        >
           <HeroBackgroundMedia
             imageSrc={imageSrc}
             imageAlt={resolvedAlt}
@@ -150,23 +163,25 @@ export function GLHero({
             loopVideoPlaybackRate={loopVideoPlaybackRate}
           />
           <div
-            className={`absolute inset-0 bg-gradient-to-r ${
+            className={cn(
+              "absolute inset-0 bg-gradient-to-r",
               hasVideoBg
-                ? "from-[rgb(10_12_11/0.96)] via-[rgb(10_12_11/0.82)] to-[rgb(10_12_11/0.32)] lg:via-[rgb(10_12_11/0.68)] lg:to-transparent"
-                : "from-[rgb(10_12_11/0.92)] via-[rgb(10_12_11/0.78)] to-[rgb(10_12_11/0.28)] lg:via-[rgb(10_12_11/0.64)] lg:to-transparent"
-            }`}
+                ? "hidden md:block from-[rgb(10_12_11/0.72)] via-[rgb(10_12_11/0.48)] to-[rgb(10_12_11/0.2)] lg:via-[rgb(10_12_11/0.4)] lg:to-transparent"
+                : "from-[rgb(10_12_11/0.92)] via-[rgb(10_12_11/0.78)] to-[rgb(10_12_11/0.28)] lg:via-[rgb(10_12_11/0.64)] lg:to-transparent",
+            )}
             aria-hidden
           />
           <div
-            className={`absolute inset-0 bg-gradient-to-t ${
+            className={cn(
+              "absolute inset-0 bg-gradient-to-t",
               hasVideoBg
-                ? "from-[rgb(10_12_11/0.78)] via-transparent to-[rgb(10_12_11/0.36)]"
-                : "from-[rgb(10_12_11/0.7)] via-transparent to-[rgb(10_12_11/0.32)]"
-            }`}
+                ? "hidden md:block from-[rgb(10_12_11/0.55)] via-transparent to-[rgb(10_12_11/0.2)]"
+                : "from-[rgb(10_12_11/0.7)] via-transparent to-[rgb(10_12_11/0.32)]",
+            )}
             aria-hidden
           />
           <div
-            className="absolute inset-0 opacity-[0.14]"
+            className={cn("absolute inset-0 opacity-[0.14]", hasVideoBg && "hidden md:block")}
             style={{
               background:
                 "radial-gradient(ellipse 82% 66% at 72% 40%, rgb(242 183 5 / 0.32) 0%, transparent 56%)",
@@ -177,9 +192,14 @@ export function GLHero({
 
         <ClaudeLogicWatermark placement="bottom-right" className="z-[1]" />
 
-        <div className="relative z-10 mx-auto w-full max-w-[min(100%,var(--max-bleed))] px-7 pb-8 pt-[var(--site-header-offset)] sm:px-10 sm:pb-10 lg:px-20 lg:pb-12">
+        <div
+          className={cn(
+            "relative z-10 mx-auto w-full max-w-[min(100%,var(--max-bleed))] px-7 pb-8 sm:px-10 sm:pb-10 lg:px-20 lg:pb-12",
+            hasVideoBg && "pt-6 md:bg-transparent md:pt-[var(--site-header-offset)]",
+          )}
+        >
           <div className="mx-auto grid max-w-[var(--max)] gap-6 lg:grid-cols-1">
-            <div className="rounded-none border border-white/10 bg-[rgb(10_12_11/0.4)] p-6 shadow-[0_20px_60px_rgb(0_0_0/0.28)] backdrop-blur-sm sm:p-7">
+            <div className="rounded-none border border-white/10 bg-[rgb(10_12_11/0.32)] p-6 shadow-[0_20px_60px_rgb(0_0_0/0.22)] backdrop-blur-sm sm:p-7">
               <p className="hero-eyebrow label-overline-on-dark mb-0">{c.eyebrow}</p>
               <div className="mt-6">
                 <ThreeActHeadline id={headingId} line1={c.titleLine1} line2={c.titleLine2} line3={c.titleLine3} />

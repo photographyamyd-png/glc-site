@@ -71,6 +71,7 @@ export function CommercialSnowPage({ related }: Props) {
               decorative={false}
               priority
               preload="metadata"
+              showOverlay
             />
           ) : (
             <Image
