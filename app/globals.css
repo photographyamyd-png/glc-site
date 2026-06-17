@@ -1,5 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./about-ab3.css";
+@import "./glc-recovered-mega-shell.css";
+@import "./glc-recovered-mega-extracted.css";
+@import "../styles/footer-clone.css";
 /*
  ---break---
  */
@@ -319,6 +323,7 @@ body {
   font-size: clamp(58px, 8vw, 118px);
   line-height: 0.9;
   letter-spacing: -0.02em;
+  min-height: calc(3 * clamp(58px, 8vw, 118px) * 0.9);
 }
 
 .three-act-line1 {
@@ -689,16 +694,19 @@ body {
   .hero-stage .three-act-line1.hero-act {
     opacity: 0;
     animation: hero-wipe-act1 0.65s var(--ease) 0.5s forwards;
+    will-change: opacity, transform;
   }
 
   .hero-stage .three-act-line2.hero-act {
     opacity: 0;
     animation: hero-wipe-act2 0.65s var(--ease) 0.72s forwards;
+    will-change: opacity, transform;
   }
 
   .hero-stage .three-act-line3.hero-act {
     opacity: 0;
     animation: hero-wipe-act3 0.7s var(--ease) 0.88s forwards;
+    will-change: opacity, transform;
   }
 
   .hero-stage .hero-caption {
@@ -808,33 +816,33 @@ body {
 @keyframes hero-wipe-act1 {
   from {
     opacity: 0;
-    clip-path: inset(0 100% 0 0);
+    transform: translate3d(-1.25rem, 0, 0);
   }
   to {
     opacity: 0.22;
-    clip-path: inset(0 0 0 0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes hero-wipe-act2 {
   from {
     opacity: 0;
-    clip-path: inset(0 100% 0 0);
+    transform: translate3d(-1.25rem, 0, 0);
   }
   to {
     opacity: 1;
-    clip-path: inset(0 0 0 0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes hero-wipe-act3 {
   from {
     opacity: 0;
-    clip-path: inset(0 100% 0 0);
+    transform: translate3d(-1.25rem, 0, 0);
   }
   to {
     opacity: 0.92;
-    clip-path: inset(0 0 0 0);
+    transform: translate3d(0, 0, 0);
   }
 }
 

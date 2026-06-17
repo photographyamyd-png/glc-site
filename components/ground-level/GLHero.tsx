@@ -113,7 +113,8 @@ function HeroBackgroundMedia({
       alt={imageAlt}
       fill
       priority={priority}
-      sizes="100vw"
+      quality={70}
+      sizes="(max-width: 768px) 100vw, 1400px"
       className="hero-bg-image object-cover object-center"
     />
   );
@@ -241,6 +242,7 @@ export function GLHero({
                         <li key={item.slug}>
                           <Link
                             href={`/services/${item.slug}`}
+                            aria-label={`${item.label} — service page`}
                             className="eyebrow inline-block border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-white transition-colors hover:border-[color:var(--y)]/45"
                           >
                             {item.label}
@@ -361,6 +363,7 @@ export function GLHero({
                     <li key={item.slug}>
                       <Link
                         href={`/services/${item.slug}`}
+                        aria-label={`${item.label} — service page`}
                         className="eyebrow inline-block border border-white/15 bg-[rgb(255_255_255/0.06)] px-3 py-1.5 text-white transition-colors hover:border-[color:var(--y)]/45"
                       >
                         {item.label}

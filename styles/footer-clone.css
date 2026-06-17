@@ -61,7 +61,7 @@
 .footer__wordmark-sub {
   font-size: 9px;
   font-weight: 700;
-  color: var(--yellow-core);
+  color: var(--brand-yellow-deep, #9a7205);
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
@@ -169,12 +169,12 @@
 .footer__copy {
   font-size: 12px;
   font-weight: 600;
-  color: var(--text-400);
+  color: var(--text-600);
   letter-spacing: 0.04em;
 }
 
 .footer__copy span {
-  color: var(--yellow-core);
+  color: var(--charcoal-deep);
 }
 
 .footer__legal {
@@ -185,7 +185,7 @@
 .footer__legal a {
   font-size: 12px;
   font-weight: 600;
-  color: var(--text-400);
+  color: var(--text-600);
   transition: color 0.2s;
 }
 

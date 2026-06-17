@@ -306,6 +306,7 @@ export function GLFeaturedServicesBento({
                   <a
                     href={`#services-${s.slug}`}
                     aria-current={isSel ? "true" : undefined}
+                    aria-label={`${s.title} — jump to section on this page`}
                     onClick={(e) => onShortcutClick(e, s.slug, i)}
                     className={`box-border flex min-h-11 w-full items-center justify-center px-2.5 py-2 text-center font-label text-[length:clamp(0.6875rem,0.45rem+1.05vw,0.8125rem)] font-semibold uppercase tracking-[0.08em] transition-[background,color,box-shadow] sm:px-3 sm:tracking-[0.1em] md:px-3.5 ${
                       isSel

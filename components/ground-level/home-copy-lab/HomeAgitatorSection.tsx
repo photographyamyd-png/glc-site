@@ -23,6 +23,7 @@ export function HomeAgitatorSection() {
           fallbackSrc={fieldImageFallback}
           alt={fieldImage.alt}
           sizes="(min-width: 1024px) 1400px, 100vw"
+          fetchPriority="low"
           className="h-full w-full object-cover opacity-[0.22]"
         />
         <div className="absolute inset-0 bg-[rgb(30_28_26/0.82)]" />

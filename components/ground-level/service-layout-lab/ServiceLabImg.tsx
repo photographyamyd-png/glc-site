@@ -11,6 +11,8 @@ type Props = {
   className?: string;
   /** Responsive width hint for `next/image` when using `fill` (layout-dependent). */
   sizes?: string;
+  quality?: number;
+  fetchPriority?: "high" | "low" | "auto";
 };
 
 /** Local `/images/*` may 404; swap to raster placeholder on error. */
@@ -20,6 +22,8 @@ export function ServiceLabImg({
   alt,
   className,
   sizes = "(min-width: 1024px) 50vw, 100vw",
+  quality = 70,
+  fetchPriority,
 }: Props) {
   const [current, setCurrent] = useState(src);
   const onError = useCallback(() => {
@@ -33,6 +37,8 @@ export function ServiceLabImg({
       alt={alt}
       fill
       sizes={sizes}
+      quality={quality}
+      fetchPriority={fetchPriority}
       className={cn("object-cover", className)}
       onError={onError}
     />

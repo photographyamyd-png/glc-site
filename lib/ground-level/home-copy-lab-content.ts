@@ -66,8 +66,8 @@ export const COPY_LAB_HERO = {
     },
     { label: "Snow Removal", slug: "snow-removal", sub: "COMMERCIAL WINTER OPS" },
   ] as const,
-  /** Distinct from featured-bento excavation canonical (`016`) and other homepage field rasters. */
-  fieldImageSrc: "/images/services/Excavation/excavation-015.jpg" as const,
+  /** LCP-optimized WebP — distinct from featured-bento excavation canonical (`016`). */
+  fieldImageSrc: "/images/services/Excavation/excavation-015-hero.webp" as const,
   fieldImageAlt:
     "Heavy excavation equipment stripping topsoil on a commercial development site in Barrie Ontario — Simcoe County excavation contractor",
 } as const;

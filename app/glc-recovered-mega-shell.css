@@ -158,7 +158,7 @@
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: var(--ink-warm);
 }
 
 .gl-header__nav-links {
@@ -175,7 +175,7 @@
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--text-600);
+  color: var(--ink-warm);
 }
 
 .gl-header__nav-links > a {
