@@ -4,6 +4,8 @@
  */
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
+import type { SiteConfig } from "@/content/types";
+import site from "@/content/site.json";
 import { getBusinessEmail } from "@/lib/site/owners";
 import {
   getListingCategories,
@@ -32,7 +34,44 @@ import {
 const OUT_PATH = join(process.cwd(), "seo", "listing-submission-guide.md");
 const TRACKER_PATH = join(process.cwd(), "seo", "listings-tracker.csv");
 
-type PreflightResult = { url: string; label: string; ok: boolean; status?: number };
+type PreflightResult = {
+  url: string;
+  label: string;
+  ok: boolean;
+  status?: number;
+  detail?: string;
+};
+
+function telToSchema(phoneHref: string): string {
+  const digits = phoneHref.replace(/\D/g, "");
+  if (digits.length === 11 && digits.startsWith("1")) return `+${digits}`;
+  if (digits.length === 10) return `+1${digits}`;
+  return phoneHref;
+}
+
+/** Static check: SiteJsonLd.tsx fields match getNap() (same site.json source). */
+function validateJsonLdNap(nap: ReturnType<typeof getNap>): PreflightResult[] {
+  const SITE = site as SiteConfig;
+  const jsonLdTel = telToSchema(SITE.telephone);
+  const napTel = telToSchema(nap.phoneTel);
+
+  const pairs: Array<{ label: string; jsonLdValue: string; napValue: string }> = [
+    { label: "JSON-LD telephone", jsonLdValue: jsonLdTel, napValue: napTel },
+    { label: "JSON-LD email", jsonLdValue: SITE.email, napValue: nap.email },
+    {
+      label: "JSON-LD streetAddress",
+      jsonLdValue: SITE.address.streetAddress,
+      napValue: nap.street,
+    },
+  ];
+
+  return pairs.map(({ label, jsonLdValue, napValue }) => ({
+    url: "components/seo/SiteJsonLd.tsx ↔ lib/site/nap.ts",
+    label,
+    ok: jsonLdValue === napValue,
+    detail: jsonLdValue === napValue ? jsonLdValue : `SiteJsonLd "${jsonLdValue}" ≠ NAP "${napValue}"`,
+  }));
+}
 
 function fieldTable(rows: Array<[string, string]>): string {
   return [
@@ -376,7 +415,8 @@ function renderPreflightSection(results: PreflightResult[]): string {
   const lines = results.map((r) => {
     const icon = r.ok ? "OK" : "FAIL";
     const status = r.status != null ? ` (${r.status})` : "";
-    return `- [${icon}] **${r.label}** — ${r.url}${status}`;
+    const detail = r.detail ? ` — ${r.detail}` : "";
+    return `- [${icon}] **${r.label}** — ${r.url}${status}${detail}`;
   });
 
   const warning =
@@ -400,7 +440,9 @@ async function main(): Promise<void> {
   const categories = getListingCategories();
   const links = getMoneyPageLinks();
 
-  const preflight = await runPreflight(siteUrl, links, images.hero);
+  const urlPreflight = await runPreflight(siteUrl, links, images.hero);
+  const jsonLdPreflight = validateJsonLdNap(nap);
+  const preflight = [...urlPreflight, ...jsonLdPreflight];
 
   const guide = `# Ground Level Contracting — Listing Submission Guide
 

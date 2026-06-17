@@ -1,5 +1,5 @@
 # Ground Level Contracting — Listing Pack
-Generated: 2026-06-16T22:06:16.302Z
+Generated: 2026-06-17T01:12:20.874Z
 Website: https://groundlevelcontracting.ca
 
 ## NAP (use exactly on every listing)

@@ -191,11 +191,14 @@ export const SNOW_HUB_WHY_CHOOSE_RASTERS: readonly SnowHubRaster[] = [
 const posterCtv = SNOW_MEDIA.ctvBarrie(1).src;
 
 /**
- * Optional hero background loop (night plowing). When no file is present in the repo,
- * the hub hero falls back to a split still (`SNOW_HUB_SECTION.hero`).
- * Add `public/images/services/Snow Removal/Videos/<filename>.mp4` and set path here.
+ * Hero background loop — CTV extended coverage (muted, replaces hero still when set).
  */
-export const SNOW_HUB_HERO_LOOP_VIDEO: SnowHubVideo | null = null;
+export const SNOW_HUB_HERO_LOOP_VIDEO: SnowHubVideo | null = snowVideo(
+  "247 snow service Orillia, commercial salting Barrie, commercial snow removal Barrie, emergency snow removal Simcoe., Ground Level Contracting CTV 3.MP4",
+  "CTV — Extended coverage",
+  "Additional context from the Barrie newscast package.",
+  posterCtv,
+);
 
 /** Poster for lazy YouTube CTV embed (cinema block). */
 export const SNOW_HUB_CTV_POSTER = SNOW_MEDIA.industrialS;
@@ -212,12 +215,6 @@ export const SNOW_HUB_FIELD_VIDEOS: readonly SnowHubVideo[] = [
     "247 snow service Orillia, commercial salting Barrie, commercial snow removal Barrie, emergency snow removal Simcoe., Ground Level Contracting CTV s.MP4",
     "CTV — Short field cut",
     "B-roll and on-site winter service coverage.",
-    posterCtv,
-  ),
-  snowVideo(
-    "247 snow service Orillia, commercial salting Barrie, commercial snow removal Barrie, emergency snow removal Simcoe., Ground Level Contracting CTV 3.MP4",
-    "CTV — Extended coverage",
-    "Additional context from the Barrie newscast package.",
     posterCtv,
   ),
   snowVideo(

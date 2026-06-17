@@ -1,12 +1,12 @@
 # Ground Level Contracting — Listing Submission Guide
 
-Generated: 2026-06-16T22:06:19.454Z
+Generated: 2026-06-17T01:12:23.658Z
 Website: https://groundlevelcontracting.ca
 Companion: [listing-pack.md](./listing-pack.md) | Tracker: [listings-tracker.csv](./listings-tracker.csv)
 
 Use this guide alongside the listing pack. Paste values **exactly** — character-for-character — on every platform.
 
-## Pre-flight check (run 2026-06-16)
+## Pre-flight check (run 2026-06-17)
 
 - [OK] **Home** — https://groundlevelcontracting.ca/ (200)
 - [OK] **Excavation & Site Preparation** — https://groundlevelcontracting.ca/services/excavation-site-preparation/ (200)
@@ -15,6 +15,9 @@ Use this guide alongside the listing pack. Paste values **exactly** — characte
 - [OK] **Contact** — https://groundlevelcontracting.ca/contact/ (200)
 - [OK] **Resource article (outreach)** — https://groundlevelcontracting.ca/resources/excavation-barrie-commercial-mobilization/ (200)
 - [OK] **Hero image** — https://groundlevelcontracting.ca/images/services/Excavation/excavation-016.jpg (200)
+- [OK] **JSON-LD telephone** — components/seo/SiteJsonLd.tsx ↔ lib/site/nap.ts — +17056194902
+- [OK] **JSON-LD email** — components/seo/SiteJsonLd.tsx ↔ lib/site/nap.ts — groundlevelcontracting@outlook.com
+- [OK] **JSON-LD streetAddress** — components/seo/SiteJsonLd.tsx ↔ lib/site/nap.ts — PO BOX 193 STN Main
 
 > All preflight URLs responded successfully.
 
