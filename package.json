@@ -14,6 +14,7 @@
     "scope:glc-dna": "node scripts/scope-glc-dna-css.cjs",
     "check:image-dupes": "node scripts/check-service-image-dupes.cjs",
     "push:indexing": "npx tsx scripts/push-indexing.ts",
+    "seo:daily-digest": "npx tsx scripts/seo-daily-digest.ts",
     "seo:weekly": "npx tsx scripts/seo-weekly-checklist.ts",
     "seo:citations": "npx tsx scripts/free-citations-checklist.ts",
     "seo:listing-pack": "npx tsx scripts/local-seo/generate-listing-pack.ts",
