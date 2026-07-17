@@ -6,6 +6,7 @@
  *   npm run seo:listing-worker -- --id=barrie-chamber --headed
  *   npm run seo:listing-worker -- --backlink --report
  *   npm run seo:listing-worker -- --id=canada411 --mark-submitted --live-url=<url>
+ *   npm run seo:listing-worker -- --id=canada411 --mark-awaiting-human --note="CAPTCHA"
  */
 import { formatBacklinkReport, pickNextBacklink } from "./backlink-outreach";
 import { buildListingWorkerReport } from "./listing-worker-report";
@@ -19,7 +20,9 @@ function parseArgs(): {
   headed: boolean;
   dryRun: boolean;
   markSubmitted: boolean;
+  markAwaitingHuman: boolean;
   liveUrl?: string;
+  note?: string;
 } {
   const args = process.argv.slice(2);
   let id: string | undefined;
@@ -28,7 +31,9 @@ function parseArgs(): {
   let headed = false;
   let dryRun = false;
   let markSubmitted = false;
+  let markAwaitingHuman = false;
   let liveUrl: string | undefined;
+  let note: string | undefined;
 
   for (const arg of args) {
     if (arg === "--report") report = true;
@@ -36,17 +41,55 @@ function parseArgs(): {
     else if (arg === "--headed") headed = true;
     else if (arg === "--dry-run") dryRun = true;
     else if (arg === "--mark-submitted") markSubmitted = true;
+    else if (arg === "--mark-awaiting-human") markAwaitingHuman = true;
     else if (arg.startsWith("--id=")) id = arg.slice(5);
     else if (arg.startsWith("--live-url=")) liveUrl = arg.slice(11);
+    else if (arg.startsWith("--note=")) note = arg.slice(7);
   }
 
-  return { id, report, backlink, headed, dryRun, markSubmitted, liveUrl };
+  return {
+    id,
+    report,
+    backlink,
+    headed,
+    dryRun,
+    markSubmitted,
+    markAwaitingHuman,
+    liveUrl,
+    note,
+  };
 }
 
 async function main(): Promise<void> {
   migrateTrackerSchema();
-  const { id, report, backlink, headed, dryRun, markSubmitted, liveUrl } = parseArgs();
+  const {
+    id,
+    report,
+    backlink,
+    headed,
+    dryRun,
+    markSubmitted,
+    markAwaitingHuman,
+    liveUrl,
+    note,
+  } = parseArgs();
   const today = new Date().toISOString().slice(0, 10);
+
+  if (markAwaitingHuman) {
+    if (!id) {
+      console.error(
+        "Usage: npm run seo:listing-worker -- --id=<id> --mark-awaiting-human [--note=CAPTCHA]",
+      );
+      process.exit(1);
+    }
+    updateTrackerRow(id, {
+      status: "awaiting_human",
+      last_attempt: today,
+      agent_notes: note?.trim() || "Paused for CAPTCHA / OTP / human verify — resume same listing",
+    });
+    console.log(`Tracker updated: ${id} → awaiting_human (do not start another directory)\n`);
+    return;
+  }
 
   if (markSubmitted) {
     if (!id) {
@@ -98,6 +141,7 @@ async function main(): Promise<void> {
   console.error("  npm run seo:listing-worker -- --backlink --report");
   console.error("  npm run seo:listing-worker -- --id=barrie-chamber --headed");
   console.error("  npm run seo:listing-worker -- --id=<id> --mark-submitted --live-url=<url>");
+  console.error("  npm run seo:listing-worker -- --id=<id> --mark-awaiting-human [--note=CAPTCHA]");
   process.exit(1);
 }
 

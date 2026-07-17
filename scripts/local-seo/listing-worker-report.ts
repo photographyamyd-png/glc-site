@@ -14,7 +14,10 @@ export function buildListingWorkerReport(): string {
   const today = new Date().toISOString().slice(0, 10);
 
   const directories = rows.filter((r) => r.type === "directory");
-  const pendingDirs = directories.filter((r) => r.status === "pending");
+  const pendingDirs = directories.filter(
+    (r) => r.status === "pending" || r.status === "awaiting_human",
+  );
+  const awaitingHuman = directories.filter((r) => r.status === "awaiting_human");
   const pendingBacklinks = rows.filter((r) => r.type === "backlink" && r.status === "pending");
 
   const nextDir = pickTarget(undefined, 1) ?? pickTarget();
@@ -27,10 +30,21 @@ export function buildListingWorkerReport(): string {
     `Website: ${nap.website}`,
     "",
     "## Queue summary",
-    `- Directory listings: ${pendingDirs.length} pending`,
+    `- Directory listings: ${pendingDirs.length} open (${awaitingHuman.length} awaiting human verify)`,
     `- Backlink outreach: ${pendingBacklinks.length} pending`,
     "",
   ];
+
+  if (awaitingHuman.length > 0) {
+    lines.push("## Resume first (awaiting human)");
+    for (const row of awaitingHuman.slice(0, 5)) {
+      const target = DIRECTORY_TARGETS.find((d) => d.id === row.id);
+      lines.push(
+        `- **${target?.platform ?? row.platform}** (\`${row.id}\`) — ${row.agent_notes || "paused for verify"}`,
+      );
+    }
+    lines.push("");
+  }
 
   if (nextDir) {
     const tier = getDirectoryAutomationTier(nextDir.target.id);
@@ -87,11 +101,12 @@ export function buildListingWorkerReport(): string {
   lines.push(
     "## Human gates",
     "- Login / membership (chambers may require joining first)",
-    "- CAPTCHA / 2FA",
+    "- CAPTCHA / 2FA / OTP → status `awaiting_human` (pause; do not skip to next site)",
     "- Final Submit click",
-    "- Mark live URL after publish:",
+    "- Mark pause or live URL:",
     "",
     "```bash",
+    "npm run seo:listing-worker -- --id=<id> --mark-awaiting-human --note=CAPTCHA",
     "npm run seo:listing-worker -- --id=<id> --mark-submitted --live-url=<url>",
     "```",
   );

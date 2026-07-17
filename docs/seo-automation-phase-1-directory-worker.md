@@ -37,11 +37,13 @@ flowchart TD
 | **assisted** | Canada411, Apple Business, HomeStars, Houzz, Barrie/Orillia Chamber | Headed browser → user logs in → agent fills NAP/description → user uploads/submits if needed |
 | **manual** | GBP, membership-only flows | Payload + step guide + outreach email only |
 
-## Human gates (never skip)
+## Human gates (pause, do not abandon)
 1. First-time login → `npm run seo:auth-save -- --id=<id>`
-2. CAPTCHA / 2FA
-3. Membership payment (chambers)
+2. CAPTCHA / 2FA / email OTP → tracker `awaiting_human`, Slack human, resume **same** listing after CONTINUE
+3. Membership payment (chambers) → true `blocked` only if paywall is required
 4. Final Submit click (until trust is proven)
+
+Do **not** mark CAPTCHA as `blocked` or hop to the next directory on first verify challenge.
 
 ## Commands
 
@@ -65,10 +67,11 @@ The daily Cursor Automation is the operator — not a human running npm commands
 
 On each weekday run the agent must:
 1. Run `npx tsx scripts/seo-daily-digest.ts` (includes listing-worker report)
-2. Take the next pending directory ID from that output
+2. Take **one** directory via `citation-batch.ts --limit=1` (`awaiting_human` first)
 3. Open the signup URL with browser tools and fill NAP / description / images
-4. Stop only for login, CAPTCHA, or membership payment
-5. Post Slack/Linear with what it completed + any 2-minute human unblocker
+4. On CAPTCHA/OTP: `--mark-awaiting-human`, Slack, wait for CONTINUE, resume same site
+5. Only after `submitted`/`live` or true `blocked` (paywall), take the next `--limit=1`
+6. Post Slack/Linear with in-progress listing + awaiting_human + completed counts
 
 Local headed Playwright (`--headed`) is a fallback when the cloud agent cannot keep a login session — not the default operator workflow.
 

@@ -28,13 +28,18 @@ function parseArgs(): { limit: number; dryRun: boolean; headed: boolean } {
 }
 
 function pickBatch(limit: number) {
-  const pendingIds = new Set(
-    readTracker()
-      .filter((r) => r.type === "directory" && r.status === "pending")
-      .map((r) => r.id),
+  const rows = readTracker().filter(
+    (r) => r.type === "directory" && (r.status === "pending" || r.status === "awaiting_human"),
   );
+  const byId = new Map(rows.map((r) => [r.id, r]));
 
-  const pending = DIRECTORY_TARGETS.filter((d) => pendingIds.has(d.id)).sort((a, b) => {
+  const pending = DIRECTORY_TARGETS.filter((d) => byId.has(d.id)).sort((a, b) => {
+    const aRow = byId.get(a.id)!;
+    const bRow = byId.get(b.id)!;
+    // Finish human-paused listings before starting new ones
+    const aWait = aRow.status === "awaiting_human" ? 0 : 1;
+    const bWait = bRow.status === "awaiting_human" ? 0 : 1;
+    if (aWait !== bWait) return aWait - bWait;
     const aPlay = PLAYWRIGHT_AUTO_IDS.has(a.id) ? 0 : 1;
     const bPlay = PLAYWRIGHT_AUTO_IDS.has(b.id) ? 0 : 1;
     if (aPlay !== bPlay) return aPlay - bPlay;

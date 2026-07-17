@@ -150,12 +150,16 @@ export function pickTarget(
     return { target: withAutomationTier(target), trackerStatus: row?.status ?? "unknown" };
   }
 
-  const pendingIds = new Set(
-    rows.filter((r) => r.type === "directory" && r.status === "pending").map((r) => r.id),
+  const openRows = rows.filter(
+    (r) => r.type === "directory" && (r.status === "pending" || r.status === "awaiting_human"),
+  );
+  const openIds = new Set(openRows.map((r) => r.id));
+  const awaitingIds = new Set(
+    openRows.filter((r) => r.status === "awaiting_human").map((r) => r.id),
   );
 
   const candidates = DIRECTORY_TARGETS.filter((d) => {
-    if (!pendingIds.has(d.id)) return false;
+    if (!openIds.has(d.id)) return false;
     if (tier !== undefined && d.tier !== tier) return false;
     if (automationTier !== undefined && getDirectoryAutomationTier(d.id) !== automationTier) {
       return false;
@@ -163,12 +167,18 @@ export function pickTarget(
     return true;
   })
     .map(withAutomationTier)
-    .sort((a, b) => a.tier - b.tier);
+    .sort((a, b) => {
+      const aWait = awaitingIds.has(a.id) ? 0 : 1;
+      const bWait = awaitingIds.has(b.id) ? 0 : 1;
+      if (aWait !== bWait) return aWait - bWait;
+      return a.tier - b.tier;
+    });
 
   if (candidates.length === 0) return null;
 
   const target = candidates[0];
-  return { target, trackerStatus: "pending" };
+  const row = openRows.find((r) => r.id === target.id);
+  return { target, trackerStatus: row?.status ?? "pending" };
 }
 
 export function buildPayload(
@@ -213,7 +223,12 @@ export function writeListingJson(payload: ListingPayload): void {
 export function getPlaywrightPendingTargets(): DirectoryTarget[] {
   const rows = readTracker();
   const pendingIds = new Set(
-    rows.filter((r) => r.type === "directory" && r.status === "pending").map((r) => r.id),
+    rows
+      .filter(
+        (r) =>
+          r.type === "directory" && (r.status === "pending" || r.status === "awaiting_human"),
+      )
+      .map((r) => r.id),
   );
   return DIRECTORY_TARGETS.filter(
     (d) => getDirectoryAutomationTier(d.id) === "playwright" && pendingIds.has(d.id),

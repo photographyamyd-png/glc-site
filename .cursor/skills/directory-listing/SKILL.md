@@ -16,10 +16,12 @@ Daily automation should:
 ```bash
 npx tsx scripts/local-seo/seed-citation-queue.ts
 npx tsx scripts/seo-daily-digest.ts
-npx tsx scripts/local-seo/citation-batch.ts --limit=3
+npx tsx scripts/local-seo/citation-batch.ts --limit=1
 ```
 
-Then for each batch item, open the signup URL with browser tools, fill NAP from `seo/next-listing.json`, upload hero image when possible, and stop only for login / CAPTCHA / payment.
+Work **one listing at a time**. Prefer any `awaiting_human` row first (batch already does). Open the signup URL, fill NAP from `seo/next-listing.json`, upload hero image when possible.
+
+On CAPTCHA / OTP / verify-human: mark `awaiting_human`, Slack for help, **stop and wait** — do **not** hop to the next site.
 
 Instructions: [`docs/cursor-daily-seo-automation.md`](../../docs/cursor-daily-seo-automation.md)
 
@@ -42,6 +44,16 @@ npm run seo:verify-listings -- --id=<id>
 | Website | https://groundlevelcontracting.ca |
 | Address | PO BOX 193 STN Main, Barrie, ON L4M 4T2 |
 
-## Blockers
+## Blockers vs pauses
 
-CAPTCHA, 2FA, chamber membership payment, GBP verification — set tracker `status=blocked` and note in `agent_notes`. Continue other pending citations in the same run.
+| Situation | Tracker status | Next action |
+|-----------|----------------|-------------|
+| CAPTCHA / email OTP / SMS / verify-human | `awaiting_human` | Slack human → wait for CONTINUE → **same listing** |
+| Paid membership required / permanently broken | `blocked` | Only then move on |
+| Submitted / live | `submitted` / `live` | Next listing with `--limit=1` |
+
+```bash
+npm run seo:listing-worker -- --id=<id> --mark-awaiting-human --note="CAPTCHA"
+```
+
+Never treat first-hit CAPTCHA as `blocked`. Never abandon mid-verify to start another directory.

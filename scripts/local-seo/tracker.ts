@@ -20,7 +20,13 @@ export const TRACKER_COLUMNS = [
   "backlink_type",
 ] as const;
 
-export type TrackerStatus = "pending" | "submitted" | "live" | "blocked" | "skipped";
+export type TrackerStatus =
+  | "pending"
+  | "awaiting_human"
+  | "submitted"
+  | "live"
+  | "blocked"
+  | "skipped";
 export type TrackerVerified = "" | "yes" | "no" | "drift";
 export type BacklinkType = "" | "nofollow" | "dofollow" | "unknown";
 
@@ -87,7 +93,11 @@ function fieldsToRow(fields: string[]): TrackerRow {
     type: type === "backlink" ? "backlink" : "directory",
     platform: padded[2] ?? "",
     status:
-      status === "submitted" || status === "live" || status === "blocked" || status === "skipped"
+      status === "submitted" ||
+      status === "live" ||
+      status === "blocked" ||
+      status === "skipped" ||
+      status === "awaiting_human"
         ? status
         : "pending",
     submitted_date: padded[4] ?? "",
@@ -148,7 +158,10 @@ export function updateTrackerRow(
 
 export function getPendingDirectoryIds(): string[] {
   return readTracker()
-    .filter((r) => r.type === "directory" && r.status === "pending")
+    .filter(
+      (r) =>
+        r.type === "directory" && (r.status === "pending" || r.status === "awaiting_human"),
+    )
     .map((r) => r.id);
 }
 
