@@ -59,14 +59,18 @@ npm run seo:auto-submit -- --batch=easy --headed
 npm run seo:listing-worker -- --id=canada411 --mark-submitted --live-url=<url>
 ```
 
-## Cursor Automation hook
-Extend the daily SEO automation to run:
+## Cursor Automation hook (primary path)
 
-```bash
-npm run seo:listing-worker -- --report
-```
+The daily Cursor Automation is the operator — not a human running npm commands.
 
-and post the “next directory action” block to Slack. Run `--headed` sessions manually on your machine, not in cloud cron.
+On each weekday run the agent must:
+1. Run `npx tsx scripts/seo-daily-digest.ts` (includes listing-worker report)
+2. Take the next pending directory ID from that output
+3. Open the signup URL with browser tools and fill NAP / description / images
+4. Stop only for login, CAPTCHA, or membership payment
+5. Post Slack/Linear with what it completed + any 2-minute human unblocker
+
+Local headed Playwright (`--headed`) is a fallback when the cloud agent cannot keep a login session — not the default operator workflow.
 
 ## Success metrics
 - Tracker rows move from `pending` → `submitted` → `live`

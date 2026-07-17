@@ -3,6 +3,7 @@ import { getNap } from "@/lib/site/nap";
 import { getSiteUrl } from "@/lib/site/metadata";
 import { BACKLINK_TARGETS } from "./backlink-targets";
 import { DIRECTORY_TARGETS } from "./directories";
+import { buildListingWorkerReport } from "./listing-worker-report";
 import { readTracker, migrateTrackerSchema, type TrackerRow } from "./tracker";
 
 type Severity = "ok" | "warn" | "fail" | "info";
@@ -294,8 +295,9 @@ export async function buildDailySeoDigest(): Promise<string> {
     "## Suggested Focus For Today",
     `- Directory priority: ${nextDirectoryTarget?.platform ?? "No pending directory tasks."}`,
     `- Backlink priority: ${nextBacklinkTarget?.name ?? "No pending backlink tasks."}`,
-    "- Run `npm run seo:listing-worker -- --report` for the next assisted directory/backlink session.",
     "- If new pages or copy shipped recently, run IndexNow and request indexing on the priority URLs above.",
+    "",
+    buildListingWorkerReport(),
     "",
     "## Not Yet Automated",
     "- Google Search Console API metrics are not connected yet, so clicks, impressions, CTR, and indexing deltas remain manual.",
