@@ -21,7 +21,15 @@ npx tsx scripts/local-seo/citation-batch.ts --limit=1
 
 Work **one listing at a time**. Prefer any `awaiting_human` row first (batch already does). Open the signup URL, fill NAP from `seo/next-listing.json`, upload hero image when possible.
 
-On CAPTCHA / OTP / verify-human: mark `awaiting_human`, Slack for help, **stop and wait** — do **not** hop to the next site.
+On **email confirm**: poll Gmail and open the link — do not wait for a human:
+
+```bash
+npx tsx scripts/local-seo/gmail-confirm.ts --wait=180 --from=<directory-domain>
+```
+
+Setup: [`docs/gmail-confirm-setup.md`](../../docs/gmail-confirm-setup.md)
+
+On CAPTCHA / SMS / verify-human widget: mark `awaiting_human`, Slack for help, **stop and wait** — do **not** hop to the next site.
 
 Instructions: [`docs/cursor-daily-seo-automation.md`](../../docs/cursor-daily-seo-automation.md)
 
@@ -48,7 +56,8 @@ npm run seo:verify-listings -- --id=<id>
 
 | Situation | Tracker status | Next action |
 |-----------|----------------|-------------|
-| CAPTCHA / email OTP / SMS / verify-human | `awaiting_human` | Slack human → wait for CONTINUE → **same listing** |
+| Email “confirm your account” link | stay on listing | `gmail-confirm.ts` → open `openFirstLink` → continue |
+| CAPTCHA / SMS / verify-human widget | `awaiting_human` | Slack human → wait for CONTINUE → **same listing** |
 | Paid membership required / permanently broken | `blocked` | Only then move on |
 | Submitted / live | `submitted` / `live` | Next listing with `--limit=1` |
 

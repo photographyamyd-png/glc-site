@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "claude-logic",
   "version": "0.1.0",
   "private": true,
@@ -17,6 +17,7 @@
     "seo:daily-digest": "npx tsx scripts/seo-daily-digest.ts",
     "seo:listing-worker": "npx tsx scripts/local-seo/listing-worker.ts",
     "seo:citation-batch": "npx tsx scripts/local-seo/citation-batch.ts",
+    "seo:gmail-confirm": "npx tsx scripts/local-seo/gmail-confirm.ts",
     "seo:seed-citations": "npx tsx scripts/local-seo/seed-citation-queue.ts",
     "seo:next-listing": "npx tsx scripts/local-seo/next-listing.ts",
     "seo:auth-save": "npx tsx scripts/local-seo/playwright/auth-save.ts",
@@ -54,10 +55,11 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
+    "imapflow": "^1.4.7",
     "jsdom": "^29.1.0",
+    "playwright": "^1.51.1",
     "postcss": "^8.5.10",
     "postcss-prefixwrap": "^1.57.2",
-    "playwright": "^1.51.1",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.1.5"
