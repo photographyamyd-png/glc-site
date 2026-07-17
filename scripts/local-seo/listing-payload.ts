@@ -13,6 +13,7 @@ import {
   getNap,
 } from "@/lib/site/nap";
 import { getSiteUrl } from "@/lib/site/metadata";
+import { getListingSignupCredentials, getListingSignupEmailOrFallback } from "./listing-credentials";
 import {
   DIRECTORY_TARGETS,
   getDirectoryAutomationTier,
@@ -50,6 +51,9 @@ export type AutofillValues = {
   slogan: string;
   phone: string;
   email: string;
+  /** Account signup email (may differ from public business email). */
+  signupEmail: string;
+  signupPassword: string;
   street: string;
   city: string;
   region: string;
@@ -107,6 +111,7 @@ export function buildFieldMap(id: string): Record<string, string> {
 export function buildAutofillValues(target: DirectoryTarget): AutofillValues {
   const nap = getNap();
   const desc = getListingDescriptions();
+  const signup = getListingSignupCredentials();
 
   return {
     businessName: nap.name,
@@ -114,6 +119,8 @@ export function buildAutofillValues(target: DirectoryTarget): AutofillValues {
     slogan: nap.slogan,
     phone: nap.phone,
     email: nap.email,
+    signupEmail: getListingSignupEmailOrFallback(nap.email),
+    signupPassword: signup?.password ?? "",
     street: nap.street,
     city: nap.city,
     region: nap.region,

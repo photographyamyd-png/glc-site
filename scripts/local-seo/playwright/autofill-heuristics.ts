@@ -10,7 +10,7 @@ export type FillRule = {
 };
 
 export function buildFillRules(values: AutofillValues): FillRule[] {
-  return [
+  const rules: FillRule[] = [
     {
       keys: ["business", "company", "organization", "org", "name", "title", "firm"],
       value: values.businessName,
@@ -27,14 +27,14 @@ export function buildFillRules(values: AutofillValues): FillRule[] {
       inputTypes: ["text"],
     },
     {
+      keys: ["email", "e-mail", "mail", "username", "user", "login"],
+      value: values.signupEmail || values.email,
+      inputTypes: ["email", "text"],
+    },
+    {
       keys: ["phone", "tel", "mobile", "telephone", "fax"],
       value: values.phone,
       inputTypes: ["tel", "text"],
-    },
-    {
-      keys: ["email", "e-mail", "mail"],
-      value: values.email,
-      inputTypes: ["email", "text"],
     },
     {
       keys: ["website", "url", "web", "homepage", "site"],
@@ -82,6 +82,16 @@ export function buildFillRules(values: AutofillValues): FillRule[] {
       inputTypes: ["text"],
     },
   ];
+
+  if (values.signupPassword.trim()) {
+    rules.splice(4, 0, {
+      keys: ["password", "passwd", "pass", "confirm"],
+      value: values.signupPassword,
+      inputTypes: ["password", "text"],
+    });
+  }
+
+  return rules;
 }
 
 export function scoreField(

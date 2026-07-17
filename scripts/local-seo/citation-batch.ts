@@ -16,7 +16,7 @@ import { migrateTrackerSchema, readTracker, updateTrackerRow } from "./tracker";
 
 function parseArgs(): { limit: number; dryRun: boolean; headed: boolean } {
   const args = process.argv.slice(2);
-  let limit = 3;
+  let limit = 10;
   let dryRun = false;
   let headed = false;
   for (const arg of args) {
