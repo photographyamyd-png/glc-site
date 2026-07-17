@@ -16,6 +16,8 @@
     "push:indexing": "npx tsx scripts/push-indexing.ts",
     "seo:daily-digest": "npx tsx scripts/seo-daily-digest.ts",
     "seo:listing-worker": "npx tsx scripts/local-seo/listing-worker.ts",
+    "seo:citation-batch": "npx tsx scripts/local-seo/citation-batch.ts",
+    "seo:seed-citations": "npx tsx scripts/local-seo/seed-citation-queue.ts",
     "seo:next-listing": "npx tsx scripts/local-seo/next-listing.ts",
     "seo:auth-save": "npx tsx scripts/local-seo/playwright/auth-save.ts",
     "seo:auto-submit": "npx tsx scripts/local-seo/playwright/auto-submit.ts",
@@ -61,6 +63,3 @@
     "vitest": "^4.1.5"
   }
 }
-
-
-

@@ -1,3 +1,8 @@
+import {
+  CITATION_EXPANSION_TARGETS,
+  EXPANSION_PLAYWRIGHT_IDS,
+} from "./citation-targets-150";
+
 export type DirectoryTier = 1 | 2 | 3 | 4;
 export type AutomationTier = "playwright" | "manual" | "api";
 
@@ -13,7 +18,7 @@ export type DirectoryTarget = {
 };
 
 /** Tier 3 free directories suitable for Playwright + saved session automation. */
-export const PLAYWRIGHT_AUTO_IDS = new Set([
+export const PLAYWRIGHT_AUTO_IDS = new Set<string>([
   "brownbook",
   "cylex-ca",
   "hotfrog-ca",
@@ -32,6 +37,7 @@ export const PLAYWRIGHT_AUTO_IDS = new Set([
   "n49",
   "yalwa-ca",
   "tuugo-ca",
+  ...EXPANSION_PLAYWRIGHT_IDS,
 ]);
 
 /** Tier 1–2 and social listings: headed browser + human login/submit gates. */
@@ -53,6 +59,10 @@ export const ASSISTED_HEADED_IDS = new Set([
   "alignable",
   "homeguide-ca",
   "renovationfind",
+  "barrie-chamber-directory",
+  "barrie-today-directory",
+  "city-barrie-business-directory",
+  "invest-barrie",
 ]);
 
 export function getDirectoryAutomationTier(id: string): AutomationTier {
@@ -67,8 +77,8 @@ export function withAutomationTier(target: DirectoryTarget): DirectoryTarget & {
   return { ...target, automationTier: getDirectoryAutomationTier(target.id) };
 }
 
-/** Tier 1 = highest local impact; Tier 4 = trade vertical. */
-export const DIRECTORY_TARGETS: DirectoryTarget[] = [
+/** Core high-priority registry (pre-expansion). */
+export const CORE_DIRECTORY_TARGETS: DirectoryTarget[] = [
   {
     id: "gbp",
     platform: "Google Business Profile",
@@ -450,6 +460,22 @@ export const DIRECTORY_TARGETS: DirectoryTarget[] = [
     suggestedCategories: ["Construction"],
   },
 ];
+
+function mergeDirectoryTargets(): DirectoryTarget[] {
+  const byId = new Map<string, DirectoryTarget>();
+  for (const target of CORE_DIRECTORY_TARGETS) {
+    byId.set(target.id, target);
+  }
+  for (const target of CITATION_EXPANSION_TARGETS) {
+    if (!byId.has(target.id)) {
+      byId.set(target.id, target);
+    }
+  }
+  return [...byId.values()].sort((a, b) => a.tier - b.tier || a.platform.localeCompare(b.platform));
+}
+
+/** Full citation registry: core + 150-list expansion (deduped by id). */
+export const DIRECTORY_TARGETS: DirectoryTarget[] = mergeDirectoryTargets();
 
 export function getDirectoriesByTier(tier: DirectoryTier): DirectoryTarget[] {
   return DIRECTORY_TARGETS.filter((d) => d.tier === tier);
