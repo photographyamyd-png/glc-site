@@ -9,7 +9,6 @@
 import { chromium } from "playwright";
 import {
   buildAutofillValues,
-  buildPayload,
   getPlaywrightPendingTargets,
 } from "../listing-payload";
 import { migrateTrackerSchema, updateTrackerRow } from "../tracker";
