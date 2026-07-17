@@ -40,4 +40,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.vercel
+# Playwright browser sessions (saved logins — never commit)
+/seo/browser-sessions/
+
+# Downloaded listing images for Playwright uploads
+/seo/tmp/
