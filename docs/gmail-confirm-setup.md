@@ -13,9 +13,12 @@ Most directories email a “confirm your email” link. The citation automation 
 4. In **Cursor → Cloud Agents → Secrets**, add:
    - `GMAIL_IMAP_USER` = that Gmail address (optional if it matches `LISTING_SIGNUP_EMAIL`)
    - `GMAIL_APP_PASSWORD` = the 16-character app password
-5. Keep `LISTING_SIGNUP_EMAIL` / `LISTING_SIGNUP_PASSWORD` as they are for site Create Account forms.
+5. For directory Create Account forms, set a **separate** secret:
+   - `LISTING_SIGNUP_EMAIL` = that Gmail address
+   - `LISTING_SIGNUP_PASSWORD` = a **unique directory-only** password (alphanumeric recommended)
+6. **Never** reuse your real Gmail password (or the App Password) as `LISTING_SIGNUP_PASSWORD` — the automation types that value into third-party directory websites.
 
-Never paste the app password into chat or commit it.
+Never paste any password into chat or commit it.
 
 ## What the agent runs
 

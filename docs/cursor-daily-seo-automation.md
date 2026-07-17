@@ -11,10 +11,18 @@ Citation operator that stays on one directory until finished or truly blocked. U
 - main
 
 ## Secrets
-- LISTING_SIGNUP_EMAIL
-- LISTING_SIGNUP_PASSWORD
-- GMAIL_APP_PASSWORD
-- GMAIL_IMAP_USER (optional if same as LISTING_SIGNUP_EMAIL)
+Three different secrets — do not mix them:
+
+| Secret | Purpose | What it must be |
+|--------|---------|-----------------|
+| `LISTING_SIGNUP_EMAIL` | Email typed into directory Create Account | Your Gmail address |
+| `LISTING_SIGNUP_PASSWORD` | Password typed into directory Create Account | **Unique directory-only** password (alphanumeric). Never your real Gmail password. |
+| `GMAIL_APP_PASSWORD` | IMAP only — read confirmation emails | Google App Password (16 chars). Never sent to directories. |
+| `GMAIL_IMAP_USER` | Optional IMAP username | Same as signup email if omitted |
+
+After changing secrets, **stop and start a new automation run** — an already-running job cannot see newly added secrets.
+
+If a directory was already created with the old password (e.g. 2FindLocal), use that site’s “forgot password” / account settings to set the password to match the new `LISTING_SIGNUP_PASSWORD` before restarting.
 
 ## Agent instructions (REPLACE existing instructions with this)
 
@@ -33,10 +41,12 @@ Hard block = only membership payment required, site permanently broken, or human
 
 ### Credentials
 - Site Create Account / Login: LISTING_SIGNUP_EMAIL + LISTING_SIGNUP_PASSWORD
+- LISTING_SIGNUP_PASSWORD must be a unique directory-only password — never the real Gmail password and never GMAIL_APP_PASSWORD (those must not be typed into directory sites)
 - Inbox confirm links: GMAIL_APP_PASSWORD (+ GMAIL_IMAP_USER or LISTING_SIGNUP_EMAIL)
 - If signup secrets missing, Slack and stop.
 - If GMAIL_APP_PASSWORD missing and a site needs email confirm, Slack: `NEED GMAIL_APP_PASSWORD secret` and mark awaiting_human.
 - Never print passwords anywhere.
+- If login fails because an old directory account used a different password, Slack: `RESET DIRECTORY PASSWORD to match LISTING_SIGNUP_PASSWORD on <platform>`, mark awaiting_human, do not invent a new password.
 
 ### Workflow — ONE listing at a time
 1. `npx tsx scripts/local-seo/seed-citation-queue.ts`
