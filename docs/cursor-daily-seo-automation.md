@@ -1,42 +1,57 @@
-# Cursor Daily SEO Automation Draft
+﻿# Cursor Daily SEO Automation Draft
 
 ## Name
 Daily SEO Digest
 
 ## Description
-Run a weekday morning SEO operations pass for Ground Level Contracting, summarize technical health and local SEO queue status, and post the result to Slack.
+Weekday morning SEO briefing for Ground Level Contracting. Runs the daily digest and posts a short Slack/Linear summary.
 
 ## Trigger
 - Schedule: Weekdays at 8:00 AM
 
 ## Repo Scope
-- Repository: this repo
-- Branch: current default branch for the repo
+- Repository: photographyamyd-png/glc-site
+- Branch: main
 
 ## Tools
 - Slack
+- Linear
 
-## Command
-```bash
-npm run seo:daily-digest
-```
+## Agent instructions (paste this exactly)
 
-## Instructions
-Run `npm run seo:daily-digest` in the repo and use the output as the primary source of truth.
+You are running the daily SEO operations pass for Ground Level Contracting.
 
-Post a concise Slack digest with these sections:
-1. Technical health issues that need same-day attention.
-2. Priority URLs that returned a non-200 response.
-3. The next directory listing actions from the tracker.
-4. The next backlink and outreach actions from the tracker.
-5. Manual Google actions for today, including review replies, GBP hygiene, and Search Console checks.
-6. A short "Suggested focus for today" summary.
+IMPORTANT:
+- Repo must be photographyamyd-png/glc-site
+- Branch must be main
+- Do NOT conclude the digest is missing just by guessing. Check files first.
 
-If the command fails, post a failure message that includes the error and asks for an engineering follow-up.
-Do not invent Google Search Console, Google Business Profile, Semrush, or Ahrefs metrics that are not present in the digest output.
-Treat the digest's "Not Yet Automated" section as a limitation note, not a failure.
+Steps:
+1. Confirm you are in the repo root.
+2. Print these diagnostics before running anything else:
+   - git rev-parse --short HEAD
+   - git branch --show-current
+   - ls scripts/seo-daily-digest.ts scripts/local-seo/daily-digest-report.ts
+   - node -e "const p=require('./package.json'); console.log(p.scripts['seo:daily-digest'] || 'SCRIPT_KEY_MISSING')"
+3. Run the digest with this exact command (preferred):
+   npx tsx scripts/seo-daily-digest.ts
+   Fallback if needed:
+   npm run seo:daily-digest
+4. Use the command output as the source of truth.
 
-## Slack Notes
-- Select the destination channel in the Automations editor.
-- Keep the message readable for a non-technical operator.
-- Preserve markdown headings and bullets where possible.
+Then:
+5. Post a concise Slack summary with:
+   - Technical health issues needing same-day attention
+   - Priority URLs that returned a non-200 response
+   - Next directory listing actions from the tracker
+   - Next backlink / outreach actions from the tracker
+   - Manual Google actions for today (reviews, GBP hygiene, Search Console)
+   - A short suggested focus for today
+6. If Linear is connected, create or update one Linear issue titled "Daily SEO Digest - YYYY-MM-DD" with the same summary.
+
+Rules:
+- Only report failure if the digest command itself fails, or if scripts/seo-daily-digest.ts is actually missing from the checkout.
+- If package.json is confusing but scripts/seo-daily-digest.ts exists, still run npx tsx scripts/seo-daily-digest.ts.
+- Do NOT invent Google Search Console, Google Business Profile, Semrush, or Ahrefs numbers that are not in the digest output.
+- Treat any Not Yet Automated section as a limitation note, not a failure.
+- Keep the Slack message readable for a non-technical operator.
