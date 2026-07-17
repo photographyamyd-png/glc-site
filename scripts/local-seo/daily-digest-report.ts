@@ -2,7 +2,7 @@ import { getIndexablePaths } from "@/lib/site/indexable-urls";
 import { getNap } from "@/lib/site/nap";
 import { getSiteUrl } from "@/lib/site/metadata";
 import { BACKLINK_TARGETS } from "./backlink-targets";
-import { DIRECTORY_TARGETS, getDirectoryAutomationTier } from "./directories";
+import { DIRECTORY_TARGETS } from "./directories";
 import { readTracker, migrateTrackerSchema, type TrackerRow } from "./tracker";
 
 type Severity = "ok" | "warn" | "fail" | "info";
@@ -219,11 +219,10 @@ function buildPendingDirectoryLines(rows: TrackerRow[]): string[] {
   return pending.map((row) => {
     const target = DIRECTORY_TARGETS.find((item) => item.id === row.id);
     const tier = target?.tier ?? "?";
-    const automationTier = getDirectoryAutomationTier(row.id);
     const lastAttempt = row.last_attempt || "never";
     const notes = row.agent_notes || row.notes || target?.notes || "";
     const suffix = notes ? ` - ${notes}` : "";
-    return `- ${target?.platform ?? row.platform} (Tier ${tier}, ${automationTier}, last attempt: ${lastAttempt})${suffix}`;
+    return `- ${target?.platform ?? row.platform} (Tier ${tier}, last attempt: ${lastAttempt})${suffix}`;
   });
 }
 
