@@ -13,6 +13,7 @@ import {
 import { ALL_SERVICES, PRIMARY_SERVICES, SEO_TITLES, type PrimaryServiceSlug } from "@/lib/site/registry";
 import { buildPageMetadata, getSiteUrl } from "@/lib/site/metadata";
 import { openGraphWithServiceImage } from "@/lib/site/og-images";
+import { getServiceImage } from "@/lib/site/service-images";
 
 export function generateStaticParams() {
   return ALL_SERVICES.filter((service) => service.slug !== "foundations-civil-infrastructure").map((service) => ({
@@ -32,6 +33,34 @@ export async function generateMetadata({
       title: "Service | Ground Level Contracting",
       description: "Ground Level Contracting service information for commercial site operations.",
       path: "/services/",
+    });
+  }
+
+  if (service.slug === "snow-removal") {
+    const title = "Commercial Snow Removal Barrie & Orillia | Ground Level";
+    const description =
+      "Commercial snow plowing, salting & hauling for plazas, industrial yards and multi-site portfolios in Barrie, Orillia & Simcoe County. Call (705) 619-4902.";
+    const siteUrl = getSiteUrl().replace(/\/$/, "");
+    const canonical = `${siteUrl}/services/snow-removal/`;
+    const snowImage = getServiceImage("snow-removal");
+    return buildPageMetadata({
+      title,
+      description,
+      path: "/services/snow-removal/",
+      canonicalUrl: canonical,
+      openGraphExtra: {
+        title,
+        description: description.replace(" Call (705) 619-4902.", "."),
+        url: canonical,
+        images: [{ url: snowImage.src, width: 1200, height: 630, alt: snowImage.alt }],
+        locale: "en_CA",
+        siteName: "Ground Level Contracting",
+      },
+      twitterExtra: {
+        title,
+        description: description.replace(" Call (705) 619-4902.", "."),
+        images: [snowImage.src],
+      },
     });
   }
 

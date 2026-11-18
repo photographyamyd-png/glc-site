@@ -112,6 +112,14 @@ export function CommercialSnowCtvAuthorityBlock() {
                 CTV News Barrie: full segment and article
               </Link>
             </p>
+            <Link
+              href={ctvSnowFeature.ctvArticleUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-outline-light mt-5 inline-flex min-h-[44px] items-center justify-center px-5 py-3 text-xs font-bold uppercase tracking-[0.12em]"
+            >
+              Read the full CTV News segment
+            </Link>
           </div>
         </div>
       </div>

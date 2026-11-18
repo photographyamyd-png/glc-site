@@ -1,7 +1,7 @@
 /**
  * Featured coverage — CTV News Barrie
  * Segment: "Municipalities relying on the same resource to manage winter weather"
- * Published: January 08, 2026 at 6:23PM EST
+ * Published: January 08, 2026 at 6:23 PM EST
  *
  * In-page player: YouTube mirror — CTV iframe host blocks third-party embeds.
  * @see https://www.ctvnews.ca/barrie/video/2026/01/08/municipalities-relying-on-the-same-resource-to-manage-winter-weather/
@@ -10,17 +10,18 @@ export const ctvSnowFeature = {
   eyebrow: "Press proof",
   /** Legacy card title — retained for structured data / iframe title context. */
   heading: "Featured coverage — CTV News Barrie",
-  /** Authority bridge — primary H2 in cinema section. */
-  authorityH2: "Recognized for Reliability: Ground Level in the News.",
+  /** Section heading for the CTV proof block. */
+  authorityH2: "Featured on CTV News",
+  /** Factual summary that does not imply an interview or expert commentary. */
   authoritySub:
-    "When record-breaking storms hit Simcoe County, CTV News turned to Ground Level Contracting for insight on industrial-scale response.",
+    "CTV News covered rising road-salt costs and winter-response challenges facing private contractors in Simcoe County. Ground Level Contracting’s winter operations were featured in the segment.",
   /** Alternate short sub for compact layouts. */
   authoritySubShort:
-    "See why local news relies on our expertise during peak winter emergencies.",
+    "CTV News covered winter-response challenges facing private contractors in Simcoe County.",
   segmentTitle: "Municipalities relying on the same resource to manage winter weather",
   ctvBodyParagraphs: [
     "Road salt is becoming an expensive commodity for private contractors in Simcoe County.",
-    "January 08, 2026 at 6:23PM EST",
+    "January 08, 2026 at 6:23 PM EST",
   ],
   segmentEmbedSrc: "https://www.youtube.com/embed/IvSW_aS1T2E",
   ctvArticleUrl:
