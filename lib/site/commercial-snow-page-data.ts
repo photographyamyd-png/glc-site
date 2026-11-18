@@ -19,9 +19,9 @@ export const COMMERCIAL_SNOW_PRIMARY_RASTER_SRC = SNOW_MEDIA.hubDefault.src;
 export const COMMERCIAL_SNOW_PRIMARY_RASTER_ALT = SNOW_MEDIA.hubDefault.alt;
 
 export const COMMERCIAL_SNOW_SEO = {
-  title: "Commercial Snow Removal & Winter Risk Control | Barrie, Simcoe County",
+  title: "Commercial Snow Removal Barrie & Orillia | Ground Level",
   description:
-    "SLA-backed commercial winter operations for Simcoe County — proactive dispatch, GPS-verified service, and continuity planning for sites where downtime is not an option.",
+    "Commercial snow plowing, salting & hauling for plazas, industrial yards and multi-site portfolios in Barrie, Orillia & Simcoe County. Call (705) 619-4902.",
 } as const;
 
 /** Sticky nav — DOM ids must match `CommercialSnowPage` section anchors. */
@@ -43,28 +43,28 @@ export const COMMERCIAL_SNOW_HERO = {
   sectionAriaLabelledBy: "commercial-snow-h1",
   pressBadgeAriaLabel: "As featured on CTV News Barrie",
   pressBadgeLines: ["Press", "CTV News Barrie"] as const,
-  eyebrow: "Operational continuity · Simcoe County",
+  eyebrow: "Commercial snow removal · Simcoe County",
   breadcrumb: {
     homeHref: "/",
     servicesHref: "/services/",
-    currentLabel: "Commercial snow",
+    currentLabel: "Commercial snow removal",
   },
-  h1: "Commercial Snow Management That Never Sleeps.",
+  h1: "Commercial Snow Removal in Barrie, Orillia & Simcoe County",
   lede:
-    "24/7 proactive monitoring and winter maintenance for high-priority infrastructure — on-site before your first shift, SLA-backed and GPS-verified when downtime is not an option.",
+    "Plowing, salting and hauling for plazas, industrial yards and property portfolios — cleared before your first shift.",
   metricsAriaLabel: "Commercial highlights",
   coverageEyebrow: "Service coverage",
   metrics: [
-    { value: "200+", label: "Properties Served" },
-    { value: "24/7", label: "Emergency Response" },
-    { value: "$5M+", label: "Liability Coverage" },
+    { value: "24/7", label: "Emergency Dispatch" },
+    { value: "Commercial", label: "Snow & Ice Programs" },
+    { value: "Simcoe County", label: "Service Coverage" },
   ] as const,
   heroImageAriaLabel: SNOW_HUB_SECTION.hero.alt,
   /** Primary = audit entry; secondary = voice; optional text CTA for assessment (not a third button). */
   ctas: {
-    primary: { label: "Secure Your 2026 Winter Contract", href: "/contact/?topic=seasonal-snow-contract" },
+    primary: { label: "Get a Commercial Snow Quote", href: "/contact/?topic=seasonal-snow-contract" },
     secondary: { label: `Call 24/7: ${PHONE_DISPLAY}`, href: PHONE_TEL },
-    textCta: { label: "Get a free property assessment", href: "/contact/?topic=property-assessment" },
+    textCta: { label: "Request a free property assessment", href: "/contact/?topic=property-assessment" },
   },
   /** In-page anchor for CTV authority block (lazy player id stays `#ctv-news-barrie`). */
   authorityChapterAnchor: "chapter-authority",
@@ -97,8 +97,8 @@ export const COMMERCIAL_SNOW_TRUST_STRIP_ARIA = "Commercial trust signals";
 
 export const COMMERCIAL_SNOW_TRUST_ITEMS = [
   { label: "24/7 Emergency Response", sub: "Year-Round Dispatch" },
-  { label: "$5M+ Liability Insurance", sub: "Certificates Provided" },
-  { label: "GPS-Tracked Fleet", sub: "Every Service Verified" },
+  { label: "Commercial Liability Coverage", sub: "Certificates Available" },
+  { label: "Documented Service Records", sub: "Defined by SLA Package" },
   { label: "WSIB Compliant", sub: "Commercial-Ready" },
 ] as const;
 
@@ -110,8 +110,8 @@ export const COMMERCIAL_SNOW_AUTHORITY_TRUST_CHIPS = [
     icon: "headset" as const,
   },
   {
-    title: "Rapid mobilization (SLA tier)",
-    sub: "~90 min average emergency response — priority SLA tier per contract.",
+    title: "Priority emergency response",
+    sub: "Response windows are defined by your contracted SLA tier.",
     icon: "clock" as const,
   },
 ] as const;
@@ -128,17 +128,17 @@ export const COMMERCIAL_SNOW_LIVE_TRACKING = {
   fleetOverlayLabel: "Representative fleet routing",
   siteContextLabel: "Site operations context",
   statusLabel: "Priority emergency tier",
-  statusValue: "~90 min",
-  statusDetail: "Average emergency response — priority SLA tier per contract.",
+  statusValue: "SLA-defined",
+  statusDetail: "Emergency response windows are defined by your contracted priority tier.",
   disclaimer: "Illustration only; reporting cadence follows your SLA package.",
 } as const;
 
 /** High-stakes trust band — ≤2 sentences visible (copy-writing pivot). */
 export const COMMERCIAL_SNOW_INFRA_TRUST = {
-  eyebrow: "High-stakes validation",
-  h2: "Engineered for Critical Infrastructure",
+  eyebrow: "Commercial operations",
+  h2: "Built for Commercial Winter Operations",
   visibleLede:
-    "We specialize in environments where downtime is not an option — utility hubs, medical campuses, and 24-hour industrial facilities. Scale and complexity of work demonstrate authority even when client names stay off the page.",
+    "We provide commercial snow and ice management for properties where access, safety, and operational continuity matter — including industrial yards, retail plazas, offices, and multi-site portfolios.",
 } as const;
 
 /** Micro-labels paired with 40×40 SVG icons in the hub template. */
@@ -168,8 +168,8 @@ export const COMMERCIAL_SNOW_SILENT_SERVICE = {
     "You should see results before you have to check. Proactive dispatch, meteorological triggers, and GPS-backed verification replace “call us when it piles up.”",
   pillars: [
     {
-      title: "GPS-tracked fleet",
-      body: "Real-time monitoring of your site with time-stamped, GPS-logged events for every visit — portfolio teams and insurers get proof, not anecdotes.",
+      title: "Documented service records",
+      body: "Service documentation is defined by your SLA package and can support property-management and insurance review requirements.",
     },
     {
       title: "Automated dispatch",
@@ -186,12 +186,12 @@ export const COMMERCIAL_SNOW_SILENT_SERVICE = {
 /** ≤2 sentences visible; remainder in <details>. */
 export const COMMERCIAL_SNOW_VALUE_PROP = {
   visibleLede:
-    "Ground Level Contracting is Simcoe County's dedicated commercial snow and ice contractor — retail to industrial, SLA-backed, GPS-verified. We specialize exclusively in commercial operations, not residential routes.",
+    "Ground Level Contracting provides commercial snow removal and ice management for businesses across Barrie, Orillia, Innisfil, Wasaga Beach, and Simcoe County.",
   detailsSummary: "Read the full commercial positioning statement",
   paragraphs: [
-    "Ground Level Contracting is Simcoe County's dedicated commercial snow removal and ice management contractor, serving businesses in Barrie, Orillia, Innisfil, Wasaga Beach, and throughout the region. Unlike competitors who divide their attention between residential driveways and commercial accounts, we specialize exclusively in commercial, industrial, and institutional snow removal—from retail plazas and office complexes to warehouses, distribution centres, and manufacturing facilities.",
-    "Our 24/7 emergency response team ensures your parking lots, loading docks, and access routes remain clear and operational for employees, customers, and incoming shipments—regardless of the hour or the severity of the storm. Every service is backed by written service level agreements, GPS-verified completion records, and comprehensive commercial liability coverage.",
-    "Business operations cannot afford a snow removal contractor who shows up when it's convenient. With Ground Level Contracting, your Simcoe County commercial property receives guaranteed response times, industrial-grade equipment, and the accountability of a formal SLA—not a verbal commitment.",
+    "Ground Level Contracting provides commercial snow removal and ice management for businesses across Barrie, Orillia, Innisfil, Wasaga Beach, and Simcoe County. Our commercial programs are designed for retail plazas, office complexes, warehouses, distribution centres, manufacturing facilities, and multi-site property portfolios.",
+    "Our 24/7 emergency response team helps keep parking lots, loading docks, and access routes clear and operational for employees, customers, and incoming shipments. Service scope, response expectations, documentation, and coverage details are defined in your written commercial snow-removal agreement.",
+    "Business operations cannot afford a snow removal contractor who shows up when it's convenient. With Ground Level Contracting, your Simcoe County commercial property receives a defined commercial program, industrial-grade equipment, and the accountability of a formal SLA—not a verbal commitment.",
   ],
   pullQuote: "Business operations cannot afford a snow removal contractor who shows up when it's convenient.",
   inlineCta: {
@@ -502,8 +502,8 @@ export const COMMERCIAL_SNOW_SLA = {
       desc: "The precise accumulation threshold for service start — typically 2.5 cm to 5 cm depending on property type.",
     },
     {
-      name: "Guaranteed Response Times",
-      desc: "Emergency clients: on-site targets after trigger (e.g. 1–2 hours for priority tiers). Standard accounts align to specified opening times (often 7 AM). All in writing.",
+      name: "Contract-Defined Response Windows",
+      desc: "Emergency and priority-tier response windows are defined in writing. Standard accounts align to specified opening times, often 7 AM.",
     },
     {
       name: "Clearing Standards",
@@ -547,7 +547,7 @@ export const COMMERCIAL_SNOW_SPECS_COMPLIANCE_BAND = {
   liabilityChecklist: [
     "GPS timestamped logging on service events",
     "WSIB compliant field operations",
-    "Multi-million-dollar commercial liability programs with certificates on request",
+    "Commercial liability coverage with certificates available on request",
   ] as const,
 } as const;
 
@@ -630,7 +630,7 @@ export const COMMERCIAL_SNOW_PROPERTY_TYPES = {
       imageSrc: SNOW_HUB_PROPERTY_TAB_RASTERS[2]!.src,
       imageAlt: SNOW_HUB_PROPERTY_TAB_RASTERS[2]!.alt,
       overlayKicker: "Manufacturing",
-      overlayTitle: "Yards & docks clear",
+      overlayTitle: "Operational continuity",
       body: "Plants, mills, warehouses, and logistics yards share the same pressure: inbound raw material paths, shift changes, and loading docks that must stay open. Loader-led clearing and hauling options align to freight timelines and emergency access.",
     },
     {
@@ -667,7 +667,7 @@ export const COMMERCIAL_SNOW_WHY_CHOOSE = {
       imageAlt: SNOW_HUB_WHY_CHOOSE_RASTERS[0]!.alt,
     },
     {
-      title: "24/7 Emergency Response with Guaranteed Dispatch Times",
+      title: "24/7 Emergency Response with Defined Dispatch Standards",
       subtitle: "Storm monitoring with accountable dispatch.",
       body: "Monitoring ties triggers to dispatch rules in your SLA so accountability is contractual, not anecdotal.",
       imageSrc: SNOW_HUB_WHY_CHOOSE_RASTERS[1]!.src,
@@ -688,8 +688,8 @@ export const COMMERCIAL_SNOW_WHY_CHOOSE = {
       imageAlt: SNOW_HUB_WHY_CHOOSE_RASTERS[3]!.alt,
     },
     {
-      title: "$5 Million Commercial Liability Insurance — Certificates on Request",
-      subtitle: "$5M+ programs with certificates on request.",
+      title: "Commercial Liability Insurance — Certificates on Request",
+      subtitle: "Coverage documentation aligned to vendor requirements.",
       body: "Certificates are issued to align with your risk and vendor file requirements at contract execution.",
       imageSrc: SNOW_HUB_WHY_CHOOSE_RASTERS[4]!.src,
       imageAlt: SNOW_HUB_WHY_CHOOSE_RASTERS[4]!.alt,
@@ -788,7 +788,7 @@ export const COMMERCIAL_SNOW_PROCESS = {
 /** Proof band — stats + field MP4s (CTV lives in `chapter-authority`). */
 export const COMMERCIAL_SNOW_MEDIA_PROOF = {
   eyebrow: "Commercial proof",
-  h2: "On-Site in Two Hours or Less — Verified Winter Performance",
+  h2: "Verified Winter Performance and Field Documentation",
   visibleLede:
     "Credentials, response discipline, and field footage from Simcoe County operations — evidence procurement and risk teams can evaluate before contract execution.",
 } as const;
@@ -799,20 +799,18 @@ export const COMMERCIAL_SNOW_CREDENTIALS = {
   visibleLede:
     "Credentials that match how procurement and risk teams evaluate winter vendors — scale, insurance, proof, and focus.",
   badges: [
-    { stat: "200+", label: "Commercial Properties Served", detail: "Active commercial accounts across Simcoe County" },
     { stat: "24/7", label: "Emergency Response", detail: "Year-round dispatch, no exceptions" },
-    { stat: "$5M+", label: "Liability Insurance", detail: "Certificates provided at contract execution" },
-    { stat: "GPS", label: "Tracked Fleet", detail: "Every service event time-stamped and logged" },
-    { stat: "~90 min", label: "Average Emergency Response", detail: "Priority SLA tier guarantee" },
+    { stat: "Commercial", label: "Snow & Ice Focus", detail: "Programs built for business properties" },
+    { stat: "SLA", label: "Defined Standards", detail: "Response, clearing, and documentation terms in writing" },
+    { stat: "GPS", label: "Tracked Fleet", detail: "Service-event documentation as defined by contract" },
     { stat: "WSIB", label: "Compliant", detail: "Current clearance on all field personnel" },
-    { stat: "Zero", label: "Missed SLAs — 2024/25 Season", detail: "Verified by GPS service records" },
     { stat: "Simcoe County", label: "Commercial Focus", detail: "Established local commercial contractor" },
   ],
 } as const;
 
 export const COMMERCIAL_SNOW_MID_LOWER_CTA = {
   className: "glc-snow-midlower-cta",
-  headline: "Secure Your 2026 Winter Contract",
+  headline: "Secure Your Winter Contract",
   sub: "Partnership, not a one-off push. Limited seasonal placements — book early for priority tier, documented SLAs, and GPS-verified winter coverage.",
   primary: { label: "Request a Seasonal Contract Consultation", href: "/contact/?topic=seasonal-snow-contract" },
   secondary: { label: `Call 24/7: ${PHONE_DISPLAY}`, href: PHONE_TEL },
@@ -857,9 +855,9 @@ export const COMMERCIAL_SNOW_CLOSING = {
     "Procurement and facilities teams get consistent reporting and a single escalation path for storm cycles.",
     "Start with a commercial property assessment to align triggers, routes, and ice programs before first snow.",
   ],
-  urgency: "Limited seasonal contracts available. Book now for guaranteed priority service and early-commitment pricing.",
+  urgency: "Limited seasonal contracts available. Book now for priority service and early-commitment pricing.",
   ctas: [
-    { label: "Secure Your 2026 Winter Contract", href: "/contact/?topic=seasonal-snow-contract" },
+    { label: "Request a Commercial Snow Quote", href: "/contact/?topic=seasonal-snow-contract" },
     { label: `Call 24/7: ${PHONE_DISPLAY}`, href: PHONE_TEL },
   ],
 } as const;
